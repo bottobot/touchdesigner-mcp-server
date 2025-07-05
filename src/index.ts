@@ -7,15 +7,15 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
 import { config } from 'dotenv';
-import { TOEGenerator } from './generators/TOEGenerator';
-import { NodeLibrary } from './utils/NodeLibrary';
-import { OSCManager } from './utils/OSCManager';
-import { WebSocketManager } from './utils/WebSocketManager';
-import { MediaProcessor } from './utils/MediaProcessor';
-import { TemplateEngine } from './utils/TemplateEngine';
-import { PerformanceMonitor } from './utils/PerformanceMonitor';
-import { ProjectManager } from './utils/ProjectManager';
-import { AIPromptParser } from './utils/AIPromptParser';
+import { TOEGenerator } from './generators/TOEGenerator.js';
+import { NodeLibrary } from './utils/NodeLibrary.js';
+import { OSCManager } from './utils/OSCManager.js';
+import { WebSocketManager } from './utils/WebSocketManager.js';
+import { MediaProcessor } from './utils/MediaProcessor.js';
+import { TemplateEngine } from './utils/TemplateEngine.js';
+import { PerformanceMonitor } from './utils/PerformanceMonitor.js';
+import { ProjectManager } from './utils/ProjectManager.js';
+import { AIPromptParser } from './utils/AIPromptParser.js';
 import { PatreonResourceManager } from './utils/PatreonResourceManager.js';
 
 // Load environment variables
@@ -420,7 +420,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'td_import_media': {
         const params = ImportMediaSchema.parse(args);
-        const results = await mediaProcessor.importMedia(params);
+        const results = await mediaProcessor.importMedia({
+          sourcePath: params.sourcePath,
+          mediaType: params.mediaType,
+          optimize: params.optimize,
+          generateVariations: params.generateVariations
+        });
         
         return {
           content: [{
@@ -432,7 +437,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'td_optimize_media': {
         const params = OptimizeMediaSchema.parse(args);
-        const result = await mediaProcessor.optimize(params);
+        const result = await mediaProcessor.optimize({
+          inputPath: params.inputPath,
+          outputPath: params.outputPath,
+          format: params.format,
+          quality: params.quality,
+          maxDimension: params.maxDimension
+        });
         
         return {
           content: [{
@@ -444,7 +455,15 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'td_export_movie': {
         const params = ExportMovieSchema.parse(args);
-        const result = await projectManager.exportMovie(params);
+        const result = await projectManager.exportMovie({
+          projectPath: params.projectPath,
+          outputPath: params.outputPath,
+          format: params.format,
+          duration: params.duration,
+          resolution: params.resolution,
+          fps: params.fps,
+          codec: params.codec
+        });
         
         return {
           content: [{
@@ -456,7 +475,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'td_generate_template': {
         const params = GenerateTemplateSchema.parse(args);
-        const templatePath = await templateEngine.create(params);
+        const templatePath = await templateEngine.create({
+          type: params.type,
+          name: params.name,
+          description: params.description,
+          parameters: params.parameters
+        });
         
         return {
           content: [{
@@ -597,15 +621,47 @@ async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
   
-  // Initialize all managers
-  await oscManager.initialize();
-  await wsManager.initialize();
-  await mediaProcessor.initialize();
-  await templateEngine.initialize();
-  await nodeLibrary.loadBuiltinNodes();
-  await patreonManager.initialize();
+  // Initialize all managers with error handling
+  try {
+    await oscManager.initialize();
+  } catch (error) {
+    console.error('Warning: OSC initialization failed (non-critical):', error);
+  }
+  
+  try {
+    await wsManager.initialize();
+  } catch (error) {
+    console.error('Warning: WebSocket initialization failed (non-critical):', error);
+  }
+  
+  try {
+    await mediaProcessor.initialize();
+  } catch (error) {
+    console.error('Warning: Media processor initialization failed:', error);
+  }
+  
+  try {
+    await templateEngine.initialize();
+  } catch (error) {
+    console.error('Warning: Template engine initialization failed:', error);
+  }
+  
+  try {
+    await nodeLibrary.loadBuiltinNodes();
+  } catch (error) {
+    console.error('Warning: Node library initialization failed:', error);
+  }
+  
+  // Most important - initialize Patreon manager
+  try {
+    await patreonManager.initialize();
+    console.error('Patreon Resource Manager initialized successfully');
+  } catch (error) {
+    console.error('Error: Patreon manager initialization failed:', error);
+  }
   
   console.error('TouchDesigner MCP Server v2.0.0 started');
+  console.error('Patreon resource management tools are now available');
 }
 
 main().catch(console.error);

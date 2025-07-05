@@ -194,10 +194,16 @@ export class MediaProcessor {
     try {
       switch (mediaType) {
         case 'image':
-          await this.optimizeImage(filePath, optimizedPath, { quality: 85, maxDimension: 2048 });
+          await this.optimizeImage(filePath, optimizedPath, { 
+            inputPath: filePath,
+            quality: 85, 
+            maxDimension: 2048 
+          });
           return optimizedPath;
         case 'video':
-          await this.optimizeVideo(filePath, optimizedPath, {});
+          await this.optimizeVideo(filePath, optimizedPath, {
+            inputPath: filePath
+          });
           return optimizedPath;
         default:
           return null;
@@ -237,7 +243,7 @@ export class MediaProcessor {
     await pipeline.toFile(output);
   }
 
-  private async optimizeVideo(input: string, output: string, options: OptimizeOptions): Promise<void> {
+  private async optimizeVideo(input: string, output: string, _options: OptimizeOptions): Promise<void> {
     return new Promise((resolve, reject) => {
       let command = ffmpeg(input);
 
@@ -253,8 +259,8 @@ export class MediaProcessor {
         ]);
 
       // Resize if needed
-      if (options.maxDimension) {
-        command = command.size(`${options.maxDimension}x?`);
+      if (_options.maxDimension) {
+        command = command.size(`${_options.maxDimension}x?`);
       }
 
       command
@@ -264,7 +270,7 @@ export class MediaProcessor {
     });
   }
 
-  private async optimizeAudio(input: string, output: string, options: OptimizeOptions): Promise<void> {
+  private async optimizeAudio(input: string, output: string, _options: OptimizeOptions): Promise<void> {
     return new Promise((resolve, reject) => {
       ffmpeg(input)
         .audioCodec('libmp3lame')
