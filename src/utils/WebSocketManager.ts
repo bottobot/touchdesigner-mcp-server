@@ -23,12 +23,15 @@ export class WebSocketManager {
 
   private async connect(): Promise<void> {
     return new Promise((resolve, reject) => {
+      console.log(`[WebSocket Debug] Attempting to connect to ws://localhost:${this.port}`);
+      console.log(`[WebSocket Debug] This requires TouchDesigner to have a WebSocket DAT node configured as a server on port ${this.port}`);
+      
       try {
         this.ws = new WebSocket(`ws://localhost:${this.port}`);
 
         this.ws.on('open', () => {
           this.isConnected = true;
-          console.log(`WebSocket connected to TouchDesigner on port ${this.port}`);
+          console.log(`[WebSocket Debug] Successfully connected to TouchDesigner on port ${this.port}`);
           
           // Process queued messages
           this.processQueue();
@@ -51,14 +54,18 @@ export class WebSocketManager {
           }
         });
 
-        this.ws.on('error', (error) => {
-          console.error('WebSocket error:', error);
+        this.ws.on('error', (error: any) => {
+          console.log('[WebSocket Debug] Connection failed. Common causes:');
+          console.log('  1. TouchDesigner needs a WebSocket DAT node configured as a server');
+          console.log('  2. The WebSocket DAT must be set to "Server" mode on port 9980');
+          console.log('  3. TouchDesigner project with WebSocket DAT must be loaded and running');
+          console.log(`[WebSocket Debug] Error code: ${error.code}`);
           this.isConnected = false;
           reject(error);
         });
 
         this.ws.on('close', () => {
-          console.log('WebSocket connection closed');
+          console.log('[WebSocket Debug] Connection closed');
           this.isConnected = false;
           this.setupReconnect();
         });

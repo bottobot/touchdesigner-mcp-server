@@ -96,36 +96,42 @@ export class DocumentationTools {
       query: params.query,
       totalResults: results.length,
       results: results.map(r => ({
-        content: r.chunk.content,
-        category: r.chunk.metadata.category,
-        topic: r.chunk.metadata.topic,
+        content: r.content,
+        category: r.metadata?.category,
+        topic: r.metadata?.topic,
         relevance: r.score,
-        operators: r.chunk.metadata.operators,
-        examples: params.includeExamples ? r.chunk.metadata.examples : undefined,
+        operators: r.metadata?.operators,
+        examples: params.includeExamples ? r.metadata?.examples : undefined,
         context: r.context
       }))
     };
   }
 
   async getOperatorHelp(params: z.infer<typeof GetOperatorHelpSchema>): Promise<any> {
-    const help = await this.embedder.getContextualHelp(
-      params.operator,
-      params.context || ''
-    );
+    // Search for operator documentation
+    const operatorDocs = await this.embedder.search(params.operator, {
+      category: 'operators',
+      limit: 1
+    });
+
+    const help = operatorDocs[0] || {
+      content: `${params.operator} operator`,
+      metadata: {}
+    };
 
     const response: any = {
       operator: params.operator,
-      description: help.description,
-      parameters: help.parameters,
-      tips: help.tips
+      description: help.content,
+      parameters: this.extractParameters(help.content),
+      tips: this.extractTips(help.content)
     };
 
     if (params.includeExamples) {
-      response.examples = help.examples;
+      response.examples = (help.metadata && 'examples' in help.metadata) ? help.metadata.examples : [];
     }
 
     if (params.includeRelated) {
-      response.relatedOperators = help.relatedOperators;
+      response.relatedOperators = (help.metadata && 'related' in help.metadata) ? help.metadata.related : [];
     }
 
     // Add common use cases
@@ -149,11 +155,11 @@ export class DocumentationTools {
     const patterns: any[] = [];
 
     for (const doc of docs) {
-      if (doc.chunk.metadata.operators) {
-        doc.chunk.metadata.operators.forEach(op => relevantOperators.add(op));
+      if (doc.metadata?.operators) {
+        doc.metadata.operators.forEach(op => relevantOperators.add(op));
       }
       // Extract workflow patterns
-      const patternMatch = doc.chunk.content.match(/```[\s\S]*?```/g);
+      const patternMatch = doc.content.match(/```[\s\S]*?```/g);
       if (patternMatch) {
         patterns.push(...patternMatch);
       }
@@ -277,6 +283,7 @@ export class DocumentationTools {
     });
     
     const operatorHelp = operatorDocs[0]?.content || '';
+    const operatorParams = this.extractParameters(operatorHelp);
     
     // Search for similar use cases
     const useCases = await this.embedder.search(
@@ -287,7 +294,7 @@ export class DocumentationTools {
     const suggestions: any[] = [];
 
     // Analyze documentation for parameter recommendations
-    for (const param of operatorHelp.parameters) {
+    for (const param of operatorParams) {
       const suggestion = this.analyzeParameterForGoal(
         param,
         params.goal,
@@ -636,7 +643,7 @@ def update_static():
     const configs = [];
     
     for (const useCase of useCases) {
-      const examples = useCase.chunk.metadata.examples || [];
+      const examples = useCase.metadata?.examples || [];
       for (const example of examples) {
         const params = this.parseExampleParameters(example);
         if (Object.keys(params).length > 0) {
@@ -666,9 +673,9 @@ def update_static():
     
     for (const comp of components) {
       const pattern = {
-        structure: this.extractStructurePattern(comp.chunk.content),
-        dataFlow: this.extractDataFlowPattern(comp.chunk.content),
-        bestPractices: this.extractBestPractices(comp.chunk.content)
+        structure: this.extractStructurePattern(comp.content),
+        dataFlow: this.extractDataFlowPattern(comp.content),
+        bestPractices: this.extractBestPractices(comp.content)
       };
       patterns.push(pattern);
     }
@@ -873,7 +880,7 @@ ${(params.customParameters || []).map(p => `- ${p.name} (${p.type}): ${p.default
     
     for (const doc of docs) {
       // Extract concept patterns
-      const conceptMatches = doc.chunk.content.match(/concept[s]?:\s*([^\n]+)/gi);
+      const conceptMatches = doc.content.match(/concept[s]?:\s*([^\n]+)/gi);
       if (conceptMatches) {
         conceptMatches.forEach(m => concepts.add(m));
       }
@@ -886,8 +893,8 @@ ${(params.customParameters || []).map(p => `- ${p.name} (${p.type}): ${p.default
     const operators = new Set<string>();
     
     for (const doc of docs) {
-      if (doc.chunk.metadata.operators) {
-        doc.chunk.metadata.operators.forEach(op => operators.add(op));
+      if (doc.metadata?.operators) {
+        doc.metadata.operators.forEach(op => operators.add(op));
       }
     }
     
@@ -1130,5 +1137,43 @@ ${(params.customParameters || []).map(p => `- ${p.name} (${p.type}): ${p.default
       compositeTOP: 'comp + Tab'
     };
     return shortcuts[operator] || 'Type name + Tab';
+  }
+
+  private extractParameters(content: string): any[] {
+    const parameters = [];
+    const paramPattern = /parameters?:?\s*\n([\s\S]*?)(?=\n\n|\n#|$)/gi;
+    const matches = content.match(paramPattern);
+    
+    if (matches) {
+      for (const match of matches) {
+        const lines = match.split('\n').filter(line => line.trim().startsWith('-'));
+        for (const line of lines) {
+          const paramMatch = line.match(/- (\w+):\s*(.+)/);
+          if (paramMatch) {
+            parameters.push({
+              name: paramMatch[1],
+              description: paramMatch[2]
+            });
+          }
+        }
+      }
+    }
+    
+    return parameters;
+  }
+
+  private extractTips(content: string): string[] {
+    const tips = [];
+    const tipPattern = /tips?:?\s*\n([\s\S]*?)(?=\n\n|\n#|$)/gi;
+    const matches = content.match(tipPattern);
+    
+    if (matches) {
+      for (const match of matches) {
+        const lines = match.split('\n').filter(line => line.trim().startsWith('-'));
+        tips.push(...lines.map(line => line.replace(/^-\s*/, '').trim()));
+      }
+    }
+    
+    return tips;
   }
 }

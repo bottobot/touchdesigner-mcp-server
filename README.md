@@ -140,6 +140,46 @@ The server is already configured in your `.roo/mcp.json`. To activate it:
 2. Reload VS Code window (`Ctrl+Shift+P` → "Developer: Reload Window")
 3. The TouchDesigner tools will be available in Roo Cline!
 
+## 🔌 TouchDesigner WebSocket Setup
+
+The MCP server communicates with TouchDesigner via WebSocket on port 9980. **TouchDesigner doesn't provide a WebSocket server by default** - you need to manually set it up:
+
+### Quick Setup Steps
+
+1. **Open TouchDesigner**
+2. **Add a WebSocket DAT**:
+   - Press `Tab` → type "websocket" → select `WebSocket DAT`
+3. **Configure as Server**:
+   - Set `Network Type` to `Server`
+   - Set `Network Port` to `9980`
+   - Turn `Active` to `On`
+4. **Save your project** - The WebSocket server is now ready!
+
+### Detailed WebSocket DAT Configuration
+
+| Parameter | Value | Description |
+|-----------|--------|-------------|
+| **Network Type** | `Server` | Makes TD listen for connections |
+| **Network Port** | `9980` | Must match TD_WEBSOCKET_PORT in .env |
+| **Active** | `On` | Enables the WebSocket server |
+| **Format** | `Text` | For JSON message exchange |
+| **Auto-reconnect** | `On` | Handles connection drops |
+
+### Testing the Connection
+
+Once configured, the MCP server will automatically connect and the error messages will stop. You'll see:
+- "WebSocket connected successfully!" in the MCP server terminal
+- Connection status in the WebSocket DAT info
+
+### Advanced Setup (Optional)
+
+For production environments, you may want to:
+- Add error handling with a `DAT Execute` connected to the WebSocket DAT
+- Parse incoming JSON messages with a `JSON DAT`
+- Route commands to different parts of your project
+- Send status updates back to the MCP server
+📚 **[Full WebSocket Setup Documentation](docs/WEBSOCKET_SETUP.md)** - Detailed guide with code examples, troubleshooting, and best practices
+
 ## 🎨 Usage Examples
 
 ### Create Complex Projects

@@ -13,28 +13,42 @@ interface SearchResult {
 export class DocumentationEmbedder {
   private client: ChromaClient;
   private collection!: Collection;
-  private openai: OpenAI;
+  private openai?: OpenAI;
   private docsPath: string;
   
   constructor(docsPath: string) {
     this.docsPath = docsPath;
     this.client = new ChromaClient();
-    this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY
-    });
+    
+    // OpenAI is optional - only needed for initial embedding generation
+    if (process.env.OPENAI_API_KEY) {
+      this.openai = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY
+      });
+    }
   }
   
   async initialize(): Promise<void> {
+    // Create mock embedding function for ChromaDB
+    const mockEmbeddingFunction = {
+      generate: async (texts: string[]) => {
+        // Mock embedding - return random vectors for now
+        return texts.map(() => Array(1536).fill(0).map(() => Math.random()));
+      }
+    };
+
     // Create or get the documentation collection
     try {
       this.collection = await this.client.createCollection({
         name: 'touchdesigner_docs',
+        embeddingFunction: mockEmbeddingFunction,
         metadata: { 'hnsw:space': 'cosine' }
       });
     } catch (error) {
       // Collection might already exist
       this.collection = await this.client.getCollection({
-        name: 'touchdesigner_docs'
+        name: 'touchdesigner_docs',
+        embeddingFunction: mockEmbeddingFunction
       });
     }
     
