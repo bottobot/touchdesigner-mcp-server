@@ -80,3 +80,79 @@ Use TouchDesigner's command-line interface:
 # Create empty project
 TouchDesigner.exe -nogui -cmd "project.save('empty.toe')"
 
+# Execute generator script
+TouchDesigner.exe "empty.toe" -cmd "python generator.py"
+```
+
+## Implementation Fix
+
+The `TOEGeneratorFixed.ts` implements the correct approach:
+
+1. **Generates Python scripts** instead of trying to create binary .toe files
+2. **Uses TouchDesigner CLI** to execute the scripts
+3. **Falls back to manual execution** if CLI is unavailable
+4. **Provides clear documentation** about the limitation
+
+## Required Changes to MCP Server
+
+1. **Replace TOEGenerator with TOEGeneratorFixed**
+2. **Create template .toe files** for common project types
+3. **Update all tools** to use Python script generation
+4. **Add proper error handling** for TouchDesigner CLI failures
+5. **Document the limitation** clearly in the README
+
+## Template Directory Structure
+
+```
+templates/
+├── blank.toe          # Empty project
+├── audio-reactive.toe # Audio visualization template
+├── interactive.toe    # Interactive/Kinect template
+├── generative.toe     # Generative art template
+└── data-viz.toe       # Data visualization template
+```
+
+## Creating Templates
+
+To create proper template files:
+
+1. Open TouchDesigner
+2. Create a minimal project with basic structure
+3. Save as template (File → Save As)
+4. Place in templates directory
+
+## Error Messages to Update
+
+When project creation fails, provide clear guidance:
+
+```
+TouchDesigner project creation requires TouchDesigner to be installed.
+
+The generated Python script has been saved to:
+  project_name_generator.py
+
+To create your project:
+1. Open TouchDesigner
+2. Create a new empty project
+3. Open the Textport (Alt+T)
+4. Run: run("path/to/project_name_generator.py")
+```
+
+## Testing the Fix
+
+1. Test with TouchDesigner installed and CLI available
+2. Test without TouchDesigner (should save script with instructions)
+3. Test with corrupted templates (should fall back gracefully)
+4. Verify generated Python scripts create valid projects
+
+## Long-term Solution
+
+Consider implementing:
+- WebSocket connection to running TouchDesigner instance
+- Direct Python API integration via TouchDesigner's built-in server
+- REST API that TouchDesigner polls for commands
+- Native TouchDesigner extension that connects to MCP
+
+## Conclusion
+
+The fundamental issue is that .toe files cannot be created outside of TouchDesigner. The MCP server must work **with** TouchDesigner, not try to replace its file generation capabilities. This fix ensures proper project creation while maintaining the automation benefits of the MCP server.
