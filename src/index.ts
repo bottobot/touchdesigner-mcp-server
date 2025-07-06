@@ -17,6 +17,17 @@ import { PerformanceMonitor } from './utils/PerformanceMonitor.js';
 import { ProjectManager } from './utils/ProjectManager.js';
 import { AIPromptParser } from './utils/AIPromptParser.js';
 import { PatreonResourceManager } from './utils/PatreonResourceManager.js';
+import {
+  DocumentationTools,
+  SearchDocsSchema,
+  GetOperatorHelpSchema,
+  GenerateNodeNetworkSchema,
+  OptimizeTouchDesignerSchema,
+  SuggestParametersSchema,
+  CreateComponentFromDescriptionSchema,
+  AnalyzeWorkflowSchema,
+  GenerateTutorialSchema
+} from './tools/DocumentationTools.js';
 
 // Load environment variables
 config();
@@ -26,6 +37,7 @@ const TD_OSC_PORT = parseInt(process.env.TD_OSC_PORT || '7000');
 const TD_WEBSOCKET_PORT = parseInt(process.env.TD_WEBSOCKET_PORT || '9980');
 const TD_PROJECT_PATH = process.env.TD_PROJECT_PATH || 'C:/Users/talla/Documents/touchdesigner-projects';
 const TD_MEDIA_PATH = process.env.TD_MEDIA_PATH || 'C:/Users/talla/Documents/touchdesigner-media';
+const TD_DOCS_PATH = process.env.TD_DOCS_PATH || 'C:/Users/talla/Documents/touchdesigner-docs';
 
 // Initialize managers
 const toeGenerator = new TOEGenerator();
@@ -38,6 +50,7 @@ const perfMonitor = new PerformanceMonitor();
 const projectManager = new ProjectManager(TD_PROJECT_PATH);
 const aiParser = new AIPromptParser();
 const patreonManager = new PatreonResourceManager();
+const docTools = new DocumentationTools(TD_DOCS_PATH);
 
 // Tool schemas
 const CreateProjectSchema = z.object({
@@ -319,6 +332,78 @@ const TOOLS: Tool[] = [
     inputSchema: {
       type: 'object',
       properties: {}
+    }
+  },
+  // Documentation-aware tools
+  {
+    name: 'td_search_docs',
+    description: 'Search TouchDesigner documentation with semantic understanding',
+    inputSchema: {
+      type: 'object',
+      properties: SearchDocsSchema.shape,
+      required: ['query']
+    }
+  },
+  {
+    name: 'td_get_operator_help',
+    description: 'Get comprehensive help for a TouchDesigner operator with examples and tips',
+    inputSchema: {
+      type: 'object',
+      properties: GetOperatorHelpSchema.shape,
+      required: ['operator']
+    }
+  },
+  {
+    name: 'td_generate_node_network',
+    description: 'Generate optimal node networks from natural language descriptions',
+    inputSchema: {
+      type: 'object',
+      properties: GenerateNodeNetworkSchema.shape,
+      required: ['description']
+    }
+  },
+  {
+    name: 'td_optimize_touchdesigner',
+    description: 'Get performance optimization recommendations based on documentation',
+    inputSchema: {
+      type: 'object',
+      properties: OptimizeTouchDesignerSchema.shape
+    }
+  },
+  {
+    name: 'td_suggest_parameters',
+    description: 'Get AI-powered parameter suggestions for operators based on your goals',
+    inputSchema: {
+      type: 'object',
+      properties: SuggestParametersSchema.shape,
+      required: ['operator', 'goal']
+    }
+  },
+  {
+    name: 'td_create_component',
+    description: 'Create custom TouchDesigner components from natural language descriptions',
+    inputSchema: {
+      type: 'object',
+      properties: CreateComponentFromDescriptionSchema.shape,
+      required: ['description']
+    }
+  },
+  {
+    name: 'td_analyze_workflow',
+    description: 'Analyze and improve TouchDesigner workflows with best practices',
+    inputSchema: {
+      type: 'object',
+      properties: AnalyzeWorkflowSchema.shape,
+      required: ['workflow']
+    }
+  },
+  {
+    name: 'td_generate_tutorial',
+    description: 'Generate custom TouchDesigner tutorials for any topic',
+    inputSchema: {
+      type: 'object',
+      properties: GenerateTutorialSchema.shape,
+      required: ['topic']
     }
   }
 ];
@@ -603,6 +688,149 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
+      // Documentation-aware tools
+      case 'td_search_docs': {
+        const params = SearchDocsSchema.parse(args);
+        const results = await docTools.searchDocs(params);
+        
+        return {
+          content: [{
+            type: 'text',
+            text: `Found ${results.totalResults} documentation results for "${params.query}":\n\n${
+              results.results.map((r, i) =>
+                `${i + 1}. [${r.category}/${r.topic}] (${Math.round(r.relevance * 100)}% relevant)\n${r.content.slice(0, 200)}...\n`
+              ).join('\n')
+            }`
+          }]
+        };
+      }
+
+      case 'td_get_operator_help': {
+        const params = GetOperatorHelpSchema.parse(args);
+        const help = await docTools.getOperatorHelp(params);
+        
+        return {
+          content: [{
+            type: 'text',
+            text: `## ${help.operator} Help\n\n${help.description}\n\n### Parameters\n${
+              help.parameters.map(p => `- **${p.name}** (${p.type}): ${p.description}`).join('\n')
+            }\n\n### Tips\n${help.tips.join('\n- ')}\n\n${
+              params.includeExamples && help.examples ?
+              `### Examples\n${help.examples.join('\n\n')}` : ''
+            }\n\n${
+              params.includeRelated && help.relatedOperators ?
+              `### Related Operators\n${help.relatedOperators.join(', ')}` : ''
+            }`
+          }]
+        };
+      }
+
+      case 'td_generate_node_network': {
+        const params = GenerateNodeNetworkSchema.parse(args);
+        const network = await docTools.generateNodeNetwork(params);
+        
+        return {
+          content: [{
+            type: 'text',
+            text: `Generated ${params.outputFormat} network:\n\n${
+              params.outputFormat === 'python' ?
+              `\`\`\`python\n${network.content}\n\`\`\`` :
+              `Format: ${network.format}\nInstructions: ${network.instructions}\n\n${
+                params.includeComments && network.content.comments ?
+                `Comments:\n${network.content.comments.map(c => `- ${c.nodeId}: ${c.comment}`).join('\n')}` : ''
+              }`
+            }`
+          }]
+        };
+      }
+
+      case 'td_optimize_touchdesigner': {
+        const params = OptimizeTouchDesignerSchema.parse(args);
+        const optimization = await docTools.optimizeTouchDesigner(params);
+        
+        return {
+          content: [{
+            type: 'text',
+            text: `## TouchDesigner Optimization Report\n\nTarget FPS: ${optimization.targetFPS}\nOptimization Level: ${optimization.optimizationLevel}\n\n### Recommendations\n\n${
+              optimization.recommendations.map((r, i) =>
+                `${i + 1}. **${r.category}** [${r.priority}]\n   ${r.suggestion}\n   Impact: ${r.impact}\n   ${r.implementation ? `Implementation: ${r.implementation}` : ''}`
+              ).join('\n\n')
+            }\n\n**Overall Impact:** ${optimization.estimatedImpact}`
+          }]
+        };
+      }
+
+      case 'td_suggest_parameters': {
+        const params = SuggestParametersSchema.parse(args);
+        const suggestions = await docTools.suggestParameters(params);
+        
+        return {
+          content: [{
+            type: 'text',
+            text: `## Parameter Suggestions for ${suggestions.operator}\n\nGoal: "${suggestions.goal}"\n\n### Recommended Settings\n${
+              suggestions.suggestions.map(s =>
+                `- **${s.parameter}**: ${s.suggestedValue} (currently: ${s.currentValue || 'not set'})\n  Reason: ${s.reason}\n  Impact: ${s.impact}`
+              ).join('\n\n')
+            }\n\n### Explanation\n${suggestions.explanation}\n\n${
+              suggestions.exampleConfigurations.length > 0 ?
+              `### Example Configurations\n${suggestions.exampleConfigurations.map((c, i) =>
+                `${i + 1}. ${c.scenario}:\n${Object.entries(c.parameters).map(([k, v]) => `   - ${k}: ${v}`).join('\n')}`
+              ).join('\n\n')}` : ''
+            }`
+          }]
+        };
+      }
+
+      case 'td_create_component': {
+        const params = CreateComponentFromDescriptionSchema.parse(args);
+        const component = await docTools.createComponentFromDescription(params);
+        
+        return {
+          content: [{
+            type: 'text',
+            text: `## Created Component: ${component.component.name}\n\n${component.component.documentation}\n\n### Implementation\n\`\`\`python\n${component.implementation}\n\`\`\`\n\n### Usage Examples\n${component.usage.join('\n\n')}\n\n### Test Cases\n${component.testing.map(t => `- ${t.name}: ${t.test}`).join('\n')}`
+          }]
+        };
+      }
+
+      case 'td_analyze_workflow': {
+        const params = AnalyzeWorkflowSchema.parse(args);
+        const analysis = await docTools.analyzeWorkflow(params);
+        
+        return {
+          content: [{
+            type: 'text',
+            text: `## Workflow Analysis\n\n**Current Workflow:** ${analysis.currentWorkflow}\n**Rating:** ${analysis.rating}/100\n\n### Best Practices Applied\n${analysis.bestPractices.join('\n- ')}\n\n### Recommendations\n${
+              analysis.recommendations.map((r, i) =>
+                `${i + 1}. **${r.area}** [${r.priority}]\n   ${r.suggestion}`
+              ).join('\n\n')
+            }\n\n### Alternative Approaches\n${
+              analysis.alternatives.map((a, i) =>
+                `${i + 1}. **${a.name}**\n   ${a.description}\n   Pros: ${a.pros.join(', ')}\n   Cons: ${a.cons.join(', ')}`
+              ).join('\n\n')
+            }`
+          }]
+        };
+      }
+
+      case 'td_generate_tutorial': {
+        const params = GenerateTutorialSchema.parse(args);
+        const tutorial = await docTools.generateTutorial(params);
+        
+        return {
+          content: [{
+            type: 'text',
+            text: `# ${tutorial.title}\n\n**Format:** ${tutorial.format}\n**Estimated Time:** ${tutorial.estimatedTime}\n\n## Prerequisites\n${tutorial.prerequisites.join('\n- ')}\n\n## Content\n${
+              tutorial.format === 'step-by-step' ?
+              tutorial.content.steps.map(s =>
+                `### Step ${s.number}: ${s.title}\n${s.content}\nOperators: ${s.operators.join(', ')}`
+              ).join('\n\n') :
+              JSON.stringify(tutorial.content, null, 2)
+            }\n\n## Next Steps\n${tutorial.nextSteps.join('\n- ')}`
+          }]
+        };
+      }
+
       default:
         throw new Error(`Unknown tool: ${name}`);
     }
@@ -660,8 +888,17 @@ async function main() {
     console.error('Error: Patreon manager initialization failed:', error);
   }
   
-  console.error('TouchDesigner MCP Server v2.0.0 started');
+  // Initialize documentation tools
+  try {
+    await docTools.initialize();
+    console.error('Documentation tools initialized with embedded TouchDesigner knowledge');
+  } catch (error) {
+    console.error('Warning: Documentation tools initialization failed:', error);
+  }
+  
+  console.error('TouchDesigner MCP Server v3.0.0 started');
   console.error('Patreon resource management tools are now available');
+  console.error('Documentation-aware tools with embedded TouchDesigner knowledge are active');
 }
 
 main().catch(console.error);
