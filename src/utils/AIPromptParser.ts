@@ -371,7 +371,7 @@ export class AIPromptParser {
     spec.nodes.push(
       {
         id: 'kinect',
-        type: 'kinectTOP',
+        type: 'kinect2TOP',
         name: 'kinectInput',
         x: 0,
         y: 700
@@ -605,7 +605,7 @@ export class AIPromptParser {
     
     if (analysis.colorScheme !== 'default') {
       nodes.push({ type: 'levelTOP' });
-      nodes.push({ type: 'hueTOP' });
+      nodes.push({ type: 'hsvAdjustTOP' });
     }
     
     if (complexity === 'complex' || analysis.hasFeedback) {

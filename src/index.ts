@@ -7,8 +7,8 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
 import { config } from 'dotenv';
-import { TOEGenerator } from './generators/TOEGenerator.js';
-import { NodeLibrary } from './utils/NodeLibrary.js';
+import { TouchDesignerPythonBridge } from './bridges/TouchDesignerPythonBridge.js';
+import { OptimizedNodeLibrary } from './utils/OptimizedNodeLibrary.js';
 import { OSCManager } from './utils/OSCManager.js';
 import { WebSocketManager } from './utils/WebSocketManager.js';
 import { MediaProcessor } from './utils/MediaProcessor.js';
@@ -40,10 +40,10 @@ const TD_MEDIA_PATH = process.env.TD_MEDIA_PATH || 'C:/Users/talla/Documents/tou
 const TD_DOCS_PATH = process.env.TD_DOCS_PATH || 'C:/Users/talla/Documents/touchdesigner-docs';
 
 // Initialize managers
-const toeGenerator = new TOEGenerator();
-const nodeLibrary = new NodeLibrary();
+const nodeLibrary = new OptimizedNodeLibrary();
 const oscManager = new OSCManager(TD_OSC_PORT);
-const wsManager = new WebSocketManager(TD_WEBSOCKET_PORT);
+const wsManager = new WebSocketManager(TD_WEBSOCKET_PORT, oscManager);
+const touchDesignerBridge = new TouchDesignerPythonBridge(TD_PROJECT_PATH);
 const mediaProcessor = new MediaProcessor(TD_MEDIA_PATH);
 const templateEngine = new TemplateEngine();
 const perfMonitor = new PerformanceMonitor();
@@ -405,6 +405,39 @@ const TOOLS: Tool[] = [
       properties: GenerateTutorialSchema.shape,
       required: ['topic']
     }
+  },
+  {
+    name: "search_operators",
+    description: "Search for TouchDesigner operators with performance-aware filtering and intelligent suggestions",
+    inputSchema: {
+      type: "object",
+      properties: {
+        query: {
+          type: "string",
+          description: "Search query for operators"
+        },
+        category: {
+          type: "string",
+          description: "Filter by operator category (CHOP, TOP, SOP, DAT, COMP, MAT)"
+        },
+        performance: {
+          type: "string",
+          description: "Filter by performance characteristics (low, medium, high, gpu-intensive, cpu-intensive)",
+          enum: ["low", "medium", "high", "gpu-intensive", "cpu-intensive"]
+        },
+        limit: {
+          type: "number",
+          description: "Maximum number of results to return",
+          default: 10
+        },
+        includePerformanceData: {
+          type: "boolean",
+          description: "Include performance metadata in results",
+          default: true
+        }
+      },
+      required: ["query"]
+    }
   }
 ];
 
@@ -430,18 +463,23 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           features: params.features
         });
         
-        // Generate the TOE file
-        const projectPath = await toeGenerator.createProject(params.name, projectSpec);
+        // Generate Python script for real TouchDesigner project creation
+        const scriptResult = await touchDesignerBridge.createProject(params.name, projectSpec);
         
         // Initialize project with template if specified
         if (params.template) {
-          await templateEngine.applyTemplate(projectPath, params.template);
+          await templateEngine.applyTemplate(scriptResult.projectPath, params.template);
         }
         
         return {
           content: [{
             type: 'text',
-            text: `Successfully created TouchDesigner project: ${projectPath}\n\nProject includes:\n${JSON.stringify(projectSpec.summary, null, 2)}`
+            text: `Successfully generated TouchDesigner project creation script!\n\n` +
+                  `Project: ${scriptResult.projectPath}\n` +
+                  `Script: ${scriptResult.scriptPath}\n\n` +
+                  `To create the project, run this command in TouchDesigner:\n` +
+                  `${scriptResult.executionCommand}\n\n` +
+                  `Project specification:\n${JSON.stringify(projectSpec.summary, null, 2)}`
           }]
         };
       }
@@ -483,22 +521,50 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const params = SetupOSCSchema.parse(args);
         await oscManager.setup(params);
         
+        // Try to auto-setup WebSocket DAT as fallback/enhancement
+        try {
+          await wsManager.autoSetupWebSocketDAT();
+        } catch (error) {
+          console.warn('WebSocket auto-setup failed (non-critical):', error);
+        }
+        
         return {
           content: [{
             type: 'text',
-            text: `OSC setup complete:\n- Receive port: ${params.receivePort || TD_OSC_PORT}\n- Send port: ${params.sendPort || 'default'}\n- Send address: ${params.sendAddress || 'localhost'}`
+            text: `OSC setup complete with TouchDesigner integration:\n` +
+                  `- Receive port: ${params.receivePort || TD_OSC_PORT}\n` +
+                  `- Send port: ${params.sendPort || 'default'}\n` +
+                  `- Send address: ${params.sendAddress || 'localhost'}\n` +
+                  `- WebSocket DAT auto-setup attempted\n` +
+                  `- Ready for primary OSC communication with TouchDesigner`
           }]
         };
       }
 
       case 'td_send_osc': {
         const params = SendOSCSchema.parse(args);
+        
+        // Use enhanced OSC manager with TouchDesigner-specific methods
         await oscManager.send(params.address, params.args, params.target);
+        
+        // Also try to send via WebSocket if available as fallback
+        try {
+          await wsManager.sendCommand('osc', {
+            address: params.address,
+            args: params.args
+          }, false);
+        } catch (error) {
+          // WebSocket fallback failed, continue with OSC-only
+        }
         
         return {
           content: [{
             type: 'text',
-            text: `Sent OSC message:\n- Address: ${params.address}\n- Args: ${JSON.stringify(params.args)}`
+            text: `Sent OSC message to TouchDesigner:\n` +
+                  `- Address: ${params.address}\n` +
+                  `- Args: ${JSON.stringify(params.args)}\n` +
+                  `- Target: ${params.target || 'localhost:7000'}\n` +
+                  `- Fallback: WebSocket DAT attempted`
           }]
         };
       }
@@ -589,12 +655,23 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'td_analyze_project': {
         const params = AnalyzeProjectSchema.parse(args);
-        const analysis = await projectManager.analyzeProject(params.projectPath, params.includeOptimizations);
+        const analysisResult = await projectManager.analyzeProject(params.projectPath, params.includeOptimizations);
         
         return {
           content: [{
             type: 'text',
-            text: `Project Analysis:\n${JSON.stringify(analysis, null, 2)}`
+            text: `TouchDesigner Project Analysis Generated!\n\n` +
+                  `Project: ${params.projectPath}\n` +
+                  `Script: ${analysisResult.scriptPath}\n\n` +
+                  `To run analysis in TouchDesigner:\n` +
+                  `${analysisResult.executionCommand}\n\n` +
+                  `Analysis will include:\n` +
+                  `- Real project structure inspection\n` +
+                  `- Performance metrics from TouchDesigner API\n` +
+                  `- Operator dependencies and connections\n` +
+                  `- Resource usage analysis\n` +
+                  `${params.includeOptimizations ? '- Optimization recommendations\n' : ''}` +
+                  `\nResults will be saved to: ${analysisResult.outputPath}`
           }]
         };
       }
@@ -831,6 +908,35 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
+      case "search_operators": {
+        const searchOptions = {
+          category: args.category as string,
+          performance: args.performance as string[],
+          includePerformanceData: args.includePerformanceData !== false
+        };
+        
+        const results = nodeLibrary.searchNodesOptimized(args.query as string, searchOptions);
+        const limitedResults = results.slice(0, (args.limit as number) || 10);
+        
+        return {
+          content: [{
+            type: "text",
+            text: `Found ${results.length} operators matching "${args.query}" (${nodeLibrary.getCacheStats().hitRate.toFixed(1)}% cache hit rate):\n\n` +
+                  limitedResults.map(node => {
+                    let result = `**${node.name}** (${node.category})\n` +
+                                `Description: ${node.description || 'No description'}\n` +
+                                `Parameters: ${node.parameters ? Object.keys(node.parameters).join(', ') : 'None'}\n`;
+                    
+                    if (args.includePerformanceData !== false && node.performance) {
+                      result += `Performance: GPU=${node.performance.gpuIntensive ? 'High' : 'Low'}, Cook=${node.performance.cookTime || 'medium'}, Memory=${node.performance.memoryUsage || 'medium'}\n`;
+                    }
+                    
+                    return result;
+                  }).join('\n')
+          }]
+        };
+      }
+
       default:
         throw new Error(`Unknown tool: ${name}`);
     }
@@ -876,8 +982,9 @@ async function main() {
   
   try {
     await nodeLibrary.loadBuiltinNodes();
+    console.error('OptimizedNodeLibrary initialized with performance enhancements');
   } catch (error) {
-    console.error('Warning: Node library initialization failed:', error);
+    console.error('Warning: OptimizedNodeLibrary initialization failed:', error);
   }
   
   // Most important - initialize Patreon manager

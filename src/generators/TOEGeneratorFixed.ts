@@ -258,7 +258,7 @@ constant_${name}.par.colora = ${a}
   createKinectTOPCode(name: string): string {
     return `
 # Create Kinect TOP
-kinect_${name} = op('/').create(kinectTOP, '${name}')
+kinect_${name} = op('/').create(kinect2TOP, '${name}')
 kinect_${name}.par.player = 0  # First Kinect device
 kinect_${name}.par.image = 'depth'
 kinect_${name}.par.depthformat = 'meters'

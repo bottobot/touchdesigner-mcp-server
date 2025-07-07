@@ -140,7 +140,7 @@ export class TemplateEngine {
         nodes: [
           { type: 'tableDAT', name: 'dataInput' },
           { type: 'dattoTOP', name: 'dataViz' },
-          { type: 'scriptTOP', name: 'chartGenerator' },
+          { type: 'glslTOP', name: 'chartGenerator' },
           { type: 'textTOP', name: 'labels' },
           { type: 'compositeTOP', name: 'composite' },
           { type: 'outTOP', name: 'output' }
@@ -178,7 +178,7 @@ export class TemplateEngine {
       },
       structure: {
         nodes: [
-          { type: 'kinectTOP', name: 'kinectInput' },
+          { type: 'kinect2TOP', name: 'kinectInput' },
           { type: 'thresholdTOP', name: 'depthThreshold' },
           { type: 'blobtrackTOP', name: 'tracking' },
           { type: 'particlesGPU', name: 'particles' },
@@ -288,7 +288,7 @@ export class TemplateEngine {
     // Effects rack
     nodes.push({ type: 'blurTOP', name: 'blur' });
     nodes.push({ type: 'edgeTOP', name: 'edge' });
-    nodes.push({ type: 'rgbkeyTOP', name: 'chromakey' });
+    nodes.push({ type: 'chromakeyTOP', name: 'chromakey' });
     nodes.push({ type: 'slopeTOP', name: 'emboss' });
     
     // Beat detection

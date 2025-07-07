@@ -138,11 +138,169 @@ export class OSCManager {
     await this.send(`/td/transport/${command}`, [1]);
   }
 
+  // Enhanced TouchDesigner-specific methods for primary communication
+
+  async createOperatorViaOSC(type: string, name: string, parent: string = '/'): Promise<void> {
+    await this.send('/td/create', [type, name, parent]);
+  }
+
+  async deleteOperatorViaOSC(path: string): Promise<void> {
+    await this.send('/td/delete', [path]);
+  }
+
+  async setParametersViaOSC(operator: string, parameters: Record<string, any>): Promise<void> {
+    const messages = Object.entries(parameters).map(([param, value]) => ({
+      address: `/td/op/${operator}/${param}`,
+      args: [value]
+    }));
+    await this.sendBatch(messages);
+  }
+
+  async getProjectStateViaOSC(): Promise<void> {
+    // Request project state - TouchDesigner should respond with current state
+    await this.send('/td/project/state', ['request']);
+  }
+
+  async connectOperatorsViaOSC(fromOp: string, fromOutput: number, toOp: string, toInput: number): Promise<void> {
+    await this.send('/td/connect', [fromOp, fromOutput, toOp, toInput]);
+  }
+
+  async disconnectOperatorsViaOSC(fromOp: string, fromOutput: number, toOp: string, toInput: number): Promise<void> {
+    await this.send('/td/disconnect', [fromOp, fromOutput, toOp, toInput]);
+  }
+
+  async executeScriptViaOSC(script: string): Promise<void> {
+    await this.send('/td/python', [script]);
+  }
+
+  async saveProjectViaOSC(path?: string): Promise<void> {
+    if (path) {
+      await this.send('/td/project/save', [path]);
+    } else {
+      await this.send('/td/project/save', []);
+    }
+  }
+
+  async setPerformModeViaOSC(enable: boolean): Promise<void> {
+    await this.send('/td/perform', [enable ? 1 : 0]);
+  }
+
+  async getOperatorInfoViaOSC(path: string): Promise<void> {
+    await this.send('/td/op/info', [path]);
+  }
+
+  async setProjectResolutionViaOSC(width: number, height: number): Promise<void> {
+    await this.send('/td/project/resolution', [width, height]);
+  }
+
+  async setProjectFPSViaOSC(fps: number): Promise<void> {
+    await this.send('/td/project/fps', [fps]);
+  }
+
+  async requestPerformanceMetricsViaOSC(): Promise<void> {
+    await this.send('/td/performance', ['request']);
+  }
+
+  async setQualityLevelViaOSC(level: 'low' | 'medium' | 'high' | 'ultra'): Promise<void> {
+    await this.send('/td/quality', [level]);
+  }
+
+  // Setup TouchDesigner OSC listeners
+  setupTouchDesignerListeners(): void {
+    // Listen for TouchDesigner responses
+    this.onMessage('/td/response/create', (args) => {
+      console.log('Operator created:', args);
+    });
+
+    this.onMessage('/td/response/parameter', (args) => {
+      console.log('Parameter updated:', args);
+    });
+
+    this.onMessage('/td/response/performance', (args) => {
+      console.log('Performance metrics:', args);
+    });
+
+    this.onMessage('/td/response/project/state', (args) => {
+      console.log('Project state:', args);
+    });
+
+    this.onMessage('/td/error', (args) => {
+      console.error('TouchDesigner error:', args);
+    });
+
+    // Listen for real-time data
+    this.onMessage('/td/fps', (args) => {
+      console.log('Current FPS:', args[0]);
+    });
+
+    this.onMessage('/td/cooktime', (args) => {
+      console.log('Cook time:', args[0], 'ms');
+    });
+
+    this.onMessage('/td/memory', (args) => {
+      console.log('Memory usage:', args[0], 'MB');
+    });
+  }
+
   // Batch send for performance
   async sendBatch(messages: Array<{ address: string; args: any[] }>): Promise<void> {
     for (const msg of messages) {
       await this.send(msg.address, msg.args);
     }
+  }
+
+  // High-level convenience methods for common workflows
+
+  async createBasicTOPChain(chainName: string, nodeTypes: string[]): Promise<void> {
+    const messages: Array<{ address: string; args: any[] }> = [];
+    
+    nodeTypes.forEach((type, index) => {
+      const nodeName = `${chainName}_${type}_${index}`;
+      messages.push({
+        address: '/td/create',
+        args: [type, nodeName, '/']
+      });
+      
+      // Position nodes in a chain
+      messages.push({
+        address: `/td/op/${nodeName}/nodeX`,
+        args: [index * 150]
+      });
+      
+      messages.push({
+        address: `/td/op/${nodeName}/nodeY`,
+        args: [0]
+      });
+      
+      // Connect to previous node
+      if (index > 0) {
+        const prevNode = `${chainName}_${nodeTypes[index - 1]}_${index - 1}`;
+        messages.push({
+          address: '/td/connect',
+          args: [prevNode, 0, nodeName, 0]
+        });
+      }
+    });
+    
+    await this.sendBatch(messages);
+  }
+
+  async setupAudioReactiveChain(): Promise<void> {
+    const messages = [
+      { address: '/td/create', args: ['audiofileinCHOP', 'audio_input', '/'] },
+      { address: '/td/create', args: ['audiospectrumCHOP', 'audio_spectrum', '/'] },
+      { address: '/td/create', args: ['noiseTOP', 'base_noise', '/'] },
+      { address: '/td/create', args: ['levelTOP', 'audio_modulated', '/'] },
+      
+      // Connect audio chain
+      { address: '/td/connect', args: ['audio_input', 0, 'audio_spectrum', 0] },
+      { address: '/td/connect', args: ['base_noise', 0, 'audio_modulated', 0] },
+      
+      // Set up modulation
+      { address: '/td/op/audio_modulated/opacity', args: ['op("audio_spectrum")[0,0]'] }
+    ];
+    
+    await this.sendBatch(messages);
   }
 
   close(): void {
