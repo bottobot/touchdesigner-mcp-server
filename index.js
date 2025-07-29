@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// TouDocV4 - Simple TouchDesigner Documentation MCP Server
+// TD-MCP - Simple TouchDesigner Documentation MCP Server
 // Direct approach: parse HTML on-demand, no database
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -20,8 +20,8 @@ const operators = new Map(); // Map of operator names to file paths
 
 // Create MCP server instance
 const server = new McpServer({
-  name: "toudocv4",
-  version: "4.0.0"
+  name: "td-mcp",
+  version: "1.0.0"
 });
 
 // Get operator family from various sources
@@ -404,7 +404,7 @@ async function updateMemory(message) {
 
 // Main startup
 async function main() {
-  console.log('TouDocV4 MCP Server Starting...');
+  console.log('TD-MCP Server Starting...');
   console.log('================================');
   console.log('Simple, direct TouchDesigner documentation server');
   console.log(`Documentation path: ${TOUCHDESIGNER_PATH}`);
@@ -426,18 +426,18 @@ async function main() {
       console.log(`  ${cat}: ${count} operators`);
     });
     
-    await updateMemory(`TouDocV4 initialized with ${operators.size} operator entries`);
+    await updateMemory(`TD-MCP initialized with ${operators.size} operator entries`);
   } catch (error) {
     console.error('Failed to discover operators:', error);
-    await updateMemory('TouDocV4 failed to access TouchDesigner documentation');
+    await updateMemory('TD-MCP failed to access TouchDesigner documentation');
   }
   
   // Connect to stdio transport
   const transport = new StdioServerTransport();
   await server.connect(transport);
   
-  console.log('\n✓ TouDocV4 MCP Server running');
-  await updateMemory('TouDocV4 MCP Server is now running and ready');
+  console.log('\n✓ TD-MCP Server running');
+  await updateMemory('TD-MCP Server is now running and ready');
 }
 
 // Start the server

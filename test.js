@@ -1,7 +1,7 @@
-// Simple test script for TouDocV4
+// Simple test script for TD-MCP
 import { spawn } from 'child_process';
 
-console.log('Testing TouDocV4 MCP Server...\n');
+console.log('Testing TD-MCP Server...\n');
 
 // Start the server
 const server = spawn('node', ['index.js'], {

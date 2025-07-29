@@ -4,7 +4,7 @@ A Model Context Protocol (MCP) server that provides instant access to TouchDesig
 
 ## Overview
 
-TouchDesigner MCP Server (TouDocV4) is a lightweight, efficient MCP server that enables AI assistants to query and retrieve comprehensive documentation for TouchDesigner operators. Built with a direct filesystem approach, it parses TouchDesigner's offline HTML documentation on-demand, providing fast and accurate information without the overhead of a database.
+TouchDesigner MCP Server (TD-MCP) is a lightweight, efficient MCP server that enables AI assistants to query and retrieve comprehensive documentation for TouchDesigner operators. Built with a direct filesystem approach, it parses TouchDesigner's offline HTML documentation on-demand, providing fast and accurate information without the overhead of a database.
 
 ## Features
 
@@ -20,13 +20,13 @@ TouchDesigner MCP Server (TouDocV4) is a lightweight, efficient MCP server that 
 ### Via NPM (Recommended)
 
 ```bash
-npm install -g @bottobot/toudocv4
+npm install -g @bottobot/td-mcp
 ```
 
 ### Via NPX
 
 ```bash
-npx @bottobot/toudocv4
+npx @bottobot/td-mcp
 ```
 
 ### From Source
@@ -54,7 +54,7 @@ Add to your Claude Desktop configuration file:
   "mcpServers": {
     "touchdesigner": {
       "command": "npx",
-      "args": ["@bottobot/toudocv4"]
+      "args": ["@bottobot/td-mcp"]
     }
   }
 }
@@ -69,7 +69,7 @@ Add to your MCP settings:
   "mcpServers": {
     "touchdesigner": {
       "command": "node",
-      "args": ["path/to/toudocv4/index.js"],
+      "args": ["path/to/td-mcp/index.js"],
       "alwaysAllow": [
         "get_operator",
         "list_operators",
@@ -224,7 +224,7 @@ Robert Spring ([@bottobot](https://github.com/bottobot))
 
 ## Version History
 
-- **4.0.0** - Complete rewrite with direct filesystem approach, no database dependency
+- **1.0.0** - Complete rewrite with direct filesystem approach, no database dependency
 - Previous versions used SQLite database approach (deprecated)
 
 ---

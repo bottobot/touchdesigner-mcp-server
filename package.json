@@ -1,11 +1,11 @@
 {
-  "name": "@bottobot/toudocv4",
-  "version": "4.0.0",
-  "description": "TouchDesigner Documentation MCP Server V4 - Simple, direct approach using filesystem",
+  "name": "@bottobot/td-mcp",
+  "version": "1.0.0",
+  "description": "TouchDesigner Documentation MCP Server - Simple, direct approach using filesystem",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "toudocv4": "./index.js"
+    "td-mcp": "./index.js"
   },
   "scripts": {
     "start": "node index.js",

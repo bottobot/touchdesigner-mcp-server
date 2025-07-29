@@ -1,7 +1,7 @@
-// Comprehensive test script for TouDocV4
+// Comprehensive test script for TD-MCP
 import { spawn } from 'child_process';
 
-console.log('Starting comprehensive TouDocV4 MCP Server tests...\n');
+console.log('Starting comprehensive TD-MCP Server tests...\n');
 
 // Start the server
 const server = spawn('node', ['index.js'], {
