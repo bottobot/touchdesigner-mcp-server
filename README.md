@@ -6,6 +6,35 @@ A Model Context Protocol (MCP) server that provides instant access to TouchDesig
 
 TouchDesigner MCP Server (TD-MCP) is a lightweight, efficient MCP server that enables AI assistants to query and retrieve comprehensive documentation for TouchDesigner operators. Built with a direct filesystem approach, it parses TouchDesigner's offline HTML documentation on-demand, providing fast and accurate information without the overhead of a database.
 
+## The Story Behind TD-MCP
+
+This project was born out of necessity and frustration. As a self-described "lazy hack/vibe coder," I needed an AI agent that could build TouchDesigner networks for an interactive piece I was presenting at a festival. What started as a quest for AI-assisted creativity turned into an epic journey through the depths of overengineering.
+
+### The Journey
+
+I began with ambitious goals - integrating directly into TouchDesigner using websocket DATs and OSC IN/OUT CHOPs. Surprisingly, the integration worked well! The AI could actually build networks... except the data it was using was complete garbage. It was simulating data, making things up, and creating all kinds of silliness.
+
+I burned through an insane amount of tokens exploring increasingly complex solutions:
+- **ChromaDB** - Vector database for semantic search
+- **SQLite3** - Traditional database approaches
+- **Algolia** - Cloud-based search integration
+- Complex data import pipelines
+- Sophisticated caching mechanisms
+
+Each iteration grew more complex, more sophisticated, and somehow... less functional.
+
+### The Breakthrough
+
+Out of sheer frustration, I asked myself: "What if I just read the HTML files directly?"
+
+And that's when this little gem popped out. It turns out that the MCP SDK and cheerio were all I needed. No databases, no complex pipelines, no cloud services - just good old-fashioned HTML parsing.
+
+### What's Next
+
+The simple approach works beautifully for documentation access. The next phase is to explore actual TouchDesigner integration - but this time, keeping it simple from the start.
+
+Sometimes the best solution is the simplest one. Who knew? 🤷‍♂️
+
 ## Features
 
 - **Instant Access**: Query any TouchDesigner operator documentation directly from your AI assistant
@@ -224,8 +253,15 @@ Robert Spring ([@bottobot](https://github.com/bottobot))
 
 ## Version History
 
-- **1.0.0** - Complete rewrite with direct filesystem approach, no database dependency
-- Previous versions used SQLite database approach (deprecated)
+- **1.0.0** - The "Eureka!" release - Direct filesystem approach, no database needed
+- **0.x** - The overengineered era:
+  - ChromaDB experiments (too complex)
+  - SQLite implementations (worked but heavy)
+  - Algolia integration attempts (overkill)
+  - TouchDesigner direct integration with websockets & OSC (worked but data was garbage)
+  - Multiple database schemas and import pipelines (why did I do this?)
+  
+*Lesson learned: Sometimes the simplest solution is the best solution.*
 
 ---
 
