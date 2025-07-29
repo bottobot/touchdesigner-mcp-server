@@ -1,0 +1,39 @@
+{
+  "name": "@bottobot/toudocv4",
+  "version": "4.0.0",
+  "description": "TouchDesigner Documentation MCP Server V4 - Simple, direct approach using filesystem",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "toudocv4": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "touchdesigner",
+    "documentation",
+    "derivative"
+  ],
+  "author": "Robert Spring",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bottobot/toudocv4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bottobot/toudocv4/issues"
+  },
+  "homepage": "https://github.com/bottobot/toudocv4#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "cheerio": "^1.0.0",
+    "glob": "^11.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

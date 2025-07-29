@@ -1,0 +1,20 @@
+# Test files
+test.js
+test-comprehensive.js
+
+# Development files
+*.log
+.git
+.gitignore
+
+# IDE files
+.vscode
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
