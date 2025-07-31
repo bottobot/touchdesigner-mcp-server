@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-07-31T17:01:58.531Z",
+  "elapsedSeconds": "0.01",
+  "categories": {
+    "CHOP": {
+      "operatorCount": 167,
+      "success": true
+    },
+    "TOP": {
+      "operatorCount": 148,
+      "success": true
+    },
+    "SOP": {
+      "operatorCount": 0,
+      "success": true
+    },
+    "DAT": {
+      "operatorCount": 0,
+      "success": true
+    },
+    "MAT": {
+      "operatorCount": 0,
+      "success": true
+    },
+    "COMP": {
+      "operatorCount": 0,
+      "success": true
+    }
+  }
+}

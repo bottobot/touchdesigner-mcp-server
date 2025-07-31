@@ -38,11 +38,15 @@ Sometimes the best solution is the simplest one. Who knew? 🤷‍♂️
 ## Features
 
 - **Instant Access**: Query any TouchDesigner operator documentation directly from your AI assistant
-- **Comprehensive Coverage**: Access documentation for all TouchDesigner operator families (CHOP, TOP, SOP, DAT, MAT, COMP)
+- **Comprehensive Coverage**: Access documentation for all TouchDesigner operator families (CHOP, TOP, SOP, DAT, MAT, COMP, POP)
 - **Smart Search**: Fuzzy matching and intelligent search capabilities to find operators even with inexact names
 - **Detailed Information**: Get operator summaries, parameter descriptions, and usage information
 - **Zero Database**: Direct HTML parsing means no database setup or maintenance required
 - **Memory Efficient**: In-memory caching for optimal performance without excessive resource usage
+- **Enhanced Metadata**: Pre-scraped comprehensive metadata for 690+ operators across all categories
+- **Dynamic Scraping**: Real-time operator detail scraping from TouchDesigner's offline documentation
+- **POP Learning Guide**: Dedicated educational content for Particle Operators with workflow guidance
+- **Contextual Search**: Advanced search with relevance ranking based on names, descriptions, keywords, and aliases
 
 ## Installation
 
@@ -112,10 +116,16 @@ Add to your MCP settings:
 ## Available Tools
 
 ### `get_operator`
-Get detailed information about a specific TouchDesigner operator.
+Get detailed information about a specific TouchDesigner operator with enhanced metadata and real-time scraping.
 
 **Parameters:**
 - `name` (string): Operator name (e.g., 'Noise CHOP', 'Kinect Azure TOP')
+
+**Features:**
+- Returns comprehensive operator details including parameters, inputs, outputs, and attributes
+- Enriched metadata with aliases, keywords, use cases, and related operators
+- Special educational content for POP operators
+- Real-time scraping for the most up-to-date documentation
 
 **Example:**
 ```
@@ -123,10 +133,15 @@ Get information about the Noise CHOP operator
 ```
 
 ### `list_operators`
-List available TouchDesigner operators, optionally filtered by category.
+List available TouchDesigner operators with contextual grouping.
 
 **Parameters:**
-- `category` (string, optional): Filter by category (CHOP, DAT, SOP, TOP, MAT, COMP)
+- `category` (string, optional): Filter by category (CHOP, DAT, SOP, TOP, MAT, COMP, POP)
+
+**Features:**
+- Smart result limiting to prevent overwhelming output
+- Category-based grouping when no filter is specified
+- Shows operator counts per category
 
 **Example:**
 ```
@@ -134,15 +149,37 @@ List all CHOP operators
 ```
 
 ### `search_operators`
-Search for operators by name or description.
+Search for operators using contextual analysis and ranking.
 
 **Parameters:**
 - `query` (string): Search query
 - `category` (string, optional): Filter by category
 
+**Features:**
+- Relevance-based ranking (1.0 = exact name match, 0.9 = keyword/alias match, 0.8 = description match)
+- Searches across operator names, descriptions, keywords, aliases, and subcategories
+- Returns relevance scores for transparency
+
 **Example:**
 ```
 Search for operators related to "kinect"
+```
+
+### `get_pop_learning_guide`
+Get comprehensive learning information about TouchDesigner POPs (Point Operators).
+
+**Parameters:** None
+
+**Features:**
+- Overview of the particle system architecture
+- Detailed category explanations (Generators, Forces, Modifiers, etc.)
+- Common attributes and workflow guidance
+- Best practices for particle system development
+- Links to example packages
+
+**Example:**
+```
+Show me the POP learning guide
 ```
 
 ## Usage Examples
@@ -252,6 +289,20 @@ Robert Spring ([@bottobot](https://github.com/bottobot))
 - The TouchDesigner community for inspiration and feedback
 
 ## Version History
+
+- **1.2.0** - The "Context7" release - Major enhancements:
+  - Added comprehensive pre-scraped metadata for 690+ operators
+  - Implemented dynamic real-time scraping for detailed operator information
+  - Added full POP (Particle Operators) support with 127 operators
+  - Created dedicated POP learning guide with educational content
+  - Enhanced search with contextual relevance ranking
+  - Improved operator discovery with aliases and keywords
+  - Added parameter, input, output, and attribute information
+  - Implemented smart result limiting for better UX
+
+- **1.1.0** - Repository rename and polish
+  - Renamed from TouDocV4 to TD-MCP for clarity
+  - Updated all repository URLs and documentation
 
 - **1.0.0** - The "Eureka!" release - Direct filesystem approach, no database needed
 - **0.x** - The overengineered era:

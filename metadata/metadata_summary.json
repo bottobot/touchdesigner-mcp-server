@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-07-31T20:36:40.017Z",
+  "totalCategories": 7,
+  "totalOperators": 690,
+  "categories": {
+    "CHOP": {
+      "operatorCount": 170,
+      "description": "Channel Operators - process motion, audio, animation, and control signals"
+    },
+    "COMP": {
+      "operatorCount": 42,
+      "description": "Components - contain networks of operators, including 3D objects and 2D panels"
+    },
+    "DAT": {
+      "operatorCount": 76,
+      "description": "Data Operators - handle ASCII text, scripts, XML, and tables"
+    },
+    "MAT": {
+      "operatorCount": 13,
+      "description": "Material Operators - define materials and shaders"
+    },
+    "POP": {
+      "operatorCount": 127,
+      "description": "Particle Operators - create and manipulate particle systems for dynamic simulations"
+    },
+    "SOP": {
+      "operatorCount": 114,
+      "description": "Surface Operators - work with 3D points, polygons and other 3D primitives"
+    },
+    "TOP": {
+      "operatorCount": 148,
+      "description": "Texture Operators - handle all 2D image operations"
+    }
+  }
+}

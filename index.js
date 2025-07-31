@@ -1,22 +1,29 @@
 #!/usr/bin/env node
 
-// TD-MCP - Simple TouchDesigner Documentation MCP Server
-// Direct approach: parse HTML on-demand, no database
+// TD-MCP - Context7 TouchDesigner Documentation MCP Server
+// Advanced contextual approach with 7 levels of context analysis
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { promises as fs } from 'fs';
-import { join } from 'path';
-import * as cheerio from 'cheerio';
-import { glob } from 'glob';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { getOperatorDetails } from './scrape-operator-details.js';
+import { enrichPOPMetadata, POPLearningGuide } from './pop-learning-guide.js';
 
-// Path to TouchDesigner offline documentation
-const TOUCHDESIGNER_PATH = 'C:/Program Files/Derivative/TouchDesigner/Samples/Learn/OfflineHelp/https.docs.derivative.ca';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const METADATA_PATH = join(__dirname, 'metadata');
 
-// Simple in-memory cache
-const cache = new Map();
-const operators = new Map(); // Map of operator names to file paths
+
+const MAX_RESULTS = {
+  PARAMETERS: 20,
+  SEARCH: 20,
+  LIST_CATEGORY: 20,
+  LIST_GROUP: 5,
+  SUGGESTIONS: 5
+};
 
 // Create MCP server instance
 const server = new McpServer({
@@ -24,192 +31,94 @@ const server = new McpServer({
   version: "1.0.0"
 });
 
-// Get operator family from various sources
-function getOperatorFamily(filename, $) {
-  // First try to determine from filename patterns
-  if (filename.match(/[_\-]?CHOP[_\-]?/i)) return 'CHOP';
-  if (filename.match(/[_\-]?TOP[_\-]?/i)) return 'TOP';
-  if (filename.match(/[_\-]?SOP[_\-]?/i)) return 'SOP';
-  if (filename.match(/[_\-]?DAT[_\-]?/i)) return 'DAT';
-  if (filename.match(/[_\-]?MAT[_\-]?/i)) return 'MAT';
-  if (filename.match(/[_\-]?COMP[_\-]?/i)) return 'COMP';
-  
-  // Try to find family in the parameter class names
-  if ($) {
-    const paramClasses = ['.parNameCHOP', '.parNameTOP', '.parNameSOP', '.parNameDAT', '.parNameMAT', '.parNameCOMP'];
-    for (const cls of paramClasses) {
-      if ($(cls).length > 0) {
-        return cls.replace('.parName', '');
-      }
-    }
-  }
-  
-  return 'UNKNOWN';
-}
+// Operator storage
+const operators = new Map();
 
-// Parse operator HTML to extract info
-async function parseOperatorHTML(filepath) {
-  // Check cache first
-  if (cache.has(filepath)) {
-    return cache.get(filepath);
-  }
+// Load all metadata from the metadata directory
+async function loadMetadata() {
+  console.log(`[Metadata] Loading from: ${METADATA_PATH}`);
+  const files = await fs.readdir(METADATA_PATH);
+  const jsonFiles = files.filter(file => file.endsWith('.json'));
 
-  try {
-    const html = await fs.readFile(filepath, 'utf-8');
-    const $ = cheerio.load(html);
+  for (const file of jsonFiles) {
+    const filePath = join(METADATA_PATH, file);
+    const content = await fs.readFile(filePath, 'utf-8');
+    const metadata = JSON.parse(content);
+
+    // Debug logging to check metadata structure
+    console.log(`[Debug] Loading file: ${file}`);
+    console.log(`[Debug] Top-level category: ${metadata.category}`);
     
-    // Extract operator name from title
-    let title = $('.mw-page-title-main').text().trim();
-    
-    // If no title found, try other methods
-    if (!title) {
-      title = $('title').text().replace(' - Derivative', '').trim();
-    }
-    
-    // Clean up title (remove "Class" suffix if present)
-    title = title.replace(/\s+Class$/, '');
-    
-    // Extract summary - try multiple possible locations
-    let summary = '';
-    const summarySelectors = [
-      'h2:contains("Summary")',
-      'h3:contains("Summary")',
-      '.mw-parser-output > p:first'
-    ];
-    
-    for (const selector of summarySelectors) {
-      const section = $(selector);
-      if (section.length > 0) {
-        const nextP = section.nextAll('p').first();
-        if (nextP.length > 0) {
-          summary = nextP.text().trim();
-          break;
-        }
-      }
-    }
-    
-    // If still no summary, get first paragraph
-    if (!summary) {
-      summary = $('.mw-parser-output p').first().text().trim();
-    }
-    
-    // Extract parameters
-    const parameters = [];
-    $('.parNameCHOP, .parNameTOP, .parNameSOP, .parNameDAT, .parNameMAT, .parNameCOMP').each((i, elem) => {
-      const $param = $(elem);
-      const name = $param.text().trim();
-      const code = $param.next('code').text().trim() || $param.nextAll('code').first().text().trim();
-      const parentText = $param.parent().text();
-      const description = parentText.replace(name, '').replace(code, '').trim();
+    if (metadata.operators) {
+      console.log(`[Debug] Found ${metadata.operators.length} operators in ${file}`);
       
-      if (name) {
-        parameters.push({ name, code: code || 'N/A', description });
+      for (const op of metadata.operators) {
+        // Debug: Check if operator has category
+        console.log(`[Debug] Operator "${op.name}" has category: ${op.category || 'UNDEFINED'}`);
+        
+        // Store with composite key to avoid naming conflicts
+        // Use "Name CATEGORY" format as the key
+        const key = `${op.name} ${metadata.category}`;
+        operators.set(key, { ...op, category: metadata.category });
       }
-    });
-    
-    // Determine category
-    const filename = filepath.split(/[\\/]/).pop();
-    const category = getOperatorFamily(filename, $);
-    
-    const result = {
-      name: title || filename.replace('.htm', ''),
-      category,
-      summary: summary || 'No summary available',
-      parameters,
-      filepath
-    };
-    
-    // Cache the result
-    cache.set(filepath, result);
-    
-    return result;
-  } catch (error) {
-    console.error(`Error parsing ${filepath}:`, error.message);
-    return null;
+    }
+  }
+  console.log(`[Metadata] Loaded ${operators.size} operators from ${jsonFiles.length} files.`);
+  
+  // Debug: Check a sample operator
+  const sampleOp = operators.get('Circle SOP');
+  if (sampleOp) {
+    console.log('[Debug] Sample operator check:');
+    console.log(`[Debug] Circle SOP properties:`, Object.keys(sampleOp));
+    console.log(`[Debug] Circle SOP category:`, sampleOp.category);
+  } else {
+    // Try with new composite key format
+    console.log('[Debug] Checking operators with new key format...');
+    for (const [key, value] of operators) {
+      if (key.startsWith('Circle')) {
+        console.log(`[Debug] Found: ${key} -> category: ${value.category}`);
+      }
+    }
   }
 }
 
-// Discover all operators by scanning HTML files
-async function discoverOperators() {
-  console.log(`Discovering operators from: ${TOUCHDESIGNER_PATH}`);
-  
-  const files = await glob('**/*.htm', {
-    cwd: TOUCHDESIGNER_PATH,
-    absolute: true
-  });
-  
-  console.log(`Found ${files.length} HTML files`);
-  
-  // Process files in batches to avoid memory issues
-  const batchSize = 50;
-  for (let i = 0; i < files.length; i += batchSize) {
-    const batch = files.slice(i, i + batchSize);
-    await Promise.all(batch.map(async (file) => {
-      const operatorInfo = await parseOperatorHTML(file);
-      if (operatorInfo) {
-        operators.set(operatorInfo.name, operatorInfo);
-        
-        // Also index by various name variations
-        const variations = [
-          operatorInfo.name.toLowerCase(),
-          operatorInfo.name.replace(/\s+/g, ''),
-          operatorInfo.name.replace(/\s+/g, '_'),
-          operatorInfo.name.replace(/\s+/g, '-')
-        ];
-        
-        for (const variant of variations) {
-          operators.set(variant.toLowerCase(), operatorInfo);
-        }
-      }
-    }));
-  }
-  
-  console.log(`Indexed ${operators.size} operators`);
-}
-
-// Find operator by name with fuzzy matching
+// Find operator with contextual matching
 function findOperator(name) {
-  // Try exact match first
+  // Try exact match first (with composite key)
   if (operators.has(name)) {
     return operators.get(name);
   }
   
-  // Try case-insensitive match
+  // Try to find by operator name (partial match)
   const lowerName = name.toLowerCase();
-  if (operators.has(lowerName)) {
-    return operators.get(lowerName);
-  }
+  const matches = [];
   
-  // Try various variations
-  const variations = [
-    name.replace(/\s+/g, ''),
-    name.replace(/\s+/g, '_'),
-    name.replace(/\s+/g, '-'),
-    name.replace(/azure/i, 'azure'),
-    name.replace(/\s*CHOP$/i, ' CHOP'),
-    name.replace(/\s*TOP$/i, ' TOP'),
-    name.replace(/\s*SOP$/i, ' SOP'),
-    name.replace(/\s*DAT$/i, ' DAT'),
-    name.replace(/\s*MAT$/i, ' MAT'),
-    name.replace(/\s*COMP$/i, ' COMP')
-  ];
-  
-  for (const variant of variations) {
-    if (operators.has(variant)) {
-      return operators.get(variant);
-    }
-    if (operators.has(variant.toLowerCase())) {
-      return operators.get(variant.toLowerCase());
-    }
-  }
-  
-  // Try fuzzy search
-  const searchTerm = name.toLowerCase();
   for (const [key, value] of operators) {
-    if (key.toLowerCase().includes(searchTerm) || 
-        searchTerm.includes(key.toLowerCase())) {
-      return value;
+    // Extract just the operator name from the composite key
+    const opName = key.substring(0, key.lastIndexOf(' '));
+    
+    if (opName.toLowerCase() === lowerName) {
+      matches.push(value);
     }
+  }
+  
+  // If we found exactly one match, return it
+  if (matches.length === 1) {
+    return matches[0];
+  }
+  
+  // If multiple matches, prefer based on common usage patterns
+  if (matches.length > 1) {
+    // Priority order for categories when ambiguous
+    const categoryPriority = ['TOP', 'CHOP', 'SOP', 'DAT', 'MAT', 'COMP'];
+    
+    for (const cat of categoryPriority) {
+      const match = matches.find(op => op.category === cat);
+      if (match) return match;
+    }
+    
+    // Return first match if no priority match found
+    return matches[0];
   }
   
   return null;
@@ -229,40 +138,118 @@ server.registerTool(
     const operator = findOperator(name);
     
     if (!operator) {
-      // Try to suggest similar operators
-      const searchTerm = name.toLowerCase();
-      const suggestions = [];
-      for (const [key, value] of operators) {
-        if (key.toLowerCase().includes(searchTerm.split(' ')[0])) {
-          suggestions.push(value.name);
-          if (suggestions.length >= 5) break;
-        }
-      }
-      
-      let text = `Operator '${name}' not found.`;
-      if (suggestions.length > 0) {
-        text += `\n\nDid you mean one of these?\n`;
-        suggestions.forEach(s => text += `- ${s}\n`);
-      }
-      
       return {
         content: [{
           type: "text",
-          text
+          text: `Operator '${name}' not found.`
         }]
       };
     }
     
-    let text = `**${operator.name}** (${operator.category})\n\n`;
-    text += `${operator.summary}\n\n`;
+    // Enrich POP operators with educational content
+    if (operator.category === 'POP') {
+      operator = enrichPOPMetadata(operator);
+    }
     
-    if (operator.parameters.length > 0) {
+    // Try to get detailed information by scraping
+    const details = await getOperatorDetails(operator.name, operator.category);
+    
+    let text = `**${operator.name}** (${operator.category})\n`;
+    if (operator.subcategory) {
+      text += `*Subcategory: ${operator.subcategory}*\n`;
+    }
+    
+    // Use scraped description or fallback to metadata
+    const description = details?.description || operator.description;
+    text += `\n${description}\n\n`;
+
+    // Add parameters if available from scraping
+    if (details?.parameters && details.parameters.length > 0) {
       text += `**Parameters:**\n`;
-      operator.parameters.slice(0, 20).forEach(param => {
-        text += `- **${param.name}** (\`${param.code}\`): ${param.description}\n`;
+      details.parameters.forEach(param => {
+        text += `- **${param.name}**: ${param.description}\n`;
       });
-      if (operator.parameters.length > 20) {
-        text += `\n... and ${operator.parameters.length - 20} more parameters\n`;
+      text += '\n';
+    }
+    
+    // Add inputs if available
+    if (details?.inputs && details.inputs.length > 0) {
+      text += `**Inputs:**\n`;
+      details.inputs.forEach(input => {
+        text += `- ${input}\n`;
+      });
+      text += '\n';
+    }
+    
+    // Add outputs if available
+    if (details?.outputs && details.outputs.length > 0) {
+      text += `**Outputs:**\n`;
+      details.outputs.forEach(output => {
+        text += `- ${output}\n`;
+      });
+      text += '\n';
+    }
+    
+    // Add attributes if available (common in POP operators)
+    if (details?.attributes && details.attributes.length > 0) {
+      text += `**Attributes:**\n`;
+      details.attributes.forEach(attr => {
+        text += `- **${attr.name}** (${attr.type}): ${attr.description}\n`;
+      });
+      text += '\n';
+    }
+
+    // Add metadata fields if available
+    if (operator.aliases && operator.aliases.length > 0) {
+      text += `**Aliases:** ${operator.aliases.join(', ')}\n`;
+    }
+    if (operator.keywords && operator.keywords.length > 0) {
+      text += `**Keywords:** ${operator.keywords.join(', ')}\n`;
+    }
+    if (operator.use_cases && operator.use_cases.length > 0) {
+      text += `**Use Cases:**\n`;
+      operator.use_cases.forEach(uc => {
+        text += `- ${uc}\n`;
+      });
+    }
+    
+    // Use scraped related operators or fallback to metadata
+    const relatedOps = details?.related || operator.related_operators || [];
+    if (relatedOps.length > 0) {
+      text += `\n**Related Operators:** ${relatedOps.join(', ')}\n`;
+    }
+    
+    // Add wiki URL
+    if (details?.wiki_url || operator.wiki_url) {
+      text += `\n**Documentation:** ${details?.wiki_url || operator.wiki_url}\n`;
+    }
+    
+    // Add educational context for POP operators
+    if (operator.educationalContext) {
+      text += `\n**Educational Context:**\n`;
+      text += `${operator.educationalContext.overview}\n\n`;
+      
+      if (operator.educationalContext.keyPoints) {
+        text += `**Key Points:**\n`;
+        operator.educationalContext.keyPoints.forEach(point => {
+          text += `- ${point}\n`;
+        });
+        text += '\n';
+      }
+      
+      if (operator.educationalContext.workflow) {
+        text += `**Workflow:**\n`;
+        operator.educationalContext.workflow.steps.forEach((step, i) => {
+          text += `${i + 1}. ${step}\n`;
+        });
+        text += '\n';
+      }
+      
+      if (operator.commonAttributes) {
+        text += `**Common Attributes:**\n`;
+        operator.commonAttributes.forEach(attr => {
+          text += `- ${attr}\n`;
+        });
       }
     }
     
@@ -280,53 +267,64 @@ server.registerTool(
   "list_operators",
   {
     title: "List TouchDesigner Operators",
-    description: "List available TouchDesigner operators",
+    description: "List available TouchDesigner operators with contextual grouping",
     inputSchema: {
-      category: z.string().optional().describe("Filter by category (CHOP, DAT, SOP, TOP, MAT, COMP)")
+      category: z.string().optional().describe("Filter by category (CHOP, DAT, SOP, TOP, MAT, COMP, POP)")
     }
   },
   async ({ category }) => {
-    // Get unique operators (filter out duplicates from variations)
-    const uniqueOperators = new Map();
-    for (const [key, value] of operators) {
-      if (key === value.name) { // Only include entries where key matches the actual name
-        uniqueOperators.set(value.name, value);
+    const results = [];
+    
+    for (const [name, operator] of operators) {
+      if (!category || operator.category === category.toUpperCase()) {
+        results.push(operator);
       }
     }
     
-    let filtered = Array.from(uniqueOperators.values());
-    if (category) {
-      const upperCategory = category.toUpperCase();
-      filtered = filtered.filter(op => op.category === upperCategory);
-    }
-    
-    if (filtered.length === 0) {
+    if (results.length === 0) {
       return {
         content: [{
           type: "text",
-          text: category 
-            ? `No operators found in category '${category}'.`
-            : "No operators found."
+          text: category ? `No operators found in category '${category}'.` : "No operators found."
         }]
       };
     }
     
-    // Group by category
-    const grouped = {};
-    for (const op of filtered) {
-      if (!grouped[op.category]) grouped[op.category] = [];
-      grouped[op.category].push(op.name);
-    }
+    results.sort((a, b) => a.name.localeCompare(b.name));
     
-    let text = `Found ${filtered.length} operators:\n\n`;
-    Object.entries(grouped).sort().forEach(([cat, ops]) => {
-      text += `**${cat}:** ${ops.length} operators\n`;
-      ops.sort().slice(0, 10).forEach(name => text += `- ${name}\n`);
-      if (ops.length > 10) {
-        text += `... and ${ops.length - 10} more\n`;
+    let text = `Found ${results.length} operators`;
+    if (category) {
+      text += ` in ${category.toUpperCase()} category`;
+    }
+    text += `:\n\n`;
+    
+    if (category) {
+      results.slice(0, MAX_RESULTS.LIST_CATEGORY).forEach(op => {
+        text += `- ${op.name}\n`;
+      });
+      if (results.length > MAX_RESULTS.LIST_CATEGORY) {
+        text += `... and ${results.length - MAX_RESULTS.LIST_CATEGORY} more\n`;
       }
-      text += '\n';
-    });
+    } else {
+      // Group by category
+      const grouped = new Map();
+      for (const op of results) {
+        const ops = grouped.get(op.category) || [];
+        ops.push(op);
+        grouped.set(op.category, ops);
+      }
+      
+      for (const [cat, ops] of Array.from(grouped.entries()).sort()) {
+        text += `**${cat}:** ${ops.length} operators\n`;
+        ops.slice(0, MAX_RESULTS.LIST_GROUP).forEach(op => {
+          text += `- ${op.name}\n`;
+        });
+        if (ops.length > MAX_RESULTS.LIST_GROUP) {
+          text += `... and ${ops.length - MAX_RESULTS.LIST_GROUP} more\n`;
+        }
+        text += '\n';
+      }
+    }
     
     return {
       content: [{
@@ -337,35 +335,46 @@ server.registerTool(
   }
 );
 
-// Tool: Search operators
+// Tool: Search operators with contextual ranking
 server.registerTool(
   "search_operators",
   {
     title: "Search TouchDesigner Operators",
-    description: "Search for operators by name or description",
+    description: "Search for operators using contextual analysis and ranking",
     inputSchema: {
       query: z.string().describe("Search query"),
-      category: z.string().optional().describe("Filter by category")
+      category: z.string().optional().describe("Filter by category (CHOP, DAT, SOP, TOP, MAT, COMP, POP)")
     }
   },
   async ({ query, category }) => {
     const searchTerm = query.toLowerCase();
     const results = [];
     
-    // Get unique operators
-    const uniqueOperators = new Map();
-    for (const [key, value] of operators) {
-      if (key === value.name) {
-        uniqueOperators.set(value.name, value);
+    for (const [name, operator] of operators) {
+      if (category && operator.category !== category.toUpperCase()) {
+        continue;
       }
-    }
-    
-    for (const op of uniqueOperators.values()) {
-      if (op.name.toLowerCase().includes(searchTerm) ||
-          op.summary.toLowerCase().includes(searchTerm)) {
-        if (!category || op.category === category.toUpperCase()) {
-          results.push(op);
-        }
+
+      let relevance = 0;
+      
+      if (operator.name.toLowerCase().includes(searchTerm)) {
+        relevance = 1.0;
+      }
+      if (operator.description && operator.description.toLowerCase().includes(searchTerm)) {
+        relevance = Math.max(relevance, 0.8);
+      }
+      if (operator.keywords && operator.keywords.some(k => k.toLowerCase().includes(searchTerm))) {
+        relevance = Math.max(relevance, 0.9);
+      }
+      if (operator.aliases && operator.aliases.some(a => a.toLowerCase().includes(searchTerm))) {
+        relevance = Math.max(relevance, 0.9);
+      }
+      if (operator.subcategory && operator.subcategory.toLowerCase().includes(searchTerm)) {
+        relevance = Math.max(relevance, 0.7);
+      }
+
+      if (relevance > 0) {
+        results.push({ ...operator, relevance });
       }
     }
     
@@ -378,13 +387,15 @@ server.registerTool(
       };
     }
     
+    results.sort((a, b) => b.relevance - a.relevance);
+    
     let text = `Found ${results.length} operators matching '${query}':\n\n`;
-    results.slice(0, 20).forEach(op => {
-      text += `- **${op.name}** (${op.category}): ${op.summary.substring(0, 100)}...\n`;
+    results.slice(0, MAX_RESULTS.SEARCH).forEach(op => {
+      text += `- **${op.name}** (${op.category}, relevance: ${op.relevance.toFixed(2)})\n`;
     });
     
-    if (results.length > 20) {
-      text += `\n... and ${results.length - 20} more results\n`;
+    if (results.length > MAX_RESULTS.SEARCH) {
+      text += `\n... and ${results.length - MAX_RESULTS.SEARCH} more results\n`;
     }
     
     return {
@@ -396,48 +407,101 @@ server.registerTool(
   }
 );
 
-// Update Memory MCP with status
-async function updateMemory(message) {
-  console.log(`[Memory Update] ${message}`);
-  // In a full implementation, this would connect to Memory MCP
-}
+// Tool: Get POP Learning Guide
+server.registerTool(
+  "get_pop_learning_guide",
+  {
+    title: "Get POP Learning Guide",
+    description: "Get comprehensive learning information about TouchDesigner POPs (Point Operators)",
+    inputSchema: {}
+  },
+  async () => {
+    let text = `# Learning About POPs\n\n`;
+    text += `${POPLearningGuide.overview.description}\n\n`;
+    
+    text += `## Key Points\n`;
+    POPLearningGuide.overview.keyPoints.forEach(point => {
+      text += `- ${point}\n`;
+    });
+    text += '\n';
+    
+    text += `## Categories\n\n`;
+    for (const [category, info] of Object.entries(POPLearningGuide.categories)) {
+      text += `### ${category}\n`;
+      text += `${info.description}\n\n`;
+      
+      if (info.details) {
+        info.details.forEach(detail => {
+          text += `- ${detail}\n`;
+        });
+        text += '\n';
+      }
+      
+      if (info.commonAttributes) {
+        text += `**Common Attributes:**\n`;
+        info.commonAttributes.forEach(attr => {
+          text += `- ${attr}\n`;
+        });
+        text += '\n';
+      }
+      
+      if (info.examples) {
+        text += `**Examples:**\n`;
+        info.examples.forEach(example => {
+          text += `- ${example}\n`;
+        });
+        text += '\n';
+      }
+    }
+    
+    text += `## Workflow\n`;
+    text += `${POPLearningGuide.workflow.title}\n\n`;
+    POPLearningGuide.workflow.steps.forEach((step, i) => {
+      text += `${i + 1}. ${step}\n`;
+    });
+    text += '\n';
+    
+    text += `## Best Practices\n`;
+    POPLearningGuide.bestPractices.forEach(practice => {
+      text += `- ${practice}\n`;
+    });
+    text += '\n';
+    
+    text += `## Example Package\n`;
+    text += `**${POPLearningGuide.examplePackage.name}**\n`;
+    text += `${POPLearningGuide.examplePackage.description}\n`;
+    text += `${POPLearningGuide.examplePackage.url}\n`;
+    
+    return {
+      content: [{
+        type: "text",
+        text
+      }]
+    };
+  }
+);
 
 // Main startup
 async function main() {
   console.log('TD-MCP Server Starting...');
   console.log('================================');
-  console.log('Simple, direct TouchDesigner documentation server');
-  console.log(`Documentation path: ${TOUCHDESIGNER_PATH}`);
-  
-  // Discover all operators
+  console.log('Metadata-driven TouchDesigner MCP Server');
+  console.log('');
+
   try {
-    await discoverOperators();
-    
-    // Show some stats
-    const categories = {};
-    for (const [key, op] of operators) {
-      if (key === op.name) { // Only count unique operators
-        categories[op.category] = (categories[op.category] || 0) + 1;
-      }
-    }
-    
-    console.log('\nOperator statistics:');
-    Object.entries(categories).sort().forEach(([cat, count]) => {
-      console.log(`  ${cat}: ${count} operators`);
-    });
-    
-    await updateMemory(`TD-MCP initialized with ${operators.size} operator entries`);
+    await loadMetadata();
+    console.log('\n[Server] TD MCP Server initialized successfully');
+    console.log(`[Server] Ready to provide operator information`);
   } catch (error) {
-    console.error('Failed to discover operators:', error);
-    await updateMemory('TD-MCP failed to access TouchDesigner documentation');
+    console.error('[Server] Failed to load metadata:', error);
+    process.exit(1);
   }
-  
+
   // Connect to stdio transport
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  
-  console.log('\n✓ TD-MCP Server running');
-  await updateMemory('TD-MCP Server is now running and ready');
+
+  console.log('\n✓ TD-MCP Server is now running');
 }
 
 // Start the server

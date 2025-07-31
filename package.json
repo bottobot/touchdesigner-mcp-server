@@ -1,6 +1,6 @@
 {
   "name": "@bottobot/td-mcp",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "TouchDesigner Documentation MCP Server - Simple, direct approach using filesystem",
   "main": "index.js",
   "type": "module",
@@ -31,7 +31,8 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "cheerio": "^1.0.0",
-    "glob": "^11.0.3"
+    "glob": "^11.0.3",
+    "zod": "^3.23.8"
   },
   "engines": {
     "node": ">=18.0.0"
