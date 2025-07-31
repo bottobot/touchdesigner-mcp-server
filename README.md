@@ -278,9 +278,24 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 MIT License - see LICENSE file for details
 
+### Attribution
+
+When using TD-MCP in your projects, please include attribution:
+> "Uses TD-MCP by Robert Spring (@bottobot)"
+
+The MIT license requires that the copyright notice be included in all copies or substantial portions of the software, which ensures attribution is maintained.
+
 ## Author
 
 Robert Spring ([@bottobot](https://github.com/bottobot))
+
+## Support This Project
+
+If you find TD-MCP useful, please consider:
+- ⭐ Starring the repository
+- 🐛 Reporting bugs and suggesting features
+- 🔧 Contributing code improvements
+- 💬 Sharing your projects built with TD-MCP
 
 ## Acknowledgments
 
