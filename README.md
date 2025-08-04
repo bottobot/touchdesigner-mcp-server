@@ -263,16 +263,23 @@ Ensure TouchDesigner is installed in the default location:
 - Subsequent queries should be fast (cached)
 - If consistently slow, check disk access to documentation files
 
-## Contributing
+## Forking Policy
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+This project is not accepting direct contributions. If you'd like to build upon TD-MCP:
 
-### Development Guidelines
+1. **Fork the repository** to create your own version
+2. **Make your changes** in your forked repository
+3. **Maintain your fork** independently
 
-1. Maintain the simple, database-free architecture
-2. Ensure backward compatibility
-3. Add tests for new features
-4. Update documentation as needed
+### Why Fork Instead of Contribute?
+
+This ensures:
+- You have full control over your modifications
+- The core project maintains its focused vision
+- Multiple variations can exist for different use cases
+- No delays waiting for PR reviews
+
+Feel free to create your own enhanced versions!
 
 ## License
 
