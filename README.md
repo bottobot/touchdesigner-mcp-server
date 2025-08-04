@@ -1,16 +1,16 @@
 # TouchDesigner MCP Server v2.1
 
-A Model Context Protocol (MCP) server that provides instant access to TouchDesigner documentation directly in your AI assistant. Now with comprehensive support for all 91 experimental POP operators!
+A Model Context Protocol (MCP) server that provides accurate TouchDesigner information dircetly from the TD documentation directly in your AI assistant. 
 
 ## Overview
 
-TouchDesigner MCP Server (TD-MCP) is a lightweight, efficient MCP server that enables AI assistants to query and retrieve comprehensive documentation for TouchDesigner operators. Built with a direct filesystem approach, it parses TouchDesigner's offline HTML documentation on-demand, providing fast and accurate information without the overhead of a database.
+An MCP server that provides TouchDesigner operator documentation to VS Code/Codium or Claude Desktop through the Model Context Protocol. If you want to know anything about TouchDesigner operators you can ask your Agentic AI to query the server using natural language and it will give you exact information based on the TouchDesigner documentation. For example ("Give me a comprehensive list of all POP operators.") or "What is the differrence between a GLSL POP and a GLSL TOP?"
+
+Beyond just asking it about different specific operators is that you could use it to design whole networks for you. In fact I am working on a mode for the Roo Code extension called TD Network Creator that can make a useable network within TouchDesigner itself. You can find that project in another repo here on my page.Right now it is able to give you step by step instructions along with all the paramater values you would need to complete your project. I hope you find it useful!
 
 ## The Story Behind TD-MCP
 
-This project was born out of necessity and frustration. As a self-described "lazy hack/vibe coder," I needed an AI agent that could build TouchDesigner networks for an interactive piece I was presenting at a festival. What started as a quest for AI-assisted creativity turned into an epic journey through the depths of overengineering.
-
-### The Journey
+As a self-described "lazy hack/vibe coder," I needed an AI agent that could build TouchDesigner networks for an interactive piece I was presenting at a festival. What started as a quest for an LLM tool that would do my homework for me turned into an epic journey through the depths of overengineering.
 
 I began with ambitious goals - integrating directly into TouchDesigner using websocket DATs and OSC IN/OUT CHOPs. Surprisingly, the integration worked well! The AI could actually build networks... except the data it was using was complete garbage. It was simulating data, making things up, and creating all kinds of silliness.
 
@@ -27,13 +27,12 @@ Each iteration grew more complex, more sophisticated, and somehow... less functi
 
 Out of sheer frustration, I asked myself: "What if I just read the HTML files directly?"
 
-And that's when this little gem popped out. It turns out that the MCP SDK and cheerio were all I needed. No databases, no complex pipelines, no cloud services - just good old-fashioned HTML parsing.
+And that's when the first working version popped into existense. It turns out that the MCP SDK and cheerio were all I needed. No databases, no complex pipelines, no cloud services - just good old-fashioned HTML parsing. Sometimes the best solution is the simplest one. Who knew? 🤷‍♂️
 
 ### What's Next
 
-The simple approach works beautifully for documentation access. The next phase is to explore actual TouchDesigner integration - but this time, keeping it simple from the start.
+The simple approach works beautifully for documentation access. The next phase is to explore actual TouchDesigner integration, for the MCP server along with Roo Code and my TD Network Creator Mode to be able to build full, working, networks just based on some simple user input. 
 
-Sometimes the best solution is the simplest one. Who knew? 🤷‍♂️
 
 ## Features
 
