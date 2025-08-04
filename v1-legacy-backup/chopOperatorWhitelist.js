@@ -26,9 +26,8 @@ export const CHOP_OPERATOR_WHITELIST = [
 ];
 
 export function isTrueCHOPOperator(name) {
-    if (!name) return false;
     const cleanedName = name.replace(/\bchop\b/gi, '').trim();
-    return CHOP_OPERATOR_WHITELIST.some(op => cleanedName.toLowerCase() === op.toLowerCase());
+    return CHOP_OPERATOR_WHITELIST.some(op => cleanedName.includes(op.toLowerCase()));
 }
 
 export function isCHOPFalsePositive(name) {

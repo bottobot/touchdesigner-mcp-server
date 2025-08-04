@@ -1,7 +1,7 @@
 {
   "name": "@bottobot/td-mcp",
-  "version": "1.2.0",
-  "description": "TouchDesigner Documentation MCP Server - Simple, direct approach using filesystem",
+  "version": "2.1.1",
+  "description": "TouchDesigner Documentation MCP Server v2 - Pure MCP server for VS Code/Codium with comprehensive operator documentation including all 91 POP operators",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -9,14 +9,25 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "node test.js"
+    "scrape": "node scrapers/ultra-comprehensive-scraper.js"
   },
   "keywords": [
     "mcp",
-    "modelcontextprotocol",
+    "model-context-protocol",
     "touchdesigner",
     "documentation",
-    "derivative"
+    "derivative",
+    "vscode",
+    "codium",
+    "operators",
+    "workflow",
+    "chop",
+    "top",
+    "sop",
+    "dat",
+    "mat",
+    "comp",
+    "pop"
   ],
   "author": "Robert Spring",
   "license": "MIT",
@@ -28,13 +39,27 @@
     "url": "https://github.com/bottobot/touchdesigner-mcp-server/issues"
   },
   "homepage": "https://github.com/bottobot/touchdesigner-mcp-server#readme",
+  "files": [
+    "index.js",
+    "tools/",
+    "data/",
+    "metadata/",
+    "README.md",
+    "CHANGELOG.md",
+    "SETUP-INSTRUCTIONS.md"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
-    "cheerio": "^1.0.0",
+    "cheerio": "^1.1.2",
     "glob": "^11.0.3",
+    "node-fetch": "^3.3.2",
+    "p-limit": "^6.2.0",
     "zod": "^3.23.8"
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
