@@ -1,0 +1,363 @@
+{
+  "patterns": [
+    {
+      "name": "Basic Video Input Chain",
+      "description": "Standard video input and basic processing",
+      "category": "TOP",
+      "workflow": [
+        "Movie File In",
+        "Transform",
+        "Level",
+        "Out"
+      ],
+      "use_case": "Load and adjust video files with basic transformations"
+    },
+    {
+      "name": "Video Device Input Chain",
+      "description": "Live video input processing",
+      "category": "TOP",
+      "workflow": [
+        "Video Device In",
+        "Crop",
+        "Fit",
+        "Level",
+        "Out"
+      ],
+      "use_case": "Process live camera input with cropping and fitting"
+    },
+    {
+      "name": "Image Filter Chain",
+      "description": "Multi-stage image filtering workflow",
+      "category": "TOP",
+      "workflow": [
+        "Movie File In",
+        "Blur",
+        "Level",
+        "HSV Adjust",
+        "Composite",
+        "Out"
+      ],
+      "use_case": "Apply multiple image filters for visual effects"
+    },
+    {
+      "name": "Advanced Image Effects",
+      "description": "Complex image processing with multiple effects",
+      "category": "TOP",
+      "workflow": [
+        "Movie File In",
+        "Blur",
+        "Luma Blur",
+        "Bloom",
+        "Edge",
+        "Composite",
+        "Level",
+        "Out"
+      ],
+      "use_case": "Create sophisticated visual effects with multiple processing stages"
+    },
+    {
+      "name": "Feedback Loop Effect",
+      "description": "Video feedback processing for recursive effects",
+      "category": "TOP",
+      "workflow": [
+        "Movie File In",
+        "Transform",
+        "Feedback",
+        "Composite",
+        "Level",
+        "Out"
+      ],
+      "use_case": "Create recursive video feedback effects"
+    },
+    {
+      "name": "Audio Analysis Chain",
+      "description": "Audio input with spectrum analysis",
+      "category": "CHOP",
+      "workflow": [
+        "Audio Device In",
+        "Audio Spectrum",
+        "Math",
+        "Lag",
+        "Null"
+      ],
+      "use_case": "Analyze audio input for reactive visuals"
+    },
+    {
+      "name": "Audio Processing Chain",
+      "description": "Audio filtering and effects processing",
+      "category": "CHOP",
+      "workflow": [
+        "Audio Device In",
+        "Audio Filter",
+        "Audio Dynamics",
+        "Math",
+        "Audio Device Out"
+      ],
+      "use_case": "Process audio with filtering and dynamics"
+    },
+    {
+      "name": "MIDI Control Chain",
+      "description": "MIDI input processing for control",
+      "category": "CHOP",
+      "workflow": [
+        "MIDI In",
+        "Select",
+        "Math",
+        "Lag",
+        "Null"
+      ],
+      "use_case": "Process MIDI input for parameter control"
+    },
+    {
+      "name": "Audio Reactive Visuals",
+      "description": "Audio-driven visual generation",
+      "category": "CHOP_TOP",
+      "workflow": [
+        "Audio Device In",
+        "Audio Spectrum",
+        "Math",
+        "CHOP to",
+        "Noise",
+        "Level",
+        "Out"
+      ],
+      "use_case": "Create visuals that react to audio input"
+    },
+    {
+      "name": "Basic 3D Geometry",
+      "description": "Simple 3D object creation and rendering",
+      "category": "SOP_TOP",
+      "workflow": [
+        "Sphere",
+        "Transform",
+        "Material",
+        "Render"
+      ],
+      "use_case": "Create and render basic 3D objects"
+    },
+    {
+      "name": "Complex 3D Scene",
+      "description": "Multi-object 3D scene with lighting",
+      "category": "SOP_TOP",
+      "workflow": [
+        "Box",
+        "Sphere",
+        "Merge",
+        "Transform",
+        "Material",
+        "Light",
+        "Render"
+      ],
+      "use_case": "Build complex 3D scenes with multiple objects and lighting"
+    },
+    {
+      "name": "Procedural Geometry",
+      "description": "Algorithmic geometry generation",
+      "category": "SOP",
+      "workflow": [
+        "Grid",
+        "Noise",
+        "Point",
+        "Copy",
+        "Transform",
+        "Material"
+      ],
+      "use_case": "Generate procedural 3D geometry using algorithms"
+    },
+    {
+      "name": "Particle System Basic",
+      "description": "Simple particle generation and forces",
+      "category": "POP_TOP",
+      "workflow": [
+        "Particle",
+        "Force",
+        "Render"
+      ],
+      "use_case": "Create basic particle effects with physics"
+    },
+    {
+      "name": "Advanced Particle System",
+      "description": "Complex particle system with multiple forces and interactions",
+      "category": "POP_TOP",
+      "workflow": [
+        "Particle",
+        "Attractor",
+        "Force",
+        "Collision",
+        "Limit",
+        "Render"
+      ],
+      "use_case": "Create sophisticated particle behaviors with multiple physics forces"
+    },
+    {
+      "name": "Data Visualization",
+      "description": "Convert data to visual representation",
+      "category": "DAT_SOP_TOP",
+      "workflow": [
+        "Table",
+        "DAT to",
+        "Point",
+        "Copy",
+        "Material",
+        "Render"
+      ],
+      "use_case": "Visualize data as 3D geometry"
+    },
+    {
+      "name": "UI Panel Creation",
+      "description": "Interactive user interface elements",
+      "category": "COMP",
+      "workflow": [
+        "Panel",
+        "Button",
+        "Slider",
+        "Container"
+      ],
+      "use_case": "Build interactive control interfaces"
+    },
+    {
+      "name": "Generative Pattern",
+      "description": "Algorithmic pattern generation",
+      "category": "TOP",
+      "workflow": [
+        "Noise",
+        "Math",
+        "Ramp",
+        "Composite",
+        "Transform",
+        "Feedback"
+      ],
+      "use_case": "Generate complex algorithmic visual patterns"
+    },
+    {
+      "name": "Motion Graphics",
+      "description": "Animated graphics and text",
+      "category": "TOP",
+      "workflow": [
+        "Text",
+        "Transform",
+        "Level",
+        "Composite",
+        "Movie File Out"
+      ],
+      "use_case": "Create animated text and motion graphics"
+    },
+    {
+      "name": "Real-time Compositing",
+      "description": "Multi-layer video compositing",
+      "category": "TOP",
+      "workflow": [
+        "Movie File In",
+        "Video Device In",
+        "Chroma Key",
+        "Composite",
+        "Over",
+        "Level",
+        "Out"
+      ],
+      "use_case": "Composite multiple video sources in real-time"
+    },
+    {
+      "name": "OSC Control Network",
+      "description": "OSC communication for external control",
+      "category": "DAT_CHOP",
+      "workflow": [
+        "OSC In",
+        "Convert",
+        "Math",
+        "Null"
+      ],
+      "use_case": "Receive OSC messages for remote control"
+    }
+  ],
+  "common_transitions": {
+    "Movie File In": ["Transform", "Crop", "Fit", "Level", "Blur", "HSV Adjust"],
+    "Video Device In": ["Crop", "Fit", "Transform", "Level", "Chroma Key"],
+    "Transform": ["Level", "Composite", "Out", "Blur", "Render"],
+    "Level": ["Composite", "Out", "HSV Adjust", "Bloom"],
+    "Blur": ["Level", "Composite", "Luma Blur", "Edge"],
+    "Luma Blur": ["Level", "Composite", "Bloom"],
+    "HSV Adjust": ["Level", "Composite", "Out"],
+    "Composite": ["Level", "Out", "Over", "Movie File Out"],
+    "Over": ["Level", "Out", "Composite"],
+    "Bloom": ["Level", "Composite", "Edge"],
+    "Edge": ["Composite", "Level"],
+    "Feedback": ["Composite", "Transform", "Level"],
+    "Chroma Key": ["Composite", "Over", "Level"],
+    "Crop": ["Fit", "Transform", "Level"],
+    "Fit": ["Transform", "Level", "Composite"],
+    "Noise": ["Math", "Level", "Transform", "Composite"],
+    "Math": ["Level", "Composite", "Null", "Lag"],
+    "Ramp": ["Math", "Composite", "Level"],
+    "Text": ["Transform", "Level", "Composite"],
+    
+    "Audio Device In": ["Audio Spectrum", "Audio Filter", "Audio Dynamics", "Beat"],
+    "Audio Spectrum": ["Math", "Select", "CHOP to"],
+    "Audio Filter": ["Audio Dynamics", "Math", "Audio Device Out"],
+    "Audio Dynamics": ["Math", "Audio Device Out"],
+    "Beat": ["Math", "Trigger", "Count"],
+    "MIDI In": ["Select", "Math", "Lag"],
+    "Select": ["Math", "Lag", "Null"],
+    "Lag": ["Math", "Null", "CHOP to"],
+    "CHOP to": ["Noise", "Transform", "Point"],
+    "Null": ["CHOP to", "Parameter"],
+    
+    "Sphere": ["Transform", "Material", "Merge"],
+    "Box": ["Transform", "Material", "Merge"],
+    "Grid": ["Noise", "Point", "Transform"],
+    "Point": ["Copy", "Transform", "Material"],
+    "Copy": ["Transform", "Material", "Merge"],
+    "Merge": ["Transform", "Material", "Render"],
+    "Material": ["Render", "Light"],
+    "Light": ["Render"],
+    "Render": ["Composite", "Level", "Out"],
+    
+    "Particle": ["Force", "Attractor", "Collision", "Limit"],
+    "Force": ["Render", "Attractor", "Collision"],
+    "Attractor": ["Force", "Collision", "Render"],
+    "Collision": ["Force", "Limit", "Render"],
+    "Limit": ["Render", "Force"],
+    
+    "Table": ["DAT to", "Select", "Convert"],
+    "DAT to": ["Point", "CHOP to", "Math"],
+    "Convert": ["Math", "Select"],
+    
+    "Panel": ["Button", "Slider", "Container"],
+    "Button": ["Container", "Panel"],
+    "Slider": ["Container", "Panel"],
+    "Container": ["Panel"],
+    
+    "OSC In": ["Convert", "Select", "Table"],
+    "Timer": ["Count", "Math", "Trigger"],
+    "Count": ["Math", "Select", "Trigger"],
+    "Trigger": ["Count", "Math", "Event"]
+  },
+  "workflow_categories": {
+    "Video Processing": ["Movie File In", "Video Device In", "Transform", "Level", "Blur", "Composite"],
+    "Audio Processing": ["Audio Device In", "Audio Spectrum", "Audio Filter", "Audio Dynamics", "Beat"],
+    "3D Graphics": ["Sphere", "Box", "Grid", "Transform", "Material", "Light", "Render"],
+    "Particle Systems": ["Particle", "Force", "Attractor", "Collision", "Limit"],
+    "Data Processing": ["Table", "DAT to", "Convert", "Select", "Math"],
+    "User Interface": ["Panel", "Button", "Slider", "Container"],
+    "Control Systems": ["MIDI In", "OSC In", "Timer", "Count", "Trigger"],
+    "Effects": ["Noise", "Feedback", "Bloom", "Edge", "Chroma Key"],
+    "Output": ["Out", "Movie File Out", "Audio Device Out", "Render"]
+  },
+  "operator_purposes": {
+    "Movie File In": "Load video files from disk",
+    "Video Device In": "Capture live video from cameras or devices",
+    "Transform": "Scale, rotate, translate, and manipulate geometry or images",
+    "Level": "Adjust brightness, contrast, and color levels",
+    "Blur": "Apply blur effects to images",
+    "Composite": "Combine multiple images or layers",
+    "Audio Device In": "Capture live audio input",
+    "Audio Spectrum": "Analyze audio frequency spectrum",
+    "Sphere": "Generate 3D sphere geometry",
+    "Render": "Render 3D scenes to 2D images",
+    "Particle": "Generate particle systems",
+    "Force": "Apply physics forces to particles",
+    "Noise": "Generate procedural noise patterns",
+    "Math": "Perform mathematical operations on data",
+    "Out": "Output final result to display or recording"
+  }
+}

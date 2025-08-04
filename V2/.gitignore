@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Debug and test files
+debug-*.js
+test-*.js
+*.test.js
+*.spec.js
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+nul
+
+# Development files
+run-*.js
+analyze-*.js
+extract-*.js
+find-*.js
+
+# Old metadata files
+comprehensive_*.json
+scraping_summary_*.json
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+
+# Documentation drafts
+*-DRAFT.md
+*-TEST.md
+*-REPORT.md
+ENHANCEMENT-*.md
+LIVE-TEST-*.md
