@@ -1,12 +1,19 @@
-# TD-MCP v2.1 - Pure MCP Server
+# TD-MCP v2.2 - Pure MCP Server
 
 TouchDesigner Model Context Protocol server for VS Code/Codium integration. Get TouchDesigner operator information directly in your code editor.
 
-**Latest Update (v2.1.0)**: Enhanced POP operator support with comprehensive documentation for all 91 experimental POP operators.
+**Latest Update (v2.2.0)**: Enhanced terminal awareness and improved documentation structure for better integration with VS Code/Codium environments.
 
-## What This Is
+## About
 
-A clean, simple MCP server that provides TouchDesigner operator documentation to VS Code/Codium through the Model Context Protocol. No WebSocket complexity, no TouchDesigner integration scripts - just a pure MCP server.
+TD-MCP is a lightweight Model Context Protocol server that brings TouchDesigner's comprehensive operator documentation directly into your VS Code/Codium environment. With over 717 operators documented across all categories (TOP, CHOP, SOP, DAT, MAT, COMP, and POP), this server provides instant access to parameter details, usage examples, and workflow patterns without leaving your code editor.
+
+### Key Features:
+- **Complete Operator Coverage**: All 717+ TouchDesigner operators including experimental POPs
+- **Smart Search**: Context-aware operator discovery with intelligent ranking
+- **Workflow Patterns**: 20 pre-built patterns for common TouchDesigner tasks
+- **Zero Configuration**: TouchDesigner runs independently - no complex setup required
+- **Pure MCP Implementation**: Clean, focused server following Claude.md principles
 
 **Key Principle**: TouchDesigner runs independently. VS Code connects to this MCP server to get operator information while you code.
 
@@ -103,7 +110,7 @@ node index.js
 
 You should see:
 ```
-TD-MCP v2.1 Server Starting...
+TD-MCP v2.2 Server Starting...
 ================================
 TouchDesigner MCP Server for VS Code/Codium
 Following Claude.md principles: Keep it simple
@@ -111,7 +118,7 @@ Pure MCP server - no WebSocket complexity
 
 [Metadata] Loaded 717+ operators
 [Patterns] Loaded 20 workflow patterns
-✓ TD-MCP v2.1 Server is now running
+✓ TD-MCP v2.2 Server is now running
 ```
 
 ## Architecture

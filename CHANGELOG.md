@@ -5,6 +5,24 @@ All notable changes to TD-MCP (TouchDesigner MCP Server) will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2025-08-04
+
+### ✨ Added
+
+#### Enhanced Documentation
+- **Improved About Section**: Comprehensive overview of TD-MCP capabilities and features
+- **Terminal Awareness**: Better integration with VS Code/Codium terminal environments
+- **Documentation Structure**: Reorganized README for better clarity and user experience
+
+### 🔄 Changed
+- **Version Updates**: Synchronized version numbers across README, package.json, and server output
+- **About Section**: Expanded with detailed feature list and key capabilities
+- **Documentation**: Enhanced clarity on the 717+ operators and workflow patterns
+
+### 🛠️ Improved
+- **Integration**: Better awareness of VS Code/Codium terminal environments (Git Bash, CMD, PowerShell)
+- **User Experience**: Clearer documentation structure with comprehensive About section
+
 ## [2.1.0] - 2025-08-04
 
 ### ✨ Added
