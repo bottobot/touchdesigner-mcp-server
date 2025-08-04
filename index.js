@@ -172,20 +172,30 @@ server.registerTool(
       text += '\n';
     }
     
-    // Add inputs if available
-    if (details?.inputs && details.inputs.length > 0) {
+    // Add inputs - prioritize metadata over scraped data
+    const inputs = operator.inputs && operator.inputs.length > 0 ? operator.inputs : details?.inputs;
+    if (inputs && inputs.length > 0) {
       text += `**Inputs:**\n`;
-      details.inputs.forEach(input => {
-        text += `- ${input}\n`;
+      inputs.forEach(input => {
+        if (typeof input === 'object' && input.name) {
+          text += `- **${input.name}** (${input.type || 'CHOP'}): ${input.description || 'Input data'}\n`;
+        } else {
+          text += `- ${input}\n`;
+        }
       });
       text += '\n';
     }
     
-    // Add outputs if available
-    if (details?.outputs && details.outputs.length > 0) {
+    // Add outputs - prioritize metadata over scraped data
+    const outputs = operator.outputs && operator.outputs.length > 0 ? operator.outputs : details?.outputs;
+    if (outputs && outputs.length > 0) {
       text += `**Outputs:**\n`;
-      details.outputs.forEach(output => {
-        text += `- ${output}\n`;
+      outputs.forEach(output => {
+        if (typeof output === 'object' && output.name) {
+          text += `- **${output.name}** (${output.type || 'CHOP'}): ${output.description || 'Output data'}\n`;
+        } else {
+          text += `- ${output}\n`;
+        }
       });
       text += '\n';
     }
@@ -372,6 +382,23 @@ server.registerTool(
       if (operator.subcategory && operator.subcategory.toLowerCase().includes(searchTerm)) {
         relevance = Math.max(relevance, 0.7);
       }
+      // Search in use cases
+      if (operator.use_cases && operator.use_cases.some(uc => uc.toLowerCase().includes(searchTerm))) {
+        relevance = Math.max(relevance, 0.8);
+      }
+      // Search in inputs/outputs descriptions
+      if (operator.inputs && operator.inputs.some(input =>
+        (typeof input === 'object' && input.description && input.description.toLowerCase().includes(searchTerm)) ||
+        (typeof input === 'string' && input.toLowerCase().includes(searchTerm))
+      )) {
+        relevance = Math.max(relevance, 0.6);
+      }
+      if (operator.outputs && operator.outputs.some(output =>
+        (typeof output === 'object' && output.description && output.description.toLowerCase().includes(searchTerm)) ||
+        (typeof output === 'string' && output.toLowerCase().includes(searchTerm))
+      )) {
+        relevance = Math.max(relevance, 0.6);
+      }
 
       if (relevance > 0) {
         results.push({ ...operator, relevance });
@@ -391,7 +418,14 @@ server.registerTool(
     
     let text = `Found ${results.length} operators matching '${query}':\n\n`;
     results.slice(0, MAX_RESULTS.SEARCH).forEach(op => {
-      text += `- **${op.name}** (${op.category}, relevance: ${op.relevance.toFixed(2)})\n`;
+      let categoryInfo = op.category;
+      if (op.subcategory) {
+        categoryInfo += ` - ${op.subcategory}`;
+      }
+      text += `- **${op.name}** (${categoryInfo}, relevance: ${op.relevance.toFixed(2)})\n`;
+      if (op.use_cases && op.use_cases.length > 0) {
+        text += `  *${op.use_cases[0]}*\n`;
+      }
     });
     
     if (results.length > MAX_RESULTS.SEARCH) {

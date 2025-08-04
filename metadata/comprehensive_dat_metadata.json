@@ -2,7 +2,7 @@
   "category": "DAT",
   "description": "Data Operators - handle ASCII text, scripts, XML, and tables",
   "operatorCount": 76,
-  "lastUpdated": "2025-07-31T20:11:37.144Z",
+  "lastUpdated": "2025-07-31T21:56:52.653Z",
   "sourceUrl": "https://docs.derivative.ca/DAT",
   "operators": [
     {
@@ -15,10 +15,27 @@
       "wiki_url": "https://docs.derivative.ca/Art-Net",
       "thumb": "/images/operators/art-net_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Audio Devices",
@@ -31,9 +48,20 @@
       "thumb": "/images/operators/audio_devices_thumb.jpg",
       "parameters": [],
       "inputs": [],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "Audio",
+          "type": "CHOP",
+          "description": "Audio channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Audio I/O",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "CHOP Execute",
@@ -45,10 +73,27 @@
       "wiki_url": "https://docs.derivative.ca/CHOP_Execute",
       "thumb": "/images/operators/chop_execute_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "CHOP to",
@@ -60,10 +105,27 @@
       "wiki_url": "https://docs.derivative.ca/CHOP_to",
       "thumb": "/images/operators/chop_to_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Clip",
@@ -75,10 +137,27 @@
       "wiki_url": "https://docs.derivative.ca/Clip",
       "thumb": "/images/operators/clip_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Convert",
@@ -90,10 +169,27 @@
       "wiki_url": "https://docs.derivative.ca/Convert",
       "thumb": "/images/operators/convert_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "CPlusPlus",
@@ -105,10 +201,27 @@
       "wiki_url": "https://docs.derivative.ca/CPlusPlus",
       "thumb": "/images/operators/cplusplus_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "DAT",
@@ -120,10 +233,27 @@
       "wiki_url": "https://docs.derivative.ca/DAT",
       "thumb": "/images/operators/dat_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "DAT Execute",
@@ -135,10 +265,27 @@
       "wiki_url": "https://docs.derivative.ca/DAT_Execute",
       "thumb": "/images/operators/dat_execute_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "DAT Export",
@@ -150,10 +297,27 @@
       "wiki_url": "https://docs.derivative.ca/DAT_Export",
       "thumb": "/images/operators/dat_export_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Error",
@@ -165,10 +329,27 @@
       "wiki_url": "https://docs.derivative.ca/Error",
       "thumb": "/images/operators/error_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "EtherDream",
@@ -180,10 +361,27 @@
       "wiki_url": "https://docs.derivative.ca/EtherDream",
       "thumb": "/images/operators/etherdream_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Evaluate",
@@ -195,10 +393,27 @@
       "wiki_url": "https://docs.derivative.ca/Evaluate",
       "thumb": "/images/operators/evaluate_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Examine",
@@ -210,10 +425,27 @@
       "wiki_url": "https://docs.derivative.ca/Examine",
       "thumb": "/images/operators/examine_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Execute",
@@ -225,10 +457,27 @@
       "wiki_url": "https://docs.derivative.ca/Execute",
       "thumb": "/images/operators/execute_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "FIFO",
@@ -240,10 +489,27 @@
       "wiki_url": "https://docs.derivative.ca/FIFO",
       "thumb": "/images/operators/fifo_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "File In",
@@ -255,10 +521,27 @@
       "wiki_url": "https://docs.derivative.ca/File_In",
       "thumb": "/images/operators/file_in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "File Out",
@@ -270,10 +553,27 @@
       "wiki_url": "https://docs.derivative.ca/File_Out",
       "thumb": "/images/operators/file_out_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Output",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Folder",
@@ -285,10 +585,27 @@
       "wiki_url": "https://docs.derivative.ca/Folder",
       "thumb": "/images/operators/folder_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "In",
@@ -300,10 +617,27 @@
       "wiki_url": "https://docs.derivative.ca/In",
       "thumb": "/images/operators/in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Indices",
@@ -315,10 +649,27 @@
       "wiki_url": "https://docs.derivative.ca/Indices",
       "thumb": "/images/operators/indices_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Info",
@@ -330,10 +681,27 @@
       "wiki_url": "https://docs.derivative.ca/Info",
       "thumb": "/images/operators/info_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Insert",
@@ -345,10 +713,27 @@
       "wiki_url": "https://docs.derivative.ca/Insert",
       "thumb": "/images/operators/insert_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "JSON",
@@ -360,10 +745,27 @@
       "wiki_url": "https://docs.derivative.ca/JSON",
       "thumb": "/images/operators/json_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Keyboard In",
@@ -375,10 +777,27 @@
       "wiki_url": "https://docs.derivative.ca/Keyboard_In",
       "thumb": "/images/operators/keyboard_in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Lookup",
@@ -390,10 +809,27 @@
       "wiki_url": "https://docs.derivative.ca/Lookup",
       "thumb": "/images/operators/lookup_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Media File Info",
@@ -405,10 +841,27 @@
       "wiki_url": "https://docs.derivative.ca/Media_File_Info",
       "thumb": "/images/operators/media_file_info_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Merge",
@@ -420,10 +873,27 @@
       "wiki_url": "https://docs.derivative.ca/Merge",
       "thumb": "/images/operators/merge_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Channel Operations",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "MIDI Event",
@@ -436,9 +906,21 @@
       "thumb": "/images/operators/midi_event_thumb.jpg",
       "parameters": [],
       "inputs": [],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Network & Communication",
+      "use_cases": [
+        "MIDI controller input for parameter control",
+        "MIDI sequencing and playback",
+        "Integration with music production software"
+      ]
     },
     {
       "name": "MIDI In",
@@ -451,9 +933,21 @@
       "thumb": "/images/operators/midi_in_thumb.jpg",
       "parameters": [],
       "inputs": [],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "MIDI controller input for parameter control",
+        "MIDI sequencing and playback",
+        "Integration with music production software"
+      ]
     },
     {
       "name": "Monitors",
@@ -465,10 +959,27 @@
       "wiki_url": "https://docs.derivative.ca/Monitors",
       "thumb": "/images/operators/monitors_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "MPCDI",
@@ -480,10 +991,27 @@
       "wiki_url": "https://docs.derivative.ca/MPCDI",
       "thumb": "/images/operators/mpcdi_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "MQTT Client",
@@ -495,10 +1023,27 @@
       "wiki_url": "https://docs.derivative.ca/MQTT_Client",
       "thumb": "/images/operators/mqtt_client_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Multi Touch In",
@@ -510,10 +1055,27 @@
       "wiki_url": "https://docs.derivative.ca/Multi_Touch_In",
       "thumb": "/images/operators/multi_touch_in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "NDI",
@@ -525,10 +1087,27 @@
       "wiki_url": "https://docs.derivative.ca/NDI",
       "thumb": "/images/operators/ndi_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Null",
@@ -540,10 +1119,27 @@
       "wiki_url": "https://docs.derivative.ca/Null",
       "thumb": "/images/operators/null_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "OP Execute",
@@ -555,10 +1151,27 @@
       "wiki_url": "https://docs.derivative.ca/OP_Execute",
       "thumb": "/images/operators/op_execute_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "OP Find",
@@ -570,10 +1183,27 @@
       "wiki_url": "https://docs.derivative.ca/OP_Find",
       "thumb": "/images/operators/op_find_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "OSC In",
@@ -585,10 +1215,28 @@
       "wiki_url": "https://docs.derivative.ca/OSC_In",
       "thumb": "/images/operators/osc_in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Network communication between applications",
+        "Remote control of TouchDesigner parameters",
+        "Integration with other creative software"
+      ]
     },
     {
       "name": "OSC Out",
@@ -600,10 +1248,28 @@
       "wiki_url": "https://docs.derivative.ca/OSC_Out",
       "thumb": "/images/operators/osc_out_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Output",
+      "use_cases": [
+        "Network communication between applications",
+        "Remote control of TouchDesigner parameters",
+        "Integration with other creative software"
+      ]
     },
     {
       "name": "Out",
@@ -615,10 +1281,27 @@
       "wiki_url": "https://docs.derivative.ca/Out",
       "thumb": "/images/operators/out_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Output",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Panel Execute",
@@ -630,10 +1313,27 @@
       "wiki_url": "https://docs.derivative.ca/Panel_Execute",
       "thumb": "/images/operators/panel_execute_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Parameter",
@@ -645,10 +1345,27 @@
       "wiki_url": "https://docs.derivative.ca/Parameter",
       "thumb": "/images/operators/parameter_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Parameter Execute",
@@ -660,10 +1377,27 @@
       "wiki_url": "https://docs.derivative.ca/Parameter_Execute",
       "thumb": "/images/operators/parameter_execute_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "ParGroup Execute",
@@ -675,10 +1409,27 @@
       "wiki_url": "https://docs.derivative.ca/ParGroup_Execute",
       "thumb": "/images/operators/pargroup_execute_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Perform",
@@ -690,10 +1441,27 @@
       "wiki_url": "https://docs.derivative.ca/Perform",
       "thumb": "/images/operators/perform_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "POP to",
@@ -705,10 +1473,27 @@
       "wiki_url": "https://docs.derivative.ca/POP_to",
       "thumb": "/images/operators/pop_to_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Render Pick",
@@ -720,10 +1505,27 @@
       "wiki_url": "https://docs.derivative.ca/Render_Pick",
       "thumb": "/images/operators/render_pick_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Reorder",
@@ -735,10 +1537,27 @@
       "wiki_url": "https://docs.derivative.ca/Reorder",
       "thumb": "/images/operators/reorder_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Channel Operations",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Script",
@@ -750,10 +1569,27 @@
       "wiki_url": "https://docs.derivative.ca/Script",
       "thumb": "/images/operators/script_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Select",
@@ -765,10 +1601,27 @@
       "wiki_url": "https://docs.derivative.ca/Select",
       "thumb": "/images/operators/select_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Source channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Channel Operations",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Serial",
@@ -780,10 +1633,27 @@
       "wiki_url": "https://docs.derivative.ca/Serial",
       "thumb": "/images/operators/serial_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Network & Communication",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Serial Devices",
@@ -796,9 +1666,20 @@
       "thumb": "/images/operators/serial_devices_thumb.jpg",
       "parameters": [],
       "inputs": [],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Network & Communication",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "SocketIO",
@@ -810,10 +1691,27 @@
       "wiki_url": "https://docs.derivative.ca/SocketIO",
       "thumb": "/images/operators/socketio_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "SOP to",
@@ -825,10 +1723,27 @@
       "wiki_url": "https://docs.derivative.ca/SOP_to",
       "thumb": "/images/operators/sop_to_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Sort",
@@ -840,10 +1755,27 @@
       "wiki_url": "https://docs.derivative.ca/Sort",
       "thumb": "/images/operators/sort_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Substitute",
@@ -855,10 +1787,27 @@
       "wiki_url": "https://docs.derivative.ca/Substitute",
       "thumb": "/images/operators/substitute_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Switch",
@@ -870,10 +1819,27 @@
       "wiki_url": "https://docs.derivative.ca/Switch",
       "thumb": "/images/operators/switch_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Source channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Table",
@@ -885,10 +1851,27 @@
       "wiki_url": "https://docs.derivative.ca/Table",
       "thumb": "/images/operators/table_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "TCP/IP",
@@ -900,10 +1883,27 @@
       "wiki_url": "https://docs.derivative.ca/TCP/IP",
       "thumb": "/images/operators/tcp/ip_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Network & Communication",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Text",
@@ -915,10 +1915,27 @@
       "wiki_url": "https://docs.derivative.ca/Text",
       "thumb": "/images/operators/text_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Touch In",
@@ -930,10 +1947,27 @@
       "wiki_url": "https://docs.derivative.ca/Touch_In",
       "thumb": "/images/operators/touch_in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Touch Out",
@@ -945,10 +1979,27 @@
       "wiki_url": "https://docs.derivative.ca/Touch_Out",
       "thumb": "/images/operators/touch_out_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Output",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Transpose",
@@ -960,10 +2011,27 @@
       "wiki_url": "https://docs.derivative.ca/Transpose",
       "thumb": "/images/operators/transpose_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "TUIO In",
@@ -975,10 +2043,27 @@
       "wiki_url": "https://docs.derivative.ca/TUIO_In",
       "thumb": "/images/operators/tuio_in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "UDP In",
@@ -990,10 +2075,27 @@
       "wiki_url": "https://docs.derivative.ca/UDP_In",
       "thumb": "/images/operators/udp_in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "UDP Out",
@@ -1005,10 +2107,27 @@
       "wiki_url": "https://docs.derivative.ca/UDP_Out",
       "thumb": "/images/operators/udp_out_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Output",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "UDT In",
@@ -1020,10 +2139,27 @@
       "wiki_url": "https://docs.derivative.ca/UDT_In",
       "thumb": "/images/operators/udt_in_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Input",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "UDT Out",
@@ -1035,10 +2171,27 @@
       "wiki_url": "https://docs.derivative.ca/UDT_Out",
       "thumb": "/images/operators/udt_out_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "Output",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Video Devices",
@@ -1051,9 +2204,20 @@
       "thumb": "/images/operators/video_devices_thumb.jpg",
       "parameters": [],
       "inputs": [],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Web Client",
@@ -1065,10 +2229,27 @@
       "wiki_url": "https://docs.derivative.ca/Web_Client",
       "thumb": "/images/operators/web_client_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Web",
@@ -1080,10 +2261,27 @@
       "wiki_url": "https://docs.derivative.ca/Web",
       "thumb": "/images/operators/web_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "Web Server",
@@ -1095,10 +2293,27 @@
       "wiki_url": "https://docs.derivative.ca/Web_Server",
       "thumb": "/images/operators/web_server_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "WebRTC",
@@ -1110,10 +2325,27 @@
       "wiki_url": "https://docs.derivative.ca/WebRTC",
       "thumb": "/images/operators/webrtc_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "WebSocket",
@@ -1125,10 +2357,27 @@
       "wiki_url": "https://docs.derivative.ca/WebSocket",
       "thumb": "/images/operators/websocket_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     },
     {
       "name": "XML",
@@ -1140,10 +2389,27 @@
       "wiki_url": "https://docs.derivative.ca/XML",
       "thumb": "/images/operators/xml_thumb.jpg",
       "parameters": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        {
+          "name": "Input",
+          "type": "CHOP",
+          "description": "Input channel data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "CHOP",
+          "description": "Processed channel data"
+        }
+      ],
       "related": [],
-      "examples": []
+      "examples": [],
+      "subcategory": "General",
+      "use_cases": [
+        "Signal processing and data manipulation",
+        "Parameter control and automation"
+      ]
     }
   ]
 }
