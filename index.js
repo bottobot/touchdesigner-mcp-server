@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// TD-MCP v2.0 - Simple wiki-enhanced TouchDesigner MCP Server
+// TD-MCP v2 - Pure MCP TouchDesigner Documentation Server
 // Following Claude.md principles: POC first, no premature abstraction
 // Phase 5: Code Organization - Modular structure
 
@@ -21,10 +21,14 @@ const __dirname = dirname(__filename);
 const METADATA_PATH = join(__dirname, 'metadata'); // Use V2 metadata with real data
 const PATTERNS_PATH = join(__dirname, 'data', 'patterns.json'); // Updated path
 
+// Load package.json to get version
+const packageJson = JSON.parse(await fs.readFile(join(__dirname, 'package.json'), 'utf-8'));
+const VERSION = packageJson.version;
+
 // Create MCP server instance
 const server = new McpServer({
   name: "td-mcp",
-  version: "2.0.0"
+  version: VERSION
 });
 
 // Operator storage - reuse from v1
@@ -194,7 +198,7 @@ server.registerTool(
 
 // Main startup
 async function main() {
-  console.log('TD-MCP v2.0 Server Starting...');
+  console.log(`TD-MCP v${VERSION} Server Starting...`);
   console.log('================================');
   console.log('TouchDesigner MCP Server for VS Code/Codium');
   console.log('Following Claude.md principles: Keep it simple');
@@ -203,7 +207,7 @@ async function main() {
   try {
     await loadMetadata();
     await loadPatterns();
-    console.log('\n[Server] TD MCP v2.0 initialized successfully');
+    console.log(`\n[Server] TD MCP v${VERSION} initialized successfully`);
     console.log(`[Server] Workflow suggestions available via suggest_workflow tool`);
     console.log(`[Server] Modular structure: tools/, scrapers/, data/ directories`);
   } catch (error) {
@@ -215,7 +219,7 @@ async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
 
-  console.log('\n✓ TD-MCP v2.0 Server is now running (modular structure)');
+  console.log(`\n✓ TD-MCP v${VERSION} Server is now running (modular structure)`);
 }
 
 // Start the server
