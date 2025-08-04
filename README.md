@@ -1,6 +1,6 @@
-# TouchDesigner MCP Server
+# TouchDesigner MCP Server v2.1
 
-A Model Context Protocol (MCP) server that provides instant access to TouchDesigner documentation directly in your AI assistant.
+A Model Context Protocol (MCP) server that provides instant access to TouchDesigner documentation directly in your AI assistant. Now with comprehensive support for all 91 experimental POP operators!
 
 ## Overview
 
@@ -43,7 +43,8 @@ Sometimes the best solution is the simplest one. Who knew? 🤷‍♂️
 - **Detailed Information**: Get operator summaries, parameter descriptions, and usage information
 - **Zero Database**: Direct HTML parsing means no database setup or maintenance required
 - **Memory Efficient**: In-memory caching for optimal performance without excessive resource usage
-- **Enhanced Metadata**: Pre-scraped comprehensive metadata for 690+ operators across all categories
+- **Enhanced Metadata**: Pre-scraped comprehensive metadata for 717+ operators across all categories
+- **Complete POP Support**: All 91 experimental POP (Particle Operators) fully documented
 - **Dynamic Scraping**: Real-time operator detail scraping from TouchDesigner's offline documentation
 - **POP Learning Guide**: Dedicated educational content for Particle Operators with workflow guidance
 - **Contextual Search**: Advanced search with relevance ranking based on names, descriptions, keywords, and aliases
@@ -304,6 +305,25 @@ If you find TD-MCP useful, please consider:
 - The TouchDesigner community for inspiration and feedback
 
 ## Version History
+
+### V2 Series (Pure MCP Implementation)
+
+- **2.1.0** - Enhanced POP operator support (2025-08-04)
+  - Added comprehensive documentation for all 91 experimental POP operators
+  - Organized POPs into 13 logical categories for better discovery
+  - Created GLSL POP vs GLSL TOP comparison guide
+  - Updated total operator count from 682 to 717+
+  - Enhanced search functionality for POP-specific queries
+
+- **2.0.0** - Complete architecture redesign (2025-01-31)
+  - Migrated from WebSocket to pure MCP server implementation
+  - Modular tool architecture with dedicated tools directory
+  - 682 TouchDesigner operators with comprehensive metadata
+  - 20 workflow patterns for development guidance
+  - Sub-4ms average response times
+  - Full VS Code/Codium integration
+
+### V1 Series (Legacy)
 
 - **1.2.0** - The "Context7" release - Major enhancements:
   - Added comprehensive pre-scraped metadata for 690+ operators
