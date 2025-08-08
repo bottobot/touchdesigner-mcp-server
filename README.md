@@ -1,202 +1,239 @@
-# TD-MCP v2.2 - Pure MCP Server
+# TouchDesigner MCP Server
 
-TouchDesigner Model Context Protocol server for VS Code/Codium integration. Get TouchDesigner operator information directly in your code editor.
+[![npm version](https://img.shields.io/npm/v/@bottobot/td-mcp.svg)](https://www.npmjs.com/package/@bottobot/td-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Latest Update (v2.2.0)**: Enhanced terminal awareness and improved documentation structure for better integration with VS Code/Codium environments.
-
-## About
-
-TD-MCP is a lightweight Model Context Protocol server that brings TouchDesigner's comprehensive operator documentation directly into your VS Code/Codium environment. With over 717 operators documented across all categories (TOP, CHOP, SOP, DAT, MAT, COMP, and POP), this server provides instant access to parameter details, usage examples, and workflow patterns without leaving your code editor.
-
-### Key Features:
-- **Complete Operator Coverage**: All 717+ TouchDesigner operators including experimental POPs
-- **Smart Search**: Context-aware operator discovery with intelligent ranking
-- **Workflow Patterns**: 20 pre-built patterns for common TouchDesigner tasks
-- **Zero Configuration**: TouchDesigner runs independently - no complex setup required
-- **Pure MCP Implementation**: Clean, focused server following Claude.md principles
-
-**Key Principle**: TouchDesigner runs independently. VS Code connects to this MCP server to get operator information while you code.
-
-## Installation
-
-```bash
-npm install
-```
-
-## Usage
-
-### For VS Code/Codium Users
-
-1. **Start the MCP server:**
-   ```bash
-   node index.js
-   ```
-
-2. **Configure VS Code/Codium** to connect to this MCP server by adding it to your MCP configuration.
-
-3. **Use the tools** in VS Code/Codium to get TouchDesigner operator information while coding.
-
-The server provides 717+ TouchDesigner operators with comprehensive metadata and 20 workflow patterns, including complete coverage of all 91 experimental POP operators.
-
-## Available Tools
-
-### get_operator
-Get detailed information about a specific TouchDesigner operator.
-
-**Parameters:**
-- `name` (string): Operator name (e.g., 'Noise CHOP', 'Movie File In TOP')
-
-**Example:**
-```
-Get information about the "Noise TOP" operator
-```
-
-### list_operators
-List available TouchDesigner operators, optionally filtered by category.
-
-**Parameters:**
-- `category` (string, optional): Filter by category (CHOP, DAT, SOP, TOP, MAT, COMP, POP)
-
-**Example:**
-```
-List all TOP operators
-```
-
-### search_operators
-Search for operators using contextual analysis and ranking.
-
-**Parameters:**
-- `query` (string): Search query
-- `category` (string, optional): Filter by category
-
-**Example:**
-```
-Search for audio-related operators in the CHOP category
-```
-
-### get_pop_learning_guide
-Get comprehensive learning information about TouchDesigner POPs (Point Operators).
-
-**Example:**
-```
-Get the POP learning guide
-```
-
-## Operator Categories
-
-- **TOP** (Texture Operators): Image and video processing
-- **CHOP** (Channel Operators): Audio and data processing  
-- **SOP** (Surface Operators): 3D geometry operations
-- **DAT** (Data Operators): Text and data manipulation
-- **MAT** (Material Operators): 3D rendering materials
-- **COMP** (Component Operators): UI and system components
-- **POP** (Point Operators): Particle systems
+A Model Context Protocol (MCP) server that provides comprehensive TouchDesigner operator documentation and tutorials directly in VS Code/Codium through Claude or other MCP-compatible assistants.
 
 ## Features
 
-- **717+ Operators**: Complete TouchDesigner operator database including all POP operators
-- **Contextual Search**: Smart operator discovery based on your needs
-- **Category Filtering**: Find operators by type (TOP, CHOP, SOP, etc.)
-- **Comprehensive Metadata**: Detailed operator information including parameters and usage
-- **Workflow Patterns**: 20 common TouchDesigner workflow patterns
-- **Learning Resources**: Specialized guides for complex operator families like POPs
+- 🎯 **629 TouchDesigner Operators** - Complete documentation including 90+ experimental POP operators
+- 📚 **7 Interactive Tutorials** - Step-by-step TouchDesigner learning guides
+- 🔍 **Smart Search** - Advanced contextual search with intelligent ranking
+- 🔄 **Workflow Suggestions** - Get operator recommendations based on your current workflow
+- 🚀 **Zero Configuration** - Works immediately after installation
+- 📖 **Full Parameter Documentation** - Detailed information for 3,327+ operator parameters
 
-## Local Wiki System
+## Installation
 
-TD-MCP now includes a powerful local wiki system that mirrors the official TouchDesigner documentation from docs.derivative.ca directly on your machine. This provides instant, offline access to comprehensive TouchDesigner documentation alongside the MCP tools.
-
-### Wiki Features
-
-- **Complete Documentation Mirror**: Processes and serves all TouchDesigner documentation locally
-- **1800+ HTML Documents**: Full coverage of operator documentation, tutorials, and guides
-- **1119+ Searchable Operators**: Comprehensive operator search with parameter details
-- **URL Compatibility**: Maintains docs.derivative.ca URL structure for easy reference
-- **Offline Access**: No internet connection required once documentation is processed
-- **MCP Integration**: Seamlessly integrates with VS Code through MCP tools
-
-### How It Works
-
-The wiki system processes TouchDesigner's offline documentation (located in your TouchDesigner installation) and creates a local, searchable database that can be accessed through:
-
-1. **Web Interface**: Browse documentation at http://localhost:3000 with the same URL structure as docs.derivative.ca
-2. **MCP Tools**: Access operator information directly in VS Code through enhanced MCP tools
-3. **Search API**: Fast, indexed search across all documentation and operator parameters
-
-### Quick Start
-
-1. **Process Documentation** (one-time setup):
-   ```bash
-   node process-td-docs.js
-   ```
-   This processes the ~1822 HTM files from your TouchDesigner installation.
-
-2. **Start the Wiki Server**:
-   ```bash
-   node wiki/server/wiki-server.js
-   ```
-   Access the wiki at http://localhost:3000
-
-3. **Use with MCP**: The MCP server automatically integrates with the wiki data for enhanced operator information.
-
-### Documentation Location
-
-The system automatically finds TouchDesigner documentation at:
-```
-C:\Program Files\Derivative\TouchDesigner\Samples\Learn\OfflineHelp\https.docs.derivative.ca\
-```
-
-For detailed setup and configuration, see [WIKI-SETUP.md](WIKI-SETUP.md).
-
-## Testing
-
-Test the server startup:
+### Global Installation (Recommended)
 ```bash
-node index.js
+npm install -g @bottobot/td-mcp
 ```
 
-You should see:
+### Local Installation
+```bash
+npm install @bottobot/td-mcp
 ```
-TD-MCP v2.2 Server Starting...
-================================
-TouchDesigner MCP Server for VS Code/Codium
-Following Claude.md principles: Keep it simple
-Pure MCP server - no WebSocket complexity
 
-[Metadata] Loaded 717+ operators
-[Patterns] Loaded 20 workflow patterns
-✓ TD-MCP v2.2 Server is now running
+## Quick Start
+
+### Using with VS Code/Codium and Claude
+
+1. **Install the MCP server globally:**
+   ```bash
+   npm install -g @bottobot/td-mcp
+   ```
+
+2. **Configure Claude/MCP in VS Code:**
+   Add the server to your MCP settings configuration file:
+   ```json
+   {
+     "td-mcp": {
+       "command": "npx",
+       "args": ["@bottobot/td-mcp"]
+     }
+   }
+   ```
+
+3. **Start using TouchDesigner tools** in your conversations with Claude!
+
+### Running Standalone
+
+```bash
+# If installed globally
+td-mcp
+
+# If installed locally
+npx @bottobot/td-mcp
+```
+
+## Available MCP Tools
+
+### 🔧 get_operator
+Get comprehensive details about a specific TouchDesigner operator.
+
+**Parameters:**
+- `name` (string): Operator name (e.g., 'Noise CHOP', 'Movie File In TOP')
+- `show_examples` (boolean, optional): Show usage examples
+- `show_tips` (boolean, optional): Show performance tips
+
+**Example:** "Get detailed information about the Noise TOP operator"
+
+### 🔍 search_operators
+Search for operators using advanced contextual analysis and ranking.
+
+**Parameters:**
+- `query` (string): Search query
+- `category` (string, optional): Filter by category (CHOP, DAT, SOP, TOP, MAT, COMP, POP)
+- `parameter_search` (boolean, optional): Search within parameters
+- `show_details` (boolean, optional): Show detailed results
+
+**Example:** "Search for audio processing operators"
+
+### 📋 list_operators
+List available TouchDesigner operators with optional category filtering.
+
+**Parameters:**
+- `category` (string, optional): Filter by category
+
+**Example:** "List all TOP operators"
+
+### 🔄 suggest_workflow
+Get workflow suggestions for what operators commonly follow the current operator.
+
+**Parameters:**
+- `current_operator` (string): Current operator name
+
+**Example:** "What operators typically follow a Movie File In TOP?"
+
+### 📚 get_tutorial
+Access detailed TouchDesigner tutorial content.
+
+**Parameters:**
+- `name` (string): Tutorial name
+- `include_content` (boolean, optional): Include full content sections
+- `include_toc` (boolean, optional): Include table of contents
+- `include_links` (boolean, optional): Include related links
+
+**Example:** "Get the 'Write a GLSL TOP' tutorial"
+
+### 📖 list_tutorials
+List all available TouchDesigner tutorials.
+
+**Parameters:**
+- `search` (string, optional): Search term to filter tutorials
+- `limit` (number, optional): Maximum results
+- `show_details` (boolean, optional): Show tutorial summaries
+
+**Example:** "List all available tutorials"
+
+## Operator Categories
+
+The server provides comprehensive coverage across all TouchDesigner operator families:
+
+| Category | Count | Description |
+|----------|-------|-------------|
+| **CHOP** | 166 | Channel Operators - Audio, control signals, and data streams |
+| **TOP** | 139 | Texture Operators - 2D image and video processing |
+| **SOP** | 112 | Surface Operators - 3D geometry creation and manipulation |
+| **DAT** | 69 | Data Operators - Text, tables, and data handling |
+| **COMP** | 40 | Component Operators - UI elements and containers |
+| **MAT** | 13 | Material Operators - 3D rendering materials and shaders |
+| **POP** | 90 | Point Operators - Particle systems (experimental) |
+
+## Available Tutorials
+
+- **Write a GLSL TOP** - Create custom GPU-accelerated image effects
+- **Write a C++ CHOP** - Develop native audio/data processing operators
+- **Write a C++ TOP** - Build custom texture operators in C++
+- **Anatomy of a CHOP** - Understanding channel operator internals
+- **Build a List COMP** - Create dynamic UI lists
+- **Write a Shared Memory CHOP** - Inter-process data communication
+- **Write a Shared Memory TOP** - Share textures between processes
+
+## PM2 Process Management
+
+For production deployments, you can use PM2 to manage the MCP server:
+
+```bash
+# Install PM2 globally
+npm install -g pm2
+
+# Start the server with PM2
+pm2 start td-mcp
+
+# View server status
+pm2 status td-mcp
+
+# View logs
+pm2 logs td-mcp
+
+# Restart server
+pm2 restart td-mcp
+
+# Stop server
+pm2 stop td-mcp
 ```
 
 ## Architecture
 
-Built following Claude.md principles:
-- **Keep it simple**: Pure MCP server, no unnecessary complexity
-- **Single responsibility**: Serves TouchDesigner documentation to VS Code
-- **No premature abstraction**: Straightforward implementation
-- **Modular structure**: Clean separation of tools and data
+The TD-MCP server is built with:
+- **Pure MCP Implementation** - Clean, focused server following MCP standards
+- **Local Data Processing** - All operator data is processed and served locally
+- **Efficient Search Index** - Fast, contextual search across all documentation
+- **Modular Tool System** - Each MCP tool is independently maintained
 
-## Files
+## Project Structure
 
-- `index.js` - Main MCP server
-- `package.json` - Dependencies and configuration
-- `tools/` - Individual MCP tools (get_operator, search_operators, etc.)
-- `data/patterns.json` - Workflow patterns database
-- `../metadata/` - Comprehensive operator metadata (shared with v1)
+```
+td-mcp/
+├── index.js              # Main MCP server
+├── tools/                # MCP tool implementations
+│   ├── get_operator.js
+│   ├── search_operators.js
+│   ├── suggest_workflow.js
+│   ├── list_operators.js
+│   ├── get_tutorial.js
+│   └── list_tutorials.js
+├── wiki/                 # Documentation system
+│   ├── data/            # Processed operator & tutorial data
+│   └── wiki-system.js   # Core documentation engine
+└── data/                # Configuration & patterns
+    └── patterns.json    # Workflow patterns
+```
 
-## What This Is NOT
+## Requirements
 
-- ❌ Not a WebSocket server
-- ❌ Not for direct TouchDesigner integration
-- ❌ Not a complex multi-protocol system
-- ❌ TouchDesigner doesn't need to connect to anything
+- Node.js 18.0 or higher
+- npm or yarn package manager
+- VS Code/Codium with MCP-compatible extension (e.g., Claude Dev)
 
-## What This IS
+## Development
 
-- ✅ Pure MCP server for VS Code/Codium
-- ✅ TouchDesigner documentation provider
-- ✅ Simple, reliable, focused tool
-- ✅ Following Claude.md principles: Keep it simple
+To contribute or modify the server:
 
-## Next Steps
+```bash
+# Clone the repository
+git clone https://github.com/bottobot/touchdesigner-mcp-server.git
 
-Use this MCP server with VS Code/Codium to get TouchDesigner operator information while you code. TouchDesigner runs independently - this server just provides documentation to your code editor.
+# Install dependencies
+cd touchdesigner-mcp-server
+npm install
+
+# Run the server locally
+node index.js
+```
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/bottobot/touchdesigner-mcp-server/issues)
+- **Documentation**: [TouchDesigner Official Docs](https://docs.derivative.ca)
+- **NPM Package**: [@bottobot/td-mcp](https://www.npmjs.com/package/@bottobot/td-mcp)
+
+## License
+
+MIT License - See [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- TouchDesigner by [Derivative](https://derivative.ca)
+- Model Context Protocol by [Anthropic](https://modelcontextprotocol.io)
+- Built for the TouchDesigner community 🎨
+
+---
+
+**Current Version**: 2.3.1  
+**Operators**: 629  
+**Tutorials**: 7  
+**Last Updated**: January 2025
