@@ -1,0 +1,24 @@
+{
+  "className": "Peer",
+  "displayName": "Peer Class",
+  "description": "A Peer describes the network connection originating a message in the callback functions found in oscinDAT, tcpipDAT, udpinDAT, udtinDAT.",
+  "category": "General",
+  "fileName": "Peer_Class.htm",
+  "members": [
+    {
+      "name": "owner",
+      "id": "content",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "owner member"
+    },
+    {
+      "name": "owner",
+      "id": "bodyContent",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "owner member"
+    }
+  ],
+  "methods": []
+}

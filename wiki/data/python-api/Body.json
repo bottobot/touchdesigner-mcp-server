@@ -1,0 +1,24 @@
+{
+  "className": "Body",
+  "displayName": "Body Class",
+  "description": "The Body Class describes the contents of a single body within an Actor COMP.\nThe Actor COMP has a list of all its bodies.",
+  "category": "General",
+  "fileName": "Body_Class.htm",
+  "members": [
+    {
+      "name": "index",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "index member"
+    },
+    {
+      "name": "index",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "index member"
+    }
+  ],
+  "methods": []
+}

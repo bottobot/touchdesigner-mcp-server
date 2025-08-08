@@ -1,0 +1,24 @@
+{
+  "className": "isosurfaceSOP",
+  "displayName": "isosurfaceSOP Class",
+  "description": "This class inherits from the  SOP class.\nIt references a specific Iso Surface SOP.",
+  "category": "General",
+  "fileName": "IsosurfaceSOP_Class.htm",
+  "members": [
+    {
+      "name": "curPos",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "curPos member"
+    },
+    {
+      "name": "curPos",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "curPos member"
+    }
+  ],
+  "methods": []
+}

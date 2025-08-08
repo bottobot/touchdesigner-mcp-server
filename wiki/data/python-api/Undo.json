@@ -1,0 +1,24 @@
+{
+  "className": "Undo",
+  "displayName": "Undo Class",
+  "description": "A class to enable and disable undo functionality. Undo blocks can be created in scripts. At the end of callbacks, any dangling undo blocks will be terminated. See examples at bottom of page.",
+  "category": "General",
+  "fileName": "Undo_Class.htm",
+  "members": [
+    {
+      "name": "globalState",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "globalState member"
+    },
+    {
+      "name": "globalState",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "globalState member"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,24 @@
+{
+  "className": "Group",
+  "displayName": "Group Class",
+  "description": "An Group describes groups lists of Prim Class or Point Class.",
+  "category": "General",
+  "fileName": "Group_Class.htm",
+  "members": [
+    {
+      "name": "default",
+      "id": "content",
+      "returnType": "tuple",
+      "readOnly": true,
+      "description": "default member"
+    },
+    {
+      "name": "default",
+      "id": "bodyContent",
+      "returnType": "tuple",
+      "readOnly": true,
+      "description": "default member"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,24 @@
+{
+  "className": "fbxCOMP",
+  "displayName": "fbxCOMP Class",
+  "description": "This class inherits from the  COMP class.\nIt references a specific FBX COMP.",
+  "category": "Component",
+  "fileName": "FbxCOMP_Class.htm",
+  "members": [
+    {
+      "name": "extensions",
+      "id": "content",
+      "returnType": "List",
+      "readOnly": true,
+      "description": "extensions member"
+    },
+    {
+      "name": "extensions",
+      "id": "bodyContent",
+      "returnType": "List",
+      "readOnly": true,
+      "description": "extensions member"
+    }
+  ],
+  "methods": []
+}

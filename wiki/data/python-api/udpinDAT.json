@@ -1,0 +1,24 @@
+{
+  "className": "udpinDAT",
+  "displayName": "udpinDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific UDP In DAT.",
+  "category": "General",
+  "fileName": "UdpinDAT_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "sendBytes(*messages)",
+      "returnType": "int",
+      "description": "sendBytes(*messages) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "sendBytes(*messages)",
+      "returnType": "int",
+      "description": "sendBytes(*messages) method",
+      "parameters": []
+    }
+  ]
+}

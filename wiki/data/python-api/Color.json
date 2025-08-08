@@ -1,0 +1,24 @@
+{
+  "className": "Color",
+  "displayName": "Color Class",
+  "description": "The color class holds a single 4 component color (R, G, B, A).",
+  "category": "General",
+  "fileName": "Color_Class.htm",
+  "members": [
+    {
+      "name": "r",
+      "id": "content",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "r member"
+    },
+    {
+      "name": "r",
+      "id": "bodyContent",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "r member"
+    }
+  ],
+  "methods": []
+}

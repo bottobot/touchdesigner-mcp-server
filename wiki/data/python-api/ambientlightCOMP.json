@@ -1,0 +1,24 @@
+{
+  "className": "ambientlightCOMP",
+  "displayName": "ambientlightCOMP Class",
+  "description": "This class inherits from the  COMP class.\nIt references a specific Ambient Light COMP.",
+  "category": "Component",
+  "fileName": "AmbientlightCOMP_Class.htm",
+  "members": [
+    {
+      "name": "localTransform",
+      "id": "content",
+      "returnType": "tdu.Matrix",
+      "readOnly": true,
+      "description": "localTransform member"
+    },
+    {
+      "name": "localTransform",
+      "id": "bodyContent",
+      "returnType": "tdu.Matrix",
+      "readOnly": true,
+      "description": "localTransform member"
+    }
+  ],
+  "methods": []
+}

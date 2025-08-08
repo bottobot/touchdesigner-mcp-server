@@ -1,0 +1,24 @@
+{
+  "className": "Experimental:Quaternion",
+  "displayName": "Experimental:Quaternion Class",
+  "description": "Holds a Quaternion object which can be used to manipulate rotations in various ways.",
+  "category": "General",
+  "fileName": "Experimental-Quaternion_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "TDU.Quaternion(*args)",
+      "returnType": "TDU.Quaternion",
+      "description": "TDU.Quaternion(*args) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "TDU.Quaternion(*args)",
+      "returnType": "TDU.Quaternion",
+      "description": "TDU.Quaternion(*args) method",
+      "parameters": []
+    }
+  ]
+}

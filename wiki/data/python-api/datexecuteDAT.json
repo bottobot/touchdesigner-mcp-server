@@ -1,0 +1,24 @@
+{
+  "className": "datexecuteDAT",
+  "displayName": "datexecuteDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific DAT Execute DAT.",
+  "category": "General",
+  "fileName": "DatexecuteDAT_Class.htm",
+  "members": [
+    {
+      "name": "export",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    },
+    {
+      "name": "export",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,24 @@
+{
+  "className": "selectCOMP",
+  "displayName": "selectCOMP Class",
+  "description": "This class inherits from the  COMP class.\nIt references a specific Select COMP.",
+  "category": "Component",
+  "fileName": "SelectCOMP_Class.htm",
+  "members": [
+    {
+      "name": "panel",
+      "id": "content",
+      "returnType": "td.Panel",
+      "readOnly": true,
+      "description": "panel member"
+    },
+    {
+      "name": "panel",
+      "id": "bodyContent",
+      "returnType": "td.Panel",
+      "readOnly": true,
+      "description": "panel member"
+    }
+  ],
+  "methods": []
+}

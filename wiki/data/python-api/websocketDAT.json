@@ -1,0 +1,24 @@
+{
+  "className": "websocketDAT",
+  "displayName": "websocketDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific WebSocket DAT.",
+  "category": "General",
+  "fileName": "WebsocketDAT_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "sendText(message)",
+      "returnType": "int",
+      "description": "sendText(message) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "sendText(message)",
+      "returnType": "int",
+      "description": "sendText(message) method",
+      "parameters": []
+    }
+  ]
+}

@@ -29,6 +29,8 @@ import * as suggestWorkflowTool from './tools/suggest_workflow.js';
 import * as listOperatorsTool from './tools/list_operators.js';
 import * as getTutorialTool from './tools/get_tutorial.js';
 import * as listTutorialsTool from './tools/list_tutorials.js';
+import * as getPythonApiTool from './tools/get_python_api.js';
+import * as searchPythonApiTool from './tools/search_python_api.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -127,6 +129,19 @@ server.registerTool(
   async (params) => await listTutorialsTool.handler(params, { wikiSystem })
 );
 
+// Register Python API tools
+server.registerTool(
+  "get_python_api",
+  getPythonApiTool.schema,
+  async (params) => await getPythonApiTool.handler(params, { wikiSystem })
+);
+
+server.registerTool(
+  "search_python_api",
+  searchPythonApiTool.schema,
+  async (params) => await searchPythonApiTool.handler(params, { wikiSystem })
+);
+
 // Main startup
 async function main() {
   console.log(`TD-MCP v${VERSION} Server Starting...`);
@@ -149,7 +164,8 @@ async function main() {
     
     console.log(`\n[Server] TD MCP v${VERSION} initialized successfully`);
     const stats = wikiSystem.getSystemStats();
-    console.log(`[Server] Wiki system ready with ${stats.totalEntries} operators and ${stats.totalTutorials} tutorials`);
+    const pythonApiStats = stats.pythonApiStats || { totalClasses: 0 };
+    console.log(`[Server] Wiki system ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
     console.log(`[Server] All tools integrated with wiki system`);
     console.log(`[Server] HTM processing foundation complete`);
     console.log(`[Server] Wiki website available at: http://${serverInfo.host}:${serverInfo.port}`);

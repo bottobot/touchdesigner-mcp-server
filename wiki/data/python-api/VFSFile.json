@@ -1,0 +1,24 @@
+{
+  "className": "VFSFile",
+  "displayName": "VFSFile Class",
+  "description": "The VFSFile Class describes a virtual file contained within a Virtual File System.To access a virtual file in any operator's file parameter, use the virtual path as described below in the virtualPath member.",
+  "category": "General",
+  "fileName": "VFSFile_Class.htm",
+  "members": [
+    {
+      "name": "name",
+      "id": "content",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "name member"
+    },
+    {
+      "name": "name",
+      "id": "bodyContent",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "name member"
+    }
+  ],
+  "methods": []
+}

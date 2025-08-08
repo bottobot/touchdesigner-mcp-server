@@ -1,0 +1,24 @@
+{
+  "className": "audiofileoutCHOP",
+  "displayName": "audiofileoutCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Audio File Out CHOP.",
+  "category": "General",
+  "fileName": "AudiofileoutCHOP_Class.htm",
+  "members": [
+    {
+      "name": "fileSuffix",
+      "id": "content",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "fileSuffix member"
+    },
+    {
+      "name": "fileSuffix",
+      "id": "bodyContent",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "fileSuffix member"
+    }
+  ],
+  "methods": []
+}

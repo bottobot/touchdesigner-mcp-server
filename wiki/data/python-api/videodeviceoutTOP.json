@@ -1,0 +1,24 @@
+{
+  "className": "videodeviceoutTOP",
+  "displayName": "videodeviceoutTOP Class",
+  "description": "This class inherits from the  TOP class.\nIt references a specific Video Device Out TOP.",
+  "category": "General",
+  "fileName": "VideodeviceoutTOP_Class.htm",
+  "members": [
+    {
+      "name": "width",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "width member"
+    },
+    {
+      "name": "width",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "width member"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,24 @@
+{
+  "className": "OP",
+  "displayName": "OP Class",
+  "description": "The OP class defines a reference to a single operator.",
+  "category": "General",
+  "fileName": "OP_Class.htm",
+  "members": [
+    {
+      "name": "valid",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "valid member"
+    },
+    {
+      "name": "valid",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "valid member"
+    }
+  ],
+  "methods": []
+}

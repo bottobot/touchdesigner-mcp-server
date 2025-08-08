@@ -1,0 +1,24 @@
+{
+  "className": "hogCHOP",
+  "displayName": "hogCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Hog CHOP.",
+  "category": "General",
+  "fileName": "HogCHOP_Class.htm",
+  "members": [
+    {
+      "name": "numChans",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    },
+    {
+      "name": "numChans",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    }
+  ],
+  "methods": []
+}

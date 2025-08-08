@@ -1,0 +1,24 @@
+{
+  "className": "audiostreaminCHOP",
+  "displayName": "audiostreaminCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Audio Stream In CHOP.",
+  "category": "General",
+  "fileName": "AudiostreaminCHOP_Class.htm",
+  "members": [
+    {
+      "name": "numChans",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    },
+    {
+      "name": "numChans",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    }
+  ],
+  "methods": []
+}

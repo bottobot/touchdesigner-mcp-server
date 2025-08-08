@@ -1,0 +1,24 @@
+{
+  "className": "ParGroup",
+  "displayName": "ParGroup Class",
+  "description": "The ParGroup class describes an instance of a single ParGroup.",
+  "category": "General",
+  "fileName": "ParGroup_Class.htm",
+  "members": [
+    {
+      "name": "bindExpr",
+      "id": "content",
+      "returnType": "tuple[str, ...]",
+      "readOnly": true,
+      "description": "bindExpr member"
+    },
+    {
+      "name": "bindExpr",
+      "id": "bodyContent",
+      "returnType": "tuple[str, ...]",
+      "readOnly": true,
+      "description": "bindExpr member"
+    }
+  ],
+  "methods": []
+}

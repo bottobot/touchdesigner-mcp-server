@@ -1,0 +1,24 @@
+{
+  "className": "bulletsolverCOMP",
+  "displayName": "bulletsolverCOMP Class",
+  "description": "This class inherits from the  COMP class.\nIt references a specific Bullet Solver COMP.",
+  "category": "Component",
+  "fileName": "BulletsolverCOMP_Class.htm",
+  "members": [
+    {
+      "name": "actors",
+      "id": "content",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "actors member"
+    },
+    {
+      "name": "actors",
+      "id": "bodyContent",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "actors member"
+    }
+  ],
+  "methods": []
+}

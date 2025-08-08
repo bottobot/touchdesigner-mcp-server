@@ -1,0 +1,24 @@
+{
+  "className": "flexsolverCOMP",
+  "displayName": "flexsolverCOMP Class",
+  "description": "This class inherits from the  COMP class.\nIt references a specific Nvidia Flex Solver COMP.",
+  "category": "Component",
+  "fileName": "FlexsolverCOMP_Class.htm",
+  "members": [
+    {
+      "name": "actors",
+      "id": "content",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "actors member"
+    },
+    {
+      "name": "actors",
+      "id": "bodyContent",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "actors member"
+    }
+  ],
+  "methods": []
+}

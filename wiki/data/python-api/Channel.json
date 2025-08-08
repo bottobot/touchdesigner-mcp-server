@@ -1,0 +1,24 @@
+{
+  "className": "Channel",
+  "displayName": "Channel Class",
+  "description": "A Channel object describes a single channel from a CHOP.  The CHOP Class provides many ways of accessing its individual channels.\nSee Working with CHOPs in Python for more examples of how to use this class.",
+  "category": "General",
+  "fileName": "Channel_Class.htm",
+  "members": [
+    {
+      "name": "valid",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "valid member"
+    },
+    {
+      "name": "valid",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "valid member"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,24 @@
+{
+  "className": "mpcdiTOP",
+  "displayName": "mpcdiTOP Class",
+  "description": "This class inherits from the  TOP class.\nIt references a specific MPCDI TOP.",
+  "category": "General",
+  "fileName": "MpcdiTOP_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "cameraTransform(bufferId=None, regionId=None)",
+      "returnType": "tdu.Matrix",
+      "description": "cameraTransform(bufferId=None, regionId=None) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "cameraTransform(bufferId=None, regionId=None)",
+      "returnType": "tdu.Matrix",
+      "description": "cameraTransform(bufferId=None, regionId=None) method",
+      "parameters": []
+    }
+  ]
+}

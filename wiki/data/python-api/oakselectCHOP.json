@@ -1,0 +1,24 @@
+{
+  "className": "oakselectCHOP",
+  "displayName": "oakselectCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific OAK Select CHOP.",
+  "category": "General",
+  "fileName": "OakselectCHOP_Class.htm",
+  "members": [
+    {
+      "name": "oakBuffer",
+      "id": "content",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "oakBuffer member"
+    },
+    {
+      "name": "oakBuffer",
+      "id": "bodyContent",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "oakBuffer member"
+    }
+  ],
+  "methods": []
+}

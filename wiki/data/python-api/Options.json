@@ -1,0 +1,24 @@
+{
+  "className": "Options",
+  "displayName": "Options Class",
+  "description": "The Options class describes the set of configurable UI options.  It can be accessed with the ui.options object.",
+  "category": "General",
+  "fileName": "Options_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "resetToDefaults()",
+      "returnType": "None",
+      "description": "resetToDefaults() method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "resetToDefaults()",
+      "returnType": "None",
+      "description": "resetToDefaults() method",
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "className": "Points",
+  "displayName": "Points Class",
+  "description": "The Points class describes the set of point objects owned by one SOP.",
+  "category": "General",
+  "fileName": "Points_Class.htm",
+  "members": [
+    {
+      "name": "owner",
+      "id": "content",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "owner member"
+    },
+    {
+      "name": "owner",
+      "id": "bodyContent",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "owner member"
+    }
+  ],
+  "methods": []
+}

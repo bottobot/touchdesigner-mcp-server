@@ -1,0 +1,24 @@
+{
+  "className": "Dongle",
+  "displayName": "Dongle Class",
+  "description": "A class to interact with a single dongle connected to the system.",
+  "category": "General",
+  "fileName": "Dongle_Class.htm",
+  "members": [
+    {
+      "name": "serialNumber",
+      "id": "content",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "serialNumber member"
+    },
+    {
+      "name": "serialNumber",
+      "id": "bodyContent",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "serialNumber member"
+    }
+  ],
+  "methods": []
+}

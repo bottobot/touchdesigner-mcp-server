@@ -1,0 +1,24 @@
+{
+  "className": "ListAttribute",
+  "displayName": "ListAttribute Class",
+  "description": "The ListAttribute class describes an attribute defining a cell or set of cells in a List Component.",
+  "category": "General",
+  "fileName": "ListAttribute_Class.htm",
+  "members": [
+    {
+      "name": "bgColor",
+      "id": "content",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": true,
+      "description": "bgColor member"
+    },
+    {
+      "name": "bgColor",
+      "id": "bodyContent",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": true,
+      "description": "bgColor member"
+    }
+  ],
+  "methods": []
+}

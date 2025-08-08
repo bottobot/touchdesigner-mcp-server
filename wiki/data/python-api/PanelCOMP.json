@@ -1,0 +1,24 @@
+{
+  "className": "PanelCOMP",
+  "displayName": "PanelCOMP Class",
+  "description": "The PanelCOMP describes an instance of a Panel Component. The state is represented by Panel Values.\nThis class inherits from the COMP Class.",
+  "category": "Component",
+  "fileName": "PanelCOMP_Class.htm",
+  "members": [
+    {
+      "name": "panel",
+      "id": "content",
+      "returnType": "td.Panel",
+      "readOnly": true,
+      "description": "panel member"
+    },
+    {
+      "name": "panel",
+      "id": "bodyContent",
+      "returnType": "td.Panel",
+      "readOnly": true,
+      "description": "panel member"
+    }
+  ],
+  "methods": []
+}

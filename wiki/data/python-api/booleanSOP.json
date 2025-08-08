@@ -1,0 +1,24 @@
+{
+  "className": "booleanSOP",
+  "displayName": "booleanSOP Class",
+  "description": "This class inherits from the  SOP class.\nIt references a specific Boolean SOP.",
+  "category": "General",
+  "fileName": "BooleanSOP_Class.htm",
+  "members": [
+    {
+      "name": "compare",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    },
+    {
+      "name": "compare",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    }
+  ],
+  "methods": []
+}

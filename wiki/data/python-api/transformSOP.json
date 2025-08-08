@@ -1,0 +1,24 @@
+{
+  "className": "transformSOP",
+  "displayName": "transformSOP Class",
+  "description": "This class inherits from the  SOP class.\nIt references a specific Transform SOP.",
+  "category": "General",
+  "fileName": "TransformSOP_Class.htm",
+  "members": [
+    {
+      "name": "compare",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    },
+    {
+      "name": "compare",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    }
+  ],
+  "methods": []
+}

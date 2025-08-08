@@ -1,0 +1,24 @@
+{
+  "className": "constantMAT",
+  "displayName": "constantMAT Class",
+  "description": "This class inherits from the  MAT class.\nIt references a specific Constant MAT.",
+  "category": "General",
+  "fileName": "ConstantMAT_Class.htm",
+  "members": [
+    {
+      "name": "isMAT",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "isMAT member"
+    },
+    {
+      "name": "isMAT",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "isMAT member"
+    }
+  ],
+  "methods": []
+}

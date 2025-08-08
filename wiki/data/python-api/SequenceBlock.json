@@ -1,0 +1,24 @@
+{
+  "className": "SequenceBlock",
+  "displayName": "SequenceBlock Class",
+  "description": "The SequenceBlock class can be used to access the parGroups of a specific block (set of parGroups) in a sequence.",
+  "category": "General",
+  "fileName": "SequenceBlock_Class.htm",
+  "members": [
+    {
+      "name": "index",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "index member"
+    },
+    {
+      "name": "index",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "index member"
+    }
+  ],
+  "methods": []
+}

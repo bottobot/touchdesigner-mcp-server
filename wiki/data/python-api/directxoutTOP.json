@@ -1,0 +1,24 @@
+{
+  "className": "directxoutTOP",
+  "displayName": "directxoutTOP Class",
+  "description": "This class inherits from the  TOP class.\nIt references a specific DirectX Out TOP.",
+  "category": "General",
+  "fileName": "DirectxoutTOP_Class.htm",
+  "members": [
+    {
+      "name": "width",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "width member"
+    },
+    {
+      "name": "width",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "width member"
+    }
+  ],
+  "methods": []
+}

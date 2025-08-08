@@ -1,0 +1,24 @@
+{
+  "className": "Experimental:Page",
+  "displayName": "Experimental:Page Class",
+  "description": "The Page Class describes the list of custom parameters contained on a page. Pages are created on components via the COMP Class. See also the guide Custom Parameters.",
+  "category": "General",
+  "fileName": "Experimental-Page_Class.htm",
+  "members": [
+    {
+      "name": "name",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "name member"
+    },
+    {
+      "name": "name",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "name member"
+    }
+  ],
+  "methods": []
+}

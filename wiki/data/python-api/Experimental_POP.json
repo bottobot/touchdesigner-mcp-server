@@ -1,0 +1,24 @@
+{
+  "className": "Experimental:POP",
+  "displayName": "Experimental:POP Class",
+  "description": "A POP describes a reference to a POP operator, containing points and primitives.",
+  "category": "General",
+  "fileName": "Experimental-POP_Class.htm",
+  "members": [
+    {
+      "name": "compare",
+      "id": "content",
+      "returnType": "Bounds",
+      "readOnly": true,
+      "description": "compare member"
+    },
+    {
+      "name": "compare",
+      "id": "bodyContent",
+      "returnType": "Bounds",
+      "readOnly": true,
+      "description": "compare member"
+    }
+  ],
+  "methods": []
+}

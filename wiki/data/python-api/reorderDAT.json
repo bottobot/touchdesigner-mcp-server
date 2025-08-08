@@ -1,0 +1,24 @@
+{
+  "className": "reorderDAT",
+  "displayName": "reorderDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific Reorder DAT.",
+  "category": "General",
+  "fileName": "ReorderDAT_Class.htm",
+  "members": [
+    {
+      "name": "export",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    },
+    {
+      "name": "export",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    }
+  ],
+  "methods": []
+}

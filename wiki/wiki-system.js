@@ -10,6 +10,7 @@ import HtmParser from './processor/htm-parser-perfect.js';
 import ContentExtractor from './processor/content-extractor.js';
 import SearchIndexer from './processor/search-indexer.js';
 import WikiEntry from './models/wiki-entry.js';
+import WikiSystemPythonApi from './wiki-system-python-api.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -69,6 +70,9 @@ export class WikiSystem {
         this.tutorials = new Map(); // tutorial name -> WikiEntry
         this.tutorialsPath = options.tutorialsPath || join(__dirname, 'data', 'tutorials');
         
+        // Initialize Python API extension
+        this.pythonApi = new WikiSystemPythonApi(this);
+        
         // Statistics
         this.stats = {
             totalEntries: 0,
@@ -104,8 +108,11 @@ export class WikiSystem {
             // Load tutorials
             await this.loadTutorials();
             
+            // Load Python API data
+            await this.pythonApi.loadPythonApiData();
+            
             this.isInitialized = true;
-            console.log(`[Wiki System] Initialized successfully with ${this.entries.size} operators and ${this.tutorials.size} tutorials`);
+            console.log(`[Wiki System] Initialized successfully with ${this.entries.size} operators, ${this.tutorials.size} tutorials, and ${this.pythonApi.pythonClasses.size} Python classes`);
             
         } catch (error) {
             console.error('[Wiki System] Initialization failed:', error);
@@ -291,7 +298,17 @@ export class WikiSystem {
         console.log(`[Wiki System] TouchDesigner documentation processing complete!`);
         console.log(`[Wiki System] Total operators indexed: ${results.processed}`);
         
-        return results;
+        // Also process Python API documentation
+        console.log(`[Wiki System] Processing Python API documentation...`);
+        const pythonApiResults = await this.pythonApi.processPythonApiDocs(options);
+        console.log(`[Wiki System] Python API processing complete: ${pythonApiResults.processed} classes`);
+        
+        return {
+            ...results,
+            pythonClasses: pythonApiResults.processed,
+            pythonMembers: pythonApiResults.members,
+            pythonMethods: pythonApiResults.methods
+        };
     }
 
     /**
@@ -422,8 +439,36 @@ export class WikiSystem {
             isInitialized: this.isInitialized,
             isIndexing: this.isIndexing,
             searchStats: this.searchIndexer.getSearchStats(),
-            parserStats: this.htmParser.getStats()
+            parserStats: this.htmParser.getStats(),
+            pythonApiStats: this.pythonApi.getStats()
         };
+    }
+
+    /**
+     * Get Python classes (delegation to Python API extension)
+     * @returns {Array} Array of Python class data
+     */
+    getPythonClasses() {
+        return this.pythonApi.getPythonClasses();
+    }
+
+    /**
+     * Get Python class by name (delegation to Python API extension)
+     * @param {string} className - Class name
+     * @returns {Object|null} Python class data
+     */
+    getPythonClass(className) {
+        return this.pythonApi.getPythonClass(className);
+    }
+
+    /**
+     * Search Python classes (delegation to Python API extension)
+     * @param {string} query - Search query
+     * @param {Object} options - Search options
+     * @returns {Array} Search results
+     */
+    searchPythonClasses(query, options) {
+        return this.pythonApi.searchPythonClasses(query, options);
     }
 
     /**

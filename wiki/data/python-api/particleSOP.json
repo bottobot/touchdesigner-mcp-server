@@ -1,0 +1,24 @@
+{
+  "className": "particleSOP",
+  "displayName": "particleSOP Class",
+  "description": "This class inherits from the  SOP class.\nIt references a specific Particle SOP.",
+  "category": "General",
+  "fileName": "ParticleSOP_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "createParticles(num)",
+      "returnType": "List[Point]",
+      "description": "createParticles(num) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "createParticles(num)",
+      "returnType": "List[Point]",
+      "description": "createParticles(num) method",
+      "parameters": []
+    }
+  ]
+}

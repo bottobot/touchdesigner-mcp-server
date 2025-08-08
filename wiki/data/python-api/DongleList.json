@@ -1,0 +1,24 @@
+{
+  "className": "DongleList",
+  "displayName": "DongleList Class",
+  "description": "A list of dongles connected to the system. The system instance can be found in licenses.dongles.",
+  "category": "General",
+  "fileName": "DongleList_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "refreshDongles()",
+      "returnType": "None",
+      "description": "refreshDongles() method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "refreshDongles()",
+      "returnType": "None",
+      "description": "refreshDongles() method",
+      "parameters": []
+    }
+  ]
+}

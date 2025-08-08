@@ -1,0 +1,24 @@
+{
+  "className": "ArcBall",
+  "displayName": "ArcBall Class",
+  "description": "Encapsulates many aspects of 3D viewer interaction. Rotation via arcball, translation and scale.",
+  "category": "General",
+  "fileName": "ArcBall_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "beginPan(u, v)",
+      "returnType": "None",
+      "description": "beginPan(u, v) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "beginPan(u, v)",
+      "returnType": "None",
+      "description": "beginPan(u, v) method",
+      "parameters": []
+    }
+  ]
+}

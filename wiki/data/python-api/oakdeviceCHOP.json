@@ -1,0 +1,24 @@
+{
+  "className": "oakdeviceCHOP",
+  "displayName": "oakdeviceCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific OAK Device CHOP.",
+  "category": "General",
+  "fileName": "OakdeviceCHOP_Class.htm",
+  "members": [
+    {
+      "name": "masterFrame",
+      "id": "content",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "masterFrame member"
+    },
+    {
+      "name": "masterFrame",
+      "id": "bodyContent",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "masterFrame member"
+    }
+  ],
+  "methods": []
+}

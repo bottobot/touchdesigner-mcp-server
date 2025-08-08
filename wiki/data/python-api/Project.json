@@ -1,0 +1,24 @@
+{
+  "className": "Project",
+  "displayName": "Project Class",
+  "description": "The Project class describes the current session.  It can be accessed with the project object, found in the automatically imported td module. Members changed in this such as the 'paths' member will be written to disk when the project is saved.",
+  "category": "General",
+  "fileName": "Project_Class.htm",
+  "members": [
+    {
+      "name": "folder",
+      "id": "content",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "folder member"
+    },
+    {
+      "name": "folder",
+      "id": "bodyContent",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "folder member"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,24 @@
+{
+  "className": "parameterDAT",
+  "displayName": "parameterDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific Parameter DAT.",
+  "category": "General",
+  "fileName": "ParameterDAT_Class.htm",
+  "members": [
+    {
+      "name": "export",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    },
+    {
+      "name": "export",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    }
+  ],
+  "methods": []
+}

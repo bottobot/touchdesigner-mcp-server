@@ -1,0 +1,24 @@
+{
+  "className": "cplusplusTOP",
+  "displayName": "cplusplusTOP Class",
+  "description": "This class inherits from the  TOP class.\nIt references a specific CPlusPlus TOP.",
+  "category": "General",
+  "fileName": "CplusplusTOP_Class.htm",
+  "members": [
+    {
+      "name": "width",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "width member"
+    },
+    {
+      "name": "width",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "width member"
+    }
+  ],
+  "methods": []
+}

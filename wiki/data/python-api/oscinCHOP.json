@@ -1,0 +1,24 @@
+{
+  "className": "oscinCHOP",
+  "displayName": "oscinCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific OSC In CHOP.",
+  "category": "General",
+  "fileName": "OscinCHOP_Class.htm",
+  "members": [
+    {
+      "name": "numChans",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    },
+    {
+      "name": "numChans",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    }
+  ],
+  "methods": []
+}

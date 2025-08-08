@@ -1,0 +1,24 @@
+{
+  "className": "Timecode",
+  "displayName": "Timecode Class",
+  "description": "The Timecode class holds a timecode value. See also Timecode and Timecode CHOP.",
+  "category": "General",
+  "fileName": "Timecode_Class.htm",
+  "members": [
+    {
+      "name": "countdown",
+      "id": "content",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "countdown member"
+    },
+    {
+      "name": "countdown",
+      "id": "bodyContent",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "countdown member"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,24 @@
+{
+  "className": "Matrix",
+  "displayName": "Matrix Class",
+  "description": "The matrix class holds a single 4x4 matrix for use in transformations. The matrix's data layout is in column-major format, which is to say that the matrix is multiplied from the left of vectors and positions. The translation values are stored in the last column of the matrix.\nA matrix is created with this line, and will always be initialized to the identity matrix.",
+  "category": "General",
+  "fileName": "Matrix_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "tdu.Matrix()",
+      "returnType": "tdu.Matrix",
+      "description": "tdu.Matrix() method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "tdu.Matrix()",
+      "returnType": "tdu.Matrix",
+      "description": "tdu.Matrix() method",
+      "parameters": []
+    }
+  ]
+}

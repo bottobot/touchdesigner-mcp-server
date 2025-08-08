@@ -1,0 +1,24 @@
+{
+  "className": "DAT",
+  "displayName": "DAT Class",
+  "description": "A DAT describes a reference to a DAT operator.\nThis class inherits from the  OP class.",
+  "category": "Operator",
+  "fileName": "DAT_Class.htm",
+  "members": [
+    {
+      "name": "export",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    },
+    {
+      "name": "export",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    }
+  ],
+  "methods": []
+}

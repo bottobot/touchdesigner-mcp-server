@@ -1,0 +1,24 @@
+{
+  "className": "alembicSOP",
+  "displayName": "alembicSOP Class",
+  "description": "This class inherits from the  SOP class.\nIt references a specific Alembic SOP.",
+  "category": "General",
+  "fileName": "AlembicSOP_Class.htm",
+  "members": [
+    {
+      "name": "compare",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    },
+    {
+      "name": "compare",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    }
+  ],
+  "methods": []
+}

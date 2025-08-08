@@ -1,0 +1,24 @@
+{
+  "className": "matteTOP",
+  "displayName": "matteTOP Class",
+  "description": "This class inherits from the  TOP class.\nIt references a specific Matte TOP.",
+  "category": "General",
+  "fileName": "MatteTOP_Class.htm",
+  "members": [
+    {
+      "name": "width",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "width member"
+    },
+    {
+      "name": "width",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "width member"
+    }
+  ],
+  "methods": []
+}

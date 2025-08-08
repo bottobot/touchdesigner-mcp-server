@@ -1,0 +1,24 @@
+{
+  "className": "TextLine",
+  "displayName": "TextLine Class",
+  "description": "A line of text in the Text TOP or Text SOP, after it has been formatted. Contains various members about the line such as it's text, position etc.\"",
+  "category": "General",
+  "fileName": "TextLine_Class.htm",
+  "members": [
+    {
+      "name": "glyph",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "glyph member"
+    },
+    {
+      "name": "glyph",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "glyph member"
+    }
+  ],
+  "methods": []
+}

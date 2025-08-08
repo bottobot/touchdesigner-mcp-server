@@ -1,0 +1,24 @@
+{
+  "className": "nullMAT",
+  "displayName": "nullMAT Class",
+  "description": "This class inherits from the  MAT class.\nIt references a specific Null MAT.",
+  "category": "General",
+  "fileName": "NullMAT_Class.htm",
+  "members": [
+    {
+      "name": "isMAT",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "isMAT member"
+    },
+    {
+      "name": "isMAT",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "isMAT member"
+    }
+  ],
+  "methods": []
+}

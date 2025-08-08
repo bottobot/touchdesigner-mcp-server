@@ -1,0 +1,24 @@
+{
+  "className": "eventCHOP",
+  "displayName": "eventCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Event CHOP.",
+  "category": "General",
+  "fileName": "EventCHOP_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "releaseEvent(id)",
+      "returnType": "int",
+      "description": "releaseEvent(id) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "releaseEvent(id)",
+      "returnType": "int",
+      "description": "releaseEvent(id) method",
+      "parameters": []
+    }
+  ]
+}

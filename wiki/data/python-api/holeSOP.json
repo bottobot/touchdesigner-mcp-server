@@ -1,0 +1,24 @@
+{
+  "className": "holeSOP",
+  "displayName": "holeSOP Class",
+  "description": "This class inherits from the  SOP class.\nIt references a specific Hole SOP.",
+  "category": "General",
+  "fileName": "HoleSOP_Class.htm",
+  "members": [
+    {
+      "name": "compare",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    },
+    {
+      "name": "compare",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    }
+  ],
+  "methods": []
+}

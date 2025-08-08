@@ -1,0 +1,9 @@
+{
+  "className": "FileInfo",
+  "displayName": "FileInfo Class",
+  "description": "The FileInfo object stores a file path and has a few utility properties to provide additional info. It is derived from str, so will work as a Python string, but can be differentiated from a regular string by using isinstance(tdu.FileInfo).",
+  "category": "General",
+  "fileName": "FileInfo_Class.htm",
+  "members": [],
+  "methods": []
+}

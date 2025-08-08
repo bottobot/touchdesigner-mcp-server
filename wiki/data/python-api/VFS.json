@@ -1,0 +1,24 @@
+{
+  "className": "VFS",
+  "displayName": "VFS Class",
+  "description": "The VFS Class describes a COMP's Virtual File System. To access a virtual file in any operator's file parameter, use the virtual path format: vfs:<path to comp>:<filename>. VFSFile_Class does the file operators.",
+  "category": "General",
+  "fileName": "VFS_Class.htm",
+  "members": [
+    {
+      "name": "owner",
+      "id": "content",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "owner member"
+    },
+    {
+      "name": "owner",
+      "id": "bodyContent",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "owner member"
+    }
+  ],
+  "methods": []
+}

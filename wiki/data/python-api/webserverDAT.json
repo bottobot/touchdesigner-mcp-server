@@ -1,0 +1,24 @@
+{
+  "className": "webserverDAT",
+  "displayName": "webserverDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific Web Server DAT.",
+  "category": "General",
+  "fileName": "WebserverDAT_Class.htm",
+  "members": [
+    {
+      "name": "webSocketConnections",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "webSocketConnections member"
+    },
+    {
+      "name": "webSocketConnections",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "webSocketConnections member"
+    }
+  ],
+  "methods": []
+}

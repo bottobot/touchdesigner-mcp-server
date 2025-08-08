@@ -1,0 +1,24 @@
+{
+  "className": "timerCHOP",
+  "displayName": "timerCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Timer CHOP.",
+  "category": "General",
+  "fileName": "TimerCHOP_Class.htm",
+  "members": [
+    {
+      "name": "beginFrame",
+      "id": "content",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "beginFrame member"
+    },
+    {
+      "name": "beginFrame",
+      "id": "bodyContent",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "beginFrame member"
+    }
+  ],
+  "methods": []
+}

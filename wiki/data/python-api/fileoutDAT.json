@@ -1,0 +1,24 @@
+{
+  "className": "fileoutDAT",
+  "displayName": "fileoutDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific File Out DAT.",
+  "category": "General",
+  "fileName": "FileoutDAT_Class.htm",
+  "members": [
+    {
+      "name": "writeCount",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "writeCount member"
+    },
+    {
+      "name": "writeCount",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "writeCount member"
+    }
+  ],
+  "methods": []
+}

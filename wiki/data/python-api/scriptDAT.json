@@ -1,0 +1,24 @@
+{
+  "className": "scriptDAT",
+  "displayName": "scriptDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific Script DAT.",
+  "category": "General",
+  "fileName": "ScriptDAT_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "appendCustomPage(name)",
+      "returnType": "Page",
+      "description": "appendCustomPage(name) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "appendCustomPage(name)",
+      "returnType": "Page",
+      "description": "appendCustomPage(name) method",
+      "parameters": []
+    }
+  ]
+}

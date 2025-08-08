@@ -1,0 +1,24 @@
+{
+  "className": "MAT",
+  "displayName": "MAT Class",
+  "description": "A MAT describes a reference to a MAT operator.",
+  "category": "Operator",
+  "fileName": "MAT_Class.htm",
+  "members": [
+    {
+      "name": "isMAT",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "isMAT member"
+    },
+    {
+      "name": "isMAT",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "isMAT member"
+    }
+  ],
+  "methods": []
+}

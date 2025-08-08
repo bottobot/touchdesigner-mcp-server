@@ -1,0 +1,24 @@
+{
+  "className": "ParCollection",
+  "displayName": "ParCollection Class",
+  "description": "The ParCollection class can be used to access Parameters. To access a parameter you need to use its internal name, which you can obtain by hovering your mouse over the parameter name, and looking at the popup that will come up. See also Par Class. An operator's instance of this can be found in OP.par.",
+  "category": "General",
+  "fileName": "ParCollection_Class.htm",
+  "members": [
+    {
+      "name": "owner",
+      "id": "content",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "owner member"
+    },
+    {
+      "name": "owner",
+      "id": "bodyContent",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "owner member"
+    }
+  ],
+  "methods": []
+}

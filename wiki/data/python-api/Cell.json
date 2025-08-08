@@ -1,0 +1,24 @@
+{
+  "className": "Cell",
+  "displayName": "Cell Class",
+  "description": "The Cell Class describes the contents of a single cell from a DAT operator table.\nThe DAT Class offers many ways of accessing its individual cells.\nDAT cells are always internally stored as strings, but may be accessed as numeric values.",
+  "category": "General",
+  "fileName": "Cell_Class.htm",
+  "members": [
+    {
+      "name": "valid",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "valid member"
+    },
+    {
+      "name": "valid",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "valid member"
+    }
+  ],
+  "methods": []
+}

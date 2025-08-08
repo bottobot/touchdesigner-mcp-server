@@ -1,0 +1,24 @@
+{
+  "className": "CHOP",
+  "displayName": "CHOP Class",
+  "description": "A CHOP describes a reference to a CHOP operator, containing a set of channels accessed with the Channel Class.",
+  "category": "Operator",
+  "fileName": "CHOP_Class.htm",
+  "members": [
+    {
+      "name": "numChans",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    },
+    {
+      "name": "numChans",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    }
+  ],
+  "methods": []
+}

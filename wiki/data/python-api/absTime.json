@@ -1,0 +1,24 @@
+{
+  "className": "absTime",
+  "displayName": "absTime Class",
+  "description": "This class contains information on the \"absolute time\", the time TouchDesigner has been running since the process started.  It can be accessed with the abstime object, found in the automatically imported td module. It is paused only with the power on/off button at the top of the UI, or with the power() method in the td module. Absolute time is the same for all nodes and is not affected by the pausing any component's timeline. See  absolute time.",
+  "category": "General",
+  "fileName": "AbsTime_Class.htm",
+  "members": [
+    {
+      "name": "frame",
+      "id": "content",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "frame member"
+    },
+    {
+      "name": "frame",
+      "id": "bodyContent",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "frame member"
+    }
+  ],
+  "methods": []
+}

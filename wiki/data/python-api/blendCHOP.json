@@ -1,0 +1,24 @@
+{
+  "className": "blendCHOP",
+  "displayName": "blendCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Blend CHOP.",
+  "category": "General",
+  "fileName": "BlendCHOP_Class.htm",
+  "members": [
+    {
+      "name": "numChans",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    },
+    {
+      "name": "numChans",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    }
+  ],
+  "methods": []
+}

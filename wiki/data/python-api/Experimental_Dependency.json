@@ -1,0 +1,24 @@
+{
+  "className": "Experimental:Dependency",
+  "displayName": "Experimental:Dependency Class",
+  "description": "A Dependency object is a value that automatically causes any expression referencing it to update when the dependency value has changed.  These objects eliminate the need to manually force cook operators referencing values in Extensions or Storage for example.\nFor information about dependencies in mutable objects (lists, dicts, sets), see Deeply Dependable Collections",
+  "category": "General",
+  "fileName": "Experimental-Dependency_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "TDU.Dependency(val = None)",
+      "returnType": "TDU.Dependency",
+      "description": "TDU.Dependency(val = None) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "TDU.Dependency(val = None)",
+      "returnType": "TDU.Dependency",
+      "description": "TDU.Dependency(val = None) method",
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "className": "CUDAMemory",
+  "displayName": "CUDAMemory Class",
+  "description": "Holds a reference to CUDA memory. The CUDA memory will be deallocated when this class is destructed.",
+  "category": "General",
+  "fileName": "CUDAMemory_Class.htm",
+  "members": [
+    {
+      "name": "ptr",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "ptr member"
+    },
+    {
+      "name": "ptr",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "ptr member"
+    }
+  ],
+  "methods": []
+}

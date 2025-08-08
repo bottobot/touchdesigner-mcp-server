@@ -1,0 +1,24 @@
+{
+  "className": "Experimental:Position",
+  "displayName": "Experimental:Position Class",
+  "description": "The position class holds a single 3 component position. A position is a single point in space, and it's important to use a position or vector as appropriate for the data that is being calculated, since matrix operations on them will end in different results. When being multiplied by a Matrix, this class will implicitly have a 4th component (W component) of 1. If the Matrix is a projection matrix that will cause the W component to become something other than 1, all 4 components will be divided by W to make the position homogeneous again. A new position can be created without any arguments, with 3 arguments for the x,y,z values, or with a single argument which is a variable that has 3 entries such as a list of length 3, or another position or vector.",
+  "category": "General",
+  "fileName": "Experimental-Position_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "TDU.Position(*args)",
+      "returnType": "TDU.Position",
+      "description": "TDU.Position(*args) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "TDU.Position(*args)",
+      "returnType": "TDU.Position",
+      "description": "TDU.Position(*args) method",
+      "parameters": []
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "className": "NetworkEditor",
+  "displayName": "NetworkEditor Class",
+  "description": "The NetworkEditor class describes an instance of a Network Editor. They are subclasses of the Pane Class, which can be accessed from the ui object.",
+  "category": "General",
+  "fileName": "NetworkEditor_Class.htm",
+  "members": [
+    {
+      "name": "showBackdropCHOPs",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "showBackdropCHOPs member"
+    },
+    {
+      "name": "showBackdropCHOPs",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "showBackdropCHOPs member"
+    }
+  ],
+  "methods": []
+}

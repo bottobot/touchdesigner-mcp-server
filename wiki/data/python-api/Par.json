@@ -1,0 +1,24 @@
+{
+  "className": "Par",
+  "displayName": "Par Class",
+  "description": "The Par class describes an instance of a single Parameter. See also Custom Parameters.",
+  "category": "General",
+  "fileName": "Par_Class.htm",
+  "members": [
+    {
+      "name": "val",
+      "id": "content",
+      "returnType": "Any",
+      "readOnly": true,
+      "description": "val member"
+    },
+    {
+      "name": "val",
+      "id": "bodyContent",
+      "returnType": "Any",
+      "readOnly": true,
+      "description": "val member"
+    }
+  ],
+  "methods": []
+}

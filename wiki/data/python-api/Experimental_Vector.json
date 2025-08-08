@@ -1,0 +1,24 @@
+{
+  "className": "Experimental:Vector",
+  "displayName": "Experimental:Vector Class",
+  "description": "The vector class holds a single 3 component vector. A vector describes a direction in space, and it's important to use a vector or Position as appropriate for the data that is being calculated. When being multiplied by a Matrix, this class will implicitly have a 4th component (W component) of 0. A new vector can be created without any arguments, with 3 arguments for the x,y,z values, or with a single argument which is a variable that has 3 entries such as a list of length 3, or a position or vector.",
+  "category": "General",
+  "fileName": "Experimental-Vector_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "TDU.Vector(*args)",
+      "returnType": "TDU.Vector",
+      "description": "TDU.Vector(*args) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "TDU.Vector(*args)",
+      "returnType": "TDU.Vector",
+      "description": "TDU.Vector(*args) method",
+      "parameters": []
+    }
+  ]
+}

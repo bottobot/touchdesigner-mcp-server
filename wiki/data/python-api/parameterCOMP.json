@@ -1,0 +1,24 @@
+{
+  "className": "parameterCOMP",
+  "displayName": "parameterCOMP Class",
+  "description": "This class inherits from the  COMP class.\nIt references a specific Parameter COMP.",
+  "category": "Component",
+  "fileName": "ParameterCOMP_Class.htm",
+  "members": [
+    {
+      "name": "minWidth",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "minWidth member"
+    },
+    {
+      "name": "minWidth",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "minWidth member"
+    }
+  ],
+  "methods": []
+}

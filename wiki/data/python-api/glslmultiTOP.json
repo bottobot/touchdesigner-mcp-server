@@ -1,0 +1,24 @@
+{
+  "className": "glslmultiTOP",
+  "displayName": "glslmultiTOP Class",
+  "description": "This class inherits from the  TOP class.\nIt references a specific GLSL Multi TOP.",
+  "category": "General",
+  "fileName": "GlslmultiTOP_Class.htm",
+  "members": [
+    {
+      "name": "compileResult",
+      "id": "content",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "compileResult member"
+    },
+    {
+      "name": "compileResult",
+      "id": "bodyContent",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "compileResult member"
+    }
+  ],
+  "methods": []
+}

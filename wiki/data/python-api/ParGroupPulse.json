@@ -1,0 +1,24 @@
+{
+  "className": "ParGroupPulse",
+  "displayName": "ParGroupPulse Class",
+  "description": "The ParGroupPulse class describes a subclass of a ParGroup ending with a pulse parameter. See also Custom ParGroup.",
+  "category": "General",
+  "fileName": "ParGroupPulse_Class.htm",
+  "members": [],
+  "methods": [
+    {
+      "name": "content",
+      "signature": "pulse(value, frames=0, seconds=0)",
+      "returnType": "None",
+      "description": "pulse(value, frames=0, seconds=0) method",
+      "parameters": []
+    },
+    {
+      "name": "bodyContent",
+      "signature": "pulse(value, frames=0, seconds=0)",
+      "returnType": "None",
+      "description": "pulse(value, frames=0, seconds=0) method",
+      "parameters": []
+    }
+  ]
+}

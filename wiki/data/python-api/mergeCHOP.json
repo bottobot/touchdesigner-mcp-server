@@ -1,0 +1,24 @@
+{
+  "className": "mergeCHOP",
+  "displayName": "mergeCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Merge CHOP.",
+  "category": "General",
+  "fileName": "MergeCHOP_Class.htm",
+  "members": [
+    {
+      "name": "numChans",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    },
+    {
+      "name": "numChans",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    }
+  ],
+  "methods": []
+}

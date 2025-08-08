@@ -1,0 +1,24 @@
+{
+  "className": "Bezier",
+  "displayName": "Bezier Class",
+  "description": "A Bezier describes an instance of a single geometry Bezier primitive (containing a set of connected Bezier curves). It is an instance of a Prim Class.\nIt can be created from either a Model SOP or Script SOP.\nEach curve is described by a set of segments, where each segment is a list of vertices. The first and last vertex of each segment is an anchor position, while its neighboring vertices describe tangent handles.",
+  "category": "General",
+  "fileName": "Bezier_Class.htm",
+  "members": [
+    {
+      "name": "anchors",
+      "id": "content",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "anchors member"
+    },
+    {
+      "name": "anchors",
+      "id": "bodyContent",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "anchors member"
+    }
+  ],
+  "methods": []
+}

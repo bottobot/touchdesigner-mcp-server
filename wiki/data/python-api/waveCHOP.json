@@ -1,0 +1,24 @@
+{
+  "className": "waveCHOP",
+  "displayName": "waveCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Wave CHOP.",
+  "category": "General",
+  "fileName": "WaveCHOP_Class.htm",
+  "members": [
+    {
+      "name": "chanIndex",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "chanIndex member"
+    },
+    {
+      "name": "chanIndex",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "chanIndex member"
+    }
+  ],
+  "methods": []
+}

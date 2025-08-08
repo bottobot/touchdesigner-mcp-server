@@ -1,0 +1,24 @@
+{
+  "className": "pointfileinTOP",
+  "displayName": "pointfileinTOP Class",
+  "description": "This class inherits from the  TOP class.\nIt references a specific Point File In TOP.",
+  "category": "General",
+  "fileName": "PointfileinTOP_Class.htm",
+  "members": [
+    {
+      "name": "numFields",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numFields member"
+    },
+    {
+      "name": "numFields",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numFields member"
+    }
+  ],
+  "methods": []
+}

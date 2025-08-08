@@ -1,0 +1,24 @@
+{
+  "className": "Preferences",
+  "displayName": "Preferences Class",
+  "description": "The Preferences class describes the set of configurable preferences that are retained between sessions. It can be accessed with the ui.preferences object or through the Preferences Dialog.",
+  "category": "General",
+  "fileName": "Preferences_Class.htm",
+  "members": [
+    {
+      "name": "defaults",
+      "id": "content",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "defaults member"
+    },
+    {
+      "name": "defaults",
+      "id": "bodyContent",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "defaults member"
+    }
+  ],
+  "methods": []
+}

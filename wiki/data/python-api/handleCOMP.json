@@ -1,0 +1,24 @@
+{
+  "className": "handleCOMP",
+  "displayName": "handleCOMP Class",
+  "description": "This class inherits from the  COMP class.\nIt references a specific Handle COMP.",
+  "category": "Component",
+  "fileName": "HandleCOMP_Class.htm",
+  "members": [
+    {
+      "name": "localTransform",
+      "id": "content",
+      "returnType": "tdu.Matrix",
+      "readOnly": true,
+      "description": "localTransform member"
+    },
+    {
+      "name": "localTransform",
+      "id": "bodyContent",
+      "returnType": "tdu.Matrix",
+      "readOnly": true,
+      "description": "localTransform member"
+    }
+  ],
+  "methods": []
+}

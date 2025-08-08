@@ -1,0 +1,24 @@
+{
+  "className": "etherdreamDAT",
+  "displayName": "etherdreamDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific EtherDream DAT.",
+  "category": "General",
+  "fileName": "EtherdreamDAT_Class.htm",
+  "members": [
+    {
+      "name": "export",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    },
+    {
+      "name": "export",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    }
+  ],
+  "methods": []
+}

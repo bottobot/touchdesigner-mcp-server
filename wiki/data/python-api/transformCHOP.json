@@ -1,0 +1,24 @@
+{
+  "className": "transformCHOP",
+  "displayName": "transformCHOP Class",
+  "description": "This class inherits from the  CHOP class.\nIt references a specific Transform CHOP.",
+  "category": "General",
+  "fileName": "TransformCHOP_Class.htm",
+  "members": [
+    {
+      "name": "numChans",
+      "id": "content",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    },
+    {
+      "name": "numChans",
+      "id": "bodyContent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "numChans member"
+    }
+  ],
+  "methods": []
+}

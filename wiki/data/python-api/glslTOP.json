@@ -1,0 +1,24 @@
+{
+  "className": "glslTOP",
+  "displayName": "glslTOP Class",
+  "description": "This class inherits from the  TOP class.\nIt references a specific GLSL TOP.",
+  "category": "General",
+  "fileName": "GlslTOP_Class.htm",
+  "members": [
+    {
+      "name": "compileResult",
+      "id": "content",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "compileResult member"
+    },
+    {
+      "name": "compileResult",
+      "id": "bodyContent",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "compileResult member"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,24 @@
+{
+  "className": "SOP",
+  "displayName": "SOP Class",
+  "description": "A SOP describes a reference to a SOP operator, containing points and primitives.",
+  "category": "Operator",
+  "fileName": "SOP_Class.htm",
+  "members": [
+    {
+      "name": "compare",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    },
+    {
+      "name": "compare",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "compare member"
+    }
+  ],
+  "methods": []
+}

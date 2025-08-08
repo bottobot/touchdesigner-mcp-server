@@ -1,0 +1,24 @@
+{
+  "className": "Pane",
+  "displayName": "Pane Class",
+  "description": "The Pane class describes an instance of a pane interface.  It can be accessed through the ui.panes object. It is the parent class of the NetworkEditor Class.",
+  "category": "General",
+  "fileName": "Pane_Class.htm",
+  "members": [
+    {
+      "name": "owner",
+      "id": "content",
+      "returnType": "COMP",
+      "readOnly": true,
+      "description": "owner member"
+    },
+    {
+      "name": "owner",
+      "id": "bodyContent",
+      "returnType": "COMP",
+      "readOnly": true,
+      "description": "owner member"
+    }
+  ],
+  "methods": []
+}

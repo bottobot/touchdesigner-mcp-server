@@ -1,0 +1,24 @@
+{
+  "className": "mergeDAT",
+  "displayName": "mergeDAT Class",
+  "description": "This class inherits from the  DAT class.\nIt references a specific Merge DAT.",
+  "category": "General",
+  "fileName": "MergeDAT_Class.htm",
+  "members": [
+    {
+      "name": "export",
+      "id": "content",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    },
+    {
+      "name": "export",
+      "id": "bodyContent",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "export member"
+    }
+  ],
+  "methods": []
+}

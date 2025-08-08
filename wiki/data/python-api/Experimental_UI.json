@@ -1,0 +1,24 @@
+{
+  "className": "Experimental:UI",
+  "displayName": "Experimental:UI Class",
+  "description": "The UI class describes access to the UI elements of the application, found in the automatically imported td module.",
+  "category": "General",
+  "fileName": "Experimental-UI_Class.htm",
+  "members": [
+    {
+      "name": "clipboard",
+      "id": "content",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "clipboard member"
+    },
+    {
+      "name": "clipboard",
+      "id": "bodyContent",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "clipboard member"
+    }
+  ],
+  "methods": []
+}
