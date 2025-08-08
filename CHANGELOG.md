@@ -2,6 +2,19 @@
 
 All notable changes to the TouchDesigner MCP Server will be documented in this file.
 
+## [2.3.1] - 2025-01-08
+
+### Changed
+- Cleaned up repository by removing all development, test, and temporary files
+- Removed 84 unnecessary files and 5 legacy directories
+- Package now contains only essential files for production use
+- Reduced package size significantly by removing development artifacts
+
+### Improved
+- Cleaner repository structure for better maintainability
+- Optimized package size for faster installation
+- Production-ready distribution without development clutter
+
 ## [2.3.0] - 2025-01-08
 
 ### Added

@@ -1,6 +1,6 @@
 {
   "name": "@bottobot/td-mcp",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "TouchDesigner Documentation MCP Server v2.3 - Pure MCP server for VS Code/Codium with comprehensive operator documentation for 629 operators + 7 tutorials across all categories (TOP, CHOP, SOP, DAT, MAT, COMP, POP). Features experimental POP operators with full parameters, tutorial access, smart search, workflow patterns, and zero-configuration setup.",
   "main": "index.js",
   "type": "module",
