@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>DMX Out POP - TouchDesigner Documentation</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"879dc8169111333d2f93abd6","wgCSPNonce":false,"wgCanonicalNamespace":"Experimental","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":20,"wgPageName":"Experimental:DMX_Out_POP","wgTitle":"DMX Out POP","wgCurRevisionId":34687,"wgRevisionId":34687,"wgArticleId":4229,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["OP Help Common Pages","POPs"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"Experimental:DMX_Out_POP","wgRelevantArticleId":4229,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],
+"wgCargoDefaultQueryLimit":100,"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":
+"/extensions/PageForms","edgValues":{"title":["Experimental:Accumulate POP","Experimental:Analyze POP","Experimental:Attribute Combine POP","Experimental:Attribute Convert POP","Experimental:Attribute POP","Experimental:Blend POP","Experimental:Box POP","Experimental:Cache Blend POP","Experimental:Cache POP","Experimental:Cache Select POP","Experimental:CHOP to POP","Experimental:Circle POP","Experimental:Convert POP","Experimental:Copy POP","Experimental:CPlusPlus POP","Experimental:Curve POP","Experimental:DAT to POP","Experimental:Delete POP","Experimental:Dimension POP","Experimental:DMX Fixture POP","Experimental:DMX Out POP","Experimental:Extrude POP","Experimental:Facet POP","Experimental:Feedback POP","Experimental:Field POP","Experimental:File In POP","Experimental:Force POP","Experimental:GLSL Advanced POP","Experimental:GLSL Copy POP","Experimental:GLSL Create POP","Experimental:GLSL POP","Experimental:GLSL Select POP","Experimental:Grid POP","Experimental:Group POP",
+"Experimental:Histogram POP","Experimental:Import Select POP","Experimental:In POP","Experimental:Limit POP","Experimental:Line Break POP","Experimental:Line Divide POP","Experimental:Line Metrics POP","Experimental:Line POP","Experimental:Line Smooth POP","Experimental:Line Thick POP","Experimental:Lookup Attribute POP","Experimental:Lookup Channel POP","Experimental:Lookup Texture POP","Experimental:Math Combine POP","Experimental:Math Mix POP","Experimental:Math POP","Experimental:Merge POP","Experimental:Neighbor POP","Experimental:Noise POP","Experimental:Normal POP","Experimental:Normalize POP","Experimental:Null POP","Experimental:OAK Select POP","Experimental:Out POP","Experimental:Particle POP","Experimental:Pattern POP","Experimental:Phaser POP","Experimental:Point File In POP","Experimental:Point Generator POP","Experimental:Point POP","Experimental:Points, Vertices and Primitives in POPs","Experimental:Polygonize POP","Experimental:Primitive POP",
+"Experimental:Projection POP","Experimental:Proximity POP","Experimental:Quantize POP","Experimental:Random POP","Experimental:Ray POP","Experimental:Rectangle POP","Experimental:ReRange POP","Experimental:Revolve POP","Experimental:Select POP","Experimental:Skin Deform POP","Experimental:Skin POP","Experimental:SOP to POP","Experimental:Sort POP","Experimental:Sphere POP","Experimental:Sprinkle POP","Experimental:Subdivide POP","Experimental:Switch POP","Experimental:Texture Map POP","Experimental:TOP to POP","Experimental:Topology POP","Experimental:Torus POP","Experimental:Trail POP","Experimental:Transform POP","Experimental:Trig POP","Experimental:Tube POP","Experimental:Twist POP"]},"wgPageFormsEDSettings":null,"wgAmericanDates":false,"wgVector2022PreviewPages":[]};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready"};RLPAGEMODULES=[
+"ext.UiTag","ext.Lingo","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="keywords" content="TouchDesigner, DMX Out, POP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=POP.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="DMX Out POP - TouchDesigner Documentation"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/Experimental:DMX_Out_POP"/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:tag" content="TouchDesigner, DMX Out, POP"/>
+<meta property="article:modified_time" content="2025-08-01T18:17:51Z"/>
+<meta property="article:published_time" content="2025-08-01T18:17:51Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"DMX Out POP - TouchDesigner Documentation","headline":"DMX Out POP - TouchDesigner Documentation","mainEntityOfPage":"<span class=\"mw-page-title-namespace\">Experimental<\/span><span class=\"mw-page-title-separator\">:<\/span><span class=\"mw-page-title-main\">DMX Out POP<\/span>","identifier":"https:\/\/docs.derivative.ca\/Experimental:DMX_Out_POP","url":"https:\/\/docs.derivative.ca\/Experimental:DMX_Out_POP","keywords":"TouchDesigner, DMX Out, POP","dateModified":"2025-08-01T18:17:51Z","datePublished":"2025-08-01T18:17:51Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-20 ns-subject page-Experimental_DMX_Out_POP rootpage-Experimental_DMX_Out_POP skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-namespace">Experimental</span><span class="mw-page-title-separator">:</span><span class="mw-page-title-main">DMX Out POP</span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><h2><span class="mw-headline" id="Summary"><div class="sectionBarPOP">Summary</div></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:Summary&amp;action=edit&amp;section=T-1" title="Edit section: Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The DMX Out POP can send to DMX, Art-Net, sACN, KiNET, or FTDI devices.
+</p><p>The DMX Out POP merges the DMX universes from each of its <a href="/DMX_Fixture_POP" title="DMX Fixture POP">DMX Fixture POP</a> inputs, and sends them to the device. It can merge any number of DMX Fixture POPs but conflicts may arise if multiple DMX Fixture POPs write to the same channel value of a DMX universe. A warning will be output in that case, and for debugging such conflicts the <a href="/DMX_Map_DAT" title="DMX Map DAT">DMX Map DAT</a> is a useful tool.
+</p><p><b>Note: </b> every input must be a DMX Fixture POP, whether they are wired or by parameter OP reference.
+</p><p>The DMX in TouchDesigner was developed on the <a rel="nofollow" class="external text" href="http://www.enttec.com">ENTTEC</a> device, namely their <a rel="nofollow" class="external text" href="http://www.enttec.com/?main_menu=Products&amp;pn=70304">DMX USB Pro</a> and DMX over Ethernet devices, but it should work for many devices and software that support DMX/Art-Net/sACN/KiNET.			
+</p><p>A Routing Table can be provided in a <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> where network addresses can be specified by adding rows for each DMX512 universe and then specifying the net, subnet and universe values. 
+</p><p><b>Tip</b>: You can use a single DMX Out POP to gather and serve any number of DMX Fixture POPs in  your project because you can specify recursively from root <code>/*</code> the path of all DMX Fixture POPs to Search for in the DMX Fixture POPs parameter. You can use a <a href="/Folder_DAT" title="Folder DAT">Folder DAT</a> to find all the DMX Fixture POPs in your project.
+</p><p><b>ENTTEC NOTE:</b> - Use ENTTEC's <a rel="nofollow" class="external text" href="http://www.enttec.com/us/products/controls/dmx-over-ethernet/nmu/">NMU (Node Management Utility)</a> to configure and inspect the ENTTEC devices found on your network. 			
+</p><p><b>macOS NOTE:</b> - ENTTEC USB Pro may not connect automatically, to enable it enter the following command in the Terminal:			
+</p><p><code>sudo kextunload -b com.apple.driver.AppleUSBFTDI</code>
+</p><p><b>Tip</b>: Use <a rel="nofollow" class="external text" href="https://www.wireshark.org/">WireShark</a> to watch your DMX network traffic.
+</p><p>See also: <a href="/Art-Net" title="Art-Net">Art-Net</a>, <a href="/SACN" title="SACN">sACN</a>, <a href="/DMX_In_CHOP" title="DMX In CHOP">DMX In CHOP</a>, <a href="/DMX_Out_CHOP" title="DMX Out CHOP">DMX Out CHOP</a>, <a href="/DMX" title="DMX">DMX</a>
+</p><p><a href="/File:PythonIcon.png" class="image"><img alt="PythonIcon.png" src="/images/c/c2/PythonIcon.png" decoding="async" width="20" height="20"></a><a href="/DmxoutPOP_Class" title="DmxoutPOP Class">dmxoutPOP_Class</a>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en-CA" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul><li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_DMX_Page"><span class="tocnumber">2</span> <span class="toctext">Parameters - DMX Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Fixtures_Page"><span class="tocnumber">3</span> <span class="toctext">Parameters - Fixtures Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Serial_Page"><span class="tocnumber">4</span> <span class="toctext">Parameters - Serial Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Network_Page"><span class="tocnumber">5</span> <span class="toctext">Parameters - Network Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Multipliers_Page"><span class="tocnumber">6</span> <span class="toctext">Parameters - Multipliers Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Common_Page"><span class="tocnumber">7</span> <span class="toctext">Parameters - Common Page</span></a></li>
+<li class="toclevel-1"><a href="#Operator_Inputs"><span class="tocnumber">8</span> <span class="toctext">Operator Inputs</span></a></li>
+<li class="toclevel-1"><a href="#Info_CHOP_Channels"><span class="tocnumber">9</span> <span class="toctext">Info CHOP Channels</span></a>
+<ul><li class="toclevel-2"><a href="#Common_POP_Info_Channels"><span class="tocnumber">9.1</span> <span class="toctext">Common POP Info Channels</span></a></li>
+<li class="toclevel-2"><a href="#Common_Operator_Info_Channels"><span class="tocnumber">9.2</span> <span class="toctext">Common Operator Info Channels</span></a></li>
+</ul></li>
+</ul></div>
+
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_DMX_Page"><div class="sectionBarPOP">Parameters - DMX Page</div></span></h2>
+<div id="active" style=""><span class="parNamePOP">Active</span>  <code>active</code> - When enabled, will be actively sending to the device.
+<p><i></i>
+</p>
+</div>
+<div id="interface" style=""><span class="parNamePOP">Interface</span>  <code>interface</code> - <span class="mw-customtoggle-interface">⊞</span> - Select the type of interface to connect to the device with.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-interface">
+<ul><li><span class="parNamePOP">Generic Serial</span> <code>serial</code> - Uses the operating system's serial calls to write data.</li></ul><ul><li><span class="parNamePOP">Enttec USB Pro</span> <code>enttecusbpro</code> -</li></ul><ul><li><span class="parNamePOP">Enttec USB Pro Mk2</span> <code>enttecusbpromk2</code> -</li></ul><ul><li><span class="parNamePOP">Art-Net</span> <code>artnet</code> - Sets the interface to <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Art-Net">Art-Net</a> protocol.</li></ul><ul><li><span class="parNamePOP">sACN</span> <code>sacn</code> - Sets the interface to <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Architecture_for_Control_Networks">sACN</a> protocol.</li></ul><ul><li><span class="parNamePOP">KiNET</span> <code>kinet</code> - Sets the interface to <a rel="nofollow" class="external text" href="https://www.colorkinetics.com/global/learn/led-lighting-technology#KiNET">KiNET</a> protocol.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="rate" style=""><span class="parNamePOP">Rate</span>  <code>rate</code> - How often data is sent to the device (per second).
+<pre>       <b>WARNING: DMX512 devices have a maximum refresh rate of 44Hz. It is recommended that Rate &lt;= 44 for reliable performance.</b>
+</pre>
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Fixtures_Page"><div class="sectionBarPOP">Parameters - Fixtures Page</div></span></h2>
+<div id="fixture" style="" class="sequenceBlock"><span class="parNamePOP">Fixture</span>  <code>fixture</code> - Sequence block for DMX Fixture POP inputs, either wired or referenced.
+<div class="sequenceItem">
+<div id="fixture0active" style=""><span class="parNamePOP">Active</span>  <code>fixture0active</code> - When active, this Fixture is merged and sent.
+<p><i></i>
+</p>
+</div>
+<div id="fixture0pop" style=""><span class="parNamePOP">DMX Fixture POPs</span>  <code>fixture0pop</code> - A reference to one or more DMX Fixture POPs. The parameter is disabled if there is a corresponding wired input.
+<p><i></i>
+</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Serial_Page"><div class="sectionBarPOP">Parameters - Serial Page</div></span></h2>
+<div id="serialport" style=""><span class="parNamePOP">Serial Port</span>  <code>serialport</code> - <span class="mw-customtoggle-serialport">⊞</span> - When the Interface parameter is set to Generic Serial this parameter lets you select which Serial (COM) port to use.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-serialport">
+<ul><li><span class="parNamePOP">COM3</span> <code>com3</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="dmxkingport" style=""><span class="parNamePOP">DMXking Port</span>  <code>dmxkingport</code> - <span class="mw-customtoggle-dmxkingport">⊞</span> - Select a DMXking port to send to.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-dmxkingport">
+<ul><li><span class="parNamePOP">Default</span> <code>default</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="device" style=""><span class="parNamePOP">Device</span>  <code>device</code> - <span class="mw-customtoggle-device">⊞</span> - Select a DMX device from the menu.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-device">
+<ul><li><span class="parNamePOP">*</span> <code>*</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Network_Page"><div class="sectionBarPOP">Parameters - Network Page</div></span></h2>
+<div id="multicast" style=""><span class="parNamePOP">Multicast</span>  <code>multicast</code> - Enable multicast for sACN. Multicast automatically builds the IP based on Net, Subnet, and Universe of the device. This allows for sending to multiple devices at once by specifying multiple universes.
+<p><i></i>
+</p>
+</div>
+<div id="netaddress" style=""><span class="parNamePOP">Network Address</span>  <code>netaddress</code> - Specify the IP address to use. This address corresponds to the receiving device address.  When the address is set to its default 255.255.255.255, the messages are instead broadcast to all devices on the  network. The Net, Subnet and Universe of the receiving devices must still match those specified in the DMX Out POP in all cases. If a netaddress is specified in the Routing Table for a given net/subnet/universe then that will be used instead.
+<p><i></i>
+</p>
+</div>
+<div id="localaddress" style=""><span class="parNamePOP">Local Address</span>  <code>localaddress</code> - <span class="mw-customtoggle-localaddress">⊞</span> - When the sending machine is equipped with multiple network adapters, this parameter can be used to choose which adapter to send the data from by specifying its IP address here.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-localaddress">
+<ul><li><span class="parNamePOP">192.168.178.150</span> <code>192.168.178.150</code> -</li></ul><ul><li><span class="parNamePOP">10.2.0.2</span> <code>10.2.0.2</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="localport" style=""><span class="parNamePOP">Local Port</span>  <code>localport</code> - In rare cases it can be necessary to supply a custom port from which the data should be sent. The default of <code>-1</code> means the O/S assigned port is being used.
+<p><i></i>
+</p>
+</div>
+<div id="customport" style=""><span class="parNamePOP">Use Custom Port</span>  <code>customport</code> - Enable the Network Port parameter to specify the port of the receiving hardware. When disabled, default port is 6454 for Art-Net, 5568 for sACN, and 6038 for KiNET.
+<p><i></i>
+</p>
+</div>
+<div id="netport" style=""><span class="parNamePOP">Network Port</span>  <code>netport</code> - Specify the port of the receiving hardware.
+<p><i></i>
+</p>
+</div>
+<div id="priority" style=""><span class="parNamePOP">Priority</span>  <code>priority</code> - The data priority, if there are multiple sources. Used with sACN and KiNET protocols.
+<p><i></i>
+</p>
+</div>
+<div id="sendartsync" style=""><span class="parNamePOP">Send ArtSync</span>  <code>sendartsync</code> - When enabled will send out ArtSync packets. ArtSync packets are used to synchronize multiple universes together.
+<p><i></i>
+</p>
+</div>
+<div id="cid" style=""><span class="parNamePOP">CID</span>  <code>cid</code> - The unique ID of the sender.
+<p><i></i>
+</p>
+</div>
+<div id="source" style=""><span class="parNamePOP">Source</span>  <code>source</code> - User assigned name of source (for informative purposes).
+<p><i></i>
+</p>
+</div>
+<div id="kinetversion" style=""><span class="parNamePOP">KiNET Version</span>  <code>kinetversion</code> - <span class="mw-customtoggle-kinetversion">⊞</span> - Select the version of the KiNET protocol to use.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-kinetversion">
+<ul><li><span class="parNamePOP">DmxOut (v1)</span> <code>v1</code> -</li></ul><ul><li><span class="parNamePOP">PortOut (v2)</span> <code>v2</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="customkinetport" style=""><span class="parNamePOP">Use Custom KiNET Port</span>  <code>customkinetport</code> - When enabled, can specify a custom port for the KiNET v2 interface. When disabled, the port will be the broadcast port: 255.
+<p><i></i>
+</p>
+</div>
+<div id="kinetport" style=""><span class="parNamePOP">KiNET Port</span>  <code>kinetport</code> - Specifies the port for KiNET v2 interface.
+<p><i></i>
+</p>
+</div>
+<div id="routingtable" style=""><span class="parNamePOP">Routing Table</span>  <code>routingtable</code> - Use a <span class="mw-lingo-term" data-lingo-term-id="15689bbbb7608a8a3d44a96f4cf46e4b">Table DAT</span> to specify netaddress, source, cid, priority, and kinetport values for specific universes. The net, subnet, universe columns must be filled in with valid values. Note: the <a href="/DMX_Fixture_POP" title="DMX Fixture POP">DMX Fixture POP</a> can override the netaddress value with its own Routing Table.
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Multipliers_Page"><div class="sectionBarPOP">Parameters - Multipliers Page</div></span></h2>
+<div id="usemultipliers" style=""><span class="parNamePOP">Use Multipliers</span>  <code>usemultipliers</code> - Enable the use of multipliers, which apply a post-operation multiply [0-1] on specific named channels (ie. the name set using the Name parameter on a DMX Fixture POP).
+<p><i></i>
+</p>
+</div>
+<div id="multiplier" style="" class="sequenceBlock"><span class="parNamePOP">Multiplier</span>  <code>multiplier</code> - Sequence block for a channel multipplier. If there are duplicate channel names the multipliers will be combined for that channel.
+<div class="sequenceItem">
+<div id="multiplier0dmxchannels" style=""><span class="parNamePOP">DMX Channels</span>  <code>multiplier0dmxchannels</code> - Select the DMX Channel names (derived from the Name parameters on the input DMX Fixture POPs). The accompanying menu has a list of all available channel names. One Multiplier sequence block can reference multiple channel names in a space delimited format: eg. "Dimmer RGB", where Dimmer and RGB are channel names. "*" can be used to apply the multiplier to every single channel.
+<p><i></i>
+</p>
+</div>
+<div id="multipliers0value" style=""><span class="parNamePOP">Multiplier Value</span>  <code>multipliers0value</code> - The multiplier value from [0-1] to apply to any channel that matches the associated channel names specified in DMX Channels.
+<p><i></i>
+</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Common_Page"><div class="sectionBarPOP">Parameters - Common Page</div></span></h2>
+<div id="bypass" style=""><span class="parNamePOP"><span class="mw-lingo-term" data-lingo-term-id="5ce88c4d66118388a69c6fd4262ca3a1">Bypass</span></span>  <code>bypass</code> -
+<p><i></i>
+</p>
+</div>
+<div id="delinputattrs" style=""><span class="parNamePOP">Delete Input <span class="mw-lingo-term" data-lingo-term-id="287234a1ff35a314b5b6bc4e5828e745">Attributes</span></span>  <code>delinputattrs</code> -
+<p><i></i>
+</p>
+</div>
+<div id="parmcolorspace" style=""><span class="parNamePOP">Parameter Color Space</span>  <code>parmcolorspace</code> - <span class="mw-customtoggle-parmcolorspace">⊞</span> - Controls how all color parameters on this node are interpreted. The color values as treated as being in the selected color space, and are converted to the Working <a href="/Color_Space" title="Color Space">Color Space</a> before they are used as part of the node's operation. Note that this does not change the color space of the node itself, as that is always in the Working Color Space.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-parmcolorspace">
+<ul><li><span class="parNamePOP">sRGB</span> <code>srgb</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/SRGB">sRGB</a> color space, with sRGB transfer function. Considered an SDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">sRGB - Linear</span> <code>srgblinear</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/SRGB">sRGB</a> color space, with linear transfer function. Considered an SDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Rec.601 (NTSC)</span> <code>rec601ntsc</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Rec._601">Rec.601</a> with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Rec.709</span> <code>rec709</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Rec._709">Rec.709</a> color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Rec.2020</span> <code>rec2020</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Rec._2020">Rec.2020</a> color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">DCI-P3</span> <code>dcip3</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/DCI-P3">DCI-P3</a> color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">DCI-P3 (D60)</span> <code>dcip3d60</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/DCI-P3">DCI-P3 "D60 sim"</a> color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Display-P3 (D65)</span> <code>displayp3d65</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/DCI-P3">Display-P3</a> color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">ACES2065-1</span> <code>aces2065-1</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Academy_Color_Encoding_System">ACES 2065-1</a> (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">ACEScg</span> <code>acescg</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Academy_Color_Encoding_System">ACEScg</a> (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Passthrough</span> <code>passthrough</code> - When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="parmreferencewhite" style=""><span class="parNamePOP"><span class="mw-lingo-term" data-lingo-term-id="c36eba6886be950a031ec08f566cd724">Parameter Reference</span> White</span>  <code>parmreferencewhite</code> - <span class="mw-customtoggle-parmreferencewhite">⊞</span> - When converting a parameter color value to the Working Color Space, this controls how it should be treated with respect to <a href="/Color_Space#Reference_White" title="Color Space">Reference White</a>. If the Working Color Space is the same <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White, then no adjustment is done. If they are different, then the <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White level (brightness) of this color will be adjusted to the range expected by the Working Color Space. For example if the project is set to have a SDR <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White of 120 nits, and the HDR <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White is 80 nits, then a color of (1, 1, 1), which is 120 nits in the SDR color space, will be converted to be (1.5, 1.5, 1.5), which is 120 nits still in the HDR Working Color Space.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-parmreferencewhite">
+<ul><li><span class="parNamePOP">Default For Color Space</span> <code>default</code> - Will use either the SDR or the HDR <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White, based on the color space selected.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Standard (SDR)</span> <code>sdr</code> - Will treat the Parameter Color Space as SDR for it's reference white value.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">High (HDR)</span> <code>hdr</code> - Will treat the Parameter Color Space as HDR for it's reference white value.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<h2><span class="mw-headline" id="Operator_Inputs"><div class="sectionBarPOP">Operator Inputs</div></span></h2>
+<ul><li><span class="parNamePOP">Input 0: </span> -</li></ul><p><br></p>
+<h2><span class="mw-headline" id="Info_CHOP_Channels"><div class="sectionBarPOP">Info <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> Channels</div></span></h2>
+<p>Extra Information for the DMX Out POP can be accessed via an <a href="/Info_CHOP" title="Info CHOP">Info CHOP</a>.
+<i></i>
+</p>
+<h3><span class="mw-headline" id="Common_POP_Info_Channels"><div class="customBar">Common POP Info Channels</div></span></h3>
+<h3><span class="mw-headline" id="Common_Operator_Info_Channels"><div class="customBar">Common Operator Info Channels</div></span></h3>
+<ul><li><span class="parName">total_cooks</span> - Number of times the operator has cooked since the process started.</li></ul><ul><li><span class="parName">cook_time</span> - Duration of the last cook in milliseconds.</li></ul><ul><li><span class="parName">cook_frame</span> - Frame number when this operator was last cooked relative to the component timeline.</li></ul><ul><li><span class="parName">cook_abs_frame</span> - Frame number when this operator was last cooked relative to the absolute time.</li></ul><ul><li><span class="parName">cook_start_time</span> - Time in milliseconds at which the operator started cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cook_end_time</span> - Time in milliseconds at which the operator finished cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cooked_this_frame</span> - 1 if operator was cooked this frame.</li></ul><ul><li><span class="parName">warnings</span> - Number of warnings in this operator if any.</li></ul><ul><li><span class="parName">errors</span> - Number of errors in this operator if any.</li></ul><p><br>
+
+TouchDesigner Build: <select onchange="location=this.value;"><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP">Latest</option>\n<option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=32920">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=32926">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=32927">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=32928">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=32936">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=33090">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=33614">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=33615">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=33616">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=33617">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=34375">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=34685">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=34686">wikieditor</option><option value="https://docs.derivative.ca/Experimental:DMX_Out_POP?oldid=34687">wikieditor</option></select></p>
+<table><tbody><tr><th class="navBox">POPs
+</th></tr><tr><td><span class="catList navigation-not-searchable"><a href="/Experimental:Accumulate_POP" title="Experimental:Accumulate POP">Experimental:Accumulate  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Analyze_POP" title="Experimental:Analyze POP">Experimental:Analyze  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Attribute_Combine_POP" title="Experimental:Attribute Combine POP">Experimental:Attribute Combine  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Attribute_Convert_POP" title="Experimental:Attribute Convert POP">Experimental:Attribute Convert  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Attribute_POP" title="Experimental:Attribute POP">Experimental:Attribute  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Blend_POP" title="Experimental:Blend POP">Experimental:Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Box_POP" title="Experimental:Box POP">Experimental:Box  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Cache_Blend_POP" title="Experimental:Cache Blend POP">Experimental:Cache Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Cache_POP" title="Experimental:Cache POP">Experimental:Cache  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Cache_Select_POP" title="Experimental:Cache Select POP">Experimental:Cache Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:CHOP_to_POP" title="Experimental:CHOP to POP">Experimental:CHOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Circle_POP" title="Experimental:Circle POP">Experimental:Circle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Convert_POP" title="Experimental:Convert POP">Experimental:Convert  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Copy_POP" title="Experimental:Copy POP">Experimental:Copy  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:CPlusPlus_POP" title="Experimental:CPlusPlus POP">Experimental:CPlusPlus  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Curve_POP" title="Experimental:Curve POP">Experimental:Curve  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:DAT_to_POP" title="Experimental:DAT to POP">Experimental:DAT to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Delete_POP" title="Experimental:Delete POP">Experimental:Delete  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Dimension_POP" title="Experimental:Dimension POP">Experimental:Dimension  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:DMX_Fixture_POP" title="Experimental:DMX Fixture POP">Experimental:DMX Fixture  </a></span>• <span class="catList navigation-not-searchable"><a class="mw-selflink selflink">Experimental:DMX Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Extrude_POP" title="Experimental:Extrude POP">Experimental:Extrude  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Facet_POP" title="Experimental:Facet POP">Experimental:Facet  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Feedback_POP" title="Experimental:Feedback POP">Experimental:Feedback  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Field_POP" title="Experimental:Field POP">Experimental:Field  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:File_In_POP" title="Experimental:File In POP">Experimental:File In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Force_POP" title="Experimental:Force POP">Experimental:Force  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_Advanced_POP" title="Experimental:GLSL Advanced POP">Experimental:GLSL Advanced  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_Copy_POP" title="Experimental:GLSL Copy POP">Experimental:GLSL Copy  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_Create_POP" title="Experimental:GLSL Create POP">Experimental:GLSL Create  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_POP" title="Experimental:GLSL POP">Experimental:GLSL  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_Select_POP" title="Experimental:GLSL Select POP">Experimental:GLSL Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Grid_POP" title="Experimental:Grid POP">Experimental:Grid  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Group_POP" title="Experimental:Group POP">Experimental:Group  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Histogram_POP" title="Experimental:Histogram POP">Experimental:Histogram  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Import_Select_POP" title="Experimental:Import Select POP">Experimental:Import Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:In_POP" title="Experimental:In POP">Experimental:In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Limit_POP" title="Experimental:Limit POP">Experimental:Limit  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Break_POP" title="Experimental:Line Break POP">Experimental:Line Break  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Divide_POP" title="Experimental:Line Divide POP">Experimental:Line Divide  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Metrics_POP" title="Experimental:Line Metrics POP">Experimental:Line Metrics  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_POP" title="Experimental:Line POP">Experimental:Line  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Smooth_POP" title="Experimental:Line Smooth POP">Experimental:Line Smooth  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Thick_POP" title="Experimental:Line Thick POP">Experimental:Line Thick  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Lookup_Attribute_POP" title="Experimental:Lookup Attribute POP">Experimental:Lookup Attribute  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Lookup_Channel_POP" title="Experimental:Lookup Channel POP">Experimental:Lookup Channel  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Lookup_Texture_POP" title="Experimental:Lookup Texture POP">Experimental:Lookup Texture  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Math_Combine_POP" title="Experimental:Math Combine POP">Experimental:Math Combine  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Math_Mix_POP" title="Experimental:Math Mix POP">Experimental:Math Mix  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Math_POP" title="Experimental:Math POP">Experimental:Math  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Merge_POP" title="Experimental:Merge POP">Experimental:Merge  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Neighbor_POP" title="Experimental:Neighbor POP">Experimental:Neighbor  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Noise_POP" title="Experimental:Noise POP">Experimental:Noise  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Normal_POP" title="Experimental:Normal POP">Experimental:Normal  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Normalize_POP" title="Experimental:Normalize POP">Experimental:Normalize  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Null_POP" title="Experimental:Null POP">Experimental:Null  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:OAK_Select_POP" title="Experimental:OAK Select POP">Experimental:OAK Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Out_POP" title="Experimental:Out POP">Experimental:Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Particle_POP" title="Experimental:Particle POP">Experimental:Particle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Pattern_POP" title="Experimental:Pattern POP">Experimental:Pattern  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Phaser_POP" title="Experimental:Phaser POP">Experimental:Phaser  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Point_File_In_POP" title="Experimental:Point File In POP">Experimental:Point File In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Point_Generator_POP" title="Experimental:Point Generator POP">Experimental:Point Generator  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Point_POP" title="Experimental:Point POP">Experimental:Point  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Points,_Vertices_and_Primitives_in_POPs" title="Experimental:Points, Vertices and Primitives in POPs">Experimental:Points, Vertices and Primitives in s </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Polygonize_POP" title="Experimental:Polygonize POP">Experimental:Polygonize  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Primitive_POP" title="Experimental:Primitive POP">Experimental:Primitive  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Projection_POP" title="Experimental:Projection POP">Experimental:Projection  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Proximity_POP" title="Experimental:Proximity POP">Experimental:Proximity  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Quantize_POP" title="Experimental:Quantize POP">Experimental:Quantize  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Random_POP" title="Experimental:Random POP">Experimental:Random  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Ray_POP" title="Experimental:Ray POP">Experimental:Ray  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Rectangle_POP" title="Experimental:Rectangle POP">Experimental:Rectangle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:ReRange_POP" title="Experimental:ReRange POP">Experimental:ReRange  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Revolve_POP" title="Experimental:Revolve POP">Experimental:Revolve  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Select_POP" title="Experimental:Select POP">Experimental:Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Skin_Deform_POP" title="Experimental:Skin Deform POP">Experimental:Skin Deform  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Skin_POP" title="Experimental:Skin POP">Experimental:Skin  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:SOP_to_POP" title="Experimental:SOP to POP">Experimental:SOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Sort_POP" title="Experimental:Sort POP">Experimental:Sort  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Sphere_POP" title="Experimental:Sphere POP">Experimental:Sphere  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Sprinkle_POP" title="Experimental:Sprinkle POP">Experimental:Sprinkle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Subdivide_POP" title="Experimental:Subdivide POP">Experimental:Subdivide  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Switch_POP" title="Experimental:Switch POP">Experimental:Switch  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Texture_Map_POP" title="Experimental:Texture Map POP">Experimental:Texture Map  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:TOP_to_POP" title="Experimental:TOP to POP">Experimental:TOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Topology_POP" title="Experimental:Topology POP">Experimental:Topology  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Torus_POP" title="Experimental:Torus POP">Experimental:Torus  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Trail_POP" title="Experimental:Trail POP">Experimental:Trail  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Transform_POP" title="Experimental:Transform POP">Experimental:Transform  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Trig_POP" title="Experimental:Trig POP">Experimental:Trig  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Tube_POP" title="Experimental:Tube POP">Experimental:Tube  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Twist_POP" title="Experimental:Twist POP">Experimental:Twist  </a></span>
+</td></tr></tbody></table></div><div class="mw-lingo-tooltip" id="cc2bcf28d9ffc17fcbf169f3325607bb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that manipulates text strings: multi-line text or tables. Multi-line text is often a python <a href="/Script" title="Script">Script</a> or <a href="/GLSL" title="GLSL">GLSL</a> Shader, but can be any multi-line text. <a href="/Table_DAT" title="Table DAT">Tables</a> are rows and columns of cells, each containing a text string.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="15689bbbb7608a8a3d44a96f4cf46e4b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A form of <a href="/DAT" title="DAT">DATs</a> (Data Operators) that is structured as rows and columns of text strings.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="5ce88c4d66118388a69c6fd4262ca3a1"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An operator whose Bypass flag is set does nothing: All data going into its first input appears at its output unaffected.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="287234a1ff35a314b5b6bc4e5828e745"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Information associated with <a href="/SOP" title="SOP">SOP</a> geometry. <a href="/Point" title="Point">Points</a> and <a href="/Primitive" title="Primitive">primitives</a> (polygons, NURBS, etc.) can have any number of attributes - position (P) is standard, and built-in optional attributes are <a href="/Normals" title="Normals">normals</a> (N), texture coordinates (uv), color (Cd), etc.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="63d5049791d9d79d86e9a108b0a999ca"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A <a href="/Link" title="Link">Link</a>. The grey dashed lines between nodes is a Reference or Link that indicates one operator is getting data from another operator from any <a href="/Operator_Family" title="Operator Family">Operator Family</a>.
+</p>
+</div></div><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The grey dashed lines between nodes is a Reference (or <a href="/Link" title="Link">Link</a>). A Reference is (1) a <a href="/Parameter_Reference" title="Parameter Reference">Parameter Reference</a>, a parameter in an OP that is a name or path to another operator, (2) a <a href="/index.php?title=Node_Reference&amp;action=edit&amp;redlink=1" class="new" title="Node Reference (page does not exist)">Node Reference</a>, an expression in a parameter or DAT script that contains the name or path of another operator, (3) a DAT Cell Reference or (4) a CHOP Channel Reference.
+</p>
+</div></div><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Link or Reference is a dashed line between nodes that represent other data flowing between nodes. Examples are CHOP <a href="/Export" title="Export">Exports</a>, node <a href="/Network_Path" title="Network Path">Paths</a> in parameters, and <a href="/Expression" title="Expression">expressions</a> in parameters referencing CHOP channels, DAT tables and other nodes. In contrast is a <a href="/Wire" title="Wire">Wire</a> that connects nodes in the same <a href="/Operator_Family" title="Operator Family">Operator Family</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="c36eba6886be950a031ec08f566cd724"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A parameter reference can be setup between any two parameters by putting an expression in one parameter that refers to another parameter. This creates a <a href="/Link" title="Link">Link</a> between the two parameters such that when one changes, the other will change automatically (known in other software as a "constraint").
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="8b9d2cce2836537aabe6f2e0dd5da293"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> which operate on <a href="/Channel" title="Channel">Channels</a> (a sequence of numbers (<a href="/Sample" title="Sample">Samples</a>)) which are used for animation, audio, mathematics, simulation, logic, UI construction, and data streamed from/to devices and protocols.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250801234222
+Cache expiry: 60
+Reduced expiry: true
+Complications: [show‐toc]
+CPU time usage: 0.464 seconds
+Real time usage: 1.644 seconds
+Preprocessor visited node count: 4452/1000000
+Post‐expand include size: 107337/2097152 bytes
+Template argument size: 50259/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1556/5000000 bytes
+Lua time usage: 0.950/5 seconds
+Lua virtual size: 9138176/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 1520.521      1 -total
+ 96.12% 1461.458      1 Template:NavBox
+ 94.76% 1440.898     93 Template:CatList
+  2.34%   35.566      6 Template:ParameterPage
+  1.94%   29.444     31 Template:Parameter
+  0.73%   11.065      1 POP_Filter_Common_Page
+  0.62%    9.440      1 Template:InfoCHOPChannels
+  0.50%    7.565      1 Parameter_Color_Space_Parameters
+  0.44%    6.641     27 Template:ParameterItem
+  0.39%    5.983      1 Template:Summary
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:4229-0!canonical and timestamp 20250801234221 and revision id 34687.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=Experimental:DMX_Out_POP&amp;oldid=34687">https://docs.derivative.ca/index.php?title=Experimental:DMX_Out_POP&amp;oldid=34687</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/index.php?title=Category:OP_Help_Common_Pages&amp;action=edit&amp;redlink=1" class="new" title="Category:OP Help Common Pages (page does not exist)">OP Help Common Pages</a></li><li><a href="/Category:POPs" title="Category:POPs">POPs</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=Experimental%3ADMX+Out+POP" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="mw-list-item"><a href="/DMX_Out_POP" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:DMX_Out_POP&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="selected mw-list-item"><a href="/Experimental:DMX_Out_POP"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/Experimental:DMX_Out_POP"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=Experimental:DMX_Out_POP&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/Experimental:DMX_Out_POP" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/Experimental:DMX_Out_POP" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=Experimental:DMX_Out_POP&amp;oldid=34687" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=Experimental:DMX_Out_POP&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=Experimental:DMX_Out_POP&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 1 August 2025, at 13:17.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.464","walltime":"1.644","ppvisitednodes":{"value":4452,"limit":1000000},"postexpandincludesize":{"value":107337,"limit":2097152},"templateargumentsize":{"value":50259,"limit":2097152},"expansiondepth":{"value":13,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1556,"limit":5000000},"timingprofile":["100.00% 1520.521      1 -total"," 96.12% 1461.458      1 Template:NavBox"," 94.76% 1440.898     93 Template:CatList","  2.34%   35.566      6 Template:ParameterPage","  1.94%   29.444     31 Template:Parameter","  0.73%   11.065      1 POP_Filter_Common_Page","  0.62%    9.440      1 Template:InfoCHOPChannels","  0.50%    7.565      1 Parameter_Color_Space_Parameters","  0.44%    6.641     27 Template:ParameterItem","  0.39%    5.983      1 Template:Summary"]},"scribunto":{"limitreport-timeusage":{"value":"0.950","limit":"5"},"limitreport-virtmemusage":{"value":9138176,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250801234222","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":1873});});</script>
+</body>
+<!-- Cached 20250801234223 -->
+</html>

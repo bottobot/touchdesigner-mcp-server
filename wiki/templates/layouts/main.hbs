@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    
+    <!-- TouchDesigner Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/static/css/main.css">
+    
+    <!-- Search Enhancement -->
+    <link rel="stylesheet" href="/static/css/search.css">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="TouchDesigner Documentation Wiki - Complete operator reference and workflow patterns">
+    <meta name="keywords" content="TouchDesigner, operators, documentation, TOP, CHOP, SOP, DAT, MAT, COMP, POP">
+    <meta name="author" content="TouchDesigner Community">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="TouchDesigner Documentation Wiki">
+    <meta property="og:type" content="website">
+    
+    <!-- Additional head content -->
+    {{{head}}}
+</head>
+<body class="{{bodyClass}}">
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="nav-container">
+                <!-- Logo and Title -->
+                <div class="nav-brand">
+                    <a href="/" class="brand-link">
+                        <img src="/static/images/td-logo.svg" alt="TouchDesigner" class="brand-logo">
+                        <span class="brand-text">Documentation Wiki</span>
+                    </a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="nav-search">
+                    <form action="/search" method="get" class="search-form">
+                        <div class="search-input-container">
+                            <input type="text" 
+                                   name="q" 
+                                   placeholder="Search operators..." 
+                                   class="search-input"
+                                   value="{{query}}"
+                                   autocomplete="off">
+                            <button type="submit" class="search-button">
+                                <svg class="search-icon" viewBox="0 0 24 24">
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="nav-links">
+                    <a href="/" class="nav-link {{#ifEquals currentPage 'home'}}active{{/ifEquals}}">Home</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-trigger">Operators</button>
+                        <div class="dropdown-menu">
+                            <a href="/TOP" class="dropdown-item">TOP - Texture</a>
+                            <a href="/CHOP" class="dropdown-item">CHOP - Channel</a>
+                            <a href="/SOP" class="dropdown-item">SOP - Surface</a>
+                            <a href="/DAT" class="dropdown-item">DAT - Data</a>
+                            <a href="/MAT" class="dropdown-item">MAT - Material</a>
+                            <a href="/COMP" class="dropdown-item">COMP - Component</a>
+                            <a href="/POP" class="dropdown-item">POP - Particle</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-trigger">Documentation</button>
+                        <div class="dropdown-menu">
+                            <a href="/TouchDesigner" class="dropdown-item">TouchDesigner Overview</a>
+                            <a href="/Python" class="dropdown-item">Python Reference</a>
+                            <a href="/Release_Notes" class="dropdown-item">Release Notes</a>
+                        </div>
+                    </div>
+                    <a href="/search" class="nav-link {{#ifEquals currentPage 'search'}}active{{/ifEquals}}">Search</a>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <a href="/" class="mobile-nav-link">Home</a>
+            <div class="mobile-nav-section">
+                <div class="mobile-nav-title">Operators</div>
+                <a href="/TOP" class="mobile-nav-link">TOP - Texture</a>
+                <a href="/CHOP" class="mobile-nav-link">CHOP - Channel</a>
+                <a href="/SOP" class="mobile-nav-link">SOP - Surface</a>
+                <a href="/DAT" class="mobile-nav-link">DAT - Data</a>
+                <a href="/MAT" class="mobile-nav-link">MAT - Material</a>
+                <a href="/COMP" class="mobile-nav-link">COMP - Component</a>
+                <a href="/POP" class="mobile-nav-link">POP - Particle</a>
+            </div>
+            <div class="mobile-nav-section">
+                <div class="mobile-nav-title">Documentation</div>
+                <a href="/TouchDesigner" class="mobile-nav-link">TouchDesigner Overview</a>
+                <a href="/Python" class="mobile-nav-link">Python Reference</a>
+                <a href="/Release_Notes" class="mobile-nav-link">Release Notes</a>
+            </div>
+            <a href="/search" class="mobile-nav-link">Search</a>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumbs (if provided) -->
+        {{#if breadcrumbs}}
+        <nav class="breadcrumbs">
+            <div class="container">
+                {{#each breadcrumbs}}
+                    {{#if @last}}
+                        <span class="breadcrumb-item current">{{text}}</span>
+                    {{else}}
+                        <a href="{{url}}" class="breadcrumb-item">{{text}}</a>
+                        <span class="breadcrumb-separator">/</span>
+                    {{/if}}
+                {{/each}}
+            </div>
+        </nav>
+        {{/if}}
+        
+        <!-- Page Content -->
+        <div class="container">
+            {{{body}}}
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TouchDesigner Documentation</h3>
+                    <p>Comprehensive operator reference and workflow patterns for TouchDesigner development.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/search">Search</a></li>
+                        <li><a href="/api/health">API Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Operators</h3>
+                    <ul class="footer-links">
+                        <li><a href="/TOP">Texture Operators</a></li>
+                        <li><a href="/CHOP">Channel Operators</a></li>
+                        <li><a href="/SOP">Surface Operators</a></li>
+                        <li><a href="/DAT">Data Operators</a></li>
+                        <li><a href="/MAT">Material Operators</a></li>
+                        <li><a href="/COMP">Component Operators</a></li>
+                        <li><a href="/POP">Particle Operators</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://docs.derivative.ca/" target="_blank">Official Documentation</a></li>
+                        <li><a href="https://forum.derivative.ca/" target="_blank">Community Forum</a></li>
+                        <li><a href="https://derivative.ca/" target="_blank">Derivative</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 TouchDesigner Documentation Wiki. Built with MCP Server v2.2.0</p>
+                </div>
+                
+                <div class="footer-stats" id="wiki-stats">
+                    <!-- Stats loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Core JavaScript -->
+    <script src="/static/js/main.js"></script>
+    
+    <!-- Search Enhancement -->
+    <script src="/static/js/search.js"></script>
+    
+    <!-- Page-specific JavaScript -->
+    {{{scripts}}}
+    
+    <!-- Initialize Application -->
+    <script>
+        // Initialize the wiki application
+        if (window.WikiApp) {
+            window.WikiApp.init();
+        }
+    </script>
+</body>
+</html>

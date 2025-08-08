@@ -15,8 +15,21 @@ export const schema = {
 };
 
 // Tool handler
-export async function handler({ name, show_examples = true, show_tips = true }, { findOperator }) {
-  const operator = findOperator(name);
+export async function handler({ name, show_examples = true, show_tips = true }, { wikiSystem }) {
+  if (!wikiSystem) {
+    return {
+      content: [{
+        type: "text",
+        text: "Wiki system not available. Server may still be initializing."
+      }]
+    };
+  }
+
+  const operator = await wikiSystem.getOperator(name, {
+    show_examples,
+    show_tips,
+    show_parameters: true
+  });
   
   if (!operator) {
     return {
@@ -27,46 +40,52 @@ export async function handler({ name, show_examples = true, show_tips = true }, 
     };
   }
   
-  let text = `# ${operator.fullName || operator.name}\n`;
+  let text = `# ${operator.displayName || operator.name}\n`;
   text += `**Category:** ${operator.category} | **Subcategory:** ${operator.subcategory || 'General'}\n\n`;
   
   // Description
-  text += `## Description\n${operator.description || 'No description available.'}\n\n`;
+  text += `## Description\n${operator.description || operator.summary || 'No description available.'}\n\n`;
   
   // Parameters - Show ALL with enhanced formatting
   if (operator.parameters && operator.parameters.length > 0) {
     text += `## Parameters (${operator.parameters.length} total)\n\n`;
     
-    // Group parameters by type for better organization
-    const paramsByType = {};
+    // Group parameters by group/page for better organization
+    const paramsByGroup = {};
     operator.parameters.forEach(param => {
-      const type = param.type || 'Other';
-      if (!paramsByType[type]) paramsByType[type] = [];
-      paramsByType[type].push(param);
+      const group = param.group || param.page || 'Common';
+      if (!paramsByGroup[group]) paramsByGroup[group] = [];
+      paramsByGroup[group].push(param);
     });
     
-    for (const [type, params] of Object.entries(paramsByType)) {
-      text += `### ${type} Parameters\n`;
+    for (const [group, params] of Object.entries(paramsByGroup)) {
+      text += `### ${group}\n`;
       for (const param of params) {
         text += `• **${param.name}**`;
         if (param.label && param.label !== param.name) {
           text += ` (${param.label})`;
         }
+        text += ` (${param.type || 'Unknown'})`;
         text += `: ${param.description || 'No description'}`;
         
         // Add range info if available
-        if (param.range) {
-          text += ` [Range: ${param.range.min} to ${param.range.max}]`;
+        if (param.minValue !== null || param.maxValue !== null) {
+          text += ` [Range: ${param.minValue ?? '∞'} to ${param.maxValue ?? '∞'}]`;
         }
         
         // Add default value if available
-        if (param.default) {
-          text += ` (Default: ${param.default})`;
+        if (param.defaultValue !== null && param.defaultValue !== undefined) {
+          text += ` (Default: ${param.defaultValue})`;
         }
         
-        // Add options if available
-        if (param.options && param.options.length > 0) {
-          text += `\n  Options: ${param.options.join(', ')}`;
+        // Add units if available
+        if (param.units) {
+          text += ` (${param.units})`;
+        }
+        
+        // Add menu options if available
+        if (param.menuItems && param.menuItems.length > 0) {
+          text += `\n  Options: ${param.menuItems.join(', ')}`;
         }
         
         text += '\n';
@@ -77,46 +96,47 @@ export async function handler({ name, show_examples = true, show_tips = true }, 
     text += `## Parameters\nNo parameters documented.\n\n`;
   }
   
-  // Inputs/Outputs with detailed info
-  if (operator.inputs && operator.inputs.length > 0) {
-    text += `## Inputs\n`;
-    operator.inputs.forEach((input, i) => {
-      text += `${i + 1}. **${input.type}**: ${input.description || 'Standard input'}\n`;
-    });
-    text += '\n';
+  // Usage information
+  if (operator.usage) {
+    text += `## Usage\n${operator.usage}\n\n`;
   }
   
-  if (operator.outputs && operator.outputs.length > 0) {
-    text += `## Outputs\n`;
-    operator.outputs.forEach((output, i) => {
-      text += `${i + 1}. **${output.type}**: ${output.description || 'Standard output'}\n`;
-    });
-    text += '\n';
-  }
-  
-  // Use Cases
-  if (operator.useCases && operator.useCases.length > 0) {
-    text += `## Common Use Cases\n`;
-    operator.useCases.forEach(useCase => {
-      text += `• ${useCase}\n`;
-    });
-    text += '\n';
-  }
-  
-  // Examples
-  if (show_examples && operator.examples && operator.examples.length > 0) {
-    text += `## Examples\n`;
-    operator.examples.forEach(example => {
-      text += `### ${example.title}\n`;
-      text += `\`\`\`\n${example.content}\n\`\`\`\n\n`;
+  // Code Examples
+  if (show_examples && operator.codeExamples && operator.codeExamples.length > 0) {
+    text += `## Code Examples\n`;
+    operator.codeExamples.forEach((example, i) => {
+      text += `### ${example.title || `Example ${i + 1}`}\n`;
+      text += `\`\`\`${example.language || 'text'}\n${example.code}\n\`\`\`\n`;
+      if (example.description) {
+        text += `${example.description}\n`;
+      }
+      text += '\n';
     });
   }
   
-  // Code Snippets
-  if (show_examples && operator.codeSnippets && operator.codeSnippets.length > 0) {
-    text += `## Code Snippets\n`;
-    operator.codeSnippets.forEach((snippet, i) => {
-      text += `\`\`\`${snippet.language || 'python'}\n${snippet.code}\n\`\`\`\n\n`;
+  // Python Examples
+  if (show_examples && operator.pythonExamples && operator.pythonExamples.length > 0) {
+    text += `## Python Examples\n`;
+    operator.pythonExamples.forEach((example, i) => {
+      text += `### ${example.title || `Python Example ${i + 1}`}\n`;
+      text += `\`\`\`python\n${example.code}\n\`\`\`\n`;
+      if (example.description) {
+        text += `${example.description}\n`;
+      }
+      text += '\n';
+    });
+  }
+  
+  // Expression Examples
+  if (show_examples && operator.expressions && operator.expressions.length > 0) {
+    text += `## Expression Examples\n`;
+    operator.expressions.forEach((example, i) => {
+      text += `### ${example.title || `Expression ${i + 1}`}\n`;
+      text += `\`\`\`\n${example.code}\n\`\`\`\n`;
+      if (example.description) {
+        text += `${example.description}\n`;
+      }
+      text += '\n';
     });
   }
   
@@ -128,50 +148,27 @@ export async function handler({ name, show_examples = true, show_tips = true }, 
     });
   }
   
-  // Performance Notes
-  if (show_tips && operator.performanceNotes && operator.performanceNotes.length > 0) {
-    text += `## Performance Considerations\n`;
-    operator.performanceNotes.forEach(note => {
-      text += `⚡ ${note}\n\n`;
+  // Warnings
+  if (show_tips && operator.warnings && operator.warnings.length > 0) {
+    text += `## Warnings\n`;
+    operator.warnings.forEach(warning => {
+      text += `⚠️ ${warning}\n\n`;
     });
   }
   
-  // Keyboard Shortcuts
-  if (operator.shortcuts && operator.shortcuts.length > 0) {
-    text += `## Keyboard Shortcuts\n`;
-    operator.shortcuts.forEach(shortcut => {
-      text += `• **${shortcut.key}**: ${shortcut.description}\n`;
-    });
-    text += '\n';
+  // Keywords/Tags
+  if (operator.keywords && operator.keywords.length > 0) {
+    text += `## Keywords\n${operator.keywords.join(', ')}\n\n`;
   }
-  
-  // Related Operators
-  if (operator.related && operator.related.length > 0) {
-    text += `## Related Operators\n`;
-    operator.related.forEach(rel => {
-      text += `• [${rel.name}](${rel.url})\n`;
-    });
-    text += '\n';
-  }
-  
-  // Documentation Links
-  text += `## Resources\n`;
-  if (operator.url) {
-    text += `• [Official Documentation](${operator.url})\n`;
-  }
-  if (operator.wiki_url) {
-    text += `• [Wiki Page](${operator.wiki_url})\n`;
-  }
-  text += '\n';
   
   // Metadata
   text += `---\n`;
-  text += `*Data source: TouchDesigner documentation`;
-  if (operator.scraped && operator.scrapedAt) {
-    text += ` (updated ${new Date(operator.scrapedAt).toLocaleDateString()})`;
+  text += `*Data source: TouchDesigner HTM documentation`;
+  if (operator.lastUpdated) {
+    text += ` (updated ${new Date(operator.lastUpdated).toLocaleDateString()})`;
   }
-  if (operator.parameterCount) {
-    text += ` | ${operator.parameterCount} parameters documented`;
+  if (operator.parameterCount || (operator.parameters && operator.parameters.length)) {
+    text += ` | ${operator.parameterCount || operator.parameters.length} parameters documented`;
   }
   text += `*\n`;
   

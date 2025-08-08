@@ -1,0 +1,144 @@
+{{#> main currentPage="python"}}
+
+<article class="python-docs">
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">Python Reference</h1>
+        <p class="page-subtitle">
+            TouchDesigner Python scripting documentation and class references
+        </p>
+    </header>
+    
+    <!-- Breadcrumbs -->
+    {{#if breadcrumbs}}
+    <nav class="breadcrumbs">
+        {{#each breadcrumbs}}
+            {{#if @last}}
+                <span class="breadcrumb-item current">{{text}}</span>
+            {{else}}
+                <a href="{{url}}" class="breadcrumb-item">{{text}}</a>
+                <span class="breadcrumb-separator">/</span>
+            {{/if}}
+        {{/each}}
+    </nav>
+    {{/if}}
+    
+    <!-- Overview Section -->
+    <section class="python-overview">
+        <div class="overview-content">
+            <p>
+                TouchDesigner provides extensive Python scripting capabilities for advanced control, automation, and customization.
+                Python in TouchDesigner gives you access to all operators, parameters, and system functions through a comprehensive API.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Python Classes Section -->
+    <section class="python-classes">
+        <h2 class="section-title">Core Python Classes</h2>
+        
+        <div class="classes-grid">
+            <a href="/Python/Op" class="class-card">
+                <h3>Op Class</h3>
+                <p>Base class for all operators. Provides methods to access parameters, inputs, outputs, and operator properties.</p>
+            </a>
+            
+            <a href="/Python/Par" class="class-card">
+                <h3>Par Class</h3>
+                <p>Represents operator parameters. Access and modify parameter values, expressions, and modes.</p>
+            </a>
+            
+            <a href="/Python/CHOP_Class" class="class-card">
+                <h3>CHOP Class</h3>
+                <p>Channel operator specific methods for accessing samples, channels, and time-based data.</p>
+            </a>
+            
+            <a href="/Python/TOP_Class" class="class-card">
+                <h3>TOP Class</h3>
+                <p>Texture operator specific methods for image processing and GPU operations.</p>
+            </a>
+            
+            <a href="/Python/SOP_Class" class="class-card">
+                <h3>SOP Class</h3>
+                <p>Surface operator specific methods for geometry manipulation and 3D operations.</p>
+            </a>
+            
+            <a href="/Python/DAT_Class" class="class-card">
+                <h3>DAT Class</h3>
+                <p>Data operator specific methods for text, table, and data manipulation.</p>
+            </a>
+            
+            <a href="/Python/MAT_Class" class="class-card">
+                <h3>MAT Class</h3>
+                <p>Material operator specific methods for shader and rendering control.</p>
+            </a>
+            
+            <a href="/Python/COMP_Class" class="class-card">
+                <h3>COMP Class</h3>
+                <p>Component operator specific methods for UI and complex system management.</p>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Common Python Tasks -->
+    <section class="python-tasks">
+        <h2 class="section-title">Common Python Tasks</h2>
+        
+        <div class="tasks-list">
+            <div class="task-item">
+                <h3>Accessing Operators</h3>
+                <pre class="code-example"><code>op('moviefilein1')
+op('/project1/geo1')
+op.Geo1
+parent().op('text1')</code></pre>
+            </div>
+            
+            <div class="task-item">
+                <h3>Setting Parameters</h3>
+                <pre class="code-example"><code>op('constant1').par.value0 = 0.5
+op('transform1').par.tx = 10
+op('noise1').par.period.expr = 'absTime.seconds'</code></pre>
+            </div>
+            
+            <div class="task-item">
+                <h3>Working with Tables</h3>
+                <pre class="code-example"><code>table = op('table1')
+table[0,0] = 'Header'
+table.appendRow(['data1', 'data2', 'data3'])
+for row in table.rows():
+    print(row)</code></pre>
+            </div>
+            
+            <div class="task-item">
+                <h3>Running Scripts</h3>
+                <pre class="code-example"><code>op('text1').run()
+op('text1').run(delayFrames=10)
+run('project1/scripts/text1', delayMilliSeconds=1000)</code></pre>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources -->
+    <section class="python-resources">
+        <h2 class="section-title">Python Resources</h2>
+        
+        <div class="resources-grid">
+            <a href="https://docs.derivative.ca/Python" class="resource-card" target="_blank">
+                <h3>Official Python Documentation</h3>
+                <p>Complete Python reference on the official TouchDesigner documentation</p>
+            </a>
+            
+            <a href="https://docs.derivative.ca/Category:Python" class="resource-card" target="_blank">
+                <h3>Python Examples</h3>
+                <p>Collection of Python examples and tutorials</p>
+            </a>
+            
+            <a href="/search?q=python" class="resource-card">
+                <h3>Search Python Operators</h3>
+                <p>Find operators with Python scripting capabilities</p>
+            </a>
+        </div>
+    </section>
+</article>
+
+{{/main}}

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Point File In POP - TouchDesigner Documentation</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"244fc26320fae41acdad9eb5","wgCSPNonce":false,"wgCanonicalNamespace":"Experimental","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":20,"wgPageName":"Experimental:Point_File_In_POP","wgTitle":"Point File In POP","wgCurRevisionId":33565,"wgRevisionId":33565,"wgArticleId":4055,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["OP Help Common Pages","POPs"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"Experimental:Point_File_In_POP","wgRelevantArticleId":4055,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove"
+:[],"wgCargoDefaultQueryLimit":100,"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":
+"/extensions/PageForms","edgValues":{"title":["Experimental:Accumulate POP","Experimental:Analyze POP","Experimental:Attribute Combine POP","Experimental:Attribute Convert POP","Experimental:Attribute POP","Experimental:Blend POP","Experimental:Box POP","Experimental:Cache Blend POP","Experimental:Cache POP","Experimental:Cache Select POP","Experimental:CHOP to POP","Experimental:Circle POP","Experimental:Convert POP","Experimental:Copy POP","Experimental:CPlusPlus POP","Experimental:Curve POP","Experimental:DAT to POP","Experimental:Delete POP","Experimental:Dimension POP","Experimental:DMX Fixture POP","Experimental:DMX Out POP","Experimental:Extrude POP","Experimental:Facet POP","Experimental:Feedback POP","Experimental:Field POP","Experimental:File In POP","Experimental:Force POP","Experimental:GLSL Advanced POP","Experimental:GLSL Copy POP","Experimental:GLSL Create POP","Experimental:GLSL POP","Experimental:GLSL Select POP","Experimental:Grid POP","Experimental:Group POP",
+"Experimental:Histogram POP","Experimental:Import Select POP","Experimental:In POP","Experimental:Limit POP","Experimental:Line Break POP","Experimental:Line Divide POP","Experimental:Line Metrics POP","Experimental:Line POP","Experimental:Line Smooth POP","Experimental:Line Thick POP","Experimental:Lookup Attribute POP","Experimental:Lookup Channel POP","Experimental:Lookup Texture POP","Experimental:Math Combine POP","Experimental:Math Mix POP","Experimental:Math POP","Experimental:Merge POP","Experimental:Neighbor POP","Experimental:Noise POP","Experimental:Normal POP","Experimental:Normalize POP","Experimental:Null POP","Experimental:Out POP","Experimental:Particle POP","Experimental:Pattern POP","Experimental:Phaser POP","Experimental:Point File In POP","Experimental:Point Generator POP","Experimental:Point POP","Experimental:Points, Vertices and Primitives in POPs","Experimental:Polygonize POP","Experimental:Primitive POP","Experimental:Projection POP",
+"Experimental:Proximity POP","Experimental:Quantize POP","Experimental:Random POP","Experimental:Ray POP","Experimental:Rectangle POP","Experimental:ReRange POP","Experimental:Revolve POP","Experimental:Select POP","Experimental:Skin Deform POP","Experimental:Skin POP","Experimental:SOP to POP","Experimental:Sort POP","Experimental:Sphere POP","Experimental:Sprinkle POP","Experimental:Subdivide POP","Experimental:Switch POP","Experimental:Texture Map POP","Experimental:TOP to POP","Experimental:Topology POP","Experimental:Torus POP","Experimental:Trail POP","Experimental:Transform POP","Experimental:Trig POP","Experimental:Tube POP","Experimental:Twist POP"]},"wgPageFormsEDSettings":null,"wgAmericanDates":false,"wgVector2022PreviewPages":[]};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready"};RLPAGEMODULES=["ext.UiTag","ext.Lingo","site",
+"mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="keywords" content="TouchDesigner, Point File In, POP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=POP.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="Point File In POP - TouchDesigner Documentation"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/Experimental:Point_File_In_POP"/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:tag" content="TouchDesigner, Point File In, POP"/>
+<meta property="article:modified_time" content="2025-05-02T20:29:49Z"/>
+<meta property="article:published_time" content="2025-05-02T20:29:49Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"Point File In POP - TouchDesigner Documentation","headline":"Point File In POP - TouchDesigner Documentation","mainEntityOfPage":"<span class=\"mw-page-title-namespace\">Experimental<\/span><span class=\"mw-page-title-separator\">:<\/span><span class=\"mw-page-title-main\">Point File In POP<\/span>","identifier":"https:\/\/docs.derivative.ca\/Experimental:Point_File_In_POP","url":"https:\/\/docs.derivative.ca\/Experimental:Point_File_In_POP","keywords":"TouchDesigner, Point File In, POP","dateModified":"2025-05-02T20:29:49Z","datePublished":"2025-05-02T20:29:49Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-20 ns-subject page-Experimental_Point_File_In_POP rootpage-Experimental_Point_File_In_POP skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-namespace">Experimental</span><span class="mw-page-title-separator">:</span><span class="mw-page-title-main">Point File In POP</span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><h2><span class="mw-headline" id="Summary"><div class="sectionBarPOP">Summary</div></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:Summary&amp;action=edit&amp;section=T-1" title="Edit section: Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> File In POP loads 3D point data into POPs from either a single file or a sequence of files. The <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> File In POP will load all available point data after you select field names and give them attribute names. Fields include standard ones like XYZ position, normal vectors, texture coordinates and RGBA color. More specialized fields are read in via any number of sequential blocks that map fields to attributes. 
+</p><p>By default, field <code>x</code>, <code>y</code> and <code>z</code> are placed into the <code>P</code> attribute, and <code>r g b a</code> into the <code>Color</code> attribute, but that can be all re-assigned.  The sequential blocks can create float, float2, float3 and float4 attributes, as well as arrays of values (no matrices or double at the moment).
+</p><p>The Thin page lets you skip points in the file, either randomly or in patterns. The ReRange page lets you scale/offset attribute values without having to create a temporary version of an attribute.
+</p><p>The <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> File In POP will read point data from various mesh and floating point data files including: <code>.obj</code>, <code>.ply</code>, <code>.fits</code> (astronomy format), and <code>.exr</code>. It can also load ASCII point files (<code>.xyz</code>, <code>.pts</code>, <code>.csv</code>, <code>.txt</code>, etc) with one point per line and comma- or space-separated fields. The first line in ASCII point files can either be the number of points, the names of the point fields or the first point in the file.
+</p><p>For a complete list, see <a href="/File_Types" title="File Types">File Types</a>. The OpenEXR file format is generally best to use as it is binary, can be read in multi-frame file sequences that uses TouchDesigner's movie file pre-reading and buffering, and can be written from TouchDesigner's <a href="/Movie_File_Out_TOP" title="Movie File Out TOP">Movie File Out TOP</a> with unlimited numbers of channels.
+</p><p>(TBD: Examine the state of a <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> File In POP by attaching an Info <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>. This will show information like the number of points, fields per point and the number of frames. It also shows dynamic information like the file open status, current frame, readahead frames and queue size, dropped frame count, CPU decode time and <span class="mw-lingo-term" data-lingo-term-id="52f9ec21735243ad9917cda3ca077d32">GPU</span> upload time.)
+</p><p>Headers: If the file contains any additional header data, this can be viewed by attaching an <a href="/Info_DAT" title="Info DAT">Info DAT</a>. Header data is stored as key-value pairs with the keys in the first column and the corresponding data in the second column, which can easily be interpreted with python.
+</p><p>All of the ASCII point list formats are loaded the same way whether their extension is <code>txt</code>, <code>csv</code>, <code>xyz</code>, etc. The parser looks for the first separating character (comma, space or tab) and then uses that to delimit the rest of the file. It will ignore delimiters that are inside single or double quotes. There are a few special rules depending on the delimiter style e.g. multiple spaces are merged together, but a comma at the end of a line indicates a blank field afterwards. Once a delimiter is established, The first line can be the number of points, but it is ignored. If the next line are strings then it is treated as a row of headers (channel names). Each row after that is considered the attributes of point.
+</p><p><a href="/File:PythonIcon.png" class="image"><img alt="PythonIcon.png" src="/images/c/c2/PythonIcon.png" decoding="async" width="20" height="20"></a><a href="/PointfileinPOP_Class" title="PointfileinPOP Class">pointfileinPOP_Class</a>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en-CA" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul><li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Point_File_In_Page"><span class="tocnumber">2</span> <span class="toctext">Parameters - Point File In Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Thin_Page"><span class="tocnumber">3</span> <span class="toctext">Parameters - Thin Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_ReRange_Page"><span class="tocnumber">4</span> <span class="toctext">Parameters - ReRange Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Common_Page"><span class="tocnumber">5</span> <span class="toctext">Parameters - Common Page</span></a></li>
+<li class="toclevel-1"><a href="#Info_CHOP_Channels"><span class="tocnumber">6</span> <span class="toctext">Info CHOP Channels</span></a>
+<ul><li class="toclevel-2"><a href="#Common_POP_Info_Channels"><span class="tocnumber">6.1</span> <span class="toctext">Common POP Info Channels</span></a></li>
+<li class="toclevel-2"><a href="#Common_Operator_Info_Channels"><span class="tocnumber">6.2</span> <span class="toctext">Common Operator Info Channels</span></a></li>
+</ul></li>
+</ul></div>
+
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Point_File_In_Page"><div class="sectionBarPOP">Parameters - <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> File In Page</div></span></h2>
+<div id="file" style=""><span class="parNamePOP">File</span>  <code>file</code> -
+<p><i></i>
+</p>
+</div>
+<div id="reload" style=""><span class="parNamePOP">Reload</span>  <code>reload</code> -
+<p><i></i>
+</p>
+</div>
+<div id="reloadpulse" style=""><span class="parNamePOP">Reload <span class="mw-lingo-term" data-lingo-term-id="ec8374db32bacb4cd9760199ec42819e">Pulse</span></span>  <code>reloadpulse</code> -
+<p><i></i>
+</p>
+</div>
+<div id="createpointprim" style=""><span class="parNamePOP">Create <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> Primitives</span>  <code>createpointprim</code> -
+<p><i></i>
+</p>
+</div>
+<div id="maxpointsenable" style=""><span class="parNamePOP">Max Number of Points</span>  <code>maxpointsenable</code> -
+<p><i></i>
+</p>
+</div>
+<div id="maxpoints" style=""><span class="parNamePOP">Number of Points</span>  <code>maxpoints</code> -
+<p><i></i>
+</p>
+</div>
+<div id="positionfields" style=""><span class="parNamePOP">Position Fields</span>  <code>positionfields</code> - <span class="mw-customtoggle-positionfields">⊞</span> - 
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-positionfields">
+<ul><li><span class="parNamePOP">x</span> <code>x</code> -</li></ul><ul><li><span class="parNamePOP">y</span> <code>y</code> -</li></ul><ul><li><span class="parNamePOP">z</span> <code>z</code> -</li></ul><ul><li><span class="parNamePOP">nx</span> <code>nx</code> -</li></ul><ul><li><span class="parNamePOP">ny</span> <code>ny</code> -</li></ul><ul><li><span class="parNamePOP">nz</span> <code>nz</code> -</li></ul><ul><li><span class="parNamePOP">r</span> <code>r</code> -</li></ul><ul><li><span class="parNamePOP">g</span> <code>g</code> -</li></ul><ul><li><span class="parNamePOP">b</span> <code>b</code> -</li></ul><ul><li><span class="parNamePOP">a</span> <code>a</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="normalfields" style=""><span class="parNamePOP">Normal Fields</span>  <code>normalfields</code> - <span class="mw-customtoggle-normalfields">⊞</span> - 
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-normalfields">
+<ul><li><span class="parNamePOP">x</span> <code>x</code> -</li></ul><ul><li><span class="parNamePOP">y</span> <code>y</code> -</li></ul><ul><li><span class="parNamePOP">z</span> <code>z</code> -</li></ul><ul><li><span class="parNamePOP">nx</span> <code>nx</code> -</li></ul><ul><li><span class="parNamePOP">ny</span> <code>ny</code> -</li></ul><ul><li><span class="parNamePOP">nz</span> <code>nz</code> -</li></ul><ul><li><span class="parNamePOP">r</span> <code>r</code> -</li></ul><ul><li><span class="parNamePOP">g</span> <code>g</code> -</li></ul><ul><li><span class="parNamePOP">b</span> <code>b</code> -</li></ul><ul><li><span class="parNamePOP">a</span> <code>a</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="texturefields" style=""><span class="parNamePOP">Texture Fields</span>  <code>texturefields</code> - <span class="mw-customtoggle-texturefields">⊞</span> - 
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-texturefields">
+<ul><li><span class="parNamePOP">x</span> <code>x</code> -</li></ul><ul><li><span class="parNamePOP">y</span> <code>y</code> -</li></ul><ul><li><span class="parNamePOP">z</span> <code>z</code> -</li></ul><ul><li><span class="parNamePOP">nx</span> <code>nx</code> -</li></ul><ul><li><span class="parNamePOP">ny</span> <code>ny</code> -</li></ul><ul><li><span class="parNamePOP">nz</span> <code>nz</code> -</li></ul><ul><li><span class="parNamePOP">r</span> <code>r</code> -</li></ul><ul><li><span class="parNamePOP">g</span> <code>g</code> -</li></ul><ul><li><span class="parNamePOP">b</span> <code>b</code> -</li></ul><ul><li><span class="parNamePOP">a</span> <code>a</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="colorfields" style=""><span class="parNamePOP">Color Fields</span>  <code>colorfields</code> - <span class="mw-customtoggle-colorfields">⊞</span> - 
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-colorfields">
+<ul><li><span class="parNamePOP">x</span> <code>x</code> -</li></ul><ul><li><span class="parNamePOP">y</span> <code>y</code> -</li></ul><ul><li><span class="parNamePOP">z</span> <code>z</code> -</li></ul><ul><li><span class="parNamePOP">nx</span> <code>nx</code> -</li></ul><ul><li><span class="parNamePOP">ny</span> <code>ny</code> -</li></ul><ul><li><span class="parNamePOP">nz</span> <code>nz</code> -</li></ul><ul><li><span class="parNamePOP">r</span> <code>r</code> -</li></ul><ul><li><span class="parNamePOP">g</span> <code>g</code> -</li></ul><ul><li><span class="parNamePOP">b</span> <code>b</code> -</li></ul><ul><li><span class="parNamePOP">a</span> <code>a</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="attr" style="" class="sequenceBlock"><span class="parNamePOP">Attribute</span>  <code>attr</code> -
+<div class="sequenceItem">
+<div id="attr0fields" style=""><span class="parNamePOP">Fields</span>  <code>attr0fields</code> - <span class="mw-customtoggle-attr0fields">⊞</span> - 
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-attr0fields">
+<ul><li><span class="parNamePOP">x</span> <code>x</code> -</li></ul><ul><li><span class="parNamePOP">y</span> <code>y</code> -</li></ul><ul><li><span class="parNamePOP">z</span> <code>z</code> -</li></ul><ul><li><span class="parNamePOP">nx</span> <code>nx</code> -</li></ul><ul><li><span class="parNamePOP">ny</span> <code>ny</code> -</li></ul><ul><li><span class="parNamePOP">nz</span> <code>nz</code> -</li></ul><ul><li><span class="parNamePOP">r</span> <code>r</code> -</li></ul><ul><li><span class="parNamePOP">g</span> <code>g</code> -</li></ul><ul><li><span class="parNamePOP">b</span> <code>b</code> -</li></ul><ul><li><span class="parNamePOP">a</span> <code>a</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="attr0name" style=""><span class="parNamePOP">Attribute Name</span>  <code>attr0name</code> -
+<p><i></i>
+</p>
+</div>
+<div id="attr0isarray" style=""><span class="parNamePOP">Array</span>  <code>attr0isarray</code> -
+<p><i></i>
+</p>
+</div>
+<div id="attr0arraysize" style=""><span class="parNamePOP">Array Size</span>  <code>attr0arraysize</code> -
+<p><i></i>
+</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Thin_Page"><div class="sectionBarPOP">Parameters - Thin Page</div></span></h2>
+<div id="thinoutrange" style=""><span class="parNamePOP">Thin Out Range</span>  <code>thinoutrange</code> -
+<p><i></i>
+</p>
+</div>
+<div id="thinrangestart" style=""><span class="parNamePOP">Thin Range Start</span>  <code>thinrangestart</code> -
+<p><i></i>
+</p>
+</div>
+<div id="thinrangelength" style=""><span class="parNamePOP">Thin Range Length</span>  <code>thinrangelength</code> -
+<p><i></i>
+</p>
+</div>
+<div id="thinstep" style=""><span class="parNamePOP">Thin Step</span>  <code>thinstep</code> -
+<p><i></i>
+</p>
+</div>
+<div id="thinrandom" style=""><span class="parNamePOP">Thin Random</span>  <code>thinrandom</code> -
+<p><i></i>
+</p>
+</div>
+<div id="thinrandomseed" style=""><span class="parNamePOP">Thin Random Seed</span>  <code>thinrandomseed</code> -
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_ReRange_Page"><div class="sectionBarPOP">Parameters - ReRange Page</div></span></h2>
+<div id="rerange" style="" class="sequenceBlock"><span class="parNamePOP">Rerange</span>  <code>rerange</code> -
+<div class="sequenceItem">
+<div id="rerange0scope" style=""><span class="parNamePOP"><span class="mw-lingo-term" data-lingo-term-id="5d113f2038d289f391614c39043629e8">Scope</span></span>  <code>rerange0scope</code> - <span class="mw-customtoggle-rerange0scope">⊞</span> - 
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-rerange0scope">
+<ul><li><span class="parNamePOP">P</span> <code>P</code> -</li></ul><ul><li><span class="parNamePOP">P(0) P(1) P(2)</span> <code>P(0) P(1) P(2)</code> -</li></ul><ul><li><span class="parNamePOP">Color</span> <code>Color</code> -</li></ul><ul><li><span class="parNamePOP">Color(0) Color(1) Color(2)</span> <code>Color(0) Color(1) Color(2)</code> -</li></ul><ul><li><span class="parNamePOP">N</span> <code>N</code> -</li></ul><ul><li><span class="parNamePOP">P.i01</span> <code>P.i01</code> -</li></ul><ul><li><span class="parNamePOP">Color.i012</span> <code>Color.i012</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="rerange0parsize" style=""><span class="parNamePOP">Parameter Size</span>  <code>rerange0parsize</code> - <span class="mw-customtoggle-rerange0parsize">⊞</span> - 
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-rerange0parsize">
+<ul><li><span class="parNamePOP">1</span> <code>1</code> -</li></ul><ul><li><span class="parNamePOP">2</span> <code>2</code> -</li></ul><ul><li><span class="parNamePOP">3</span> <code>3</code> -</li></ul><ul><li><span class="parNamePOP">4</span> <code>4</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="rerange0fromlow" style=""><span class="parNamePOP">Map from Low</span>  <code>rerange0fromlow</code> -
+<p><i></i>
+</p>
+</div>
+<div id="rerange0fromhigh" style=""><span class="parNamePOP">Map from High</span>  <code>rerange0fromhigh</code> -
+<p><i></i>
+</p>
+</div>
+<div id="rerange0tolow" style=""><span class="parNamePOP">Map to Low</span>  <code>rerange0tolow</code> -
+<p><i></i>
+</p>
+</div>
+<div id="rerange0tohigh" style=""><span class="parNamePOP">Map to High</span>  <code>rerange0tohigh</code> -
+<p><i></i>
+</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Common_Page"><div class="sectionBarPOP">Parameters - Common Page</div></span></h2>
+<div id="bypass" style=""><span class="parNamePOP"><span class="mw-lingo-term" data-lingo-term-id="5ce88c4d66118388a69c6fd4262ca3a1">Bypass</span></span>  <code>bypass</code> -
+<p><i></i>
+</p>
+</div>
+<div id="delinputattrs" style=""><span class="parNamePOP">Delete Input <span class="mw-lingo-term" data-lingo-term-id="287234a1ff35a314b5b6bc4e5828e745">Attributes</span></span>  <code>delinputattrs</code> -
+<p><i></i>
+</p>
+</div>
+<div id="parmcolorspace" style=""><span class="parNamePOP">Parameter Color Space</span>  <code>parmcolorspace</code> - <span class="mw-customtoggle-parmcolorspace">⊞</span> - Controls how all color parameters on this node are interpreted. The color values as treated as being in the selected color space, and are converted to the Working <a href="/Color_Space" title="Color Space">Color Space</a> before they are used as part of the node's operation. Note that this does not change the color space of the node itself, as that is always in the Working Color Space.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-parmcolorspace">
+<ul><li><span class="parNamePOP">sRGB</span> <code>srgb</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/SRGB">sRGB</a> color space, with sRGB transfer function. Considered an SDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">sRGB - Linear</span> <code>srgblinear</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/SRGB">sRGB</a> color space, with linear transfer function. Considered an SDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Rec.601 (NTSC)</span> <code>rec601ntsc</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Rec._601">Rec.601</a> with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Rec.709</span> <code>rec709</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Rec._709">Rec.709</a> color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Rec.2020</span> <code>rec2020</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Rec._2020">Rec.2020</a> color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">DCI-P3</span> <code>dcip3</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/DCI-P3">DCI-P3</a> color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">DCI-P3 (D60)</span> <code>dcip3d60</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/DCI-P3">DCI-P3 "D60 sim"</a> color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Display-P3 (D65)</span> <code>displayp3d65</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/DCI-P3">Display-P3</a> color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">ACES2065-1</span> <code>aces2065-1</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Academy_Color_Encoding_System">ACES 2065-1</a> (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">ACEScg</span> <code>acescg</code> - <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Academy_Color_Encoding_System">ACEScg</a> (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Passthrough</span> <code>passthrough</code> - When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="parmreferencewhite" style=""><span class="parNamePOP"><span class="mw-lingo-term" data-lingo-term-id="c36eba6886be950a031ec08f566cd724">Parameter Reference</span> White</span>  <code>parmreferencewhite</code> - <span class="mw-customtoggle-parmreferencewhite">⊞</span> - When converting a parameter color value to the Working Color Space, this controls how it should be treated with respect to <a href="/Color_Space#Reference_White" title="Color Space">Reference White</a>. If the Working Color Space is the same <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White, then no adjustment is done. If they are different, then the <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White level (brightness) of this color will be adjusted to the range expected by the Working Color Space. For example if the project is set to have a SDR <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White of 120 nits, and the HDR <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White is 80 nits, then a color of (1, 1, 1), which is 120 nits in the SDR color space, will be converted to be (1.5, 1.5, 1.5), which is 120 nits still in the HDR Working Color Space.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-parmreferencewhite">
+<ul><li><span class="parNamePOP">Default For Color Space</span> <code>default</code> - Will use either the SDR or the HDR <span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> White, based on the color space selected.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">Standard (SDR)</span> <code>sdr</code> - Will treat the Parameter Color Space as SDR for it's reference white value.</li></ul><p><br></p>
+<ul><li><span class="parNamePOP">High (HDR)</span> <code>hdr</code> - Will treat the Parameter Color Space as HDR for it's reference white value.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<h2><span class="mw-headline" id="Info_CHOP_Channels"><div class="sectionBarPOP">Info <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> Channels</div></span></h2>
+<p>Extra Information for the <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> File In POP can be accessed via an <a href="/Info_CHOP" title="Info CHOP">Info CHOP</a>.
+<i></i>
+</p>
+<h3><span class="mw-headline" id="Common_POP_Info_Channels"><div class="customBar">Common POP Info Channels</div></span></h3>
+<h3><span class="mw-headline" id="Common_Operator_Info_Channels"><div class="customBar">Common Operator Info Channels</div></span></h3>
+<ul><li><span class="parName">total_cooks</span> - Number of times the operator has cooked since the process started.</li></ul><ul><li><span class="parName">cook_time</span> - Duration of the last cook in milliseconds.</li></ul><ul><li><span class="parName">cook_frame</span> - Frame number when this operator was last cooked relative to the component timeline.</li></ul><ul><li><span class="parName">cook_abs_frame</span> - Frame number when this operator was last cooked relative to the absolute time.</li></ul><ul><li><span class="parName">cook_start_time</span> - Time in milliseconds at which the operator started cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cook_end_time</span> - Time in milliseconds at which the operator finished cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cooked_this_frame</span> - 1 if operator was cooked this frame.</li></ul><ul><li><span class="parName">warnings</span> - Number of warnings in this operator if any.</li></ul><ul><li><span class="parName">errors</span> - Number of errors in this operator if any.</li></ul><p><br>
+
+TouchDesigner Build: <select onchange="location=this.value;"><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP">Latest</option>\n<option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=31962">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=32618">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=33135">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=33556">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=33557">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=33558">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=33559">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=33560">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=33561">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Point_File_In_POP?oldid=33565">wikieditor</option></select></p>
+<table><tbody><tr><th class="navBox">POPs
+</th></tr><tr><td><span class="catList navigation-not-searchable"><a href="/Experimental:Accumulate_POP" title="Experimental:Accumulate POP">Experimental:Accumulate  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Analyze_POP" title="Experimental:Analyze POP">Experimental:Analyze  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Attribute_Combine_POP" title="Experimental:Attribute Combine POP">Experimental:Attribute Combine  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Attribute_Convert_POP" title="Experimental:Attribute Convert POP">Experimental:Attribute Convert  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Attribute_POP" title="Experimental:Attribute POP">Experimental:Attribute  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Blend_POP" title="Experimental:Blend POP">Experimental:Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Box_POP" title="Experimental:Box POP">Experimental:Box  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Cache_Blend_POP" title="Experimental:Cache Blend POP">Experimental:Cache Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Cache_POP" title="Experimental:Cache POP">Experimental:Cache  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Cache_Select_POP" title="Experimental:Cache Select POP">Experimental:Cache Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:CHOP_to_POP" title="Experimental:CHOP to POP">Experimental:CHOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Circle_POP" title="Experimental:Circle POP">Experimental:Circle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Convert_POP" title="Experimental:Convert POP">Experimental:Convert  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Copy_POP" title="Experimental:Copy POP">Experimental:Copy  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:CPlusPlus_POP" title="Experimental:CPlusPlus POP">Experimental:CPlusPlus  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Curve_POP" title="Experimental:Curve POP">Experimental:Curve  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:DAT_to_POP" title="Experimental:DAT to POP">Experimental:DAT to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Delete_POP" title="Experimental:Delete POP">Experimental:Delete  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Dimension_POP" title="Experimental:Dimension POP">Experimental:Dimension  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:DMX_Fixture_POP" title="Experimental:DMX Fixture POP">Experimental:DMX Fixture  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:DMX_Out_POP" title="Experimental:DMX Out POP">Experimental:DMX Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Extrude_POP" title="Experimental:Extrude POP">Experimental:Extrude  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Facet_POP" title="Experimental:Facet POP">Experimental:Facet  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Feedback_POP" title="Experimental:Feedback POP">Experimental:Feedback  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Field_POP" title="Experimental:Field POP">Experimental:Field  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:File_In_POP" title="Experimental:File In POP">Experimental:File In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Force_POP" title="Experimental:Force POP">Experimental:Force  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_Advanced_POP" title="Experimental:GLSL Advanced POP">Experimental:GLSL Advanced  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_Copy_POP" title="Experimental:GLSL Copy POP">Experimental:GLSL Copy  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_Create_POP" title="Experimental:GLSL Create POP">Experimental:GLSL Create  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_POP" title="Experimental:GLSL POP">Experimental:GLSL  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:GLSL_Select_POP" title="Experimental:GLSL Select POP">Experimental:GLSL Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Grid_POP" title="Experimental:Grid POP">Experimental:Grid  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Group_POP" title="Experimental:Group POP">Experimental:Group  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Histogram_POP" title="Experimental:Histogram POP">Experimental:Histogram  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Import_Select_POP" title="Experimental:Import Select POP">Experimental:Import Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:In_POP" title="Experimental:In POP">Experimental:In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Limit_POP" title="Experimental:Limit POP">Experimental:Limit  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Break_POP" title="Experimental:Line Break POP">Experimental:Line Break  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Divide_POP" title="Experimental:Line Divide POP">Experimental:Line Divide  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Metrics_POP" title="Experimental:Line Metrics POP">Experimental:Line Metrics  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_POP" title="Experimental:Line POP">Experimental:Line  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Smooth_POP" title="Experimental:Line Smooth POP">Experimental:Line Smooth  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Line_Thick_POP" title="Experimental:Line Thick POP">Experimental:Line Thick  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Lookup_Attribute_POP" title="Experimental:Lookup Attribute POP">Experimental:Lookup Attribute  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Lookup_Channel_POP" title="Experimental:Lookup Channel POP">Experimental:Lookup Channel  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Lookup_Texture_POP" title="Experimental:Lookup Texture POP">Experimental:Lookup Texture  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Math_Combine_POP" title="Experimental:Math Combine POP">Experimental:Math Combine  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Math_Mix_POP" title="Experimental:Math Mix POP">Experimental:Math Mix  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Math_POP" title="Experimental:Math POP">Experimental:Math  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Merge_POP" title="Experimental:Merge POP">Experimental:Merge  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Neighbor_POP" title="Experimental:Neighbor POP">Experimental:Neighbor  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Noise_POP" title="Experimental:Noise POP">Experimental:Noise  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Normal_POP" title="Experimental:Normal POP">Experimental:Normal  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Normalize_POP" title="Experimental:Normalize POP">Experimental:Normalize  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Null_POP" title="Experimental:Null POP">Experimental:Null  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Out_POP" title="Experimental:Out POP">Experimental:Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Particle_POP" title="Experimental:Particle POP">Experimental:Particle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Pattern_POP" title="Experimental:Pattern POP">Experimental:Pattern  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Phaser_POP" title="Experimental:Phaser POP">Experimental:Phaser  </a></span>• <span class="catList navigation-not-searchable"><a class="mw-selflink selflink">Experimental:Point File In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Point_Generator_POP" title="Experimental:Point Generator POP">Experimental:Point Generator  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Point_POP" title="Experimental:Point POP">Experimental:Point  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Points,_Vertices_and_Primitives_in_POPs" title="Experimental:Points, Vertices and Primitives in POPs">Experimental:Points, Vertices and Primitives in s </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Polygonize_POP" title="Experimental:Polygonize POP">Experimental:Polygonize  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Primitive_POP" title="Experimental:Primitive POP">Experimental:Primitive  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Projection_POP" title="Experimental:Projection POP">Experimental:Projection  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Proximity_POP" title="Experimental:Proximity POP">Experimental:Proximity  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Quantize_POP" title="Experimental:Quantize POP">Experimental:Quantize  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Random_POP" title="Experimental:Random POP">Experimental:Random  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Ray_POP" title="Experimental:Ray POP">Experimental:Ray  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Rectangle_POP" title="Experimental:Rectangle POP">Experimental:Rectangle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:ReRange_POP" title="Experimental:ReRange POP">Experimental:ReRange  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Revolve_POP" title="Experimental:Revolve POP">Experimental:Revolve  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Select_POP" title="Experimental:Select POP">Experimental:Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Skin_Deform_POP" title="Experimental:Skin Deform POP">Experimental:Skin Deform  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Skin_POP" title="Experimental:Skin POP">Experimental:Skin  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:SOP_to_POP" title="Experimental:SOP to POP">Experimental:SOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Sort_POP" title="Experimental:Sort POP">Experimental:Sort  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Sphere_POP" title="Experimental:Sphere POP">Experimental:Sphere  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Sprinkle_POP" title="Experimental:Sprinkle POP">Experimental:Sprinkle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Subdivide_POP" title="Experimental:Subdivide POP">Experimental:Subdivide  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Switch_POP" title="Experimental:Switch POP">Experimental:Switch  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Texture_Map_POP" title="Experimental:Texture Map POP">Experimental:Texture Map  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:TOP_to_POP" title="Experimental:TOP to POP">Experimental:TOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Topology_POP" title="Experimental:Topology POP">Experimental:Topology  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Torus_POP" title="Experimental:Torus POP">Experimental:Torus  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Trail_POP" title="Experimental:Trail POP">Experimental:Trail  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Transform_POP" title="Experimental:Transform POP">Experimental:Transform  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Trig_POP" title="Experimental:Trig POP">Experimental:Trig  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Tube_POP" title="Experimental:Tube POP">Experimental:Tube  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Twist_POP" title="Experimental:Twist POP">Experimental:Twist  </a></span>
+</td></tr></tbody></table></div><div class="mw-lingo-tooltip" id="2a3cd5946cfd317eb99c3d32e35e2d4c"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Each SOP has a list of Points. Each point has an XYZ 3D position value plus other optional attributes. Each polygon <a href="/Primitive" title="Primitive">Primitive</a> is defined by a vertex list, which is list of point numbers.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="8b9d2cce2836537aabe6f2e0dd5da293"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> which operate on <a href="/Channel" title="Channel">Channels</a> (a sequence of numbers (<a href="/Sample" title="Sample">Samples</a>)) which are used for animation, audio, mathematics, simulation, logic, UI construction, and data streamed from/to devices and protocols.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="52f9ec21735243ad9917cda3ca077d32"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The Graphics Processing Unit. This is the high-speed, many-core processor of the graphics card/chip that takes geometry, images and data from the CPU and creates images and processed data.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ec8374db32bacb4cd9760199ec42819e"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>To "pulse" a parameter is to send it a signal from (1) an <a href="/Export" title="Export">exported</a> CHOP channel or (2) a python command or (3) a mouse click that causes a new action to occur immediately. A pulse via python is via the <code>.pulse()</code> function on a pulse-type parameter, such as Reset parameter in a <a href="/Speed_CHOP" title="Speed CHOP">Speed CHOP</a>. A pulse from a CHOP is typically a 0 to 1 to 0 signal in an exported channel.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="5d113f2038d289f391614c39043629e8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A parameter in most CHOPs that restricts which channels of that CHOP will be affected. Normally all channels of a CHOP are affected by the operator. TOPs have Channel Mask, a similar feature.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="5ce88c4d66118388a69c6fd4262ca3a1"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An operator whose Bypass flag is set does nothing: All data going into its first input appears at its output unaffected.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="287234a1ff35a314b5b6bc4e5828e745"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Information associated with <a href="/SOP" title="SOP">SOP</a> geometry. <a href="/Point" title="Point">Points</a> and <a href="/Primitive" title="Primitive">primitives</a> (polygons, NURBS, etc.) can have any number of attributes - position (P) is standard, and built-in optional attributes are <a href="/Normals" title="Normals">normals</a> (N), texture coordinates (uv), color (Cd), etc.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="63d5049791d9d79d86e9a108b0a999ca"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A <a href="/Link" title="Link">Link</a>. The grey dashed lines between nodes is a Reference or Link that indicates one operator is getting data from another operator from any <a href="/Operator_Family" title="Operator Family">Operator Family</a>.
+</p>
+</div></div><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The grey dashed lines between nodes is a Reference (or <a href="/Link" title="Link">Link</a>). A Reference is (1) a <a href="/Parameter_Reference" title="Parameter Reference">Parameter Reference</a>, a parameter in an OP that is a name or path to another operator, (2) a <a href="/index.php?title=Node_Reference&amp;action=edit&amp;redlink=1" class="new" title="Node Reference (page does not exist)">Node Reference</a>, an expression in a parameter or DAT script that contains the name or path of another operator, (3) a DAT Cell Reference or (4) a CHOP Channel Reference.
+</p>
+</div></div><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Link or Reference is a dashed line between nodes that represent other data flowing between nodes. Examples are CHOP <a href="/Export" title="Export">Exports</a>, node <a href="/Network_Path" title="Network Path">Paths</a> in parameters, and <a href="/Expression" title="Expression">expressions</a> in parameters referencing CHOP channels, DAT tables and other nodes. In contrast is a <a href="/Wire" title="Wire">Wire</a> that connects nodes in the same <a href="/Operator_Family" title="Operator Family">Operator Family</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="c36eba6886be950a031ec08f566cd724"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A parameter reference can be setup between any two parameters by putting an expression in one parameter that refers to another parameter. This creates a <a href="/Link" title="Link">Link</a> between the two parameters such that when one changes, the other will change automatically (known in other software as a "constraint").
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250701140646
+Cache expiry: 60
+Reduced expiry: true
+Complications: [show‐toc]
+CPU time usage: 0.536 seconds
+Real time usage: 1.267 seconds
+Preprocessor visited node count: 5368/1000000
+Post‐expand include size: 118700/2097152 bytes
+Template argument size: 60427/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1222/5000000 bytes
+Lua time usage: 0.880/5 seconds
+Lua virtual size: 9289728/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 1182.546      1 -total
+ 95.20% 1125.765      1 Template:NavBox
+ 93.92% 1110.632     92 Template:CatList
+  3.38%   39.997     32 Template:Parameter
+  3.18%   37.606      4 Template:ParameterPage
+  1.04%   12.299     75 Template:ParameterItem
+  0.78%    9.182      1 POP_Generator_Common_Page
+  0.73%    8.596      1 Template:InfoCHOPChannels
+  0.51%    6.038      1 Parameter_Color_Space_Parameters
+  0.44%    5.255      1 Template:Summary
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:4055-0!canonical and timestamp 20250701140645 and revision id 33565.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=Experimental:Point_File_In_POP&amp;oldid=33565">https://docs.derivative.ca/index.php?title=Experimental:Point_File_In_POP&amp;oldid=33565</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/index.php?title=Category:OP_Help_Common_Pages&amp;action=edit&amp;redlink=1" class="new" title="Category:OP Help Common Pages (page does not exist)">OP Help Common Pages</a></li><li><a href="/Category:POPs" title="Category:POPs">POPs</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=Experimental%3APoint+File+In+POP" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="mw-list-item"><a href="/Point_File_In_POP" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:Point_File_In_POP&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="selected mw-list-item"><a href="/Experimental:Point_File_In_POP"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/Experimental:Point_File_In_POP"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=Experimental:Point_File_In_POP&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/Experimental:Point_File_In_POP" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/Experimental:Point_File_In_POP" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=Experimental:Point_File_In_POP&amp;oldid=33565" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=Experimental:Point_File_In_POP&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=Experimental:Point_File_In_POP&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 2 May 2025, at 15:29.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.536","walltime":"1.267","ppvisitednodes":{"value":5368,"limit":1000000},"postexpandincludesize":{"value":118700,"limit":2097152},"templateargumentsize":{"value":60427,"limit":2097152},"expansiondepth":{"value":13,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1222,"limit":5000000},"timingprofile":["100.00% 1182.546      1 -total"," 95.20% 1125.765      1 Template:NavBox"," 93.92% 1110.632     92 Template:CatList","  3.38%   39.997     32 Template:Parameter","  3.18%   37.606      4 Template:ParameterPage","  1.04%   12.299     75 Template:ParameterItem","  0.78%    9.182      1 POP_Generator_Common_Page","  0.73%    8.596      1 Template:InfoCHOPChannels","  0.51%    6.038      1 Parameter_Color_Space_Parameters","  0.44%    5.255      1 Template:Summary"]},"scribunto":{"limitreport-timeusage":{"value":"0.880","limit":"5"},"limitreport-virtmemusage":{"value":9289728,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250701140646","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":1459});});</script>
+</body>
+<!-- Cached 20250701140646 -->
+</html>

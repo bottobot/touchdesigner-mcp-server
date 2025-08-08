@@ -101,6 +101,52 @@ Get the POP learning guide
 - **Workflow Patterns**: 20 common TouchDesigner workflow patterns
 - **Learning Resources**: Specialized guides for complex operator families like POPs
 
+## Local Wiki System
+
+TD-MCP now includes a powerful local wiki system that mirrors the official TouchDesigner documentation from docs.derivative.ca directly on your machine. This provides instant, offline access to comprehensive TouchDesigner documentation alongside the MCP tools.
+
+### Wiki Features
+
+- **Complete Documentation Mirror**: Processes and serves all TouchDesigner documentation locally
+- **1800+ HTML Documents**: Full coverage of operator documentation, tutorials, and guides
+- **1119+ Searchable Operators**: Comprehensive operator search with parameter details
+- **URL Compatibility**: Maintains docs.derivative.ca URL structure for easy reference
+- **Offline Access**: No internet connection required once documentation is processed
+- **MCP Integration**: Seamlessly integrates with VS Code through MCP tools
+
+### How It Works
+
+The wiki system processes TouchDesigner's offline documentation (located in your TouchDesigner installation) and creates a local, searchable database that can be accessed through:
+
+1. **Web Interface**: Browse documentation at http://localhost:3000 with the same URL structure as docs.derivative.ca
+2. **MCP Tools**: Access operator information directly in VS Code through enhanced MCP tools
+3. **Search API**: Fast, indexed search across all documentation and operator parameters
+
+### Quick Start
+
+1. **Process Documentation** (one-time setup):
+   ```bash
+   node process-td-docs.js
+   ```
+   This processes the ~1822 HTM files from your TouchDesigner installation.
+
+2. **Start the Wiki Server**:
+   ```bash
+   node wiki/server/wiki-server.js
+   ```
+   Access the wiki at http://localhost:3000
+
+3. **Use with MCP**: The MCP server automatically integrates with the wiki data for enhanced operator information.
+
+### Documentation Location
+
+The system automatically finds TouchDesigner documentation at:
+```
+C:\Program Files\Derivative\TouchDesigner\Samples\Learn\OfflineHelp\https.docs.derivative.ca\
+```
+
+For detailed setup and configuration, see [WIKI-SETUP.md](WIKI-SETUP.md).
+
 ## Testing
 
 Test the server startup:

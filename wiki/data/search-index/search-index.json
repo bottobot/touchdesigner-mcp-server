@@ -1,0 +1,16 @@
+{
+  "entries": [],
+  "stats": {
+    "totalEntries": 0,
+    "totalWords": 0,
+    "lastUpdated": null,
+    "indexSize": 0
+  },
+  "options": {
+    "stemming": true,
+    "stopWords": true,
+    "caseSensitive": false,
+    "minQueryLength": 2,
+    "maxResults": 100
+  }
+}

@@ -1,0 +1,55 @@
+{{#> main}}
+
+<div class="error-page">
+    <div class="error-content">
+        <div class="error-icon">
+            {{#ifEquals statusCode 404}}
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                </svg>
+            {{else}}
+                <svg viewBox="0 0 24 24">
+                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                </svg>
+            {{/ifEquals}}
+        </div>
+        
+        <div class="error-details">
+            <h1 class="error-title">
+                {{#ifEquals statusCode 404}}
+                    Page Not Found
+                {{else}}
+                    {{title}}
+                {{/ifEquals}}
+            </h1>
+            
+            <div class="error-code">
+                Error {{statusCode}}
+            </div>
+            
+            <p class="error-message">
+                {{message}}
+            </p>
+        </div>
+        
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary">Go Home</a>
+            <a href="/search" class="btn btn-secondary">Search Documentation</a>
+            <button onclick="history.back()" class="btn btn-outline">Go Back</button>
+        </div>
+        
+        {{#ifEquals statusCode 404}}
+        <div class="error-suggestions">
+            <h3>Suggestions:</h3>
+            <ul>
+                <li>Check the URL for typos</li>
+                <li>Try searching for what you're looking for</li>
+                <li>Browse operators by category</li>
+                <li>Visit the home page to start over</li>
+            </ul>
+        </div>
+        {{/ifEquals}}
+    </div>
+</div>
+
+{{/main}}

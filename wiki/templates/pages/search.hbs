@@ -1,0 +1,286 @@
+{{#> main currentPage="search"}}
+
+<div class="search-page">
+    <!-- Search Header -->
+    <div class="search-header">
+        <div class="search-title-section">
+            <h1 class="page-title">
+                {{#if query}}
+                    Search Results for "{{query}}"
+                {{else}}
+                    Search TouchDesigner Documentation
+                {{/if}}
+            </h1>
+            
+            {{#if hasResults}}
+            <p class="search-subtitle">Found {{total}} results</p>
+            {{else if query}}
+            <p class="search-subtitle">No results found</p>
+            {{else}}
+            <p class="search-subtitle">Enter a search term to find operators, parameters, or documentation</p>
+            {{/if}}
+        </div>
+    </div>
+    
+    <!-- Advanced Search Form -->
+    <div class="search-form-section">
+        <form action="/search" method="get" class="advanced-search-form">
+            <!-- Main Search Input -->
+            <div class="search-input-group">
+                <div class="input-container">
+                    <label for="search-query" class="search-label">Search Query</label>
+                    <input type="text" 
+                           id="search-query"
+                           name="q" 
+                           placeholder="Search operators, parameters, descriptions..." 
+                           class="search-input-main"
+                           value="{{query}}"
+                           autocomplete="off">
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="filter-container">
+                    <label for="category-filter" class="filter-label">Category</label>
+                    <select id="category-filter" name="category" class="category-select">
+                        <option value="">All Categories</option>
+                        {{#each categories}}
+                        <option value="{{this}}" {{#ifEquals this ../selectedCategory}}selected{{/ifEquals}}>
+                            {{formatCategory this}}
+                        </option>
+                        {{/each}}
+                    </select>
+                </div>
+                
+                <!-- Search Button -->
+                <button type="submit" class="search-button-main">
+                    <svg class="search-icon" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                    Search
+                </button>
+            </div>
+            
+            <!-- Search Options -->
+            <div class="search-options">
+                <div class="option-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="fuzzy" value="true" {{#if fuzzy}}checked{{/if}}>
+                        <span class="checkbox-text">Fuzzy matching (find similar spellings)</span>
+                    </label>
+                </div>
+                
+                <div class="option-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="parameters" value="true" {{#if searchParameters}}checked{{/if}}>
+                        <span class="checkbox-text">Search in parameters</span>
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Search Results -->
+    {{#if hasResults}}
+    <div class="search-results-section">
+        <div class="results-header">
+            <div class="results-meta">
+                <span class="results-count">{{total}} results</span>
+                {{#if query}}
+                <span class="results-query">for "{{query}}"</span>
+                {{/if}}
+                {{#if selectedCategory}}
+                <span class="results-filter">in {{formatCategory selectedCategory}}</span>
+                {{/if}}
+            </div>
+            
+            <!-- Sort Options -->
+            <div class="results-sort">
+                <label for="sort-select" class="sort-label">Sort by:</label>
+                <select id="sort-select" class="sort-select">
+                    <option value="relevance">Relevance</option>
+                    <option value="name">Name</option>
+                    <option value="category">Category</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Results List -->
+        <div class="results-list">
+            {{#each results}}
+            <article class="result-item">
+                <div class="result-header">
+                    <div class="result-title-section">
+                        <h3 class="result-title">
+                            <a href="/operator/{{name}}" class="result-link">{{name}}</a>
+                        </h3>
+                        <div class="result-badges">
+                            <span class="category-badge category-{{category}}">{{category}}</span>
+                            {{#if subcategory}}
+                            <span class="subcategory-badge">{{subcategory}}</span>
+                            {{/if}}
+                        </div>
+                    </div>
+                    
+                    {{#if score}}
+                    <div class="result-score">
+                        <span class="score-value">{{score}}%</span>
+                        <span class="score-label">match</span>
+                    </div>
+                    {{/if}}
+                </div>
+                
+                <div class="result-content">
+                    {{#if description}}
+                    <p class="result-description">{{truncate description 200}}</p>
+                    {{/if}}
+                    
+                    {{#if summary}}
+                    <p class="result-summary">{{truncate summary 150}}</p>
+                    {{/if}}
+                    
+                    <!-- Highlighted Snippets -->
+                    {{#if snippets}}
+                    <div class="result-snippets">
+                        {{#each snippets}}
+                        <div class="snippet">
+                            <span class="snippet-label">{{type}}:</span>
+                            <span class="snippet-text">{{{text}}}</span>
+                        </div>
+                        {{/each}}
+                    </div>
+                    {{/if}}
+                    
+                    <!-- Meta Information -->
+                    <div class="result-meta">
+                        {{#if parameterCount}}
+                        <span class="meta-item">{{parameterCount}} parameters</span>
+                        {{/if}}
+                        
+                        {{#if keywords}}
+                        {{#if (notEmpty keywords)}}
+                        <div class="result-keywords">
+                            {{#each keywords}}
+                            <span class="keyword-tag">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                        {{/if}}
+                    </div>
+                </div>
+            </article>
+            {{/each}}
+        </div>
+        
+        <!-- Pagination (if needed in future) -->
+        <div class="results-pagination">
+            <!-- Future pagination controls -->
+        </div>
+    </div>
+    
+    {{else if query}}
+    <!-- No Results -->
+    <div class="no-results-section">
+        <div class="no-results-content">
+            <div class="no-results-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </div>
+            
+            <h2 class="no-results-title">No results found</h2>
+            <p class="no-results-message">
+                We couldn't find any operators matching "{{query}}"
+                {{#if selectedCategory}}in {{formatCategory selectedCategory}}{{/if}}.
+            </p>
+            
+            <div class="no-results-suggestions">
+                <h3>Try these suggestions:</h3>
+                <ul>
+                    <li>Check your spelling</li>
+                    <li>Use fewer or different keywords</li>
+                    <li>Try searching without category filters</li>
+                    <li>Enable fuzzy matching for similar spellings</li>
+                </ul>
+            </div>
+            
+            <div class="no-results-actions">
+                <a href="/search" class="btn btn-primary">New Search</a>
+                <a href="/" class="btn btn-secondary">Browse Categories</a>
+            </div>
+        </div>
+    </div>
+    
+    {{else}}
+    <!-- Search Help -->
+    <div class="search-help-section">
+        <div class="help-grid">
+            <div class="help-card">
+                <div class="help-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </div>
+                <h3>Search Operators</h3>
+                <p>Find operators by name, like "Noise" or "Movie File In"</p>
+            </div>
+            
+            <div class="help-card">
+                <div class="help-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zM4 19h16v2H4z"/>
+                    </svg>
+                </div>
+                <h3>Filter by Category</h3>
+                <p>Narrow results to specific operator types like TOP, CHOP, or SOP</p>
+            </div>
+            
+            <div class="help-card">
+                <div class="help-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
+                    </svg>
+                </div>
+                <h3>Search Parameters</h3>
+                <p>Find operators with specific parameters or functionality</p>
+            </div>
+            
+            <div class="help-card">
+                <div class="help-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <h3>Smart Matching</h3>
+                <p>Enable fuzzy search to find operators even with typos</p>
+            </div>
+        </div>
+        
+        <!-- Popular Searches -->
+        <div class="popular-searches">
+            <h3>Popular Searches</h3>
+            <div class="popular-tags">
+                <a href="/search?q=noise" class="popular-tag">noise</a>
+                <a href="/search?q=movie" class="popular-tag">movie</a>
+                <a href="/search?q=transform" class="popular-tag">transform</a>
+                <a href="/search?q=material" class="popular-tag">material</a>
+                <a href="/search?q=audio" class="popular-tag">audio</a>
+                <a href="/search?q=particle" class="popular-tag">particle</a>
+                <a href="/search?q=geometry" class="popular-tag">geometry</a>
+                <a href="/search?q=video" class="popular-tag">video</a>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</div>
+
+<!-- Real-time Search Enhancement -->
+<script>
+    // Real-time search suggestions will be added via search.js
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.SearchApp) {
+            window.SearchApp.initAdvancedSearch();
+        }
+    });
+</script>
+
+{{/main}}

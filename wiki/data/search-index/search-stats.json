@@ -1,0 +1,15 @@
+{
+  "stats": {
+    "totalEntries": 0,
+    "totalParameters": 0,
+    "indexSize": 0,
+    "lastIndexTime": null,
+    "searchQueries": 0,
+    "averageQueryTime": 0,
+    "popularQueries": [],
+    "categoryDistribution": [],
+    "processingErrors": []
+  },
+  "timestamp": "2025-08-08T03:50:14.856Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "POP to DAT",
+  "category": "DAT",
+  "subcategory": "Experimental",
+  "description": "Experimental DAT operator for advanced particle and geometry operations. This is an experimental feature available in TouchDesigner's experimental builds.",
+  "parameters": [],
+  "experimental": true,
+  "sourceFile": "Experimental-POP_to_DAT.htm"
+}

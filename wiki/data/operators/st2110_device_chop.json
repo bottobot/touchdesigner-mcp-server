@@ -1,0 +1,9 @@
+{
+  "name": "ST2110 Device CHOP",
+  "category": "CHOP",
+  "subcategory": "Experimental",
+  "description": "Experimental CHOP operator for advanced particle and geometry operations. This is an experimental feature available in TouchDesigner's experimental builds.",
+  "parameters": [],
+  "experimental": true,
+  "sourceFile": "Experimental-ST2110_Device_CHOP.htm"
+}

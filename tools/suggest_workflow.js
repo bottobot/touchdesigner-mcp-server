@@ -57,40 +57,98 @@ function suggestNextOperator(currentOperator, workflowPatterns) {
 }
 
 // Tool handler
-export async function handler({ current_operator }, { workflowPatterns }) {
-  const suggestions = suggestNextOperator(current_operator, workflowPatterns);
-  
-  if (suggestions.length === 0) {
+export async function handler({ current_operator }, { wikiSystem, workflowPatterns }) {
+  try {
+    let suggestions = [];
+    
+    // Try wiki system first if available
+    if (wikiSystem) {
+      try {
+        const wikiSuggestions = await wikiSystem.suggestWorkflow(current_operator, { limit: 10 });
+        if (wikiSuggestions.suggestions && wikiSuggestions.suggestions.length > 0) {
+          suggestions = wikiSuggestions.suggestions.map(suggestion => ({
+            operator: suggestion.name,
+            reason: "Related operator based on category and usage patterns",
+            confidence: suggestion.relevanceScore ? (suggestion.relevanceScore / 10) : 0.7,
+            category: suggestion.category,
+            description: suggestion.description
+          }));
+        }
+      } catch (error) {
+        console.warn('[Workflow Tool] Wiki system error:', error);
+      }
+    }
+    
+    // Fallback to pattern-based suggestions if no wiki results
+    if (suggestions.length === 0) {
+      suggestions = suggestNextOperator(current_operator, workflowPatterns);
+    }
+    
+    if (suggestions.length === 0) {
+      let text = `No workflow suggestions found for '${current_operator}'. This might be because:\n`;
+      text += `• The operator name doesn't match our patterns\n`;
+      text += `• It's typically used as an end-point in workflows\n`;
+      text += `• Try using the full operator name with family (e.g., 'Movie File In TOP')\n\n`;
+      
+      if (wikiSystem) {
+        text += `**Tip:** Try searching for the operator first with 'search_operators' to find the exact name.`;
+      }
+      
+      return {
+        content: [{
+          type: "text",
+          text
+        }]
+      };
+    }
+    
+    let text = `# Workflow Suggestions for '${current_operator}'\n\n`;
+    text += `Found **${suggestions.length}** related operators that commonly follow this one:\n\n`;
+    
+    suggestions.forEach((suggestion, index) => {
+      text += `## ${index + 1}. ${suggestion.operator}\n`;
+      
+      if (suggestion.category) {
+        text += `**Category:** ${suggestion.category}\n`;
+      }
+      
+      if (suggestion.description) {
+        const shortDesc = suggestion.description.length > 150 ?
+          suggestion.description.substring(0, 150) + '...' :
+          suggestion.description;
+        text += `**Description:** ${shortDesc}\n`;
+      }
+      
+      text += `**Reason:** ${suggestion.reason}\n`;
+      text += `**Confidence:** ${(suggestion.confidence * 100).toFixed(0)}%\n`;
+      
+      if (suggestion.pattern) {
+        text += `**Pattern:** ${suggestion.pattern}\n`;
+      }
+      
+      if (suggestion.use_case) {
+        text += `**Use Case:** ${suggestion.use_case}\n`;
+      }
+      
+      text += '\n---\n\n';
+    });
+    
+    text += `*Suggestions based on ${wikiSystem ? 'operator relationships and' : ''} common TouchDesigner workflows.*`;
+    
     return {
       content: [{
         type: "text",
-        text: `No workflow suggestions found for '${current_operator}'. This might be because:\n- The operator name doesn't match our patterns\n- It's typically used as an end-point in workflows\n- Try using the full operator name with family (e.g., 'Movie File In TOP')`
+        text
+      }]
+    };
+    
+  } catch (error) {
+    console.error('[Workflow Tool] Error:', error);
+    return {
+      content: [{
+        type: "text",
+        text: `Error generating workflow suggestions: ${error.message || 'Unknown error occurred'}`
       }]
     };
   }
-  
-  let text = `**Workflow suggestions for '${current_operator}':**\n\n`;
-  
-  suggestions.forEach((suggestion, index) => {
-    text += `${index + 1}. **${suggestion.operator}**\n`;
-    text += `   - Reason: ${suggestion.reason}\n`;
-    text += `   - Confidence: ${(suggestion.confidence * 100).toFixed(0)}%\n`;
-    
-    if (suggestion.pattern) {
-      text += `   - Pattern: ${suggestion.pattern}\n`;
-    }
-    if (suggestion.use_case) {
-      text += `   - Use case: ${suggestion.use_case}\n`;
-    }
-    text += '\n';
-  });
-  
-  text += `\n*Suggestions based on common TouchDesigner workflows and the Sweet 16 operator patterns.*`;
-  
-  return {
-    content: [{
-      type: "text",
-      text
-    }]
-  };
 }

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Pan Tilt CHOP - TouchDesigner Documentation</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"1784720c60d90d020a623f22","wgCSPNonce":false,"wgCanonicalNamespace":"Experimental","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":20,"wgPageName":"Experimental:Pan_Tilt_CHOP","wgTitle":"Pan Tilt CHOP","wgCurRevisionId":34562,"wgRevisionId":34562,"wgArticleId":4332,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CHOPs"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"Experimental:Pan_Tilt_CHOP","wgRelevantArticleId":4332,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCargoDefaultQueryLimit":100
+,"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/extensions/PageForms","edgValues":{
+"title":["Ableton Link CHOP","Analyze CHOP","Angle CHOP","Attribute CHOP","Audio Band EQ CHOP","Audio Binaural CHOP","Audio Device In CHOP","Audio Device Out CHOP","Audio Dynamics CHOP","Audio File In CHOP","Audio File Out CHOP","Experimental:Audio File Out CHOP","Audio Filter CHOP","Audio Movie CHOP","Experimental:Audio Movie CHOP","Audio NDI CHOP","Audio Oscillator CHOP","Audio Para EQ CHOP","Audio Play CHOP","Audio Render CHOP","Experimental:Audio Render CHOP","Audio Spectrum CHOP","Audio Stream In CHOP","Audio Stream Out CHOP","Audio VST CHOP","Audio Web Render CHOP","Beat CHOP","Bind CHOP","BlackTrax CHOP","Blend CHOP","Blob Track CHOP","Body Track CHOP","Bullet Solver CHOP","Clip Blender CHOP","Clip CHOP","Clock CHOP","Experimental:Clock CHOP","Composite CHOP","Constant CHOP","Copy CHOP","Count CHOP","CPlusPlus CHOP","Cross CHOP","Cycle CHOP","DAT to CHOP","Delay CHOP","Delete CHOP","DMX In CHOP","DMX Out CHOP","Envelope CHOP","EtherDream CHOP","Event CHOP","Expression CHOP",
+"Extend CHOP","Face Track CHOP","Fan CHOP","Feedback CHOP","File In CHOP","File Out CHOP","Filter CHOP","Experimental:Filter CHOP","FreeD In CHOP","FreeD Out CHOP","Function CHOP","Gesture CHOP","Handle CHOP","Helios DAC CHOP","Hog CHOP","Hokuyo CHOP","Hold CHOP","Import Select CHOP","In CHOP","Info CHOP","Interpolate CHOP","Introduction To CHOPs Vid","Inverse Curve CHOP","Inverse Kin CHOP","Join CHOP","Joystick CHOP","Keyboard In CHOP","Keyframe CHOP","Kinect Azure CHOP","Kinect CHOP","Lag CHOP","Laser CHOP","Experimental:Laser CHOP","Laser Device CHOP","Experimental:Laser Device CHOP","Leap Motion CHOP","Leuze ROD4 CHOP","LFO CHOP","Limit CHOP","Logic CHOP","Lookup CHOP","LTC In CHOP","LTC Out CHOP","Math CHOP","Merge CHOP","MIDI In CHOP","MIDI In Map CHOP","MIDI Out CHOP","MoSys CHOP","Mouse In CHOP","Mouse Out CHOP","Ncam CHOP","Noise CHOP","Null CHOP","OAK Device CHOP","OAK Select CHOP","Object CHOP","Oculus Audio CHOP","Oculus Rift CHOP","OpenVR CHOP","OptiTrack In CHOP",
+"OSC In CHOP","OSC Out CHOP","Out CHOP","Override CHOP","Experimental:Pan Tilt CHOP","Panel CHOP","Pangolin CHOP","Experimental:Pangolin CHOP","Parameter CHOP","Experimental:Parameter CHOP","Pattern CHOP","Perform CHOP","Phaser CHOP","Pipe In CHOP","Pipe Out CHOP","Experimental:POP to CHOP","PosiStageNet CHOP","Pulse CHOP","RealSense CHOP","Record CHOP","Rename CHOP","Render Pick CHOP","RenderStream In CHOP","Reorder CHOP","Replace CHOP","Resample CHOP","Experimental:Resample CHOP","S Curve CHOP","Scan CHOP","Script CHOP","Experimental:Script CHOP","Select CHOP","Sequencer CHOP","Serial CHOP","Shared Mem In CHOP","Shared Mem Out CHOP","Shift CHOP","Shuffle CHOP","Slope CHOP","SOP to CHOP","Sort CHOP","Speed CHOP","Experimental:Speed CHOP","Splice CHOP","Spring CHOP","Experimental:ST2110 Device CHOP","Stretch CHOP","Experimental:Stretch CHOP","Stype In CHOP","Stype Out CHOP","Switch CHOP","Sync In CHOP","Sync Out CHOP","Tablet CHOP","Time Slice CHOP","Timecode CHOP","Timeline CHOP",
+"Timer CHOP","Experimental:Timer CHOP","TOP to CHOP","Experimental:TOP to CHOP","Touch In CHOP","Experimental:Touch In CHOP","Touch Out CHOP","Trail CHOP","Transform CHOP","Transform XYZ CHOP","Trigger CHOP","Experimental:Trigger CHOP","Trim CHOP","Warp CHOP","Wave CHOP","WrnchAI CHOP","ZED CHOP","Experimental:ZED CHOP"]},"wgPageFormsEDSettings":null,"wgAmericanDates":false,"wgVector2022PreviewPages":[]};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready"};RLPAGEMODULES=["ext.UiTag","ext.Lingo","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="description" content="Calculate pan/tilt rotation values for lighting/camera rigs."/>
+<meta name="keywords" content="TouchDesigner, Pan Tilt, CHOP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=CHOP.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="Pan Tilt CHOP - TouchDesigner Documentation"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP"/>
+<meta property="og:description" content="Calculate pan/tilt rotation values for lighting/camera rigs."/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:tag" content="TouchDesigner, Pan Tilt, CHOP"/>
+<meta property="article:modified_time" content="2025-06-30T15:55:54Z"/>
+<meta property="article:published_time" content="2025-06-30T15:55:54Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"Pan Tilt CHOP - TouchDesigner Documentation","headline":"Pan Tilt CHOP - TouchDesigner Documentation","mainEntityOfPage":"<span class=\"mw-page-title-namespace\">Experimental<\/span><span class=\"mw-page-title-separator\">:<\/span><span class=\"mw-page-title-main\">Pan Tilt CHOP<\/span>","identifier":"https:\/\/docs.derivative.ca\/Experimental:Pan_Tilt_CHOP","url":"https:\/\/docs.derivative.ca\/Experimental:Pan_Tilt_CHOP","description":"Calculate pan\/tilt rotation values for lighting\/camera rigs.","keywords":"TouchDesigner, Pan Tilt, CHOP","dateModified":"2025-06-30T15:55:54Z","datePublished":"2025-06-30T15:55:54Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-20 ns-subject page-Experimental_Pan_Tilt_CHOP rootpage-Experimental_Pan_Tilt_CHOP skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-namespace">Experimental</span><span class="mw-page-title-separator">:</span><span class="mw-page-title-main">Pan Tilt CHOP</span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><h2><span class="mw-headline" id="Summary"><div class="sectionBarCHOP">Summary</div></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:Summary&amp;action=edit&amp;section=T-1" title="Edit section: Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Calculate pan/tilt rotation values for a series of pan/tilt platforms like moving head light fixtures. Values are calculated to minimize flipping and angular rotation frame by frame. Multiple rigs are calculated per <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>. The first input is the realtive position of the target to the fixture either as tx, ty, tz channels or a full set of transform channels as output by the Object <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>. The angles are calculated to point the platform towards the target. If multiple platforms each have their individual moving target, the pan/tilt can be calculated by calculating the transform between target and fixture using the Object <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>'s <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> table parameter.
+</p><p><a href="/File:PythonIcon.png" class="image"><img alt="PythonIcon.png" src="/images/c/c2/PythonIcon.png" decoding="async" width="20" height="20"></a><a href="/PantiltCHOP_Class" title="PantiltCHOP Class">pantiltCHOP_Class</a>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en-CA" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul><li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Pan/Tilt_Page"><span class="tocnumber">2</span> <span class="toctext">Parameters - Pan/Tilt Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Common_Page"><span class="tocnumber">3</span> <span class="toctext">Parameters - Common Page</span></a></li>
+<li class="toclevel-1"><a href="#Operator_Inputs"><span class="tocnumber">4</span> <span class="toctext">Operator Inputs</span></a></li>
+<li class="toclevel-1"><a href="#Info_CHOP_Channels"><span class="tocnumber">5</span> <span class="toctext">Info CHOP Channels</span></a>
+<ul><li class="toclevel-2"><a href="#Common_CHOP_Info_Channels"><span class="tocnumber">5.1</span> <span class="toctext">Common CHOP Info Channels</span></a></li>
+<li class="toclevel-2"><a href="#Common_Operator_Info_Channels"><span class="tocnumber">5.2</span> <span class="toctext">Common Operator Info Channels</span></a></li>
+</ul></li>
+</ul></div>
+
+<p><br></p>
+<h2><span id="Parameters_-_Pan.2FTilt_Page"></span><span class="mw-headline" id="Parameters_-_Pan/Tilt_Page"><div class="sectionBarCHOP">Parameters - Pan/Tilt Page</div></span></h2>
+<div id="reset" style=""><span class="parNameCHOP">Reset</span>  <code>reset</code> - Discard current orientation of the rigs, and set their last known orientation to this value.
+<p><i></i>
+</p>
+</div>
+<div id="resetvals" style=""><span class="parNameCHOP">Reset Values</span>  <code>resetvals</code> - <span class="mw-customtoggle-resetvals">⊞</span> - The beginning rotation for each rig, expressed in degrees. The output orientation is based on this initial orientation, which may or may not be the same.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-resetvals">
+<ul><li><span class="parNameCHOP">Reset Values</span> <code>resetvals1</code> - Pan reset value.</li></ul><ul><li><span class="parNameCHOP">Reset Values</span> <code>resetvals2</code> - Tilt reset value.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="clamppan" style=""><span class="parNameCHOP">Clamp Pan</span>  <code>clamppan</code> - Limit the pan value to a specific range.
+<p><i></i>
+</p>
+</div>
+<div id="panrange" style=""><span class="parNameCHOP">Pan Range</span>  <code>panrange</code> - <span class="mw-customtoggle-panrange">⊞</span> - The lower and upper angle limits for the pan.  Expressed in degrees.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-panrange">
+<ul><li><span class="parNameCHOP">Pan Range</span> <code>panrangemin</code> - Lower pan value.</li></ul><ul><li><span class="parNameCHOP">Pan Range</span> <code>panrangemax</code> - Upper pan value.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="clamptilt" style=""><span class="parNameCHOP">Clamp Tilt</span>  <code>clamptilt</code> - Limit the tilt value to a specific range.
+<p><i></i>
+</p>
+</div>
+<div id="tiltrange" style=""><span class="parNameCHOP">Tilt Range</span>  <code>tiltrange</code> - <span class="mw-customtoggle-tiltrange">⊞</span> - The lower and upper angle limits for the tilt.  Expressed in degrees.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-tiltrange">
+<ul><li><span class="parNameCHOP">Tilt Range</span> <code>tiltrangemin</code> - Lower tilt value.</li></ul><ul><li><span class="parNameCHOP">Tilt Range</span> <code>tiltrangemax</code> - Upper tilt value.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Common_Page"><div class="sectionBarCHOP">Parameters - Common Page</div></span></h2>
+<div id="timeslice" style=""><span class="parNameCHOP"><span class="mw-lingo-term" data-lingo-term-id="d209223c55b32b6dd2954cdd78d908cd">Time Slice</span></span>  <code>timeslice</code> - Turning this on forces the channels to be "<a href="/Time_Slicing" title="Time Slicing">Time Sliced</a>".  A <span class="mw-lingo-term" data-lingo-term-id="d209223c55b32b6dd2954cdd78d908cd">Time Slice</span> is the time between the last cook frame and the current cook frame.
+<p><i></i>
+</p>
+</div>
+<div id="scope" style=""><span class="parNameCHOP"><span class="mw-lingo-term" data-lingo-term-id="5d113f2038d289f391614c39043629e8">Scope</span></span>  <code>scope</code> - To determine which channels get affected, some CHOPs use a <span class="mw-lingo-term" data-lingo-term-id="5d113f2038d289f391614c39043629e8">Scope</span> string on the Common page.
+<p><i></i>
+</p>
+</div>
+<div id="srselect" style=""><span class="parNameCHOP"><span class="mw-lingo-term" data-lingo-term-id="f579f693ac9ecb3fb9e822bf32028e13">Sample Rate</span> Match</span>  <code>srselect</code> - <span class="mw-customtoggle-srselect">⊞</span> - Handle cases where multiple input CHOPs' sample rates are different. When Resampling occurs, the curves are interpolated according to the Interpolation Method Option, or "Linear" if the Interpolate Options are not available.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-srselect">
+<ul><li><span class="parNameCHOP">Resample At First Input's Rate</span> <code>first</code> - Use rate of first input to resample others.</li></ul><ul><li><span class="parNameCHOP">Resample At Maximum Rate</span> <code>max</code> - Resample to the highest sample rate.</li></ul><ul><li><span class="parNameCHOP">Resample At Minimum Rate</span> <code>min</code> - Resample to the lowest sample rate.</li></ul><ul><li><span class="parNameCHOP">Error If Rates Differ</span> <code>err</code> - Doesn't accept conflicting sample rates.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="exportmethod" style=""><span class="parNameCHOP"><span class="mw-lingo-term" data-lingo-term-id="0095a9fa74d1713e43e370a7d7846224">Export</span> Method</span>  <code>exportmethod</code> - <span class="mw-customtoggle-exportmethod">⊞</span> - This will determine how to connect the <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> channel to the parameter. Refer to the <a href="/Export" title="Export">Export</a> article for more information.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-exportmethod">
+<ul><li><span class="parNameCHOP"><span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> Table by Index</span> <code>datindex</code> - Uses the docked <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> table and references the channel via the index of the channel in the <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>.</li></ul><ul><li><span class="parNameCHOP"><span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> Table by Name</span> <code>datname</code> - Uses the docked <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> table and references the channel via the name of the channel in the <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>.</li></ul><ul><li><span class="parNameCHOP">Channel Name is <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span>:<span class="mw-lingo-term" data-lingo-term-id="83f499a540b1323009c200d6f8cc9396">Parameter</span></span> <code>autoname</code> - The channel is the full destination of where to export to, such has <code>geo1/transform1:tx</code>.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="autoexportroot" style=""><span class="parNameCHOP"><span class="mw-lingo-term" data-lingo-term-id="0095a9fa74d1713e43e370a7d7846224">Export</span> <span class="mw-lingo-term" data-lingo-term-id="fa03eb688ad8aa1db593d33dabd89bad">Root</span></span>  <code>autoexportroot</code> - This path points to the root node where all of the paths that exporting by <b>Channel Name is <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span>:<span class="mw-lingo-term" data-lingo-term-id="83f499a540b1323009c200d6f8cc9396">Parameter</span></b> are relative to.
+<p><i></i>
+</p>
+</div>
+<div id="exporttable" style=""><span class="parNameCHOP"><span class="mw-lingo-term" data-lingo-term-id="0095a9fa74d1713e43e370a7d7846224">Export</span> Table</span>  <code>exporttable</code> - The <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> used to hold the export information when using the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> Table <span class="mw-lingo-term" data-lingo-term-id="0095a9fa74d1713e43e370a7d7846224">Export</span> Methods (See above).
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Operator_Inputs"><div class="sectionBarCHOP">Operator Inputs</div></span></h2>
+<ul><li><span class="parNameCHOP">Input 0: </span> - Platform channels: Must include tx,ty,tz. Must be a full set of transform channels including transform and rotation order if rotation is included. Describes the location of each platform rig.</li>
+<li><span class="parNameCHOP">Input 1: </span> - Reset values: Must include pan,tilt. Use this optional input to override the reset value for each individual platform rig.</li></ul><p><br></p>
+<h2><span class="mw-headline" id="Info_CHOP_Channels"><div class="sectionBarCHOP">Info <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> Channels</div></span></h2>
+<p>Extra Information for the Pan Tilt <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> can be accessed via an <a href="/Info_CHOP" title="Info CHOP">Info CHOP</a>.
+<i></i>
+</p>
+<h3><span class="mw-headline" id="Common_CHOP_Info_Channels"><div class="customBar">Common <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> Info Channels</div></span></h3>
+<ul><li><span class="parName">start</span> - Start of the <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> interval in samples.</li></ul><ul><li><span class="parName">length</span> - Number of samples in the <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>.</li></ul><ul><li><span class="parName">sample_rate</span> - The samplerate of the channels in frames per second.</li></ul><ul><li><span class="parName">num_channels</span> - Number of channels in the <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>.</li></ul><ul><li><span class="parName">time_slice</span> - 1 if <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> is <span class="mw-lingo-term" data-lingo-term-id="d209223c55b32b6dd2954cdd78d908cd">Time Slice</span> enabled, 0 otherwise.</li></ul><ul><li><span class="parName">export_sernum</span> - A count of how often the export connections have been updated.</li></ul><h3><span class="mw-headline" id="Common_Operator_Info_Channels"><div class="customBar">Common Operator Info Channels</div></span></h3>
+<ul><li><span class="parName">total_cooks</span> - Number of times the operator has cooked since the process started.</li></ul><ul><li><span class="parName">cook_time</span> - Duration of the last cook in milliseconds.</li></ul><ul><li><span class="parName">cook_frame</span> - Frame number when this operator was last cooked relative to the component timeline.</li></ul><ul><li><span class="parName">cook_abs_frame</span> - Frame number when this operator was last cooked relative to the absolute time.</li></ul><ul><li><span class="parName">cook_start_time</span> - Time in milliseconds at which the operator started cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cook_end_time</span> - Time in milliseconds at which the operator finished cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cooked_this_frame</span> - 1 if operator was cooked this frame.</li></ul><ul><li><span class="parName">warnings</span> - Number of warnings in this operator if any.</li></ul><ul><li><span class="parName">errors</span> - Number of errors in this operator if any.</li></ul><p><br>
+
+TouchDesigner Build: <select onchange="location=this.value;"><option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP">Latest</option>\n<option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP?oldid=33701">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP?oldid=33744">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP?oldid=33813">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP?oldid=33909">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP?oldid=33910">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP?oldid=33911">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP?oldid=34561">wikieditor</option><option value="https://docs.derivative.ca/Experimental:Pan_Tilt_CHOP?oldid=34562">wikieditor</option></select></p>
+<table><tbody><tr><th class="navBox">CHOPs
+</th></tr><tr><td><span class="catList navigation-not-searchable"><a href="/Ableton_Link_CHOP" title="Ableton Link CHOP">Ableton Link  </a></span>• <span class="catList navigation-not-searchable"><a href="/Analyze_CHOP" title="Analyze CHOP">Analyze  </a></span>• <span class="catList navigation-not-searchable"><a href="/Angle_CHOP" title="Angle CHOP">Angle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Attribute_CHOP" title="Attribute CHOP">Attribute  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Band_EQ_CHOP" title="Audio Band EQ CHOP">Audio Band EQ  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Binaural_CHOP" title="Audio Binaural CHOP">Audio Binaural  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Device_In_CHOP" title="Audio Device In CHOP">Audio Device In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Device_Out_CHOP" title="Audio Device Out CHOP">Audio Device Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Dynamics_CHOP" title="Audio Dynamics CHOP">Audio Dynamics  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_File_In_CHOP" title="Audio File In CHOP">Audio File In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_File_Out_CHOP" title="Audio File Out CHOP">Audio File Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Audio_File_Out_CHOP" title="Experimental:Audio File Out CHOP">Experimental:Audio File Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Filter_CHOP" title="Audio Filter CHOP">Audio Filter  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Movie_CHOP" title="Audio Movie CHOP">Audio Movie  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Audio_Movie_CHOP" title="Experimental:Audio Movie CHOP">Experimental:Audio Movie  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_NDI_CHOP" title="Audio NDI CHOP">Audio NDI  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Oscillator_CHOP" title="Audio Oscillator CHOP">Audio Oscillator  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Para_EQ_CHOP" title="Audio Para EQ CHOP">Audio Para EQ  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Play_CHOP" title="Audio Play CHOP">Audio Play  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Render_CHOP" title="Audio Render CHOP">Audio Render  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Audio_Render_CHOP" title="Experimental:Audio Render CHOP">Experimental:Audio Render  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Spectrum_CHOP" title="Audio Spectrum CHOP">Audio Spectrum  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Stream_In_CHOP" title="Audio Stream In CHOP">Audio Stream In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Stream_Out_CHOP" title="Audio Stream Out CHOP">Audio Stream Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_VST_CHOP" title="Audio VST CHOP">Audio VST  </a></span>• <span class="catList navigation-not-searchable"><a href="/Audio_Web_Render_CHOP" title="Audio Web Render CHOP">Audio Web Render  </a></span>• <span class="catList navigation-not-searchable"><a href="/Beat_CHOP" title="Beat CHOP">Beat  </a></span>• <span class="catList navigation-not-searchable"><a href="/Bind_CHOP" title="Bind CHOP">Bind  </a></span>• <span class="catList navigation-not-searchable"><a href="/BlackTrax_CHOP" title="BlackTrax CHOP">BlackTrax  </a></span>• <span class="catList navigation-not-searchable"><a href="/Blend_CHOP" title="Blend CHOP">Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Blob_Track_CHOP" title="Blob Track CHOP">Blob Track  </a></span>• <span class="catList navigation-not-searchable"><a href="/Body_Track_CHOP" title="Body Track CHOP">Body Track  </a></span>• <span class="catList navigation-not-searchable"><a href="/Bullet_Solver_CHOP" title="Bullet Solver CHOP">Bullet Solver  </a></span>• <span class="catList navigation-not-searchable"><a href="/Clip_Blender_CHOP" title="Clip Blender CHOP">Clip Blender  </a></span>• <span class="catList navigation-not-searchable"><a href="/Clip_CHOP" title="Clip CHOP">Clip  </a></span>• <span class="catList navigation-not-searchable"><a href="/Clock_CHOP" title="Clock CHOP">Clock  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Clock_CHOP" title="Experimental:Clock CHOP">Experimental:Clock  </a></span>• <span class="catList navigation-not-searchable"><a href="/Composite_CHOP" title="Composite CHOP">Composite  </a></span>• <span class="catList navigation-not-searchable"><a href="/Constant_CHOP" title="Constant CHOP">Constant  </a></span>• <span class="catList navigation-not-searchable"><a href="/Copy_CHOP" title="Copy CHOP">Copy  </a></span>• <span class="catList navigation-not-searchable"><a href="/Count_CHOP" title="Count CHOP">Count  </a></span>• <span class="catList navigation-not-searchable"><a href="/CPlusPlus_CHOP" title="CPlusPlus CHOP">CPlusPlus  </a></span>• <span class="catList navigation-not-searchable"><a href="/Cross_CHOP" title="Cross CHOP">Cross  </a></span>• <span class="catList navigation-not-searchable"><a href="/Cycle_CHOP" title="Cycle CHOP">Cycle  </a></span>• <span class="catList navigation-not-searchable"><a href="/DAT_to_CHOP" title="DAT to CHOP">DAT to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Delay_CHOP" title="Delay CHOP">Delay  </a></span>• <span class="catList navigation-not-searchable"><a href="/Delete_CHOP" title="Delete CHOP">Delete  </a></span>• <span class="catList navigation-not-searchable"><a href="/DMX_In_CHOP" title="DMX In CHOP">DMX In  </a></span>• <span class="catList navigation-not-searchable"><a href="/DMX_Out_CHOP" title="DMX Out CHOP">DMX Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Envelope_CHOP" title="Envelope CHOP">Envelope  </a></span>• <span class="catList navigation-not-searchable"><a href="/EtherDream_CHOP" title="EtherDream CHOP">EtherDream  </a></span>• <span class="catList navigation-not-searchable"><a href="/Event_CHOP" title="Event CHOP">Event  </a></span>• <span class="catList navigation-not-searchable"><a href="/Expression_CHOP" title="Expression CHOP">Expression  </a></span>• <span class="catList navigation-not-searchable"><a href="/Extend_CHOP" title="Extend CHOP">Extend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Face_Track_CHOP" title="Face Track CHOP">Face Track  </a></span>• <span class="catList navigation-not-searchable"><a href="/Fan_CHOP" title="Fan CHOP">Fan  </a></span>• <span class="catList navigation-not-searchable"><a href="/Feedback_CHOP" title="Feedback CHOP">Feedback  </a></span>• <span class="catList navigation-not-searchable"><a href="/File_In_CHOP" title="File In CHOP">File In  </a></span>• <span class="catList navigation-not-searchable"><a href="/File_Out_CHOP" title="File Out CHOP">File Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Filter_CHOP" title="Filter CHOP">Filter  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Filter_CHOP" title="Experimental:Filter CHOP">Experimental:Filter  </a></span>• <span class="catList navigation-not-searchable"><a href="/FreeD_In_CHOP" title="FreeD In CHOP">FreeD In  </a></span>• <span class="catList navigation-not-searchable"><a href="/FreeD_Out_CHOP" title="FreeD Out CHOP">FreeD Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Function_CHOP" title="Function CHOP">Function  </a></span>• <span class="catList navigation-not-searchable"><a href="/Gesture_CHOP" title="Gesture CHOP">Gesture  </a></span>• <span class="catList navigation-not-searchable"><a href="/Handle_CHOP" title="Handle CHOP">Handle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Helios_DAC_CHOP" title="Helios DAC CHOP">Helios DAC  </a></span>• <span class="catList navigation-not-searchable"><a href="/Hog_CHOP" title="Hog CHOP">Hog  </a></span>• <span class="catList navigation-not-searchable"><a href="/Hokuyo_CHOP" title="Hokuyo CHOP">Hokuyo  </a></span>• <span class="catList navigation-not-searchable"><a href="/Hold_CHOP" title="Hold CHOP">Hold  </a></span>• <span class="catList navigation-not-searchable"><a href="/Import_Select_CHOP" title="Import Select CHOP">Import Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/In_CHOP" title="In CHOP">In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Info_CHOP" title="Info CHOP">Info  </a></span>• <span class="catList navigation-not-searchable"><a href="/Interpolate_CHOP" title="Interpolate CHOP">Interpolate  </a></span>• <span class="catList navigation-not-searchable"><a href="/Introduction_To_CHOPs_Vid" title="Introduction To CHOPs Vid">Introduction To s Vid </a></span>• <span class="catList navigation-not-searchable"><a href="/Inverse_Curve_CHOP" title="Inverse Curve CHOP">Inverse Curve  </a></span>• <span class="catList navigation-not-searchable"><a href="/Inverse_Kin_CHOP" title="Inverse Kin CHOP">Inverse Kin  </a></span>• <span class="catList navigation-not-searchable"><a href="/Join_CHOP" title="Join CHOP">Join  </a></span>• <span class="catList navigation-not-searchable"><a href="/Joystick_CHOP" title="Joystick CHOP">Joystick  </a></span>• <span class="catList navigation-not-searchable"><a href="/Keyboard_In_CHOP" title="Keyboard In CHOP">Keyboard In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Keyframe_CHOP" title="Keyframe CHOP">Keyframe  </a></span>• <span class="catList navigation-not-searchable"><a href="/Kinect_Azure_CHOP" title="Kinect Azure CHOP">Kinect Azure  </a></span>• <span class="catList navigation-not-searchable"><a href="/Kinect_CHOP" title="Kinect CHOP">Kinect  </a></span>• <span class="catList navigation-not-searchable"><a href="/Lag_CHOP" title="Lag CHOP">Lag  </a></span>• <span class="catList navigation-not-searchable"><a href="/Laser_CHOP" title="Laser CHOP">Laser  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Laser_CHOP" title="Experimental:Laser CHOP">Experimental:Laser  </a></span>• <span class="catList navigation-not-searchable"><a href="/Laser_Device_CHOP" title="Laser Device CHOP">Laser Device  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Laser_Device_CHOP" title="Experimental:Laser Device CHOP">Experimental:Laser Device  </a></span>• <span class="catList navigation-not-searchable"><a href="/Leap_Motion_CHOP" title="Leap Motion CHOP">Leap Motion  </a></span>• <span class="catList navigation-not-searchable"><a href="/Leuze_ROD4_CHOP" title="Leuze ROD4 CHOP">Leuze ROD4  </a></span>• <span class="catList navigation-not-searchable"><a href="/LFO_CHOP" title="LFO CHOP">LFO  </a></span>• <span class="catList navigation-not-searchable"><a href="/Limit_CHOP" title="Limit CHOP">Limit  </a></span>• <span class="catList navigation-not-searchable"><a href="/Logic_CHOP" title="Logic CHOP">Logic  </a></span>• <span class="catList navigation-not-searchable"><a href="/Lookup_CHOP" title="Lookup CHOP">Lookup  </a></span>• <span class="catList navigation-not-searchable"><a href="/LTC_In_CHOP" title="LTC In CHOP">LTC In  </a></span>• <span class="catList navigation-not-searchable"><a href="/LTC_Out_CHOP" title="LTC Out CHOP">LTC Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Math_CHOP" title="Math CHOP">Math  </a></span>• <span class="catList navigation-not-searchable"><a href="/Merge_CHOP" title="Merge CHOP">Merge  </a></span>• <span class="catList navigation-not-searchable"><a href="/MIDI_In_CHOP" title="MIDI In CHOP">MIDI In  </a></span>• <span class="catList navigation-not-searchable"><a href="/MIDI_In_Map_CHOP" title="MIDI In Map CHOP">MIDI In Map  </a></span>• <span class="catList navigation-not-searchable"><a href="/MIDI_Out_CHOP" title="MIDI Out CHOP">MIDI Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/MoSys_CHOP" title="MoSys CHOP">MoSys  </a></span>• <span class="catList navigation-not-searchable"><a href="/Mouse_In_CHOP" title="Mouse In CHOP">Mouse In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Mouse_Out_CHOP" title="Mouse Out CHOP">Mouse Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Ncam_CHOP" title="Ncam CHOP">Ncam  </a></span>• <span class="catList navigation-not-searchable"><a href="/Noise_CHOP" title="Noise CHOP">Noise  </a></span>• <span class="catList navigation-not-searchable"><a href="/Null_CHOP" title="Null CHOP">Null  </a></span>• <span class="catList navigation-not-searchable"><a href="/OAK_Device_CHOP" title="OAK Device CHOP">OAK Device  </a></span>• <span class="catList navigation-not-searchable"><a href="/OAK_Select_CHOP" title="OAK Select CHOP">OAK Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Object_CHOP" title="Object CHOP">Object  </a></span>• <span class="catList navigation-not-searchable"><a href="/Oculus_Audio_CHOP" title="Oculus Audio CHOP">Oculus Audio  </a></span>• <span class="catList navigation-not-searchable"><a href="/Oculus_Rift_CHOP" title="Oculus Rift CHOP">Oculus Rift  </a></span>• <span class="catList navigation-not-searchable"><a href="/OpenVR_CHOP" title="OpenVR CHOP">OpenVR  </a></span>• <span class="catList navigation-not-searchable"><a href="/OptiTrack_In_CHOP" title="OptiTrack In CHOP">OptiTrack In  </a></span>• <span class="catList navigation-not-searchable"><a href="/OSC_In_CHOP" title="OSC In CHOP">OSC In  </a></span>• <span class="catList navigation-not-searchable"><a href="/OSC_Out_CHOP" title="OSC Out CHOP">OSC Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Out_CHOP" title="Out CHOP">Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Override_CHOP" title="Override CHOP">Override  </a></span>• <span class="catList navigation-not-searchable"><a class="mw-selflink selflink">Experimental:Pan Tilt  </a></span>• <span class="catList navigation-not-searchable"><a href="/Panel_CHOP" title="Panel CHOP">Panel  </a></span>• <span class="catList navigation-not-searchable"><a href="/Pangolin_CHOP" title="Pangolin CHOP">Pangolin  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Pangolin_CHOP" title="Experimental:Pangolin CHOP">Experimental:Pangolin  </a></span>• <span class="catList navigation-not-searchable"><a href="/Parameter_CHOP" title="Parameter CHOP">Parameter  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Parameter_CHOP" title="Experimental:Parameter CHOP">Experimental:Parameter  </a></span>• <span class="catList navigation-not-searchable"><a href="/Pattern_CHOP" title="Pattern CHOP">Pattern  </a></span>• <span class="catList navigation-not-searchable"><a href="/Perform_CHOP" title="Perform CHOP">Perform  </a></span>• <span class="catList navigation-not-searchable"><a href="/Phaser_CHOP" title="Phaser CHOP">Phaser  </a></span>• <span class="catList navigation-not-searchable"><a href="/Pipe_In_CHOP" title="Pipe In CHOP">Pipe In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Pipe_Out_CHOP" title="Pipe Out CHOP">Pipe Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:POP_to_CHOP" title="Experimental:POP to CHOP">Experimental:POP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/PosiStageNet_CHOP" title="PosiStageNet CHOP">PosiStageNet  </a></span>• <span class="catList navigation-not-searchable"><a href="/Pulse_CHOP" title="Pulse CHOP">Pulse  </a></span>• <span class="catList navigation-not-searchable"><a href="/RealSense_CHOP" title="RealSense CHOP">RealSense  </a></span>• <span class="catList navigation-not-searchable"><a href="/Record_CHOP" title="Record CHOP">Record  </a></span>• <span class="catList navigation-not-searchable"><a href="/Rename_CHOP" title="Rename CHOP">Rename  </a></span>• <span class="catList navigation-not-searchable"><a href="/Render_Pick_CHOP" title="Render Pick CHOP">Render Pick  </a></span>• <span class="catList navigation-not-searchable"><a href="/RenderStream_In_CHOP" title="RenderStream In CHOP">RenderStream In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Reorder_CHOP" title="Reorder CHOP">Reorder  </a></span>• <span class="catList navigation-not-searchable"><a href="/Replace_CHOP" title="Replace CHOP">Replace  </a></span>• <span class="catList navigation-not-searchable"><a href="/Resample_CHOP" title="Resample CHOP">Resample  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Resample_CHOP" title="Experimental:Resample CHOP">Experimental:Resample  </a></span>• <span class="catList navigation-not-searchable"><a href="/S_Curve_CHOP" title="S Curve CHOP">S Curve  </a></span>• <span class="catList navigation-not-searchable"><a href="/Scan_CHOP" title="Scan CHOP">Scan  </a></span>• <span class="catList navigation-not-searchable"><a href="/Script_CHOP" title="Script CHOP">Script  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Script_CHOP" title="Experimental:Script CHOP">Experimental:Script  </a></span>• <span class="catList navigation-not-searchable"><a href="/Select_CHOP" title="Select CHOP">Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Sequencer_CHOP" title="Sequencer CHOP">Sequencer  </a></span>• <span class="catList navigation-not-searchable"><a href="/Serial_CHOP" title="Serial CHOP">Serial  </a></span>• <span class="catList navigation-not-searchable"><a href="/Shared_Mem_In_CHOP" title="Shared Mem In CHOP">Shared Mem In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Shared_Mem_Out_CHOP" title="Shared Mem Out CHOP">Shared Mem Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Shift_CHOP" title="Shift CHOP">Shift  </a></span>• <span class="catList navigation-not-searchable"><a href="/Shuffle_CHOP" title="Shuffle CHOP">Shuffle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Slope_CHOP" title="Slope CHOP">Slope  </a></span>• <span class="catList navigation-not-searchable"><a href="/SOP_to_CHOP" title="SOP to CHOP">SOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Sort_CHOP" title="Sort CHOP">Sort  </a></span>• <span class="catList navigation-not-searchable"><a href="/Speed_CHOP" title="Speed CHOP">Speed  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Speed_CHOP" title="Experimental:Speed CHOP">Experimental:Speed  </a></span>• <span class="catList navigation-not-searchable"><a href="/Splice_CHOP" title="Splice CHOP">Splice  </a></span>• <span class="catList navigation-not-searchable"><a href="/Spring_CHOP" title="Spring CHOP">Spring  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:ST2110_Device_CHOP" title="Experimental:ST2110 Device CHOP">Experimental:ST2110 Device  </a></span>• <span class="catList navigation-not-searchable"><a href="/Stretch_CHOP" title="Stretch CHOP">Stretch  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Stretch_CHOP" title="Experimental:Stretch CHOP">Experimental:Stretch  </a></span>• <span class="catList navigation-not-searchable"><a href="/Stype_In_CHOP" title="Stype In CHOP">Stype In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Stype_Out_CHOP" title="Stype Out CHOP">Stype Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Switch_CHOP" title="Switch CHOP">Switch  </a></span>• <span class="catList navigation-not-searchable"><a href="/Sync_In_CHOP" title="Sync In CHOP">Sync In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Sync_Out_CHOP" title="Sync Out CHOP">Sync Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Tablet_CHOP" title="Tablet CHOP">Tablet  </a></span>• <span class="catList navigation-not-searchable"><a href="/Time_Slice_CHOP" title="Time Slice CHOP">Time Slice  </a></span>• <span class="catList navigation-not-searchable"><a href="/Timecode_CHOP" title="Timecode CHOP">Timecode  </a></span>• <span class="catList navigation-not-searchable"><a href="/Timeline_CHOP" title="Timeline CHOP">Timeline  </a></span>• <span class="catList navigation-not-searchable"><a href="/Timer_CHOP" title="Timer CHOP">Timer  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Timer_CHOP" title="Experimental:Timer CHOP">Experimental:Timer  </a></span>• <span class="catList navigation-not-searchable"><a href="/TOP_to_CHOP" title="TOP to CHOP">TOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:TOP_to_CHOP" title="Experimental:TOP to CHOP">Experimental:TOP to  </a></span>• <span class="catList navigation-not-searchable"><a href="/Touch_In_CHOP" title="Touch In CHOP">Touch In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Touch_In_CHOP" title="Experimental:Touch In CHOP">Experimental:Touch In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Touch_Out_CHOP" title="Touch Out CHOP">Touch Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Trail_CHOP" title="Trail CHOP">Trail  </a></span>• <span class="catList navigation-not-searchable"><a href="/Transform_CHOP" title="Transform CHOP">Transform  </a></span>• <span class="catList navigation-not-searchable"><a href="/Transform_XYZ_CHOP" title="Transform XYZ CHOP">Transform XYZ  </a></span>• <span class="catList navigation-not-searchable"><a href="/Trigger_CHOP" title="Trigger CHOP">Trigger  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Trigger_CHOP" title="Experimental:Trigger CHOP">Experimental:Trigger  </a></span>• <span class="catList navigation-not-searchable"><a href="/Trim_CHOP" title="Trim CHOP">Trim  </a></span>• <span class="catList navigation-not-searchable"><a href="/Warp_CHOP" title="Warp CHOP">Warp  </a></span>• <span class="catList navigation-not-searchable"><a href="/Wave_CHOP" title="Wave CHOP">Wave  </a></span>• <span class="catList navigation-not-searchable"><a href="/WrnchAI_CHOP" title="WrnchAI CHOP">WrnchAI  </a></span>• <span class="catList navigation-not-searchable"><a href="/ZED_CHOP" title="ZED CHOP">ZED  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:ZED_CHOP" title="Experimental:ZED CHOP">Experimental:ZED  </a></span>
+</td></tr></tbody></table></div><div class="mw-lingo-tooltip" id="8b9d2cce2836537aabe6f2e0dd5da293"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> which operate on <a href="/Channel" title="Channel">Channels</a> (a sequence of numbers (<a href="/Sample" title="Sample">Samples</a>)) which are used for animation, audio, mathematics, simulation, logic, UI construction, and data streamed from/to devices and protocols.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="cc2bcf28d9ffc17fcbf169f3325607bb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that manipulates text strings: multi-line text or tables. Multi-line text is often a python <a href="/Script" title="Script">Script</a> or <a href="/GLSL" title="GLSL">GLSL</a> Shader, but can be any multi-line text. <a href="/Table_DAT" title="Table DAT">Tables</a> are rows and columns of cells, each containing a text string.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="d209223c55b32b6dd2954cdd78d908cd"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Time Slice is the time from the last cook frame to the current cook frame. In CHOPs it is the set of short channels that contain the CHOP channels' samples between the last and the current cook frame.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="5d113f2038d289f391614c39043629e8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A parameter in most CHOPs that restricts which channels of that CHOP will be affected. Normally all channels of a CHOP are affected by the operator. TOPs have Channel Mask, a similar feature.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="f579f693ac9ecb3fb9e822bf32028e13"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>samples-per-second of a <a href="/CHOP" title="CHOP">CHOP</a>. Each CHOP in your network has a sample rate. In contrast, the overall timeline has a <a href="/Frame_Rate" title="Frame Rate">Frame Rate</a>, which is the number of frames to <a href="/Cook" title="Cook">cook</a> and display per second, generally your monitor display frequency, default 60.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="0095a9fa74d1713e43e370a7d7846224"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Exporting is the connection of CHOP channels to parameters of operators. The output of each exporting CHOP is one or more channels, active only while the <a href="/CHOP_Viewer" title="CHOP Viewer">CHOP Viewer</a> is on. The current value of a channel can be exported to a parameter of any operator, overriding that parameter's value. See <a href="/Parameter" title="Parameter">Parameter</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ac70412e939d72a9234cdebb1af5867b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The location of an operator within the TouchDesigner environment, for example, <code>/geo1/circle1</code>, a node called <code>circle1</code> in a component called <code>geo1</code>. The path <code>/</code> is called <a href="/Root" title="Root">Root</a>. This path is displayed at the top of every <a href="/Pane" title="Pane">Pane</a>, showing which Component's network you are currently in. To refer instead to a filesystem folder, directory, disk file or <code>http:</code> address, see <a href="/Folder" title="Folder">Folder</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="83f499a540b1323009c200d6f8cc9396"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Every operator in TouchDesigner has a set of control Parameters that can be integer or floating point numbers, menus, binary toggles, text strings or operator <a href="/Network_Path" title="Network Path">paths</a>, which determine the output of the operator.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="fa03eb688ad8aa1db593d33dabd89bad"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TouchDesigner is a hierarchy of components. "root" is the top-most network in the hierarchy. The <a href="/Network_Path" title="Network Path">Network Path</a> or Path for root is simply <code>/</code>. A typical path is <code>/project1/moviein1</code>.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250701104324
+Cache expiry: 60
+Reduced expiry: true
+Complications: [show‐toc]
+CPU time usage: 0.708 seconds
+Real time usage: 3.961 seconds
+Preprocessor visited node count: 5655/1000000
+Post‐expand include size: 84389/2097152 bytes
+Template argument size: 23638/2097152 bytes
+Highest expansion depth: 11/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 974/5000000 bytes
+Lua time usage: 1.890/5 seconds
+Lua virtual size: 9138176/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 3883.387      1 -total
+ 96.88% 3762.355      1 Template:NavBox
+ 95.82% 3721.247    189 Template:CatList
+  1.27%   49.462      2 Template:ParameterPage
+  0.96%   37.140     12 Template:Parameter
+  0.79%   30.678      1 Template:InfoCHOPChannels
+  0.75%   29.198      1 CHOP_Generator_Common_Page
+  0.40%   15.660      1 CHOP_Info_Channels_Common_Page
+  0.35%   13.445      1 Template:Summary
+  0.27%   10.311      1 Template:InputsPage
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:4332-0!canonical and timestamp 20250701104320 and revision id 34562.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=Experimental:Pan_Tilt_CHOP&amp;oldid=34562">https://docs.derivative.ca/index.php?title=Experimental:Pan_Tilt_CHOP&amp;oldid=34562</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/Category:CHOPs" title="Category:CHOPs">CHOPs</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=Experimental%3APan+Tilt+CHOP" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="mw-list-item"><a href="/Pan_Tilt_CHOP" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:Pan_Tilt_CHOP&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="selected mw-list-item"><a href="/Experimental:Pan_Tilt_CHOP"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/Experimental:Pan_Tilt_CHOP"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=Experimental:Pan_Tilt_CHOP&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/Experimental:Pan_Tilt_CHOP" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/Experimental:Pan_Tilt_CHOP" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=Experimental:Pan_Tilt_CHOP&amp;oldid=34562" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=Experimental:Pan_Tilt_CHOP&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=Experimental:Pan_Tilt_CHOP&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 30 June 2025, at 10:55.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.708","walltime":"3.961","ppvisitednodes":{"value":5655,"limit":1000000},"postexpandincludesize":{"value":84389,"limit":2097152},"templateargumentsize":{"value":23638,"limit":2097152},"expansiondepth":{"value":11,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":974,"limit":5000000},"timingprofile":["100.00% 3883.387      1 -total"," 96.88% 3762.355      1 Template:NavBox"," 95.82% 3721.247    189 Template:CatList","  1.27%   49.462      2 Template:ParameterPage","  0.96%   37.140     12 Template:Parameter","  0.79%   30.678      1 Template:InfoCHOPChannels","  0.75%   29.198      1 CHOP_Generator_Common_Page","  0.40%   15.660      1 CHOP_Info_Channels_Common_Page","  0.35%   13.445      1 Template:Summary","  0.27%   10.311      1 Template:InputsPage"]},"scribunto":{"limitreport-timeusage":{"value":"1.890","limit":"5"},"limitreport-virtmemusage":{"value":9138176,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250701104324","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":4232});});</script>
+</body>
+<!-- Cached 20250701104325 -->
+</html>

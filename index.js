@@ -3,6 +3,14 @@
 // TD-MCP v2 - Pure MCP TouchDesigner Documentation Server
 // Following Claude.md principles: POC first, no premature abstraction
 // Phase 5: Code Organization - Modular structure
+//
+// TODO: WIKI SYSTEM INTEGRATION REQUIRED
+// This server has had all metadata caching functionality removed and is ready for wiki integration.
+// Next steps for wiki system integration:
+// 1. Replace empty {} parameters in tool handlers with wiki system data providers
+// 2. Update tools/get_operator.js, tools/search_operators.js, tools/list_operators.js to use wiki
+// 3. Integrate workflow patterns with wiki system (currently still using local patterns.json)
+// 4. Add wiki system initialization in main() function startup
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -10,16 +18,22 @@ import { promises as fs } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
+// Import wiki system and web server
+import WikiSystem from './wiki/wiki-system.js';
+import WikiWebServer from './wiki/server/wiki-server.js';
+
 // Import tools
 import * as getOperatorTool from './tools/get_operator.js';
 import * as searchOperatorsTool from './tools/search_operators.js';
 import * as suggestWorkflowTool from './tools/suggest_workflow.js';
 import * as listOperatorsTool from './tools/list_operators.js';
+import * as getTutorialTool from './tools/get_tutorial.js';
+import * as listTutorialsTool from './tools/list_tutorials.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const METADATA_PATH = join(__dirname, 'metadata'); // Use V2 metadata with real data
-const PATTERNS_PATH = join(__dirname, 'data', 'patterns.json'); // Updated path
+// TODO: Wiki system integration - patterns path will be handled by wiki system
+const PATTERNS_PATH = join(__dirname, 'data', 'patterns.json'); // Keep for now, will integrate with wiki
 
 // Load package.json to get version
 const packageJson = JSON.parse(await fs.readFile(join(__dirname, 'package.json'), 'utf-8'));
@@ -31,100 +45,34 @@ const server = new McpServer({
   version: VERSION
 });
 
-// Operator storage - reuse from v1
-const operators = new Map();
+// Initialize wiki system with TouchDesigner documentation path
+const wikiSystem = new WikiSystem({
+    wikiPath: join(__dirname, 'wiki'),
+    dataPath: join(__dirname, 'wiki', 'data'),
+    processedPath: join(__dirname, 'wiki', 'data', 'processed'), // Point to processed directory with all 649 operators
+    searchIndexPath: join(__dirname, 'wiki', 'data', 'search-index'),
+    enablePersistence: true,
+    autoIndex: true,
+    // TouchDesigner documentation path
+    tdDocsPath: 'C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca',
+    // Progress reporting
+    progressCallback: (progress) => {
+        if (progress.processed % 100 === 0 || progress.complete) {
+            console.log(`[Wiki] Processing progress: ${progress.percentage}% (${progress.processed}/${progress.total})`);
+        }
+    },
+    progressInterval: 100 // Report every 100 files
+});
 
-// Workflow patterns storage
+// Initialize wiki web server
+const wikiWebServer = new WikiWebServer(wikiSystem, {
+    port: 3000,
+    host: 'localhost',
+    autoStart: false
+});
+
+// Workflow patterns storage (will be integrated with wiki system)
 let workflowPatterns = null;
-
-// Load metadata - updated to handle new scraped format with rich data
-async function loadMetadata() {
-  console.log(`[Metadata] Loading from: ${METADATA_PATH}`);
-  const files = await fs.readdir(METADATA_PATH);
-  
-  // Prioritize ultra-comprehensive metadata if available
-  const ultraFiles = files.filter(file => file.startsWith('ultra_comprehensive_') && file.endsWith('.json'));
-  const comprehensiveFiles = files.filter(file => file.startsWith('comprehensive_') && file.endsWith('.json') && !file.startsWith('ultra_'));
-  
-  const filesToLoad = ultraFiles.length > 0 ? ultraFiles : comprehensiveFiles;
-  
-  let totalParameters = 0;
-  let totalExamples = 0;
-  let totalTips = 0;
-
-  for (const file of filesToLoad) {
-    const filePath = join(METADATA_PATH, file);
-    console.log(`[Metadata] Loading ${file}...`);
-    
-    try {
-      const content = await fs.readFile(filePath, 'utf-8');
-      const metadata = JSON.parse(content);
-      
-      // Handle new ultra-comprehensive format
-      if (metadata.operators && Array.isArray(metadata.operators)) {
-        for (const op of metadata.operators) {
-          const key = op.fullName || op.name;
-          
-          // Count rich data
-          if (op.parameters) totalParameters += op.parameters.length;
-          if (op.examples) totalExamples += op.examples.length;
-          if (op.tips) totalTips += op.tips.length;
-          
-          // Store operator with all enhanced metadata
-          operators.set(key, {
-            ...op,
-            fullName: op.fullName || op.name,
-            wikiName: (op.name || '').replace(/ /g, '_'),
-            // Ensure arrays exist even if empty
-            parameters: op.parameters || [],
-            inputs: op.inputs || [],
-            outputs: op.outputs || [],
-            examples: op.examples || [],
-            tips: op.tips || [],
-            useCases: op.useCases || [],
-            performanceNotes: op.performanceNotes || [],
-            shortcuts: op.shortcuts || [],
-            codeSnippets: op.codeSnippets || [],
-            related: op.related || []
-          });
-        }
-      }
-      // Handle direct array format
-      else if (Array.isArray(metadata)) {
-        for (const op of metadata) {
-          const key = op.fullName || op.name;
-          operators.set(key, {
-            ...op,
-            fullName: op.fullName || op.name,
-            wikiName: (op.name || '').replace(/ /g, '_')
-          });
-        }
-      }
-      // Handle old format (with operators property)
-      else if (metadata.operators) {
-        for (const op of metadata.operators) {
-          const key = `${op.name} ${metadata.category}`;
-          const fullName = `${op.name} ${metadata.category}`;
-          operators.set(key, {
-            ...op,
-            category: metadata.category,
-            fullName: fullName,
-            wikiName: `${op.name}_${metadata.category}`
-          });
-        }
-      }
-    } catch (error) {
-      console.error(`[Metadata] Error loading ${file}:`, error.message);
-    }
-  }
-  
-  console.log(`[Metadata] Loaded ${operators.size} operators`);
-  if (totalParameters > 0) {
-    console.log(`[Metadata] Total parameters: ${totalParameters}`);
-    console.log(`[Metadata] Total examples: ${totalExamples}`);
-    console.log(`[Metadata] Total tips: ${totalTips}`);
-  }
-}
 
 // Load workflow patterns
 async function loadPatterns() {
@@ -139,61 +87,44 @@ async function loadPatterns() {
   }
 }
 
-// Find operator (same as v1)
-function findOperator(name) {
-  if (operators.has(name)) {
-    return operators.get(name);
-  }
-  
-  const lowerName = name.toLowerCase();
-  const matches = [];
-  
-  for (const [key, value] of operators) {
-    const opName = key.substring(0, key.lastIndexOf(' '));
-    if (opName.toLowerCase() === lowerName) {
-      matches.push(value);
-    }
-  }
-  
-  if (matches.length === 1) {
-    return matches[0];
-  }
-  
-  if (matches.length > 1) {
-    const categoryPriority = ['TOP', 'CHOP', 'SOP', 'DAT', 'MAT', 'COMP'];
-    for (const cat of categoryPriority) {
-      const match = matches.find(op => op.category === cat);
-      if (match) return match;
-    }
-    return matches[0];
-  }
-  
-  return null;
-}
+// TODO: Wiki system integration - operator lookup will be handled by wiki system
 
-// Register tools using the new modular structure
+// Register tools using the wiki system
 server.registerTool(
   "get_operator",
   getOperatorTool.schema,
-  async (params) => await getOperatorTool.handler(params, { findOperator })
+  async (params) => await getOperatorTool.handler(params, { wikiSystem })
 );
 
 server.registerTool(
   "search_operators",
   searchOperatorsTool.schema,
-  async (params) => await searchOperatorsTool.handler(params, { operators })
+  async (params) => await searchOperatorsTool.handler(params, { wikiSystem })
 );
 
 server.registerTool(
   "suggest_workflow",
   suggestWorkflowTool.schema,
-  async (params) => await suggestWorkflowTool.handler(params, { workflowPatterns })
+  async (params) => await suggestWorkflowTool.handler(params, { wikiSystem, workflowPatterns })
 );
 
 server.registerTool(
   "list_operators",
   listOperatorsTool.schema,
-  async (params) => await listOperatorsTool.handler(params, { operators })
+  async (params) => await listOperatorsTool.handler(params, { wikiSystem })
+);
+
+// Register tutorial tools
+server.registerTool(
+  "get_tutorial",
+  getTutorialTool.schema,
+  async (params) => await getTutorialTool.handler(params, { wikiSystem })
+);
+
+server.registerTool(
+  "list_tutorials",
+  listTutorialsTool.schema,
+  async (params) => await listTutorialsTool.handler(params, { wikiSystem })
 );
 
 // Main startup
@@ -205,22 +136,77 @@ async function main() {
   console.log('Pure MCP server - no WebSocket complexity\n');
 
   try {
-    await loadMetadata();
+    // Initialize wiki system
+    console.log('[Server] Initializing wiki system...');
+    await wikiSystem.initialize();
+    
+    // Start wiki web server
+    console.log('[Server] Starting wiki web server...');
+    const serverInfo = await wikiWebServer.start();
+    
+    // Load patterns (will be integrated with wiki system later)
     await loadPatterns();
+    
     console.log(`\n[Server] TD MCP v${VERSION} initialized successfully`);
-    console.log(`[Server] Workflow suggestions available via suggest_workflow tool`);
-    console.log(`[Server] Modular structure: tools/, scrapers/, data/ directories`);
+    const stats = wikiSystem.getSystemStats();
+    console.log(`[Server] Wiki system ready with ${stats.totalEntries} operators and ${stats.totalTutorials} tutorials`);
+    console.log(`[Server] All tools integrated with wiki system`);
+    console.log(`[Server] HTM processing foundation complete`);
+    console.log(`[Server] Wiki website available at: http://${serverInfo.host}:${serverInfo.port}`);
   } catch (error) {
-    console.error('[Server] Failed to load metadata or patterns:', error);
-    process.exit(1);
+    console.error('[Server] Initialization error:', error);
+    // Continue startup even if wiki system fails to initialize
+    console.log('[Server] Continuing startup with limited functionality');
   }
 
   // Connect to stdio transport
   const transport = new StdioServerTransport();
   await server.connect(transport);
 
-  console.log(`\n✓ TD-MCP v${VERSION} Server is now running (modular structure)`);
+  console.log(`\n✓ TD-MCP v${VERSION} Server is now running with HTM Wiki System integrated`);
 }
+
+// Graceful shutdown handling
+process.on('SIGINT', async () => {
+  console.log('\n[Server] Received SIGINT, shutting down gracefully...');
+  
+  try {
+    if (wikiWebServer && wikiWebServer.isRunning) {
+      console.log('[Server] Stopping wiki web server...');
+      await wikiWebServer.stop();
+    }
+    
+    if (wikiSystem) {
+      console.log('[Server] Cleaning up wiki system...');
+      wikiSystem.destroy();
+    }
+    
+    console.log('[Server] Shutdown complete');
+    process.exit(0);
+  } catch (error) {
+    console.error('[Server] Error during shutdown:', error);
+    process.exit(1);
+  }
+});
+
+process.on('SIGTERM', async () => {
+  console.log('\n[Server] Received SIGTERM, shutting down gracefully...');
+  
+  try {
+    if (wikiWebServer && wikiWebServer.isRunning) {
+      await wikiWebServer.stop();
+    }
+    
+    if (wikiSystem) {
+      wikiSystem.destroy();
+    }
+    
+    process.exit(0);
+  } catch (error) {
+    console.error('[Server] Error during shutdown:', error);
+    process.exit(1);
+  }
+});
 
 // Start the server
 main().catch(error => {

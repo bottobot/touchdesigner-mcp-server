@@ -1,0 +1,9 @@
+{
+  "name": "Pan Tilt CHOP",
+  "category": "CHOP",
+  "subcategory": "Experimental",
+  "description": "Experimental CHOP operator for advanced particle and geometry operations. This is an experimental feature available in TouchDesigner's experimental builds.",
+  "parameters": [],
+  "experimental": true,
+  "sourceFile": "Experimental-Pan_Tilt_CHOP.htm"
+}

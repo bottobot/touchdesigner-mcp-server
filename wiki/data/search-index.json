@@ -1,0 +1,762 @@
+{
+  "operators": [
+    {
+      "name": "Accumulate",
+      "displayName": "Accumulate",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Accumulate - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "accumulate.json"
+    },
+    {
+      "name": "Analyze",
+      "displayName": "Analyze",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Analyze - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "analyze.json"
+    },
+    {
+      "name": "Attribute",
+      "displayName": "Attribute",
+      "category": "POP",
+      "subcategory": "Attributes & Groups",
+      "summary": "Attribute - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "attribute.json"
+    },
+    {
+      "name": "Attribute Combine",
+      "displayName": "Attribute Combine",
+      "category": "POP",
+      "subcategory": "Attributes & Groups",
+      "summary": "Attribute Combine - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "attribute-combine.json"
+    },
+    {
+      "name": "Attribute Convert",
+      "displayName": "Attribute Convert",
+      "category": "POP",
+      "subcategory": "Attributes & Groups",
+      "summary": "Attribute Convert - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "attribute-convert.json"
+    },
+    {
+      "name": "Blend",
+      "displayName": "Blend",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Blend - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "blend.json"
+    },
+    {
+      "name": "Box",
+      "displayName": "Box",
+      "category": "POP",
+      "subcategory": "Generators",
+      "summary": "Box - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "box.json"
+    },
+    {
+      "name": "Cache",
+      "displayName": "Cache",
+      "category": "POP",
+      "subcategory": "Caching & Feedback",
+      "summary": "Cache - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "cache.json"
+    },
+    {
+      "name": "Cache Blend",
+      "displayName": "Cache Blend",
+      "category": "POP",
+      "subcategory": "Caching & Feedback",
+      "summary": "Cache Blend - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "cache-blend.json"
+    },
+    {
+      "name": "Cache Select",
+      "displayName": "Cache Select",
+      "category": "POP",
+      "subcategory": "Caching & Feedback",
+      "summary": "Cache Select - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "cache-select.json"
+    },
+    {
+      "name": "CHOP to",
+      "displayName": "CHOP to",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "CHOP to - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "chop-to.json"
+    },
+    {
+      "name": "Circle",
+      "displayName": "Circle",
+      "category": "POP",
+      "subcategory": "Generators",
+      "summary": "Circle - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "circle.json"
+    },
+    {
+      "name": "Convert",
+      "displayName": "Convert",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Convert - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "convert.json"
+    },
+    {
+      "name": "Copy",
+      "displayName": "Copy",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Copy - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "copy.json"
+    },
+    {
+      "name": "CPlusPlus POP",
+      "displayName": "CPlusPlus POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The CPlusPlus POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:CPlusPlus_POP",
+      "file": "pop_cplusplus.json"
+    },
+    {
+      "name": "Create",
+      "displayName": "Create",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Create - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "create.json"
+    },
+    {
+      "name": "Curve POP",
+      "displayName": "Curve POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Curve POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Curve_POP",
+      "file": "pop_curve.json"
+    },
+    {
+      "name": "DAT to",
+      "displayName": "DAT to",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "DAT to - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "dat-to.json"
+    },
+    {
+      "name": "Delete",
+      "displayName": "Delete",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Delete - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "delete.json"
+    },
+    {
+      "name": "Dimension POP",
+      "displayName": "Dimension POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Dimension POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Dimension_POP",
+      "file": "pop_dimension.json"
+    },
+    {
+      "name": "DMX Fixture POP",
+      "displayName": "DMX Fixture POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The DMX Fixture POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:DMX_Fixture_POP",
+      "file": "pop_dmx_fixture.json"
+    },
+    {
+      "name": "DMX Out POP",
+      "displayName": "DMX Out POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The DMX Out POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:DMX_Out_POP",
+      "file": "pop_dmx_out.json"
+    },
+    {
+      "name": "Extrude",
+      "displayName": "Extrude",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Extrude - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "extrude.json"
+    },
+    {
+      "name": "Facet",
+      "displayName": "Facet",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Facet - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "facet.json"
+    },
+    {
+      "name": "Feedback",
+      "displayName": "Feedback",
+      "category": "POP",
+      "subcategory": "Caching & Feedback",
+      "summary": "Feedback - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "feedback.json"
+    },
+    {
+      "name": "Field",
+      "displayName": "Field",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Field - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "field.json"
+    },
+    {
+      "name": "File In",
+      "displayName": "File In",
+      "category": "POP",
+      "subcategory": "Input/Output",
+      "summary": "File In - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "file-in.json"
+    },
+    {
+      "name": "Force POP",
+      "displayName": "Force POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Force POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Force_POP",
+      "file": "pop_force.json"
+    },
+    {
+      "name": "GLSL",
+      "displayName": "GLSL",
+      "category": "POP",
+      "subcategory": "GLSL",
+      "summary": "GLSL - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "glsl.json"
+    },
+    {
+      "name": "GLSL Advanced",
+      "displayName": "GLSL Advanced",
+      "category": "POP",
+      "subcategory": "GLSL",
+      "summary": "GLSL Advanced - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "glsl-advanced.json"
+    },
+    {
+      "name": "GLSL Copy",
+      "displayName": "GLSL Copy",
+      "category": "POP",
+      "subcategory": "GLSL",
+      "summary": "GLSL Copy - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "glsl-copy.json"
+    },
+    {
+      "name": "GLSL Select POP",
+      "displayName": "GLSL Select POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The GLSL Select POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:GLSL_Select_POP",
+      "file": "pop_glsl_select.json"
+    },
+    {
+      "name": "Grid",
+      "displayName": "Grid",
+      "category": "POP",
+      "subcategory": "Generators",
+      "summary": "Grid - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "grid.json"
+    },
+    {
+      "name": "Group",
+      "displayName": "Group",
+      "category": "POP",
+      "subcategory": "Attributes & Groups",
+      "summary": "Group - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "group.json"
+    },
+    {
+      "name": "Histogram",
+      "displayName": "Histogram",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Histogram - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "histogram.json"
+    },
+    {
+      "name": "Import Select",
+      "displayName": "Import Select",
+      "category": "POP",
+      "subcategory": "Input/Output",
+      "summary": "Import Select - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "import-select.json"
+    },
+    {
+      "name": "In",
+      "displayName": "In",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "In - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "in.json"
+    },
+    {
+      "name": "Limit",
+      "displayName": "Limit",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Limit - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "limit.json"
+    },
+    {
+      "name": "Line",
+      "displayName": "Line",
+      "category": "POP",
+      "subcategory": "Lines & Curves",
+      "summary": "Line - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "line.json"
+    },
+    {
+      "name": "Line Break",
+      "displayName": "Line Break",
+      "category": "POP",
+      "subcategory": "Lines & Curves",
+      "summary": "Line Break - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "line-break.json"
+    },
+    {
+      "name": "Line Divide",
+      "displayName": "Line Divide",
+      "category": "POP",
+      "subcategory": "Lines & Curves",
+      "summary": "Line Divide - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "line-divide.json"
+    },
+    {
+      "name": "Line Metrics",
+      "displayName": "Line Metrics",
+      "category": "POP",
+      "subcategory": "Lines & Curves",
+      "summary": "Line Metrics - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "line-metrics.json"
+    },
+    {
+      "name": "Line Smooth POP",
+      "displayName": "Line Smooth POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Line Smooth POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Line_Smooth_POP",
+      "file": "pop_line_smooth.json"
+    },
+    {
+      "name": "Line Thick",
+      "displayName": "Line Thick",
+      "category": "POP",
+      "subcategory": "Lines & Curves",
+      "summary": "Line Thick - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "line-thick.json"
+    },
+    {
+      "name": "Lookup Attribute",
+      "displayName": "Lookup Attribute",
+      "category": "POP",
+      "subcategory": "Attributes & Groups",
+      "summary": "Lookup Attribute - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "lookup-attribute.json"
+    },
+    {
+      "name": "Lookup Channel",
+      "displayName": "Lookup Channel",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Lookup Channel - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "lookup-channel.json"
+    },
+    {
+      "name": "Lookup Curve",
+      "displayName": "Lookup Curve",
+      "category": "POP",
+      "subcategory": "Lines & Curves",
+      "summary": "Lookup Curve - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "lookup-curve.json"
+    },
+    {
+      "name": "Lookup Texture",
+      "displayName": "Lookup Texture",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Lookup Texture - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "lookup-texture.json"
+    },
+    {
+      "name": "Math",
+      "displayName": "Math",
+      "category": "POP",
+      "subcategory": "Math & Transform",
+      "summary": "Math - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "math.json"
+    },
+    {
+      "name": "Math Combine POP",
+      "displayName": "Math Combine POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Math Combine POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Math_Combine_POP",
+      "file": "pop_math_combine.json"
+    },
+    {
+      "name": "Math Mix",
+      "displayName": "Math Mix",
+      "category": "POP",
+      "subcategory": "Math & Transform",
+      "summary": "Math Mix - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "math-mix.json"
+    },
+    {
+      "name": "Math Series",
+      "displayName": "Math Series",
+      "category": "POP",
+      "subcategory": "Math & Transform",
+      "summary": "Math Series - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "math-series.json"
+    },
+    {
+      "name": "Merge",
+      "displayName": "Merge",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Merge - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "merge.json"
+    },
+    {
+      "name": "Neighbor",
+      "displayName": "Neighbor",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Neighbor - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "neighbor.json"
+    },
+    {
+      "name": "Noise",
+      "displayName": "Noise",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Noise - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "noise.json"
+    },
+    {
+      "name": "Normal",
+      "displayName": "Normal",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Normal - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "normal.json"
+    },
+    {
+      "name": "Normalize",
+      "displayName": "Normalize",
+      "category": "POP",
+      "subcategory": "Math & Transform",
+      "summary": "Normalize - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "normalize.json"
+    },
+    {
+      "name": "Null",
+      "displayName": "Null",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Null - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "null.json"
+    },
+    {
+      "name": "Out",
+      "displayName": "Out",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Out - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "out.json"
+    },
+    {
+      "name": "Particle",
+      "displayName": "Particle",
+      "category": "POP",
+      "subcategory": "Particles",
+      "summary": "Particle - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "particle.json"
+    },
+    {
+      "name": "Pattern",
+      "displayName": "Pattern",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Pattern - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "pattern.json"
+    },
+    {
+      "name": "Phaser",
+      "displayName": "Phaser",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Phaser - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "phaser.json"
+    },
+    {
+      "name": "Point File In",
+      "displayName": "Point File In",
+      "category": "POP",
+      "subcategory": "Input/Output",
+      "summary": "Point File In - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "point-file-in.json"
+    },
+    {
+      "name": "Point Generator",
+      "displayName": "Point Generator",
+      "category": "POP",
+      "subcategory": "Generators",
+      "summary": "Point Generator - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "point-generator.json"
+    },
+    {
+      "name": "Point POP",
+      "displayName": "Point POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Point POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Point_POP",
+      "file": "pop_point.json"
+    },
+    {
+      "name": "Polygonize",
+      "displayName": "Polygonize",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Polygonize - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "polygonize.json"
+    },
+    {
+      "name": "Primitive POP",
+      "displayName": "Primitive POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Primitive POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Primitive_POP",
+      "file": "pop_primitive.json"
+    },
+    {
+      "name": "Projection",
+      "displayName": "Projection",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Projection - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "projection.json"
+    },
+    {
+      "name": "Proximity",
+      "displayName": "Proximity",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Proximity - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "proximity.json"
+    },
+    {
+      "name": "Quantize POP",
+      "displayName": "Quantize POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Quantize POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Quantize_POP",
+      "file": "pop_quantize.json"
+    },
+    {
+      "name": "Random",
+      "displayName": "Random",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Random - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "random.json"
+    },
+    {
+      "name": "Ray",
+      "displayName": "Ray",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Ray - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "ray.json"
+    },
+    {
+      "name": "Rectangle POP",
+      "displayName": "Rectangle POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Rectangle POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Rectangle_POP",
+      "file": "pop_rectangle.json"
+    },
+    {
+      "name": "ReRange",
+      "displayName": "ReRange",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "ReRange - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "rerange.json"
+    },
+    {
+      "name": "Revolve",
+      "displayName": "Revolve",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Revolve - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "revolve.json"
+    },
+    {
+      "name": "Select",
+      "displayName": "Select",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Select - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "select.json"
+    },
+    {
+      "name": "Skin",
+      "displayName": "Skin",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Skin - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "skin.json"
+    },
+    {
+      "name": "Skin Deform",
+      "displayName": "Skin Deform",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Skin Deform - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "skin-deform.json"
+    },
+    {
+      "name": "SOP to",
+      "displayName": "SOP to",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "SOP to - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "sop-to.json"
+    },
+    {
+      "name": "Sort",
+      "displayName": "Sort",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Sort - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "sort.json"
+    },
+    {
+      "name": "Sphere",
+      "displayName": "Sphere",
+      "category": "POP",
+      "subcategory": "Generators",
+      "summary": "Sphere - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "sphere.json"
+    },
+    {
+      "name": "Sprinkle",
+      "displayName": "Sprinkle",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Sprinkle - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "sprinkle.json"
+    },
+    {
+      "name": "Subdivide",
+      "displayName": "Subdivide",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Subdivide - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "subdivide.json"
+    },
+    {
+      "name": "Switch",
+      "displayName": "Switch",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Switch - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "switch.json"
+    },
+    {
+      "name": "Texture Map",
+      "displayName": "Texture Map",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Texture Map - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "texture-map.json"
+    },
+    {
+      "name": "TOP to",
+      "displayName": "TOP to",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "TOP to - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "top-to.json"
+    },
+    {
+      "name": "Topology POP",
+      "displayName": "Topology POP",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "The Topology POP is an experimental GPU-based particle operator.",
+      "wiki_url": "https://docs.derivative.ca/Experimental:Topology_POP",
+      "file": "pop_topology.json"
+    },
+    {
+      "name": "Torus",
+      "displayName": "Torus",
+      "category": "POP",
+      "subcategory": "Generators",
+      "summary": "Torus - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "torus.json"
+    },
+    {
+      "name": "Trail",
+      "displayName": "Trail",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Trail - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "trail.json"
+    },
+    {
+      "name": "Transform",
+      "displayName": "Transform",
+      "category": "POP",
+      "subcategory": "Math & Transform",
+      "summary": "Transform - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "transform.json"
+    },
+    {
+      "name": "Trig",
+      "displayName": "Trig",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Trig - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "trig.json"
+    },
+    {
+      "name": "Tube",
+      "displayName": "Tube",
+      "category": "POP",
+      "subcategory": "Generators",
+      "summary": "Tube - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "tube.json"
+    },
+    {
+      "name": "Twist",
+      "displayName": "Twist",
+      "category": "POP",
+      "subcategory": "Experimental",
+      "summary": "Twist - Experimental POP operator for GPU-based 3D data manipulation.",
+      "file": "twist.json"
+    }
+  ]
+}

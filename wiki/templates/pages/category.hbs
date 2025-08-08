@@ -1,0 +1,256 @@
+{{#> main currentPage="category" breadcrumbs=breadcrumbs}}
+
+<div class="category-page">
+    <!-- Category Header -->
+    <header class="category-header">
+        <div class="category-title-section">
+            <div class="category-icon-large">
+                {{#ifEquals category 'TOP'}}
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                {{/ifEquals}}
+                {{#ifEquals category 'CHOP'}}
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
+                    </svg>
+                {{/ifEquals}}
+                {{#ifEquals category 'SOP'}}
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                {{/ifEquals}}
+                {{#ifEquals category 'DAT'}}
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v2h-2zM7 7h2v2H7zm8 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zM7 15h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+                    </svg>
+                {{/ifEquals}}
+                {{#ifEquals category 'MAT'}}
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                {{/ifEquals}}
+                {{#ifEquals category 'COMP'}}
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+                    </svg>
+                {{/ifEquals}}
+                {{#ifEquals category 'POP'}}
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7 13.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                    </svg>
+                {{/ifEquals}}
+            </div>
+            
+            <h1 class="category-title">{{formatCategory category}}</h1>
+            <p class="category-subtitle">
+                {{total}} operators in this category
+            </p>
+            
+            <div class="category-description">
+                {{#ifEquals category 'TOP'}}
+                <p>Texture Operators (TOPs) process and generate 2D images, textures, and visual effects. They form the foundation of TouchDesigner's image processing pipeline.</p>
+                {{/ifEquals}}
+                {{#ifEquals category 'CHOP'}}
+                <p>Channel Operators (CHOPs) handle time-based data including audio, animation curves, sensor input, and control signals. They're essential for interactive and responsive systems.</p>
+                {{/ifEquals}}
+                {{#ifEquals category 'SOP'}}
+                <p>Surface Operators (SOPs) create, modify, and manipulate 3D geometry. They provide tools for modeling, animation, and geometric transformation.</p>
+                {{/ifEquals}}
+                {{#ifEquals category 'DAT'}}
+                <p>Data Operators (DATs) work with text, tables, scripts, and structured data. They handle everything from simple text processing to complex data manipulation.</p>
+                {{/ifEquals}}
+                {{#ifEquals category 'MAT'}}
+                <p>Material Operators (MATs) define how 3D surfaces appear when rendered. They control shading, lighting, and surface properties.</p>
+                {{/ifEquals}}
+                {{#ifEquals category 'COMP'}}
+                <p>Component Operators (COMPs) create user interfaces, manage complex systems, and provide organizational structure for projects.</p>
+                {{/ifEquals}}
+                {{#ifEquals category 'POP'}}
+                <p>Particle Operators (POPs) simulate dynamic particle systems for effects like smoke, fire, fluids, and complex motion behaviors.</p>
+                {{/ifEquals}}
+            </div>
+        </div>
+    </header>
+    
+    <!-- Search and Filter Bar -->
+    <div class="category-controls">
+        <div class="controls-container">
+            <!-- Search within category -->
+            <form action="/search" method="get" class="category-search-form">
+                <input type="hidden" name="category" value="{{category}}">
+                <div class="search-container">
+                    <input type="text" 
+                           name="q" 
+                           placeholder="Search within {{category}} operators..." 
+                           class="category-search-input"
+                           value="{{searchQuery}}"
+                           autocomplete="off">
+                    <button type="submit" class="category-search-button">
+                        <svg class="search-icon" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Sort and Filter Options -->
+            <div class="category-filters">
+                <div class="filter-group">
+                    <label for="sort-select" class="filter-label">Sort:</label>
+                    <select id="sort-select" class="filter-select">
+                        <option value="name">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="parameters">Parameter Count</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="view-toggle" class="filter-label">View:</label>
+                    <div class="view-toggle" id="view-toggle">
+                        <button class="view-button active" data-view="grid">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 3v8h8V3H3zm10 0v8h8V3h-8zm-10 10v8h8v-8H3zm10 0v8h8v-8h-8z"/>
+                            </svg>
+                        </button>
+                        <button class="view-button" data-view="list">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Operators List -->
+    <div class="category-content">
+        {{#if operators}}
+        <div class="operators-container" id="operators-container">
+            <div class="operators-grid view-grid" id="operators-list">
+                {{#each operators}}
+                <article class="operator-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <a href="/{{name}}" class="card-link">{{name}}</a>
+                        </h3>
+                        
+                        {{#if subcategory}}
+                        <span class="card-subcategory">{{subcategory}}</span>
+                        {{/if}}
+                    </div>
+                    
+                    <div class="card-content">
+                        {{#if description}}
+                        <p class="card-description">{{truncate description 120}}</p>
+                        {{/if}}
+                        
+                        {{#if summary}}
+                        <p class="card-summary">{{truncate summary 100}}</p>
+                        {{/if}}
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="card-meta">
+                            {{#if parameterCount}}
+                            <span class="meta-item">
+                                <svg class="meta-icon" viewBox="0 0 24 24">
+                                    <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
+                                </svg>
+                                {{parameterCount}} params
+                            </span>
+                            {{/if}}
+                            
+                            {{#if keywords}}
+                            {{#if (notEmpty keywords)}}
+                            <div class="card-keywords">
+                                {{#each keywords}}
+                                {{#if @first}}
+                                <span class="keyword-tag">{{this}}</span>
+                                {{/if}}
+                                {{/each}}
+                                {{#if (gt keywords.length 1)}}
+                                <span class="keyword-more">+{{subtract keywords.length 1}}</span>
+                                {{/if}}
+                            </div>
+                            {{/if}}
+                            {{/if}}
+                        </div>
+                        
+                        <a href="/{{name}}" class="card-action">
+                            View Details
+                            <svg class="action-icon" viewBox="0 0 24 24">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                {{/each}}
+            </div>
+        </div>
+        
+        <!-- Alphabet Navigation -->
+        <div class="alphabet-nav">
+            <div class="alphabet-letters">
+                <a href="#A" class="letter-link" data-letter="A">A</a>
+                <a href="#B" class="letter-link" data-letter="B">B</a>
+                <a href="#C" class="letter-link" data-letter="C">C</a>
+                <a href="#D" class="letter-link" data-letter="D">D</a>
+                <a href="#E" class="letter-link" data-letter="E">E</a>
+                <a href="#F" class="letter-link" data-letter="F">F</a>
+                <a href="#G" class="letter-link" data-letter="G">G</a>
+                <a href="#H" class="letter-link" data-letter="H">H</a>
+                <a href="#I" class="letter-link" data-letter="I">I</a>
+                <a href="#J" class="letter-link" data-letter="J">J</a>
+                <a href="#K" class="letter-link" data-letter="K">K</a>
+                <a href="#L" class="letter-link" data-letter="L">L</a>
+                <a href="#M" class="letter-link" data-letter="M">M</a>
+                <a href="#N" class="letter-link" data-letter="N">N</a>
+                <a href="#O" class="letter-link" data-letter="O">O</a>
+                <a href="#P" class="letter-link" data-letter="P">P</a>
+                <a href="#Q" class="letter-link" data-letter="Q">Q</a>
+                <a href="#R" class="letter-link" data-letter="R">R</a>
+                <a href="#S" class="letter-link" data-letter="S">S</a>
+                <a href="#T" class="letter-link" data-letter="T">T</a>
+                <a href="#U" class="letter-link" data-letter="U">U</a>
+                <a href="#V" class="letter-link" data-letter="V">V</a>
+                <a href="#W" class="letter-link" data-letter="W">W</a>
+                <a href="#X" class="letter-link" data-letter="X">X</a>
+                <a href="#Y" class="letter-link" data-letter="Y">Y</a>
+                <a href="#Z" class="letter-link" data-letter="Z">Z</a>
+            </div>
+        </div>
+        
+        {{else}}
+        <!-- No Operators Found -->
+        <div class="no-operators">
+            <div class="no-operators-content">
+                <div class="no-operators-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                    </svg>
+                </div>
+                <h2>No operators found</h2>
+                <p>This category appears to be empty or not yet populated.</p>
+                <div class="no-operators-actions">
+                    <a href="/" class="btn btn-primary">Browse All Categories</a>
+                    <a href="/search" class="btn btn-secondary">Search All Operators</a>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+<!-- Category-specific JavaScript enhancement -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.CategoryApp) {
+            window.CategoryApp.init('{{category}}');
+        }
+    });
+</script>
+
+{{/main}}
