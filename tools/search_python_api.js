@@ -3,35 +3,32 @@
  * Search across TouchDesigner Python classes, methods, and members
  */
 
+import { z } from "zod";
+
 export const schema = {
-    type: "object",
-    properties: {
-        query: {
-            type: "string",
-            description: "Search query for Python API"
-        },
-        search_in: {
-            type: "string",
-            description: "Where to search: 'all', 'classes', 'methods', 'members'",
-            default: "all"
-        },
-        category: {
-            type: "string",
-            description: "Filter by category (e.g., 'Operator', 'Component', 'General')"
-        },
-        limit: {
-            type: "number",
-            description: "Maximum number of results to return",
-            default: 20
-        }
-    },
-    required: ["query"],
-    additionalProperties: false,
-    $schema: "http://json-schema.org/draft-07/schema#"
+    title: "Search Python API",
+    description: "Search across TouchDesigner Python classes, methods, and members",
+    inputSchema: {
+        query: z.string().describe("Search query for Python API"),
+        search_in: z.string().optional().describe("Where to search: 'all', 'classes', 'methods', 'members'"),
+        category: z.string().optional().describe("Filter by category (e.g., 'Operator', 'Component', 'General')"),
+        limit: z.number().optional().describe("Maximum number of results to return")
+    }
 };
 
 export async function handler({ query, search_in = "all", category, limit = 20 }, { wikiSystem }) {
+    console.log(`[search_python_api] Searching for: ${query}, search_in: ${search_in}, category: ${category}`);
+    
     try {
+        // Check if wikiSystem is available
+        if (!wikiSystem) {
+            console.error('[search_python_api] wikiSystem is not available');
+            return {
+                error: 'Wiki system not initialized',
+                details: 'The wiki system is not available for Python API queries'
+            };
+        }
+        
         const results = {
             classes: [],
             methods: [],
@@ -41,6 +38,7 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
         
         const queryLower = query.toLowerCase();
         const pythonClasses = wikiSystem.getPythonClasses();
+        console.log(`[search_python_api] Searching through ${pythonClasses.length} Python classes`);
         
         // Search through Python classes
         for (const classEntry of pythonClasses) {
@@ -52,7 +50,7 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
             // Search in class names and descriptions
             if (search_in === "all" || search_in === "classes") {
                 if (classEntry.className.toLowerCase().includes(queryLower) ||
-                    classEntry.description.toLowerCase().includes(queryLower)) {
+                    (classEntry.description && classEntry.description.toLowerCase().includes(queryLower))) {
                     results.classes.push({
                         class_name: classEntry.className,
                         description: classEntry.description,
@@ -66,8 +64,8 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
             if ((search_in === "all" || search_in === "methods") && classEntry.methods) {
                 for (const method of classEntry.methods) {
                     if (method.name.toLowerCase().includes(queryLower) ||
-                        method.description.toLowerCase().includes(queryLower) ||
-                        method.signature.toLowerCase().includes(queryLower)) {
+                        (method.description && method.description.toLowerCase().includes(queryLower)) ||
+                        (method.signature && method.signature.toLowerCase().includes(queryLower))) {
                         results.methods.push({
                             class_name: classEntry.className,
                             method_name: method.name,
@@ -83,7 +81,7 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
             if ((search_in === "all" || search_in === "members") && classEntry.members) {
                 for (const member of classEntry.members) {
                     if (member.name.toLowerCase().includes(queryLower) ||
-                        member.description.toLowerCase().includes(queryLower)) {
+                        (member.description && member.description.toLowerCase().includes(queryLower))) {
                         results.members.push({
                             class_name: classEntry.className,
                             member_name: member.name,
@@ -96,6 +94,8 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
                 }
             }
         }
+        
+        console.log(`[search_python_api] Found ${results.classes.length} classes, ${results.methods.length} methods, ${results.members.length} members`);
         
         // Sort by relevance and limit results
         results.classes.sort((a, b) => b.relevance - a.relevance);
@@ -119,12 +119,15 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
             results.summary += ` in category "${category}"`;
         }
         
+        console.log(`[search_python_api] Returning ${results.total_results} total results`);
         return results;
         
     } catch (error) {
+        console.error('[search_python_api] Error:', error);
         return {
             error: 'Failed to search Python API documentation',
-            details: error.message
+            details: error.message,
+            stack: error.stack
         };
     }
 }

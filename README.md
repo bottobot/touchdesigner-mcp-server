@@ -8,11 +8,12 @@ A Model Context Protocol (MCP) server that provides comprehensive TouchDesigner 
 ## Features
 
 - 🎯 **629 TouchDesigner Operators** - Complete documentation including 90+ experimental POP operators
-- 📚 **7 Interactive Tutorials** - Step-by-step TouchDesigner learning guides
+- 📚 **14 Interactive Tutorials** - Comprehensive TouchDesigner learning guides (doubled tutorial content!)
 - 🔍 **Smart Search** - Advanced contextual search with intelligent ranking
 - 🔄 **Workflow Suggestions** - Get operator recommendations based on your current workflow
 - 🚀 **Zero Configuration** - Works immediately after installation
 - 📖 **Full Parameter Documentation** - Detailed information for 3,327+ operator parameters
+- 📊 **Optimized Performance** - Reduced server size by 24% while expanding content
 
 ## Installation
 
@@ -134,13 +135,27 @@ The server provides comprehensive coverage across all TouchDesigner operator fam
 
 ## Available Tutorials
 
-- **Write a GLSL TOP** - Create custom GPU-accelerated image effects
-- **Write a C++ CHOP** - Develop native audio/data processing operators
-- **Write a C++ TOP** - Build custom texture operators in C++
+### Core Tutorials
 - **Anatomy of a CHOP** - Understanding channel operator internals
 - **Build a List COMP** - Create dynamic UI lists
+- **Introduction to Python Tutorial** - Essential guide for TouchDesigner Python scripting
+
+### Advanced Development
+- **Write a GLSL TOP** - Create custom GPU-accelerated image effects
+- **Write a GLSL Material** - Custom GLSL materials for rendering
+- **Write a C++ CHOP** - Develop native audio/data processing operators
+- **Write a C++ TOP** - Build custom texture operators in C++
+- **Write a C++ Plugin** - Advanced C++ integration for TouchDesigner plugins
+- **Write a CUDA DLL** - GPU programming with CUDA for TouchDesigner
+
+### Inter-Process Communication
 - **Write a Shared Memory CHOP** - Inter-process data communication
 - **Write a Shared Memory TOP** - Share textures between processes
+
+### Video & Integration
+- **Video Streaming User Guide** - Complete guide for video streaming workflows
+- **TouchDesigner Video Server Specification Guide** - Professional video server setup
+- **TDBitwig User Guide** - Integration with Bitwig Studio DAW
 
 ## PM2 Process Management
 
@@ -233,7 +248,14 @@ MIT License - See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Current Version**: 2.3.1  
-**Operators**: 629  
-**Tutorials**: 7  
+**Current Version**: 2.4.0
+**Operators**: 629
+**Tutorials**: 14
+**Server Size**: 135MB (optimized from 177MB)
 **Last Updated**: January 2025
+
+### What's New in v2.4.0
+- 🎓 **Doubled Tutorial Content** - Added 7 new comprehensive tutorials
+- 📦 **24% Size Reduction** - Optimized server from 177MB to 135MB
+- 🛠️ **New Tutorial Integration Tool** - Automated script for adding future tutorials
+- 🧹 **Clean Architecture** - Removed redundant files and experimental parsers

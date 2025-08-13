@@ -1,9 +1,0 @@
-{
-  "name": "Torus POP",
-  "category": "POP",
-  "subcategory": "Experimental",
-  "description": "Experimental POP operator for advanced particle and geometry operations. This is an experimental feature available in TouchDesigner's experimental builds.",
-  "parameters": [],
-  "experimental": true,
-  "sourceFile": "Experimental-Torus_POP.htm"
-}
