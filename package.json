@@ -1,15 +1,14 @@
 {
   "name": "@bottobot/td-mcp",
-  "version": "2.4.0",
-  "description": "TouchDesigner Documentation MCP Server v2.4 - Pure MCP server for VS Code/Codium with comprehensive operator documentation for 629 operators + 14 tutorials across all categories (TOP, CHOP, SOP, DAT, MAT, COMP, POP). Features experimental POP operators with full parameters, expanded tutorial library, smart search, workflow patterns, and zero-configuration setup.",
+  "version": "2.6.0",
+  "description": "TouchDesigner Documentation MCP Server v2.6 - Pure MCP server with FIXED search functionality. Features 629 operators + 14 tutorials + 553 Python API classes. Major improvements: working operator search (was completely broken), cleaner architecture (OperatorDataManager), removed web server overhead, direct search implementation for better performance. Zero-configuration setup for VS Code/Codium.",
   "main": "index.js",
   "type": "module",
   "bin": {
     "td-mcp": "./index.js"
   },
   "scripts": {
-    "start": "node index.js",
-    "scrape": "node scrapers/ultra-comprehensive-scraper.js"
+    "start": "node index.js"
   },
   "keywords": [
     "mcp",
@@ -43,23 +42,14 @@
     "index.js",
     "tools/",
     "data/",
-    "metadata/",
-    "wiki/",
+    "wiki/data/",
+    "wiki/processor/",
     "README.md",
     "CHANGELOG.md",
     "SETUP-INSTRUCTIONS.md"
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
-    "axios": "^1.11.0",
-    "cheerio": "^1.1.2",
-    "express": "^4.18.2",
-    "fs-extra": "^11.2.0",
-    "glob": "^11.0.3",
-    "hbs": "^4.2.0",
-    "jsdom": "^26.1.0",
-    "node-fetch": "^3.3.2",
-    "p-limit": "^6.2.0",
     "zod": "^3.23.8"
   },
   "engines": {

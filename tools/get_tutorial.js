@@ -16,8 +16,8 @@ export const schema = {
 };
 
 // Tool handler
-export async function handler({ name, include_content = true, include_toc = true, include_links = true }, { wikiSystem }) {
-  if (!wikiSystem) {
+export async function handler({ name, include_content = true, include_toc = true, include_links = true }, { operatorDataManager }) {
+  if (!operatorDataManager) {
     return {
       content: [{
         type: "text",
@@ -26,11 +26,11 @@ export async function handler({ name, include_content = true, include_toc = true
     };
   }
 
-  const tutorial = await wikiSystem.getTutorial(name);
+  const tutorial = await operatorDataManager.getTutorial(name);
   
   if (!tutorial) {
     // Try to list available tutorials
-    const { tutorials } = await wikiSystem.listTutorials({ limit: 10 });
+    const { tutorials } = await operatorDataManager.listTutorials({ limit: 10 });
     const tutorialList = tutorials.map(t => `• ${t.name}`).join('\n');
     
     return {

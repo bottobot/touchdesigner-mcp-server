@@ -7,13 +7,13 @@ import { promises as fs } from 'fs';
 import { join, dirname } from 'path';
 import PythonApiParser from './processor/python-api-parser.js';
 
-export class WikiSystemPythonApi {
+export class OperatorDataPythonApi {
     /**
      * Initialize Python API extension
-     * @param {WikiSystem} wikiSystem - Parent wiki system instance
+     * @param {OperatorDataManager} operatorDataManager - Parent operator data manager instance
      */
-    constructor(wikiSystem) {
-        this.wikiSystem = wikiSystem;
+    constructor(operatorDataManager) {
+        this.operatorDataManager = operatorDataManager;
         this.pythonApiParser = new PythonApiParser();
         this.pythonClasses = new Map(); // className -> class data
         this.pythonClassIndex = new Map(); // lowercase name -> className
@@ -35,7 +35,7 @@ export class WikiSystemPythonApi {
     async processPythonApiDocs(options = {}) {
         console.log('[Python API] Starting Python class documentation processing...');
         
-        const tdDocsPath = this.wikiSystem.options.tdDocsPath;
+        const tdDocsPath = this.operatorDataManager.options.tdDocsPath;
         const pythonClassFiles = await this.discoverPythonClassFiles(tdDocsPath);
         
         console.log(`[Python API] Found ${pythonClassFiles.length} Python class files`);
@@ -82,7 +82,7 @@ export class WikiSystemPythonApi {
         console.log(`[Python API] Processing complete: ${results.processed} classes, ${results.members} members, ${results.methods} methods`);
         
         // Save to disk if persistence is enabled
-        if (this.wikiSystem.options.enablePersistence) {
+        if (this.operatorDataManager.options.enablePersistence) {
             await this.savePythonApiData();
         }
         
@@ -220,7 +220,7 @@ export class WikiSystemPythonApi {
      * @returns {Promise<void>}
      */
     async savePythonApiData() {
-        const dataPath = join(this.wikiSystem.options.dataPath, 'python-api');
+        const dataPath = join(this.operatorDataManager.options.dataPath, 'python-api');
         await fs.mkdir(dataPath, { recursive: true });
         
         // Save each class as a separate file
@@ -247,7 +247,7 @@ export class WikiSystemPythonApi {
      * @returns {Promise<void>}
      */
     async loadPythonApiData() {
-        const dataPath = join(this.wikiSystem.options.dataPath, 'python-api');
+        const dataPath = join(this.operatorDataManager.options.dataPath, 'python-api');
         
         try {
             // Load index
@@ -298,4 +298,4 @@ export class WikiSystemPythonApi {
     }
 }
 
-export default WikiSystemPythonApi;
+export default OperatorDataPythonApi;

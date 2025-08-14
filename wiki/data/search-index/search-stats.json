@@ -1,15 +1,44 @@
 {
   "stats": {
-    "totalEntries": 0,
-    "totalParameters": 0,
-    "indexSize": 0,
-    "lastIndexTime": null,
+    "totalEntries": 629,
+    "totalParameters": 22580,
+    "indexSize": 1904780,
+    "lastIndexTime": "2025-08-13T19:17:35.482Z",
     "searchQueries": 0,
     "averageQueryTime": 0,
     "popularQueries": [],
-    "categoryDistribution": [],
+    "categoryDistribution": [
+      [
+        "CHOP",
+        166
+      ],
+      [
+        "POP",
+        90
+      ],
+      [
+        "COMP",
+        40
+      ],
+      [
+        "SOP",
+        112
+      ],
+      [
+        "TOP",
+        139
+      ],
+      [
+        "DAT",
+        69
+      ],
+      [
+        "MAT",
+        13
+      ]
+    ],
     "processingErrors": []
   },
-  "timestamp": "2025-08-08T03:50:14.856Z",
+  "timestamp": "2025-08-13T19:17:35.485Z",
   "version": "1.0.0"
 }

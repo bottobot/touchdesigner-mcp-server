@@ -5,15 +5,20 @@
 
 A Model Context Protocol (MCP) server that provides comprehensive TouchDesigner operator documentation and tutorials directly in VS Code/Codium through Claude or other MCP-compatible assistants.
 
+## 🚨 Major v2.6.0 Update - Critical Search Fix
+
+**The search functionality that was completely broken in previous versions is now fully operational!**
+
 ## Features
 
 - 🎯 **629 TouchDesigner Operators** - Complete documentation including 90+ experimental POP operators
-- 📚 **14 Interactive Tutorials** - Comprehensive TouchDesigner learning guides (doubled tutorial content!)
-- 🔍 **Smart Search** - Advanced contextual search with intelligent ranking
+- 📚 **14 Interactive Tutorials** - Comprehensive TouchDesigner learning guides
+- 🐍 **553 Python API Classes** - Full Python scripting documentation
+- 🔍 **FIXED Smart Search** - Direct search implementation (previously broken indexer removed)
 - 🔄 **Workflow Suggestions** - Get operator recommendations based on your current workflow
 - 🚀 **Zero Configuration** - Works immediately after installation
 - 📖 **Full Parameter Documentation** - Detailed information for 3,327+ operator parameters
-- 📊 **Optimized Performance** - Reduced server size by 24% while expanding content
+- ⚡ **Optimized Architecture** - Removed web server overhead, pure MCP implementation
 
 ## Installation
 
@@ -71,7 +76,7 @@ Get comprehensive details about a specific TouchDesigner operator.
 
 **Example:** "Get detailed information about the Noise TOP operator"
 
-### 🔍 search_operators
+### 🔍 search_operators (NOW WORKING!)
 Search for operators using advanced contextual analysis and ranking.
 
 **Parameters:**
@@ -119,6 +124,28 @@ List all available TouchDesigner tutorials.
 
 **Example:** "List all available tutorials"
 
+### 🐍 get_python_api
+Get documentation for a TouchDesigner Python class.
+
+**Parameters:**
+- `class_name` (string): Python class name (e.g., 'CHOP', 'Channel', 'App')
+- `show_members` (boolean, optional): Show class members/properties
+- `show_methods` (boolean, optional): Show class methods
+- `show_inherited` (boolean, optional): Show inherited members and methods
+
+**Example:** "Get Python documentation for the CHOP class"
+
+### 🔎 search_python_api
+Search across TouchDesigner Python classes, methods, and members.
+
+**Parameters:**
+- `query` (string): Search query for Python API
+- `search_in` (string, optional): Where to search: 'all', 'classes', 'methods', 'members'
+- `category` (string, optional): Filter by category
+- `limit` (number, optional): Maximum results
+
+**Example:** "Search Python API for audio methods"
+
 ## Operator Categories
 
 The server provides comprehensive coverage across all TouchDesigner operator families:
@@ -157,6 +184,16 @@ The server provides comprehensive coverage across all TouchDesigner operator fam
 - **TouchDesigner Video Server Specification Guide** - Professional video server setup
 - **TDBitwig User Guide** - Integration with Bitwig Studio DAW
 
+## Python API Documentation
+
+The server includes comprehensive Python API documentation with **553 classes** covering:
+
+- Core operator classes (CHOP, TOP, SOP, DAT, MAT, COMP)
+- Utility classes (Channel, Cell, Page, etc.)
+- System classes (App, Project, Monitor, etc.)
+- UI classes (Panel, Widget, etc.)
+- Advanced features (WebRTC, NDI, MIDI, OSC, etc.)
+
 ## PM2 Process Management
 
 For production deployments, you can use PM2 to manage the MCP server:
@@ -184,28 +221,31 @@ pm2 stop td-mcp
 ## Architecture
 
 The TD-MCP server is built with:
-- **Pure MCP Implementation** - Clean, focused server following MCP standards
+- **Pure MCP Implementation** - Clean, focused server following MCP standards (web server removed in v2.6.0)
+- **Direct Search Algorithm** - Fast, reliable search without dependency on broken indexers
+- **OperatorDataManager** - Centralized data management system (renamed from WikiSystem)
 - **Local Data Processing** - All operator data is processed and served locally
-- **Efficient Search Index** - Fast, contextual search across all documentation
 - **Modular Tool System** - Each MCP tool is independently maintained
 
 ## Project Structure
 
 ```
 td-mcp/
-├── index.js              # Main MCP server
-├── tools/                # MCP tool implementations
+├── index.js                    # Main MCP server (web server removed)
+├── tools/                      # MCP tool implementations
 │   ├── get_operator.js
-│   ├── search_operators.js
+│   ├── search_operators.js     # Fixed with direct search
 │   ├── suggest_workflow.js
 │   ├── list_operators.js
 │   ├── get_tutorial.js
-│   └── list_tutorials.js
-├── wiki/                 # Documentation system
-│   ├── data/            # Processed operator & tutorial data
-│   └── wiki-system.js   # Core documentation engine
-└── data/                # Configuration & patterns
-    └── patterns.json    # Workflow patterns
+│   ├── list_tutorials.js
+│   ├── get_python_api.js      # Python API documentation
+│   └── search_python_api.js   # Python API search
+├── wiki/                       # Documentation system
+│   ├── data/                  # Processed operator & tutorial data
+│   └── operator-data-manager.js # Core documentation engine (renamed)
+└── data/                      # Configuration & patterns
+    └── patterns.json          # Workflow patterns
 ```
 
 ## Requirements
@@ -248,13 +288,41 @@ MIT License - See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Current Version**: 2.4.0
+**Current Version**: 2.6.0
 **Operators**: 629
 **Tutorials**: 14
-**Server Size**: 135MB (optimized from 177MB)
+**Python API Classes**: 553
 **Last Updated**: January 2025
 
-### What's New in v2.4.0
+### What's New in v2.6.0 (Major Fix Release)
+
+#### 🔧 Critical Fixes
+- **FIXED Search Functionality** - The search_operators tool that was completely broken is now working!
+- **Removed Broken Indexer** - Eliminated the non-functional search indexer that was causing search failures
+- **Direct Search Implementation** - New reliable search algorithm that searches operator data directly
+
+#### 🏗️ Architecture Improvements
+- **Renamed WikiSystem to OperatorDataManager** - Clearer, more descriptive naming throughout codebase
+- **Removed Web Server** - Eliminated unnecessary web server component for cleaner architecture
+- **Pure MCP Server** - Now operates as a focused MCP server without web dependencies
+- **Improved Performance** - Direct search is faster than the broken indexer approach
+
+#### 📊 Data Completeness
+- **629 Operators Verified** - All operators confirmed accessible
+- **553 Python API Classes** - Full Python documentation included
+- **14 Tutorials** - All tutorials properly indexed and searchable
+- **3,327+ Parameters** - Complete parameter documentation
+
+This is a critical update that fixes the core search functionality. Users who experienced search returning zero results should update immediately.
+
+### Previous Version Notes
+
+#### v2.5.0
+- Added Python API documentation tools
+- Improved operator categorization
+- Enhanced workflow suggestions
+
+#### v2.4.0
 - 🎓 **Doubled Tutorial Content** - Added 7 new comprehensive tutorials
 - 📦 **24% Size Reduction** - Optimized server from 177MB to 135MB
 - 🛠️ **New Tutorial Integration Tool** - Automated script for adding future tutorials

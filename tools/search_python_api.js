@@ -16,13 +16,13 @@ export const schema = {
     }
 };
 
-export async function handler({ query, search_in = "all", category, limit = 20 }, { wikiSystem }) {
+export async function handler({ query, search_in = "all", category, limit = 20 }, { operatorDataManager }) {
     console.log(`[search_python_api] Searching for: ${query}, search_in: ${search_in}, category: ${category}`);
     
     try {
-        // Check if wikiSystem is available
-        if (!wikiSystem) {
-            console.error('[search_python_api] wikiSystem is not available');
+        // Check if operatorDataManager is available
+        if (!operatorDataManager) {
+            console.error('[search_python_api] operatorDataManager is not available');
             return {
                 error: 'Wiki system not initialized',
                 details: 'The wiki system is not available for Python API queries'
@@ -37,7 +37,7 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
         };
         
         const queryLower = query.toLowerCase();
-        const pythonClasses = wikiSystem.getPythonClasses();
+        const pythonClasses = operatorDataManager.getPythonClasses();
         console.log(`[search_python_api] Searching through ${pythonClasses.length} Python classes`);
         
         // Search through Python classes

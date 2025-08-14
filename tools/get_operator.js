@@ -15,8 +15,8 @@ export const schema = {
 };
 
 // Tool handler
-export async function handler({ name, show_examples = true, show_tips = true }, { wikiSystem }) {
-  if (!wikiSystem) {
+export async function handler({ name, show_examples = true, show_tips = true }, { operatorDataManager }) {
+  if (!operatorDataManager) {
     return {
       content: [{
         type: "text",
@@ -25,7 +25,7 @@ export async function handler({ name, show_examples = true, show_tips = true }, 
     };
   }
 
-  const operator = await wikiSystem.getOperator(name, {
+  const operator = await operatorDataManager.getOperator(name, {
     show_examples,
     show_tips,
     show_parameters: true

@@ -15,8 +15,8 @@ export const schema = {
 };
 
 // Tool handler
-export async function handler({ search, limit, show_details = false }, { wikiSystem }) {
-  if (!wikiSystem) {
+export async function handler({ search, limit, show_details = false }, { operatorDataManager }) {
+  if (!operatorDataManager) {
     return {
       content: [{
         type: "text",
@@ -30,11 +30,11 @@ export async function handler({ search, limit, show_details = false }, { wikiSys
   
   if (search) {
     // Use the searchAll method to search tutorials
-    const results = await wikiSystem.searchAll(search, { limit: limit || 20 });
+    const results = await operatorDataManager.searchAll(search, { limit: limit || 20 });
     tutorials = results.tutorials || [];
   } else {
     // Get all tutorials
-    const result = await wikiSystem.listTutorials({ limit });
+    const result = await operatorDataManager.listTutorials({ limit });
     tutorials = result.tutorials || [];
   }
   

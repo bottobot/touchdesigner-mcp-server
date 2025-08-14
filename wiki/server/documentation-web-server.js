@@ -16,9 +16,9 @@ const __dirname = dirname(__filename);
 // TouchDesigner documentation directory path
 const TD_DOCS_PATH = 'C:/Program Files/Derivative/TouchDesigner/Documentation';
 
-export class WikiWebServer {
-    constructor(wikiSystem, options = {}) {
-        this.wikiSystem = wikiSystem;
+export class DocumentationWebServer {
+    constructor(operatorDataManager, options = {}) {
+        this.operatorDataManager = operatorDataManager;
         this.options = {
             port: options.port || 3000,
             host: options.host || 'localhost',
@@ -195,7 +195,7 @@ export class WikiWebServer {
                 status: 'ok',
                 timestamp: new Date().toISOString(),
                 version: '2.2.0',
-                wiki: this.wikiSystem.getSystemStats(),
+                wiki: this.operatorDataManager.getSystemStats(),
                 routes: {
                     docs_style: true,
                     python_docs: '/Python/*',
@@ -299,11 +299,11 @@ export class WikiWebServer {
     
     async handleHomePage(req, res) {
         try {
-            const stats = this.wikiSystem.getSystemStats();
-            const categories = this.wikiSystem.getAvailableCategories();
-            
+            const stats = this.operatorDataManager.getSystemStats();
+            const categories = this.operatorDataManager.getAvailableCategories();
+
             // Get recent/featured operators for homepage
-            const featured = await this.wikiSystem.listOperators({ limit: 12 });
+            const featured = await this.operatorDataManager.listOperators({ limit: 12 });
             
             res.render('home', {
                 title: 'TouchDesigner Documentation Wiki',
@@ -326,7 +326,7 @@ export class WikiWebServer {
     async handleOperatorPage(req, res) {
         try {
             const operatorName = decodeURIComponent(req.params.name);
-            const operator = await this.wikiSystem.getOperator(operatorName, {
+            const operator = await this.operatorDataManager.getOperator(operatorName, {
                 show_parameters: true,
                 show_examples: true,
                 show_tips: true
@@ -347,7 +347,7 @@ export class WikiWebServer {
             ];
             
             // Get related operators for suggestions
-            const related = await this.wikiSystem.suggestWorkflow(operatorName, { limit: 6 });
+            const related = await this.operatorDataManager.suggestWorkflow(operatorName, { limit: 6 });
             
             res.render('operator', {
                 title: `${operator.name} - TouchDesigner Documentation`,
@@ -370,7 +370,7 @@ export class WikiWebServer {
     async handleOperatorPageDirect(req, res) {
         try {
             const operatorName = decodeURIComponent(req.params.operatorName);
-            const operator = await this.wikiSystem.getOperator(operatorName, {
+            const operator = await this.operatorDataManager.getOperator(operatorName, {
                 show_parameters: true,
                 show_examples: true,
                 show_tips: true
@@ -378,7 +378,7 @@ export class WikiWebServer {
             
             if (!operator) {
                 // Try to find similar operators for suggestions
-                const searchResults = await this.wikiSystem.search(operatorName, { limit: 10 });
+                const searchResults = await this.operatorDataManager.search(operatorName, { limit: 10 });
                 
                 return res.status(404).render('error', {
                     title: 'Operator Not Found',
@@ -395,7 +395,7 @@ export class WikiWebServer {
             ];
             
             // Get related operators for suggestions
-            const related = await this.wikiSystem.suggestWorkflow(operatorName, { limit: 6 });
+            const related = await this.operatorDataManager.suggestWorkflow(operatorName, { limit: 6 });
             
             res.render('operator', {
                 title: `${operator.name} - TouchDesigner Documentation`,
@@ -420,13 +420,13 @@ export class WikiWebServer {
             
             let results = [];
             if (query.trim()) {
-                results = await this.wikiSystem.search(query, {
+                results = await this.operatorDataManager.search(query, {
                     category: category || undefined,
                     limit: 50
                 });
             }
             
-            const categories = this.wikiSystem.getAvailableCategories();
+            const categories = this.operatorDataManager.getAvailableCategories();
             
             res.render('search', {
                 title: query ? `Search: ${query}` : 'Search TouchDesigner Documentation',
@@ -449,7 +449,7 @@ export class WikiWebServer {
     async handleCategoryPage(req, res) {
         try {
             const category = req.params.category.toUpperCase();
-            const operators = await this.wikiSystem.listOperators({
+            const operators = await this.operatorDataManager.listOperators({
                 category: category,
                 limit: 200
             });
@@ -488,7 +488,7 @@ export class WikiWebServer {
      */
     async handleCategoryPageDirect(category, req, res) {
         try {
-            const operators = await this.wikiSystem.listOperators({
+            const operators = await this.operatorDataManager.listOperators({
                 category: category,
                 limit: 500
             });
@@ -544,7 +544,7 @@ export class WikiWebServer {
                 breadcrumbs.push({ text: className });
                 
                 // Try to get Python class documentation
-                const pythonDoc = await this.wikiSystem.getOperator(`Python_${className}`, {
+                const pythonDoc = await this.operatorDataManager.getOperator(`Python_${className}`, {
                     show_parameters: true,
                     show_examples: true
                 });
@@ -612,7 +612,7 @@ export class WikiWebServer {
      */
     async handleTouchDesignerPage(req, res) {
         try {
-            const stats = this.wikiSystem.getSystemStats();
+            const stats = this.operatorDataManager.getSystemStats();
             
             res.render('touchdesigner', {
                 title: 'TouchDesigner Documentation',
@@ -639,7 +639,7 @@ export class WikiWebServer {
             const category = req.query.category;
             const limit = parseInt(req.query.limit) || 100;
             
-            const operators = await this.wikiSystem.listOperators({ 
+            const operators = await this.operatorDataManager.listOperators({
                 category, 
                 limit 
             });
@@ -660,7 +660,7 @@ export class WikiWebServer {
                 show_tips: req.query.tips === 'true'
             };
             
-            const operator = await this.wikiSystem.getOperator(operatorName, options);
+            const operator = await this.operatorDataManager.getOperator(operatorName, options);
             
             if (!operator) {
                 return res.status(404).json({ error: 'Operator not found' });
@@ -683,7 +683,7 @@ export class WikiWebServer {
                 return res.json({ results: [], total: 0 });
             }
             
-            const results = await this.wikiSystem.search(query, {
+            const results = await this.operatorDataManager.search(query, {
                 category: category || undefined,
                 limit
             });
@@ -697,8 +697,8 @@ export class WikiWebServer {
     
     async handleApiCategories(req, res) {
         try {
-            const categories = this.wikiSystem.getAvailableCategories();
-            const stats = this.wikiSystem.getSystemStats();
+            const categories = this.operatorDataManager.getAvailableCategories();
+            const stats = this.operatorDataManager.getSystemStats();
             
             const categoryData = categories.map(cat => ({
                 name: cat,
@@ -714,7 +714,7 @@ export class WikiWebServer {
     
     async handleApiStats(req, res) {
         try {
-            const stats = this.wikiSystem.getSystemStats();
+            const stats = this.operatorDataManager.getSystemStats();
             res.json(stats);
         } catch (error) {
             console.error('[Wiki Server] API stats error:', error);
@@ -730,7 +730,7 @@ export class WikiWebServer {
             const operatorName = decodeURIComponent(req.params.operatorName);
             const limit = parseInt(req.query.limit) || 10;
             
-            const suggestions = await this.wikiSystem.suggestWorkflow(operatorName, { limit });
+            const suggestions = await this.operatorDataManager.suggestWorkflow(operatorName, { limit });
             
             res.json(suggestions);
         } catch (error) {
@@ -760,4 +760,4 @@ export class WikiWebServer {
     }
 }
 
-export default WikiWebServer;
+export default DocumentationWebServer;

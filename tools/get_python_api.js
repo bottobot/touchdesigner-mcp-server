@@ -16,13 +16,13 @@ export const schema = {
     }
 };
 
-export async function handler({ class_name, show_members = true, show_methods = true, show_inherited = false }, { wikiSystem }) {
+export async function handler({ class_name, show_members = true, show_methods = true, show_inherited = false }, { operatorDataManager }) {
     console.log(`[get_python_api] Handling request for class: ${class_name}`);
     
     try {
-        // Check if wikiSystem is available
-        if (!wikiSystem) {
-            console.error('[get_python_api] wikiSystem is not available');
+        // Check if operatorDataManager is available
+        if (!operatorDataManager) {
+            console.error('[get_python_api] operatorDataManager is not available');
             return {
                 error: 'Wiki system not initialized',
                 details: 'The wiki system is not available for Python API queries'
@@ -34,7 +34,7 @@ export async function handler({ class_name, show_members = true, show_methods = 
         console.log(`[get_python_api] Normalized name: ${normalizedName}`);
         
         // Search for Python class entry
-        const pythonClasses = wikiSystem.getPythonClasses();
+        const pythonClasses = operatorDataManager.getPythonClasses();
         console.log(`[get_python_api] Total Python classes available: ${pythonClasses.length}`);
         
         const classEntry = pythonClasses.find(c =>

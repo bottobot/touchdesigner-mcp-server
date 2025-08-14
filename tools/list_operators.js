@@ -13,8 +13,8 @@ export const schema = {
 };
 
 // Tool handler
-export async function handler({ category }, { wikiSystem }) {
-  if (!wikiSystem) {
+export async function handler({ category }, { operatorDataManager }) {
+  if (!operatorDataManager) {
     return {
       content: [{
         type: "text",
@@ -24,8 +24,8 @@ export async function handler({ category }, { wikiSystem }) {
   }
 
   try {
-    // Use wiki system to list operators
-    const listResults = await wikiSystem.listOperators({
+    // Use operator data manager to list operators
+    const listResults = await operatorDataManager.listOperators({
       category: category ? category.toUpperCase() : undefined
       // No limit - return all operators
     });

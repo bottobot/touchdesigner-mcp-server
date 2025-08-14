@@ -57,14 +57,14 @@ function suggestNextOperator(currentOperator, workflowPatterns) {
 }
 
 // Tool handler
-export async function handler({ current_operator }, { wikiSystem, workflowPatterns }) {
+export async function handler({ current_operator }, { operatorDataManager, workflowPatterns }) {
   try {
     let suggestions = [];
     
-    // Try wiki system first if available
-    if (wikiSystem) {
+    // Try operator data manager first if available
+    if (operatorDataManager) {
       try {
-        const wikiSuggestions = await wikiSystem.suggestWorkflow(current_operator, { limit: 10 });
+        const wikiSuggestions = await operatorDataManager.suggestWorkflow(current_operator, { limit: 10 });
         if (wikiSuggestions.suggestions && wikiSuggestions.suggestions.length > 0) {
           suggestions = wikiSuggestions.suggestions.map(suggestion => ({
             operator: suggestion.name,
@@ -90,7 +90,7 @@ export async function handler({ current_operator }, { wikiSystem, workflowPatter
       text += `• It's typically used as an end-point in workflows\n`;
       text += `• Try using the full operator name with family (e.g., 'Movie File In TOP')\n\n`;
       
-      if (wikiSystem) {
+      if (operatorDataManager) {
         text += `**Tip:** Try searching for the operator first with 'search_operators' to find the exact name.`;
       }
       
@@ -133,7 +133,7 @@ export async function handler({ current_operator }, { wikiSystem, workflowPatter
       text += '\n---\n\n';
     });
     
-    text += `*Suggestions based on ${wikiSystem ? 'operator relationships and' : ''} common TouchDesigner workflows.*`;
+    text += `*Suggestions based on ${operatorDataManager ? 'operator relationships and' : ''} common TouchDesigner workflows.*`;
     
     return {
       content: [{

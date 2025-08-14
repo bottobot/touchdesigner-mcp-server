@@ -10,12 +10,12 @@ import HtmParser from './processor/htm-parser-perfect.js';
 import ContentExtractor from './processor/content-extractor.js';
 import SearchIndexer from './processor/search-indexer.js';
 import WikiEntry from './models/wiki-entry.js';
-import WikiSystemPythonApi from './wiki-system-python-api.js';
+import OperatorDataPythonApi from './operator-data-python-api.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export class WikiSystem {
+export class OperatorDataManager {
     /**
      * Create a new wiki system instance
      * @param {Object} options - System configuration options
@@ -71,7 +71,7 @@ export class WikiSystem {
         this.tutorialsPath = options.tutorialsPath || join(__dirname, 'data', 'tutorials');
         
         // Initialize Python API extension
-        this.pythonApi = new WikiSystemPythonApi(this);
+        this.pythonApi = new OperatorDataPythonApi(this);
         
         // Statistics
         this.stats = {
@@ -312,7 +312,7 @@ export class WikiSystem {
     }
 
     /**
-     * Search the wiki system
+     * Search the wiki system using direct search on in-memory data
      * @param {string} query - Search query
      * @param {Object} options - Search options
      * @returns {Promise<Object>} Search results
@@ -323,13 +323,110 @@ export class WikiSystem {
         }
         
         try {
-            const results = await this.searchIndexer.search(query, options);
+            // Use direct search instead of broken searchIndexer
+            const results = this.performDirectSearch(query, options);
             this.stats.searchQueries++;
             return results;
         } catch (error) {
             console.error('[Wiki System] Search failed:', error);
             throw error;
         }
+    }
+
+    /**
+     * Perform direct search on in-memory operator data
+     * @param {string} query - Search query
+     * @param {Object} options - Search options
+     * @returns {Object} Search results
+     */
+    performDirectSearch(query, options = {}) {
+        const {
+            category = null,
+            limit = 20,
+            fuzzy = false,
+            threshold = 0.3
+        } = options;
+
+        if (!query || query.trim() === '') {
+            return { results: [], total: 0 };
+        }
+
+        const searchTerm = query.toLowerCase().trim();
+        const results = [];
+
+        // Search through all entries
+        for (const [id, entry] of this.entries) {
+            // Apply category filter if specified
+            if (category && entry.category !== category.toUpperCase()) {
+                continue;
+            }
+
+            let score = 0;
+
+            // Check name match (highest priority)
+            if (entry.name && entry.name.toLowerCase().includes(searchTerm)) {
+                score += 100;
+                // Exact match bonus
+                if (entry.name.toLowerCase() === searchTerm) {
+                    score += 50;
+                }
+            }
+
+            // Check display name
+            if (entry.displayName && entry.displayName.toLowerCase().includes(searchTerm)) {
+                score += 90;
+            }
+
+            // Check description
+            if (entry.description && entry.description.toLowerCase().includes(searchTerm)) {
+                score += 50;
+            }
+
+            // Check keywords
+            if (entry.keywords && Array.isArray(entry.keywords)) {
+                for (const keyword of entry.keywords) {
+                    if (keyword.toLowerCase().includes(searchTerm)) {
+                        score += 30;
+                        break;
+                    }
+                }
+            }
+
+            // Check parameters if option is enabled
+            if (options.parameter_search && entry.parameters && Array.isArray(entry.parameters)) {
+                for (const param of entry.parameters) {
+                    if (param.name && param.name.toLowerCase().includes(searchTerm)) {
+                        score += 20;
+                    }
+                    if (param.description && param.description.toLowerCase().includes(searchTerm)) {
+                        score += 10;
+                    }
+                }
+            }
+
+            // Add to results if score meets threshold
+            if (score > 0) {
+                results.push({
+                    id: entry.id,
+                    name: entry.name,
+                    displayName: entry.displayName,
+                    category: entry.category,
+                    description: entry.description,
+                    score: score
+                });
+            }
+        }
+
+        // Sort by score (highest first)
+        results.sort((a, b) => b.score - a.score);
+
+        // Apply limit
+        const limitedResults = limit > 0 ? results.slice(0, limit) : results;
+
+        return {
+            results: limitedResults,
+            total: results.length
+        };
     }
 
     /**
@@ -585,6 +682,8 @@ export class WikiSystem {
             console.log(`[Wiki System] Loading ${jsonFiles.length} processed entries...`);
             
             let filteredCount = 0;
+            const entriesToIndex = [];
+            
             for (const file of jsonFiles) {
                 try {
                     const filePath = join(this.options.processedPath, file);
@@ -613,12 +712,32 @@ export class WikiSystem {
                     }
                     this.categories.get(entry.category).add(entry.id);
                     
+                    // Collect entries to index
+                    entriesToIndex.push(entry);
+                    
                 } catch (error) {
                     console.warn(`[Wiki System] Failed to load entry from ${file}:`, error);
                 }
             }
             
             console.log(`[Wiki System] Loaded ${this.entries.size} operators and ${this.tutorials.size} tutorials from disk (filtered ${filteredCount} entries)`);
+            
+            // Rebuild search index if entries were loaded but index is empty
+            if (entriesToIndex.length > 0) {
+                const searchStats = this.searchIndexer.getSearchStats();
+                if (searchStats.totalEntries === 0) {
+                    console.log(`[Wiki System] Search index is empty, rebuilding from ${entriesToIndex.length} loaded operators...`);
+                    await this.searchIndexer.indexEntries(entriesToIndex, {
+                        batchSize: 50,
+                        onProgress: (progress) => {
+                            if (progress.processed % 100 === 0 || progress.complete) {
+                                console.log(`[Wiki System] Indexing progress: ${progress.processed}/${progress.total}`);
+                            }
+                        }
+                    });
+                    console.log(`[Wiki System] Search index rebuilt successfully`);
+                }
+            }
             
         } catch (error) {
             console.log('[Wiki System] No processed entries found, starting fresh');
@@ -1059,4 +1178,4 @@ export class WikiSystem {
     }
 }
 
-export default WikiSystem;
+export default OperatorDataManager;

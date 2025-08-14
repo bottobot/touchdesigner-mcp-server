@@ -18,9 +18,8 @@ import { promises as fs } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-// Import wiki system and web server
-import WikiSystem from './wiki/wiki-system.js';
-import WikiWebServer from './wiki/server/wiki-server.js';
+// Import operator data manager
+import OperatorDataManager from './wiki/operator-data-manager.js';
 
 // Import tools
 import * as getOperatorTool from './tools/get_operator.js';
@@ -47,8 +46,8 @@ const server = new McpServer({
   version: VERSION
 });
 
-// Initialize wiki system with TouchDesigner documentation path
-const wikiSystem = new WikiSystem({
+// Initialize operator data manager with TouchDesigner documentation path
+const operatorDataManager = new OperatorDataManager({
     wikiPath: join(__dirname, 'wiki'),
     dataPath: join(__dirname, 'wiki', 'data'),
     processedPath: join(__dirname, 'wiki', 'data', 'processed'), // Point to processed directory with all 649 operators
@@ -66,12 +65,7 @@ const wikiSystem = new WikiSystem({
     progressInterval: 100 // Report every 100 files
 });
 
-// Initialize wiki web server
-const wikiWebServer = new WikiWebServer(wikiSystem, {
-    port: 3000,
-    host: 'localhost',
-    autoStart: false
-});
+// Web server functionality removed - not needed for MCP server operation
 
 // Workflow patterns storage (will be integrated with wiki system)
 let workflowPatterns = null;
@@ -95,51 +89,51 @@ async function loadPatterns() {
 server.registerTool(
   "get_operator",
   getOperatorTool.schema,
-  async (params) => await getOperatorTool.handler(params, { wikiSystem })
+  async (params) => await getOperatorTool.handler(params, { operatorDataManager })
 );
 
 server.registerTool(
   "search_operators",
   searchOperatorsTool.schema,
-  async (params) => await searchOperatorsTool.handler(params, { wikiSystem })
+  async (params) => await searchOperatorsTool.handler(params, { operatorDataManager })
 );
 
 server.registerTool(
   "suggest_workflow",
   suggestWorkflowTool.schema,
-  async (params) => await suggestWorkflowTool.handler(params, { wikiSystem, workflowPatterns })
+  async (params) => await suggestWorkflowTool.handler(params, { operatorDataManager, workflowPatterns })
 );
 
 server.registerTool(
   "list_operators",
   listOperatorsTool.schema,
-  async (params) => await listOperatorsTool.handler(params, { wikiSystem })
+  async (params) => await listOperatorsTool.handler(params, { operatorDataManager })
 );
 
 // Register tutorial tools
 server.registerTool(
   "get_tutorial",
   getTutorialTool.schema,
-  async (params) => await getTutorialTool.handler(params, { wikiSystem })
+  async (params) => await getTutorialTool.handler(params, { operatorDataManager })
 );
 
 server.registerTool(
   "list_tutorials",
   listTutorialsTool.schema,
-  async (params) => await listTutorialsTool.handler(params, { wikiSystem })
+  async (params) => await listTutorialsTool.handler(params, { operatorDataManager })
 );
 
 // Register Python API tools
 server.registerTool(
   "get_python_api",
   getPythonApiTool.schema,
-  async (params) => await getPythonApiTool.handler(params, { wikiSystem })
+  async (params) => await getPythonApiTool.handler(params, { operatorDataManager })
 );
 
 server.registerTool(
   "search_python_api",
   searchPythonApiTool.schema,
-  async (params) => await searchPythonApiTool.handler(params, { wikiSystem })
+  async (params) => await searchPythonApiTool.handler(params, { operatorDataManager })
 );
 
 // Main startup
@@ -152,23 +146,18 @@ async function main() {
 
   try {
     // Initialize wiki system
-    console.log('[Server] Initializing wiki system...');
-    await wikiSystem.initialize();
-    
-    // Start wiki web server
-    console.log('[Server] Starting wiki web server...');
-    const serverInfo = await wikiWebServer.start();
+    console.log('[Server] Initializing operator data manager...');
+    await operatorDataManager.initialize();
     
     // Load patterns (will be integrated with wiki system later)
     await loadPatterns();
     
     console.log(`\n[Server] TD MCP v${VERSION} initialized successfully`);
-    const stats = wikiSystem.getSystemStats();
+    const stats = operatorDataManager.getSystemStats();
     const pythonApiStats = stats.pythonApiStats || { totalClasses: 0 };
     console.log(`[Server] Wiki system ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
     console.log(`[Server] All tools integrated with wiki system`);
     console.log(`[Server] HTM processing foundation complete`);
-    console.log(`[Server] Wiki website available at: http://${serverInfo.host}:${serverInfo.port}`);
   } catch (error) {
     console.error('[Server] Initialization error:', error);
     // Continue startup even if wiki system fails to initialize
@@ -187,14 +176,9 @@ process.on('SIGINT', async () => {
   console.log('\n[Server] Received SIGINT, shutting down gracefully...');
   
   try {
-    if (wikiWebServer && wikiWebServer.isRunning) {
-      console.log('[Server] Stopping wiki web server...');
-      await wikiWebServer.stop();
-    }
-    
-    if (wikiSystem) {
-      console.log('[Server] Cleaning up wiki system...');
-      wikiSystem.destroy();
+    if (operatorDataManager) {
+      console.log('[Server] Cleaning up operator data manager...');
+      operatorDataManager.destroy();
     }
     
     console.log('[Server] Shutdown complete');
@@ -209,12 +193,8 @@ process.on('SIGTERM', async () => {
   console.log('\n[Server] Received SIGTERM, shutting down gracefully...');
   
   try {
-    if (wikiWebServer && wikiWebServer.isRunning) {
-      await wikiWebServer.stop();
-    }
-    
-    if (wikiSystem) {
-      wikiSystem.destroy();
+    if (operatorDataManager) {
+      operatorDataManager.destroy();
     }
     
     process.exit(0);
