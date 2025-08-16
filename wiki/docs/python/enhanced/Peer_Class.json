@@ -1,0 +1,68 @@
+{
+  "file": "Peer_Class.htm",
+  "className": "Peer",
+  "methods": [
+    {
+      "name": "close",
+      "parameters": [],
+      "returns": "bool :",
+      "signature": "close()"
+    },
+    {
+      "name": "sendBytes",
+      "parameters": [
+        {
+          "name": "*messages",
+          "type": "Any"
+        }
+      ],
+      "returns": "int :",
+      "signature": "sendBytes(*messages)"
+    },
+    {
+      "name": "sendOSC",
+      "parameters": [
+        {
+          "name": "address",
+          "type": "Any"
+        },
+        {
+          "name": "*values",
+          "type": "Any"
+        },
+        {
+          "name": "asBundle=False",
+          "type": "Any"
+        },
+        {
+          "name": "useNonStandardTypes=True",
+          "type": "Any"
+        },
+        {
+          "name": "use64BitPrecision=False",
+          "type": "Any"
+        }
+      ],
+      "returns": "int :",
+      "signature": "sendOSC(address, *values, asBundle=False, useNonStandardTypes=True, use64BitPrecision=False)"
+    },
+    {
+      "name": "send",
+      "parameters": [
+        {
+          "name": "*messages",
+          "type": "Any"
+        },
+        {
+          "name": "terminator=''",
+          "type": "Any"
+        }
+      ],
+      "returns": "int :",
+      "signature": "send(*messages, terminator='')"
+    }
+  ],
+  "methodCount": 4,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.417Z"
+}

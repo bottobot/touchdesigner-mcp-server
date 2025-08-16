@@ -20,5 +20,6 @@
       "description": "beginFrames member"
     }
   ],
-  "methods": []
+  "methods": [],
+  "enhanced": true
 }

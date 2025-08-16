@@ -20,5 +20,6 @@
       "description": "numCPUs member"
     }
   ],
-  "methods": []
+  "methods": [],
+  "enhanced": true
 }

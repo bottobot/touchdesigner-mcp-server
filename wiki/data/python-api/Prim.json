@@ -20,5 +20,44 @@
       "description": "center member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "destroy",
+      "parameters": [
+        {
+          "name": "destroyPoints=True",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "destroy(destroyPoints=True)"
+    },
+    {
+      "name": "eval",
+      "parameters": [
+        {
+          "name": "u",
+          "type": "Any"
+        },
+        {
+          "name": "v",
+          "type": "Any"
+        }
+      ],
+      "returns": "TDU.Position :",
+      "signature": "eval(u, v)"
+    },
+    {
+      "name": "len",
+      "parameters": [
+        {
+          "name": "Prim",
+          "type": "Any"
+        }
+      ],
+      "returns": "int :",
+      "signature": "len(Prim)"
+    }
+  ],
+  "enhanced": true
 }

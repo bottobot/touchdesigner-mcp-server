@@ -1,9 +1,0 @@
-{
-  "className": "ListAttributes",
-  "displayName": "ListAttributes Class",
-  "description": "The ListAttributes class describes a set of list attribute objects for cells, rows, columns or table. It can be accessed from a List Component.",
-  "category": "General",
-  "fileName": "ListAttributes_Class.htm",
-  "members": [],
-  "methods": []
-}

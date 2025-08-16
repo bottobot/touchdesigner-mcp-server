@@ -1,0 +1,24 @@
+{
+  "file": "Attributes_Class.htm",
+  "className": "Attributes",
+  "methods": [
+    {
+      "name": "create",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "Any"
+        },
+        {
+          "name": "default",
+          "type": "Any"
+        }
+      ],
+      "returns": "Attribute :",
+      "signature": "create(name, default)"
+    }
+  ],
+  "methodCount": 1,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.289Z"
+}

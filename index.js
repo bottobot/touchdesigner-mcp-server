@@ -54,8 +54,8 @@ const operatorDataManager = new OperatorDataManager({
     searchIndexPath: join(__dirname, 'wiki', 'data', 'search-index'),
     enablePersistence: true,
     autoIndex: true,
-    // TouchDesigner documentation path
-    tdDocsPath: 'C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca',
+    // TouchDesigner documentation path - points to downloaded docs
+    tdDocsPath: join(__dirname, 'wiki', 'docs', 'python'),
     // Progress reporting
     progressCallback: (progress) => {
         if (progress.processed % 100 === 0 || progress.complete) {
@@ -147,7 +147,10 @@ async function main() {
   try {
     // Initialize wiki system
     console.log('[Server] Initializing operator data manager...');
+    const initStartTime = Date.now();
     await operatorDataManager.initialize();
+    const initDuration = Date.now() - initStartTime;
+    console.log(`[Server] Initialization took ${initDuration}ms (${(initDuration/1000).toFixed(2)}s)`);
     
     // Load patterns (will be integrated with wiki system later)
     await loadPatterns();

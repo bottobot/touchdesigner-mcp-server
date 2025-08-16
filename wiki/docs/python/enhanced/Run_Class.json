@@ -1,0 +1,15 @@
+{
+  "file": "Run_Class.htm",
+  "className": "Run",
+  "methods": [
+    {
+      "name": "kill",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "kill()"
+    }
+  ],
+  "methodCount": 1,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.433Z"
+}

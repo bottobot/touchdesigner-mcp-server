@@ -1,9 +1,0 @@
-{
-  "className": "StorageManager",
-  "displayName": "StorageManager Class",
-  "description": "StorageManager is a Python utility class designed to make Storage easy to use in Python Extensions. It also has a number of useful features for creating Python properties and dependable collections. Although StorageManager performs some complex Python tasks, using it in your extension is easy, and this article will give you a working knowledge of its use. An intermediate understanding of Python is assumed throughout.",
-  "category": "General",
-  "fileName": "StorageManager_Class.htm",
-  "members": [],
-  "methods": []
-}

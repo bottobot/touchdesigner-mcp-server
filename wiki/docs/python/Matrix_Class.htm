@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Matrix Class - Derivative</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"005558142a3c60308672d598","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Matrix_Class","wgTitle":"Matrix Class","wgCurRevisionId":32438,"wgRevisionId":32438,"wgArticleId":1000,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Python Reference"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"Matrix_Class","wgRelevantArticleId":1000,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCargoDefaultQueryLimit":100,"wgCargoMapClusteringMinimum":
+80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/extensions/PageForms","edgValues":[],"wgPageFormsEDSettings":null,
+"wgAmericanDates":false,"wgVector2022PreviewPages":[]};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.UiTag","ext.Lingo","site","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cext.pygments%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=Python.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="Matrix Class"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/Matrix_Class"/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:modified_time" content="2024-11-15T18:14:47Z"/>
+<meta property="article:published_time" content="2024-11-15T18:14:47Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"Matrix Class - Derivative","headline":"Matrix Class - Derivative","mainEntityOfPage":"<span class=\"mw-page-title-main\">Matrix Class<\/span>","identifier":"https:\/\/docs.derivative.ca\/Matrix_Class","url":"https:\/\/docs.derivative.ca\/Matrix_Class","dateModified":"2024-11-15T18:14:47Z","datePublished":"2024-11-15T18:14:47Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Matrix_Class rootpage-Matrix_Class skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Matrix Class</span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><p>The matrix class holds a single 4x4 matrix for use in transformations. The matrix's data layout is in <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Column-major_order#Column-major_order">column-major format</a>, which is to say that the matrix is multiplied from the left of <a href="/Vector_Class" title="Vector Class">vectors</a> and <a href="/Position_Class" title="Position Class">positions</a>. The translation values are stored in the last column of the matrix.
+A matrix is created with this line, and will always be initialized to the identity matrix.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+</pre></div>
+<p>You can also initialize a matrix with an initial set of values. Valid arguments for initialization is another tdu.Matrix, a list of 16 values or 4 lists of 4 values. The entries are specified column-by-column. For example the following lines of code will produce the shown matrix
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+<span class="c1"># or</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+</pre></div>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># matrix values</span>
+<span class="mi">1</span>  <span class="mi">5</span>  <span class="mi">9</span>   <span class="mi">13</span>
+<span class="mi">2</span>  <span class="mi">6</span>  <span class="mi">10</span>  <span class="mi">14</span>
+<span class="mi">3</span>  <span class="mi">7</span>  <span class="mi">11</span>  <span class="mi">15</span>
+<span class="mi">4</span>  <span class="mi">8</span>  <span class="mi">12</span>  <span class="mi">16</span>
+</pre></div>
+<p>You can also get transformation and projection matrices from <a href="/ObjectCOMP_Class" title="ObjectCOMP Class">Object COMP</a> and <a href="/CameraCOMP_Class" title="CameraCOMP Class">Camera COMP</a> by using the various methods such as <code>transform(), pretransform(), projection()</code>.
+</p><p><br></p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en-CA" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul><li class="toclevel-1"><a href="#Instantiators"><span class="tocnumber">1</span> <span class="toctext">Instantiators</span></a></li>
+<li class="toclevel-1"><a href="#Members"><span class="tocnumber">2</span> <span class="toctext">Members</span></a></li>
+<li class="toclevel-1"><a href="#Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul><li class="toclevel-2"><a href="#Special_Functions"><span class="tocnumber">3.1</span> <span class="toctext">Special Functions</span></a></li>
+</ul></li>
+</ul></div>
+
+<h2><span class="mw-headline" id="Instantiators">Instantiators</span></h2>
+<div id="vals" style="display:inline;"></div><p><code class="python">tdu.Matrix()</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Initialize the matrix as a identity matrix.</p></blockquote>
+<div id="vals" style="display:inline;"></div><p><code class="python">tdu.Matrix([1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16])</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Initialize the matrix with a set of 4 lists of 4 values. Each list is a column in the matrix.</p></blockquote>
+<div id="vals" style="display:inline;"></div><p><code class="python">tdu.Matrix([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Initialize the matrix with a set of 16 values. The values are listed column-by-column.</p></blockquote>
+<div id="vals" style="display:inline;"></div><p><code class="python">tdu.Matrix([0, 0, 0, 1])</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Initialize the matrix using a quaternion.</p></blockquote>
+<h2><span class="mw-headline" id="Members">Members</span></h2>
+<div id="vals" style="display:inline;"></div><p><code class="python">vals</code> → <code class="return">float</code> : 
+</p><blockquote><p>Get or set the set of Matrix values.</p></blockquote>
+<div id="rows" style="display:inline;"></div><p><code class="python">rows</code> → <code class="return">list of lists</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The list of Matrix rows, each a list of values.</p></blockquote>
+<div id="cols" style="display:inline;"></div><p><code class="python">cols</code> → <code class="return">list of lists</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The list of Matrix columns, each a list of values.</p></blockquote>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<div id="transpose" style="display:inline;"></div><p><code class="python">transpose()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Transpose the values in the matrix.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1"># m now contains the transpose of the matrix</span>
+</pre></div></blockquote>
+<div id="getTranspose" style="display:inline;"></div><p><code class="python">getTranspose()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Returns the transpose of the matrix, leaving the matrix itself unchanged.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">getTranspose</span><span class="p">()</span>
+</pre></div></blockquote>
+<div id="invert" style="display:inline;"></div><p><code class="python">invert()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Inverts the values in the matrix.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">invert</span><span class="p">()</span> <span class="c1"># m now contains the inverse of the matrix</span>
+</pre></div></blockquote>
+<div id="getInverse" style="display:inline;"></div><p><code class="python">getInverse()</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Returns the inverse of the matrix, leaving the matrix itself unchanged.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">getInverse</span><span class="p">()</span>
+</pre></div></blockquote>
+<div id="determinant" style="display:inline;"></div><p><code class="python">determinant()</code>→ <code class="return">float</code>:
+</p><blockquote><p>Returns the determinant of the matrix.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">determinant</span><span class="p">()</span>
+</pre></div></blockquote>
+<div id="mapUnitSquareToQuad" style="display:inline;"></div><p><code class="python">mapUnitSquareToQuad(blX, blY, brX, brY, tlX, tlY, trX, trY)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Set the matrix to be a projection matrix that maps coordinates from to a unit square (0,0) -&gt; (1,1) space to a space defined by an arbitrary quadrilateral (blX, blY) -&gt; (trX, trY). The 4 corners of the quadrilateral are given ('bl' means bottom left, 'tr' means top right etc.).</p></blockquote>
+<div id="mapQuadToUnitSquare" style="display:inline;"></div><p><code class="python">mapQuadToUnitSquare(blX, blY, brX, brY, tlX, tlY, trX, trY)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Is the inverse of mapUnitSquareToQuad(). Mapping coordinates in an arbitrary quadrilateral into a space defined by the unit square.</p></blockquote>
+<div id="fillTable" style="display:inline;"></div><p><code class="python">fillTable(tableDAT)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Fill in the contents of a table from the matrix which the method is called upon.
+</p><ul><li>tableDAT - The table to be filled.</li></ul></blockquote>
+<div id="numpyArray" style="display:inline;"></div><p><code class="python">numpyArray()</code>→ <code class="return">numpy.array</code>:
+</p><blockquote><p>Returns this matrix as a 4x4 NumPy array.</p></blockquote>
+<div id="identity" style="display:inline;"></div><p><code class="python">identity()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Replaces the values in the matrix with the <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Identity_matrix">identity matrix</a>.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">identity</span><span class="p">()</span> <span class="c1"># now contains the identity matrix</span>
+</pre></div></blockquote>
+<div id="copy" style="display:inline;"></div><p><code class="python">copy()</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Returns a new matrix that is a copy of the matrix.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">newM</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># newM will have the same values as m, m is unchanged</span>
+</pre></div></blockquote>
+<div id="translate" style="display:inline;"></div><p><code class="python">translate(tx, ty, tz, fromRight=False)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Multiplies the current matrix by a new translation matrix created from tx, ty and tz. The translation is applied from the left of the matrix by default. That is to say, if T is the new translation matrix, and M is the current matrix, then the result of this operation is M = T * M.
+</p><ul><li>tx, ty, tz - The translation value in each axis.</li>
+<li>fromRight - (Keyword, Optional) If True, the translation matrix will be multiplied from the right instead of the left.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="rotate" style="display:inline;"></div><p><code class="python">rotate(rx, ry, rz, fromRight=False, pivot=None)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Multiplies the current matrix by 3 rotation matrices, first a rotation around the X axis by rx degrees, followed by a rotation around the Y axis by ry degrees, followed by the same for rz. The rotation values are in degrees. The rotation is applied from the left of the matrix by default. So if M is the current matrix, then the result of this operation is M = RZ * RY * RX * M.
+</p><ul><li>rx, ry, rz - The rotation value around each X, Y and Z axis. The value is in degrees. The rotation is applied in XYZ order.</li>
+<li>fromRight - (Keyword, Optional) If True, the rotation matrix will be multiplied from the right instead of the left. In this case the operation is M = M * RZ * RY * RX.</li>
+<li>pivot - (Keyword, Optional) If given, the rotation will be applied around the given pivot. The pivot should be a Vector, Position or a list with 3 entries.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">pivot</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pivot</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="rotateOnAxis" style="display:inline;"></div><p><code class="python">rotateOnAxis(rotationAxis, angle, fromRight=False, pivot=None)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Multiplies the current matrix by a new rotation matrix created by rotation angle degrees around the axis specified by rotationAxis. The angle is in degrees. The rotation is applied from the left of the matrix by default. That is to say, if R is the new rotation matrix specified by rotationAxis and angle, and M is the current matrix, then the result of this operation is M = R * M.
+</p><ul><li>rotationAxis - A axis to rotate around. This should be a Vector or a list with 3 entries. It does not need to be normalized.</li>
+<li>angle - The amount to rotate around the axis, specified in degrees.</li>
+<li>fromRight - (Keyword, Optional) If True, the rotation matrix will be multiplied from the right instead of the left.</li>
+<li>pivot - (Keyword, Optional) If given, the rotation will be applied around the given pivot. The pivot should be a Vector, Position or a list with 3 entries.</li></ul></blockquote>
+<div id="scale" style="display:inline;"></div><p><code class="python">scale(sx, sy, sz, fromRight=False, pivot=None)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Multiplies the current matrix by a scale matrix created from sx, sy and sz. The scale is applied from the left of the matrix by default. That is to say, if S is the new scale matrix, and M is the current matrix, then the result of this operation is M = S * M.
+</p><ul><li>sx, sy, sz - The scale value along each X, Y and Z axis.</li>
+<li>fromRight - (Keyword, Optional) If True, the scale matrix will be multiplied from the right instead of the left.</li>
+<li>pivot - (Keyword, Optional) If given, the scale will be applied around the given pivot. The pivot should be a Vector, Position or a list with 3 entries.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pivot</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pivot</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="lookat" style="display:inline;"></div><p><code class="python">lookat(eyePos, target, up)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Multiplies the current matrix by a lookat matrix created using the given values to the matrix. The lookat matrix is applied from the left of the matrix by default. That is to say, if L is the new lookat matrix, and M is the current matrix, then the result of this operation is M = L * M. The values for to parameters can be given as anything that can be treated as a list of 3 values. E.g a tdu.Vector, tdu.Position or simply a list of size 3.
+</p><ul><li>eyePos - The position in space of the eye/camera.</li>
+<li>target - The position in space that should be looked at, from the eyePos.</li>
+<li>up - The Up vector. Ensure the up vector isn't pointing in the same direction as the lookat direction.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Matrix</span><span class="p">()</span>
+<span class="n">eyeP</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">up</span> <span class="o">=</span> <span class="n">tdu</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">lookat</span><span class="p">(</span><span class="n">eyeP</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">up</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="decompose" style="display:inline;"></div><p><code class="python">decompose()</code>→ <code class="return">Tuple(Tuple, Tuple, Tuple)</code>:
+</p><blockquote><p>Decomposes the matrix into its scale, rotate and translate values. These are the same as the translate, rotate and scale that are in the <a href="/Geometry_COMP" title="Geometry COMP">Geometry COMP</a> and other Object components. However due to rotations being able to be solved in different ways, it's likely a decomposed transform matrix from a Geometry <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> will not have the same values as its parameter. The resulting transform is the same though. This function returns a tuple of tuples (3 tuples), which are the scale, rotate and translate values respectively.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">s</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+</pre></div></blockquote>
+<div id="projectionFrustum" style="display:inline;"></div><p><code class="python">projectionFrustum(left, right, bottom, top, near, far)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Replaces the contents of the matrix with a projection matrix using the given frustum extents. The left, right, bottom, top extents are located on the near plane. The depth range generated by this matrix will be [0,1] from near to far, as is required by Vulkan.</p></blockquote>
+<div id="projectionFovX" style="display:inline;"></div><p><code class="python">projectionFovX(fovX, aspectX, aspectY, near, far)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Replaces the contents of the matrix with a projection matrix defined by the FOV(given in degrees), an aspect ratio and near/far planes.  The depth range generated by this matrix will be [0,1] from near to far, as is required by Vulkan.
+</p><ul><li>fovX - The horizontal FOV, specified in degrees.</li>
+<li>aspectX, aspectY - The aspect ration values. These can be something like 16 and 9 for an aspect or the render resolution such as 1920 and 1080. The results will be the same for the same ratio.</li></ul></blockquote>
+<div id="projectionStereo" style="display:inline;"></div><p><code class="python">projectionStereo(ipd, convergeZ, fovX, aspectX, aspectY, near, far, rightEye = false)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Replaces the contents of the matrix with an asymetrical projection matrix suitable for stereo rendering. The left eye's projection matrix is given by default, set rightEye=True to get the right eye's instead. For proper rendering, the cameras will also need to be translated in X by -ipd/2 and +ipd/2 for the left and right eyes respectively.  The depth range generated by this matrix will be [0,1] from near to far, as is required by Vulkan.
+</p><ul><li>ipd - Interpupillary distance of the user, generally specified in meters. Typically between 0.05 and 0.08</li>
+<li>covergeZ - distance in Z from the camera where the stereo convergence should occur, in the same units as ipd.</li>
+<li>fovX - The field of view in the X direction, in degrees.</li>
+<li>aspectX, aspectY - The aspect ratio values. These can be something like 16 and 9 for an aspect or the render resolution such as 1920 and 1080. The results will be the same for the same ratio.</li>
+<li>near, far - The near and far plane distances.</li>
+<li>rightEye - (Keyword, Optional) If set to True, the matrix will contain the projection for the right eye, otherwise it will contain the projection for the left eye.</li></ul></blockquote>
+<h3><span class="mw-headline" id="Special_Functions">Special Functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Special Functions">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="[]" style="display:inline;"></div><p><code class="python">[row, column]</code>→ <code class="return">float</code>:
+</p><blockquote><p>Gets or sets the specified entry in the matrix.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">tx</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">tx</span> <span class="o">+</span> <span class="mi">5</span>
+</pre></div></blockquote>
+<div id="*" style="display:inline;"></div><p><code class="python">Matrix * Matrix</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Performs a matrix multiplication returns the results in a new matrix.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">newM</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">*</span> <span class="n">m2</span>
+</pre></div></blockquote>
+<div id="-" style="display:inline;"></div><p><code class="python">Matrix - Matrix</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Subtracts the matrices, component-by-component, and returns the results in a new matrix.</p></blockquote>
+<div id="+" style="display:inline;"></div><p><code class="python">Matrix + Matrix</code>→ <code class="return">tdu.Matrix</code>:
+</p><blockquote><p>Adds the matrices, component-by-component, and returns the results in a new matrix</p></blockquote>
+<div id="*v" style="display:inline;"></div><p><code class="python">tdu.Matrix * tdu.Vector</code>→ <code class="return">tdu.Vector</code>:
+</p><blockquote><p>Multiplies the vector by the matrix and returns the a new vector as the result. Since a Vector is direction only and has no notion of a position, the translate part of the matrix does not get applied to the vector.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">newV</span> <span class="o">=</span> <span class="n">M</span> <span class="o">*</span> <span class="n">v</span>
+</pre></div></blockquote>
+<div id="*p" style="display:inline;"></div><p><code class="python">tdu.Matrix * tdu.Position</code>→ <code class="return">tdu.Position</code>:
+</p><blockquote><p>Multiplies the position by the matrix and returns the a new position as the result. If the matrix was not an transformation matrix, such as a projection matrix instead, the perspective divide by W will automatically be applied to X, Y and Z.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">newP</span> <span class="o">=</span> <span class="n">M</span> <span class="o">*</span> <span class="n">p</span>
+</pre></div></blockquote>
+<p>TouchDesigner Build: <select onchange="location=this.value;"><option value="https://docs.derivative.ca/Matrix_Class">Latest</option>\n<option value="https://docs.derivative.ca/Matrix_Class?oldid=31233">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=31234">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=31236">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=31237">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=31316">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=31317">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=31318">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=31524">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=32432">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=32433">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=32434">wikieditor</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=32438">mw-rollback</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=32432">mw-reverted</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=32433">mw-reverted</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=32434">mw-reverted</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=27353">2022.24140</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=14768">2021.10000</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=21646">2018.28070</option><option value="https://docs.derivative.ca/Matrix_Class?oldid=13568">before 2018.28070</option></select></p></div><div class="mw-lingo-tooltip" id="85a1cdddc59cb89e6297acc2f2fc1755"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that contains its own <a href="/Network" title="Network">Network</a>. There are sixteen 3D <a href="/Object_Component" title="Object Component">Object Component</a> and ten 2D <a href="/Panel_Component" title="Panel Component">Panel Component</a> types. See also <a href="/Network_Path" title="Network Path">Network Path</a>.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250701161306
+Cache expiry: 60
+Reduced expiry: true
+Complications: [show‐toc]
+CPU time usage: 0.084 seconds
+Real time usage: 0.119 seconds
+Preprocessor visited node count: 991/1000000
+Post‐expand include size: 44073/2097152 bytes
+Template argument size: 23953/2097152 bytes
+Highest expansion depth: 7/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 15194/5000000 bytes
+Lua time usage: 0.030/5 seconds
+Lua virtual size: 8749056/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   75.391      1 -total
+ 64.79%   48.846      1 Template:SubSection
+ 14.28%   10.763      1 Template:ClassMethodSection
+ 13.39%   10.095     26 Template:ClassMethod
+  5.03%    3.795      1 Template:ClassInstantiationSection
+  4.57%    3.448      1 Template:ClassMemberSection
+  4.08%    3.076      1 Template:TDClassSummary
+  2.76%    2.080      1 Template:History
+  2.74%    2.067      4 Template:ClassInstantiator
+  2.51%    1.889      3 Template:ClassMember
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1000-0!canonical and timestamp 20250701161306 and revision id 32438.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=Matrix_Class&amp;oldid=32438">https://docs.derivative.ca/index.php?title=Matrix_Class&amp;oldid=32438</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/Category:Python_Reference" title="Category:Python Reference">Python Reference</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=Matrix+Class" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/Matrix_Class" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:Matrix_Class&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="mw-list-item"><a href="/Experimental:Matrix_Class"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/Matrix_Class"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=Matrix_Class&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/Matrix_Class" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/Matrix_Class" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=Matrix_Class&amp;oldid=32438" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=Matrix_Class&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=Matrix_Class&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 15 November 2024, at 13:14.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.084","walltime":"0.119","ppvisitednodes":{"value":991,"limit":1000000},"postexpandincludesize":{"value":44073,"limit":2097152},"templateargumentsize":{"value":23953,"limit":2097152},"expansiondepth":{"value":7,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":15194,"limit":5000000},"timingprofile":["100.00%   75.391      1 -total"," 64.79%   48.846      1 Template:SubSection"," 14.28%   10.763      1 Template:ClassMethodSection"," 13.39%   10.095     26 Template:ClassMethod","  5.03%    3.795      1 Template:ClassInstantiationSection","  4.57%    3.448      1 Template:ClassMemberSection","  4.08%    3.076      1 Template:TDClassSummary","  2.76%    2.080      1 Template:History","  2.74%    2.067      4 Template:ClassInstantiator","  2.51%    1.889      3 Template:ClassMember"]},"scribunto":{"limitreport-timeusage":{"value":"0.030","limit":"5"},"limitreport-virtmemusage":{"value":8749056,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250701161306","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":249});});</script>
+</body>
+<!-- Cached 20250701161306 -->
+</html>

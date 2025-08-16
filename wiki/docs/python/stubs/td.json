@@ -1,0 +1,98 @@
+{
+  "className": "td",
+  "description": "Core TouchDesigner module providing global functions and system access",
+  "category": "Core",
+  "url": "https://docs.derivative.ca/Td_Module",
+  "documentation": {
+    "members": [
+      {
+        "name": "op",
+        "type": "function",
+        "description": "Access operators by path"
+      },
+      {
+        "name": "me",
+        "type": "property",
+        "description": "Reference to current operator"
+      },
+      {
+        "name": "parent",
+        "type": "property",
+        "description": "Reference to parent operator"
+      },
+      {
+        "name": "absTime",
+        "type": "property",
+        "description": "Absolute time in seconds"
+      },
+      {
+        "name": "project",
+        "type": "property",
+        "description": "Project settings and info"
+      }
+    ],
+    "methods": [
+      {
+        "name": "op",
+        "signature": "op(path: str) -> OP",
+        "description": "Returns operator at specified path",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "str",
+            "description": "Path to operator"
+          }
+        ],
+        "returns": "OP object or None if not found"
+      },
+      {
+        "name": "ops",
+        "signature": "ops(*patterns: str) -> List[OP]",
+        "description": "Returns list of operators matching patterns",
+        "parameters": [
+          {
+            "name": "patterns",
+            "type": "str",
+            "description": "Glob patterns to match"
+          }
+        ],
+        "returns": "List of matching OP objects"
+      },
+      {
+        "name": "run",
+        "signature": "run(script: str, *args, **kwargs) -> Any",
+        "description": "Execute Python script with optional arguments",
+        "parameters": [
+          {
+            "name": "script",
+            "type": "str",
+            "description": "Python code to execute"
+          },
+          {
+            "name": "args",
+            "type": "Any",
+            "description": "Positional arguments"
+          },
+          {
+            "name": "kwargs",
+            "type": "Any",
+            "description": "Keyword arguments"
+          }
+        ],
+        "returns": "Result of script execution"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Accessing operators",
+        "code": "# Get operator by path\nnoise = td.op('/project1/noise1')\n\n# Get multiple operators\nbuttons = td.ops('button*')\n\n# Access parent and me\ncurrent = td.me\nparent = td.parent()"
+      },
+      {
+        "title": "Using time functions",
+        "code": "# Get absolute time\ntime = td.absTime.seconds\n\n# Frame information\nframe = td.absTime.frame"
+      }
+    ]
+  },
+  "generated": "2025-08-15T03:16:44.283Z",
+  "source": "manual_stub"
+}

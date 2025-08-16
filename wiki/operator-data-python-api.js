@@ -5,7 +5,12 @@
 
 import { promises as fs } from 'fs';
 import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import PythonApiParser from './processor/python-api-parser.js';
+
+// Get __dirname equivalent for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export class OperatorDataPythonApi {
     /**
@@ -34,6 +39,9 @@ export class OperatorDataPythonApi {
      */
     async processPythonApiDocs(options = {}) {
         console.log('[Python API] Starting Python class documentation processing...');
+        
+        // Load stub data first (for missing classes)
+        await this.loadStubData();
         
         const tdDocsPath = this.operatorDataManager.options.tdDocsPath;
         const pythonClassFiles = await this.discoverPythonClassFiles(tdDocsPath);
@@ -73,13 +81,23 @@ export class OperatorDataPythonApi {
             }
         }
         
-        // Update stats
+        // Load enhanced method data
+        await this.loadEnhancedData();
+        
+        // Update stats (recalculate after loading enhanced data)
+        let totalMembers = 0;
+        let totalMethods = 0;
+        for (const classData of this.pythonClasses.values()) {
+            totalMembers += classData.members?.length || 0;
+            totalMethods += classData.methods?.length || 0;
+        }
+        
         this.pythonApiStats.totalClasses = this.pythonClasses.size;
-        this.pythonApiStats.totalMembers = results.members;
-        this.pythonApiStats.totalMethods = results.methods;
+        this.pythonApiStats.totalMembers = totalMembers;
+        this.pythonApiStats.totalMethods = totalMethods;
         this.pythonApiStats.lastProcessed = new Date().toISOString();
         
-        console.log(`[Python API] Processing complete: ${results.processed} classes, ${results.members} members, ${results.methods} methods`);
+        console.log(`[Python API] Processing complete: ${this.pythonClasses.size} total classes, ${totalMembers} members, ${totalMethods} methods`);
         
         // Save to disk if persistence is enabled
         if (this.operatorDataManager.options.enablePersistence) {
@@ -247,12 +265,16 @@ export class OperatorDataPythonApi {
      * @returns {Promise<void>}
      */
     async loadPythonApiData() {
+        console.log('[Python API] Starting loadPythonApiData...');
         const dataPath = join(this.operatorDataManager.options.dataPath, 'python-api');
+        console.log(`[Python API] Looking for saved data at: ${dataPath}`);
         
         try {
             // Load index
             const indexPath = join(dataPath, 'index.json');
+            console.log(`[Python API] Trying to load index from: ${indexPath}`);
             const index = JSON.parse(await fs.readFile(indexPath, 'utf-8'));
+            console.log(`[Python API] Found saved index with ${index.classes.length} classes`);
             
             // Load each class
             for (const className of index.classes) {
@@ -282,7 +304,178 @@ export class OperatorDataPythonApi {
             console.log(`[Python API] Loaded ${this.pythonClasses.size} Python classes from disk`);
             
         } catch (error) {
-            console.log('[Python API] No saved Python API data found, will process from scratch');
+            console.log(`[Python API] No saved Python API data found (${error.message}), processing HTML files...`);
+            
+            // Load stub data first for missing critical classes
+            console.log('[Python API] Loading stub data...');
+            await this.loadStubData();
+            console.log(`[Python API] After loading stubs: ${this.pythonClasses.size} classes`);
+            
+            // Process HTML files from wiki/docs/python/ directory
+            console.log('[Python API] Processing HTML files...');
+            const tdDocsPath = this.operatorDataManager.options.tdDocsPath;
+            console.log(`[Python API] Scanning for Python class files in: ${tdDocsPath}`);
+            
+            const pythonClassFiles = await this.discoverPythonClassFiles(tdDocsPath);
+            console.log(`[Python API] Found ${pythonClassFiles.length} Python class HTML files`);
+            
+            // Process each HTML file
+            for (const filePath of pythonClassFiles) {
+                try {
+                    console.log(`[Python API] Processing: ${filePath}`);
+                    const classData = await this.pythonApiParser.parseFile(filePath);
+                    if (classData) {
+                        // Store class data
+                        this.pythonClasses.set(classData.className, classData);
+                        this.pythonClassIndex.set(classData.className.toLowerCase(), classData.className);
+                        
+                        // Also index by display name
+                        if (classData.displayName) {
+                            const displayKey = classData.displayName.toLowerCase().replace(' class', '');
+                            this.pythonClassIndex.set(displayKey, classData.className);
+                        }
+                        
+                        console.log(`[Python API] Loaded class: ${classData.className} (${classData.members?.length || 0} members, ${classData.methods?.length || 0} methods)`);
+                    }
+                } catch (error) {
+                    console.error(`[Python API] Error processing ${filePath}:`, error.message);
+                }
+            }
+            
+            console.log(`[Python API] After processing HTML files: ${this.pythonClasses.size} classes`);
+            
+            // Load enhanced method data
+            console.log('[Python API] Loading enhanced data...');
+            await this.loadEnhancedData();
+            console.log(`[Python API] After loading enhanced data: ${this.pythonClasses.size} classes`);
+            
+            // Update stats after loading all data
+            let totalMembers = 0;
+            let totalMethods = 0;
+            for (const classData of this.pythonClasses.values()) {
+                totalMembers += classData.members?.length || 0;
+                totalMethods += classData.methods?.length || 0;
+            }
+            
+            this.pythonApiStats.totalClasses = this.pythonClasses.size;
+            this.pythonApiStats.totalMembers = totalMembers;
+            this.pythonApiStats.totalMethods = totalMethods;
+            this.pythonApiStats.lastProcessed = new Date().toISOString();
+            
+            console.log(`[Python API] Final stats: ${this.pythonClasses.size} classes, ${totalMethods} methods, ${totalMembers} members`);
+            
+            // Save to disk if persistence is enabled
+            if (this.operatorDataManager.options.enablePersistence) {
+                console.log('[Python API] Saving processed data to disk...');
+                await this.savePythonApiData();
+            }
+        }
+        
+        // Debug: List all loaded classes
+        const classNames = Array.from(this.pythonClasses.keys()).sort();
+        console.log(`[Python API] All loaded classes: ${classNames.join(', ')}`);
+    }
+    /**
+     * Load stub data for missing Python classes
+     * @returns {Promise<void>}
+     */
+    async loadStubData() {
+        // Stubs are located in TD-MCP/wiki/docs/python/stubs/
+        const stubDir = join(__dirname, 'docs', 'python', 'stubs');
+        
+        try {
+            const stubFiles = await fs.readdir(stubDir);
+            const jsonFiles = stubFiles.filter(f => f.endsWith('.json'));
+            
+            for (const file of jsonFiles) {
+                try {
+                    const stub = JSON.parse(await fs.readFile(join(stubDir, file), 'utf-8'));
+                    
+                    // Determine the class name (some stubs use 'name' instead of 'className')
+                    const className = stub.className || stub.name;
+                    if (!className) {
+                        console.warn(`[Python API] Stub ${file} has no className or name property, skipping`);
+                        continue;
+                    }
+                    
+                    // Handle both formats: nested under 'documentation' or at root level
+                    const members = stub.documentation?.members || stub.members || [];
+                    const methods = stub.documentation?.methods || stub.methods || [];
+                    const examples = stub.documentation?.examples || stub.examples || [];
+                    
+                    // Create full documentation structure
+                    const classData = {
+                        className: className,
+                        displayName: className,
+                        description: stub.description,
+                        category: stub.category,
+                        url: stub.url,
+                        members: members.map(m => ({
+                            name: m.name,
+                            type: m.type,
+                            description: m.description,
+                            readonly: false
+                        })),
+                        methods: methods.map(m => ({
+                            name: m.name,
+                            description: m.description,
+                            signature: m.signature,
+                            parameters: m.parameters,
+                            returns: m.returns || 'None'
+                        })),
+                        examples: examples,
+                        source: 'stub'
+                    };
+                    
+                    this.pythonClasses.set(className, classData);
+                    this.pythonClassIndex.set(className.toLowerCase(), className);
+                    console.log(`[Python API] Loaded stub for ${className}`);
+                } catch (error) {
+                    console.warn(`[Python API] Failed to load stub ${file}:`, error.message);
+                }
+            }
+            
+            console.log(`[Python API] Loaded ${jsonFiles.length} stub files`);
+        } catch (error) {
+            // Stub directory doesn't exist yet, that's okay
+            console.log('[Python API] No stub data directory found');
+        }
+    }
+
+    /**
+     * Load enhanced documentation data
+     * @returns {Promise<void>}
+     */
+    async loadEnhancedData() {
+        // Enhanced data is located in TD-MCP/wiki/docs/python/enhanced/
+        const enhancedDir = join(__dirname, 'docs', 'python', 'enhanced');
+        
+        try {
+            const enhancedFiles = await fs.readdir(enhancedDir);
+            const jsonFiles = enhancedFiles.filter(f => f.endsWith('.json'));
+            
+            for (const file of jsonFiles) {
+                try {
+                    const data = JSON.parse(await fs.readFile(join(enhancedDir, file), 'utf-8'));
+                    const className = data.className;
+                    
+                    // Merge enhanced method data with existing
+                    if (this.pythonClasses.has(className)) {
+                        const existing = this.pythonClasses.get(className);
+                        existing.methods = data.methods;
+                        existing.enhanced = true;
+                        this.pythonClasses.set(className, existing);
+                        console.log(`[Python API] Enhanced ${className} with ${data.methods.length} methods`);
+                    }
+                } catch (error) {
+                    console.warn(`[Python API] Failed to load enhanced data ${file}:`, error.message);
+                }
+            }
+            
+            console.log(`[Python API] Enhanced ${jsonFiles.length} classes with method data`);
+        } catch (error) {
+            // Enhanced directory doesn't exist yet, that's okay
+            console.log('[Python API] No enhanced data directory found');
         }
     }
 

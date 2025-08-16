@@ -1,0 +1,65 @@
+{
+  "name": "MOD",
+  "description": "The MOD class provides functionality for working with Python modules in TouchDesigner, including loading, reloading, and accessing module contents.",
+  "members": [
+    {
+      "name": "path",
+      "type": "str",
+      "description": "Path to the module file"
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "description": "Module name"
+    },
+    {
+      "name": "loaded",
+      "type": "bool",
+      "description": "Whether module is loaded"
+    },
+    {
+      "name": "functions",
+      "type": "list",
+      "description": "List of functions in module"
+    }
+  ],
+  "methods": [
+    {
+      "name": "addMonths",
+      "signature": "m = mod.addMonths(1,2,3)",
+      "description": "import datNameImport the module defined by the DAT named datName. All regular import options are supported (from, as, etc). If a DAT is not found, the regular file system search path is then used.# import a DAT named addMonth"
+    },
+    {
+      "name": "m = mod",
+      "signature": "m = mod(pathToDat)",
+      "description": "import datNameImport the module defined by the DAT named datName. All regular import options are supported (from, as, etc). If a DAT is not found, the regular file system search path is then used.# import a DAT named addMonth"
+    },
+    {
+      "name": "import myUtils",
+      "signature": "import myUtils",
+      "description": ""
+    },
+    {
+      "name": "add",
+      "signature": "a = mod.myUtils.add(5,6)",
+      "description": ""
+    },
+    {
+      "name": "a = mod",
+      "signature": "a = mod('/projects/utils/utilsA').add(5,6)",
+      "description": ""
+    },
+    {
+      "name": "add",
+      "signature": "a = mod.myUtils.add(5,6)",
+      "description": ""
+    },
+    {
+      "name": "myUtils",
+      "signature": "m = mod.myUtils",
+      "description": ""
+    }
+  ],
+  "sourceUrl": "https://docs.derivative.ca/MOD_Class",
+  "extractedAt": "2025-08-15T04:20:58.496Z"
+}

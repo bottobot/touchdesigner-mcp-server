@@ -20,5 +20,6 @@
       "description": "owner member"
     }
   ],
-  "methods": []
+  "methods": [],
+  "enhanced": true
 }

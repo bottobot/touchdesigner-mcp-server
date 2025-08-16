@@ -20,5 +20,81 @@
       "description": "valid member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "eval",
+      "parameters": [
+        {
+          "name": "index",
+          "type": "Any"
+        }
+      ],
+      "returns": "float :",
+      "signature": "eval(index)"
+    },
+    {
+      "name": "evalFrame",
+      "parameters": [
+        {
+          "name": "frame",
+          "type": "Any"
+        }
+      ],
+      "returns": "float :",
+      "signature": "evalFrame(frame)"
+    },
+    {
+      "name": "evalSeconds",
+      "parameters": [
+        {
+          "name": "secs",
+          "type": "Any"
+        }
+      ],
+      "returns": "float :",
+      "signature": "evalSeconds(secs)"
+    },
+    {
+      "name": "numpyArray",
+      "parameters": [],
+      "returns": "numpy.ndarray :",
+      "signature": "numpyArray()"
+    },
+    {
+      "name": "destroy",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "destroy()"
+    },
+    {
+      "name": "average",
+      "parameters": [],
+      "returns": "float :",
+      "signature": "average()"
+    },
+    {
+      "name": "min",
+      "parameters": [],
+      "returns": "float :",
+      "signature": "min()"
+    },
+    {
+      "name": "max",
+      "parameters": [],
+      "returns": "float :",
+      "signature": "max()"
+    },
+    {
+      "name": "copyNumpyArray",
+      "parameters": [
+        {
+          "name": "numpyArray",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "copyNumpyArray(numpyArray)"
+    }
+  ],
+  "enhanced": true
 }

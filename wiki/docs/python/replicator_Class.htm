@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Replicator COMP - TouchDesigner Documentation</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ec6894aac74f2e1ffafe7705","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Replicator_COMP","wgTitle":"Replicator COMP","wgCurRevisionId":30723,"wgRevisionId":30723,"wgArticleId":97,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Touch Glossary","COMPs"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"Replicator_COMP","wgRelevantArticleId":97,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Replicator",
+"wgCargoDefaultQueryLimit":100,"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":
+"/extensions/PageForms","edgValues":{"title":["Actor COMP","Ambient Light COMP","Animation COMP","Annotate COMP","Base COMP","Blend COMP","Bone COMP","Bullet Solver COMP","Button COMP","Experimental:Button COMP","Camera Blend COMP","Camera COMP","MediaWiki:Common.js","Component","Experimental:Component","Constraint COMP","Container COMP","Engine COMP","Experimental:Engine COMP","Environment Light COMP","FBX COMP","Experimental:FBX COMP","Field COMP","Force COMP","Geo Text COMP","Experimental:Geo Text COMP","Geometry COMP","GLSL COMP","Handle COMP","Impulse Force COMP","Light COMP","List COMP","Experimental:List COMP","Null COMP","NVIDIA Flex Solver COMP","NVIDIA Flow Emitter COMP","OP Viewer COMP","Parameter COMP","Experimental:Parameter COMP","Replicator COMP","Select COMP","Shared Mem In COMP","Shared Mem Out COMP","Slider COMP","Table COMP","Text COMP","Experimental:Text COMP","Time COMP","USD COMP","Experimental:USD COMP","Widget COMP","Window COMP","Experimental:Window COMP"]},
+"wgPageFormsEDSettings":null,"wgAmericanDates":false,"wgVector2022PreviewPages":[],"wgInternalRedirectTargetUrl":"/Replicator_COMP"};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready"};RLPAGEMODULES=["ext.UiTag","mediawiki.action.view.redirect","ext.Lingo","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="description" content="The Replicator Component creates a node for every row of a table, creating nodes (&quot;[http://en.wikipedia.org/wiki/Replicant replicants]&quot;) and deleting them as the table changes."/>
+<meta name="keywords" content="TouchDesigner, Replicator, COMP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://docs.derivative.ca/Replicator_COMP"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=COMP.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="Replicator COMP - TouchDesigner Documentation"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/Replicator_COMP"/>
+<meta property="og:description" content="The Replicator Component creates a node for every row of a table, creating nodes (&quot;[http://en.wikipedia.org/wiki/Replicant replicants]&quot;) and deleting them as the table changes."/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:tag" content="TouchDesigner, Replicator, COMP"/>
+<meta property="article:modified_time" content="2024-01-02T13:21:19Z"/>
+<meta property="article:published_time" content="2024-01-02T13:21:19Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"Replicator COMP - TouchDesigner Documentation","headline":"Replicator COMP - TouchDesigner Documentation","mainEntityOfPage":"<span class=\"mw-page-title-main\">Replicator COMP<\/span>","identifier":"https:\/\/docs.derivative.ca\/Replicator_COMP","url":"https:\/\/docs.derivative.ca\/Replicator_COMP","description":"The Replicator Component creates a node for every row of a table, creating nodes (\"[http:\/\/en.wikipedia.org\/wiki\/Replicant replicants]\") and deleting them as the table changes.","keywords":"TouchDesigner, Replicator, COMP","dateModified":"2024-01-02T13:21:19Z","datePublished":"2024-01-02T13:21:19Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Replicator_COMP rootpage-Replicator_COMP skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Replicator COMP</span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/index.php?title=Replicator&amp;redirect=no" title="Replicator">Replicator</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><p><br></p>
+<h2><span class="mw-headline" id="Summary"><div class="sectionBarCOMP">Summary</div></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:Summary&amp;action=edit&amp;section=T-1" title="Edit section: Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> creates copies of a component, one for every row in a table or using a Number of Replicants parameter - it is the "for-loop" of operators. Unlike <a href="/Clone" title="Clone">Clone</a>, it automatically creates copies of a master component.
+</p><p>It creates replicant nodes ("<a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Replicant">replicants</a>") and deletes them as the table changes or the replicant count changes. The replicant master can be a full component and its contents or a single node. 		
+</p><p>It takes the node specified in the <span class="tipTextCOMP">Master <span class="mw-lingo-term" data-lingo-term-id="6c3a6944a808a7c0bbb6788dbec54a9f">Node</span></span> parameter, and makes a copy of the master for every row in the <span class="tipTextCOMP">Template Table</span> (or specified by the Number of Replicant parameter).	
+</p><p>The nodes that are created can be named in two ways. Copies can be named/numbered sequentially using			
+the prefix specified by the <span class="tipTextCOMP">Node Prefix</span> parameter: <code>item1</code>, <code>item2</code>, ... Alternately, copies can be named based on the string in a column of the table, specified with the <span class="tipTextCOMP">Name from Table</span> parameter.			
+</p><p><a href="/File:Replicator.1.png" class="image"><img alt="Replicator.1.png" src="/images/thumb/d/d4/Replicator.1.png/700px-Replicator.1.png" decoding="async" width="700" height="443" srcset="/images/d/d4/Replicator.1.png 1.5x"></a>			
+</p><p>If you want to create a node for the first row of the table, un-set the <span class="tipTextCOMP">Ignore First Row</span> parameter.			
+</p><p>The replicants get laid out in a grid in the network, determined by the <span class="tipTextCOMP"><span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span></span> and <span class="tipTextCOMP"><span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span> Origin</span> parameters.			
+</p><p>The <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> does not assume or require that the master and replicants are components – they can all be Movie File In TOPs if you want. It also does not assume or require that the replicants are <a href="/Clone" title="Clone">Clones</a>.  However the <span class="tipTextCOMP">Master <span class="mw-lingo-term" data-lingo-term-id="6c3a6944a808a7c0bbb6788dbec54a9f">Node</span></span> can be a component whose <a href="/Clone" title="Clone">Clone</a> parameter is set to itself, so that all nodes created are clones of the master.			
+</p><p>For every replicant, you can run a script in the callback <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> where you can see some examples of typical cases that you can adapt. Here are some others:			
+</p>
+<ul><li>change the expression of a <a href="/Par_Class" title="Par Class">parameter</a>: <code>c.par.display.expr = "op('thing')[op.digits, 'display']"</code></li>
+<li>Change the parameter expression mode:  <code>c.par.display.mode = ParMode.EXPRESSION</code>    The mode is one of: <code>ParMode.CONSTANT</code>, <code>ParMode.EXPRESSION</code>, or <code>ParMode.EXPORT</code>.</li></ul><p>If only one line of a table changes, the other existing replicants are not changed or re-created. In the callback <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>, removing <code>onRemoveReplicant()</code> will keep the replicants around to be re-used when the table grows again.			
+</p><p>This is an extremely powerful node type. Examples: (1) A button gadget for each row of the table. a geometry component, which is replicated at every point of a 3D particle system, each behaving separately. (2) You can feed the table of a <a href="/Multi_Touch_In_DAT" title="Multi Touch In DAT">Multi Touch In DAT</a> directly to the <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> to create something at each fingertip.
+</p><p><a href="/File:PythonIcon.png" class="image"><img alt="PythonIcon.png" src="/images/c/c2/PythonIcon.png" decoding="async" width="20" height="20"></a><a href="/ReplicatorCOMP_Class" title="ReplicatorCOMP Class">replicatorCOMP_Class</a>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en-CA" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul><li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Replicator_Page"><span class="tocnumber">2</span> <span class="toctext">Parameters - Replicator Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Extensions_Page"><span class="tocnumber">3</span> <span class="toctext">Parameters - Extensions Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Common_Page"><span class="tocnumber">4</span> <span class="toctext">Parameters - Common Page</span></a></li>
+<li class="toclevel-1"><a href="#Info_CHOP_Channels"><span class="tocnumber">5</span> <span class="toctext">Info CHOP Channels</span></a>
+<ul><li class="toclevel-2"><a href="#Common_COMP_Info_Channels"><span class="tocnumber">5.1</span> <span class="toctext">Common COMP Info Channels</span></a></li>
+<li class="toclevel-2"><a href="#Common_Operator_Info_Channels"><span class="tocnumber">5.2</span> <span class="toctext">Common Operator Info Channels</span></a></li>
+</ul></li>
+</ul></div>
+
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Replicator_Page"><div class="sectionBarCOMP">Parameters - <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> Page</div></span></h2>
+<div id="method" style=""><span class="parNameCOMP">Replication Method</span>  <code>method</code> - <span class="mw-customtoggle-method">⊞</span> - Choose between using a Template <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> Table where each row will create a replicant or using the Number of Replicants parameter below to set how many replications to make.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-method">
+<ul><li><span class="parNameCOMP">By Number</span> <code>bynum</code> -</li></ul><ul><li><span class="parNameCOMP">By Table</span> <code>bytable</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="numreplicants" style=""><span class="parNameCOMP">Number of Replicants</span>  <code>numreplicants</code> - Set number of replicants when using Replication Method = By Number above.
+<p><i></i>
+</p>
+</div>		
+<div id="template" style=""><span class="parNameCOMP">Template <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> Table</span>  <code>template</code> - <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> to the table <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> that will drive the replicating.
+<p><i></i>
+</p>
+</div>		
+<div id="namefromtable" style=""><span class="parNameCOMP">Name from Table</span>  <code>namefromtable</code> - <span class="mw-customtoggle-namefromtable">⊞</span> - How the node names will be generated.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-namefromtable">
+<ul><li><span class="parNameCOMP">Row Index</span> <code>rowindex</code> - Uses the Node Prefix parameter followed by the row number. The default creates nodes named <code>item1</code>, <code>item2</code>, <code>item3</code> .... (The top row is 0).</li></ul><ul><li><span class="parNameCOMP">Column by Index</span> <code>colbyindex</code> - The node name is in the column specified by a column number.</li></ul><ul><li><span class="parNameCOMP">Column by Name</span> <code>colbyname</code> - The node name is in a column specified by a column name in the first row.</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="ignorefirstrow" style=""><span class="parNameCOMP">Ignore First Row</span>  <code>ignorefirstrow</code> - Do not create a node for the first row.
+<p><i></i>
+</p>
+</div>		
+<div id="colname" style=""><span class="parNameCOMP">Column Name</span>  <code>colname</code> - Name at the top of the column.
+<p><i></i>
+</p>
+</div>		
+<div id="colindex" style=""><span class="parNameCOMP">Column Index</span>  <code>colindex</code> - Column number, starting from 0.
+<p><i></i>
+</p>
+</div>		
+<div id="opprefix" style=""><span class="parNameCOMP">Operator Prefix</span>  <code>opprefix</code> - Add this prefix to all nodes.
+<p><i></i>
+</p>
+</div>		
+<div id="master" style=""><span class="parNameCOMP">Master <span class="mw-lingo-term" data-lingo-term-id="e1b3ec89ead7f83a9245ed5c9cacfdbf">Operator</span></span>  <code>master</code> - Which node or component to replicate.
+<p><i></i>
+</p>
+</div>		
+<div id="destination" style=""><span class="parNameCOMP">Destination</span>  <code>destination</code> - Where to put the replicant nodes. If the location is <code>..</code>, it puts the nodes inside the parent, which is actually alongside the <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> component. If you put <code>.</code>, it will put it inside itself, that is, inside the <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> component.  If left blank, it will error.
+<p><i></i>
+</p>
+</div>		
+<div id="domaxops" style=""><span class="parNameCOMP">Maximum Operators</span>  <code>domaxops</code> - Enable the parameter below to set a maximum number of allowed replicants.
+<p><i></i>
+</p>
+</div>		
+<div id="maxops" style=""><span class="parNameCOMP">Maximum Operators</span>  <code>maxops</code> - Max number of nodes replicated.
+<p><i></i>
+</p>
+</div>		
+<div id="tscript" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span></span>  <code>tscript</code> - <span class="mw-lingo-term" data-lingo-term-id="39f1d43462c7c9a61b7a177dc9b82666">Tscript</span> only (use callback <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> in python): For every replicant, you can run a script to customize it relative to the master, such as setting the Display or <span class="mw-lingo-term" data-lingo-term-id="ff24590464659ee8cdec688128c35f89">Clone</span> parameters, or a Render flag. <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> runs the script command to customize each replicant versus the master. <code>me.curItem</code> can be used here to access the current item and make changes to it.  Select one of the 3 entries in the drop menu to the right for some examples.	
+<p>If you are using <a href="/Tscript" title="Tscript">Tscript</a>, some local variables are defined:
+</p>
+<ul><li>$ITEM Name of current node being replicated.</li>
+<li>$MASTER Name of master node.</li>
+<li>$LOCATION Name of the location component.</li></ul><p>The most common need is for the master to not display, and the replicants to display. For Panel components it is most commonly "<code>opparm $ITEM paneldisplay ( 1 )</code>", and for Geometry components it is most commonly "<code>opset -d on $ITEM</code>".  Use the popup menu for some common scripts.
+<i></i>
+</p>
+</div>		
+<div id="scriptmenu" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span> Names</span>  <code>scriptmenu</code> - Select from some commonly used scripts (<span class="mw-lingo-term" data-lingo-term-id="39f1d43462c7c9a61b7a177dc9b82666">Tscript</span>) in this menu.
+<p><i></i>
+</p>
+</div>		
+<div id="callbacks" style=""><span class="parNameCOMP">Callbacks <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span></span>  <code>callbacks</code> - <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> to a <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> containing callbacks for each event received.  See <a href="/ReplicatorCOMP_Class" title="ReplicatorCOMP Class">replicatorCOMP_Class</a> for usage.
+<p><i></i>
+</p>
+</div>		
+<div id="layout" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span></span>  <code>layout</code> - <span class="mw-customtoggle-layout">⊞</span> - How to lay out the new nodes - all in one place (Off), horizontally, vertically, or in a grid.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-layout">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> -</li></ul><ul><li><span class="parNameCOMP">Horizontal</span> <code>horizontal</code> -</li></ul><ul><li><span class="parNameCOMP">Vertical</span> <code>vertical</code> -</li></ul><ul><li><span class="parNameCOMP">Grid</span> <code>grid</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="layoutorigin" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span> Origin</span>  <code>layoutorigin</code> - <span class="mw-customtoggle-layoutorigin">⊞</span> - Where to lay out the new nodes, giving the XY location of the top-left node's bottom-left corner.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-layoutorigin">
+<ul><li><code>layoutorigin1</code> -</li></ul><ul><li><code>layoutorigin2</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="doincremental" style=""><span class="parNameCOMP">Incremental Update</span>  <code>doincremental</code> - Enables the parameter below for incremental creation of replicants.
+<p><i></i>
+</p>
+</div>		
+<div id="increment" style=""><span class="parNameCOMP">Incremental Update</span>  <code>increment</code> - Staggers the replication of operators to avoid large frame drops when creating replicants. It will create the specified number of replicants per frame at most, by default 1 per frame, if Incremental Update is on.
+<p><i></i>
+</p>
+</div>		
+<div id="recreateall" style=""><span class="parNameCOMP">Recreate All Operators</span>  <code>recreateall</code> - Deletes all nodes it has created, then re-creates them using the template and its current parameters.
+<p><i></i>
+</p>
+</div>		
+<div id="recreatemissing" style=""><span class="parNameCOMP">Recreate Missing Operators</span>  <code>recreatemissing</code> - Re-creates missing operators from the template table but does not delete and re-create already existing replicants.
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Extensions_Page"><div class="sectionBarCOMP">Parameters - <span class="mw-lingo-term" data-lingo-term-id="5e2f5f3c24ae8c6ab3eca618826b0e23">Extensions</span> Page</div></span></h2>
+<p>The <span class="mw-lingo-term" data-lingo-term-id="5e2f5f3c24ae8c6ab3eca618826b0e23">Extensions</span> parameter page sets the component's python extensions.  Please see <a href="/Extensions" title="Extensions">extensions</a> for more information.
+</p>
+<div id="ext" style="" class="sequenceBlock"><span class="parNameCOMP">Extension</span>  <code>ext</code> - Sequence of info for creating extensions on this component
+<div class="sequenceItem">
+<div id="ext0object" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="497031794414a552435f90151ac3b54b">Object</span></span>  <code>ext0object</code> - A number of class instances that can be attached to the component.
+<p><i></i>
+</p>
+</div>    
+<div id="ext0name" style=""><span class="parNameCOMP">Name</span>  <code>ext0name</code> - Optional name to search by, instead of the instance class name.
+<p><i></i>
+</p>
+</div>
+<div id="ext0promote" style=""><span class="parNameCOMP">Promote</span>  <code>ext0promote</code> - Controls whether or not the extensions are visible directly at the component level, or must be accessed through the <code>.ext</code> member.  Example:  <code>n.Somefunction</code> vs <code>n.ext.Somefunction</code>
+<p><i></i>
+</p>
+</div>
+</div>
+</div>
+<div id="reinitextensions" style=""><span class="parNameCOMP">Re-Init <span class="mw-lingo-term" data-lingo-term-id="5e2f5f3c24ae8c6ab3eca618826b0e23">Extensions</span></span>  <code>reinitextensions</code> - Recompile all extension objects. Normally extension objects are compiled only when they are referenced and their definitions have changed.
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Common_Page"><div class="sectionBarCOMP">Parameters - Common Page</div></span></h2>
+<p>The Common parameter page sets the component's <a href="/Node_Viewer" title="Node Viewer">node viewer</a> and <a href="/Clone" title="Clone">clone</a> relationships.
+</p>
+<div id="parentshortcut" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="98b55baa723b7158c2ad741a9f2339b8">Parent Shortcut</span></span>  <code>parentshortcut</code> - Specifies a name you can use anywhere inside the component as the path to that component. See <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcut</a>.
+<p><i></i>
+</p>
+</div>
+<div id="opshortcut" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="127c8e2bf0b36c9d6a86d99b969d563a">Global OP Shortcut</span></span>  <code>opshortcut</code> - Specifies a name you can use anywhere at all as the path to that component. See <a href="/Global_OP_Shortcut" title="Global OP Shortcut">Global OP Shortcut</a>.
+<p><i></i>
+</p>
+</div>
+<div id="iop" style="" class="sequenceBlock"><span class="parNameCOMP">Internal <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></span>  <code>iop</code> - Sequence header for internal operators.
+<div class="sequenceItem">
+<div id="iop0shortcut" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span></span>  <code>iop0shortcut</code> - Specifies a name you can use anywhere inside the component as a path to "Internal <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>" below. See <a href="/Internal_Operators" title="Internal Operators">Internal Operators</a>.
+<p><i></i>
+</p>
+</div>
+<div id="iop0op" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></span>  <code>iop0op</code> - The path to the Internal OP inside this component. See <a href="/Internal_Operators" title="Internal Operators">Internal Operators</a>.
+<p><i></i>
+</p>
+</div>
+</div>
+</div>
+<div id="opviewer" style=""><span class="parNameCOMP">Operator <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span></span>  <code>opviewer</code> - Select which operator's node viewer to use when the Node View parameter above is set to Operator <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span>.
+<p><i></i>
+</p>
+</div>
+<div id="enablecloning" style=""><span class="parNameCOMP">Enable Cloning</span>  <code>enablecloning</code> - Control if the OP should be actively cloneing. Turning this off causes this node to stop cloning it's '<span class="mw-lingo-term" data-lingo-term-id="ff24590464659ee8cdec688128c35f89">Clone</span> Master'.
+<p><i></i>
+</p>
+</div>
+<div id="enablecloningpulse" style=""><span class="parNameCOMP">Enable Cloning <span class="mw-lingo-term" data-lingo-term-id="ec8374db32bacb4cd9760199ec42819e">Pulse</span></span>  <code>enablecloningpulse</code> - Instantaneously clone the contents.
+<p><i></i>
+</p>
+</div>
+<div id="clone" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="ff24590464659ee8cdec688128c35f89">Clone</span> Master</span>  <code>clone</code> - <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> to a component used as the Master <a href="/Clone" title="Clone">Clone</a>.
+<p><i></i>
+</p>
+</div>
+<div id="loadondemand" style=""><span class="parNameCOMP">Load on Demand</span>  <code>loadondemand</code> - Loads the component into memory only when required. Good to use for components that are not always used in the project.
+<p><i></i>
+</p>
+</div>
+<div id="enableexternaltox" style=""><span class="parNameCOMP">Enable External <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></span>  <code>enableexternaltox</code> - When on (default), the external <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> file will be loaded when the <span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span> starts and the contents of the <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> will match that of the external <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span>. This can be turned off to avoid loading from the referenced external <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> on startup if desired (the contents of the <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> are instead loaded from the <span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span> file). Useful if you wish to have a <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> reference an external <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> but not always load from it unless you specifically push the Re-Init Network parameter button.
+<p><i></i>
+</p>
+</div>
+<div id="enableexternaltoxpulse" style=""><span class="parNameCOMP">Enable External <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> <span class="mw-lingo-term" data-lingo-term-id="ec8374db32bacb4cd9760199ec42819e">Pulse</span></span>  <code>enableexternaltoxpulse</code> - This button will re-load from the external <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file (if present).
+<p><i></i>
+</p>
+</div>
+<div id="externaltox" style=""><span class="parNameCOMP">External <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span></span>  <code>externaltox</code> - <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> to a <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file on disk which will source the component's contents upon start of a <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code>. This allows for components to contain networks that can be updated independently. If the <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file can not be found, whatever the <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code> file was saved with will be loaded.
+<p><i></i>
+</p>
+</div>
+<div id="reloadcustom" style=""><span class="parNameCOMP">Reload Custom Parameters</span>  <code>reloadcustom</code> - When this checkbox is enabled, the values of the component's <a href="/Custom_Parameters" title="Custom Parameters">Custom Parameters</a> are reloaded when the <a href="/.tox" title=".tox">.tox</a> is reloaded. This only affects top-level parameters on the component, all parameters on nodes inside the component are always reloaded with the <a href="/.tox" title=".tox">.tox</a>.
+<p><i></i>
+</p>
+</div>
+<div id="reloadbuiltin" style=""><span class="parNameCOMP">Reload Built-In Parameters</span>  <code>reloadbuiltin</code> - When this checkbox is enabled, the values of the component's built-in parameters are reloaded when the <a href="/.tox" title=".tox">.tox</a> is reloaded. This only affects top-level parameters on the component, all parameters on nodes inside the component are always reloaded with the <a href="/.tox" title=".tox">.tox</a>.
+<p><i></i>
+</p>
+</div>
+<div id="savebackup" style=""><span class="parNameCOMP">Save Backup of External</span>  <code>savebackup</code> - When this checkbox is enabled, a backup copy of the component specified by the External <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> parameter is saved in the <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code> file.  This backup copy will be used if the External <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> can not be found. This may happen if the <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> was renamed, deleted, or the <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code> file is running on another computer that is missing component media.
+<p><i></i>
+</p>
+</div>
+<div id="subcompname" style=""><span class="parNameCOMP">Sub-<span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span> to Load</span>  <code>subcompname</code> - When loading from an External <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file, this option allows you to reach into the <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> and pull out a <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> and make that the top-level <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>, ignoring everything else in the file (except for the contents of that <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>). For example if a <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file named <code>project1<span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> contains <code>project1/geo1</code>, putting <code>geo1</code> as the Sub-<span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span> to Load, will result in <code>geo1</code> being loaded in place of the current <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>. If this parameter is blank, it just loads the <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file normally using the top level <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> in the file.
+<p><i></i>
+</p>
+</div>
+<div id="relpath" style=""><span class="parNameCOMP">Relative File <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> Behavior</span>  <code>relpath</code> - <span class="mw-customtoggle-relpath">⊞</span> - Set whether the child file paths within this <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> are relative to the <span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span> itself or the <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span>, or inherit from parent.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-relpath">
+<ul><li><span class="parNameCOMP">Use <span class="mw-lingo-term" data-lingo-term-id="30269022e9d8f51beaabb52e5d0de2b7">Parent</span>'s Behavior</span> <code>inherit</code> - Inherit setting from parent.</li></ul><ul><li><span class="parNameCOMP">Relative to Project File (<span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span>)</span> <code>project</code> - The path, when specified as a relative path, will be relative to the <span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span> file.</li></ul><ul><li><span class="parNameCOMP">Relative to External <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> File (<span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span>)</span> <code>externaltox</code> - The path, when specified as a relative path, will be relative to the <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> file. When no external <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> file is specified, or when Enable External <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> is not toggled on, this doesn't have any impact.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Info_CHOP_Channels"><div class="sectionBarCOMP">Info <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> Channels</div></span></h2>
+<p>Extra Information for the <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> can be accessed via an <a href="/Info_CHOP" title="Info CHOP">Info CHOP</a>.
+<i></i>
+</p>
+<h3><span class="mw-headline" id="Common_COMP_Info_Channels"><div class="customBar">Common <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> Info Channels</div></span></h3>
+<ul><li><span class="parName">num_children</span> - Number of children in this component.</li></ul><h3><span class="mw-headline" id="Common_Operator_Info_Channels"><div class="customBar">Common Operator Info Channels</div></span></h3>
+<ul><li><span class="parName">total_cooks</span> - Number of times the operator has cooked since the process started.</li></ul><ul><li><span class="parName">cook_time</span> - Duration of the last cook in milliseconds.</li></ul><ul><li><span class="parName">cook_frame</span> - Frame number when this operator was last cooked relative to the component timeline.</li></ul><ul><li><span class="parName">cook_abs_frame</span> - Frame number when this operator was last cooked relative to the absolute time.</li></ul><ul><li><span class="parName">cook_start_time</span> - Time in milliseconds at which the operator started cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cook_end_time</span> - Time in milliseconds at which the operator finished cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cooked_this_frame</span> - 1 if operator was cooked this frame.</li></ul><ul><li><span class="parName">warnings</span> - Number of warnings in this operator if any.</li></ul><ul><li><span class="parName">errors</span> - Number of errors in this operator if any.</li></ul><p><br></p><p><br></p>
+<table><tbody><tr><th class="navBox">COMPs
+</th></tr><tr><td><span class="catList navigation-not-searchable"><a href="/Actor_COMP" title="Actor COMP">Actor  </a></span>• <span class="catList navigation-not-searchable"><a href="/Ambient_Light_COMP" title="Ambient Light COMP">Ambient Light  </a></span>• <span class="catList navigation-not-searchable"><a href="/Animation_COMP" title="Animation COMP">Animation  </a></span>• <span class="catList navigation-not-searchable"><a href="/Annotate_COMP" title="Annotate COMP">Annotate  </a></span>• <span class="catList navigation-not-searchable"><a href="/Base_COMP" title="Base COMP">Base  </a></span>• <span class="catList navigation-not-searchable"><a href="/Blend_COMP" title="Blend COMP">Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Bone_COMP" title="Bone COMP">Bone  </a></span>• <span class="catList navigation-not-searchable"><a href="/Bullet_Solver_COMP" title="Bullet Solver COMP">Bullet Solver  </a></span>• <span class="catList navigation-not-searchable"><a href="/Button_COMP" title="Button COMP">Button  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Button_COMP" title="Experimental:Button COMP">Experimental:Button  </a></span>• <span class="catList navigation-not-searchable"><a href="/Camera_Blend_COMP" title="Camera Blend COMP">Camera Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Camera_COMP" title="Camera COMP">Camera  </a></span>• <span class="catList navigation-not-searchable"><a href="/MediaWiki:Common.js" title="MediaWiki:Common.js">MediaWiki:Common.js </a></span>• <span class="catList navigation-not-searchable"><a href="/Component" title="Component">Component </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Component" title="Experimental:Component">Experimental:Component </a></span>• <span class="catList navigation-not-searchable"><a href="/Constraint_COMP" title="Constraint COMP">Constraint  </a></span>• <span class="catList navigation-not-searchable"><a href="/Container_COMP" title="Container COMP">Container  </a></span>• <span class="catList navigation-not-searchable"><a href="/Engine_COMP" title="Engine COMP">Engine  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Engine_COMP" title="Experimental:Engine COMP">Experimental:Engine  </a></span>• <span class="catList navigation-not-searchable"><a href="/Environment_Light_COMP" title="Environment Light COMP">Environment Light  </a></span>• <span class="catList navigation-not-searchable"><a href="/FBX_COMP" title="FBX COMP">FBX  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:FBX_COMP" title="Experimental:FBX COMP">Experimental:FBX  </a></span>• <span class="catList navigation-not-searchable"><a href="/Field_COMP" title="Field COMP">Field  </a></span>• <span class="catList navigation-not-searchable"><a href="/Force_COMP" title="Force COMP">Force  </a></span>• <span class="catList navigation-not-searchable"><a href="/Geo_Text_COMP" title="Geo Text COMP">Geo Text  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Geo_Text_COMP" title="Experimental:Geo Text COMP">Experimental:Geo Text  </a></span>• <span class="catList navigation-not-searchable"><a href="/Geometry_COMP" title="Geometry COMP">Geometry  </a></span>• <span class="catList navigation-not-searchable"><a href="/GLSL_COMP" title="GLSL COMP">GLSL  </a></span>• <span class="catList navigation-not-searchable"><a href="/Handle_COMP" title="Handle COMP">Handle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Impulse_Force_COMP" title="Impulse Force COMP">Impulse Force  </a></span>• <span class="catList navigation-not-searchable"><a href="/Light_COMP" title="Light COMP">Light  </a></span>• <span class="catList navigation-not-searchable"><a href="/List_COMP" title="List COMP">List  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:List_COMP" title="Experimental:List COMP">Experimental:List  </a></span>• <span class="catList navigation-not-searchable"><a href="/Null_COMP" title="Null COMP">Null  </a></span>• <span class="catList navigation-not-searchable"><a href="/NVIDIA_Flex_Solver_COMP" title="NVIDIA Flex Solver COMP">NVIDIA Flex Solver  </a></span>• <span class="catList navigation-not-searchable"><a href="/NVIDIA_Flow_Emitter_COMP" title="NVIDIA Flow Emitter COMP">NVIDIA Flow Emitter  </a></span>• <span class="catList navigation-not-searchable"><a href="/OP_Viewer_COMP" title="OP Viewer COMP">OP Viewer  </a></span>• <span class="catList navigation-not-searchable"><a href="/Parameter_COMP" title="Parameter COMP">Parameter  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Parameter_COMP" title="Experimental:Parameter COMP">Experimental:Parameter  </a></span>• <span class="catList navigation-not-searchable"><a class="mw-selflink selflink">Replicator  </a></span>• <span class="catList navigation-not-searchable"><a href="/Select_COMP" title="Select COMP">Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Shared_Mem_In_COMP" title="Shared Mem In COMP">Shared Mem In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Shared_Mem_Out_COMP" title="Shared Mem Out COMP">Shared Mem Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Slider_COMP" title="Slider COMP">Slider  </a></span>• <span class="catList navigation-not-searchable"><a href="/Table_COMP" title="Table COMP">Table  </a></span>• <span class="catList navigation-not-searchable"><a href="/Text_COMP" title="Text COMP">Text  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Text_COMP" title="Experimental:Text COMP">Experimental:Text  </a></span>• <span class="catList navigation-not-searchable"><a href="/Time_COMP" title="Time COMP">Time  </a></span>• <span class="catList navigation-not-searchable"><a href="/USD_COMP" title="USD COMP">USD  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:USD_COMP" title="Experimental:USD COMP">Experimental:USD  </a></span>• <span class="catList navigation-not-searchable"><a href="/Widget_COMP" title="Widget COMP">Widget  </a></span>• <span class="catList navigation-not-searchable"><a href="/Window_COMP" title="Window COMP">Window  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Window_COMP" title="Experimental:Window COMP">Experimental:Window  </a></span>
+</td></tr></tbody></table></div><div class="mw-lingo-tooltip" id="f73a286858ad7c69a79ba1475c04b5a7"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Creates copies of a component, one for every row in a table or using a Number of Replicants parameter - it is the "for-loop" of operators. Unlike <a href="/Clone" title="Clone">Clone</a>, it automatically creates copies of a master component.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="85a1cdddc59cb89e6297acc2f2fc1755"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that contains its own <a href="/Network" title="Network">Network</a>. There are sixteen 3D <a href="/Object_Component" title="Object Component">Object Component</a> and ten 2D <a href="/Panel_Component" title="Panel Component">Panel Component</a> types. See also <a href="/Network_Path" title="Network Path">Network Path</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="6c3a6944a808a7c0bbb6788dbec54a9f"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The generic thing that holds an <a href="/Operator" title="Operator">Operator</a>, and includes <a href="/Flag" title="Flag">Flags</a> (display, bypass, lock, render, immune) and its position/size in the network. Whether you "lay down an Operator" or "lay down an Node", you're doing the same thing.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ebd9bec4d70abc789d439c1f136b0538"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>(1) The TouchDesigner window is made of a menu bar at the top, a <a href="/Timeline" title="Timeline">Timeline</a> at the bottom, plus one of a choice of Layouts in the middle. A Layout is made on one or more Panes, each Pane can contain a Network Editor, Viewer, Panel, etc. See <a href="/Pane" title="Pane">Pane</a> and <a href="/Bookmark" title="Bookmark">Bookmark</a>. (2) Nodes in a network are arranged using Layout commands in the RMB menu.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="cc2bcf28d9ffc17fcbf169f3325607bb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that manipulates text strings: multi-line text or tables. Multi-line text is often a python <a href="/Script" title="Script">Script</a> or <a href="/GLSL" title="GLSL">GLSL</a> Shader, but can be any multi-line text. <a href="/Table_DAT" title="Table DAT">Tables</a> are rows and columns of cells, each containing a text string.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ac70412e939d72a9234cdebb1af5867b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The location of an operator within the TouchDesigner environment, for example, <code>/geo1/circle1</code>, a node called <code>circle1</code> in a component called <code>geo1</code>. The path <code>/</code> is called <a href="/Root" title="Root">Root</a>. This path is displayed at the top of every <a href="/Pane" title="Pane">Pane</a>, showing which Component's network you are currently in. To refer instead to a filesystem folder, directory, disk file or <code>http:</code> address, see <a href="/Folder" title="Folder">Folder</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="e1b3ec89ead7f83a9245ed5c9cacfdbf"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any of the procedural data operators. OPs do all the work in TouchDesigner. They "cook" and output data to other OPs, which ultimately result in new images, data and audio being generated. See <a href="/Node" title="Node">Node</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="f907e651164789346ae0a1e257c462d8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A set of commands located in a Text DAT that are triggered to run under certain conditions. There are two scripting languages in TouchDesigner: <a href="/Python" title="Python">Python</a> and the original <a href="/Tscript" title="Tscript">Tscript</a>. Scripts and single-line commands can also be run in the <a href="/Textport" title="Textport">Textport</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="39f1d43462c7c9a61b7a177dc9b82666"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TouchDesigner's original built-in Command scripting language prior to <a href="/Python" title="Python">Python</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ff24590464659ee8cdec688128c35f89"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Cloning makes multiple components match the contents of a master component. A <a href="/Component" title="Component">Component</a> whose Clone parameter is set will be forced to contain the same nodes, wiring and parameters as its master component. Cloning does not create new components as does the <a class="mw-selflink selflink">Replicator COMP</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="5e2f5f3c24ae8c6ab3eca618826b0e23"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any component can be extended with its own Python classes which contain python functions and data.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="497031794414a552435f90151ac3b54b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The sub-<a href="/Operator_Family" title="Operator Family">Family</a> of <a href="/Component" title="Component">Component</a> types that are used to define and render 3D scenes. A <a href="/Geometry_COMP" title="Geometry COMP">Geometry Component</a> is an Object that contains the 3D shapes to render. A <a href="/Camera_COMP" title="Camera COMP">Camera COMP</a> and <a href="/Light_COMP" title="Light COMP">Light COMP</a> are other Object types. Separately, "Objects" also refers to Python objects.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="98b55baa723b7158c2ad741a9f2339b8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Parent Shortcut is a parameter on a component that contains a name that you can use anywhere inside the component to refer to that component using the syntax <code>parent.Name</code>, for example <code>parent.Effect.width</code> to obtain panel width.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="127c8e2bf0b36c9d6a86d99b969d563a"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A name for a component that is accessible from any node in a project, which can be declared in a component's Global Operator Shortcut parameter.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="7457cdd15d09bfc6c4dbb5d2b6f87390"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any of the procedural data operators. OPs do all the work in TouchDesigner. They "cook" and output data to other OPs, which ultimately result in new images, data and audio being generated. See <a href="/Node" title="Node">Node</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="756210d98ce28018652ca05e1dcaaf3e"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Operator shortcuts are Python objects that return operators (or sometimes parameters). These include <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcuts</a> for accessing a component from within that component, and <a href="/Global_OP_Shortcut" title="Global OP Shortcut">Global OP Shortcuts</a> that access a unique component from anywhere in TouchDesigner.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="fb15c53f22336982a182b84aeb2f42eb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The viewer of a node can be (1) the interior of a node (the <a href="/Node_Viewer" title="Node Viewer">Node Viewer</a>), (2) a floating window (RMB-&gt;View... on node), or (3) a <a href="/Pane" title="Pane">Pane</a> that graphically shows the results of an operator.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ec8374db32bacb4cd9760199ec42819e"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>To "pulse" a parameter is to send it a signal from (1) an <a href="/Export" title="Export">exported</a> CHOP channel or (2) a python command or (3) a mouse click that causes a new action to occur immediately. A pulse via python is via the <code>.pulse()</code> function on a pulse-type parameter, such as Reset parameter in a <a href="/Speed_CHOP" title="Speed CHOP">Speed CHOP</a>. A pulse from a CHOP is typically a 0 to 1 to 0 signal in an exported channel.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="c93d2a89e225ded900ca3779a6856086"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TouchDesigner Component file, the file type used to save a <a href="/Component" title="Component">Component</a> of your TouchDesigner project.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="76746356f2d9fd021f01bc051bb2114f"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TOuch Environment file, the file type used by TouchDesigner to save your entire project.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="2cb05e4bb7830be982f0922fed86b4cd"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that contains its own <a href="/Network" title="Network">Network</a>. There are sixteen 3D <a href="/Object_Component" title="Object Component">Object Component</a> and ten 2D <a href="/Panel_Component" title="Panel Component">Panel Component</a> types. See also <a href="/Network_Path" title="Network Path">Network Path</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="30269022e9d8f51beaabb52e5d0de2b7"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>There are 2 kinds of parenting. The "parent component" is the component in which a node resides. The metaphor is extended to include grand parents, grand-grand parents, etc. The root <code>/</code> is the ultimate parent to all nodes. See also <a href="/3D_Parenting" title="3D Parenting">3D Parenting</a> and panel <a href="/Parent" title="Parent">Parenting</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="8b9d2cce2836537aabe6f2e0dd5da293"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> which operate on <a href="/Channel" title="Channel">Channels</a> (a sequence of numbers (<a href="/Sample" title="Sample">Samples</a>)) which are used for animation, audio, mathematics, simulation, logic, UI construction, and data streamed from/to devices and protocols.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250815012856
+Cache expiry: 60
+Reduced expiry: true
+Complications: [show‐toc]
+CPU time usage: 0.288 seconds
+Real time usage: 0.828 seconds
+Preprocessor visited node count: 3672/1000000
+Post‐expand include size: 81793/2097152 bytes
+Template argument size: 39216/2097152 bytes
+Highest expansion depth: 11/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+Lua time usage: 0.520/5 seconds
+Lua virtual size: 9289728/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  754.105      1 -total
+ 91.88%  692.836      1 Template:COMPNavBox
+ 90.32%  681.081     53 Template:CatList
+  4.64%   35.000      3 Template:ParameterPage
+  4.16%   31.393     44 Template:Parameter
+  1.91%   14.383      1 COMP_Other_Common_Page
+  1.26%    9.488      1 Template:InfoCHOPChannels
+  0.87%    6.548      1 COMP_Extensions_Page
+  0.69%    5.217      1 Template:Summary
+  0.56%    4.187      1 COMP_Info_Channels_Common_Page
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:97-0!canonical and timestamp 20250815012855 and revision id 30723.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=Replicator_COMP&amp;oldid=30723">https://docs.derivative.ca/index.php?title=Replicator_COMP&amp;oldid=30723</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/Category:Touch_Glossary" title="Category:Touch Glossary">Touch Glossary</a></li><li><a href="/index.php?title=Category:COMPs&amp;action=edit&amp;redlink=1" class="new" title="Category:COMPs (page does not exist)">COMPs</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=Replicator+COMP" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/Replicator_COMP" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:Replicator_COMP&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="new mw-list-item"><a href="/index.php?title=Experimental:Replicator_COMP&amp;action=edit&amp;redlink=1" title=" (page does not exist)"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/Replicator_COMP"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=Replicator_COMP&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/Replicator_COMP" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/Replicator_COMP" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=Replicator_COMP&amp;oldid=30723" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=Replicator_COMP&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=Replicator_COMP&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 2 January 2024, at 08:21.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.288","walltime":"0.828","ppvisitednodes":{"value":3672,"limit":1000000},"postexpandincludesize":{"value":81793,"limit":2097152},"templateargumentsize":{"value":39216,"limit":2097152},"expansiondepth":{"value":11,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%  754.105      1 -total"," 91.88%  692.836      1 Template:COMPNavBox"," 90.32%  681.081     53 Template:CatList","  4.64%   35.000      3 Template:ParameterPage","  4.16%   31.393     44 Template:Parameter","  1.91%   14.383      1 COMP_Other_Common_Page","  1.26%    9.488      1 Template:InfoCHOPChannels","  0.87%    6.548      1 COMP_Extensions_Page","  0.69%    5.217      1 Template:Summary","  0.56%    4.187      1 COMP_Info_Channels_Common_Page"]},"scribunto":{"limitreport-timeusage":{"value":"0.520","limit":"5"},"limitreport-virtmemusage":{"value":9289728,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250815012856","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":1049});});</script>
+</body>
+</html>

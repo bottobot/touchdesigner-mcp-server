@@ -1,0 +1,136 @@
+{
+  "file": "quaternion_Class.htm",
+  "className": "quaternion",
+  "methods": [
+    {
+      "name": "lerp",
+      "parameters": [
+        {
+          "name": "q2",
+          "type": "Any"
+        },
+        {
+          "name": "factor",
+          "type": "Any"
+        }
+      ],
+      "returns": "quaternion :",
+      "signature": "lerp(q2, factor)"
+    },
+    {
+      "name": "length",
+      "parameters": [],
+      "returns": "float :",
+      "signature": "length()"
+    },
+    {
+      "name": "cross",
+      "parameters": [
+        {
+          "name": "q2",
+          "type": "Any"
+        }
+      ],
+      "returns": "vector :",
+      "signature": "cross(q2)"
+    },
+    {
+      "name": "rotate",
+      "parameters": [
+        {
+          "name": "vec",
+          "type": "Any"
+        }
+      ],
+      "returns": "vector :",
+      "signature": "rotate(vec)"
+    },
+    {
+      "name": "slerp",
+      "parameters": [
+        {
+          "name": "q2",
+          "type": "Any"
+        },
+        {
+          "name": "factor",
+          "type": "Any"
+        }
+      ],
+      "returns": "quaternion :",
+      "signature": "slerp(q2, factor)"
+    },
+    {
+      "name": "eulerAngles",
+      "parameters": [
+        {
+          "name": "order='xyz'",
+          "type": "Any"
+        }
+      ],
+      "returns": "tuple :",
+      "signature": "eulerAngles(order='xyz')"
+    },
+    {
+      "name": "fromEuler",
+      "parameters": [
+        {
+          "name": "order='xyz'",
+          "type": "Any"
+        }
+      ],
+      "returns": "tuple :",
+      "signature": "fromEuler(order='xyz')"
+    },
+    {
+      "name": "axis",
+      "parameters": [],
+      "returns": "vector :",
+      "signature": "axis()"
+    },
+    {
+      "name": "dot",
+      "parameters": [
+        {
+          "name": "q2",
+          "type": "Any"
+        }
+      ],
+      "returns": "float :",
+      "signature": "dot(q2)"
+    },
+    {
+      "name": "exp",
+      "parameters": [],
+      "returns": "quaternion :",
+      "signature": "exp()"
+    },
+    {
+      "name": "copy",
+      "parameters": [],
+      "returns": "quaternion :",
+      "signature": "copy()"
+    },
+    {
+      "name": "log",
+      "parameters": [],
+      "returns": "quaternion :",
+      "signature": "log()"
+    },
+    {
+      "name": "inverse",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "inverse()"
+    },
+    {
+      "name": "angle",
+      "parameters": [],
+      "returns": "float :",
+      "signature": "angle()"
+    }
+  ],
+  "methodCount": 14,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.425Z"
+}

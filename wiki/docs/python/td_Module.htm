@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>td Module - Derivative</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7ebab6029dabccc1b9e90c13","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Td_Module","wgTitle":"Td Module","wgCurRevisionId":32018,"wgRevisionId":32018,"wgArticleId":1053,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Python","TDPages","Python Reference"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"Td_Module","wgRelevantArticleId":1053,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":["sysop"],"wgRestrictionMove":["sysop"],"wgCargoDefaultQueryLimit":100,
+"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/extensions/PageForms","edgValues":[],
+"wgPageFormsEDSettings":null,"wgAmericanDates":false,"wgVector2022PreviewPages":[]};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.UiTag","ext.Lingo","site","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cext.pygments%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=Python.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="Td Module"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/Td_Module"/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:modified_time" content="2024-09-04T12:44:56Z"/>
+<meta property="article:published_time" content="2024-09-04T12:44:56Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"td Module - Derivative","headline":"td Module - Derivative","mainEntityOfPage":"td Module","identifier":"https:\/\/docs.derivative.ca\/Td_Module","url":"https:\/\/docs.derivative.ca\/Td_Module","dateModified":"2024-09-04T12:44:56Z","datePublished":"2024-09-04T12:44:56Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Td_Module rootpage-Td_Module skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">td Module</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en-CA" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul><li class="toclevel-1"><a href="#Members"><span class="tocnumber">1</span> <span class="toctext">Members</span></a></li>
+<li class="toclevel-1"><a href="#Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a></li>
+<li class="toclevel-1 tocsection-1"><a href="#Python_Classes_and_Modules"><span class="tocnumber">3</span> <span class="toctext">Python Classes and Modules</span></a>
+<ul><li class="toclevel-2"><a href="#Operator_Related_Classes"><span class="tocnumber">3.1</span> <span class="toctext">Operator Related Classes</span></a></li>
+<li class="toclevel-2"><a href="#Helper_Classes"><span class="tocnumber">3.2</span> <span class="toctext">Helper Classes</span></a></li>
+<li class="toclevel-2"><a href="#Standard_Python_Modules"><span class="tocnumber">3.3</span> <span class="toctext">Standard Python Modules</span></a></li>
+<li class="toclevel-2"><a href="#TouchDesigner_Utility_Modules_and_Python_Utilities"><span class="tocnumber">3.4</span> <span class="toctext">TouchDesigner Utility Modules and Python Utilities</span></a></li>
+<li class="toclevel-2"><a href="#3rd_Party_Packages"><span class="tocnumber">3.5</span> <span class="toctext">3rd Party Packages</span></a></li>
+<li class="toclevel-2"><a href="#Installing_Custom_Packages_and_Modules"><span class="tocnumber">3.6</span> <span class="toctext">Installing Custom Packages and Modules</span></a></li>
+</ul></li>
+</ul></div>
+
+<p><br>
+The td module contains all TouchDesigner related Python classes and utilities. All td module members and methods are imported when the application launches and are automatically available in scripts, expressions, and the textport.<br><br>For additional helpful Python classes and utilities not directly related to TouchDesigner, see the <a href="/Tdu_Module" title="Tdu Module">Tdu Module</a>
+</p><p><br></p>
+<h2><span class="mw-headline" id="Members">Members</span></h2>
+<div id="me" style="display:inline;"></div><p><code class="python">me</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the current <a href="/OP_Class" title="OP Class">operator</a> that is being executed or evaluated. This can be used in parameter expressions, or <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> scripts.</p></blockquote>
+<div id="absTime" style="display:inline;"></div><p><code class="python"><span class="mw-lingo-term" data-lingo-term-id="75014a31ff201f57ad440d617b059d87">absTime</span></code> → <code class="return">AbsTime</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the <a href="/AbsTime_Class" title="AbsTime Class">AbsTime</a> object.</p></blockquote>
+<div id="app" style="display:inline;"></div><p><code class="python">app</code> → <code class="return">App</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the <a href="/App_Class" title="App Class">application</a> installation.</p></blockquote>
+<div id="debug" style="display:inline;"></div><p><code class="python">debug(*args)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Print all args and extra debug info (default is <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> and line number) to texport. To change behavior, use the <a href="/Palette:debugControl" title="Palette:debugControl">debugControl</a> component or <a href="/Debug_module" title="Debug module"><code>tdu.debug.setStyle</code></a> function. See <a href="/Debug_module" title="Debug module"><code>debug</code> module</a> for more info<br><b>TIP: Use <code>debug</code> instead of <code>print</code> when debugging Python scripts in order to see object types and the source of the output. </b></p></blockquote>    
+<div id="ext" style="display:inline;"></div><p><code class="python">ext</code> → <code class="return">Ext</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the extension searching object. See <a href="/Extensions" title="Extensions">extensions</a> for more information.</p></blockquote>
+<div id="families" style="display:inline;"></div><p><code class="python">families</code> → <code class="return">dict</code> <b>(Read Only)</b>: 
+</p><blockquote><p>A dictionary containing a list of <a href="/OP_Class" title="OP Class">operator</a> types for each operator family. 
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">families</span><span class="p">[</span><span class="s1">'<span class="mw-lingo-term" data-lingo-term-id="28a7e2d07553a70b039bb585895e0bf0">SOP</span>'</span><span class="p">]:</span>
+	<span class="c1"># do something with a</span>
+</pre></div></blockquote>
+<div id="licenses" style="display:inline;"></div><p><code class="python">licenses</code> → <code class="return">Licenses</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the currently installed <a href="/Licenses_Class" title="Licenses Class">licences</a>.</p></blockquote>
+<div id="mod" style="display:inline;"></div><p><code class="python">mod</code> → <code class="return">MOD</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the <a href="/MOD_Class" title="MOD Class">Module On Demand</a> object.</p></blockquote>
+<div id="monitors" style="display:inline;"></div><p><code class="python">monitors</code> → <code class="return">Monitors</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the group of available <a href="/Monitors_Class" title="Monitors Class">monitors</a>.</p></blockquote>
+<div id="op" style="display:inline;"></div><p><code class="python">op</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>The operator finder object, for accessing operators through paths or shortcuts. <b>Note:</b> a version of this method that searches relative to a specific operator is also in <a href="/OP_Class" title="OP Class">OP Class</a>.
+</p><p><code>op(pattern1, pattern2..., includeUtility=False) → <a href="/OP_Class" title="OP Class">OP</a> or None</code>
+</p>
+<blockquote>
+<p>Returns the first OP whose path matches the given pattern, relative to <code>root</code>. Will return None if nothing is found. Multiple patterns may be specified which are all added to the search. Numeric OP ids may also be used.
+</p>
+<ul><li><code>pattern</code> - Can be string following the <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> rules, specifying which OP to return, or an integer, which must be an OP Id. Multiple patterns can be given, the first matching OP will be returned.</li>
+<li><code>includeUtility</code> <b>(Optional)</b> - if True, allow <a href="/Network_Utilities:_Comments,_Network_Boxes,_Annotates" title="Network Utilities: Comments, Network Boxes, Annotates">Utility nodes</a> to be returned. If False, Utility operators will be ignored.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'project1'</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'foot*'</span><span class="p">,</span> <span class="s1">'hand*'</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="mi">154</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+<p><code>op.shortcut → <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code>
+</p>
+<blockquote>
+<dl><dd>An operator specified with by a <a href="/Global_OP_Shortcut" title="Global OP Shortcut">Global OP Shortcut</a>. If no operator exists an exception is raised. These shortcuts are global, and must be unique. That is, cutting and pasting an operator with a <span class="mw-lingo-term" data-lingo-term-id="127c8e2bf0b36c9d6a86d99b969d563a">Global OP Shortcut</span> specified will lead to a name conflict. One shortcut must be renamed in that case. Furthermore, only components can be given Global OP Shortcuts.
+<ul><li><code>shortcut</code> - Corresponds to the <span class="mw-lingo-term" data-lingo-term-id="127c8e2bf0b36c9d6a86d99b969d563a">Global OP Shortcut</span> parameter specified in the target operator.</li></ul></dd></dl><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">Videoplayer</span>
+</pre></div>
+<p>To list all Global OP Shortcuts:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">op</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</blockquote></blockquote>
+<div id="opex" style="display:inline;"></div><p><code class="python">opex</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>An operator finder object, for accessing operators through paths or shortcuts. Works like the op() shortcut method, except it will raise an exception if it fails to find the node instead of returning None as op() does. This is now the recommended way to get nodes in parameter expressions, as the error will be more useful than, for example, <code>NoneType has no attribute "par"</code>, that is often seen when using op(). <b>Note:</b> a version of this method that searches relative to '/' is also in the global <a class="mw-selflink selflink">td module</a>.
+</p><p>    <code><b>op(pattern1, pattern2..., includeUtility=False)</b></code> → <code class="return"><a href="/OP_Class" title="OP Class">OP</a></code>
+</p>
+<blockquote>
+<p>Returns the first OP whose path matches the given pattern, relative to the inside of this operator. Will return None if nothing is found. Multiple patterns may be specified which are all added to the search. Numeric OP ids may also be used.
+</p>
+<ul><li><code>pattern</code> - Can be string following the <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> rules, specifying which OP to return, or an integer, which must be an OP Id. Multiple patterns can be given, the first matching OP will be returned.</li>
+<li><code>includeUtility</code> <b>(Optional)</b> - if True, allow <a href="/Network_Utilities:_Comments,_Network_Boxes,_Annotates" title="Network Utilities: Comments, Network Boxes, Annotates">Utility nodes</a> to be returned. If False, Utility operators will be ignored.</li></ul></blockquote></blockquote>
+<div id="parent" style="display:inline;"></div><p><code class="python">parent</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>The <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcut</a> object, for accessing parent components through indices or shortcuts.
+</p><p><b>Note:</b> a version of this method that searches from a specific operator is also in <a href="/OP_Class" title="OP Class">OP Class</a>.
+</p><p><code>parent(n)  OP or None</code>
+</p><p>The nth parent of the current operator. If n not specified, returns the parent. If n = 2, returns the parent of the parent, etc. If no parent exists at that level, None is returned.
+</p>
+<ul><li>n - (Optional) n is the number of levels up to climb. When n = 1 it will return the operator's parent.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">parent</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#grandfather</span>
+</pre></div>
+<p><code>parent.shortcut  <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code>
+</p><p>A parent component specified with a shortcut. If no parent exists an exception is raised.
+</p>
+<ul><li>shortcut - Corresponds to the <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcut</a> parameter specified in the target parent.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span>   <span class="n">n</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">Videoplayer</span>
+</pre></div><p>
+See also <span class="mw-lingo-term" data-lingo-term-id="98b55baa723b7158c2ad741a9f2339b8">Parent Shortcut</span> for more examples.</p></blockquote>
+<div id="iop" style="display:inline;"></div><p><code class="python">iop</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>The Internal Operator <span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span> object, for accessing internal shortcuts.
+<b>Note:</b> a version of this method that searches from a specific operator is also in <a href="/OP_Class" title="OP Class">OP Class</a>.</p></blockquote>
+<div id="ipar" style="display:inline;"></div><p><code class="python">ipar</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>The Internal Operator Parameter <span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span> object, for accessing internal shortcuts.
+<b>Note:</b> a version of this method that searches from a specific operator is also in <a href="/OP_Class" title="OP Class">OP Class</a>.</p></blockquote>
+<div id="project" style="display:inline;"></div><p><code class="python">project</code> → <code class="return">Project</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the <a href="/Project_Class" title="Project Class">project session</a>.</p></blockquote>
+<div id="root" style="display:inline;"></div><p><code class="python">root</code> → <code class="return">baseCOMP</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the topmost root <a href="/OP_Class" title="OP Class">operator</a>.</p></blockquote>
+<div id="runs" style="display:inline;"></div><p><code class="python">runs</code> → <code class="return">Runs</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the <a href="/Runs_Class" title="Runs Class">runs</a> object, which contains delayed executions.</p></blockquote>
+<div id="sysinfo" style="display:inline;"></div><p><code class="python">sysinfo</code> → <code class="return">SysInfo</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the <a href="/SysInfo_Class" title="SysInfo Class">system information</a>.</p></blockquote>
+<div id="ui" style="display:inline;"></div><p><code class="python">ui</code> → <code class="return">UI</code> <b>(Read Only)</b>: 
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="63d5049791d9d79d86e9a108b0a999ca">Reference</span> to the <a href="/UI_Class" title="UI Class">ui options</a>.</p></blockquote>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<div id="ops" style="display:inline;"></div><p><code class="python">ops(pattern1, pattern2.., includeUtility=False)</code>→ <code class="return">List[<span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>]</code>:
+</p><blockquote><p>Returns a (possibly empty) list of OPs that match the patterns, relative to this <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+</p><p>Multiple patterns may be provided. Numeric OP ids may also be used.
+</p>
+<ul><li><code>pattern</code> - Can be string following the <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> rules, specifying which OPs to return, or an integer, which must be an OP Id. Multiple patterns can be given and all matched OPs will be returned.</li>
+<li><code>includeUtility</code> <b>(Optional)</b> - if True, allow <a href="/Network_Utilities:_Comments,_Network_Boxes,_Annotates" title="Network Utilities: Comments, Network Boxes, Annotates">Utility nodes</a> to be returned. If False, Utility operators will be ignored.</li></ul><p>Note a version of this method that searches relative to an operator is also in the <a href="/OP_Class" title="OP Class">OP Class</a>.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">newlist</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">ops</span><span class="p">(</span><span class="s1">'arm*'</span><span class="p">,</span> <span class="s1">'leg*'</span><span class="p">,</span> <span class="s1">'leg5/foot*'</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="passive" style="display:inline;"></div><p><code class="python">passive(<span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>)</code>→ <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code>:
+</p><blockquote><p>Returns a passive version of the <a href="/OP_Class" title="OP Class">operator</a>. Passive OPs do not cook before their members are accessed.</p></blockquote>
+<div id="run" style="display:inline;"></div><p><code class="python">run(script, arg1, arg2..., endFrame=False, fromOP=None, asParameter=False, group=None, delayFrames=0, delayMilliSeconds=0, delayRef=me)</code>→ <code class="return">Run</code>:
+</p><blockquote><p><a href="/Run_Class" title="Run Class">Run</a> the script, returning a <a href="/Run_Class" title="Run Class">Run</a> object which can be used to optionally modify its execution. This is most often used to run a script with a delay, as specified in the delayFrames or delayMilliSeconds arguments. See <a href="/Run_Command_Examples" title="Run Command Examples">Run Command Examples</a> for more info.
+</p><ul><li>script - A string that is the script code to execute.</li>
+<li>arg - (Optional) One or more arguments to be passed into the script when it executes. They are accessible in the script using a tuple named args.</li>
+<li>endFrame - (Keyword, Optional) If True, the execution will be delayed until the end of the current frame.</li>
+<li>fromOP - (Keyword, Optional) Specifies an optional <a href="/OP_Class" title="OP Class">operator</a> from which the execution will be run relative to.</li>
+<li>asParameter - (Keyword, Optional) When fromOP used, run relative to a parameter of fromOP.</li>
+<li>group - (Keyword, Optional) Can be used to specify a string label for the group of Run objects this belongs to. This label can then be used with the <a href="/Runs_Class" title="Runs Class">td.runs</a> object to modify its execution.</li>
+<li>delayFrames - (Keyword, Optional) The number of frames to wait before executing the script.</li>
+<li>delayMilliSeconds - (Keyword, Optional) The number of milliseconds to wait before executing the script. This value is rounded to the nearest frame.</li>
+<li>delayRef - (Keyword, Optional) Specifies an optional <a href="/OP_Class" title="OP Class">operator</a> from which the delay time is derived. You can use your own <a href="/Time_COMP" title="Time COMP">independent time component</a> or <code>op.TDResources</code>, a built-in independent time component.</li></ul></blockquote>
+<div id="fetchStamp" style="display:inline;"></div><p><code class="python">fetchStamp(key, default)</code>→ <code class="return">value</code>:
+</p><blockquote><p>Return an object from the global stamped parameters. If the item is not found, the default is returned instead. Parameters can be stamped with the <a href="/Copy_SOP" title="Copy SOP">Copy SOP</a>.
+</p><ul><li>key - The name of the entry to retrieve.</li>
+<li>default - If no item is found then the passed value is returned instead.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">fetchStamp</span><span class="p">(</span><span class="s1">'sides'</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="var" style="display:inline;"></div><p><code class="python">var(varName)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Find the value for the given <a href="/Variables" title="Variables">variable</a>.</p></blockquote>
+<div id="varExists" style="display:inline;"></div><p><code class="python">varExists(varName)</code>→ <code class="return">bool</code>:
+</p><blockquote><p>Returns true if the <a href="/Variables" title="Variables">variable</a> is defined.</p></blockquote>
+<div id="varOwner" style="display:inline;"></div><p><code class="python">varOwner(varName)</code>→ <code class="return">OP | None</code>:
+</p><blockquote><p>Returns the <a href="/OP_Class" title="OP Class">operator</a> that defines the <a href="/Variables" title="Variables">variable</a>, or None if it's not defined.</p></blockquote>
+<div id="isMainThread" style="display:inline;"></div><p><code class="python">isMainThread()</code>→ <code class="return">bool</code>:
+</p><blockquote><p>Is True when called from the main application editing thread. Any calls that access operators, etc., must be called from the main thread.</p></blockquote>
+<div id="clear" style="display:inline;"></div><p><code class="python">clear()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Clear the textport of all text.</p></blockquote>
+<h2><span class="mw-headline" id="Python_Classes_and_Modules">Python Classes and Modules</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Td_Module&amp;action=edit&amp;section=1" title="Edit section: Python Classes and Modules">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>More detailed information about the contents of td module:
+</p><p><br>
+The following list of important Python classes and modules is roughly grouped together by subject. 
+</p><p><a href="/Category:Python_Reference" title="Category:Python Reference">Python Reference</a> has an alphabetical list of all TouchDesigner Python pages on this wiki.
+</p>
+<h3><span class="mw-headline" id="Operator_Related_Classes">Operator Related Classes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Python_Classes_and_Modules&amp;action=edit&amp;section=T-1" title="Edit section: Operator Related Classes">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following classes are Python interfaces for operators and objects that operators use. Individual operator classes (e.g. <a href="/TextTOP_Class" title="TextTOP Class">TextTOP Class</a> and <a href="/RampTOP_Class" title="RampTOP Class">RampTOP Class</a>) are not listed but do exist in the <a class="mw-selflink selflink"><code>td</code> module</a>, and links to each can be found <a href="/Category:Python_Reference" title="Category:Python Reference">here</a> or by clicking on the Python Help button in their <a href="/Parameter_Dialog" title="Parameter Dialog">parameter dialog</a>. These classes are found in the <a class="mw-selflink selflink">td module</a> so do not need to be imported.
+</p>
+<ul><li><b><a href="/OP_Class" title="OP Class">OP Class</a></b> - a TouchDesigner <a href="/Operator" title="Operator">operator</a>.
+<ul><li><b><a href="/Connector_Class" title="Connector Class">Connector Class</a></b> - a wire connector for an <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>. Lists of these can be found in <code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.inputConnectors</code> and <code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.outputConnectors</code>. Components also have <code><span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>.inputCOMPConnectors</code> and <code><span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>.outputCOMPConnectors</code>.</li>
+<li><b><a href="/Page_Class" title="Page Class">Page Class</a></b> - a parameter page. Lists of these can be found in <code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.pages</code> and, on components and script operators, <code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.customPages</code>.</li>
+<li><b><a href="/ParCollection_Class" title="ParCollection Class">ParCollection Class</a></b> (<code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.par</code>) - holds all the parameters for an <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+<ul><li><b><a href="/Par_Class" title="Par Class">Par Class</a></b> - an individual <a href="/Parameter" title="Parameter">parameter</a>.</li></ul></li>
+<li><b><a href="/ParGroupCollection_Class" title="ParGroupCollection Class">ParGroupCollection Class</a></b> (<code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.par</code>) - holds all the parameter groups for an <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+<ul><li><b><a href="/ParGroup_Class" title="ParGroup Class">ParGroup Class</a></b> - an individual <a href="/ParGroup_Class" title="ParGroup Class">parameter group</a>.</li></ul></li>
+<li><b><a href="/SequenceCollection_Class" title="SequenceCollection Class">SequenceCollection Class</a></b> (<code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.seq</code>) - holds all the sequences for an <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+<ul><li><b><a href="/Sequence_Class" title="Sequence Class">Sequence Class</a></b> - describes and controls a set of sequential parameters. Sequential parameters will have a reference to one of these objects in their <code>sequence</code> member.
+<ul><li><b><a href="/SequenceBlock_Class" title="SequenceBlock Class">SequenceBlock Class</a></b> - used to access the parGroups of a specific block (set of parGroups) in a sequence.</li></ul></li></ul></li>
+<li><b><a href="/CHOP_Class" title="CHOP Class">CHOP Class</a></b> - subclass of OPs defining <a href="/CHOP" title="CHOP">CHOP</a> operators.
+<ul><li><b><a href="/Channel_Class" title="Channel Class">Channel Class</a></b> - a <a href="/Channel" title="Channel">channel</a> object. Accessed through a <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> index or other <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> members such as <code>chan</code>, <code>chans</code> etc.</li>
+<li><b><a href="/Segment_Class" title="Segment Class">Segment Class</a></b> - describes a single segment from a <a href="/Timer_CHOP" title="Timer CHOP">Timer CHOP</a>.</li></ul></li>
+<li><b><a href="/COMP_Class" title="COMP Class">COMP Class</a></b> - a subclass of OPs defining <a href="/Component" title="Component">component</a> operators.
+<ul><li><b><a href="/ObjectCOMP_Class" title="ObjectCOMP Class">ObjectCOMP Class</a></b> - a subclass of COMPs defining <a href="/Object" title="Object">Objects</a>, used to create and render 3D scenes.</li>
+<li><b><a href="/PanelCOMP_Class" title="PanelCOMP Class">PanelCOMP Class</a></b> - a subclass of COMPS defining <a href="/Panel_Component" title="Panel Component">Panel Components</a>, used to create 2D UI elements.
+<ul><li><b><a href="/Panel_Class" title="Panel Class">Panel Class</a></b> - a member of panelCOMPs containing all associated <a href="/Panel_Value" title="Panel Value">panel values</a>. Accessed through <code>panelCOMP.panel</code>.
+<ul><li><b><a href="/PanelValue_Class" title="PanelValue Class">PanelValue Class</a></b> - individual <a href="/Panel_Value" title="Panel Value">panel values</a>. Accessed through the <code>panel</code> member of panelCOMPS and also in callbacks in the <a href="/Panel_Execute_DAT" title="Panel Execute DAT">Panel Execute DAT</a>.</li></ul></li>
+<li><b><a href="/ListAttributes_Class" title="ListAttributes Class">ListAttributes Class</a></b> - a collection of <a href="/ListAttribute_Class" title="ListAttribute Class">list attributes</a> used in a <a href="/ListCOMP_Class" title="ListCOMP Class">ListCOMP</a>.
+<ul><li><b><a href="/ListAttribute_Class" title="ListAttribute Class">ListAttribute Class</a></b> - contains attributes defining a cell in a <a href="/ListCOMP_Class" title="ListCOMP Class">ListCOMP</a>.</li></ul></li>
+<li><b><a href="/Actors_Class" title="Actors Class">Actors Class</a></b> - describes the set of all Actor COMPs used by the Bullet Solver <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> and Nvidia Flex Solver <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>. used in a <a href="/BulletsolverCOMP_Class" title="BulletsolverCOMP Class">BulletsolverCOMP</a> or <a href="/FlexsolverCOMP_Class" title="FlexsolverCOMP Class">flexsolverCOMP</a>.</li>
+<li><b><a href="/Bodies_Class" title="Bodies Class">Bodies Class</a></b> - a collection of <a href="/Body_Class" title="Body Class">bodies</a> used in an <a href="/ActorCOMP_Class" title="ActorCOMP Class">ActorCOMP</a>.
+<ul><li><b><a href="/Body_Class" title="Body Class">Body Class</a></b> - a single body (physics object) used in an <a href="/ActorCOMP_Class" title="ActorCOMP Class">ActorCOMP</a>.</li></ul></li></ul></li>
+<li><b><a href="/VFS_Class" title="VFS Class">VFS Class</a></b> - a <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>'s <span class="mw-lingo-term" data-lingo-term-id="6a8db0df200fcb5d7de344200b72c1be">Virtual File System</span>
+<ul><li><b><a href="/VFSFile_Class" title="VFSFile Class">VFSFile Class</a></b> - a virtual file contained within a <span class="mw-lingo-term" data-lingo-term-id="6a8db0df200fcb5d7de344200b72c1be">Virtual File System</span>.</li></ul></li></ul></li>
+<li><b><a href="/DAT_Class" title="DAT Class">DAT Class</a></b> - a subclass of OPs defining <a href="/DAT" title="DAT">DAT</a> operators.
+<ul><li><b><a href="/Cell_Class" title="Cell Class">Cell Class</a></b> - defines an individual cell of a <a href="/DAT" title="DAT">DAT</a> table.</li>
+<li><b><a href="/Peer_Class" title="Peer Class">Peer Class</a></b> - describes the network connection originating a message in the callback functions found in <a href="/OSC_In_DAT" title="OSC In DAT">oscinDAT</a>, <a href="/TCP/IP_DAT" title="TCP/IP DAT">tcpipDAT</a>, <a href="/UDP_In_DAT" title="UDP In DAT">udpinDAT</a>, <a href="/UDT_In_DAT" title="UDT In DAT">udtinDAT</a>.</li></ul></li>
+<li><b><a href="/MAT_Class" title="MAT Class">MAT Class</a></b> - a subclass of OPs defining <a href="/MAT" title="MAT">MAT</a> operators.</li>
+<li><b><a href="/SOP_Class" title="SOP Class">SOP Class</a></b> - a subclass of OPs defining <a href="/SOP" title="SOP">SOP</a> operators.
+<ul><li><b><a href="/Attributes_Class" title="Attributes Class">Attributes Class</a></b> - a collection of <span class="mw-lingo-term" data-lingo-term-id="28a7e2d07553a70b039bb585895e0bf0">SOP</span> <a href="/Attribute" title="Attribute">attributes</a>
+<ul><li><b><a href="/Attribute_Class" title="Attribute Class">Attribute Class</a></b> - information about an entity such as its color, velocity, normal, and so on.
+<ul><li><b><a href="/AttributeData_Class" title="AttributeData Class">AttributeData Class</a></b> - contains specific geometric Attribute values, associated with a Prim Class, <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> Class, or <span class="mw-lingo-term" data-lingo-term-id="b22b929ba52471a02d18bb3a4e4472e6">Vertex</span> Class.</li></ul></li></ul></li>
+<li><b><a href="/Group_Class" title="Group Class">Group Class</a></b> - describes groups lists of Prim Class or <span class="mw-lingo-term" data-lingo-term-id="2a3cd5946cfd317eb99c3d32e35e2d4c">Point</span> Class.</li>
+<li><b><a href="/Points_Class" title="Points Class">Points Class</a></b> - a collection of <a href="/Point_Class" title="Point Class">points</a>.
+<ul><li><b><a href="/Point_Class" title="Point Class">Point Class</a></b> - a single geometry <a href="/Point" title="Point">point</a>.
+<ul><li><b><a href="/InputPoint_Class" title="InputPoint Class">InputPoint Class</a></b> - a special point object used in <a href="/Point_SOP" title="Point SOP">Point SOP</a> parameters.</li></ul></li></ul></li>
+<li><b><a href="/Prims_Class" title="Prims Class">Prims Class</a></b> - a collection of <a href="/Prim_Class" title="Prim Class">primitives</a>.
+<ul><li><b><a href="/Prim_Class" title="Prim Class">Prim Class</a></b> - a single geometry <a href="/Primitive" title="Primitive">primitive</a>.
+<ul><li><b><a href="/Poly_Class" title="Poly Class">Poly Class</a></b> - a subclass of Prim defining a geometry <a href="/Polygon" title="Polygon">polygon</a>.</li>
+<li><b><a href="/Mesh_Class" title="Mesh Class">Mesh Class</a></b> - a subclass of Prim defining a geometry <a href="/Mesh" title="Mesh">mesh</a>.</li>
+<li><b><a href="/Bezier_Class" title="Bezier Class">Bezier Class</a></b> - a subclass of Prim defining a set of Bezier curves.</li>
+<li><b><a href="/Vertex_Class" title="Vertex Class">Vertex Class</a></b> - a member of Prim defining a single geometry <a href="/Vertex" title="Vertex">vertex</a>.</li></ul></li></ul></li></ul></li>
+<li><b><a href="/TOP_Class" title="TOP Class">TOP Class</a></b> - a subclass of OPs defining <a href="/TOP" title="TOP">TOP</a> operators.
+<ul><li><b><a href="/CUDAMemory_Class" title="CUDAMemory Class">CUDAMemory Class</a></b> - holds a reference to CUDA memory.
+<ul><li><b><a href="/CUDAMemoryShape_Class" title="CUDAMemoryShape Class">CUDAMemoryShape Class</a></b> - describes the shape of a CUDA memory segment.</li></ul></li>
+<li><b><a href="/TextLine_Class" title="TextLine Class">TextLine Class</a></b> - a line of text in the <a href="/Text_TOP" title="Text TOP">Text TOP</a> or <a href="/Text_SOP" title="Text SOP">Text SOP</a>, after it has been formatted. Contains various members about the line such as it's text, position etc.</li></ul></li></ul></li></ul><h3><span class="mw-headline" id="Helper_Classes">Helper Classes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Python_Classes_and_Modules&amp;action=edit&amp;section=T-2" title="Edit section: Helper Classes">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following helper objects are part of the <a class="mw-selflink selflink">td module</a> and can thus be accessed anywhere, including expressions, without imports (e.g. <code><span class="mw-lingo-term" data-lingo-term-id="75014a31ff201f57ad440d617b059d87">absTime</span>.frame</code>). 
+</p>
+<ul><li><b><a href="/AbsTime_Class" title="AbsTime Class">AbsTime Class</a></b> (<code><span class="mw-lingo-term" data-lingo-term-id="75014a31ff201f57ad440d617b059d87">absTime</span></code>) - information about <a href="/Absolute_Time" title="Absolute Time">absolute time</a></li>
+<li><b><a href="/App_Class" title="App Class">App Class</a></b> (<code>app</code>) - information about the TouchDesigner app, including version, installation folders, etc.</li>
+<li><b><a href="/Project_Class" title="Project Class">Project Class</a></b> (<code>project</code>) - information about the current TouchDesigner session</li>
+<li><b><a href="/Tdu_Module" title="Tdu Module">Tdu Module</a></b> (<code>tdu</code>) - generic utilities for TouchDesigner not relating directly to TD objects.
+<ul><li><b><a href="/ArcBall_Class" title="ArcBall Class">ArcBall Class</a></b> (<code>tdu.ArcBall</code>) - encapsulates many aspects of 3D viewer interaction.</li>
+<li><b><a href="/Camera_Class" title="Camera Class">Camera Class</a></b> (<code>tdu.Camera</code>) - maintains a 3D position and orientation for a camera and provides multiple methods for manipulating the camera's position and direction.</li>
+<li><b><a href="/Color_Class" title="Color Class">Color Class</a></b> (<code>tdu.Color</code>) - holds a 4 component color</li>
+<li><b><a href="/Dependency_Class" title="Dependency Class">Dependency Class</a></b> (<code>tdu.<span class="mw-lingo-term" data-lingo-term-id="90a95d6639a7bbbeff7f36a7ec8f3b10">Dependency</span></code>) - used to create <a href="/Dependency" title="Dependency">Dependable</a> Python data.</li>
+<li><b><a href="/Matrix_Class" title="Matrix Class">Matrix Class</a></b> (<code>tdu.Matrix</code>) - holds a single 4x4 matrix for use in transformations. See <a href="/ObjectCOMP_Class" title="ObjectCOMP Class">ObjectCOMP Class</a> for transforms of 3D objects.</li>
+<li><b><a href="/Position_Class" title="Position Class">Position Class</a></b> (<code>tdu.Position</code>) - holds a 3 component position</li>
+<li><b><a href="/Quaternion_Class" title="Quaternion Class">Quaternion Class</a></b> (<code>tdu.Quaternion</code>) - holds a quaternion object for 3D rotations</li>
+<li><b><a href="/Timecode_Class" title="Timecode Class">Timecode Class</a></b> (<code>tdu.Timecode</code>) - holds a timecode value</li>
+<li><b><a href="/Vector_Class" title="Vector Class">Vector Class</a></b> (<code>tdu.Vector</code>) - holds a 3 component vector</li></ul></li></ul><ul><li><b><a href="/Licenses_Class" title="Licenses Class">Licenses Class</a></b> (<code>licenses</code>) - information about installed <a href="/License_Class" title="License Class">license</a> objects
+<ul><li><b><a href="/DongleList_Class" title="DongleList Class">DongleList Class</a></b> (<code>licenses.dongles</code>) - list of attached dongles
+<ul><li><b><a href="/Dongle_Class" title="Dongle Class">Dongle Class</a></b> - an individual dongle connected to the system</li></ul></li>
+<li><b><a href="/License_Class" title="License Class">License Class</a></b> - a single instance of an installed license
+<ul><li><ul><li><b><a href="/ProductEntry_Class" title="ProductEntry Class">ProductEntry Class</a></b> - a dongle entry for a single dongle connected to the system</li></ul></li></ul></li></ul></li>
+<li><b><a href="/MOD_Class" title="MOD Class">MOD Class</a></b> (<code>mod</code>) - access to modules located in TouchDesigner DATs</li>
+<li><b><a href="/Monitors_Class" title="Monitors Class">Monitors Class</a></b> (<code>monitors</code>) - access to information about all connected display devices
+<ul><li><b><a href="/Monitor_Class" title="Monitor Class">Monitor Class</a></b> - an individual display device</li></ul></li>
+<li><b><a href="/Runs_Class" title="Runs Class">Runs Class</a></b> (<code>runs</code>) - information about all delayed <a href="/Run_Class" title="Run Class">run objects</a>
+<ul><li><b><a href="/Run_Class" title="Run Class">Run Class</a></b> - an individual delayed run object</li></ul></li>
+<li><b><a href="/SysInfo_Class" title="SysInfo Class">SysInfo Class</a></b> (<code>sysInfo</code>) - current system/hardware information</li>
+<li><b><a href="/UI_Class" title="UI Class">UI Class</a></b> (<code>ui</code>) - information about application ui elements
+<ul><li><b><a href="/Colors_Class" title="Colors Class">Colors Class</a></b> (<code>ui.colors</code>) - application colors</li>
+<li><b><a href="/Options_Class" title="Options Class">Options Class</a></b> (<code>ui.options</code>) - configurable ui options</li>
+<li><b><a href="/Panes_Class" title="Panes Class">Panes Class</a></b> (<code>ui.panes</code>) - collection of all panes open in the editor
+<ul><li><b><a href="/Pane_Class" title="Pane Class">Pane Class</a></b> - an individual pane object
+<ul><li><b><a href="/NetworkEditor_Class" title="NetworkEditor Class">NetworkEditor Class</a></b> - subclass of Pane that displays a network editor</li></ul></li></ul></li>
+<li><b><a href="/Preferences_Class" title="Preferences Class">Preferences Class</a></b> (<code>ui.preferences</code>) - collection of TouchDesigner preferences</li>
+<li><b><a href="/Undo_Class" title="Undo Class">Undo Class</a></b> (<code>ui.undo</code>) - tools for interacting with the undo system, including creating script-based undo steps</li></ul></li></ul><h3><span class="mw-headline" id="Standard_Python_Modules">Standard Python Modules</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Python_Classes_and_Modules&amp;action=edit&amp;section=T-3" title="Edit section: Standard Python Modules">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a class="mw-selflink selflink"><code>td</code> module</a> also automatically imports a number of helpful standard modules, allowing them to be accessed in expressions through their namespace (e.g. <code>math.cos(math.pi)</code>):
+</p>
+<ul><li><a rel="nofollow" class="external text" href="https://docs.python.org/3.7/library/collections.html"><code>collections</code></a> - container datatypes</li>
+<li><a rel="nofollow" class="external text" href="https://docs.python.org/3.7/library/enum.html"><code>enum</code></a> - support for enumerations</li>
+<li><a rel="nofollow" class="external text" href="https://docs.python.org/3.7/library/inspect.html"><code>inspect</code></a> - inspect live objects</li>
+<li><a rel="nofollow" class="external text" href="https://docs.python.org/3.7/library/math.html"><code>math</code></a> - mathematical functions</li>
+<li><a rel="nofollow" class="external text" href="https://docs.python.org/3.7/library/re.html"><code>re</code></a> - regular expression operations</li>
+<li><a rel="nofollow" class="external text" href="https://docs.python.org/3.7/library/sys.html"><code>sys</code></a> - OS specific data and functions</li>
+<li><a rel="nofollow" class="external text" href="https://docs.python.org/3.7/library/traceback.html"><code>traceback</code></a> - stack utilities</li>
+<li><a rel="nofollow" class="external text" href="https://docs.python.org/3.7/library/warnings.html"><code>warnings</code></a> - warning control</li></ul><h3><span class="mw-headline" id="TouchDesigner_Utility_Modules_and_Python_Utilities">TouchDesigner Utility Modules and Python Utilities</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Python_Classes_and_Modules&amp;action=edit&amp;section=T-4" title="Edit section: TouchDesigner Utility Modules and Python Utilities">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following contain extended Python utilities for use with TouchDesigner.
+</p>
+<ul><li><b><a href="/TDFunctions" title="TDFunctions">TDFunctions</a></b> - A variety of utilities for advanced Python coding in TouchDesigner.</li>
+<li><b><a href="/TDJSON" title="TDJSON">TDJSON</a></b> - JSON utilities specific to TouchDesigner.</li>
+<li><b><a href="/TDStoreTools" title="TDStoreTools">TDStoreTools</a></b> - utilities for use with TouchDesigner's <a href="/Storage" title="Storage">Storage</a> and <a href="/Dependency" title="Dependency">Dependency</a> system.</li>
+<li><b><a href="/TDResources" title="TDResources">TDResources</a></b> (<code>op.TDResources...</code>) - not a module, but does contain system resources that can be accessed via Python. It includes system <a href="/TDResources#Pop-Up_Menu" title="TDResources">pop-up menu</a>, <a href="/TDResources#Button_Pop-Up_Menu" title="TDResources">button pop-up menu</a>, <a href="/TDResources#Pop-Up_Dialog" title="TDResources">pop-up dialog</a>, and <a href="/TDResources#Mouse" title="TDResources">mouse</a> resources.</li></ul><p><br></p>
+<h3><span class="mw-headline" id="3rd_Party_Packages">3rd Party Packages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Python_Classes_and_Modules&amp;action=edit&amp;section=T-5" title="Edit section: 3rd Party Packages">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><b>The following 3rd party packages are automatically installed with TouchDesigner.</b> They are not in the <a class="mw-selflink selflink">td module</a>, so must be imported explicitly to be used in scripts. The name in parentheses is the actual package name used (e.g. to use OpenCV, write this at top of script: <code>import cv2</code>). For information on adding or installing other Python modules, see <a rel="nofollow" class="external text" href="https://docs.derivative.ca/Introduction_to_Python_Tutorial#Importing_Modules">Importing Modules</a>.
+</p>
+<ul><li><b><a rel="nofollow" class="external text" href="https://www.attrs.orgs">attr</a></b> 22.2.0 (<code>attr</code>) - Classes without boilerplate (legacy).</li>
+<li><b><a rel="nofollow" class="external text" href="https://www.attrs.orgs">attrs</a></b> 22.2.0 (<code>attrs</code>) - Classes without boilerplate.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/certifi/">Certifi</a></b> 2022.12.07 (<code>certifi</code>) - <span class="mw-lingo-term" data-lingo-term-id="fa03eb688ad8aa1db593d33dabd89bad">Root</span> Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/chardet/">Chardet</a></b> 5.1.0 (<code>chardet</code>) - The Universal Character Encoding Detector.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/charset-normalizer/">charset-normalizer</a></b> 3.0.1 (<code>charset_normalizer</code>) - A library that helps you read text from an unknown charset encoding.</li>
+<li><b><a rel="nofollow" class="external text" href="https://https://github.com/micheles/decorator">decorator</a></b> 5.1.1 (<code>decorator</code>) - Define signature-preserving function decorators and decorator factories.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/opencv-python/">opencv-python</a></b> (<code>cv2</code>) 4.8.0 - Pre-built CPU-only OpenCV packages for Python.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/depthai/">depthai</a></b> (<code>depthai</code>) 2.24.0.0.dev0+7b57b28305368582d004d5c6ec2cffb66562f2e0 - Python bindings for C++ <a rel="nofollow" class="external text" href="https://docs.luxonis.com/projects/api/en/latest/">depthai-core library</a>.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/idna/">idna</a></b> (<code>idna</code>) 3.4 - Support for the Internationalised Domain Names in Applications (IDNA) protocol.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/jsonpath-ng/">jsonpath</a></b> (<code>jsonpath_ng</code>) 1.5.3 - JSONPath tools for accessing and altering JSON structures.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/jsonschema/">jsonschema</a></b> (<code>jsonschema</code>) 4.23.0 - jsonschema is an implementation of the <a rel="nofollow" class="external text" href="https://json-schema.org/">JSON Schema</a> specification for Python.</li>
+<li><b><a rel="nofollow" class="external text" href="https://mwparserfromhell.readthedocs.io/en/latest/">MWParserFromHell</a></b> (<code>mwparserfromhell</code>) 0.6.4 - An easy-to-use and outrageously powerful parser for MediaWiki wikicode.</li>
+<li><b><a rel="nofollow" class="external text" href="http://www.numpy.org">NumPy</a></b> (<code>numpy</code>) 1.24.1 - Fundamental package for scientific computing with Python.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/oauthlib/">OAuthlib</a></b> (<code>oauthlib</code>) 3.2.2 - Library to build OAuth and OpenID Connect servers.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/packaging/">packaging</a></b> (<code>packaging</code>) 23.0 - Package tools including version handling, specifiers, markers, requirements, tags, utilities. Used for version string comparison.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/pip/">pip</a></b> (<code>pip</code>) 22.3.1 - pip is the package installer for Python. You can use pip to install packages from the Python Package Index and other indexes.</li>
+<li><b><a rel="nofollow" class="external text" href="https://www.dabeaz.com/ply/">ply</a></b> (<code>ply</code>) 3.11 - Parsing tools for lex and yacc.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/Pygments/">Pygments</a></b> (<code>pygments</code>) 2.14.0 - A syntax highlighting package written in Python.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/pyparsing/">pyparsing</a></b> (<code>pyparsing</code>) 3.0.9 - A library of classes that client code uses to construct parsing grammar directly in Python code.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/pyrankvote/">pyrankvote</a></b> (<code>pyrankvote</code>) 2.0.5 - PyRankVote is a python library for different ranked-choice voting systems (sometimes called preferential voting systems) created by Jon Tingvold in June 2019.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/pyrfc6266/">pyrfc6266</a></b> (<code>pyrfc6266</code>) 1.0.2 - A python implementation of RFC 6266.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/pyrsistent/">pyrsistent</a></b> (<code>pyrsistent</code>) 0.19.3 - Pyrsistent is a number of persistent collections (by some referred to as functional data structures). Persistent in the sense that they are immutable.</li>
+<li><b><a rel="nofollow" class="external text" href="http://docs.python-requests.org/en/master/">Requests</a></b> (<code>requests</code>) 2.28.2 - The only Non-GMO HTTP library for Python, safe for human consumption</li>
+<li><b><a rel="nofollow" class="external text" href="https://requests-oauthlib.readthedocs.io/en/latest/index.html">Requests OAuthlib</a></b> (<code>requests_oauthlib</code>) 1.3.1 - Easy-to-use Python interface for building OAuth1 and OAuth2 clients</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/six/">six</a></b> (<code>six</code>) 1.16.0 - Python 2 and 3 compatibility utilities.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/smartypants/">smartypants</a></b> (<code>smartypants</code>) 2.0.1 - a Python fork of <a rel="nofollow" class="external text" href="http://daringfireball.net/projects/smartypants/">SmartyPants</a>.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/tabulate/">tabulate</a></b> (<code>tabulate</code>) 0.9.0 - Pretty-print tabular data in Python.</li>
+<li><b><a rel="nofollow" class="external text" href="https://urllib3.readthedocs.io/en/latest/">urllib3</a></b> (<code>urllib3</code>) 1.26.14 - HTTP client.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pypi.org/project/whats-that-code/">whats-that-code</a></b> (<code>whats_that_code</code>) 0.1.4 - programming language detection library.</li>
+<li><b><a rel="nofollow" class="external text" href="https://pyyaml.org/wiki/PyYAMLDocumentation">PyYAML</a></b> (<code>yaml</code>) 6.0 - YAML parser and emitter.</li></ul><h3><span class="mw-headline" id="Installing_Custom_Packages_and_Modules">Installing Custom Packages and Modules</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Python_Classes_and_Modules&amp;action=edit&amp;section=T-6" title="Edit section: Installing Custom Packages and Modules">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>You can also install your own Python packages that are not included with TouchDesigner. For instructions, go <a href="/Category:Python#Installing_Custom_Python_Packages" title="Category:Python">here</a>.
+</p><p>TouchDesigner Build: <select onchange="location=this.value;"><option value="https://docs.derivative.ca/Td_Module">Latest</option>\n<option value="https://docs.derivative.ca/Td_Module?oldid=30463">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=30464">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=30465">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=30525">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=30852">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=31118">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=31119">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=31126">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=31191">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=31192">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=32018">wikieditor</option><option value="https://docs.derivative.ca/Td_Module?oldid=30464">mw-undo</option><option value="https://docs.derivative.ca/Td_Module?oldid=30463">mw-reverted</option><option value="https://docs.derivative.ca/Td_Module?oldid=28006">2022.24140</option><option value="https://docs.derivative.ca/Td_Module?oldid=26474">2021.10000</option><option value="https://docs.derivative.ca/Td_Module?oldid=20888">2018.28070</option><option value="https://docs.derivative.ca/Td_Module?oldid=15057">before 2018.28070</option></select></p></div><div class="mw-lingo-tooltip" id="7457cdd15d09bfc6c4dbb5d2b6f87390"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any of the procedural data operators. OPs do all the work in TouchDesigner. They "cook" and output data to other OPs, which ultimately result in new images, data and audio being generated. See <a href="/Node" title="Node">Node</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="63d5049791d9d79d86e9a108b0a999ca"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A <a href="/Link" title="Link">Link</a>. The grey dashed lines between nodes is a Reference or Link that indicates one operator is getting data from another operator from any <a href="/Operator_Family" title="Operator Family">Operator Family</a>.
+</p>
+</div></div><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The grey dashed lines between nodes is a Reference (or <a href="/Link" title="Link">Link</a>). A Reference is (1) a <a href="/Parameter_Reference" title="Parameter Reference">Parameter Reference</a>, a parameter in an OP that is a name or path to another operator, (2) a <a href="/index.php?title=Node_Reference&amp;action=edit&amp;redlink=1" class="new" title="Node Reference (page does not exist)">Node Reference</a>, an expression in a parameter or DAT script that contains the name or path of another operator, (3) a DAT Cell Reference or (4) a CHOP Channel Reference.
+</p>
+</div></div><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Link or Reference is a dashed line between nodes that represent other data flowing between nodes. Examples are CHOP <a href="/Export" title="Export">Exports</a>, node <a href="/Network_Path" title="Network Path">Paths</a> in parameters, and <a href="/Expression" title="Expression">expressions</a> in parameters referencing CHOP channels, DAT tables and other nodes. In contrast is a <a href="/Wire" title="Wire">Wire</a> that connects nodes in the same <a href="/Operator_Family" title="Operator Family">Operator Family</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="cc2bcf28d9ffc17fcbf169f3325607bb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that manipulates text strings: multi-line text or tables. Multi-line text is often a python <a href="/Script" title="Script">Script</a> or <a href="/GLSL" title="GLSL">GLSL</a> Shader, but can be any multi-line text. <a href="/Table_DAT" title="Table DAT">Tables</a> are rows and columns of cells, each containing a text string.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="75014a31ff201f57ad440d617b059d87"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Absolute Time starts counting from 0 when the TouchDesigner process starts, and is always increasing. It will pause if the Power 0/1 button at the top of the UI is Off.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="28a7e2d07553a70b039bb585895e0bf0"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A <a href="/Operator_Family" title="Operator Family">Operator Family</a> that reads, creates and modifies 3D points, polygons, lines, particles, surfaces, spheres and meatballs. Particles and point clouds are now done primarily on the GPU using TOPs.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="756210d98ce28018652ca05e1dcaaf3e"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Operator shortcuts are Python objects that return operators (or sometimes parameters). These include <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcuts</a> for accessing a component from within that component, and <a href="/Global_OP_Shortcut" title="Global OP Shortcut">Global OP Shortcuts</a> that access a unique component from anywhere in TouchDesigner.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="127c8e2bf0b36c9d6a86d99b969d563a"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A name for a component that is accessible from any node in a project, which can be declared in a component's Global Operator Shortcut parameter.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="98b55baa723b7158c2ad741a9f2339b8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Parent Shortcut is a parameter on a component that contains a name that you can use anywhere inside the component to refer to that component using the syntax <code>parent.Name</code>, for example <code>parent.Effect.width</code> to obtain panel width.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="85a1cdddc59cb89e6297acc2f2fc1755"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that contains its own <a href="/Network" title="Network">Network</a>. There are sixteen 3D <a href="/Object_Component" title="Object Component">Object Component</a> and ten 2D <a href="/Panel_Component" title="Panel Component">Panel Component</a> types. See also <a href="/Network_Path" title="Network Path">Network Path</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="8b9d2cce2836537aabe6f2e0dd5da293"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> which operate on <a href="/Channel" title="Channel">Channels</a> (a sequence of numbers (<a href="/Sample" title="Sample">Samples</a>)) which are used for animation, audio, mathematics, simulation, logic, UI construction, and data streamed from/to devices and protocols.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="6a8db0df200fcb5d7de344200b72c1be"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Lets you embed files inside a <code><a href="/.tox" title=".tox">.tox</a></code> or <code><a href="/.toe" title=".toe">.toe</a></code> file. Operators like the Movie File In TOP that read regular files can also read the embedded VFS files using a <code>vfs:</code> syntax.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="2a3cd5946cfd317eb99c3d32e35e2d4c"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Each SOP has a list of Points. Each point has an XYZ 3D position value plus other optional attributes. Each polygon <a href="/Primitive" title="Primitive">Primitive</a> is defined by a vertex list, which is list of point numbers.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="b22b929ba52471a02d18bb3a4e4472e6"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A sequence of vertices form a <a href="/Polygon" title="Polygon">Polygon</a> in a <a href="/SOP" title="SOP">SOP</a>. Each vertex is an integer index into the <a href="/Point_List" title="Point List">Point List</a>, and each <a href="/Point" title="Point">Point</a> holds an XYZ position and attributes like Normals and Texture Coordinates.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="90a95d6639a7bbbeff7f36a7ec8f3b10"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>is the <a href="/Procedural" title="Procedural">Procedural</a> mechanism in TouchDesigner, where if one piece of data changes, it automatically causes other operators and expressions to re-<a href="/Cook" title="Cook">Cook</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="fa03eb688ad8aa1db593d33dabd89bad"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TouchDesigner is a hierarchy of components. "root" is the top-most network in the hierarchy. The <a href="/Network_Path" title="Network Path">Network Path</a> or Path for root is simply <code>/</code>. A typical path is <code>/project1/moviein1</code>.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250701142035
+Cache expiry: 60
+Reduced expiry: true
+Complications: [show‐toc]
+CPU time usage: 0.116 seconds
+Real time usage: 0.161 seconds
+Preprocessor visited node count: 893/1000000
+Post‐expand include size: 58530/2097152 bytes
+Template argument size: 23269/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4878/5000000 bytes
+Lua time usage: 0.030/5 seconds
+Lua virtual size: 8736768/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   28.246      1 -total
+ 49.03%   13.850      1 Template:ClassMemberSection
+ 31.43%    8.877     18 Template:ClassMember
+ 18.68%    5.275      1 Template:ClassMethodSection
+ 15.72%    4.440     10 Template:ClassMethod
+  8.77%    2.476      1 Python_Classes_and_Modules
+  8.24%    2.327      1 Template:TDClassSummary
+  6.65%    1.879      1 Template:History
+  6.09%    1.720      1 Template:Lowercase
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1053-0!canonical and timestamp 20250701142035 and revision id 32018.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=Td_Module&amp;oldid=32018">https://docs.derivative.ca/index.php?title=Td_Module&amp;oldid=32018</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/Category:Python" title="Category:Python">Python</a></li><li><a href="/Category:TDPages" title="Category:TDPages">TDPages</a></li><li><a href="/Category:Python_Reference" title="Category:Python Reference">Python Reference</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=Td+Module" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/Td_Module" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:Td_Module&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="mw-list-item"><a href="/Experimental:Td_Module"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/Td_Module"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=Td_Module&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/Td_Module" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/Td_Module" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=Td_Module&amp;oldid=32018" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=Td_Module&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=Td_Module&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 4 September 2024, at 07:44.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.116","walltime":"0.161","ppvisitednodes":{"value":893,"limit":1000000},"postexpandincludesize":{"value":58530,"limit":2097152},"templateargumentsize":{"value":23269,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4878,"limit":5000000},"timingprofile":["100.00%   28.246      1 -total"," 49.03%   13.850      1 Template:ClassMemberSection"," 31.43%    8.877     18 Template:ClassMember"," 18.68%    5.275      1 Template:ClassMethodSection"," 15.72%    4.440     10 Template:ClassMethod","  8.77%    2.476      1 Python_Classes_and_Modules","  8.24%    2.327      1 Template:TDClassSummary","  6.65%    1.879      1 Template:History","  6.09%    1.720      1 Template:Lowercase"]},"scribunto":{"limitreport-timeusage":{"value":"0.030","limit":"5"},"limitreport-virtmemusage":{"value":8736768,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250701142035","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":375});});</script>
+</body>
+<!-- Cached 20250701142035 -->
+</html>

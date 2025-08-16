@@ -1,9 +1,0 @@
-{
-  "className": "Actors",
-  "displayName": "Actors Class",
-  "description": "The Actors Class describes the set of all Actor COMPs used by the Bullet Solver COMP and Nvidia Flex Solver COMP. It can be accessed with a Bullet Solver COMP. It can be accessed much like a Python list.",
-  "category": "General",
-  "fileName": "Actors_Class.htm",
-  "members": [],
-  "methods": []
-}

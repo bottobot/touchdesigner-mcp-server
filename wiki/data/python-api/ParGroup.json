@@ -20,5 +20,82 @@
       "description": "bindExpr member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "copy",
+      "parameters": [
+        {
+          "name": "ParGroup",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "copy( ParGroup )"
+    },
+    {
+      "name": "destroy",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "destroy()"
+    },
+    {
+      "name": "eval",
+      "parameters": [],
+      "returns": "tuple :",
+      "signature": "eval()"
+    },
+    {
+      "name": "evalExport",
+      "parameters": [],
+      "returns": "tuple :",
+      "signature": "evalExport()"
+    },
+    {
+      "name": "evalExpression",
+      "parameters": [],
+      "returns": "tuple :",
+      "signature": "evalExpression()"
+    },
+    {
+      "name": "evalNorm",
+      "parameters": [],
+      "returns": "tuple[float, ...[ :",
+      "signature": "evalNorm()"
+    },
+    {
+      "name": "evalOPs",
+      "parameters": [],
+      "returns": "tuple[list[op], ...] :",
+      "signature": "evalOPs()"
+    },
+    {
+      "name": "pars",
+      "parameters": [
+        {
+          "name": "pattern",
+          "type": "Any"
+        }
+      ],
+      "returns": "list :",
+      "signature": "pars(pattern)"
+    },
+    {
+      "name": "reset",
+      "parameters": [],
+      "returns": "bool :",
+      "signature": "reset()"
+    },
+    {
+      "name": "isSameParGroup",
+      "parameters": [
+        {
+          "name": "parGroup",
+          "type": "ParGroup"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "isSameParGroup(parGroup :  ParGroup )"
+    }
+  ],
+  "enhanced": true
 }

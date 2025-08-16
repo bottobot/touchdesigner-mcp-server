@@ -20,5 +20,24 @@
       "description": "owner member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "destroy",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "destroy()"
+    },
+    {
+      "name": "vals",
+      "parameters": [
+        {
+          "name": "delayed=False",
+          "type": "Any"
+        }
+      ],
+      "returns": "list :",
+      "signature": "vals(delayed=False)"
+    }
+  ],
+  "enhanced": true
 }

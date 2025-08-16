@@ -1,0 +1,63 @@
+{
+  "file": "Cell_Class.htm",
+  "className": "Cell",
+  "methods": [
+    {
+      "name": "run",
+      "parameters": [
+        {
+          "name": "*args",
+          "type": "Any"
+        },
+        {
+          "name": "endFrame=False",
+          "type": "Any"
+        },
+        {
+          "name": "fromOP=None",
+          "type": "Any"
+        },
+        {
+          "name": "asParameter=False",
+          "type": "Any"
+        },
+        {
+          "name": "group=None",
+          "type": "Any"
+        },
+        {
+          "name": "delayFrames=0",
+          "type": "Any"
+        },
+        {
+          "name": "delayMilliSeconds=0",
+          "type": "Any"
+        },
+        {
+          "name": "delayRef=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "td.Run :",
+      "signature": "run(*args, endFrame=False, fromOP=None, asParameter=False, group=None, delayFrames=0, delayMilliSeconds=0, delayRef=None)"
+    },
+    {
+      "name": "offset",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "Any"
+        },
+        {
+          "name": "c",
+          "type": "Any"
+        }
+      ],
+      "returns": "Cell | None :",
+      "signature": "offset(r, c)"
+    }
+  ],
+  "methodCount": 2,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.302Z"
+}

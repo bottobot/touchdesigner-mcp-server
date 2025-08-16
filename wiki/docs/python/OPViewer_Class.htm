@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>OP Viewer COMP - TouchDesigner Documentation</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"394850c978d6c13b13f28ee6","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"OP_Viewer_COMP","wgTitle":"OP Viewer COMP","wgCurRevisionId":30704,"wgRevisionId":30704,"wgArticleId":95,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["COMPs"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"OP_Viewer_COMP","wgRelevantArticleId":95,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Opviewer","wgCargoDefaultQueryLimit":100,
+"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/extensions/PageForms","edgValues":{"title"
+:["Actor COMP","Ambient Light COMP","Animation COMP","Annotate COMP","Base COMP","Blend COMP","Bone COMP","Bullet Solver COMP","Button COMP","Experimental:Button COMP","Camera Blend COMP","Camera COMP","MediaWiki:Common.js","Component","Experimental:Component","Constraint COMP","Container COMP","Engine COMP","Experimental:Engine COMP","Environment Light COMP","FBX COMP","Experimental:FBX COMP","Field COMP","Force COMP","Geo Text COMP","Experimental:Geo Text COMP","Geometry COMP","GLSL COMP","Handle COMP","Impulse Force COMP","Light COMP","List COMP","Experimental:List COMP","Null COMP","NVIDIA Flex Solver COMP","NVIDIA Flow Emitter COMP","OP Viewer COMP","Parameter COMP","Experimental:Parameter COMP","Replicator COMP","Select COMP","Shared Mem In COMP","Shared Mem Out COMP","Slider COMP","Table COMP","Text COMP","Experimental:Text COMP","Time COMP","USD COMP","Experimental:USD COMP","Widget COMP","Window COMP","Experimental:Window COMP"]},"wgPageFormsEDSettings":null,"wgAmericanDates":
+false,"wgVector2022PreviewPages":[],"wgInternalRedirectTargetUrl":"/OP_Viewer_COMP"};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready"};RLPAGEMODULES=["ext.UiTag","mediawiki.action.view.redirect","ext.Lingo","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="description" content="The OP Viewer Component allows any operator viewer (CHOP Viewer, SOP Viewer, panels, etc.) to be part of a panel with optional full interactivity."/>
+<meta name="keywords" content="TouchDesigner, OP Viewer, COMP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://docs.derivative.ca/OP_Viewer_COMP"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=COMP.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="OP Viewer COMP - TouchDesigner Documentation"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/OP_Viewer_COMP"/>
+<meta property="og:description" content="The OP Viewer Component allows any operator viewer (CHOP Viewer, SOP Viewer, panels, etc.) to be part of a panel with optional full interactivity."/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:tag" content="TouchDesigner, OP Viewer, COMP"/>
+<meta property="article:modified_time" content="2024-01-02T12:38:32Z"/>
+<meta property="article:published_time" content="2024-01-02T12:38:32Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"OP Viewer COMP - TouchDesigner Documentation","headline":"OP Viewer COMP - TouchDesigner Documentation","mainEntityOfPage":"<span class=\"mw-page-title-main\">OP Viewer COMP<\/span>","identifier":"https:\/\/docs.derivative.ca\/OP_Viewer_COMP","url":"https:\/\/docs.derivative.ca\/OP_Viewer_COMP","description":"The OP Viewer Component allows any operator viewer (CHOP Viewer, SOP Viewer, panels, etc.) to be part of a panel with optional full interactivity.","keywords":"TouchDesigner, OP Viewer, COMP","dateModified":"2024-01-02T12:38:32Z","datePublished":"2024-01-02T12:38:32Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-OP_Viewer_COMP rootpage-OP_Viewer_COMP skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">OP Viewer COMP</span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/index.php?title=Opviewer&amp;redirect=no" title="Opviewer">Opviewer</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><h2><span class="mw-headline" id="Summary"><div class="sectionBarCOMP">Summary</div></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:Summary&amp;action=edit&amp;section=T-1" title="Edit section: Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The OP Viewer <span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span> allows any operator viewer (<span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span>, <span class="mw-lingo-term" data-lingo-term-id="28a7e2d07553a70b039bb585895e0bf0">SOP</span> <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span>, panels, etc.) to be part of a panel with optional full interactivity.
+</p><p><a href="/File:PythonIcon.png" class="image"><img alt="PythonIcon.png" src="/images/c/c2/PythonIcon.png" decoding="async" width="20" height="20"></a><a href="/OpviewerCOMP_Class" title="OpviewerCOMP Class">opviewerCOMP_Class</a>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en-CA" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul><li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_OP_Viewer_Page"><span class="tocnumber">2</span> <span class="toctext">Parameters - OP Viewer Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Layout_Page"><span class="tocnumber">3</span> <span class="toctext">Parameters - Layout Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Panel_Page"><span class="tocnumber">4</span> <span class="toctext">Parameters - Panel Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Look_Page"><span class="tocnumber">5</span> <span class="toctext">Parameters - Look Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Children_Page"><span class="tocnumber">6</span> <span class="toctext">Parameters - Children Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Drag/Drop_Page"><span class="tocnumber">7</span> <span class="toctext">Parameters - Drag/Drop Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Extensions_Page"><span class="tocnumber">8</span> <span class="toctext">Parameters - Extensions Page</span></a></li>
+<li class="toclevel-1"><a href="#Parameters_-_Common_Page"><span class="tocnumber">9</span> <span class="toctext">Parameters - Common Page</span></a></li>
+<li class="toclevel-1"><a href="#Info_CHOP_Channels"><span class="tocnumber">10</span> <span class="toctext">Info CHOP Channels</span></a>
+<ul><li class="toclevel-2"><a href="#Specific_OP_Viewer_COMP_Info_Channels"><span class="tocnumber">10.1</span> <span class="toctext">Specific OP Viewer COMP Info Channels</span></a></li>
+<li class="toclevel-2"><a href="#Common_COMP_Info_Channels"><span class="tocnumber">10.2</span> <span class="toctext">Common COMP Info Channels</span></a></li>
+<li class="toclevel-2"><a href="#Common_Operator_Info_Channels"><span class="tocnumber">10.3</span> <span class="toctext">Common Operator Info Channels</span></a></li>
+</ul></li>
+</ul></div>
+
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_OP_Viewer_Page"><div class="sectionBarCOMP">Parameters - OP Viewer Page</div></span></h2>
+<div id="opviewer" style=""><span class="parNameCOMP">Operator <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span></span>  <code>opviewer</code> - <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> to the target operator whose node viewer will be used.
+<p><i></i>
+</p>
+</div>		
+<div id="interactive" style=""><span class="parNameCOMP">Interactive</span>  <code>interactive</code> - Enable or disable mouse or touch screen interaction with the target operator's viewer.
+<p><i></i>
+</p>
+</div>
+<div id="opcenter" style=""><span class="parNameCOMP">Center</span>  <code>opcenter</code> - <span class="mw-customtoggle-opcenter">⊞</span> - Lets you pan across the target operator's viewer when the Scale is &gt; 1. Center adjusts what part of the target operator's viewer is in the middle of the OP <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span>.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-opcenter">
+<ul><li><span class="parNameCOMP">Center</span> <code>opcenterx</code> -</li></ul><ul><li><span class="parNameCOMP">Center</span> <code>opcentery</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="opcenterunit" style=""><span class="parNameCOMP">Center Unit</span>  <code>opcenterunit</code> - <span class="mw-customtoggle-opcenterunit">⊞</span> - Center can be expressed in panel units or fraction of width, or display points.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-opcenterunit">
+<ul><li><span class="parNameCOMP">P</span> <code>panelunits</code> -</li></ul><ul><li><span class="parNameCOMP">F</span> <code>fract</code> -</li></ul><ul><li><span class="parNameCOMP">A</span> <code>relfract</code> -</li></ul><ul><li><span class="parNameCOMP">Pt</span> <code>points</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="opscale" style=""><span class="parNameCOMP">Scale</span>  <code>opscale</code> - Lets you zoom in on parts of the target operator's viewer. Increasing scale magnifies the viewer.
+<p><i></i>
+</p>
+</div>
+<div id="topdirect" style=""><span class="parNameCOMP">Draw <span class="mw-lingo-term" data-lingo-term-id="6705777b712ee811e76fb07162081d63">TOP</span> Directly</span>  <code>topdirect</code> - When this is On for TOPs, you always see the RGBA image, as if this was simply a <a href="/Select_TOP" title="Select TOP">Select TOP</a>. Normally you see what the viewer is currently displaying, which for TOPs may have overlays and not be displaying RGB.
+<p><i></i>
+</p>
+</div>
+<div id="contentsize" style=""><span class="parNameCOMP">Use Content Size</span>  <code>contentsize</code> - Only applicable for viewing TOPs, when this option is On, the Center position is calculated based on the dimensions of the texture rather than the panel i.e. panel units are treated as pixels when calculating the center and fractions are relative to the texture height/width.
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Layout_Page"><div class="sectionBarCOMP">Parameters - <span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span> Page</div></span></h2>
+<p>The <span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span> parameter page controls the size and position of the panel.
+</p>
+<div id="x" style=""><span class="parNameCOMP">X</span>  <code>x</code> - Specify the horizontal position in pixels relative to its parent.
+<p><i></i>
+</p>
+</div>		
+<div id="y" style=""><span class="parNameCOMP">Y</span>  <code>y</code> - Specify the vertical position in pixels relative to its parent.
+<p><i></i>
+</p>
+</div>		
+<div id="w" style=""><span class="parNameCOMP">Width</span>  <code>w</code> - Specify the panel's width in pixels.
+<p><i></i>
+</p>
+</div>		
+<div id="h" style=""><span class="parNameCOMP">Height</span>  <code>h</code> - Specify the <span class="mw-lingo-term" data-lingo-term-id="b8da6df14bf06283cbf588df6998722e">Panel</span>'s height in pixels.
+<p><i></i>
+</p>
+</div>		
+<div id="fixedaspect" style=""><span class="parNameCOMP">Fixed Aspect</span>  <code>fixedaspect</code> - <span class="mw-customtoggle-fixedaspect">⊞</span> - Allows easy creation of panels with a specific aspect set in the Aspect Ratio parameter below. Only requires setting the width or height of the panel and the other dimension is calculated based on the Aspect Ratio parameter.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-fixedaspect">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> -</li></ul><ul><li><span class="parNameCOMP">Use Horizontal</span> <code>horizontal</code> -</li></ul><ul><li><span class="parNameCOMP">Use Vertical</span> <code>vertical</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="aspect" style=""><span class="parNameCOMP">Aspect Ratio</span>  <code>aspect</code> - Specify the ratio when using Fixed Aspect parameter above, the ratio is width/height.
+<p><i></i>
+</p>
+</div>		
+<div id="layer" style=""><span class="parNameCOMP">Depth Layer</span>  <code>layer</code> - Specifies the order the panel components are drawn in, similar to layers in Photoshop. Higher values will be drawn over any other panel with a lower value (that is at the same level of hierarchy). If two panel components have the same Depth Layer value then they are ordered based on the operator's name.
+<p><i></i>
+</p>
+</div>		
+<div id="hmode" style=""><span class="parNameCOMP">Horizontal Mode</span>  <code>hmode</code> - <span class="mw-customtoggle-hmode">⊞</span> - Select one of 3 modes to determine the horizontal width of the panel.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-hmode">
+<ul><li><span class="parNameCOMP">Fixed Width</span> <code>fixed</code> - Uses the Width parameter above to set this panel's width in pixels.</li></ul><ul><li><span class="parNameCOMP">Fill</span> <code>fill</code> - The width of this panel will match (fill) the width of the parent panel.</li></ul><ul><li><span class="parNameCOMP">Anchors</span> <code>anchors</code> - The width of this panel is set by the Left Anchor and Right Anchor parameters below which will maintain a relative width to the parent panel as the parent panel changes size. This allows for stretchy panels. These anchor parameters are normalized 0-1 like uv coordinates where 0 is the left edge and 1 is the right edge of the parent panel. For example, Left Anchor = 0.2 and Right Anchor = 0.8 will maintain the width proportionally to the parent panel such that the left edge is 20% (0.2) in from the left and the right edge is 20% (0.8) in from the right.</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="leftanchor" style=""><span class="parNameCOMP">Left Anchor</span>  <code>leftanchor</code> - Position of the left anchor of the panel with respect to the parent. This value is normalized 0-1, 0 is the left edge of the parent and 1 is the right edge of the parent.
+<p><i></i>
+</p>
+</div>		
+<div id="leftoffset" style=""><span class="parNameCOMP">Left Offset</span>  <code>leftoffset</code> - An offset for the left anchor in pixels.
+<p><i></i>
+</p>
+</div>		
+<div id="rightanchor" style=""><span class="parNameCOMP">Right Anchor</span>  <code>rightanchor</code> - Position of the right anchor of the panel with respect to the parent. This value is normalized 0-1, 0 is the left edge of the parent and 1 is the right edge of the parent.
+<p><i></i>
+</p>
+</div>		
+<div id="rightoffset" style=""><span class="parNameCOMP">Right Offset</span>  <code>rightoffset</code> - An offset for the right anchor in pixels.
+<p><i></i>
+</p>
+</div>		
+<div id="horigin" style=""><span class="parNameCOMP">Horizontal Origin</span>  <code>horigin</code> - Sets the position of the panel's origin horizontally. The default origin (0,0) is the bottom-left corner of the panel.
+<p><i></i>
+</p>
+</div>		
+<div id="hfillweight" style=""><span class="parNameCOMP">Horizontal Fill Weight</span>  <code>hfillweight</code> - When multiple panels are using Horizontal Mode = Fill and being aligned by the parent either Left to Right or Right to Left, this fill weight parameter can be used to bias the fill width of the panels.
+<p><i></i>
+</p>
+</div>		
+<div id="vmode" style=""><span class="parNameCOMP">Vertical Mode</span>  <code>vmode</code> - <span class="mw-customtoggle-vmode">⊞</span> - Select one of 3 modes to determine the vertical height of the panel.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-vmode">
+<ul><li><span class="parNameCOMP">Fixed Height</span> <code>fixed</code> - Uses the Height parameter above to set this panel's height in pixels.</li></ul><ul><li><span class="parNameCOMP">Fill</span> <code>fill</code> - The height of this panel will match (fill) the height of the parent panel.</li></ul><ul><li><span class="parNameCOMP">Anchors</span> <code>anchors</code> - The height of this panel is set by the Bottom Anchor and Top Anchor parameters below which will maintain a relative and proportionally height to the parent panel as the parent panel changes size. This allows for stretchy panels. These anchor parameters are normalized 0-1 like uv coordinates where 0 is the bottom edge and 1 is the top edge of the parent panel. For example, Bottom Anchor = 0.3 and Right Anchor = 0.5 will maintain the height proportionally to the parent panel such that the bottom edge is 30% (0.3) up from the bottom and the top edge is 50% (0.5) down from the top.</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="bottomanchor" style=""><span class="parNameCOMP">Bottom Anchor</span>  <code>bottomanchor</code> - Position of the bottom anchor of the panel with respect to the parent. This value is normalized 0-1, 0 is the bottom edge of the parent and 1 is the top edge of the parent.
+<p><i></i>
+</p>
+</div>		
+<div id="bottomoffset" style=""><span class="parNameCOMP">Bottom Offset</span>  <code>bottomoffset</code> - An offset for the bottom anchor in pixels.
+<p><i></i>
+</p>
+</div>		
+<div id="topanchor" style=""><span class="parNameCOMP">Top Anchor</span>  <code>topanchor</code> - Position of the top anchor of the panel with respect to the parent. This value is normalized 0-1, 0 is the bottom edge of the parent and 1 is the top edge of the parent.
+<p><i></i>
+</p>
+</div>		
+<div id="topoffset" style=""><span class="parNameCOMP">Top Offset</span>  <code>topoffset</code> - An offset for the top anchor in pixels.
+<p><i></i>
+</p>
+</div>		
+<div id="vorigin" style=""><span class="parNameCOMP">Vertical Origin</span>  <code>vorigin</code> - Sets the position of the panel's origin vertically. The default origin (0,0) is the bottom-left corner of the panel.
+<p><i></i>
+</p>
+</div>		
+<div id="vfillweight" style=""><span class="parNameCOMP">Vertical Fill Weight</span>  <code>vfillweight</code> - When multiple panels are using Vertical Mode = Fill and being aligned by the parent either Top to Bottom or Bottom to Top, this fill weight parameter can be used to bias the fill height of the panels.
+<p><i></i>
+</p>
+</div>		
+<div id="alignallow" style=""><span class="parNameCOMP">Parent Alignment</span>  <code>alignallow</code> - <span class="mw-customtoggle-alignallow">⊞</span> - When set to Ignore, the Panel will ignore any Align parameter settings from its parent.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-alignallow">
+<ul><li><span class="parNameCOMP">Allow</span> <code>allow</code> - Aligns the panel based on settings in parent.</li></ul><ul><li><span class="parNameCOMP">Ignore</span> <code>ignore</code> - Does not align the panel but respects margins.</li></ul><ul><li><span class="parNameCOMP">Ignore and Ignore Margins</span> <code>ignoremargin</code> - Does not align the panel and disregards margins.</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="alignorder" style=""><span class="parNameCOMP">Align Order</span>  <code>alignorder</code> - This parameter allows you to specify the align position when its parent's Align parameter is set to something other then <b>None</b> or <b>Match Network Nodes</b>. Lower numbers are first.
+<p><i></i>
+</p>
+</div>		
+<div id="postoffset" style=""><span class="parNameCOMP">Post Offset</span>  <code>postoffset</code> - <span class="mw-customtoggle-postoffset">⊞</span> - Adds an offset after all other postions and alignment options have been applied to the panel.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-postoffset">
+<ul><li><span class="parNameCOMP">X</span> <code>postoffsetx</code> -</li></ul><ul><li><span class="parNameCOMP">Y</span> <code>postoffsety</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="sizefromwindow" style=""><span class="parNameCOMP">Size from <span class="mw-lingo-term" data-lingo-term-id="c89686a387d2b12b3c729ce35a0bcb5b">Window</span></span>  <code>sizefromwindow</code> - When enabled the panel component's width and height are set by resizing its floating viewer window.
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Panel_Page"><div class="sectionBarCOMP">Parameters - Panel Page</div></span></h2>
+<p>The Panel parameter page controls panel attributes such as display on/off, enable on/off, panel help, and interactions with the cursor.
+</p>
+<div id="display" style=""><span class="parNameCOMP">Display</span>  <code>display</code> - Specifies if the panel is displayed or hidden. Changing this parameter may incur some layout processing costs.  For simple cases, such as overlays it is more performant to adjust the opacity parameter instead.
+<p><i></i>
+</p>
+</div>
+<div id="enable" style=""><span class="parNameCOMP">Enable</span>  <code>enable</code> - Allows you to prevent all interaction with this panel.
+<p><i></i>
+</p>
+</div>
+<div id="helpdat" style=""><span class="parNameCOMP">Help <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span></span>  <code>helpdat</code> - Lets you specify the path to a <a href="/Text_DAT" title="Text DAT">Text DAT</a> whose content will be displayed as a rollover pop-up help for the control panel.
+<p><i></i>
+</p>
+</div>
+<div id="cursor" style=""><span class="parNameCOMP">Cursor</span>  <code>cursor</code> - <span class="mw-customtoggle-cursor">⊞</span> - Changes the cursor displayed when cursor is over the panel.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-cursor">
+<ul><li><span class="parNameCOMP">Normal Select</span> <code>pointer</code> -</li></ul><ul><li><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="97e7c9a7d06eac006a28bf05467fcc8b">Link</span> Select</span> <code>linkselect</code> -</li></ul><ul><li><span class="parNameCOMP">Text Select</span> <code>ibeam</code> -</li></ul><ul><li><span class="parNameCOMP">Precision Select</span> <code>cross</code> -</li></ul><ul><li><span class="parNameCOMP">Busy</span> <code>busy</code> -</li></ul><ul><li><span class="parNameCOMP">Activate</span> <code>activate</code> -</li></ul><ul><li><span class="parNameCOMP">Invisible</span> <code>invisible</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="multitouch" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="fa4585cc15e0ee358c1203de8da5593c">Multi-Touch</span></span>  <code>multitouch</code> - <span class="mw-customtoggle-multitouch">⊞</span> - When enabled, this panel will process the first touch it gets in a similar manner to how it processes a mouse click, with updates to u, v, state etc.  The touch event must be initiated from the panel.  Subsequent touches are ignored.  If this panel handles multi-touch events via the <a href="/Multi_Touch_In_DAT" title="Multi Touch In DAT">Multi Touch In DAT</a>, you may want to disable Built-in <span class="mw-lingo-term" data-lingo-term-id="fa4585cc15e0ee358c1203de8da5593c">Multi-Touch</span> so it won't interfere with script processing.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-multitouch">
+<ul><li><span class="parNameCOMP">Use <span class="mw-lingo-term" data-lingo-term-id="30269022e9d8f51beaabb52e5d0de2b7">Parent</span>'s <span class="mw-lingo-term" data-lingo-term-id="fa4585cc15e0ee358c1203de8da5593c">Multi-Touch</span> Settings</span> <code>mtouchparent</code> - Use the parent's <span class="mw-lingo-term" data-lingo-term-id="fa4585cc15e0ee358c1203de8da5593c">Multi-Touch</span> setting. This defaults to enabled in the root component.</li></ul><ul><li><span class="parNameCOMP">Use Built-in <span class="mw-lingo-term" data-lingo-term-id="fa4585cc15e0ee358c1203de8da5593c">Multi-Touch</span></span> <code>mtouchyes</code> - Enable use of first touch as mouse.</li></ul><ul><li><span class="parNameCOMP">Do Not Use Built-in <span class="mw-lingo-term" data-lingo-term-id="fa4585cc15e0ee358c1203de8da5593c">Multi-Touch</span></span> <code>mtouchno</code> - Disable use of first touch as mouse.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="constraincursor" style=""><span class="parNameCOMP">Constrain Cursor</span>  <code>constraincursor</code> - Constrains the cursor to this panel, keeping it inside once it enters.
+<p><i></i>
+</p>
+</div>
+<div id="clickthrough" style=""><span class="parNameCOMP">Click Through</span>  <code>clickthrough</code> - When enabled all mouse clicks are ignored by this <a href="/Panel_Component" title="Panel Component">Panel Component</a>.
+<p><i></i>
+</p>
+</div>
+<div id="mousewheel" style=""><span class="parNameCOMP">Use Mouse Wheel</span>  <code>mousewheel</code> - Turn on to capture events when the mouse wheel is used over the panel.
+<p><i></i>
+</p>
+</div>
+<div id="uvbuttons" style=""><span class="parNameCOMP">Mouse UV Buttons</span>  <code>uvbuttons</code> - <span class="mw-customtoggle-uvbuttons">⊞</span> - Allows you to specify which mouse buttons update the uv <a href="/Panel_Value" title="Panel Value">Panel Values</a>.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-uvbuttons">
+<ul><li><span class="parNameCOMP">Left</span> <code>uvbuttonsleft</code> -</li></ul><ul><li><span class="parNameCOMP">Middle</span> <code>uvbuttonsmiddle</code> -</li></ul><ul><li><span class="parNameCOMP">Right</span> <code>uvbuttonsright</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="mouserel" style=""><span class="parNameCOMP">Relative UV</span>  <code>mouserel</code> - When enabled the uv <a href="/Panel_Value" title="Panel Value">Panel Values</a> will reflect relative mouse movement.
+<p><i></i>
+</p>
+</div>
+<div id="resize" style=""><span class="parNameCOMP">Drag Edges to Resize</span>  <code>resize</code> - <span class="mw-customtoggle-resize">⊞</span> - Four checkboxes allow you to enable resizing a panel by grabbing the corresponding edge or corner: Resize Left, Right, Bottom, Top.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-resize">
+<ul><li><span class="parNameCOMP">L</span> <code>resizel</code> -</li></ul><ul><li><span class="parNameCOMP">R</span> <code>resizer</code> -</li></ul><ul><li><span class="parNameCOMP">B</span> <code>resizeb</code> -</li></ul><ul><li><span class="parNameCOMP">T</span> <code>resizet</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="resizew" style=""><span class="parNameCOMP">W Range</span>  <code>resizew</code> - <span class="mw-customtoggle-resizew">⊞</span> - Limits the left-right (width) resizing range.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-resizew">
+<ul><li><code>resizewmin</code> -</li></ul><ul><li><code>resizewmax</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="resizeh" style=""><span class="parNameCOMP">H Range</span>  <code>resizeh</code> - <span class="mw-customtoggle-resizeh">⊞</span> - Limits the bottom-top (height) resizing range.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-resizeh">
+<ul><li><code>resizehmin</code> -</li></ul><ul><li><code>resizehmax</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="reposition" style=""><span class="parNameCOMP">Drag to Reposition</span>  <code>reposition</code> - <span class="mw-customtoggle-reposition">⊞</span> - Enables repositioning of the panel or window by dragging with the mouse.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-reposition">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> -</li></ul><ul><li><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="c89686a387d2b12b3c729ce35a0bcb5b">Window</span></span> <code>window</code> -</li></ul><ul><li><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span></span> <code>component</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="repocomp" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span></span>  <code>repocomp</code> - Enabled by choosing the <b><span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span></b> option from the Reposition parameter. Specify the path to the panel component you would like to reposition by mouse.
+<p><i></i>
+</p>
+</div>
+<div id="repositionx" style=""><span class="parNameCOMP">X Range</span>  <code>repositionx</code> - <span class="mw-customtoggle-repositionx">⊞</span> - Enabled by choosing the <b><span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span></b> option from the Reposition parameter.  Sets the maximum range for  repositioning the panel component horizontally.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-repositionx">
+<ul><li><code>repositionxmin</code> -</li></ul><ul><li><code>repositionxmax</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="repositiony" style=""><span class="parNameCOMP">Y Range</span>  <code>repositiony</code> - <span class="mw-customtoggle-repositiony">⊞</span> - Enabled by choosing the <b><span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span></b> option from the Reposition parameter.  Sets the maximum range for repositioning the panel component vertically.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-repositiony">
+<ul><li><code>repositionymin</code> -</li></ul><ul><li><code>repositionymax</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="anchordrag" style=""><span class="parNameCOMP">Anchor Drag</span>  <code>anchordrag</code> - <span class="mw-customtoggle-anchordrag">⊞</span> - When Drag To Reposition parameter is set to <span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span>, and the panel's Horizontal Mode and/or Vertical Mode is set to Anchors, this menu determines whether drag-to-reposition actions change Anchor values or Offset values.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-anchordrag">
+<ul><li><span class="parNameCOMP">Anchors</span> <code>anchors</code> - Drag-to-reposition actions change Anchor parameter values</li></ul><ul><li><span class="parNameCOMP">Offsets</span> <code>offsets</code> - Drag-to-reposition actions change Offset parameter values</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="scrolloverlay" style=""><span class="parNameCOMP">Scroll Overlay</span>  <code>scrolloverlay</code> - <span class="mw-customtoggle-scrolloverlay">⊞</span> - Controls whether the panel is affected by scrollbar position. This allows the creation of panel overlays that aren't affected by the panel's scrollbars.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-scrolloverlay">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> - Scrollbar affects panel normally.</li></ul><ul><li><span class="parNameCOMP">Ignore</span> <code>ignore</code> - Panel will not move when scrollbar is moved. Panel depth is determined by Depth Layer parameter normally.</li></ul><ul><li><span class="parNameCOMP">Ignore and Draw Over</span> <code>ignoreover</code> - Panel will not move when scrollbar is moved. Panel is drawn over scrollbars and sibling panels.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Look_Page"><div class="sectionBarCOMP">Parameters - Look Page</div></span></h2>
+<p>The Color parameter page sets the panel's background, border, and disabled colors.
+</p>
+<div id="bgcolor" style=""><span class="parNameCOMP">Background Color</span>  <code>bgcolor</code> - <span class="mw-customtoggle-bgcolor">⊞</span> - RGB values for the background. (default: black (0,0,0))
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-bgcolor">
+<ul><li><span class="parNameCOMP">Red</span> <code>bgcolorr</code> -</li></ul><ul><li><span class="parNameCOMP">Green</span> <code>bgcolorg</code> -</li></ul><ul><li><span class="parNameCOMP">Blue</span> <code>bgcolorb</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="bgalpha" style=""><span class="parNameCOMP">Background Alpha</span>  <code>bgalpha</code> - Set the alpha value for the background.
+<p><i></i>
+</p>
+</div>		
+<div id="top" style=""><span class="parNameCOMP">Background <span class="mw-lingo-term" data-lingo-term-id="6705777b712ee811e76fb07162081d63">TOP</span></span>  <code>top</code> - Allows you to specify a <a href="/TOP" title="TOP">TOP</a> as the background for the panel.
+<p><i></i>
+</p>
+</div>		
+<div id="topfill" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="6705777b712ee811e76fb07162081d63">TOP</span> Fill</span>  <code>topfill</code> - <span class="mw-customtoggle-topfill">⊞</span> - This menu specifies the way the Background <span class="mw-lingo-term" data-lingo-term-id="6705777b712ee811e76fb07162081d63">TOP</span> will fill the panel's background.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-topfill">
+<ul><li><span class="parNameCOMP">Stretch</span> <code>off</code> -</li></ul><ul><li><span class="parNameCOMP">Fill Width</span> <code>horizontal</code> -</li></ul><ul><li><span class="parNameCOMP">Fill Height</span> <code>vertical</code> -</li></ul><ul><li><span class="parNameCOMP">Fill Best</span> <code>best</code> -</li></ul><ul><li><span class="parNameCOMP">Native <span class="mw-lingo-term" data-lingo-term-id="b5a4b64b2aa505bd7c11f79b8a9f458d">Resolution</span></span> <code>native</code> -</li></ul><ul><li><span class="parNameCOMP">Fill Outside</span> <code>outside</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>	
+<div id="topsmoothness" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="6705777b712ee811e76fb07162081d63">TOP</span> Smoothness</span>  <code>topsmoothness</code> - <span class="mw-customtoggle-topsmoothness">⊞</span> - This menu controls background <span class="mw-lingo-term" data-lingo-term-id="6705777b712ee811e76fb07162081d63">TOP</span>'s viewer smoothness settings. In previous builds of TouchDesigner, this was always 'Mipmap Pixels', so old files will load with this setting whereas the default for new Panel <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>'s is 'Interpolate Pixels'.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-topsmoothness">
+<ul><li><span class="parNameCOMP">Nearest Pixel</span> <code>nearest</code> - Uses nearest pixel or accurate image representation. Images will look jaggy when viewing at any zoom level other than Native <span class="mw-lingo-term" data-lingo-term-id="b5a4b64b2aa505bd7c11f79b8a9f458d">Resolution</span>.</li></ul><ul><li><span class="parNameCOMP">Interpolate Pixels</span> <code>linear</code> - Uses linear filtering between pixels. Use this to get <span class="mw-lingo-term" data-lingo-term-id="6705777b712ee811e76fb07162081d63">TOP</span> images in viewers to look good at various zoom levels, especially useful when using any Fill Viewer setting other than Native <span class="mw-lingo-term" data-lingo-term-id="b5a4b64b2aa505bd7c11f79b8a9f458d">Resolution</span>.</li></ul><ul><li><span class="parNameCOMP">Mipmap Pixels</span> <code>mipmap</code> - Uses mipmap filtering when scaling images. This can be used to reduce artifacts and sparkling in moving/scaling images that have lots of detail. When the input is 32-bit float format, only nearest filtering will be used (regardless of what is selected).</li></ul></div>
+<p><i></i>
+</p>
+</div>	
+<div id="bordera" style=""><span class="parNameCOMP">Border A</span>  <code>bordera</code> - <span class="mw-customtoggle-bordera">⊞</span> - RGB values for border A color.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-bordera">
+<ul><li><span class="parNameCOMP">Red</span> <code>borderar</code> -</li></ul><ul><li><span class="parNameCOMP">Green</span> <code>borderag</code> -</li></ul><ul><li><span class="parNameCOMP">Blue</span> <code>borderab</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="borderaalpha" style=""><span class="parNameCOMP">Border A Alpha</span>  <code>borderaalpha</code> - Alpha value for border A color.
+<p><i></i>
+</p>
+</div>		
+<div id="borderb" style=""><span class="parNameCOMP">Border B</span>  <code>borderb</code> - <span class="mw-customtoggle-borderb">⊞</span> - RGBA values for border B color.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-borderb">
+<ul><li><span class="parNameCOMP">Red</span> <code>borderbr</code> -</li></ul><ul><li><span class="parNameCOMP">Green</span> <code>borderbg</code> -</li></ul><ul><li><span class="parNameCOMP">Blue</span> <code>borderbb</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="borderbalpha" style=""><span class="parNameCOMP">Border B Alpha</span>  <code>borderbalpha</code> - Alpha value for border B color.
+<p><i></i>
+</p>
+</div>		
+<div id="leftborder" style=""><span class="parNameCOMP">Left Border</span>  <code>leftborder</code> - What color the 2 left-most pixels are. Options are 0 (no change), Border A (uses color defined in Border A), or Border B (uses color defined in Border B).
+<p><i></i>
+</p>
+</div>		
+<div id="leftborderi" style=""><span class="parNameCOMP">Left Border Inside</span>  <code>leftborderi</code> - Same as above parameter but used for an inside border.
+<p><i></i>
+</p>
+</div>		
+<div id="rightborder" style=""><span class="parNameCOMP">Right Border</span>  <code>rightborder</code> - What color the 2 right-most pixels are. Options are 0 (no change), Border A (uses color defined in Border A), or Border B (uses color defined in Border B).
+<p><i></i>
+</p>
+</div>		
+<div id="rightborderi" style=""><span class="parNameCOMP">Right Border Inside</span>  <code>rightborderi</code> - Same as above parameter but used for an inside border.
+<p><i></i>
+</p>
+</div>		
+<div id="bottomborder" style=""><span class="parNameCOMP">Bottom Border</span>  <code>bottomborder</code> - What color the 2 bottom-most pixels are. Options are 0 (no change), Border A (uses color defined in Border A), or Border B (uses color defined in Border B).
+<p><i></i>
+</p>
+</div>		
+<div id="bottomborderi" style=""><span class="parNameCOMP">Bottom Border Inside</span>  <code>bottomborderi</code> - Same as above parameter but used for an inside border.
+<p><i></i>
+</p>
+</div>		
+<div id="topborder" style=""><span class="parNameCOMP">Top Border</span>  <code>topborder</code> - What color the 2 top-most pixels are. Options are 0 (no change), Border A (uses color defined in Border A), or Border B (uses color defined in Border B).
+<p><i></i>
+</p>
+</div>		
+<div id="topborderi" style=""><span class="parNameCOMP">Top Border Inside</span>  <code>topborderi</code> - Same as above parameter but used for an inside border.
+<p><i></i>
+</p>
+</div>		
+<div id="borderover" style=""><span class="parNameCOMP">Border Over Children</span>  <code>borderover</code> - Draws the panel's borders on top of all children panels.
+<p><i></i>
+</p>
+</div>		
+<div id="dodisablecolor" style=""><span class="parNameCOMP">Disable Color</span>  <code>dodisablecolor</code> - Enable the use of a unique disable color below when the panel's Enable = Off.
+<p><i></i>
+</p>
+</div>		
+<div id="disablecolor" style=""><span class="parNameCOMP">Disable Color</span>  <code>disablecolor</code> - <span class="mw-customtoggle-disablecolor">⊞</span> - RGB values for the disable color. (default: black (0,0,0))
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-disablecolor">
+<ul><li><span class="parNameCOMP">Red</span> <code>disablecolorr</code> -</li></ul><ul><li><span class="parNameCOMP">Green</span> <code>disablecolorg</code> -</li></ul><ul><li><span class="parNameCOMP">Blue</span> <code>disablecolorb</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="disablealpha" style=""><span class="parNameCOMP">Disable Alpha</span>  <code>disablealpha</code> - Set the alpha value for the disable color.
+<p><i></i>
+</p>
+</div>		
+<div id="multrgb" style=""><span class="parNameCOMP">Multiply RGB by Alpha</span>  <code>multrgb</code> - Multiplies the RGB channels by the alpha channel.
+<p><i></i>
+</p>
+</div>		
+<div id="composite" style=""><span class="parNameCOMP">Composite</span>  <code>composite</code> - <span class="mw-customtoggle-composite">⊞</span> - Selects how the panel is composited with its siblings panels. See the <a href="/Composite_TOP" title="Composite TOP">Composite TOP</a> for a description of the various composite methods.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-composite">
+<ul><li><span class="parNameCOMP">Over</span> <code>over</code> -</li></ul><ul><li><span class="parNameCOMP">Under</span> <code>under</code> -</li></ul><ul><li><span class="parNameCOMP">Inside</span> <code>inside</code> -</li></ul><ul><li><span class="parNameCOMP">Outside</span> <code>outside</code> -</li></ul><ul><li><span class="parNameCOMP">Add</span> <code>add</code> -</li></ul><ul><li><span class="parNameCOMP">Subtract</span> <code>subtract</code> -</li></ul><ul><li><span class="parNameCOMP">Multiply</span> <code>multiply</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="opacity" style=""><span class="parNameCOMP">Opacity</span>  <code>opacity</code> - Allows you to control the transparency of the panel.
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Children_Page"><div class="sectionBarCOMP">Parameters - Children Page</div></span></h2>
+<p>The Children parameter page controls aspects of the <span class="mw-lingo-term" data-lingo-term-id="b8da6df14bf06283cbf588df6998722e">Panel</span>'s children alignment, size, and position.
+</p>
+<div id="align" style=""><span class="parNameCOMP">Align</span>  <code>align</code> - <span class="mw-customtoggle-align">⊞</span> - This menu allows you to specify how the children inside the <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span> will be laid out. The options <b><span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span> Grid Rows</b>,  <b><span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span> Grid Columns</b> and <b>Match Network Nodes</b> will scale the <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span>'s children to fit the <span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span>. They use the Align Order of each of the children to determine the ordering of the children.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-align">
+<ul><li><span class="parNameCOMP">None</span> <code>none</code> -</li></ul><ul><li><span class="parNameCOMP">Left to Right</span> <code>horizlr</code> -</li></ul><ul><li><span class="parNameCOMP">Right to Left</span> <code>horizrl</code> -</li></ul><ul><li><span class="parNameCOMP">Top to Bottom</span> <code>verttb</code> -</li></ul><ul><li><span class="parNameCOMP">Bottom to Top</span> <code>vertbt</code> -</li></ul><ul><li><span class="parNameCOMP">Grid Rows</span> <code>gridrows</code> -</li></ul><ul><li><span class="parNameCOMP">Grid Columns</span> <code>gridcols</code> -</li></ul><ul><li><span class="parNameCOMP">Match Network Nodes</span> <code>nodes</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="spacing" style=""><span class="parNameCOMP">Spacing</span>  <code>spacing</code> - This is enabled by choosing any Align option other than <b>None</b> or <b>Match Network Nodes</b>. It defines the space between the children when they are being aligned.
+<p><i></i>
+</p>
+</div>
+<div id="alignmax" style=""><span class="parNameCOMP">Max per Line</span>  <code>alignmax</code> - This is enabled by choosing any Align option other than <b>None</b>, <b><span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span> Grid Horizontal</b>, <b><span class="mw-lingo-term" data-lingo-term-id="ebd9bec4d70abc789d439c1f136b0538">Layout</span> Grid Vertical</b>, or <b>Match Network Nodes</b>, and defines the maximum number of children placed in one row or column.
+<p><i></i>
+</p>
+</div>
+<div id="margin" style=""><span class="parNameCOMP">Margin</span>  <code>margin</code> - <span class="mw-customtoggle-margin">⊞</span> - The four fields allow you to specify the space that surrounds the <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span>. The margin is the space between the <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span>'s border and the outer edge. 	
+<p>The Margin is defined in absolute pixels and does not stretch with the window, as a result margin is not reflected in the node's panel viewer but only when the parent is drawn in a floating window.
+</p>
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-margin">
+<ul><li><span class="parNameCOMP">L</span> <code>marginl</code> -</li></ul><ul><li><span class="parNameCOMP">R</span> <code>marginr</code> -</li></ul><ul><li><span class="parNameCOMP">B</span> <code>marginb</code> -</li></ul><ul><li><span class="parNameCOMP">T</span> <code>margint</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="justifymethod" style=""><span class="parNameCOMP">Justify Mathod</span>  <code>justifymethod</code> - <span class="mw-customtoggle-justifymethod">⊞</span> - This menu specifies if the panel's children are being justified as a group or individually using the Jusitfy Horizontal / Vertical parameters below.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-justifymethod">
+<ul><li><span class="parNameCOMP">individual</span> <code>individual</code> - Align all children individually, separately from each other.</li></ul><ul><li><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="03937134cedab9078be39a77ee3a48a0">Group</span></span> <code>group</code> - Align all children as a group. First group all children into a bounding box, then align that box.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="justifyh" style=""><span class="parNameCOMP">Justify Horizontal</span>  <code>justifyh</code> - <span class="mw-customtoggle-justifyh">⊞</span> - This menu specifies if the panel's children are being justified horizontally.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-justifyh">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> -</li></ul><ul><li><span class="parNameCOMP">Left</span> <code>left</code> -</li></ul><ul><li><span class="parNameCOMP">Center</span> <code>center</code> -</li></ul><ul><li><span class="parNameCOMP">Right</span> <code>right</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="justifyv" style=""><span class="parNameCOMP">Justify Vertical</span>  <code>justifyv</code> - <span class="mw-customtoggle-justifyv">⊞</span> - This menu specifies if the panel's children are being justified vertically.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-justifyv">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> -</li></ul><ul><li><span class="parNameCOMP">Top</span> <code>top</code> -</li></ul><ul><li><span class="parNameCOMP">Center</span> <code>center</code> -</li></ul><ul><li><span class="parNameCOMP">Bottom</span> <code>bottom</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="fit" style=""><span class="parNameCOMP">Fit</span>  <code>fit</code> - <span class="mw-customtoggle-fit">⊞</span> - This menu allows you to scale the panel's children. It overrides the Justify Horizontal and Justify Vertical parameters.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-fit">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> -</li></ul><ul><li><span class="parNameCOMP">Fit Width</span> <code>horizontal</code> -</li></ul><ul><li><span class="parNameCOMP">Fit Height</span> <code>vertical</code> -</li></ul><ul><li><span class="parNameCOMP">Fit Best</span> <code>best</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="scale" style=""><span class="parNameCOMP">Scale</span>  <code>scale</code> - <span class="mw-customtoggle-scale">⊞</span> - Allows you to uniformly scale the <span class="mw-lingo-term" data-lingo-term-id="b8da6df14bf06283cbf588df6998722e">Panel</span>'s children.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-scale">
+<ul><li><span class="parNameCOMP">X</span> <code>scalex</code> -</li></ul><ul><li><span class="parNameCOMP">Y</span> <code>scaley</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="offset" style=""><span class="parNameCOMP">Offset</span>  <code>offset</code> - <span class="mw-customtoggle-offset">⊞</span> - Allows you to offset the <span class="mw-lingo-term" data-lingo-term-id="b8da6df14bf06283cbf588df6998722e">Panel</span>'s children. This parameter is overwritten by the Align, Justify Horizontal, and Justify Vertical parameters above.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-offset">
+<ul><li><span class="parNameCOMP">X</span> <code>offsetx</code> -</li></ul><ul><li><span class="parNameCOMP">Y</span> <code>offsety</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="crop" style=""><span class="parNameCOMP">Crop</span>  <code>crop</code> - <span class="mw-customtoggle-crop">⊞</span> - This menu determines if any children panels which are positioned partially or completely outside the panel component's dimensions get cropped.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-crop">
+<ul><li><span class="parNameCOMP">Off (Use <span class="mw-lingo-term" data-lingo-term-id="30269022e9d8f51beaabb52e5d0de2b7">Parent</span>)</span> <code>off</code> -</li></ul><ul><li><span class="parNameCOMP">On</span> <code>on</code> -</li></ul><ul><li><span class="parNameCOMP">Never</span> <code>never</code> -</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="phscrollbar" style=""><span class="parNameCOMP">Horizontal Scrollbar</span>  <code>phscrollbar</code> - <span class="mw-customtoggle-phscrollbar">⊞</span> - Setting for horizontal scrollbar on this panel.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-phscrollbar">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> - No scrollbar.</li></ul><ul><li><span class="parNameCOMP">On</span> <code>on</code> - Always include scrollbar.</li></ul><ul><li><span class="parNameCOMP">Automatic</span> <code>auto</code> - Include scrollbar only when child width is greater than this panel's width.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="pvscrollbar" style=""><span class="parNameCOMP">Vertical Scrollbar</span>  <code>pvscrollbar</code> - <span class="mw-customtoggle-pvscrollbar">⊞</span> - Setting for vertical scrollbar on this panel.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-pvscrollbar">
+<ul><li><span class="parNameCOMP">Off</span> <code>off</code> - No scrollbar.</li></ul><ul><li><span class="parNameCOMP">On</span> <code>on</code> - Always include scrollbar.</li></ul><ul><li><span class="parNameCOMP">Automatic</span> <code>auto</code> - Include scrollbar only when child height is greater than this panel's height.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="scrollbarthickness" style=""><span class="parNameCOMP">Thickness</span>  <code>scrollbarthickness</code> - Set the thickness of the scrollbars in pixels.
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span id="Parameters_-_Drag.2FDrop_Page"></span><span class="mw-headline" id="Parameters_-_Drag/Drop_Page"><div class="sectionBarCOMP">Parameters - Drag/Drop Page</div></span></h2>
+<p>Please refer to <a href="/Drag-and-Drop" title="Drag-and-Drop">Drag-and-Drop</a> for a full explanation on how Drag and Drop between Panel Components functions.
+</p>
+<div id="drag" style=""><span class="parNameCOMP">When Dragging This</span>  <code>drag</code> - <span class="mw-customtoggle-drag">⊞</span> - Specify if this <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span> can be dragged.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-drag">
+<ul><li><span class="parNameCOMP">Use <span class="mw-lingo-term" data-lingo-term-id="30269022e9d8f51beaabb52e5d0de2b7">Parent</span>'s Drag Settings</span> <code>dragparent</code> - Follow the parent Panel Components Drag setting.</li></ul><ul><li><span class="parNameCOMP">Legacy Drag System</span> <code>legacy</code> - Allow Dragging for this <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span>. Use the Paramters <code>Drag <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span></code>, <code>Drop Destination <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span></code> and <code>Dropped <span class="mw-lingo-term" data-lingo-term-id="e1b3ec89ead7f83a9245ed5c9cacfdbf">Operator</span></code> to control the behaviour.</li></ul><ul><li><span class="parNameCOMP">Do Not Allow Drag</span> <code>dragno</code> - Disallows Dragging for this <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span>.</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="dragscript" style=""><span class="parNameCOMP">Drag <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span></span>  <code>dragscript</code> - Specify a script that will be executed when starting to drag a <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span>. Please refer to the Drag <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span> section of the <a href="/Drag-and-Drop#Drag_Scripts" title="Drag-and-Drop">Drag and Drop</a> page.
+<p><i></i>
+</p>
+</div>		
+<div id="dropdestscript" style=""><span class="parNameCOMP">Drop Destination <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span></span>  <code>dropdestscript</code> - Specify a script that will be executed when the dragged <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span> is dropped. A temporary network is created and the component (or the alternative operator specified in Dropped <span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span>) is copied to this network. You can add or modify operators in this network. Please refer to the Drop Destination <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span> section of the <a href="/Drag-and-Drop#Drop_Destination_Scripts" title="Drag-and-Drop">Drag and Drop</a> page.
+<p><i></i>
+</p>
+</div>		
+<div id="droptypescript" style=""><span class="parNameCOMP">Drop Types</span>  <code>droptypescript</code> - If a drop destination script is specified, you can also add a <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> table with a list of return types that the drop destination script will provide. Return types can be one of the op types (<span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>,<span class="mw-lingo-term" data-lingo-term-id="6705777b712ee811e76fb07162081d63">TOP</span>,<span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>,<span class="mw-lingo-term" data-lingo-term-id="28a7e2d07553a70b039bb585895e0bf0">SOP</span>,<span class="mw-lingo-term" data-lingo-term-id="f0c2c0ca864067cc6e21a7ea2c1b1fdd">MAT</span>,<span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>), channel, or supported filetypes. Please refer to the Drop Types section of the <a href="/Drag-and-Drop#Drop_Types" title="Drag-and-Drop">Drag and Drop</a> page.
+<p><i></i>
+</p>
+</div>		
+<div id="paneldragop" style=""><span class="parNameCOMP">Dropped <span class="mw-lingo-term" data-lingo-term-id="e1b3ec89ead7f83a9245ed5c9cacfdbf">Operator</span></span>  <code>paneldragop</code> - The Dropped <span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span> parameter is the easiest way to specify an alternative operator to drop. Note that this alternative operator must exist, otherwise the component itself will be dropped. The alternative is only used when dropping onto a network or control panel. Text pasted via dragging and dropping, or files saved via dropping onto the desktop, will still use the original.
+<p><i></i>
+</p>
+</div>		
+<div id="drop" style=""><span class="parNameCOMP">On Dropping Into</span>  <code>drop</code> - <span class="mw-customtoggle-drop">⊞</span> - Specify if this <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span> accepts items that are dropped onto it.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-drop">
+<ul><li><span class="parNameCOMP">Use <span class="mw-lingo-term" data-lingo-term-id="30269022e9d8f51beaabb52e5d0de2b7">Parent</span>'s Drop Settings</span> <code>dropparent</code> - Follow the parent Panel Components Drop setting.</li></ul><ul><li><span class="parNameCOMP">Legacy Drop System</span> <code>legacy</code> - Allow Dropping onto this <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span>. Use the Paramter <code>Drop <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span></code> to control the behaviour.</li></ul><ul><li><span class="parNameCOMP">Do Not Allow Drop</span> <code>dropno</code> - Disallows Dropping onto this <span class="mw-lingo-term" data-lingo-term-id="54375290e8f0cb635cdd8babfd96ab1f">Panel Component</span>.</li></ul></div>
+<p><i></i>
+</p>
+</div>		
+<div id="dropscript" style=""><span class="parNameCOMP">Drop <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span></span>  <code>dropscript</code> - A component's Drop <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span> is run when you drop another component or an external file into that component. Please refer to the Drop Scripts - Text section of the <a href="/Drag-and-Drop#Drop_Scripts_-_Text" title="Drag-and-Drop">Drag and Drop</a> page.
+<p>Alternatively specify a <span class="mw-lingo-term" data-lingo-term-id="15689bbbb7608a8a3d44a96f4cf46e4b">Table DAT</span> in the drop script field. TouchDesigner will automatically look for 2 columns in the table. The first column should indicate the data type and the second should indicate the Text <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> that holds the script to process that data type. Please refer to the Drop <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span> - Tables section of the <a href="/Drag-and-Drop#Drop_Script_-_Tables" title="Drag-and-Drop">Drag and Drop</a> page.
+<i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Extensions_Page"><div class="sectionBarCOMP">Parameters - <span class="mw-lingo-term" data-lingo-term-id="5e2f5f3c24ae8c6ab3eca618826b0e23">Extensions</span> Page</div></span></h2>
+<p>The <span class="mw-lingo-term" data-lingo-term-id="5e2f5f3c24ae8c6ab3eca618826b0e23">Extensions</span> parameter page sets the component's python extensions.  Please see <a href="/Extensions" title="Extensions">extensions</a> for more information.
+</p>
+<div id="ext" style="" class="sequenceBlock"><span class="parNameCOMP">Extension</span>  <code>ext</code> - Sequence of info for creating extensions on this component
+<div class="sequenceItem">
+<div id="ext0object" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="497031794414a552435f90151ac3b54b">Object</span></span>  <code>ext0object</code> - A number of class instances that can be attached to the component.
+<p><i></i>
+</p>
+</div>    
+<div id="ext0name" style=""><span class="parNameCOMP">Name</span>  <code>ext0name</code> - Optional name to search by, instead of the instance class name.
+<p><i></i>
+</p>
+</div>
+<div id="ext0promote" style=""><span class="parNameCOMP">Promote</span>  <code>ext0promote</code> - Controls whether or not the extensions are visible directly at the component level, or must be accessed through the <code>.ext</code> member.  Example:  <code>n.Somefunction</code> vs <code>n.ext.Somefunction</code>
+<p><i></i>
+</p>
+</div>
+</div>
+</div>
+<div id="reinitextensions" style=""><span class="parNameCOMP">Re-Init <span class="mw-lingo-term" data-lingo-term-id="5e2f5f3c24ae8c6ab3eca618826b0e23">Extensions</span></span>  <code>reinitextensions</code> - Recompile all extension objects. Normally extension objects are compiled only when they are referenced and their definitions have changed.
+<p><i></i>
+</p>
+</div>
+<p><br></p>
+<h2><span class="mw-headline" id="Parameters_-_Common_Page"><div class="sectionBarCOMP">Parameters - Common Page</div></span></h2>
+<p>The Common parameter page sets the component's <a href="/Node_Viewer" title="Node Viewer">node viewer</a> and <a href="/Clone" title="Clone">clone</a> relationships.
+</p>
+<div id="parentshortcut" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="98b55baa723b7158c2ad741a9f2339b8">Parent Shortcut</span></span>  <code>parentshortcut</code> - Specifies a name you can use anywhere inside the component as the path to that component. See <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcut</a>.
+<p><i></i>
+</p>
+</div>
+<div id="opshortcut" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="127c8e2bf0b36c9d6a86d99b969d563a">Global OP Shortcut</span></span>  <code>opshortcut</code> - Specifies a name you can use anywhere at all as the path to that component. See <a href="/Global_OP_Shortcut" title="Global OP Shortcut">Global OP Shortcut</a>.
+<p><i></i>
+</p>
+</div>
+<div id="iop" style="" class="sequenceBlock"><span class="parNameCOMP">Internal <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></span>  <code>iop</code> - Sequence header for internal operators.
+<div class="sequenceItem">
+<div id="iop0shortcut" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span></span>  <code>iop0shortcut</code> - Specifies a name you can use anywhere inside the component as a path to "Internal <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>" below. See <a href="/Internal_Operators" title="Internal Operators">Internal Operators</a>.
+<p><i></i>
+</p>
+</div>
+<div id="iop0op" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></span>  <code>iop0op</code> - The path to the Internal OP inside this component. See <a href="/Internal_Operators" title="Internal Operators">Internal Operators</a>.
+<p><i></i>
+</p>
+</div>
+</div>
+</div>
+<div id="nodeview" style=""><span class="parNameCOMP">Node View</span>  <code>nodeview</code> - <span class="mw-customtoggle-nodeview">⊞</span> - Determines what is displayed in the node viewer, also known as the <a href="/Node_Viewer" title="Node Viewer">Node Viewer</a>. Some options will not be available depending on the <span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span> type (<a href="/Object_Component" title="Object Component">Object Component</a>, <a href="/Panel_Component" title="Panel Component">Panel Component</a>, Misc.)
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-nodeview">
+<ul><li><span class="parNameCOMP">Default <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span></span> <code>default</code> - Displays the default viewer for the component type, a 3D Viewer for Object COMPS and a <span class="mw-lingo-term" data-lingo-term-id="39f6796e665f9c1cace476535ba6e5bb">Control Panel</span> Viewer for Panel COMPs.</li></ul><ul><li><span class="parNameCOMP">Operator <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span></span> <code>opviewer</code> - Displays the node viewer from any operator specified in the Operator Viewer parameter below.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<div id="opviewer" style=""><span class="parNameCOMP">Operator <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span></span>  <code>opviewer</code> - Select which operator's node viewer to use when the Node View parameter above is set to Operator <span class="mw-lingo-term" data-lingo-term-id="fb15c53f22336982a182b84aeb2f42eb">Viewer</span>.
+<p><i></i>
+</p>
+</div>
+<div id="keepmemory" style=""><span class="parNameCOMP">Keep in Memory</span>  <code>keepmemory</code> -
+<p><i></i>
+</p>
+</div>
+<div id="enablecloning" style=""><span class="parNameCOMP">Enable Cloning</span>  <code>enablecloning</code> - Control if the OP should be actively cloneing. Turning this off causes this node to stop cloning it's '<span class="mw-lingo-term" data-lingo-term-id="ff24590464659ee8cdec688128c35f89">Clone</span> Master'.
+<p><i></i>
+</p>
+</div>
+<div id="enablecloningpulse" style=""><span class="parNameCOMP">Enable Cloning <span class="mw-lingo-term" data-lingo-term-id="ec8374db32bacb4cd9760199ec42819e">Pulse</span></span>  <code>enablecloningpulse</code> - Instantaneously clone the contents.
+<p><i></i>
+</p>
+</div>
+<div id="clone" style=""><span class="parNameCOMP"><span class="mw-lingo-term" data-lingo-term-id="ff24590464659ee8cdec688128c35f89">Clone</span> Master</span>  <code>clone</code> - <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> to a component used as the Master <a href="/Clone" title="Clone">Clone</a>.
+<p><i></i>
+</p>
+</div>
+<div id="loadondemand" style=""><span class="parNameCOMP">Load on Demand</span>  <code>loadondemand</code> - Loads the component into memory only when required. Good to use for components that are not always used in the project.
+<p><i></i>
+</p>
+</div>
+<div id="enableexternaltox" style=""><span class="parNameCOMP">Enable External <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></span>  <code>enableexternaltox</code> - When on (default), the external <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> file will be loaded when the <span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span> starts and the contents of the <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> will match that of the external <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span>. This can be turned off to avoid loading from the referenced external <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> on startup if desired (the contents of the <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> are instead loaded from the <span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span> file). Useful if you wish to have a <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> reference an external <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> but not always load from it unless you specifically push the Re-Init Network parameter button.
+<p><i></i>
+</p>
+</div>
+<div id="enableexternaltoxpulse" style=""><span class="parNameCOMP">Enable External <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> <span class="mw-lingo-term" data-lingo-term-id="ec8374db32bacb4cd9760199ec42819e">Pulse</span></span>  <code>enableexternaltoxpulse</code> - This button will re-load from the external <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file (if present).
+<p><i></i>
+</p>
+</div>
+<div id="externaltox" style=""><span class="parNameCOMP">External <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span></span>  <code>externaltox</code> - <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> to a <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file on disk which will source the component's contents upon start of a <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code>. This allows for components to contain networks that can be updated independently. If the <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file can not be found, whatever the <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code> file was saved with will be loaded.
+<p><i></i>
+</p>
+</div>
+<div id="reloadcustom" style=""><span class="parNameCOMP">Reload Custom Parameters</span>  <code>reloadcustom</code> - When this checkbox is enabled, the values of the component's <a href="/Custom_Parameters" title="Custom Parameters">Custom Parameters</a> are reloaded when the <a href="/.tox" title=".tox">.tox</a> is reloaded. This only affects top-level parameters on the component, all parameters on nodes inside the component are always reloaded with the <a href="/.tox" title=".tox">.tox</a>.
+<p><i></i>
+</p>
+</div>
+<div id="reloadbuiltin" style=""><span class="parNameCOMP">Reload Built-In Parameters</span>  <code>reloadbuiltin</code> - When this checkbox is enabled, the values of the component's built-in parameters are reloaded when the <a href="/.tox" title=".tox">.tox</a> is reloaded. This only affects top-level parameters on the component, all parameters on nodes inside the component are always reloaded with the <a href="/.tox" title=".tox">.tox</a>.
+<p><i></i>
+</p>
+</div>
+<div id="savebackup" style=""><span class="parNameCOMP">Save Backup of External</span>  <code>savebackup</code> - When this checkbox is enabled, a backup copy of the component specified by the External <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> parameter is saved in the <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code> file.  This backup copy will be used if the External <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> can not be found. This may happen if the <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> was renamed, deleted, or the <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code> file is running on another computer that is missing component media.
+<p><i></i>
+</p>
+</div>
+<div id="subcompname" style=""><span class="parNameCOMP">Sub-<span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span> to Load</span>  <code>subcompname</code> - When loading from an External <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file, this option allows you to reach into the <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> and pull out a <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> and make that the top-level <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>, ignoring everything else in the file (except for the contents of that <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>). For example if a <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file named <code>project1<span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> contains <code>project1/geo1</code>, putting <code>geo1</code> as the Sub-<span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span> to Load, will result in <code>geo1</code> being loaded in place of the current <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>. If this parameter is blank, it just loads the <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> file normally using the top level <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> in the file.
+<p><i></i>
+</p>
+</div>
+<div id="relpath" style=""><span class="parNameCOMP">Relative File <span class="mw-lingo-term" data-lingo-term-id="ac70412e939d72a9234cdebb1af5867b">Path</span> Behavior</span>  <code>relpath</code> - <span class="mw-customtoggle-relpath">⊞</span> - Set whether the child file paths within this <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> are relative to the <span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span> itself or the <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span>, or inherit from parent.
+<div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-relpath">
+<ul><li><span class="parNameCOMP">Use <span class="mw-lingo-term" data-lingo-term-id="30269022e9d8f51beaabb52e5d0de2b7">Parent</span>'s Behavior</span> <code>inherit</code> - Inherit setting from parent.</li></ul><ul><li><span class="parNameCOMP">Relative to Project File (<span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span>)</span> <code>project</code> - The path, when specified as a relative path, will be relative to the <span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span> file.</li></ul><ul><li><span class="parNameCOMP">Relative to External <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> File (<span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span>)</span> <code>externaltox</code> - The path, when specified as a relative path, will be relative to the <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> file. When no external <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> file is specified, or when Enable External <span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span> is not toggled on, this doesn't have any impact.</li></ul></div>
+<p><i></i>
+</p>
+</div>
+<p><br></p><p><br></p>
+<h2><span class="mw-headline" id="Info_CHOP_Channels"><div class="sectionBarCOMP">Info <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span> Channels</div></span></h2>
+<p>Extra Information for the OP Viewer <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> can be accessed via an <a href="/Info_CHOP" title="Info CHOP">Info CHOP</a>.
+</p>
+<h3><span class="mw-headline" id="Specific_OP_Viewer_COMP_Info_Channels"><div class="customBar">Specific OP Viewer <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> Info Channels</div></span></h3>
+<ul><li><span class="parName">select</span> -</li></ul><ul><li><span class="parName">lselect</span> -</li></ul><ul><li><span class="parName">mselect</span> -</li></ul><ul><li><span class="parName">rselect</span> -</li></ul><ul><li><span class="parName">reposition</span> -</li></ul><ul><li><span class="parName">resize</span> -</li></ul><ul><li><span class="parName">dragout</span> -</li></ul><ul><li><span class="parName">ldragout</span> -</li></ul><ul><li><span class="parName">mdragout</span> -</li></ul><ul><li><span class="parName">rdragout</span> -</li></ul><ul><li><span class="parName">ctrl</span> -</li></ul><ul><li><span class="parName">alt</span> -</li></ul><ul><li><span class="parName">shift</span> -</li></ul><ul><li><span class="parName">cmd</span> -</li></ul><ul><li><span class="parName">u</span> -</li></ul><ul><li><span class="parName">v</span> -</li></ul><ul><li><span class="parName">trueu</span> -</li></ul><ul><li><span class="parName">truev</span> -</li></ul><ul><li><span class="parName">rollu</span> -</li></ul><ul><li><span class="parName">rollv</span> -</li></ul><ul><li><span class="parName">dragrollu</span> -</li></ul><ul><li><span class="parName">dragrollv</span> -</li></ul><ul><li><span class="parName">dragrollover</span> -</li></ul><ul><li><span class="parName">rollover</span> -</li></ul><ul><li><span class="parName">inside</span> -</li></ul><ul><li><span class="parName">insideu</span> -</li></ul><ul><li><span class="parName">insidev</span> -</li></ul><ul><li><span class="parName">radio</span> -</li></ul><ul><li><span class="parName">lradio</span> -</li></ul><ul><li><span class="parName">mradio</span> -</li></ul><ul><li><span class="parName">rradio</span> -</li></ul><ul><li><span class="parName">radioname</span> -</li></ul><ul><li><span class="parName">lradioname</span> -</li></ul><ul><li><span class="parName">mradioname</span> -</li></ul><ul><li><span class="parName">rradioname</span> -</li></ul><ul><li><span class="parName">children</span> -</li></ul><ul><li><span class="parName">display</span> -</li></ul><ul><li><span class="parName">enable</span> -</li></ul><ul><li><span class="parName">key</span> -</li></ul><ul><li><span class="parName">character</span> -</li></ul><ul><li><span class="parName">focusselect</span> -</li></ul><ul><li><span class="parName">click</span> -</li></ul><ul><li><span class="parName">winopen</span> -</li></ul><ul><li><span class="parName">wheel</span> -</li></ul><ul><li><span class="parName">drag</span> -</li></ul><ul><li><span class="parName">drop</span> -</li></ul><ul><li><span class="parName">screenw</span> -</li></ul><ul><li><span class="parName">screenh</span> -</li></ul><ul><li><span class="parName">screenwm</span> -</li></ul><ul><li><span class="parName">screenhm</span> -</li></ul><h3><span class="mw-headline" id="Common_COMP_Info_Channels"><div class="customBar">Common <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> Info Channels</div></span></h3>
+<ul><li><span class="parName">num_children</span> - Number of children in this component.</li></ul><h3><span class="mw-headline" id="Common_Operator_Info_Channels"><div class="customBar">Common Operator Info Channels</div></span></h3>
+<ul><li><span class="parName">total_cooks</span> - Number of times the operator has cooked since the process started.</li></ul><ul><li><span class="parName">cook_time</span> - Duration of the last cook in milliseconds.</li></ul><ul><li><span class="parName">cook_frame</span> - Frame number when this operator was last cooked relative to the component timeline.</li></ul><ul><li><span class="parName">cook_abs_frame</span> - Frame number when this operator was last cooked relative to the absolute time.</li></ul><ul><li><span class="parName">cook_start_time</span> - Time in milliseconds at which the operator started cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cook_end_time</span> - Time in milliseconds at which the operator finished cooking in the frame it was cooked.</li></ul><ul><li><span class="parName">cooked_this_frame</span> - 1 if operator was cooked this frame.</li></ul><ul><li><span class="parName">warnings</span> - Number of warnings in this operator if any.</li></ul><ul><li><span class="parName">errors</span> - Number of errors in this operator if any.</li></ul><p><br></p><p><br></p>
+<table><tbody><tr><th class="navBox">COMPs
+</th></tr><tr><td><span class="catList navigation-not-searchable"><a href="/Actor_COMP" title="Actor COMP">Actor  </a></span>• <span class="catList navigation-not-searchable"><a href="/Ambient_Light_COMP" title="Ambient Light COMP">Ambient Light  </a></span>• <span class="catList navigation-not-searchable"><a href="/Animation_COMP" title="Animation COMP">Animation  </a></span>• <span class="catList navigation-not-searchable"><a href="/Annotate_COMP" title="Annotate COMP">Annotate  </a></span>• <span class="catList navigation-not-searchable"><a href="/Base_COMP" title="Base COMP">Base  </a></span>• <span class="catList navigation-not-searchable"><a href="/Blend_COMP" title="Blend COMP">Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Bone_COMP" title="Bone COMP">Bone  </a></span>• <span class="catList navigation-not-searchable"><a href="/Bullet_Solver_COMP" title="Bullet Solver COMP">Bullet Solver  </a></span>• <span class="catList navigation-not-searchable"><a href="/Button_COMP" title="Button COMP">Button  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Button_COMP" title="Experimental:Button COMP">Experimental:Button  </a></span>• <span class="catList navigation-not-searchable"><a href="/Camera_Blend_COMP" title="Camera Blend COMP">Camera Blend  </a></span>• <span class="catList navigation-not-searchable"><a href="/Camera_COMP" title="Camera COMP">Camera  </a></span>• <span class="catList navigation-not-searchable"><a href="/MediaWiki:Common.js" title="MediaWiki:Common.js">MediaWiki:Common.js </a></span>• <span class="catList navigation-not-searchable"><a href="/Component" title="Component">Component </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Component" title="Experimental:Component">Experimental:Component </a></span>• <span class="catList navigation-not-searchable"><a href="/Constraint_COMP" title="Constraint COMP">Constraint  </a></span>• <span class="catList navigation-not-searchable"><a href="/Container_COMP" title="Container COMP">Container  </a></span>• <span class="catList navigation-not-searchable"><a href="/Engine_COMP" title="Engine COMP">Engine  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Engine_COMP" title="Experimental:Engine COMP">Experimental:Engine  </a></span>• <span class="catList navigation-not-searchable"><a href="/Environment_Light_COMP" title="Environment Light COMP">Environment Light  </a></span>• <span class="catList navigation-not-searchable"><a href="/FBX_COMP" title="FBX COMP">FBX  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:FBX_COMP" title="Experimental:FBX COMP">Experimental:FBX  </a></span>• <span class="catList navigation-not-searchable"><a href="/Field_COMP" title="Field COMP">Field  </a></span>• <span class="catList navigation-not-searchable"><a href="/Force_COMP" title="Force COMP">Force  </a></span>• <span class="catList navigation-not-searchable"><a href="/Geo_Text_COMP" title="Geo Text COMP">Geo Text  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Geo_Text_COMP" title="Experimental:Geo Text COMP">Experimental:Geo Text  </a></span>• <span class="catList navigation-not-searchable"><a href="/Geometry_COMP" title="Geometry COMP">Geometry  </a></span>• <span class="catList navigation-not-searchable"><a href="/GLSL_COMP" title="GLSL COMP">GLSL  </a></span>• <span class="catList navigation-not-searchable"><a href="/Handle_COMP" title="Handle COMP">Handle  </a></span>• <span class="catList navigation-not-searchable"><a href="/Impulse_Force_COMP" title="Impulse Force COMP">Impulse Force  </a></span>• <span class="catList navigation-not-searchable"><a href="/Light_COMP" title="Light COMP">Light  </a></span>• <span class="catList navigation-not-searchable"><a href="/List_COMP" title="List COMP">List  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:List_COMP" title="Experimental:List COMP">Experimental:List  </a></span>• <span class="catList navigation-not-searchable"><a href="/Null_COMP" title="Null COMP">Null  </a></span>• <span class="catList navigation-not-searchable"><a href="/NVIDIA_Flex_Solver_COMP" title="NVIDIA Flex Solver COMP">NVIDIA Flex Solver  </a></span>• <span class="catList navigation-not-searchable"><a href="/NVIDIA_Flow_Emitter_COMP" title="NVIDIA Flow Emitter COMP">NVIDIA Flow Emitter  </a></span>• <span class="catList navigation-not-searchable"><a class="mw-selflink selflink">OP Viewer  </a></span>• <span class="catList navigation-not-searchable"><a href="/Parameter_COMP" title="Parameter COMP">Parameter  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Parameter_COMP" title="Experimental:Parameter COMP">Experimental:Parameter  </a></span>• <span class="catList navigation-not-searchable"><a href="/Replicator_COMP" title="Replicator COMP">Replicator  </a></span>• <span class="catList navigation-not-searchable"><a href="/Select_COMP" title="Select COMP">Select  </a></span>• <span class="catList navigation-not-searchable"><a href="/Shared_Mem_In_COMP" title="Shared Mem In COMP">Shared Mem In  </a></span>• <span class="catList navigation-not-searchable"><a href="/Shared_Mem_Out_COMP" title="Shared Mem Out COMP">Shared Mem Out  </a></span>• <span class="catList navigation-not-searchable"><a href="/Slider_COMP" title="Slider COMP">Slider  </a></span>• <span class="catList navigation-not-searchable"><a href="/Table_COMP" title="Table COMP">Table  </a></span>• <span class="catList navigation-not-searchable"><a href="/Text_COMP" title="Text COMP">Text  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Text_COMP" title="Experimental:Text COMP">Experimental:Text  </a></span>• <span class="catList navigation-not-searchable"><a href="/Time_COMP" title="Time COMP">Time  </a></span>• <span class="catList navigation-not-searchable"><a href="/USD_COMP" title="USD COMP">USD  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:USD_COMP" title="Experimental:USD COMP">Experimental:USD  </a></span>• <span class="catList navigation-not-searchable"><a href="/Widget_COMP" title="Widget COMP">Widget  </a></span>• <span class="catList navigation-not-searchable"><a href="/Window_COMP" title="Window COMP">Window  </a></span>• <span class="catList navigation-not-searchable"><a href="/Experimental:Window_COMP" title="Experimental:Window COMP">Experimental:Window  </a></span>
+</td></tr></tbody></table></div><div class="mw-lingo-tooltip" id="2cb05e4bb7830be982f0922fed86b4cd"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that contains its own <a href="/Network" title="Network">Network</a>. There are sixteen 3D <a href="/Object_Component" title="Object Component">Object Component</a> and ten 2D <a href="/Panel_Component" title="Panel Component">Panel Component</a> types. See also <a href="/Network_Path" title="Network Path">Network Path</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="8b9d2cce2836537aabe6f2e0dd5da293"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> which operate on <a href="/Channel" title="Channel">Channels</a> (a sequence of numbers (<a href="/Sample" title="Sample">Samples</a>)) which are used for animation, audio, mathematics, simulation, logic, UI construction, and data streamed from/to devices and protocols.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="fb15c53f22336982a182b84aeb2f42eb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The viewer of a node can be (1) the interior of a node (the <a href="/Node_Viewer" title="Node Viewer">Node Viewer</a>), (2) a floating window (RMB-&gt;View... on node), or (3) a <a href="/Pane" title="Pane">Pane</a> that graphically shows the results of an operator.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="28a7e2d07553a70b039bb585895e0bf0"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A <a href="/Operator_Family" title="Operator Family">Operator Family</a> that reads, creates and modifies 3D points, polygons, lines, particles, surfaces, spheres and meatballs. Particles and point clouds are now done primarily on the GPU using TOPs.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ac70412e939d72a9234cdebb1af5867b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The location of an operator within the TouchDesigner environment, for example, <code>/geo1/circle1</code>, a node called <code>circle1</code> in a component called <code>geo1</code>. The path <code>/</code> is called <a href="/Root" title="Root">Root</a>. This path is displayed at the top of every <a href="/Pane" title="Pane">Pane</a>, showing which Component's network you are currently in. To refer instead to a filesystem folder, directory, disk file or <code>http:</code> address, see <a href="/Folder" title="Folder">Folder</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="6705777b712ee811e76fb07162081d63"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that creates, composites and modifies images, and reads/writes images and movies to/from files and the network. TOPs run on the graphics card's GPU.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ebd9bec4d70abc789d439c1f136b0538"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>(1) The TouchDesigner window is made of a menu bar at the top, a <a href="/Timeline" title="Timeline">Timeline</a> at the bottom, plus one of a choice of Layouts in the middle. A Layout is made on one or more Panes, each Pane can contain a Network Editor, Viewer, Panel, etc. See <a href="/Pane" title="Pane">Pane</a> and <a href="/Bookmark" title="Bookmark">Bookmark</a>. (2) Nodes in a network are arranged using Layout commands in the RMB menu.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="b8da6df14bf06283cbf588df6998722e"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A custom interactive control panel built within TouchDesigner. Panels are created using <a href="/Panel_Component" title="Panel Component">Panel Components</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="c89686a387d2b12b3c729ce35a0bcb5b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Window in TouchDesigner is a window in Microsoft Windows or macOS that contains either (1) the TouchDesigner editing interface that exists in <a href="/Designer_Mode" title="Designer Mode">Designer Mode</a>, or (2) a user-created <a href="/Panel" title="Panel">Panel</a> inside a <a href="/Window_COMP" title="Window COMP">Window Component</a>. The user-created windows can span <a href="/Multiple_Monitors" title="Multiple Monitors">Multiple Monitors</a> borderless, or be floating windows with borders, or popups.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="cc2bcf28d9ffc17fcbf169f3325607bb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that manipulates text strings: multi-line text or tables. Multi-line text is often a python <a href="/Script" title="Script">Script</a> or <a href="/GLSL" title="GLSL">GLSL</a> Shader, but can be any multi-line text. <a href="/Table_DAT" title="Table DAT">Tables</a> are rows and columns of cells, each containing a text string.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="97e7c9a7d06eac006a28bf05467fcc8b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A <a href="/Link" title="Link">Link</a>. The grey dashed lines between nodes is a Reference or Link that indicates one operator is getting data from another operator from any <a href="/Operator_Family" title="Operator Family">Operator Family</a>.
+</p>
+</div></div><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Link or Reference is a dashed line between nodes that represent other data flowing between nodes. Examples are CHOP <a href="/Export" title="Export">Exports</a>, node <a href="/Network_Path" title="Network Path">Paths</a> in parameters, and <a href="/Expression" title="Expression">expressions</a> in parameters referencing CHOP channels, DAT tables and other nodes. In contrast is a <a href="/Wire" title="Wire">Wire</a> that connects nodes in the same <a href="/Operator_Family" title="Operator Family">Operator Family</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="fa4585cc15e0ee358c1203de8da5593c"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Display devices in TouchDesigner that support multiple-finger or control-point input.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="30269022e9d8f51beaabb52e5d0de2b7"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>There are 2 kinds of parenting. The "parent component" is the component in which a node resides. The metaphor is extended to include grand parents, grand-grand parents, etc. The root <code>/</code> is the ultimate parent to all nodes. See also <a href="/3D_Parenting" title="3D Parenting">3D Parenting</a> and panel <a href="/Parent" title="Parent">Parenting</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="b5a4b64b2aa505bd7c11f79b8a9f458d"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The width and height of an image in pixels. Most TOPs, like the <a href="/Movie_File_In_TOP" title="Movie File In TOP">Movie File In TOP</a> can set the image resolution. See <a href="/TOP_Generator_Common_Page" title="TOP Generator Common Page">Aspect Ratio</a> for the width/height ratio of an image, taking into account non-square pixels.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="85a1cdddc59cb89e6297acc2f2fc1755"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that contains its own <a href="/Network" title="Network">Network</a>. There are sixteen 3D <a href="/Object_Component" title="Object Component">Object Component</a> and ten 2D <a href="/Panel_Component" title="Panel Component">Panel Component</a> types. See also <a href="/Network_Path" title="Network Path">Network Path</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="54375290e8f0cb635cdd8babfd96ab1f"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The sub-<a href="/Operator_Family" title="Operator Family">Family</a> of <a href="/Component" title="Component">Components</a> that are used to create custom interactive 2D control <a href="/Panel" title="Panel">panels</a> (Container, Widget, Text COMP Slider, Button, etc.).
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="03937134cedab9078be39a77ee3a48a0"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Group in POPs and SOPs is a named subset of points or primitives. It is created with the <a href="/Group_POP" title="Group POP">Group POP</a> or Group SOP. Numerous operations in POPs and SOPs (using a Group parameter) can be restricted to affect the points or primitives in selected groups, and not affect others.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="f907e651164789346ae0a1e257c462d8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A set of commands located in a Text DAT that are triggered to run under certain conditions. There are two scripting languages in TouchDesigner: <a href="/Python" title="Python">Python</a> and the original <a href="/Tscript" title="Tscript">Tscript</a>. Scripts and single-line commands can also be run in the <a href="/Textport" title="Textport">Textport</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="e1b3ec89ead7f83a9245ed5c9cacfdbf"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any of the procedural data operators. OPs do all the work in TouchDesigner. They "cook" and output data to other OPs, which ultimately result in new images, data and audio being generated. See <a href="/Node" title="Node">Node</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="f0c2c0ca864067cc6e21a7ea2c1b1fdd"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>MATs or Materials are an <a href="/Operator_Family" title="Operator Family">Operator Family</a> that applies a <a href="/Shader" title="Shader">Shader</a> to a SOP or 3D Geometry Object for rendering textured surfaces with lighting.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="15689bbbb7608a8a3d44a96f4cf46e4b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A form of <a href="/DAT" title="DAT">DATs</a> (Data Operators) that is structured as rows and columns of text strings.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="5e2f5f3c24ae8c6ab3eca618826b0e23"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any component can be extended with its own Python classes which contain python functions and data.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="497031794414a552435f90151ac3b54b"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The sub-<a href="/Operator_Family" title="Operator Family">Family</a> of <a href="/Component" title="Component">Component</a> types that are used to define and render 3D scenes. A <a href="/Geometry_COMP" title="Geometry COMP">Geometry Component</a> is an Object that contains the 3D shapes to render. A <a href="/Camera_COMP" title="Camera COMP">Camera COMP</a> and <a href="/Light_COMP" title="Light COMP">Light COMP</a> are other Object types. Separately, "Objects" also refers to Python objects.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="98b55baa723b7158c2ad741a9f2339b8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Parent Shortcut is a parameter on a component that contains a name that you can use anywhere inside the component to refer to that component using the syntax <code>parent.Name</code>, for example <code>parent.Effect.width</code> to obtain panel width.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="127c8e2bf0b36c9d6a86d99b969d563a"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A name for a component that is accessible from any node in a project, which can be declared in a component's Global Operator Shortcut parameter.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="7457cdd15d09bfc6c4dbb5d2b6f87390"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any of the procedural data operators. OPs do all the work in TouchDesigner. They "cook" and output data to other OPs, which ultimately result in new images, data and audio being generated. See <a href="/Node" title="Node">Node</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="756210d98ce28018652ca05e1dcaaf3e"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Operator shortcuts are Python objects that return operators (or sometimes parameters). These include <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcuts</a> for accessing a component from within that component, and <a href="/Global_OP_Shortcut" title="Global OP Shortcut">Global OP Shortcuts</a> that access a unique component from anywhere in TouchDesigner.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="39f6796e665f9c1cace476535ba6e5bb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A custom interactive control panel built within TouchDesigner. Panels are created using <a href="/Panel_Component" title="Panel Component">Panel Components</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ff24590464659ee8cdec688128c35f89"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Cloning makes multiple components match the contents of a master component. A <a href="/Component" title="Component">Component</a> whose Clone parameter is set will be forced to contain the same nodes, wiring and parameters as its master component. Cloning does not create new components as does the <a href="/Replicator_COMP" title="Replicator COMP">Replicator COMP</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="ec8374db32bacb4cd9760199ec42819e"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>To "pulse" a parameter is to send it a signal from (1) an <a href="/Export" title="Export">exported</a> CHOP channel or (2) a python command or (3) a mouse click that causes a new action to occur immediately. A pulse via python is via the <code>.pulse()</code> function on a pulse-type parameter, such as Reset parameter in a <a href="/Speed_CHOP" title="Speed CHOP">Speed CHOP</a>. A pulse from a CHOP is typically a 0 to 1 to 0 signal in an exported channel.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="c93d2a89e225ded900ca3779a6856086"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TouchDesigner Component file, the file type used to save a <a href="/Component" title="Component">Component</a> of your TouchDesigner project.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="76746356f2d9fd021f01bc051bb2114f"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TOuch Environment file, the file type used by TouchDesigner to save your entire project.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250815012823
+Cache expiry: 60
+Reduced expiry: true
+Complications: [show‐toc]
+CPU time usage: 0.444 seconds
+Real time usage: 0.864 seconds
+Preprocessor visited node count: 9832/1000000
+Post‐expand include size: 264957/2097152 bytes
+Template argument size: 131071/2097152 bytes
+Highest expansion depth: 11/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+Lua time usage: 0.480/5 seconds
+Lua virtual size: 9310208/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  754.319      1 -total
+ 83.92%  633.014      1 Template:COMPNavBox
+ 82.60%  623.085     53 Template:CatList
+ 10.67%   80.466      8 Template:ParameterPage
+  9.46%   71.353    121 Template:Parameter
+  2.51%   18.906    131 Template:ParameterItem
+  2.44%   18.439      1 COMP_Look_Page
+  2.31%   17.442      1 COMP_Panel_Page
+  2.22%   16.763      1 COMP_Children_Page
+  2.06%   15.521      1 COMP_Layout_Page
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:95-0!canonical and timestamp 20250815012822 and revision id 30704.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=OP_Viewer_COMP&amp;oldid=30704">https://docs.derivative.ca/index.php?title=OP_Viewer_COMP&amp;oldid=30704</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/index.php?title=Category:COMPs&amp;action=edit&amp;redlink=1" class="new" title="Category:COMPs (page does not exist)">COMPs</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=OP+Viewer+COMP" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/OP_Viewer_COMP" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:OP_Viewer_COMP&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="new mw-list-item"><a href="/index.php?title=Experimental:OP_Viewer_COMP&amp;action=edit&amp;redlink=1" title=" (page does not exist)"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/OP_Viewer_COMP"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=OP_Viewer_COMP&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/OP_Viewer_COMP" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/OP_Viewer_COMP" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=OP_Viewer_COMP&amp;oldid=30704" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=OP_Viewer_COMP&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=OP_Viewer_COMP&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 2 January 2024, at 07:38.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.444","walltime":"0.864","ppvisitednodes":{"value":9832,"limit":1000000},"postexpandincludesize":{"value":264957,"limit":2097152},"templateargumentsize":{"value":131071,"limit":2097152},"expansiondepth":{"value":11,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%  754.319      1 -total"," 83.92%  633.014      1 Template:COMPNavBox"," 82.60%  623.085     53 Template:CatList"," 10.67%   80.466      8 Template:ParameterPage","  9.46%   71.353    121 Template:Parameter","  2.51%   18.906    131 Template:ParameterItem","  2.44%   18.439      1 COMP_Look_Page","  2.31%   17.442      1 COMP_Panel_Page","  2.22%   16.763      1 COMP_Children_Page","  2.06%   15.521      1 COMP_Layout_Page"]},"scribunto":{"limitreport-timeusage":{"value":"0.480","limit":"5"},"limitreport-virtmemusage":{"value":9310208,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250815012823","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":1073});});</script>
+</body>
+</html>

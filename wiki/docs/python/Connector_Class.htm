@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Connector Class - Derivative</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5e561430f2d0c0ffa4628e1a","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Connector_Class","wgTitle":"Connector Class","wgCurRevisionId":26687,"wgRevisionId":26687,"wgArticleId":996,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Python Reference"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"Connector_Class","wgRelevantArticleId":996,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCargoDefaultQueryLimit":100,
+"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/extensions/PageForms","edgValues":[],
+"wgPageFormsEDSettings":null,"wgAmericanDates":false,"wgVector2022PreviewPages":[]};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.UiTag","ext.Lingo","site","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cext.pygments%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=Python.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="Connector Class"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/Connector_Class"/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:modified_time" content="2022-05-23T19:35:30Z"/>
+<meta property="article:published_time" content="2022-05-23T19:35:30Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"Connector Class - Derivative","headline":"Connector Class - Derivative","mainEntityOfPage":"<span class=\"mw-page-title-main\">Connector Class<\/span>","identifier":"https:\/\/docs.derivative.ca\/Connector_Class","url":"https:\/\/docs.derivative.ca\/Connector_Class","dateModified":"2022-05-23T19:35:30Z","datePublished":"2022-05-23T19:35:30Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Connector_Class rootpage-Connector_Class skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Connector Class</span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><p>The <span class="mw-lingo-term" data-lingo-term-id="edf21d7ecb364e8210ddd3dfaeca6fbf">Connector</span> class describes the input or output connection point of an <a href="/OP_Class#Connection" title="OP Class">operator</a>.  There are two types of connections:  those between Components, and those between regular operators.
+Connections between regular operators can be accessed through the <a href="/OP_Class#Connection" title="OP Class">OP.inputConnectors</a> and <a href="/OP_Class#Connection" title="OP Class">OP.outputConnectors</a> members. These are the connectors on the left and right sides of <a href="/Operator" title="Operator">Operators</a>.
+Connections between components can be accessed through the <a href="/COMP_Class#Connection" title="COMP Class">COMP.inputCOMPConnectors</a> and <a href="/COMP_Class" title="COMP Class">COMP.outputCOMPConnectors</a> members. These are the connectors on the top and bottom of <a href="/Component" title="Component">Component</a> operators
+</p><p><br></p>
+<h2><span class="mw-headline" id="Members">Members</span></h2>
+<div id="index" style="display:inline;"></div><p><code class="python">index</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The numeric index of this connector.</p></blockquote>
+<div id="isInput" style="display:inline;"></div><p><code class="python">isInput</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True when the connector is an input.</p></blockquote>
+<div id="isOutput" style="display:inline;"></div><p><code class="python">isOutput</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True when the connector is an output.</p></blockquote>
+<div id="inOP" style="display:inline;"></div><p><code class="python">inOP</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>Will return any input operators (e.g. <a href="/InSOP_Class" title="InSOP Class">inSOP</a>, <a href="/InCHOP_Class" title="InCHOP Class">inCHOP</a>) associated with this connector.  This only applies to regular operator connections attached to components.</p></blockquote>
+<div id="outOP" style="display:inline;"></div><p><code class="python">outOP</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>Will return any output operators (e.g. <a href="/OutSOP_Class" title="OutSOP Class">outSOP</a>, <a href="/OutCHOP_Class" title="OutCHOP Class">outCHOP</a>) associated with this connector.  This only applies to regular operator connections attached to components.</p></blockquote>
+<div id="owner" style="display:inline;"></div><p><code class="python">owner</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>The <a href="/OP_Class" title="OP Class">OP</a> to which this object belongs.</p></blockquote>
+<div id="connections" style="display:inline;"></div><p><code class="python">connections</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The list of <a class="mw-selflink selflink">connector objects</a> connected to this object.</p></blockquote>
+<div id="description" style="display:inline;"></div><p><code class="python">description</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>A description for this connection. Example: 'Color Image'.</p></blockquote>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<div id="connect" style="display:inline;"></div><p><code class="python">connect(target)</code>→ <code class="return">None</code>:
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="8d0be41ab58751f3fe6fb5aa87b0e794">Wire</span> this connector to a target location. The target may be an <a href="/OP_Class" title="OP Class">operator</a> or another connector.
+</p><p>When the connector is an input, its connection is replaced with the target.
+When the connector is an output, a new connection is appended to the target.
+</p>
+<ul><li>target - The OP or connector you want to connect to.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># connect noise1 to lag1</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'noise1'</span><span class="p">)</span><span class="o">.</span><span class="n">outputConnectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">op</span><span class="p">(</span><span class="s1">'lag1'</span><span class="p">))</span>
+
+<span class="c1"># connect choptotop1 to 2nd input of displace1</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'choptotop1'</span><span class="p">)</span><span class="o">.</span><span class="n">outputConnectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">op</span><span class="p">(</span><span class="s1">'displace1'</span><span class="p">)</span><span class="o">.</span><span class="n">inputConnectors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># connect geo1 to geo2, two equivalent methods:</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'geo1'</span><span class="p">)</span><span class="o">.</span><span class="n">outputCOMPConnectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">op</span><span class="p">(</span><span class="s1">'geo2'</span><span class="p">))</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'geo2'</span><span class="p">)</span><span class="o">.</span><span class="n">inputCOMPConnectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">op</span><span class="p">(</span><span class="s1">'geo1'</span><span class="p">))</span>
+</pre></div></blockquote>
+<div id="disconnect" style="display:inline;"></div><p><code class="python">disconnect()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Disconnect this connector.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'lag1'</span><span class="p">)</span><span class="o">.</span><span class="n">inputConnectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'lag1'</span><span class="p">)</span><span class="o">.</span><span class="n">outputConnectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+
+<span class="c1"># disconnect geo2 from geo1, two equivalent methods</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'geo1'</span><span class="p">)</span><span class="o">.</span><span class="n">outputCOMPConnectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'geo2'</span><span class="p">)</span><span class="o">.</span><span class="n">inputCOMPConnectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</pre></div></blockquote>
+<p>TouchDesigner Build: <select onchange="location=this.value;"><option value="https://docs.derivative.ca/Connector_Class">Latest</option>\n<option value="https://docs.derivative.ca/Connector_Class?oldid=26687">2022.24140</option><option value="https://docs.derivative.ca/Connector_Class?oldid=13537">2021.10000</option><option value="https://docs.derivative.ca/Connector_Class?oldid=23407">2018.28070</option><option value="https://docs.derivative.ca/Connector_Class?oldid=13536">before 2018.28070</option></select></p></div><div class="mw-lingo-tooltip" id="edf21d7ecb364e8210ddd3dfaeca6fbf"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The notches on the left and right of each <a href="/Node" title="Node">Node</a> that let you <a href="/Wire" title="Wire">Wire</a> the output of one <a href="/Operator" title="Operator">Operator</a> to the input of another of the same <a href="/Operator" title="Operator">Operator Family</a>. The notches on the top and bottom of <a href="/Object" title="Object">3D Object Components</a> and <a href="/Panel_Component" title="Panel Component">Panel Components</a> that tie the components of each sub-<a href="/Operator_Family" title="Operator Family">Family</a> in a <a href="/Hierarchy" title="Hierarchy">Hierarchy</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="7457cdd15d09bfc6c4dbb5d2b6f87390"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any of the procedural data operators. OPs do all the work in TouchDesigner. They "cook" and output data to other OPs, which ultimately result in new images, data and audio being generated. See <a href="/Node" title="Node">Node</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="8d0be41ab58751f3fe6fb5aa87b0e794"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The connection of an output of one node to the input of another node in a network. In contrast, see <a href="/Link" title="Link">Link</a>.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250701113945
+Cache expiry: 60
+Reduced expiry: true
+Complications: []
+CPU time usage: 0.040 seconds
+Real time usage: 0.073 seconds
+Preprocessor visited node count: 353/1000000
+Post‐expand include size: 9587/2097152 bytes
+Template argument size: 4807/2097152 bytes
+Highest expansion depth: 7/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4330/5000000 bytes
+Lua time usage: 0.020/5 seconds
+Lua virtual size: 8736768/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   12.210      1 -total
+ 39.68%    4.845      1 Template:ClassMemberSection
+ 27.87%    3.403      1 Template:ClassMethodSection
+ 24.55%    2.998      8 Template:ClassMember
+ 16.28%    1.988      2 Template:ClassMethod
+ 15.91%    1.942      1 Template:TDClassSummary
+ 14.03%    1.713      1 Template:History
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:996-0!canonical and timestamp 20250701113945 and revision id 26687.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=Connector_Class&amp;oldid=26687">https://docs.derivative.ca/index.php?title=Connector_Class&amp;oldid=26687</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/Category:Python_Reference" title="Category:Python Reference">Python Reference</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=Connector+Class" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/Connector_Class" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:Connector_Class&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="new mw-list-item"><a href="/index.php?title=Experimental:Connector_Class&amp;action=edit&amp;redlink=1" title=" (page does not exist)"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/Connector_Class"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=Connector_Class&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/Connector_Class" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/Connector_Class" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=Connector_Class&amp;oldid=26687" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=Connector_Class&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=Connector_Class&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 23 May 2022, at 14:35.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.040","walltime":"0.073","ppvisitednodes":{"value":353,"limit":1000000},"postexpandincludesize":{"value":9587,"limit":2097152},"templateargumentsize":{"value":4807,"limit":2097152},"expansiondepth":{"value":7,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4330,"limit":5000000},"timingprofile":["100.00%   12.210      1 -total"," 39.68%    4.845      1 Template:ClassMemberSection"," 27.87%    3.403      1 Template:ClassMethodSection"," 24.55%    2.998      8 Template:ClassMember"," 16.28%    1.988      2 Template:ClassMethod"," 15.91%    1.942      1 Template:TDClassSummary"," 14.03%    1.713      1 Template:History"]},"scribunto":{"limitreport-timeusage":{"value":"0.020","limit":"5"},"limitreport-virtmemusage":{"value":8736768,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250701113945","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":109});});</script>
+</body>
+<!-- Cached 20250701113945 -->
+</html>

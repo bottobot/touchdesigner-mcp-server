@@ -3,7 +3,7 @@
   "displayName": "Quaternion Class",
   "description": "Holds a Quaternion object which can be used to manipulate rotations in various ways. Quaternions can be constructed using a few different ways to describe the initial rotation:",
   "category": "General",
-  "fileName": "Quaternion_Class.htm",
+  "fileName": "quaternion_Class.htm",
   "members": [
     {
       "name": "x",

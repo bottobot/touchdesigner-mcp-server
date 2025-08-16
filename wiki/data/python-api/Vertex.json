@@ -20,5 +20,6 @@
       "description": "index member"
     }
   ],
-  "methods": []
+  "methods": [],
+  "enhanced": true
 }

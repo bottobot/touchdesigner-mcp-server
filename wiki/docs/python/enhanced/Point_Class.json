@@ -1,0 +1,15 @@
+{
+  "file": "Point_Class.htm",
+  "className": "Point",
+  "methods": [
+    {
+      "name": "destroy",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "destroy()"
+    }
+  ],
+  "methodCount": 1,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.419Z"
+}

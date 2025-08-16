@@ -20,5 +20,22 @@
       "description": "owner member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "create",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "Any"
+        },
+        {
+          "name": "default",
+          "type": "Any"
+        }
+      ],
+      "returns": "Attribute :",
+      "signature": "create(name, default)"
+    }
+  ],
+  "enhanced": true
 }

@@ -1,9 +1,83 @@
 {
   "className": "MOD",
-  "displayName": "MOD Class",
-  "description": "The MOD class provides access to Module On Demand object, which allows DATs to be dynamically imported as modules.  It can be accessed with the mod object, found in the automatically imported td module.  Alternatively, one can use the regular python statement: import.\nUse of the import statement is limited to modules in the search path, where as the mod format allows complete statements in one line, which is more useful for entering expressions.  Also note that DAT modules cannot be organized into packages as regular file system based python modules can be.",
-  "category": "General",
-  "fileName": "MOD_Class.htm",
-  "members": [],
-  "methods": []
+  "displayName": "MOD",
+  "description": "The MOD class provides access to TouchDesigner module functionality, allowing you to work with Python modules and extensions within TouchDesigner.",
+  "url": "https://docs.derivative.ca/MOD_Class",
+  "members": [
+    {
+      "name": "name",
+      "description": "The name of the module",
+      "readonly": false
+    },
+    {
+      "name": "path",
+      "description": "The file path of the module",
+      "readonly": false
+    },
+    {
+      "name": "time_loaded",
+      "description": "Timestamp when the module was loaded",
+      "readonly": false
+    },
+    {
+      "name": "is_loaded",
+      "description": "Boolean indicating if the module is currently loaded",
+      "readonly": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "reload",
+      "description": "Reload the module from disk",
+      "signature": "reload()",
+      "returns": "None"
+    },
+    {
+      "name": "unload",
+      "description": "Unload the module from memory",
+      "signature": "unload()",
+      "returns": "None"
+    },
+    {
+      "name": "get_function",
+      "description": "Get a function from the module by name",
+      "signature": "get_function(name)",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "str",
+          "description": "Name of the function to retrieve"
+        }
+      ],
+      "returns": "function or None"
+    },
+    {
+      "name": "get_class",
+      "description": "Get a class from the module by name",
+      "signature": "get_class(name)",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "str",
+          "description": "Name of the class to retrieve"
+        }
+      ],
+      "returns": "class or None"
+    },
+    {
+      "name": "execute",
+      "description": "Execute Python code within the module's namespace",
+      "signature": "execute(code)",
+      "parameters": [
+        {
+          "name": "code",
+          "type": "str",
+          "description": "Python code to execute"
+        }
+      ],
+      "returns": "Any"
+    }
+  ],
+  "examples": [],
+  "source": "stub"
 }

@@ -1,0 +1,46 @@
+{
+  "file": "Prim_Class.htm",
+  "className": "Prim",
+  "methods": [
+    {
+      "name": "destroy",
+      "parameters": [
+        {
+          "name": "destroyPoints=True",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "destroy(destroyPoints=True)"
+    },
+    {
+      "name": "eval",
+      "parameters": [
+        {
+          "name": "u",
+          "type": "Any"
+        },
+        {
+          "name": "v",
+          "type": "Any"
+        }
+      ],
+      "returns": "TDU.Position :",
+      "signature": "eval(u, v)"
+    },
+    {
+      "name": "len",
+      "parameters": [
+        {
+          "name": "Prim",
+          "type": "Any"
+        }
+      ],
+      "returns": "int :",
+      "signature": "len(Prim)"
+    }
+  ],
+  "methodCount": 3,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.422Z"
+}

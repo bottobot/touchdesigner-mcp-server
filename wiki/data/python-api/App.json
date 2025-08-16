@@ -20,5 +20,59 @@
       "description": "applicationsFolder member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "addNonCommercialLimit",
+      "parameters": [
+        {
+          "name": "password=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "addNonCommercialLimit(password=None)"
+    },
+    {
+      "name": "removeNonCommercialLimit",
+      "parameters": [
+        {
+          "name": "password=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "removeNonCommercialLimit(password=None)"
+    },
+    {
+      "name": "addResolutionLimit",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "Any"
+        },
+        {
+          "name": "y",
+          "type": "Any"
+        },
+        {
+          "name": "password=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "addResolutionLimit(x, y, password=None)"
+    },
+    {
+      "name": "removeResolutionLimit",
+      "parameters": [
+        {
+          "name": "password=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "removeResolutionLimit(password=None)"
+    }
+  ],
+  "enhanced": true
 }

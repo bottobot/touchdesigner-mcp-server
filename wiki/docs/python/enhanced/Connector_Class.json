@@ -1,0 +1,26 @@
+{
+  "file": "Connector_Class.htm",
+  "className": "Connector",
+  "methods": [
+    {
+      "name": "connect",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "connect(target)"
+    },
+    {
+      "name": "disconnect",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "disconnect()"
+    }
+  ],
+  "methodCount": 2,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.319Z"
+}

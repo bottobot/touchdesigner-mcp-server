@@ -1,0 +1,26 @@
+{
+  "file": "Attribute_Class.htm",
+  "className": "Attribute",
+  "methods": [
+    {
+      "name": "destroy",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "destroy()"
+    },
+    {
+      "name": "vals",
+      "parameters": [
+        {
+          "name": "delayed=False",
+          "type": "Any"
+        }
+      ],
+      "returns": "list :",
+      "signature": "vals(delayed=False)"
+    }
+  ],
+  "methodCount": 2,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.291Z"
+}

@@ -1,0 +1,76 @@
+{
+  "name": "MOD",
+  "description": "The MOD class provides access to TouchDesigner module functionality, allowing you to work with Python modules and extensions within TouchDesigner.",
+  "members": [
+    {
+      "name": "name",
+      "description": "The name of the module"
+    },
+    {
+      "name": "path",
+      "description": "The file path of the module"
+    },
+    {
+      "name": "time_loaded",
+      "description": "Timestamp when the module was loaded"
+    },
+    {
+      "name": "is_loaded",
+      "description": "Boolean indicating if the module is currently loaded"
+    }
+  ],
+  "methods": [
+    {
+      "name": "reload",
+      "signature": "reload()",
+      "description": "Reload the module from disk",
+      "returns": "None"
+    },
+    {
+      "name": "unload",
+      "signature": "unload()",
+      "description": "Unload the module from memory",
+      "returns": "None"
+    },
+    {
+      "name": "get_function",
+      "signature": "get_function(name)",
+      "description": "Get a function from the module by name",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "str",
+          "description": "Name of the function to retrieve"
+        }
+      ],
+      "returns": "function or None"
+    },
+    {
+      "name": "get_class",
+      "signature": "get_class(name)",
+      "description": "Get a class from the module by name",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "str",
+          "description": "Name of the class to retrieve"
+        }
+      ],
+      "returns": "class or None"
+    },
+    {
+      "name": "execute",
+      "signature": "execute(code)",
+      "description": "Execute Python code within the module's namespace",
+      "parameters": [
+        {
+          "name": "code",
+          "type": "str",
+          "description": "Python code to execute"
+        }
+      ],
+      "returns": "Any"
+    }
+  ],
+  "url": "https://docs.derivative.ca/MOD_Class"
+}

@@ -1,0 +1,890 @@
+{
+  "name": "OP",
+  "description": "The OP class is the base class for all TouchDesigner operators, providing core functionality for operator manipulation and interaction.",
+  "members": [
+    {
+      "name": "valid",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "bool",
+      "type": "Property",
+      "description": "valid →  (Read Only):"
+    },
+    {
+      "name": "id",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "int",
+      "type": "Property",
+      "description": "id →  (Read Only):"
+    },
+    {
+      "name": "name",
+      "type": "Property",
+      "description": "→ str :"
+    },
+    {
+      "name": "str",
+      "type": "Property",
+      "description": "name →  :"
+    },
+    {
+      "name": "path",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "digits",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "base",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "passive",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "curPar",
+      "type": "Property",
+      "description": "→ td.Par (Read Only):"
+    },
+    {
+      "name": "curBlock",
+      "type": "Property",
+      "description": "→  (Read Only):"
+    },
+    {
+      "name": "curSeq",
+      "type": "Property",
+      "description": "→ Sequence (Read Only):"
+    },
+    {
+      "name": "Sequence",
+      "type": "Property",
+      "description": "curSeq →  (Read Only):"
+    },
+    {
+      "name": "time",
+      "type": "Property",
+      "description": "→ OP (Read Only):"
+    },
+    {
+      "name": "OP",
+      "type": "Property",
+      "description": "time →  (Read Only):"
+    },
+    {
+      "name": "ext",
+      "type": "Property",
+      "description": "→ class (Read Only):"
+    },
+    {
+      "name": "class",
+      "type": "Property",
+      "description": "ext →  (Read Only):"
+    },
+    {
+      "name": "fileFolder",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "filePath",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "mod",
+      "type": "Property",
+      "description": "→ mod (Read Only):"
+    },
+    {
+      "name": "pages",
+      "type": "Property",
+      "description": "→ list (Read Only):"
+    },
+    {
+      "name": "list",
+      "type": "Property",
+      "description": "pages →  (Read Only):"
+    },
+    {
+      "name": "parGroup",
+      "type": "Property",
+      "description": "→ tuple (Read Only):"
+    },
+    {
+      "name": "tuple",
+      "type": "Property",
+      "description": "parGroup →  (Read Only):"
+    },
+    {
+      "name": "par",
+      "type": "Property",
+      "description": "→ td.Par (Read Only):"
+    },
+    {
+      "name": "builtinPars",
+      "type": "Property",
+      "description": "→ list or par (Read Only):"
+    },
+    {
+      "name": "customParGroups",
+      "type": "Property",
+      "description": "→ list of parGroups (Read Only):"
+    },
+    {
+      "name": "customPars",
+      "type": "Property",
+      "description": "→ list of par (Read Only):"
+    },
+    {
+      "name": "customPages",
+      "type": "Property",
+      "description": "→ list (Read Only):"
+    },
+    {
+      "name": "replicator",
+      "type": "Property",
+      "description": "→ OP or None (Read Only):"
+    },
+    {
+      "name": "storage",
+      "type": "Property",
+      "description": "→ dict (Read Only):"
+    },
+    {
+      "name": "dict",
+      "type": "Property",
+      "description": "storage →  (Read Only):"
+    },
+    {
+      "name": "tags",
+      "type": "Property",
+      "description": "→ list :"
+    },
+    {
+      "name": "children",
+      "type": "Property",
+      "description": "→ list (Read Only):"
+    },
+    {
+      "name": "numChildren",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "numChildrenRecursive",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "op",
+      "type": "Property",
+      "description": "→ OP or None (Read Only):"
+    },
+    {
+      "name": "pattern",
+      "type": "Property",
+      "description": "The operator finder object, for accessing operators through paths or shortcuts. Note: a version of this method that searches relative to '/' is also in the global td module."
+    },
+    {
+      "name": "includeUtility",
+      "type": "Property",
+      "description": "The operator finder object, for accessing operators through paths or shortcuts. Note: a version of this method that searches relative to '/' is also in the global td module."
+    },
+    {
+      "name": "shortcut",
+      "type": "Property",
+      "description": "The operator finder object, for accessing operators through paths or s. Note: a version of this method that searches relative to '/' is also in the global td module."
+    },
+    {
+      "name": "opex",
+      "type": "Property",
+      "description": "→ OP (Read Only):"
+    },
+    {
+      "name": "parent",
+      "type": "Property",
+      "description": "→ Shortcut (Read Only):"
+    },
+    {
+      "name": "Shortcut",
+      "type": "Property",
+      "description": "parent →  (Read Only):"
+    },
+    {
+      "name": "iop",
+      "type": "Property",
+      "description": "→ OP (Read Only):"
+    },
+    {
+      "name": "ipar",
+      "type": "Property",
+      "description": "→ ParCollection (Read Only):"
+    },
+    {
+      "name": "ParCollection",
+      "type": "Property",
+      "description": "ipar →  (Read Only):"
+    },
+    {
+      "name": "currentPage",
+      "type": "Property",
+      "description": "→ Page :"
+    },
+    {
+      "name": "Page",
+      "type": "Property",
+      "description": "current → Page :"
+    },
+    {
+      "name": "activeViewer",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "allowCooking",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "bypass",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "cloneImmune",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "current",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "display",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "expose",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "lock",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "selected",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "seq",
+      "type": "Property",
+      "description": "→  (Read Only):"
+    },
+    {
+      "name": "python",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "render",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "showCustomOnly",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "showDocked",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "viewer",
+      "type": "Property",
+      "description": "→ bool :"
+    },
+    {
+      "name": "color",
+      "type": "Property",
+      "description": "→ tuple(r, g, b) :"
+    },
+    {
+      "name": "comment",
+      "type": "Property",
+      "description": "→ str :"
+    },
+    {
+      "name": "nodeHeight",
+      "type": "Property",
+      "description": "→ int :"
+    },
+    {
+      "name": "nodeWidth",
+      "type": "Property",
+      "description": "→ int :"
+    },
+    {
+      "name": "nodeX",
+      "type": "Property",
+      "description": "→ int :"
+    },
+    {
+      "name": "nodeY",
+      "type": "Property",
+      "description": "→ int :"
+    },
+    {
+      "name": "nodeCenterX",
+      "type": "Property",
+      "description": "→ int :"
+    },
+    {
+      "name": "nodeCenterY",
+      "type": "Property",
+      "description": "→ int :"
+    },
+    {
+      "name": "dock",
+      "type": "Property",
+      "description": "→ OP :"
+    },
+    {
+      "name": "docked",
+      "type": "Property",
+      "description": "→ list (Read Only):"
+    },
+    {
+      "name": "inputs",
+      "type": "Property",
+      "description": "→ list (Read Only):"
+    },
+    {
+      "name": "outputs",
+      "type": "Property",
+      "description": "→ list (Read Only):"
+    },
+    {
+      "name": "inputConnectors",
+      "type": "Property",
+      "description": "→ list (Read Only):"
+    },
+    {
+      "name": "outputConnectors",
+      "type": "Property",
+      "description": "→ list (Read Only):"
+    },
+    {
+      "name": "cookFrame",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "float",
+      "type": "Property",
+      "description": "cookFrame →  (Read Only):"
+    },
+    {
+      "name": "cookTime",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "cpuCookTime",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "cookAbsFrame",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "cookStartTime",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "cookEndTime",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "cookedThisFrame",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "cookedPreviousFrame",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "childrenCookTime",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "childrenCPUCookTime",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "childrenCookAbsFrame",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "childrenCPUCookAbsFrame",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "gpuCookTime",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "childrenGPUCookTime",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "childrenGPUCookAbsFrame",
+      "type": "Property",
+      "description": "→ float (Read Only):"
+    },
+    {
+      "name": "totalCooks",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "cpuMemory",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "gpuMemory",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "type",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "subType",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "OPType",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "label",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "icon",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "family",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "isFilter",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "minInputs",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "maxInputs",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "isMultiInputs",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "visibleLevel",
+      "type": "Property",
+      "description": "→ int (Read Only):"
+    },
+    {
+      "name": "isBase",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "isCHOP",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "isCOMP",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "isDAT",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "isMAT",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "isObject",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "isPanel",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "isSOP",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "isTOP",
+      "type": "Property",
+      "description": "→ bool (Read Only):"
+    },
+    {
+      "name": "licenseType",
+      "type": "Property",
+      "description": "→ str (Read Only):"
+    },
+    {
+      "name": "None",
+      "type": "Property",
+      "description": "cook(force=False, recurse=False, includeUtility=False)→ :"
+    },
+    {
+      "name": "value",
+      "type": "Property",
+      "description": "evalExpression(str)→ :"
+    }
+  ],
+  "methods": [
+    {
+      "name": "tags = ['effect', 'image filter']",
+      "signature": "n.tags = ['effect', 'image filter']",
+      "description": "Get or set a set of user defined strings. Tags can be searched using OP.findChildren() and the OP Find DAT."
+    },
+    {
+      "name": "op",
+      "signature": "op(pattern1, pattern2..., includeUtility=False)",
+      "description": "The operator finder object, for accessing operators through paths or shortcuts. Note: a version of this method that searches relative to '/' is also in the global td module."
+    },
+    {
+      "name": "b = op",
+      "signature": "b = op('project1')",
+      "description": "The operator finder object, for accessing operators through paths or shortcuts. Note: a version of this method that searches relative to '/' is also in the global td module."
+    },
+    {
+      "name": "for x in op:",
+      "signature": "for x in op:",
+      "description": "The operator finder object, for accessing operators through paths or shortcuts. Note: a version of this method that searches relative to '/' is also in the global td module."
+    },
+    {
+      "name": "parent",
+      "signature": "parent(n)",
+      "description": "The Parent Shortcut object, for accessing parent components through indices or shortcuts."
+    },
+    {
+      "name": "p = parent",
+      "signature": "p = parent(2) #grandfather",
+      "description": "The Parent Shortcut object, for accessing parent components through indices or shortcuts."
+    },
+    {
+      "name": "tuple",
+      "signature": "tuple(r, g, b)",
+      "description": "color →  :"
+    },
+    {
+      "name": "create",
+      "signature": "create()",
+      "description": "NOTE: , copy() and copyOPs() is done by the parent operator (a component).  For more information see COMP.create, COMP.copy and COMP.copyOPs methods."
+    },
+    {
+      "name": "copy",
+      "signature": "copy()",
+      "description": "NOTE: create(),  and copyOPs() is done by the parent operator (a component).  For more information see COMP.create, COMP.copy and COMP.copyOPs methods."
+    },
+    {
+      "name": "copyOPs",
+      "signature": "copyOPs()",
+      "description": "NOTE: create(), copy() and  is done by the parent operator (a component).  For more information see COMP.create, COMP.copy and COMP.copyOPs methods."
+    },
+    {
+      "name": "pars",
+      "signature": "pars(pattern)",
+      "description": "→ list:"
+    },
+    {
+      "name": "newlist = op",
+      "signature": "newlist = op('geo1').pars('t?', 'r?', 's?') #translate/rotate/scale parameters",
+      "description": "Returns a (possibly empty) list of parameter objects that match the pattern."
+    },
+    {
+      "name": "name = 'MyName1'",
+      "signature": "name = 'MyName1'",
+      "description": "Returns a (possibly empty) list of parameter objects that match the pattern."
+    },
+    {
+      "name": "cook",
+      "signature": "cook(force=False, recurse=False, includeUtility=False)",
+      "description": "→ None:"
+    },
+    {
+      "name": "copyParameters",
+      "signature": "copyParameters(OP, custom=True, builtin=True)",
+      "description": "→ None:"
+    },
+    {
+      "name": "changeType",
+      "signature": "changeType(OPtype)",
+      "description": "→ OP:"
+    },
+    {
+      "name": "n = op",
+      "signature": "n = op('wave1').changeType(nullCHOP) #changes 'wave1' into a Null CHOP",
+      "description": "Change referenced operator to a new operator type.  After this call, this OP object should no longer be referenced.  Instead use the returned OP object."
+    },
+    {
+      "name": "dependenciesTo",
+      "signature": "dependenciesTo(OP)",
+      "description": "→ list:"
+    },
+    {
+      "name": "evalExpression",
+      "signature": "evalExpression(str)",
+      "description": "→ value:"
+    },
+    {
+      "name": "destroy",
+      "signature": "destroy()",
+      "description": "→ None:"
+    },
+    {
+      "name": "var",
+      "signature": "var(name, search=True)",
+      "description": "→ str:"
+    },
+    {
+      "name": "openMenu",
+      "signature": "openMenu(x=None, y=None)",
+      "description": "→ None:"
+    },
+    {
+      "name": "relativePath",
+      "signature": "relativePath(OP)",
+      "description": "→ str:"
+    },
+    {
+      "name": "setInputs",
+      "signature": "setInputs(listOfOPs)",
+      "description": "→ None:"
+    },
+    {
+      "name": "shortcutPath",
+      "signature": "shortcutPath(OP, toParName=None)",
+      "description": "→ str:"
+    },
+    {
+      "name": "ops",
+      "signature": "ops(pattern1, pattern2.., includeUtility=False)",
+      "description": "→ list of OPs:"
+    },
+    {
+      "name": "ops",
+      "signature": "newlist = n.ops('arm*', 'leg*', 'leg5/foot*')",
+      "description": "Returns a (possibly empty) list of OPs that match the patterns, relative to the inside of this OP."
+    },
+    {
+      "name": "resetPars",
+      "signature": "resetPars(parNames='*', parGroupNames='*', pageNames='*', includeBuiltin=True, includeCustom=True)",
+      "description": "→ bool:"
+    },
+    {
+      "name": "addScriptError",
+      "signature": "addScriptError(msg)",
+      "description": "→ None:"
+    },
+    {
+      "name": "addError",
+      "signature": "addError(msg)",
+      "description": "→ None:"
+    },
+    {
+      "name": "addWarning",
+      "signature": "addWarning(msg)",
+      "description": "→ None:"
+    },
+    {
+      "name": "errors",
+      "signature": "errors(recurse=False)",
+      "description": "→ str:"
+    },
+    {
+      "name": "warnings",
+      "signature": "warnings(recurse=False)",
+      "description": "→ str:"
+    },
+    {
+      "name": "scriptErrors",
+      "signature": "scriptErrors(recurse=False)",
+      "description": "→ str:"
+    },
+    {
+      "name": "clearScriptErrors",
+      "signature": "clearScriptErrors(recurse=False, error='*')",
+      "description": "→ None:"
+    },
+    {
+      "name": "childrenCPUMemory",
+      "signature": "childrenCPUMemory()",
+      "description": "→ int:"
+    },
+    {
+      "name": "childrenGPUMemory",
+      "signature": "childrenGPUMemory()",
+      "description": "→ int:"
+    },
+    {
+      "name": "resetNodeSize",
+      "signature": "resetNodeSize()",
+      "description": "→ None:"
+    },
+    {
+      "name": "closeViewer",
+      "signature": "closeViewer(topMost=False)",
+      "description": "→ None:"
+    },
+    {
+      "name": "openViewer",
+      "signature": "openViewer(unique=False, borders=True)",
+      "description": "→ None:"
+    },
+    {
+      "name": "resetViewer",
+      "signature": "resetViewer(recurse=False)",
+      "description": "→ None:"
+    },
+    {
+      "name": "openParameters",
+      "signature": "openParameters()",
+      "description": "→ None:"
+    },
+    {
+      "name": "store",
+      "signature": "n.store()",
+      "description": "When an element of storage is changed by using  as explained below, expressions and operators that depend on it will automatically re-cook.  It is retrieved with the n.fetch() function."
+    },
+    {
+      "name": "fetch",
+      "signature": "n.fetch()",
+      "description": "When an element of storage is changed by using n.store() as explained below, expressions and operators that depend on it will automatically re-cook.  It is retrieved with the  function."
+    },
+    {
+      "name": "fetch",
+      "signature": "v = n.fetch('sales5', 0.0)",
+      "description": "Return an object from the OP storage dictionary.  If the item is not found, and a default it supplied, it will be returned instead."
+    },
+    {
+      "name": "fetchOwner",
+      "signature": "fetchOwner(key)",
+      "description": "→ OP:"
+    },
+    {
+      "name": "fetchOwner",
+      "signature": "who = n.fetchOwner('sales5') #find the OP that has a storage entry called 'sales5'",
+      "description": "Return the operator which contains the stored key, or None if not found."
+    },
+    {
+      "name": "store",
+      "signature": "n.store('sales5', 34.5) # stores a floating point value 34.5.",
+      "description": "Add the key/value pair to the OP's storage dictionary, or replace it if it already exists.  If this value is not intended to be saved and loaded in the toe file, it can be be given an alternate value for saving and loading, by using the method storeStartupValue described below."
+    },
+    {
+      "name": "unstore",
+      "signature": "unstore(keys1, keys2..)",
+      "description": "→ None:"
+    },
+    {
+      "name": "unstore",
+      "signature": "n.unstore('sales*') # removes all entries from this OPs storage that start with 'sales'",
+      "description": "For key, remove it from the OP's storage dictionary. Pattern Matching is supported as well."
+    },
+    {
+      "name": "storeStartupValue",
+      "signature": "storeStartupValue(key, value)",
+      "description": "→ None:"
+    },
+    {
+      "name": "storeStartupValue",
+      "signature": "n.storeStartupValue('sales5', 1) # 'sales5' will have a value of 1 when the file starts up.",
+      "description": "Add the key/value pair to the OP's storage startup dictionary.  The storage element will take on this value when the file starts up."
+    },
+    {
+      "name": "unstoreStartupValue",
+      "signature": "unstoreStartupValue(keys1, keys2..)",
+      "description": "→ None:"
+    },
+    {
+      "name": "unstoreStartupValue",
+      "signature": "n.unstoreStartupValue('sales*') # removes all entries from this OPs storage startup that start with 'sales'",
+      "description": "For key, remove it from the OP's storage startup dictionary. Pattern Matching is supported as well.  This does not affect the stored value, just its startup value."
+    },
+    {
+      "name": "__getstate__",
+      "signature": "__getstate__()",
+      "description": "→ dict:"
+    },
+    {
+      "name": "__setstate__",
+      "signature": "__setstate__()",
+      "description": "→ dict:"
+    }
+  ],
+  "sourceUrl": "https://docs.derivative.ca/OP_Class",
+  "extractedAt": "2025-08-15T04:20:58.502Z"
+}

@@ -1,0 +1,75 @@
+{
+  "file": "Position_Class.htm",
+  "className": "Position",
+  "methods": [
+    {
+      "name": "translate",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "Any"
+        },
+        {
+          "name": "y",
+          "type": "Any"
+        },
+        {
+          "name": "z",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "translate(x, y, z)"
+    },
+    {
+      "name": "scale",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "Any"
+        },
+        {
+          "name": "y",
+          "type": "Any"
+        },
+        {
+          "name": "z",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "scale(x, y, z)"
+    },
+    {
+      "name": "copy",
+      "parameters": [],
+      "returns": "tdu.Position :",
+      "signature": "copy()"
+    },
+    {
+      "name": "abs",
+      "parameters": [
+        {
+          "name": "tdu.Position",
+          "type": "Any"
+        }
+      ],
+      "returns": "tdu.Position :",
+      "signature": "abs(tdu.Position)"
+    },
+    {
+      "name": "abs",
+      "parameters": [
+        {
+          "name": "p1",
+          "type": "Any"
+        }
+      ],
+      "returns": "tdu.Position →  tdu.Position :",
+      "signature": "abs(  p1  )"
+    }
+  ],
+  "methodCount": 5,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.420Z"
+}

@@ -1,0 +1,61 @@
+{
+  "file": "App_Class.htm",
+  "className": "App",
+  "methods": [
+    {
+      "name": "addNonCommercialLimit",
+      "parameters": [
+        {
+          "name": "password=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "addNonCommercialLimit(password=None)"
+    },
+    {
+      "name": "removeNonCommercialLimit",
+      "parameters": [
+        {
+          "name": "password=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "removeNonCommercialLimit(password=None)"
+    },
+    {
+      "name": "addResolutionLimit",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "Any"
+        },
+        {
+          "name": "y",
+          "type": "Any"
+        },
+        {
+          "name": "password=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "addResolutionLimit(x, y, password=None)"
+    },
+    {
+      "name": "removeResolutionLimit",
+      "parameters": [
+        {
+          "name": "password=None",
+          "type": "Any"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "removeResolutionLimit(password=None)"
+    }
+  ],
+  "methodCount": 4,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.287Z"
+}

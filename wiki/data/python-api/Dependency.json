@@ -1,24 +1,10 @@
 {
   "className": "Dependency",
-  "displayName": "Dependency Class",
-  "description": "A Dependency object is a value that automatically causes any expression referencing it to update when the dependency value has changed.  These objects eliminate the need to manually force cook operators referencing values in Extensions or Storage for example.\nFor information about dependencies in mutable objects (lists, dicts, sets), see Deeply Dependable Collections",
+  "displayName": "Dependency",
+  "description": "Dependency is the Procedural mechanism in TouchDesigner, where if one piece of data changes, it automatically causes other operators and expressions to re-Cook. This assures all data is consistent in a TouchDesigner process, and causes all the output displays, UIs, devices and protocols to update in realtime.",
   "category": "General",
   "fileName": "Dependency_Class.htm",
-  "members": [
-    {
-      "name": "val",
-      "id": "content",
-      "returnType": "Any",
-      "readOnly": true,
-      "description": "val member"
-    },
-    {
-      "name": "val",
-      "id": "bodyContent",
-      "returnType": "Any",
-      "readOnly": true,
-      "description": "val member"
-    }
-  ],
-  "methods": []
+  "members": [],
+  "methods": [],
+  "enhanced": true
 }

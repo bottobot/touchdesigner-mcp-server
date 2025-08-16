@@ -20,5 +20,24 @@
       "description": "index member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "connect",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "connect(target)"
+    },
+    {
+      "name": "disconnect",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "disconnect()"
+    }
+  ],
+  "enhanced": true
 }

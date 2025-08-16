@@ -1,0 +1,31 @@
+{
+  "file": "Sequence_Class.htm",
+  "className": "Sequence",
+  "methods": [
+    {
+      "name": "destroyBlock",
+      "parameters": [
+        {
+          "name": "block",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "destroyBlock(block)"
+    },
+    {
+      "name": "insertBlock",
+      "parameters": [
+        {
+          "name": "block",
+          "type": "Any"
+        }
+      ],
+      "returns": "SequenceBlock :",
+      "signature": "insertBlock(block)"
+    }
+  ],
+  "methodCount": 2,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.457Z"
+}

@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en-CA" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>examineDAT Class - Derivative</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"3d939436652900dba8290725","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"ExamineDAT_Class","wgTitle":"ExamineDAT Class","wgCurRevisionId":11200,"wgRevisionId":11200,"wgArticleId":556,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["DAT Classes","Python Reference"],"wgPageContentLanguage":"en-ca","wgPageContentModel":"wikitext","wgRelevantPageName":"ExamineDAT_Class","wgRelevantArticleId":556,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCargoDefaultQueryLimit":100,
+"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgPageFormsTargetName":null,"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsCalendarValues":[],"wgPageFormsCalendarParams":[],"wgPageFormsCalendarHTML":null,"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsContLangYes":null,"wgPageFormsContLangNo":null,"wgPageFormsContLangMonths":[],"wgPageFormsHeightForMinimizingInstances":800,"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/extensions/PageForms","edgValues":[],
+"wgPageFormsEDSettings":null,"wgAmericanDates":false,"wgVector2022PreviewPages":[]};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","ext.Lingo.styles":"ready","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.UiTag","ext.Lingo","site","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=ext.Lingo.styles%7Cext.pygments%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en-ca&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en-ca&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="viewport" content="width=1000"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Derivative (en-ca)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://docs.derivative.ca/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Derivative Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!-- Begin Extension:CSS --><link rel="stylesheet" href="/index.php?title=Python.css&amp;action=raw&amp;ctype=text/css&amp;css-extension=1"/><!-- End Extension:CSS -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3123499-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3123499-6');
+</script>
+<meta property="og:title" content="ExamineDAT Class"/>
+<meta property="og:site_name" content="Derivative"/>
+<meta property="og:url" content="https://docs.derivative.ca/ExamineDAT_Class"/>
+<meta property="og:image" content="https://docs.derivative.ca/resources/assets/logo.png"/>
+<meta property="article:modified_time" content="2018-05-25T22:53:02Z"/>
+<meta property="article:published_time" content="2018-05-25T22:53:02Z"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","name":"examineDAT Class - Derivative","headline":"examineDAT Class - Derivative","mainEntityOfPage":"examineDAT Class","identifier":"https:\/\/docs.derivative.ca\/ExamineDAT_Class","url":"https:\/\/docs.derivative.ca\/ExamineDAT_Class","dateModified":"2018-05-25T22:53:02Z","datePublished":"2018-05-25T22:53:02Z","image":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png"},"author":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"publisher":{"@type":"Organization","name":"Derivative","url":"https:\/\/docs.derivative.ca","logo":{"@type":"ImageObject","url":"https:\/\/docs.derivative.ca\/resources\/assets\/logo.png","caption":"Derivative"}},"potentialAction":{"@type":"SearchAction","target":"https:\/\/docs.derivative.ca\/index.php?title=Special:Search&search={search_term}","query-input":"required name=search_term"}}</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-ExamineDAT_Class rootpage-ExamineDAT_Class skin-vector action-view skin-vector-legacy vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">examineDAT Class</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Derivative</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en-CA" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><p><br>
+This class inherits from the <a href="/DAT_Class" title="DAT Class"> DAT class</a>.
+It references a specific <a href="/Examine_DAT" title="Examine DAT">Examine DAT</a>.
+</p><p><br></p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en-CA" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul><li class="toclevel-1"><a href="#Members"><span class="tocnumber">1</span> <span class="toctext">Members</span></a></li>
+<li class="toclevel-1"><a href="#Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a></li>
+<li class="toclevel-1"><a href="#DAT_Class"><span class="tocnumber">3</span> <span class="toctext">DAT Class</span></a>
+<ul><li class="toclevel-2"><a href="#Members_2"><span class="tocnumber">3.1</span> <span class="toctext">Members</span></a></li>
+<li class="toclevel-2"><a href="#Methods_2"><span class="tocnumber">3.2</span> <span class="toctext">Methods</span></a>
+<ul><li class="toclevel-3"><a href="#Modifying_Content"><span class="tocnumber">3.2.1</span> <span class="toctext">Modifying Content</span></a></li>
+<li class="toclevel-3"><a href="#Modifying_Text_Content"><span class="tocnumber">3.2.2</span> <span class="toctext">Modifying Text Content</span></a></li>
+<li class="toclevel-3"><a href="#Modifying_a_Single_Cell_of_a_Table"><span class="tocnumber">3.2.3</span> <span class="toctext">Modifying a Single Cell of a Table</span></a></li>
+<li class="toclevel-3"><a href="#Modifying_Table_Content"><span class="tocnumber">3.2.4</span> <span class="toctext">Modifying Table Content</span></a></li>
+<li class="toclevel-3"><a href="#Accessing_Table_Content"><span class="tocnumber">3.2.5</span> <span class="toctext">Accessing Table Content</span></a></li>
+</ul></li>
+</ul></li>
+<li class="toclevel-1"><a href="#OP_Class"><span class="tocnumber">4</span> <span class="toctext">OP Class</span></a>
+<ul><li class="toclevel-2"><a href="#Members_3"><span class="tocnumber">4.1</span> <span class="toctext">Members</span></a>
+<ul><li class="toclevel-3"><a href="#General"><span class="tocnumber">4.1.1</span> <span class="toctext">General</span></a></li>
+<li class="toclevel-3"><a href="#Common_Flags"><span class="tocnumber">4.1.2</span> <span class="toctext">Common Flags</span></a></li>
+<li class="toclevel-3"><a href="#Appearance"><span class="tocnumber">4.1.3</span> <span class="toctext">Appearance</span></a></li>
+<li class="toclevel-3"><a href="#Connection"><span class="tocnumber">4.1.4</span> <span class="toctext">Connection</span></a></li>
+<li class="toclevel-3"><a href="#Cook_Information"><span class="tocnumber">4.1.5</span> <span class="toctext">Cook Information</span></a></li>
+<li class="toclevel-3"><a href="#Type"><span class="tocnumber">4.1.6</span> <span class="toctext">Type</span></a></li>
+</ul></li>
+<li class="toclevel-2"><a href="#Methods_3"><span class="tocnumber">4.2</span> <span class="toctext">Methods</span></a>
+<ul><li class="toclevel-3"><a href="#General_2"><span class="tocnumber">4.2.1</span> <span class="toctext">General</span></a></li>
+<li class="toclevel-3"><a href="#Errors"><span class="tocnumber">4.2.2</span> <span class="toctext">Errors</span></a></li>
+<li class="toclevel-3"><a href="#Appearance_2"><span class="tocnumber">4.2.3</span> <span class="toctext">Appearance</span></a></li>
+<li class="toclevel-3"><a href="#Viewers"><span class="tocnumber">4.2.4</span> <span class="toctext">Viewers</span></a></li>
+<li class="toclevel-3"><a href="#Storage"><span class="tocnumber">4.2.5</span> <span class="toctext">Storage</span></a></li>
+<li class="toclevel-3"><a href="#Miscellaneous"><span class="tocnumber">4.2.6</span> <span class="toctext">Miscellaneous</span></a></li>
+</ul></li>
+</ul></li>
+</ul></div>
+
+<h2><span class="mw-headline" id="Members">Members</span></h2>
+<p>No operator specific members.
+</p><p><br></p>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<p>No operator specific methods.
+</p>
+<h1><span class="mw-headline" id="DAT_Class"><span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> Class</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:ClassInheritance&amp;action=edit&amp;section=T-1" title="Edit section: DAT Class">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Members_2">Members</span></h2>
+<div id="export" style="display:inline;"></div><p><code class="python">export</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Export_Flag" title="Export Flag">Export Flag</a></p></blockquote>
+<div id="module" style="display:inline;"></div><p><code class="python">module</code> → <code class="return">'module'</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Retrieve the contents of the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> as a module. This allows for functions in the module to be called directly. E.g n.module.function(arg1, arg2)</p></blockquote>
+<div id="numRows" style="display:inline;"></div><p><code class="python">numRows</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Number of rows in the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> table.</p></blockquote>
+<div id="numCols" style="display:inline;"></div><p><code class="python">numCols</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Number of columns in the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> table.</p></blockquote>
+<div id="text" style="display:inline;"></div><p><code class="python">text</code> → <code class="return">str</code> : 
+</p><blockquote><p>Get or set contents. Tables are treated as tab delimited columns, newline delimited rows.</p></blockquote>
+<div id="editingFile" style="display:inline;"></div><p><code class="python">editingFile</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The path to the current file used by external editors.</p></blockquote>
+<div id="isTable" style="display:inline;"></div><p><code class="python">isTable</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> contains table formatted data.</p></blockquote>
+<div id="isText" style="display:inline;"></div><p><code class="python">isText</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> contains text formatted data. (ie, not table formatted).</p></blockquote>
+<p><br></p>
+<div id="isEditable" style="display:inline;"></div><p><code class="python">isEditable</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> contents can be edited (Text DATs, Table DATs, locked DATs etc).</p></blockquote>
+<div id="isDAT" style="display:inline;"></div><p><code class="python">isDAT</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is a <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>.</p></blockquote>
+<div id="locals" style="display:inline;"></div><p><code class="python">locals</code> → <code class="return">dict</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Local dictionary used during python execution of scripts in this <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>. The dictionary attribute is read only, but not its contents. Its contents may be manipulated directly with scripts, or with an <a href="/Examine_DAT" title="Examine DAT">Examine DAT</a>.</p></blockquote>
+<div id="jsonObject" style="display:inline;"></div><p><code class="python">jsonObject</code> → <code class="return">dict</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Parses the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> as json and returns a python object.</p></blockquote>
+<div id="flush" style="display:inline;"></div><p><code class="python">flush()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Dummy function required to redirect stdout to DATs.</p></blockquote>
+<div id="isatty" style="display:inline;"></div><p><code class="python">isatty()</code>→ <code class="return">False</code>:
+</p><blockquote><p>Required to redirect stdout to DATs.</p></blockquote>
+<h2><span class="mw-headline" id="Methods_2">Methods</span></h2>
+<div id="run" style="display:inline;"></div><p><code class="python">run(arg1, arg2..., endFrame=False, fromOP=None, asParameter=False, group=None, delayFrames=0, delayMilliSeconds=0, delayRef=me)</code>→ <code class="return">td.Run</code>:
+</p><blockquote><p><a href="/Run_Class" title="Run Class">Run</a> the contents of the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> as a script, returning a Run object which can be used to optionally modify its execution.
+</p><ul><li>arg - (Optional) Arguments that will be made available to the script in a local tuple named args.</li>
+<li>endFrame - (Keyword, Optional) If set to True, the execution will be delayed until the end of the current frame.</li>
+<li>fromOP - (Keyword, Optional) Specifies an optional <a href="/OP_Class" title="OP Class">operator</a> from which the execution will be run relative to.</li>
+<li>asParameter - (Keyword, Optional) When fromOP used, run relative to a parameter of fromOP.</li>
+<li>group - (Keyword, Optional) Can be used to specify a group label string. This label can then be used with the <a href="/Runs_Class" title="Runs Class">td.runs</a> object to modify its execution.</li>
+<li>delayFrames - (Keyword, Optional) Can be used to delay the execution a specific amount of frames.</li>
+<li>delayMilliSeconds - (Keyword, Optional) Can be used to delay the execution a specific amount of milliseconds.  This value is rounded to the nearest frame.</li>
+<li>delayRef - (Keyword, Optional) Specifies an optional <a href="/OP_Class" title="OP Class">operator</a> which is controlled by a different <a href="/Time_COMP" title="Time COMP">Time Component</a>.  If your own local timeline is paused, you can point to another timeline to ensure this script will still execute for example.</li></ul></blockquote>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># grab <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span></span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'text1'</span><span class="p">)</span>
+<span class="c1"># run the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span></span>
+<span class="n">n</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="c1"># run the data with some arguments</span>
+<span class="n">r</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'firstArgIsString'</span><span class="p">,</span> <span class="n">secondArgIsVariable</span><span class="p">)</span>
+</pre></div>
+<div id="save" style="display:inline;"></div><p><code class="python">save(filepath, append=False, createFolders=False)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Saves the content of the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> to the file system. Returns the file path that it was saved to.
+</p><ul><li>filepath - (Optional) The path and filename to save the file to. If this is not given then a default named file will be saved to project.folder</li>
+<li>append - (Keyword, Optional) If set to True and the format is txt, then the contents are appended to the existing file.</li>
+<li>createFolders - (Keyword, Optional) If True, it creates the not existent directories provided by the filepath.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">save</span><span class="p">()</span> <span class="c1">#save in native format with default name</span>
+<span class="n">n</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'output.txt'</span><span class="p">)</span> <span class="c1">#human readable format without channel names</span>
+<span class="n">n</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'C:/Desktop/myFolder/output.txt'</span><span class="p">,</span> <span class="n">createFolders</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># supply file path and createFolder flag</span>
+</pre></div></blockquote>
+<div id="write" style="display:inline;"></div><p><code class="python">write(args)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Append content to this <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>. Can also be used to implement <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> printing functions.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># grab <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span></span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'text1'</span><span class="p">)</span>
+<span class="c1"># append message directly to <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span></span>
+<span class="n">n</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Hello World'</span><span class="p">)</span>
+<span class="c1"># use print method</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Hello World'</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="detectLanguage" style="display:inline;"></div><p><code class="python">detectLanguage(setLanguage=False)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Returns the result of attempting to auto-detect the programming language in the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> based on the contained text. 
+</p><ul><li>setLanguage - (Keyword, Optional) If True sets the language parameters on the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> appropriately</li></ul></blockquote>
+<h3><span class="mw-headline" id="Modifying_Content">Modifying Content</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Modifying Content">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following methods can be used to modify the contents of a <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>. This can be done when the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> is a <a href="/Text_DAT" title="Text DAT">Text DAT</a>, or <a href="/Script_DAT" title="Script DAT">Script DAT</a> for example, or a <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> that is <a href="/index.php?title=Lock&amp;action=edit&amp;redlink=1" class="new" title="Lock (page does not exist)">Locked</a>.
+</p><p><br></p>
+<div id="clear" style="display:inline;"></div><p><code class="python">clear(keepSize=False, keepFirstRow=False, keepFirstCol=False)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Remove all rows and columns from the table.
+</p><ul><li>keepSize - (Keyword, Optional) If set to True, size is unchanged, but entries will be set to blank, dependent on other options below.</li>
+<li>keepFirstRow - (Keyword, Optional) If set to True, the first row of cells are retained.</li>
+<li>keepFirstCol - (Keyword, Optional) If set to True, the first column of cells are retained.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1">#remove all rows and columns</span>
+<span class="n">n</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">keepSize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#set all table cells to blank</span>
+<span class="n">n</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">keepFirstRow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#remove all rows, but keep the first</span>
+<span class="n">n</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">keepFirstRow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keepFirstCol</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#keep the first row, first column, and set remaining cells to blank</span>
+</pre></div></blockquote>
+<div id="copy" style="display:inline;"></div><p><code class="python">copy(<span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Copy the text or table from the specified <a href="/DAT" title="DAT">DAT</a> operator.
+</p><ul><li>OP - The <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> operator whose contents should be copied into the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>.</li></ul></blockquote>
+<h3><span class="mw-headline" id="Modifying_Text_Content">Modifying Text Content</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Modifying Text Content">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>When the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> is not a table, but a block of text, its contents can be simply accessed through its text member.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'merge1'</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'text2'</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'merge1 contains:'</span> <span class="o">+</span> <span class="n">t</span>
+
+<span class="n">op</span><span class="p">(</span><span class="s1">'text3'</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Hello there!"</span>
+</pre></div>
+<h3><span class="mw-headline" id="Modifying_a_Single_Cell_of_a_Table">Modifying a Single Cell of a Table</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Modifying a Single Cell of a Table">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Using <code><span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>[<i>row</i>, <i>column</i>]</code> where <i><code><code>row</code>, <code>column</code></code></i> specifies which cell to modify. The row and column may be integer numbers starting at 0, or strings which are the column names or row names (in row 0 or column 0 respectively):
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)[</span><span class="s1">'Monday'</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'day1'</span>
+
+<span class="n">tab</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span>
+<span class="n">tab</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'corner'</span>
+<span class="n">tab</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">'select'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'yes'</span>
+<span class="n">tab</span><span class="p">[</span><span class="s1">'Monday'</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'day1'</span>
+</pre></div>
+<h3><span class="mw-headline" id="Modifying_Table_Content">Modifying Table Content</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Modifying Table Content">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following methods can be used to modify the contents of a table type <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> containing rows and columns. This can be done when the <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> is a basic <a href="/Table_DAT" title="Table DAT">Table DAT</a>, or <a href="/Script_DAT" title="Script DAT">Script DAT</a>. It can also be used to append rows to FIFO-style DATs such as the <a href="/Serial_DAT" title="Serial DAT">Serial DAT</a>.
+</p><p><br></p>
+<div id="appendRow" style="display:inline;"></div><p><code class="python">appendRow(vals, nameOrIndex, sort=None)</code>→ <code class="return">int</code>:
+</p><blockquote><p>Append a row to the end of the table, or after the specified row name/index.  Returns the integer index of the new row.
+</p><ul><li>vals - (Optional) If specified, will fill the row with the given values. It should be a list of items that can be expressed as strings.  Each item will be copied to one <a href="/Cell_Class" title="Cell Class">cell</a>.</li>
+<li>nameOrIndex - (Optional) If specified will determine where the new row will be appended. If it's a numeric value it represents the numeric index of the row. If it is a string it represents a row label.</li>
+<li>sort - (Keyword, Optional) If specified will determine the column to keep sorted after the insertion. If it's a numeric value it represents the numeric index of the column. If it is a string it represents a column label.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">appendRow</span><span class="p">()</span>
+<span class="n">n</span><span class="o">.</span><span class="n">appendRow</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s1">'January'</span> <span class="p">)</span>  <span class="c1">#append with values (1,2,3) after the row labelled 'January'</span>
+<span class="n">n</span><span class="o">.</span><span class="n">appendRow</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="mi">5</span> <span class="p">)</span>  <span class="c1">#append row with values (1,2,3) after the row 5.</span>
+<span class="n">n</span><span class="o">.</span><span class="n">appendRow</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="s1">'Month'</span> <span class="p">)</span>  <span class="c1">#append row with values (1,2,3) keeping column 'Month' sorted.</span>
+</pre></div></blockquote>
+<div id="appendRows" style="display:inline;"></div><p><code class="python">appendRows(vals, nameOrIndex, sort=None)</code>→ <code class="return">int</code>:
+</p><blockquote><p>Append rows to the end of the table, or after the specified row name/index. Returns the integer of the last row appended.
+</p><ul><li>vals - (Optional) If specified, will fill the rows with the given values. It should be a list of lists of items that can be expressed as strings.  Each item will be copied to one cell.</li>
+<li>nameOrIndex - (Optional) If specified will determine where the new row will be appended. If it's a numeric value it represents the numeric index of the row. If it is a string it represents a row label.</li>
+<li>sort - (Keyword, Optional) If specified will determine the column to keep sorted after the insertion. If it's a numeric value it represents the numeric index of the column. If it is a string it represents a column label.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">appendRows</span><span class="p">()</span>
+<span class="n">n</span><span class="o">.</span><span class="n">appendRows</span><span class="p">(</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]],</span> <span class="s1">'January'</span> <span class="p">)</span>  <span class="c1">#after the row labelled 'January append 2 rows: first one with values (1,2,3), then one with values (4,5,6,7)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">appendRows</span><span class="p">(</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]],</span> <span class="mi">5</span> <span class="p">)</span>  <span class="c1"># after row 5 append one row with values (1,2,3).</span>
+<span class="n">n</span><span class="o">.</span><span class="n">appendRows</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>  <span class="c1"># append 3 rows with values 1, 2, 3 respectively.</span>
+</pre></div></blockquote>
+<div id="appendCol" style="display:inline;"></div><p><code class="python">appendCol(vals, nameOrIndex, sort=None)</code>→ <code class="return">int</code>:
+</p><blockquote><p>Append a column to the end of the table. See appendRow for similar usage.</p></blockquote>
+<div id="appendCols" style="display:inline;"></div><p><code class="python">appendCols(vals, nameOrIndex, sort=None)</code>→ <code class="return">int</code>:
+</p><blockquote><p>Append columns to the end of the table. See appendRows for similar usage.</p></blockquote>
+<div id="insertRow" style="display:inline;"></div><p><code class="python">insertRow(vals, nameOrIndex, sort=None)</code>→ <code class="return">int</code>:
+</p><blockquote><p>Insert a row to the beginning of the table or before the specified row name/index.  See <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>.appendRow() for similar usage.</p></blockquote>
+<div id="insertCol" style="display:inline;"></div><p><code class="python">insertCol(vals, nameOrIndex, sort=None)</code>→ <code class="return">int</code>:
+</p><blockquote><p>Insert a column to the beginning of the table or before the specified row name/index. See <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>.appendRow() for similar usage.</p></blockquote>
+<div id="replaceRow" style="display:inline;"></div><p><code class="python">replaceRow(nameOrIndex, vals, entireRow=True)</code>→ <code class="return">int</code>:
+</p><blockquote><p>Replaces the contents of an existing row.
+</p><ul><li>nameOrIndex - Specifies the row that will be replaced. If it's a numeric value it represents the numeric index of the row. If it is a string it represents a row label.</li>
+<li>vals - (Optional) If specified, will overwrite the row with the given values. It should be a list of lists of items that can be expressed as strings.  Each item will be copied to one cell.</li>
+<li>entireRow - (Keyword, Optional) If True, overwrites every cell in the specified row. If False, will only overwrite as many cells in the row as there are items in vals.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">replaceRow</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># will empty all the cells in row 0 (ie. replaced with nothing)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">replaceRow</span><span class="p">(</span><span class="s1">'January'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'January'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># the row 'January' will be replaced with the list of 4 items.</span>
+<span class="n">n</span><span class="o">.</span><span class="n">replaceRow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">entireRow</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># at row 2 the 3 items will replace the first 3 items in the row.</span>
+</pre></div></blockquote>
+<div id="replaceCol" style="display:inline;"></div><p><code class="python">replaceCol(nameOrIndex, vals, entireCol=True)</code>→ <code class="return">int</code>:
+</p><blockquote><p>Replaces the contents of an existing column. See <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>.replaceRow for similar usage.</p></blockquote>
+<div id="deleteRow" style="display:inline;"></div><p><code class="python">deleteRow(nameOrIndex)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Delete a single row at the specified row name or index.
+</p><ul><li>nameOrIndex - May be a string for a row name, or numeric index for rowindex.</li></ul></blockquote>
+<div id="deleteRows" style="display:inline;"></div><p><code class="python">deleteRows(vals)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Deletes multiple rows at the row names or indices specified in vals.
+</p><ul><li>vals - If specified, will delete each row given. It should be a list of items that can be expressed as strings. If no vals is provided deleteRows does nothing.</li></ul></blockquote>
+<div id="deleteCol" style="display:inline;"></div><p><code class="python">deleteCol(nameOrIndex)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Delete a single column at the specified column name or index.
+</p><ul><li>nameOrIndex - May be a string for a column name, or numeric index for column index.</li></ul></blockquote>
+<div id="deleteCols" style="display:inline;"></div><p><code class="python">deleteCols(vals)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Deletes multiple columns at the column names or indices specified in vals.
+</p><ul><li>vals - If specified, will delete each column given. It should be a list of items that can be expressed as strings. If no vals is provided deleteCols does nothing.</li></ul></blockquote>
+<div id="setSize" style="display:inline;"></div><p><code class="python">setSize(numrows, numcols)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Set the exact size of the table.
+</p><ul><li>numrows - The number of rows the table should have.</li>
+<li>numcols - The number of columns the table should have.</li></ul></blockquote>
+<div id="scroll" style="display:inline;"></div><p><code class="python">scroll(row, col)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Bring current <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> viewers to the specified row and column
+</p><ul><li>row - Row to scroll to.</li>
+<li>col - (Optional) Column to scroll to for tables.</li></ul></blockquote>
+<h3><span class="mw-headline" id="Accessing_Table_Content">Accessing Table Content</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Accessing Table Content">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="[]" style="display:inline;"></div><p><code class="python">[rowNameOrIndex, colNameOrIndex]</code>→ <code class="return">td.Cell</code>:
+</p><blockquote><p><a href="/Cell_Class" title="Cell Class">cells</a> in a table may be accessed with the <code>[]</code> subscript operator.
+</p><p>The NameOrIndex may be an exact string name, or it may be a numeric index value. <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> is <i>not</i> supported.
+</p>
+<ul><li>rowNameOrIndex - If a string it specifies a row name, if it's numeric it specifies a row index.</li>
+<li>colNameOrIndex - If a string it specifies a column name, if it's numeric it specifies a column index.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="s1">'June'</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div></blockquote>
+<div id="cell" style="display:inline;"></div><p><code class="python">cell(rowNameOrIndex, colNameOrIndex, caseSensitive=True, val=False)</code>→ <code class="return">td.Cell | str | None</code>:
+</p><blockquote><p>Find a single <a href="/Cell_Class" title="Cell Class">cell</a> in the table, or None if none are found.
+</p><ul><li>rowNameOrIndex/colNameOrIndex - If a string it specifies a row/column name. If it's numeric it specifies a row/column index. <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> is supported for strings.</li>
+<li>caseSensitive - (Optional) Specifies whether or not case sensitivity is used.</li>
+<li>val - (Keyword, Optional) If set to true, returns list of cell item strings instead of list of Cell Class items.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'June'</span><span class="p">)</span> <span class="c1">#Return a cell under row 5, column 'June'.</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="s1">'A*'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#Find a cell under any row beginning with an A, in column 2.</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="s1">'A*'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#Return the str type of the found cell</span>
+</pre></div></blockquote>
+<div id="cells" style="display:inline;"></div><p><code class="python">cells(rowNameOrIndex, colNameOrIndex, caseSensitive=True, val=False)</code>→ <code class="return">list</code>:
+</p><blockquote><p>Returns a (possibly empty) list of <a href="/Cell_Class" title="Cell Class">cells</a> that match the given row/column names or indices. See <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>.cell method for similar usage.</p></blockquote>
+<div id="findCell" style="display:inline;"></div><p><code class="python">findCell(pattern, rows=None, cols=None, valuePattern=True, rowPattern=True, colPattern=True, caseSensitive=False, val=False)</code>→ <code class="return">Cell | str | None</code>:
+</p><blockquote><p>Returns a cell that matches the given pattern and row/column names or indices or None if no match is found.
+</p><ul><li>pattern - The pattern to match a cell.</li>
+<li>rows (Keyword, Optional) - If specified, looks for cell only in the specified rows. Must be specified as a list.</li>
+<li>cols (Keyword, Optional) - If specified, looks for cell only in the specified columns. Must be specified as a list.</li>
+<li>valuePattern, rowPattern, colPattern(Keyword, Optional) - If specified and set to False, disables pattern matching for a cell, rows or columns.</li>
+<li>caseSensitive(Keyword, Optional) - Cell matching is case sensitive if set to true.</li>
+<li>val - (Keyword, Optional) If set to true, returns list of cell item strings instead of list of Cell Class items.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="c1"># given a table "table1":</span>
+<span class="c1"># # id # fruit      # color  #</span>
+<span class="c1"># # 0  # Strawberry # Red    #</span>
+<span class="c1"># # 1  # Banana     # Yellow #</span>
+<span class="c1"># # 2  # Cucumber   # Green  #</span>
+<span class="c1"># # 3  # Blueberry  # Blue   #</span>
+<span class="c1"># # 4  # Clementine # Orange #</span>
+<span class="c1"># # 5  # *Fruit     # Green  #</span>
+
+<span class="c1"># t is the reference to a table <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span></span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'/project1/table1'</span><span class="p">)</span>
+
+<span class="c1"># search for any cell with the value 'Red'</span>
+<span class="c1"># will return type:Cell cell:(1, 2) owner:/project1/table1 value:Red</span>
+<span class="n">t</span><span class="o">.</span><span class="n">findCell</span><span class="p">(</span><span class="s1">'Red'</span><span class="p">)</span>
+
+<span class="c1"># search for any cell in the column 'fruit' with a value starting with 'blue'</span>
+<span class="c1"># will return type:Cell cell:(4, 1) owner:/project1/table1 value:Blueberry</span>
+<span class="n">t</span><span class="o">.</span><span class="n">findCell</span><span class="p">(</span><span class="s1">'blue*'</span><span class="p">,</span><span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'fruit'</span><span class="p">])</span>
+
+<span class="c1"># search for any cell in the column 'fruit' with a value starting with 'blue'</span>
+<span class="c1"># with case-sensitive search enabled</span>
+<span class="c1"># will return None</span>
+<span class="n">t</span><span class="o">.</span><span class="n">findCell</span><span class="p">(</span><span class="s1">'blue*'</span><span class="p">,</span><span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'fruit'</span><span class="p">],</span> <span class="n">caseSensitive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># will return type:Cell cell:(0, 1) owner:/project1/table1 value:fruit</span>
+<span class="c1"># as the '*' in the search pattern will be used to pattern match, the </span>
+<span class="c1"># first row of the second column is matched</span>
+<span class="n">t</span><span class="o">.</span><span class="n">findCell</span><span class="p">(</span><span class="s1">'*Fruit'</span><span class="p">)</span>
+
+<span class="c1"># will return type:Cell cell:(6, 1) owner:/project1/table1 value:*Fruit</span>
+<span class="c1"># as pattern matching for the search pattern is disabled</span>
+<span class="c1"># hence the '*' is not interpreted as a pattern but a string to look for</span>
+<span class="n">t</span><span class="o">.</span><span class="n">findCell</span><span class="p">(</span><span class="s1">'*Fruit'</span><span class="p">,</span> <span class="n">valuePattern</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># search for any cell with the pattern '*Fruit'</span>
+<span class="c1"># will return the str of the found cell, say 'SweetFruit'</span>
+<span class="n">t</span><span class="o">.</span><span class="n">findCell</span><span class="p">(</span><span class="s1">'*Fruit'</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="findCells" style="display:inline;"></div><p><code class="python">findCells(pattern, rows=None, cols=None, valuePattern=True, rowPattern=True, colPattern=True, val=False)</code>→ <code class="return">list</code>:
+</p><blockquote><p>Returns a (possibly empty) list of cells that match the given patterns and row/column names or indices.
+</p><ul><li>pattern - The pattern to match cells.</li>
+<li>rows (Keyword, Optional) - If specified, looks for cells only in the specified rows.</li>
+<li>cols (Keyword, Optional) - If specified, looks for cells only in the specified columns.</li>
+<li>valuePattern, rowPattern, colPattern(Keyword, Optional) - If specified, overrides pattern matching for cells, rows or columns.</li>
+<li>caseSensitive(Keyword, Optional) - Cell matching is case sensitive if set to true.</li>
+<li>val - (Keyword, Optional) If set to true, returns list of cell item strings instead of list of Cell Class items.</li></ul></blockquote>
+<div id="row" style="display:inline;"></div><p><code class="python">row(*nameOrIndexes, caseSensitive=True, val=False)</code>→ <code class="return">List[Cell]</code>:
+</p><blockquote><p>Returns a list of <a href="/Cell_Class" title="Cell Class">cells</a> from the first row matching the name/index, or None if nothing is found.
+</p><ul><li>nameOrIndexes - Include any number of these. If a string it specifies a row name, if it's numeric it specifies a row index. <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> is supported.</li>
+<li>caseSensitive - (Optional) Specifies whether or not case sensitivity is used.</li>
+<li>val - (Optional) If set to true, returns list of cell item strings instead of list of Cell Class items.</li></ul><p>See <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>.col() for similar usage.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">caseSensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="s1">'June'</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="s1">'A*'</span><span class="p">,</span> <span class="s1">'B*'</span><span class="p">)</span> <span class="c1">#returns first row beginning with A or B</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="s1">'June'</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#returns list of all strings stored under the row 'June'</span>
+</pre></div></blockquote>
+<div id="rows" style="display:inline;"></div><p><code class="python">rows(*nameOrIndexes, caseSensitive=True, val=False)</code>→ <code class="return">List[List[Cell]]</code>:
+</p><blockquote><p>Returns a (possibly empty) list of rows (each row being a list of cells). If no arguments are given it returns all rows in the table.
+</p><ul><li>nameOrIndexes - (Optional) Include any number of these. If a string it specifies a row name, if it's numeric it specifies a row index. <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> is supported.</li>
+<li>caseSensitive - (Optional) Specifies whether or not case sensitivity is used.</li>
+<li>val - (Optional) If set to true, returns list of cell item strings instead of list of Cell Class items.</li></ul><p>See <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>.rows() for similar usage.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">rows</span><span class="p">():</span>
+	<span class="c1"># do something with row 'r'</span>
+
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">rows</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># do something with the strings values of the row 'r'</span>
+</pre></div></blockquote>
+<div id="col" style="display:inline;"></div><p><code class="python">col(*nameOrIndexes, caseSensitive=True, val=False)</code>→ <code class="return">list</code>:
+</p><blockquote><p>Returns a list of <a href="/Cell_Class" title="Cell Class">cells</a> from the first col matching the name/index, or None if nothing is found.
+</p><ul><li>nameOrIndexes - Include any number of these. If a string it specifies a column name, if it's numeric it specifies a column index. <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> is supported.</li>
+<li>caseSensitive - (Optional) Specifies whether or not case sensitivity is used.</li>
+<li>val - (Optional) If set to true, returns list of cell item strings instead of list of Cell Class items.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">caseSensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">'June'</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">'A*'</span><span class="p">,</span> <span class="s1">'B*'</span><span class="p">)</span> <span class="c1">#returns first column beginning with A or B</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">'June'</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#returns list of all strings stored under the column 'June'</span>
+</pre></div></blockquote>
+<div id="cols" style="display:inline;"></div><p><code class="python">cols(*nameOrIndexes, caseSensitive=True, val=False)</code>→ <code class="return">List[List[Cell]]</code>:
+</p><blockquote><p>Returns a (possibly empty) list of columns (each being a list themselves). If no arguments are given then all columns in the table are returned.
+</p><ul><li>nameOrIndexes - (Optional) Include any number of these. If a string it specifies a column name, if it's numeric it specifies a column index. <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> is supported.</li>
+<li>caseSensitive - (Optional) Specifies whether or not case sensitivity is used.</li>
+<li>val - (Optional) If set to true, returns list of cell item strings instead of list of Cell Class items.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">cols</span><span class="p">():</span>
+	<span class="c1"># do something with each column 'c'</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">op</span><span class="p">(</span><span class="s1">'table1'</span><span class="p">)</span><span class="o">.</span><span class="n">cols</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># do something with the string values in each column 'c'</span>
+</pre></div></blockquote>
+<h1><span class="mw-headline" id="OP_Class">OP Class</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:ClassInheritance&amp;action=edit&amp;section=T-1" title="Edit section: OP Class">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Members_3">Members</span></h2>
+<h3><span class="mw-headline" id="General">General</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: General">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="valid" style="display:inline;"></div><p><code class="python">valid</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the referenced operator currently exists, False if it has been deleted.</p></blockquote>
+<div id="id" style="display:inline;"></div><p><code class="python">id</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Unique id for the operator. This id can also be passed to the op() and ops() methods. Id's are not consistent when a file is re-opened, and will change if the OP is copied/pasted, changes OP types, deleted/undone. The id will not change if the OP is renamed though. Its data type is integer.</p></blockquote>
+<div id="name" style="display:inline;"></div><p><code class="python">name</code> → <code class="return">str</code> : 
+</p><blockquote><p>Get or set the operator name.</p></blockquote>
+<div id="path" style="display:inline;"></div><p><code class="python">path</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Full path to the operator.</p></blockquote>
+<div id="digits" style="display:inline;"></div><p><code class="python">digits</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Returns the numeric value of the last consecutive group of digits in the name, or None if not found. The digits can be in the middle of the name if there are none at the end of the name.</p></blockquote>
+<div id="base" style="display:inline;"></div><p><code class="python">base</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Returns the beginning portion of the name occurring before any digits.</p></blockquote>
+<div id="passive" style="display:inline;"></div><p><code class="python">passive</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>If true, operator will not cook before its access methods are called.  To use a passive version of an operator n, use passive(n).</p></blockquote>
+<div id="curPar" style="display:inline;"></div><p><code class="python">curPar</code> → <code class="return">td.Par</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The parameter currently being evaluated. Can be used in a parameter expression to reference itself. An easy way to see this is to put the expression <code>curPar.name</code> in any string parameter.</p></blockquote>
+<div id="curBlock" style="display:inline;"></div><p><code class="python">curBlock</code> →  <b>(Read Only)</b>: 
+</p><blockquote><p>The SequenceBlock of the parameter currently being evaluated. Can be used in a parameter expression to reference itself.</p></blockquote>
+<div id="curSeq" style="display:inline;"></div><p><code class="python">curSeq</code> → <code class="return">Sequence</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The Sequence of the parameter currently being evaluated. Can be used in a parameter expression to reference itself.</p></blockquote>
+<div id="time" style="display:inline;"></div><p><code class="python">time</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p><a href="/TimeCOMP_Class" title="TimeCOMP Class">Time Component</a> that defines the operator's time reference.</p></blockquote>
+<div id="ext" style="display:inline;"></div><p><code class="python">ext</code> → <code class="return">class</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The object to search for parent <a href="/Extensions" title="Extensions">extensions</a>.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">me</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">MyClass</span>
+</pre></div></blockquote>
+<div id="fileFolder" style="display:inline;"></div><p><code class="python">fileFolder</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Returns the folder where this node is saved.</p></blockquote>
+<div id="filePath" style="display:inline;"></div><p><code class="python">filePath</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Returns the file location of this node.</p></blockquote>
+<div id="mod" style="display:inline;"></div><p><code class="python">mod</code> → <code class="return">mod</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Get a <a href="/MOD_Class" title="MOD Class">module on demand</a> object that searches for <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span> modules relative to this operator.</p></blockquote>
+<div id="pages" style="display:inline;"></div><p><code class="python">pages</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>A list of all built-in pages.</p></blockquote>
+<div id="parGroup" style="display:inline;"></div><p><code class="python">parGroup</code> → <code class="return">tuple</code> <b>(Read Only)</b>: 
+</p><blockquote><p>An intermediate <a href="/ParGroupCollection_Class" title="ParGroupCollection Class">parameter collection</a> object, from which a specific <a href="/ParGroup_Class" title="ParGroup Class">parameter group</a> can be found.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">parGroup</span><span class="o">.</span><span class="n">t</span>
+<span class="c1"># or</span>
+<span class="n">n</span><span class="o">.</span><span class="n">parGroup</span><span class="p">[</span><span class="s1">'t'</span><span class="p">]</span>
+</pre></div></blockquote>
+<div id="par" style="display:inline;"></div><p><code class="python">par</code> → <code class="return">td.Par</code> <b>(Read Only)</b>: 
+</p><blockquote><p>An intermediate <a href="/ParCollection_Class" title="ParCollection Class">parameter collection</a> object, from which a specific <a href="/Par_Class" title="Par Class">parameter</a> can be found.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">tx</span>
+<span class="c1"># or</span>
+<span class="n">n</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="s1">'tx'</span><span class="p">]</span>
+</pre></div></blockquote>
+<div id="builtinPars" style="display:inline;"></div><p><code class="python">builtinPars</code> → <code class="return">list or par</code> <b>(Read Only)</b>: 
+</p><blockquote><p>A list of all <a href="/Par_Class" title="Par Class">built-in parameters</a>.</p></blockquote>
+<div id="customParGroups" style="display:inline;"></div><p><code class="python">customParGroups</code> → <code class="return">list of parGroups</code> <b>(Read Only)</b>: 
+</p><blockquote><p>A list of all <a href="/ParGroup_Class" title="ParGroup Class">ParGroups</a>, where a <span class="mw-lingo-term" data-lingo-term-id="90055a7b1446848a11d5c2dbeadcd9d8">ParGroup</span> is a set of parameters all drawn on the same line of a dialog, sharing the same label.</p></blockquote>
+<div id="customPars" style="display:inline;"></div><p><code class="python">customPars</code> → <code class="return">list of par</code> <b>(Read Only)</b>: 
+</p><blockquote><p>A list of all <a href="/Par_Class" title="Par Class">custom parameters</a>.</p></blockquote>
+<div id="customPages" style="display:inline;"></div><p><code class="python">customPages</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>A list of all <a href="/Page_Class" title="Page Class">custom pages</a>.</p></blockquote>
+<p><i></i>
+</p>
+<div id="replicator" style="display:inline;"></div><p><code class="python">replicator</code> → <code class="return">OP or None</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The <a href="/ReplicatorCOMP_Class" title="ReplicatorCOMP Class">replicatorCOMP</a> that created this operator, if any.</p></blockquote>
+<div id="storage" style="display:inline;"></div><p><code class="python">storage</code> → <code class="return">dict</code> <b>(Read Only)</b>: 
+</p><blockquote><p><a href="/Storage" title="Storage">Storage</a> is dictionary associated with this operator. Values stored in this dictionary are persistent, and saved with the operator. The dictionary attribute is read only, but not its contents. Its contents may be manipulated directly with methods such as <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.fetch() or <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.store() described below, or examined with an <a href="/Examine_DAT" title="Examine DAT">Examine DAT</a>.</p></blockquote>
+<div id="tags" style="display:inline;"></div><p><code class="python">tags</code> → <code class="return">list</code> : 
+</p><blockquote><p>Get or set a set of user defined strings. <a href="/Tag" title="Tag">Tags</a> can be searched using <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.findChildren() and the <a href="/OP_Find_DAT" title="OP Find DAT">OP Find DAT</a>.
+</p><p>The set is a regular python set, and can be accessed accordingly:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'effect'</span><span class="p">,</span> <span class="s1">'image filter'</span><span class="p">]</span>
+<span class="n">n</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'darken'</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="children" style="display:inline;"></div><p><code class="python">children</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>A list of <a href="/OP_Class" title="OP Class">operators</a> contained within this operator. Only <a href="/COMP_Class" title="COMP Class">component</a> operators have children, otherwise an empty list is returned.</p></blockquote>
+<div id="numChildren" style="display:inline;"></div><p><code class="python">numChildren</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Returns the number of children contained within the operator. Only <a href="/COMP_Class" title="COMP Class">component</a> operators have children.</p></blockquote>
+<div id="numChildrenRecursive" style="display:inline;"></div><p><code class="python">numChildrenRecursive</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Returns the number of operators contained recursively within this operator. Only <a href="/COMP_Class" title="COMP Class">component</a> operators have children.</p></blockquote>
+<div id="op" style="display:inline;"></div><p><code class="python">op</code> → <code class="return">OP or None</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The operator finder object, for accessing operators through paths or shortcuts. <b>Note:</b> a version of this method that searches relative to '/' is also in the global <a href="/Td_Module" title="Td Module">td module</a>.
+</p><p><code><b>op(pattern1, pattern2..., includeUtility=False)</b></code> → <code class="return"><a href="/OP_Class" title="OP Class">OP</a> or None</code>
+</p>
+<blockquote>
+<p>Returns the first OP whose path matches the given pattern, relative to the inside of this operator. Will return None if nothing is found. Multiple patterns may be specified which are all added to the search. Numeric OP ids may also be used.
+</p>
+<ul><li><code>pattern</code> - Can be string following the <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> rules, specifying which OP to return, or an integer, which must be an OP Id. Multiple patterns can be given, the first matching OP will be returned.</li>
+<li><code>includeUtility</code> <b>(Optional)</b> - if True, allow <a href="/Network_Utilities:_Comments,_Network_Boxes,_Annotates" title="Network Utilities: Comments, Network Boxes, Annotates">Utility nodes</a> to be returned. If False, Utility nodes will be ignored.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'project1'</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'foot*'</span><span class="p">,</span> <span class="s1">'hand*'</span><span class="p">)</span> <span class="c1">#comma separated</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'foot* hand*'</span><span class="p">)</span>  <span class="c1">#space separated</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="mi">154</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+<p><code><b>op.shortcut</b></code> → <code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code>
+</p>
+<blockquote>
+<dl><dd>An operator specified with by a <a href="/Global_OP_Shortcut" title="Global OP Shortcut">Global OP Shortcut</a>. If no operator exists an exception is raised. These shortcuts are global, and must be unique. That is, cutting and pasting an operator with a <span class="mw-lingo-term" data-lingo-term-id="127c8e2bf0b36c9d6a86d99b969d563a">Global OP Shortcut</span> specified will lead to a name conflict. One shortcut must be renamed in that case. Furthermore, only components can be given Global OP Shortcuts.
+<ul><li><code>shortcut</code> - Corresponds to the <span class="mw-lingo-term" data-lingo-term-id="127c8e2bf0b36c9d6a86d99b969d563a">Global OP Shortcut</span> parameter specified in the target operator.</li></ul></dd></dl><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">Videoplayer</span>
+</pre></div>
+<p>To list all Global OP Shortcuts:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">op</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</blockquote></blockquote>
+<div id="opex" style="display:inline;"></div><p><code class="python">opex</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>An operator finder object, for accessing operators through paths or shortcuts. Works like the op() shortcut method, except it will raise an exception if it fails to find the node instead of returning None as op() does. This is now the recommended way to get nodes in parameter expressions, as the error will be more useful than, for example, <code>NoneType has no attribute "par"</code>, that is often seen when using op(). <b>Note:</b> a version of this method that searches relative to '/' is also in the global <a href="/Td_Module" title="Td Module">td module</a>.
+</p><p>    <code><b>op(pattern1, pattern2..., includeUtility=False)</b></code> → <code class="return"><a href="/OP_Class" title="OP Class">OP</a></code>
+</p>
+<blockquote>
+<p>Returns the first OP whose path matches the given pattern, relative to the inside of this operator. Will return None if nothing is found. Multiple patterns may be specified which are all added to the search. Numeric OP ids may also be used.
+</p>
+<ul><li><code>pattern</code> - Can be string following the <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> rules, specifying which OP to return, or an integer, which must be an OP Id. Multiple patterns can be given, the first matching OP will be returned.</li>
+<li><code>includeUtility</code> <b>(Optional)</b> - if True, allow <a href="/Network_Utilities:_Comments,_Network_Boxes,_Annotates" title="Network Utilities: Comments, Network Boxes, Annotates">Utility nodes</a> to be returned. If False, Utility operators will be ignored.</li></ul></blockquote></blockquote>
+<div id="parent" style="display:inline;"></div><p><code class="python">parent</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>The <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcut</a> object, for accessing parent components through indices or shortcuts.
+</p><p><b>Note:</b> <i>a version of this method that searches relative to the current operator is also in the global <a href="/Td_Module" title="Td Module">td module</a>.</i>
+</p><p><code class="python">parent(n)</code> → <code class="return">OP or None</code>
+</p>
+<blockquote>
+<p>The nth parent of this operator. If n not specified, returns the parent. If n = 2, returns the parent of the parent, etc. If no parent exists at that level, None is returned.
+</p>
+<ul><li>n - (Optional) n is the number of levels up to climb. When n = 1 it will return the operator's parent.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">parent</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#grandfather</span>
+</pre></div>
+</blockquote>
+<p><code class="python">parent.shortcut</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code>
+</p>
+<blockquote>
+<p>A parent component specified with a shortcut. If no parent exists an exception is raised.
+</p>
+<ul><li>shortcut - Corresponds to the <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcut</a> parameter specified in the target parent.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">Videoplayer</span>
+</pre></div><p>
+See also <span class="mw-lingo-term" data-lingo-term-id="98b55baa723b7158c2ad741a9f2339b8">Parent Shortcut</span> for more examples.</p></blockquote></blockquote>
+<div id="iop" style="display:inline;"></div><p><code class="python">iop</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code> <b>(Read Only)</b>: 
+</p><blockquote><p>The Internal Operator <span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span> object, for accessing internal shortcuts. See also <a href="/Internal_Operators" title="Internal Operators">Internal Operators</a>.
+<b>Note:</b> a version of this method that searches relative to the current operator is also in the global <a href="/Td_Module" title="Td Module">td Module</a>.</p></blockquote>
+<div id="ipar" style="display:inline;"></div><p><code class="python">ipar</code> → <code class="return">ParCollection</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The Internal Operator Parameter <span class="mw-lingo-term" data-lingo-term-id="756210d98ce28018652ca05e1dcaaf3e">Shortcut</span> object, for accessing internal shortcuts.  See also <a href="/Internal_Parameters" title="Internal Parameters">Internal Parameters</a>.
+<b>Note:</b> a version of this method that searches relative to the current operator is also in the global <a href="/Td_Module" title="Td Module">td Module</a>.</p></blockquote>
+<div id="currentPage" style="display:inline;"></div><p><code class="python">currentPage</code> → <code class="return"><a href="/Page_Class" title="Page Class">Page</a></code> : 
+</p><blockquote><p>Get or set the currently displayed parameter page. It can be set by setting it to another page or a string label.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">currentPage</span> <span class="o">=</span> <span class="s1">'Common'</span>
+</pre></div></blockquote>
+<h3><span class="mw-headline" id="Common_Flags">Common Flags</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Common Flags">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following methods get or set specific operator <a href="/Flag" title="Flag">Flags</a>. Note specific operators may contain other flags not in this section.
+</p><p><br></p>
+<div id="activeViewer" style="display:inline;"></div><p><code class="python">activeViewer</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Viewer_Active_Flag" title="Viewer Active Flag">Viewer Active Flag</a>.</p></blockquote>
+<div id="allowCooking" style="display:inline;"></div><p><code class="python">allowCooking</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Cooking_Flag" title="Cooking Flag">Cooking Flag</a>. Only COMPs can disable this flag.</p></blockquote>
+<div id="bypass" style="display:inline;"></div><p><code class="python">bypass</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Bypass_Flag" title="Bypass Flag">Bypass Flag</a>.</p></blockquote>
+<div id="cloneImmune" style="display:inline;"></div><p><code class="python">cloneImmune</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Immune_Flag" title="Immune Flag">Clone Immune Flag</a>.</p></blockquote>
+<div id="current" style="display:inline;"></div><p><code class="python">current</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Current_Flag" title="Current Flag">Current Flag</a>.</p></blockquote>
+<div id="display" style="display:inline;"></div><p><code class="python">display</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Display_Flag" title="Display Flag">Display Flag</a>.</p></blockquote>
+<div id="expose" style="display:inline;"></div><p><code class="python">expose</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set the <a href="/Expose_Flag" title="Expose Flag">Expose Flag</a> which hides a node from view in a network.</p></blockquote>
+<div id="lock" style="display:inline;"></div><p><code class="python">lock</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Lock_Flag" title="Lock Flag">Lock Flag</a>.</p></blockquote>
+<div id="selected" style="display:inline;"></div><p><code class="python">selected</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Selected_Flag" title="Selected Flag">Selected Flag</a>. This controls if the node is part of the network selection. (yellow box around it).</p></blockquote>
+<div id="seq" style="display:inline;"></div><p><code class="python">seq</code> →  <b>(Read Only)</b>: 
+</p><blockquote><p>An intermediate sequence collection object, from which a specific sequence group can be found.
+</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">seq</span><span class="o">.</span><span class="n">Color</span> <span class="c1">#raises Exception if not found.</span>
+<span class="c1"># or</span>
+<span class="n">n</span><span class="o">.</span><span class="n">seq</span><span class="p">[</span><span class="s1">'Color'</span><span class="p">]</span> <span class="c1">#returns None if not found.</span>
+</pre></div></blockquote>
+<div id="python" style="display:inline;"></div><p><code class="python">python</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set parameter expression language as python.</p></blockquote>
+<div id="render" style="display:inline;"></div><p><code class="python">render</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Render_Flag" title="Render Flag">Render Flag</a>.</p></blockquote>
+<div id="showCustomOnly" style="display:inline;"></div><p><code class="python">showCustomOnly</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set the Show Custom Only <span class="mw-lingo-term" data-lingo-term-id="c5836008c1649301e29351a55db8f65c">Flag</span> which controls whether or not non custom parameters are display in<a href="/Parameter_Dialog" title="Parameter Dialog"> parameter dialogs</a>.</p></blockquote>
+<div id="showDocked" style="display:inline;"></div><p><code class="python">showDocked</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Docking" title="Docking">Show Docked Flag</a>. This controls whether this node is visible or hidden when it is docked to another node.</p></blockquote>
+<div id="viewer" style="display:inline;"></div><p><code class="python">viewer</code> → <code class="return">bool</code> : 
+</p><blockquote><p>Get or set <a href="/Viewer_Flag" title="Viewer Flag">Viewer Flag</a>.</p></blockquote>
+<h3><span class="mw-headline" id="Appearance">Appearance</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Appearance">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="color" style="display:inline;"></div><p><code class="python">color</code> → <code class="return">tuple(r, g, b)</code> : 
+</p><blockquote><p>Get or set color value, expressed as a 3-tuple, representing its red, green, blue values. To convert between color spaces, use the built in colorsys module.</p></blockquote>
+<div id="comment" style="display:inline;"></div><p><code class="python">comment</code> → <code class="return">str</code> : 
+</p><blockquote><p>Get or set comment string.</p></blockquote>
+<div id="nodeHeight" style="display:inline;"></div><p><code class="python">nodeHeight</code> → <code class="return">int</code> : 
+</p><blockquote><p>Get or set node height, expressed in <a href="/NetworkEditor_Class" title="NetworkEditor Class">network editor</a> units.</p></blockquote>
+<div id="nodeWidth" style="display:inline;"></div><p><code class="python">nodeWidth</code> → <code class="return">int</code> : 
+</p><blockquote><p>Get or set node width, expressed in <a href="/NetworkEditor_Class" title="NetworkEditor Class">network editor</a> units.</p></blockquote>
+<div id="nodeX" style="display:inline;"></div><p><code class="python">nodeX</code> → <code class="return">int</code> : 
+</p><blockquote><p>Get or set node X value, expressed in <a href="/NetworkEditor_Class" title="NetworkEditor Class">network editor</a> units, measured from its left edge.</p></blockquote>
+<div id="nodeY" style="display:inline;"></div><p><code class="python">nodeY</code> → <code class="return">int</code> : 
+</p><blockquote><p>Get or set node Y value, expressed in <a href="/NetworkEditor_Class" title="NetworkEditor Class">network editor</a> units, measured from its bottom edge.</p></blockquote>
+<div id="nodeCenterX" style="display:inline;"></div><p><code class="python">nodeCenterX</code> → <code class="return">int</code> : 
+</p><blockquote><p>Get or set node X value, expressed in <a href="/NetworkEditor_Class" title="NetworkEditor Class">network editor</a> units, measured from its center.</p></blockquote>
+<div id="nodeCenterY" style="display:inline;"></div><p><code class="python">nodeCenterY</code> → <code class="return">int</code> : 
+</p><blockquote><p>Get or set node Y value, expressed in <a href="/NetworkEditor_Class" title="NetworkEditor Class">network editor</a> units, measured from its center.</p></blockquote>
+<div id="dock" style="display:inline;"></div><p><code class="python">dock</code> → <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code> : 
+</p><blockquote><p>Get or set the <a href="/OP_Class" title="OP Class">operator</a> this operator is docked to.  To clear docking, set this member to None.</p></blockquote>
+<div id="docked" style="display:inline;"></div><p><code class="python">docked</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The (possibly empty) list of <a href="/OP_Class" title="OP Class">operators</a> docked to this node.</p></blockquote>
+<h3><span class="mw-headline" id="Connection">Connection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Connection">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>See also the <code><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.parent</code> methods.  To connect components together see <a href="/COMP_Class#Connection" title="COMP Class">COMP_Class#Connection</a> section.
+</p><p><br></p>
+<div id="inputs" style="display:inline;"></div><p><code class="python">inputs</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>List of input <a href="/OP_Class" title="OP Class">operators</a> (via left side connectors) to this operator. To get the number of inputs, use len(<span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.inputs).</p></blockquote>
+<div id="outputs" style="display:inline;"></div><p><code class="python">outputs</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>List of output <a href="/OP_Class" title="OP Class">operators</a> (via right side connectors) from this operator.</p></blockquote>
+<div id="inputConnectors" style="display:inline;"></div><p><code class="python">inputConnectors</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>List of input <a href="/Connector_Class" title="Connector Class">connectors</a> (on the left side) associated with this operator.</p></blockquote>
+<div id="outputConnectors" style="display:inline;"></div><p><code class="python">outputConnectors</code> → <code class="return">list</code> <b>(Read Only)</b>: 
+</p><blockquote><p>List of output <a href="/Connector_Class" title="Connector Class">connectors</a> (on the right side) associated with this operator.</p></blockquote>
+<h3><span class="mw-headline" id="Cook_Information"><span class="mw-lingo-term" data-lingo-term-id="1bf70a91b0b28b92dc52e03d45abf61a">Cook</span> Information</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Cook Information">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="cookFrame" style="display:inline;"></div><p><code class="python">cookFrame</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Last frame at which this operator cooked.</p></blockquote>
+<div id="cookTime" style="display:inline;"></div><p><code class="python">cookTime</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p><b>Deprecated</b> Duration of the last measured cook (in milliseconds).</p></blockquote>
+<div id="cpuCookTime" style="display:inline;"></div><p><code class="python">cpuCookTime</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Duration of the last measured cook in CPU time (in milliseconds).</p></blockquote>
+<div id="cookAbsFrame" style="display:inline;"></div><p><code class="python">cookAbsFrame</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Last absolute frame at which this operator cooked.</p></blockquote>
+<div id="cookStartTime" style="display:inline;"></div><p><code class="python">cookStartTime</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Last offset from frame start at which this operator cook began, expressed in milliseconds.</p></blockquote>
+<div id="cookEndTime" style="display:inline;"></div><p><code class="python">cookEndTime</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Last offset from frame start at which this operator cook ended, expressed in milliseconds.  Other operators may have cooked between the start and end time.  See the cookTime member for this operator's specific cook duration.</p></blockquote>
+<div id="cookedThisFrame" style="display:inline;"></div><p><code class="python">cookedThisFrame</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True when this operator has cooked this frame.</p></blockquote>
+<div id="cookedPreviousFrame" style="display:inline;"></div><p><code class="python">cookedPreviousFrame</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True when this operator has cooked the previous frame.</p></blockquote>
+<div id="childrenCookTime" style="display:inline;"></div><p><code class="python">childrenCookTime</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p><b>Deprecated</b> The total accumulated cook time of all children of this operator during the last frame. Zero if the operator is not a <a href="/COMP_Class" title="COMP Class">COMP</a> and/or has no children.</p></blockquote>
+<div id="childrenCPUCookTime" style="display:inline;"></div><p><code class="python">childrenCPUCookTime</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The total accumulated cook time of all children of this operator during the last frame. Zero if the operator is not a <a href="/COMP_Class" title="COMP Class">COMP</a> and/or has no children.</p></blockquote>
+<div id="childrenCookAbsFrame" style="display:inline;"></div><p><code class="python">childrenCookAbsFrame</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p><b>Deprecated</b> The absolute frame on which childrenCookTime is based.</p></blockquote>
+<div id="childrenCPUCookAbsFrame" style="display:inline;"></div><p><code class="python">childrenCPUCookAbsFrame</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The absolute frame on which childrenCPUCookTime is based.</p></blockquote>
+<div id="gpuCookTime" style="display:inline;"></div><p><code class="python">gpuCookTime</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Duration of <span class="mw-lingo-term" data-lingo-term-id="52f9ec21735243ad9917cda3ca077d32">GPU</span> operations during the last measured cook (in milliseconds).</p></blockquote>
+<div id="childrenGPUCookTime" style="display:inline;"></div><p><code class="python">childrenGPUCookTime</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The total accumulated <span class="mw-lingo-term" data-lingo-term-id="52f9ec21735243ad9917cda3ca077d32">GPU</span> cook time of all children of this operator during the last frame. Zero if the operator is not a <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> and/or has no children.</p></blockquote>
+<div id="childrenGPUCookAbsFrame" style="display:inline;"></div><p><code class="python">childrenGPUCookAbsFrame</code> → <code class="return">float</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The absolute frame on which childrenGPUCookTime is based.</p></blockquote>
+<div id="totalCooks" style="display:inline;"></div><p><code class="python">totalCooks</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Number of times the operator has cooked.</p></blockquote>
+<div id="cpuMemory" style="display:inline;"></div><p><code class="python">cpuMemory</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The approximate amount of CPU memory this Operator is using, in bytes.</p></blockquote>
+<div id="gpuMemory" style="display:inline;"></div><p><code class="python">gpuMemory</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>The amount of <span class="mw-lingo-term" data-lingo-term-id="52f9ec21735243ad9917cda3ca077d32">GPU</span> memory this OP is using, in bytes.</p></blockquote>
+<h3><span class="mw-headline" id="Type">Type</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Type">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="type" style="display:inline;"></div><p><code class="python">type</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Operator type as a string. Example: 'oscin'.</p></blockquote>
+<div id="subType" style="display:inline;"></div><p><code class="python">subType</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Operator subtype. Currently only implemented for <a href="/Component" title="Component">components</a>. May be one of: 'panel', 'object', or empty string in the case of base components.</p></blockquote>
+<div id="OPType" style="display:inline;"></div><p><code class="python">OPType</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Python operator class type, as a string. Example: 'oscinCHOP'. Can be used with <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>.create() method.</p></blockquote>
+<div id="label" style="display:inline;"></div><p><code class="python">label</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Operator type label. Example: 'OSC In'.</p></blockquote>
+<div id="icon" style="display:inline;"></div><p><code class="python">icon</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Get the letters used to create the operator's icon.</p></blockquote>
+<div id="family" style="display:inline;"></div><p><code class="python">family</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Operator family. Example: <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>. Use the global dictionary families for a list of each operator type.</p></blockquote>
+<div id="isFilter" style="display:inline;"></div><p><code class="python">isFilter</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if operator is a filter, false if it is a generator.</p></blockquote>
+<div id="minInputs" style="display:inline;"></div><p><code class="python">minInputs</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Minimum number of inputs to the operator.</p></blockquote>
+<div id="maxInputs" style="display:inline;"></div><p><code class="python">maxInputs</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Maximum number of inputs to the operator.</p></blockquote>
+<div id="isMultiInputs" style="display:inline;"></div><p><code class="python">isMultiInputs</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if inputs are ordered, false otherwise. Operators with an arbitrary number of inputs have unordered inputs, example <a href="/Merge_CHOP" title="Merge CHOP">Merge CHOP</a>.</p></blockquote>
+<div id="visibleLevel" style="display:inline;"></div><p><code class="python">visibleLevel</code> → <code class="return">int</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Visibility level of the operator. For example, expert operators have visibility level 1, regular operators have visibility level 0.</p></blockquote>
+<div id="isBase" style="display:inline;"></div><p><code class="python">isBase</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is a Base (miscellaneous) <a href="/Component" title="Component">component</a>.</p></blockquote>
+<div id="isCHOP" style="display:inline;"></div><p><code class="python">isCHOP</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is a <a href="/CHOP" title="CHOP">CHOP</a>.</p></blockquote>
+<div id="isCOMP" style="display:inline;"></div><p><code class="python">isCOMP</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is a <a href="/Component" title="Component">component</a>.</p></blockquote>
+<div id="isDAT" style="display:inline;"></div><p><code class="python">isDAT</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is a <a href="/DAT" title="DAT">DAT</a>.</p></blockquote>
+<div id="isMAT" style="display:inline;"></div><p><code class="python">isMAT</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is a <a href="/MAT" title="MAT">Material</a>.</p></blockquote>
+<div id="isObject" style="display:inline;"></div><p><code class="python">isObject</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is an <a href="/Object" title="Object">object</a>.</p></blockquote>
+<div id="isPanel" style="display:inline;"></div><p><code class="python">isPanel</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is a <a href="/Panel" title="Panel">Panel</a>.</p></blockquote>
+<div id="isSOP" style="display:inline;"></div><p><code class="python">isSOP</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operator is a <a href="/SOP" title="SOP">SOP</a>.</p></blockquote>
+<div id="isTOP" style="display:inline;"></div><p><code class="python">isTOP</code> → <code class="return">bool</code> <b>(Read Only)</b>: 
+</p><blockquote><p>True if the operators is a <a href="/TOP" title="TOP">TOP</a>.</p></blockquote>
+<div id="licenseType" style="display:inline;"></div><p><code class="python">licenseType</code> → <code class="return">str</code> <b>(Read Only)</b>: 
+</p><blockquote><p>Type of <a href="/License_Class" title="License Class">License</a> required for the operator.</p></blockquote>
+<h2><span class="mw-headline" id="Methods_3">Methods</span></h2>
+<h3><span class="mw-headline" id="General_2">General</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: General">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><b>NOTE</b>: <code>create()</code>, <code>copy()</code> and <code>copyOPs()</code> is done by the parent operator (a component).  For more information see <a href="/COMP_Class#Methods" title="COMP Class">COMP.create, COMP.copy and COMP.copyOPs methods</a>.
+</p><p><br></p>
+<div id="pars" style="display:inline;"></div><p><code class="python">pars(pattern)</code>→ <code class="return">list</code>:
+</p><blockquote><p>Returns a (possibly empty) list of <a href="/Par_Class" title="Par Class">parameter objects</a> that match the pattern.
+</p><ul><li>pattern - Is a string following the <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> rules, specifying which parameters to return.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">newlist</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'geo1'</span><span class="p">)</span><span class="o">.</span><span class="n">pars</span><span class="p">(</span><span class="s1">'t?'</span><span class="p">,</span> <span class="s1">'r?'</span><span class="p">,</span> <span class="s1">'s?'</span><span class="p">)</span> <span class="c1">#translate/rotate/scale parameters</span>
+</pre></div><p>Note: If searching for a single parameter given a name, it's much more efficient to use the subscript operator. For example:</p><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">'MyName1'</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'geo1'</span><span class="p">)</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+</pre></div></blockquote>
+<div id="cook" style="display:inline;"></div><p><code class="python">cook(force=False, recurse=False, includeUtility=False)</code>→ <code class="return">None</code>:
+</p><blockquote><p><span class="mw-lingo-term" data-lingo-term-id="1bf70a91b0b28b92dc52e03d45abf61a">Cook</span> the contents of the operator if required.
+</p><ul><li>force - (Keyword, Optional) If True, the operator will always cook, even if it wouldn't under normal circumstances.</li>
+<li>recurse - (Keyword, Optional) If True, all children and sub-children of the operator will be cooked.</li>
+<li>includeUtility - (Keyword, Optional) If specified, controls whether or not utility components (eg Comments) are included in the results.</li></ul></blockquote>
+<div id="copyParameters" style="display:inline;"></div><p><code class="python">copyParameters(<span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>, custom=True, builtin=True)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Copy all of the parameters from the specified <a href="/OP_Class" title="OP Class">operator</a>.  Both operators should be the same type.
+</p><ul><li>OP - The operator to copy.</li>
+<li>custom - (Keyword, Optional) When True, custom parameters will be copied.</li>
+<li>builtin - (Keyword, Optional) When True, built in parameters will be copied.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'geo1'</span><span class="p">)</span><span class="o">.</span><span class="n">copyParameters</span><span class="p">(</span> <span class="n">op</span><span class="p">(</span><span class="s1">'geo2'</span><span class="p">)</span> <span class="p">)</span>
+</pre></div></blockquote>
+<div id="changeType" style="display:inline;"></div><p><code class="python">changeType(OPtype)</code>→ <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code>:
+</p><blockquote><p>Change referenced operator to a new operator type.  After this call, this OP object should no longer be referenced.  Instead use the returned OP object.
+</p><ul><li>OPtype - The python class name of the operator type you want to change this operator to. This is not a string, but instead is a class defined in the global <a href="/Td_Module" title="Td Module">td module</a>.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'wave1'</span><span class="p">)</span><span class="o">.</span><span class="n">changeType</span><span class="p">(</span><span class="n">nullCHOP</span><span class="p">)</span> <span class="c1">#changes 'wave1' into a Null <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span></span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="s1">'text1'</span><span class="p">)</span><span class="o">.</span><span class="n">changeType</span><span class="p">(</span><span class="n">tcpipDAT</span><span class="p">)</span> <span class="c1">#changes 'text1' operator into a TCPIP <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span></span>
+</pre></div></blockquote>
+<div id="dependenciesTo" style="display:inline;"></div><p><code class="python">dependenciesTo(<span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>)</code>→ <code class="return">list</code>:
+</p><blockquote><p>Returns a (possibly empty) list of operator dependency paths between this operator and the specified operator. Multiple paths may be found.</p></blockquote>
+<div id="evalExpression" style="display:inline;"></div><p><code class="python">evalExpression(str)</code>→ <code class="return">value</code>:
+</p><blockquote><p>Evaluate the expression from the context of this <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.  Can be used to evaluate arbitrary snippets of code from arbitrary locations. 
+</p><ul><li>str - The expression to evaluate.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'wave1'</span><span class="p">)</span><span class="o">.</span><span class="n">evalExpression</span><span class="p">(</span><span class="s1">'me.digits'</span><span class="p">)</span>  <span class="c1">#returns 1</span>
+</pre></div><p>
+If the expression already resides in a parameter, use that parameters <a href="/Par_Class" title="Par Class">evalExpression()</a> method instead.</p></blockquote>
+<div id="destroy" style="display:inline;"></div><p><code class="python">destroy()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Destroy the operator referenced by this <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>. An exception will be raised if the <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>'s operator has already been destroyed.</p></blockquote>
+<div id="var" style="display:inline;"></div><p><code class="python">var(name, search=True)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Evaluate a<a href="/Variables" title="Variables"> variable</a>. This will return the empty string, if not found. Most information obtained from variables (except for <span class="mw-lingo-term" data-lingo-term-id="fa03eb688ad8aa1db593d33dabd89bad">Root</span> and <span class="mw-lingo-term" data-lingo-term-id="2cb05e4bb7830be982f0922fed86b4cd">Component</span> variables) are accessible through other means in Python, usually in the global <a href="/Td_Module" title="Td Module">td module</a>.
+</p><ul><li>name - The variable name to search for.</li>
+<li>search - (Keyword, Optional) If set to True (which is default) the operator hierarchy is searched until a variable matching that name is found.  If false, the search is constrained to the operator.</li></ul></blockquote>
+<div id="openMenu" style="display:inline;"></div><p><code class="python">openMenu(x=None, y=None)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Open a node menu for the operator at x, y.  Opens at mouse if x &amp; y are not specified.
+</p><ul><li>x - (Keyword, Optional) The X coordinate of the menu, measured in screen pixels.</li>
+<li>y - (Keyword, Optional) The Y coordinate of the menu, measured in screen pixels.</li></ul></blockquote>
+<div id="relativePath" style="display:inline;"></div><p><code class="python">relativePath(<span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Returns the relative path from this operator to the OP that is passed as the argument.   See <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.shortcutPath for a version using expressions.</p></blockquote>
+<div id="setInputs" style="display:inline;"></div><p><code class="python">setInputs(listOfOPs)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Set all the operator inputs to the specified list.
+</p><ul><li>listOfOPs - A list containing one or more OPs. Entries in the list can be None to disconnect specific inputs.  An empty list disconnects all inputs.</li></ul></blockquote>
+<div id="shortcutPath" style="display:inline;"></div><p><code class="python">shortcutPath(<span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>, toParName=None)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Returns an expression from this operator to the OP that is passed as the argument. See <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.relativePath for a version using relative path constants.
+</p><ul><li>toParName - (Keyword, Optional) Return an expression to this parameter instead of its operator.</li></ul></blockquote>
+<div id="ops" style="display:inline;"></div><p><code class="python">ops(pattern1, pattern2.., includeUtility=False)</code>→ <code class="return">list of OPs</code>:
+</p><blockquote><p>Returns a (possibly empty) list of OPs that match the patterns, relative to the inside of this <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+</p><p>Multiple patterns may be provided. Numeric OP ids may also be used.
+</p>
+<ul><li><code>pattern</code> - Can be string following the <a href="/Pattern_Matching" title="Pattern Matching">Pattern Matching</a> rules, specifying which OPs to return, or an integer, which must be an OP Id. Multiple patterns can be given and all matched OPs will be returned.</li>
+<li><code>includeUtility</code> - (Keyword, Optional) If specified, controls whether or not utility components (eg Comments) are included in the results.</li></ul><p><b>Note:</b> a version of this method that searches relative to '/' is also in the global <a href="/Td_Module" title="Td Module">td module</a>.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">newlist</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">ops</span><span class="p">(</span><span class="s1">'arm*'</span><span class="p">,</span> <span class="s1">'leg*'</span><span class="p">,</span> <span class="s1">'leg5/foot*'</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="resetPars" style="display:inline;"></div><p><code class="python">resetPars(parNames='*', parGroupNames='*', pageNames='*', includeBuiltin=True, includeCustom=True)</code>→ <code class="return">bool</code>:
+</p><blockquote><p>Resets the specified parameters in the operator.
+</p><p>Returns true if anything was changed.
+</p>
+<ul><li>parNames (Keyword, Optional) - Specify parameters by Par name.</li>
+<li>parGroupNames (Keyword, Optional) - Specify parameters by <span class="mw-lingo-term" data-lingo-term-id="90055a7b1446848a11d5c2dbeadcd9d8">ParGroup</span> name.</li>
+<li>pageNames (Keyword, Optional) - Specify parameters by page name.</li>
+<li>includeBuiltin (Keyword, Optional) - Include builtin parameters.</li>
+<li>includeCustom (Keyword, Optional) - Include custom parameters.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'player'</span><span class="p">)</span><span class="o">.</span><span class="n">resetPars</span><span class="p">(</span><span class="n">includeBuiltin</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># only reset custom</span>
+</pre></div></blockquote>
+<h3><span class="mw-headline" id="Errors">Errors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Errors">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="addScriptError" style="display:inline;"></div><p><code class="python">addScriptError(msg)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Adds a script error to a node.
+</p><ul><li>msg - The error to add.</li></ul></blockquote>
+<div id="addError" style="display:inline;"></div><p><code class="python">addError(msg)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Adds an error to an operator.  Only valid if added while the operator is cooking. (Example <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span> <span class="mw-lingo-term" data-lingo-term-id="28a7e2d07553a70b039bb585895e0bf0">SOP</span>, <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>, <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>).
+</p><ul><li>msg - The error to add.</li></ul></blockquote>
+<div id="addWarning" style="display:inline;"></div><p><code class="python">addWarning(msg)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Adds a warning to an operator.  Only valid if added while the operator is cooking. (Example <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span> <span class="mw-lingo-term" data-lingo-term-id="28a7e2d07553a70b039bb585895e0bf0">SOP</span>, <span class="mw-lingo-term" data-lingo-term-id="8b9d2cce2836537aabe6f2e0dd5da293">CHOP</span>, <span class="mw-lingo-term" data-lingo-term-id="cc2bcf28d9ffc17fcbf169f3325607bb">DAT</span>).
+</p><ul><li>msg - The error to add.</li></ul></blockquote>
+<div id="errors" style="display:inline;"></div><p><code class="python">errors(recurse=False)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Get error messages associated with this <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+</p><ul><li>recurse - Get errors in any children or subchildren as well.</li></ul></blockquote>
+<div id="warnings" style="display:inline;"></div><p><code class="python">warnings(recurse=False)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Get warning messages associated with this <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+</p><ul><li>recurse - Get warnings in any children or subchildren as well.</li></ul></blockquote>
+<div id="scriptErrors" style="display:inline;"></div><p><code class="python">scriptErrors(recurse=False)</code>→ <code class="return">str</code>:
+</p><blockquote><p>Get script error messages associated with this <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+</p><ul><li>recurse - Get errors in any children or subchildren as well.</li></ul></blockquote>
+<div id="clearScriptErrors" style="display:inline;"></div><p><code class="python">clearScriptErrors(recurse=False, error='*')</code>→ <code class="return">None</code>:
+</p><blockquote><p>Clear any errors generated during script execution.  These may be generated during execution of DATs, <span class="mw-lingo-term" data-lingo-term-id="f907e651164789346ae0a1e257c462d8">Script</span> Nodes, <span class="mw-lingo-term" data-lingo-term-id="f73a286858ad7c69a79ba1475c04b5a7">Replicator</span> <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span> callbacks, etc.
+</p><ul><li>recurse - Clear script errors in any children or subchildren as well.</li>
+<li>error - Pattern to match when clearing errors</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'/project1'</span><span class="p">)</span><span class="o">.</span><span class="n">clearScriptErrors</span><span class="p">(</span><span class="n">recurse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="childrenCPUMemory" style="display:inline;"></div><p><code class="python">childrenCPUMemory()</code>→ <code class="return">int</code>:
+</p><blockquote><p>Returns the total CPU memory usage for all the children from this <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>.</p></blockquote>
+<div id="childrenGPUMemory" style="display:inline;"></div><p><code class="python">childrenGPUMemory()</code>→ <code class="return">int</code>:
+</p><blockquote><p>Returns the total <span class="mw-lingo-term" data-lingo-term-id="52f9ec21735243ad9917cda3ca077d32">GPU</span> memory usage for all the children from this <span class="mw-lingo-term" data-lingo-term-id="85a1cdddc59cb89e6297acc2f2fc1755">COMP</span>.</p></blockquote>    
+<h3><span class="mw-headline" id="Appearance_2">Appearance</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Appearance">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="resetNodeSize" style="display:inline;"></div><p><code class="python">resetNodeSize()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Reset the node tile size to its default width and height.</p></blockquote>
+<h3><span class="mw-headline" id="Viewers">Viewers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Viewers">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="closeViewer" style="display:inline;"></div><p><code class="python">closeViewer(topMost=False)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Close the floating content viewers of the <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+</p><ul><li>topMost - (Keyword, Optional) If True, any viewer window containing any parent of this OP is closed instead.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'wave1'</span><span class="p">)</span><span class="o">.</span><span class="n">closeViewer</span><span class="p">()</span>
+<span class="n">op</span><span class="p">(</span><span class="s1">'wave1'</span><span class="p">)</span><span class="o">.</span><span class="n">closeViewer</span><span class="p">(</span><span class="n">topMost</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># any viewer that contains 'wave1' will be closed.</span>
+</pre></div></blockquote>
+<div id="openViewer" style="display:inline;"></div><p><code class="python">openViewer(unique=False, borders=True)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Open a floating content viewer for the <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>.
+</p><ul><li>unique - (Keyword, Optional) If False, any existing viewer for this OP will be re-used and popped to the foreground. If unique is True, a new window is created each time instead.</li>
+<li>borders - (Keyword, Optional) If true, the floating window containing the viewer will have borders.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'geo1'</span><span class="p">)</span><span class="o">.</span><span class="n">openViewer</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">borders</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># opens a new borderless viewer window for 'geo1'</span>
+</pre></div></blockquote>
+<div id="resetViewer" style="display:inline;"></div><p><code class="python">resetViewer(recurse=False)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Reset the OP content viewer to default view settings.
+</p><ul><li>recurse - (Keyword, Optional) If True, this is done for all children and sub-children as well.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">op</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span><span class="o">.</span><span class="n">resetViewer</span><span class="p">(</span><span class="n">recurse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># reset the viewer for all operators in the entire file.</span>
+</pre></div></blockquote>
+<div id="openParameters" style="display:inline;"></div><p><code class="python">openParameters()</code>→ <code class="return">None</code>:
+</p><blockquote><p>Open a floating dialog containing the operator parameters.</p></blockquote>
+<h3><span class="mw-headline" id="Storage"><span class="mw-lingo-term" data-lingo-term-id="8c4aa541ee911e8d80451ef8cc304806">Storage</span></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Storage">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/Storage" title="Storage">Storage</a> can be used to keep data within components. <span class="mw-lingo-term" data-lingo-term-id="8c4aa541ee911e8d80451ef8cc304806">Storage</span> is implemented as one python dictionary per node.  
+</p><p>When an element of storage is changed by using <code>n.store()</code> as explained below, expressions and operators that depend on it will automatically re-cook.  It is retrieved with the <code>n.fetch()</code> function.
+</p><p><span class="mw-lingo-term" data-lingo-term-id="8c4aa541ee911e8d80451ef8cc304806">Storage</span> is saved in <code><span class="mw-lingo-term" data-lingo-term-id="76746356f2d9fd021f01bc051bb2114f">.toe</span></code> and <code><span class="mw-lingo-term" data-lingo-term-id="c93d2a89e225ded900ca3779a6856086">.tox</span></code> files and restored on startup.
+</p><p><span class="mw-lingo-term" data-lingo-term-id="8c4aa541ee911e8d80451ef8cc304806">Storage</span> can hold any python object type (not just strings as in <span class="mw-lingo-term" data-lingo-term-id="39f1d43462c7c9a61b7a177dc9b82666">Tscript</span> variables).  <span class="mw-lingo-term" data-lingo-term-id="8c4aa541ee911e8d80451ef8cc304806">Storage</span> elements can also have optional startup values, specified separately. Use these startup values for example, to avoid saving and loading some session specific object, and instead save or load a well defined object like <code>None</code>.
+</p><p>See the <a href="/Examine_DAT" title="Examine DAT">Examine DAT</a> for procedurally viewing the contents of storage.
+</p><p><br></p>
+<div id="fetch" style="display:inline;"></div><p><code class="python">fetch(key, default, search=True, storeDefault=False)</code>→ <code class="return">value</code>:
+</p><blockquote><p>Return an object from the OP storage dictionary.  If the item is not found, and a default it supplied, it will be returned instead.
+</p><ul><li>key - The name of the entry to retrieve.</li>
+<li>default - (Optional) If provided and no item is found then the passed value/object is returned instead.</li>
+<li>storeDefault - (Keyword, Optional) If True, and the key is not found, the default is stored as well.</li>
+<li>search - (Keyword, Optional) If True, the parent of each OP is searched recursively until a match is found</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">'sales5'</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+</pre></div></blockquote>
+<div id="fetchOwner" style="display:inline;"></div><p><code class="python">fetchOwner(key)</code>→ <code class="return"><span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span></code>:
+</p><blockquote><p>Return the operator which contains the stored key, or None if not found.
+</p><ul><li>key - The key to the stored entry you are looking for.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">who</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">fetchOwner</span><span class="p">(</span><span class="s1">'sales5'</span><span class="p">)</span> <span class="c1">#find the OP that has a storage entry called 'sales5'</span>
+</pre></div></blockquote>
+<div id="store" style="display:inline;"></div><p><code class="python">store(key, value)</code>→ <code class="return">value</code>:
+</p><blockquote><p>Add the key/value pair to the <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>'s storage dictionary, or replace it if it already exists.  If this value is not intended to be saved and loaded in the toe file, it can be be given an alternate value for saving and loading, by using the method storeStartupValue described below.
+</p><ul><li>key - A string name for the storage entry. Use this name to retrieve the value using fetch().</li>
+<li>value - The value/object to store.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">'sales5'</span><span class="p">,</span> <span class="mf">34.5</span><span class="p">)</span> <span class="c1"># stores a floating point value 34.5.</span>
+<span class="n">n</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="s1">'moviebank'</span><span class="p">,</span> <span class="n">op</span><span class="p">(</span><span class="s1">'/project1/movies'</span><span class="p">))</span> <span class="c1"># stores an OP for easy access later on.</span>
+</pre></div></blockquote>
+<div id="unstore" style="display:inline;"></div><p><code class="python">unstore(keys1, keys2..)</code>→ <code class="return">None</code>:
+</p><blockquote><p>For key, remove it from the <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>'s storage dictionary. <span class="mw-lingo-term" data-lingo-term-id="3a7f8b62ad3b33224b536b97a7a305b2">Pattern Matching</span> is supported as well.
+</p><ul><li>keys - The name or pattern defining which key/value pairs to remove from the storage dictionary.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">unstore</span><span class="p">(</span><span class="s1">'sales*'</span><span class="p">)</span> <span class="c1"># removes all entries from this OPs storage that start with 'sales'</span>
+</pre></div></blockquote>
+<div id="storeStartupValue" style="display:inline;"></div><p><code class="python">storeStartupValue(key, value)</code>→ <code class="return">None</code>:
+</p><blockquote><p>Add the key/value pair to the <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>'s storage startup dictionary.  The storage element will take on this value when the file starts up.
+</p><ul><li>key - A string name for the storage startup entry.</li>
+<li>value - The startup value/object to store.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">storeStartupValue</span><span class="p">(</span><span class="s1">'sales5'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># 'sales5' will have a value of 1 when the file starts up.</span>
+</pre></div></blockquote>
+<div id="unstoreStartupValue" style="display:inline;"></div><p><code class="python">unstoreStartupValue(keys1, keys2..)</code>→ <code class="return">None</code>:
+</p><blockquote><p>For key, remove it from the <span class="mw-lingo-term" data-lingo-term-id="7457cdd15d09bfc6c4dbb5d2b6f87390">OP</span>'s storage startup dictionary. <span class="mw-lingo-term" data-lingo-term-id="3a7f8b62ad3b33224b536b97a7a305b2">Pattern Matching</span> is supported as well.  This does not affect the stored value, just its startup value.
+</p><ul><li>keys - The name or pattern defining which key/value pairs to remove from the storage startup dictionary.</li></ul><div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">unstoreStartupValue</span><span class="p">(</span><span class="s1">'sales*'</span><span class="p">)</span> <span class="c1"># removes all entries from this OPs storage startup that start with 'sales'</span>
+</pre></div></blockquote>
+<h3><span class="mw-headline" id="Miscellaneous">Miscellaneous</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Template:SubSection&amp;action=edit&amp;section=T-1" title="Edit section: Miscellaneous">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div id="__getstate__" style="display:inline;"></div><p><code class="python">__getstate__()</code>→ <code class="return">dict</code>:
+</p><blockquote><p>Returns a dictionary with persistent data about the object suitable for pickling and deep copies.</p></blockquote>
+<div id="__setstate__" style="display:inline;"></div><p><code class="python">__setstate__()</code>→ <code class="return">dict</code>:
+</p><blockquote><p>Reads the dictionary to update persistent details about the object, suitable for unpickling and deep copies.</p></blockquote>
+<p>TouchDesigner Build: <select onchange="location=this.value;"><option value="https://docs.derivative.ca/ExamineDAT_Class">Latest</option>\n<option value="https://docs.derivative.ca/ExamineDAT_Class?oldid=11200">2022.24140</option><option value="https://docs.derivative.ca/ExamineDAT_Class?oldid=11200">2021.10000</option><option value="https://docs.derivative.ca/ExamineDAT_Class?oldid=11200">2018.28070</option><option value="https://docs.derivative.ca/ExamineDAT_Class?oldid=9006">before 2018.28070</option></select></p></div><div class="mw-lingo-tooltip" id="cc2bcf28d9ffc17fcbf169f3325607bb"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that manipulates text strings: multi-line text or tables. Multi-line text is often a python <a href="/Script" title="Script">Script</a> or <a href="/GLSL" title="GLSL">GLSL</a> Shader, but can be any multi-line text. <a href="/Table_DAT" title="Table DAT">Tables</a> are rows and columns of cells, each containing a text string.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="7457cdd15d09bfc6c4dbb5d2b6f87390"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Any of the procedural data operators. OPs do all the work in TouchDesigner. They "cook" and output data to other OPs, which ultimately result in new images, data and audio being generated. See <a href="/Node" title="Node">Node</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="90055a7b1446848a11d5c2dbeadcd9d8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A ParGroup is a group of related parameters that you can set and get as a whole instead of its individual parameters, like ParGroup <code>t</code> is <code>tx ty tz</code>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="127c8e2bf0b36c9d6a86d99b969d563a"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A name for a component that is accessible from any node in a project, which can be declared in a component's Global Operator Shortcut parameter.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="756210d98ce28018652ca05e1dcaaf3e"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Operator shortcuts are Python objects that return operators (or sometimes parameters). These include <a href="/Parent_Shortcut" title="Parent Shortcut">Parent Shortcuts</a> for accessing a component from within that component, and <a href="/Global_OP_Shortcut" title="Global OP Shortcut">Global OP Shortcuts</a> that access a unique component from anywhere in TouchDesigner.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="98b55baa723b7158c2ad741a9f2339b8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A Parent Shortcut is a parameter on a component that contains a name that you can use anywhere inside the component to refer to that component using the syntax <code>parent.Name</code>, for example <code>parent.Effect.width</code> to obtain panel width.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="c5836008c1649301e29351a55db8f65c"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Indicator of certain states of an operator (bypass, display, lock, viewer active).
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="1bf70a91b0b28b92dc52e03d45abf61a"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>To re-compute the output data of the <a href="/Operator" title="Operator">Operators</a>. An operator cooks when (1) its inputs change, (2) its <a href="/Parameter" title="Parameter">Parameters</a> change, (3) when the timeline moves forward in some cases, or (4) <a href="/Script" title="Script">Scripting</a> commands are run on the node. When the operator is a <a href="/Panel_Component" title="Panel Component">Panel Component</a>, it also cooks when a user interacts with it. When an operator cooks, it usually causes operators connected to its output to re-cook. When TouchDesigner draws the screen, it re-cooks all the <a href="/Dependency" title="Dependency">Dependencies</a> - the necessary operators in all <a href="/Network" title="Network">Networks</a>, contributing to a frame's total "cook time".
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="52f9ec21735243ad9917cda3ca077d32"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>The Graphics Processing Unit. This is the high-speed, many-core processor of the graphics card/chip that takes geometry, images and data from the CPU and creates images and processed data.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="85a1cdddc59cb89e6297acc2f2fc1755"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that contains its own <a href="/Network" title="Network">Network</a>. There are sixteen 3D <a href="/Object_Component" title="Object Component">Object Component</a> and ten 2D <a href="/Panel_Component" title="Panel Component">Panel Component</a> types. See also <a href="/Network_Path" title="Network Path">Network Path</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="8b9d2cce2836537aabe6f2e0dd5da293"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> which operate on <a href="/Channel" title="Channel">Channels</a> (a sequence of numbers (<a href="/Sample" title="Sample">Samples</a>)) which are used for animation, audio, mathematics, simulation, logic, UI construction, and data streamed from/to devices and protocols.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="fa03eb688ad8aa1db593d33dabd89bad"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TouchDesigner is a hierarchy of components. "root" is the top-most network in the hierarchy. The <a href="/Network_Path" title="Network Path">Network Path</a> or Path for root is simply <code>/</code>. A typical path is <code>/project1/moviein1</code>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="2cb05e4bb7830be982f0922fed86b4cd"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>An <a href="/Operator_Family" title="Operator Family">Operator Family</a> that contains its own <a href="/Network" title="Network">Network</a>. There are sixteen 3D <a href="/Object_Component" title="Object Component">Object Component</a> and ten 2D <a href="/Panel_Component" title="Panel Component">Panel Component</a> types. See also <a href="/Network_Path" title="Network Path">Network Path</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="f907e651164789346ae0a1e257c462d8"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A set of commands located in a Text DAT that are triggered to run under certain conditions. There are two scripting languages in TouchDesigner: <a href="/Python" title="Python">Python</a> and the original <a href="/Tscript" title="Tscript">Tscript</a>. Scripts and single-line commands can also be run in the <a href="/Textport" title="Textport">Textport</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="28a7e2d07553a70b039bb585895e0bf0"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A <a href="/Operator_Family" title="Operator Family">Operator Family</a> that reads, creates and modifies 3D points, polygons, lines, particles, surfaces, spheres and meatballs. Particles and point clouds are now done primarily on the GPU using TOPs.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="f73a286858ad7c69a79ba1475c04b5a7"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Creates copies of a component, one for every row in a table or using a Number of Replicants parameter - it is the "for-loop" of operators. Unlike <a href="/Clone" title="Clone">Clone</a>, it automatically creates copies of a master component.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="8c4aa541ee911e8d80451ef8cc304806"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Storage is a python dictionary in each operator, where users can store and fetch extra data.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="76746356f2d9fd021f01bc051bb2114f"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TOuch Environment file, the file type used by TouchDesigner to save your entire project.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="c93d2a89e225ded900ca3779a6856086"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TouchDesigner Component file, the file type used to save a <a href="/Component" title="Component">Component</a> of your TouchDesigner project.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="39f1d43462c7c9a61b7a177dc9b82666"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>TouchDesigner's original built-in Command scripting language prior to <a href="/Python" title="Python">Python</a>.
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="3a7f8b62ad3b33224b536b97a7a305b2"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Matching names using wildcard characters and bracketing. Useful in "<a href="/Select_CHOP" title="Select CHOP">Select</a>" type parameters to select multiple operators, paths, channels, etc.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20250701165620
+Cache expiry: 60
+Reduced expiry: true
+Complications: [show‐toc]
+CPU time usage: 0.268 seconds
+Real time usage: 0.333 seconds
+Preprocessor visited node count: 5522/1000000
+Post‐expand include size: 349513/2097152 bytes
+Template argument size: 111539/2097152 bytes
+Highest expansion depth: 10/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 36729/5000000 bytes
+Lua time usage: 0.060/5 seconds
+Lua virtual size: 9142272/104857600 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  179.308      1 -total
+ 95.10%  170.520      2 Template:ClassInheritance
+ 57.83%  103.696      3 Template:ClassMethodSection
+ 50.13%   89.887     17 Template:SubSection
+ 32.98%   59.132      3 Template:ClassMemberSection
+ 17.30%   31.024    115 Template:ClassMember
+ 12.46%   22.348     67 Template:ClassMethod
+  1.11%    1.996      1 Template:History
+  1.11%    1.995      1 Template:OPClassSummary
+  0.91%    1.639      1 Template:Lowercase
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:556-0!canonical and timestamp 20250701165620 and revision id 11200.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://docs.derivative.ca/index.php?title=ExamineDAT_Class&amp;oldid=11200">https://docs.derivative.ca/index.php?title=ExamineDAT_Class&amp;oldid=11200</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/index.php?title=Category:DAT_Classes&amp;action=edit&amp;redlink=1" class="new" title="Category:DAT Classes (page does not exist)">DAT Classes</a></li><li><a href="/Category:Python_Reference" title="Category:Python Reference">Python Reference</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+
+<nav id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu-legacy" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-login" class="mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=ExamineDAT+Class" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+
+<nav id="p-namespaces" class="vector-menu mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/ExamineDAT_Class" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/index.php?title=Talk:ExamineDAT_Class&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li><li id="ca-Experimental" class="new mw-list-item"><a href="/index.php?title=Experimental:ExamineDAT_Class&amp;action=edit&amp;redlink=1" title=" (page does not exist)"><span>Experimental</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	/>
+	<label
+		id="p-variants-label"
+		 aria-label="Change language variant"
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Canadian English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+
+<nav id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/ExamineDAT_Class"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/index.php?title=ExamineDAT_Class&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+
+<nav id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	/>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Derivative" aria-label="Search Derivative" autocapitalize="sentences" title="Search Derivative [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+
+<nav id="p-TouchDesigner" class="vector-menu mw-portlet mw-portlet-TouchDesigner vector-menu-portal portal" aria-labelledby="p-TouchDesigner-label" role="navigation"  >
+	<h3
+		id="p-TouchDesigner-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">TouchDesigner</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Main-Page" class="mw-list-item"><a href="/Main_Page"><span>Main Page</span></a></li><li id="n-Categories" class="mw-list-item"><a href="/Special:Categories"><span>Categories</span></a></li><li id="n-Learn-TouchDesigner" class="mw-list-item"><a href="/Learn_TouchDesigner"><span>Learn TouchDesigner</span></a></li><li id="n-Tutorials" class="mw-list-item"><a href="/Tutorials"><span>Tutorials</span></a></li><li id="n-Interoperability" class="mw-list-item"><a href="/Interoperability"><span>Interoperability</span></a></li><li id="n-Glossary" class="mw-list-item"><a href="/TouchDesigner_Glossary"><span>Glossary</span></a></li><li id="n-Operators" class="mw-list-item"><a href="/Operator"><span>Operators</span></a></li><li id="n-Python" class="mw-list-item"><a href="/Python"><span>Python</span></a></li><li id="n-Python-Class-Reference" class="mw-list-item"><a href="/TouchDesigner_Python_Classes"><span>Python Class Reference</span></a></li><li id="n-Palette" class="mw-list-item"><a href="/Category:Palette"><span>Palette</span></a></li><li id="n-FAQ" class="mw-list-item"><a href="/Frequently_Asked_Questions"><span>FAQ</span></a></li><li id="n-Recent-Doc-Edits" class="mw-list-item"><a href="/Special:RecentChanges"><span>Recent Doc Edits</span></a></li><li id="n-Release-Notes" class="mw-list-item"><a href="/Release_Notes"><span>Release Notes</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+
+<nav id="p-Downloads" class="vector-menu mw-portlet mw-portlet-Downloads vector-menu-portal portal" aria-labelledby="p-Downloads-label" role="navigation"  >
+	<h3
+		id="p-Downloads-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Downloads</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-TouchDesigner" class="mw-list-item"><a href="https://www.derivative.ca/download" rel="nofollow"><span>TouchDesigner</span></a></li><li id="n-Shared-Examples" class="mw-list-item"><a href="http://www.derivative.ca/Forum/viewforum.php?f=22" rel="nofollow"><span>Shared Examples</span></a></li></ul>
+		
+	</div>
+</nav>
+
+
+<nav id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/ExamineDAT_Class" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/ExamineDAT_Class" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=ExamineDAT_Class&amp;oldid=11200" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=ExamineDAT_Class&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cargopagevalueslink" class="mw-list-item"><a href="/index.php?title=ExamineDAT_Class&amp;action=pagevalues" rel="cargo-pagevalues"><span>Page values</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 25 May 2018, at 17:53.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Derivative:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Derivative:About">About Derivative</a></li>
+	<li id="footer-places-disclaimer"><a href="/Derivative:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.268","walltime":"0.333","ppvisitednodes":{"value":5522,"limit":1000000},"postexpandincludesize":{"value":349513,"limit":2097152},"templateargumentsize":{"value":111539,"limit":2097152},"expansiondepth":{"value":10,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":36729,"limit":5000000},"timingprofile":["100.00%  179.308      1 -total"," 95.10%  170.520      2 Template:ClassInheritance"," 57.83%  103.696      3 Template:ClassMethodSection"," 50.13%   89.887     17 Template:SubSection"," 32.98%   59.132      3 Template:ClassMemberSection"," 17.30%   31.024    115 Template:ClassMember"," 12.46%   22.348     67 Template:ClassMethod","  1.11%    1.996      1 Template:History","  1.11%    1.995      1 Template:OPClassSummary","  0.91%    1.639      1 Template:Lowercase"]},"scribunto":{"limitreport-timeusage":{"value":"0.060","limit":"5"},"limitreport-virtmemusage":{"value":9142272,"limit":104857600},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20250701165620","ttl":60,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":576});});</script>
+</body>
+<!-- Cached 20250701165620 -->
+</html>

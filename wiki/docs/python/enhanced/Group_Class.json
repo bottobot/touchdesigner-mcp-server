@@ -1,0 +1,37 @@
+{
+  "file": "Group_Class.htm",
+  "className": "Group",
+  "methods": [
+    {
+      "name": "add",
+      "parameters": [
+        {
+          "name": "item",
+          "type": "Point  |  Prim  | int"
+        }
+      ],
+      "returns": "None :",
+      "signature": "add(item :  Point  |  Prim  | int)"
+    },
+    {
+      "name": "discard",
+      "parameters": [
+        {
+          "name": "item",
+          "type": "Point  |  Prim  | int"
+        }
+      ],
+      "returns": "None :",
+      "signature": "discard(item :  Point  |  Prim  | int)"
+    },
+    {
+      "name": "destroy",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "destroy()"
+    }
+  ],
+  "methodCount": 3,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.350Z"
+}

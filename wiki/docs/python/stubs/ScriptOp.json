@@ -1,0 +1,111 @@
+{
+  "name": "ScriptOp",
+  "description": "The ScriptOp class represents script operators in TouchDesigner (Script CHOP, Script DAT, Script SOP, Script TOP), providing specialized functionality for each script operator type.",
+  "members": [
+    {
+      "name": "scriptType",
+      "description": "The type of script operator (CHOP, DAT, SOP, TOP)"
+    },
+    {
+      "name": "callbacks",
+      "description": "Dictionary of registered callback functions for the script"
+    },
+    {
+      "name": "inputs",
+      "description": "List of input operators connected to this script operator"
+    },
+    {
+      "name": "outputs",
+      "description": "List of output operators connected from this script operator"
+    },
+    {
+      "name": "cook_params",
+      "description": "Parameters available during the cook process"
+    }
+  ],
+  "methods": [
+    {
+      "name": "cook",
+      "signature": "cook(input_data)",
+      "description": "Main cooking function called when the operator needs to process data",
+      "parameters": [
+        {
+          "name": "input_data",
+          "type": "Any",
+          "description": "Input data to be processed, varies by operator type"
+        }
+      ],
+      "returns": "Processed data"
+    },
+    {
+      "name": "onSetupParameters",
+      "signature": "onSetupParameters(op)",
+      "description": "Called to set up custom parameters for the script operator",
+      "parameters": [
+        {
+          "name": "op",
+          "type": "OP",
+          "description": "The operator to set up parameters for"
+        }
+      ],
+      "returns": "None"
+    },
+    {
+      "name": "onPulse",
+      "signature": "onPulse(par)",
+      "description": "Called when a pulse parameter is triggered",
+      "parameters": [
+        {
+          "name": "par",
+          "type": "Par",
+          "description": "The parameter that was pulsed"
+        }
+      ],
+      "returns": "None"
+    },
+    {
+      "name": "onValueChange",
+      "signature": "onValueChange(par, prev)",
+      "description": "Called when a parameter value changes",
+      "parameters": [
+        {
+          "name": "par",
+          "type": "Par",
+          "description": "The parameter that changed"
+        },
+        {
+          "name": "prev",
+          "type": "Any",
+          "description": "The previous value of the parameter"
+        }
+      ],
+      "returns": "None"  
+    },
+    {
+      "name": "onInputChange",
+      "signature": "onInputChange(input_index)",
+      "description": "Called when an input connection changes",
+      "parameters": [
+        {
+          "name": "input_index",
+          "type": "int",
+          "description": "Index of the input that changed"
+        }
+      ],
+      "returns": "None"
+    },
+    {
+      "name": "onDestroy",
+      "signature": "onDestroy()",
+      "description": "Called when the script operator is being destroyed",
+      "returns": "None"
+    },
+    {
+      "name": "reset",
+      "signature": "reset()",
+      "description": "Reset the script operator to its initial state",
+      "returns": "None"
+    }
+  ],
+  "url": "https://docs.derivative.ca/Script_Operators"
+}

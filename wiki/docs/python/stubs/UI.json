@@ -1,0 +1,70 @@
+{
+  "className": "UI",
+  "description": "User interface control class",
+  "category": "Interface",
+  "url": "https://docs.derivative.ca/UI_Class",
+  "documentation": {
+    "members": [
+      {
+        "name": "clipboard",
+        "type": "str",
+        "description": "System clipboard text"
+      },
+      {
+        "name": "colors",
+        "type": "dict",
+        "description": "UI color scheme"
+      },
+      {
+        "name": "dpiBiCubicFilter",
+        "type": "bool",
+        "description": "DPI filtering setting"
+      },
+      {
+        "name": "masterVolume",
+        "type": "float",
+        "description": "Master audio volume"
+      }
+    ],
+    "methods": [
+      {
+        "name": "messageBox",
+        "signature": "messageBox(title: str, message: str, buttons: list = [\"Ok\"]) -> int",
+        "description": "Display message dialog",
+        "parameters": [
+          {
+            "name": "title",
+            "type": "str",
+            "description": "Dialog title"
+          },
+          {
+            "name": "message",
+            "type": "str",
+            "description": "Message text"
+          },
+          {
+            "name": "buttons",
+            "type": "list",
+            "description": "Button labels"
+          }
+        ],
+        "returns": "Index of clicked button"
+      },
+      {
+        "name": "status",
+        "signature": "status(message: str) -> None",
+        "description": "Display status bar message",
+        "parameters": [
+          {
+            "name": "message",
+            "type": "str",
+            "description": "Status message"
+          }
+        ]
+      }
+    ],
+    "examples": []
+  },
+  "generated": "2025-08-15T03:16:44.284Z",
+  "source": "manual_stub"
+}

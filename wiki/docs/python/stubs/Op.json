@@ -1,0 +1,74 @@
+{
+  "className": "Op",
+  "description": "Base class for all TouchDesigner operators",
+  "category": "Core",
+  "url": "https://docs.derivative.ca/Op_Class",
+  "documentation": {
+    "members": [
+      {
+        "name": "name",
+        "type": "str",
+        "description": "Operator name"
+      },
+      {
+        "name": "path",
+        "type": "str",
+        "description": "Full path to operator"
+      },
+      {
+        "name": "digits",
+        "type": "int",
+        "description": "Numeric suffix of name"
+      },
+      {
+        "name": "parent",
+        "type": "COMP",
+        "description": "Parent component"
+      },
+      {
+        "name": "pars",
+        "type": "tuple",
+        "description": "All parameters"
+      }
+    ],
+    "methods": [
+      {
+        "name": "cook",
+        "signature": "cook(force: bool = False) -> None",
+        "description": "Force operator to cook/update",
+        "parameters": [
+          {
+            "name": "force",
+            "type": "bool",
+            "description": "Force cook even if not dirty"
+          }
+        ]
+      },
+      {
+        "name": "destroy",
+        "signature": "destroy() -> None",
+        "description": "Delete this operator"
+      },
+      {
+        "name": "fetch",
+        "signature": "fetch(key: str, default: Any = None) -> Any",
+        "description": "Get stored value from operator",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "str",
+            "description": "Storage key"
+          },
+          {
+            "name": "default",
+            "type": "Any",
+            "description": "Default if key not found"
+          }
+        ]
+      }
+    ],
+    "examples": []
+  },
+  "generated": "2025-08-15T03:16:44.284Z",
+  "source": "manual_stub"
+}

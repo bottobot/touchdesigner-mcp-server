@@ -20,5 +20,29 @@
       "description": "blockSize member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "destroyBlock",
+      "parameters": [
+        {
+          "name": "block",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "destroyBlock(block)"
+    },
+    {
+      "name": "insertBlock",
+      "parameters": [
+        {
+          "name": "block",
+          "type": "Any"
+        }
+      ],
+      "returns": "SequenceBlock :",
+      "signature": "insertBlock(block)"
+    }
+  ],
+  "enhanced": true
 }

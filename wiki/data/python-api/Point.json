@@ -20,5 +20,13 @@
       "description": "index member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "destroy",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "destroy()"
+    }
+  ],
+  "enhanced": true
 }

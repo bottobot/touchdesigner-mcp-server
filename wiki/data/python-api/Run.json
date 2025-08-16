@@ -20,5 +20,13 @@
       "description": "active member"
     }
   ],
-  "methods": []
+  "methods": [
+    {
+      "name": "kill",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "kill()"
+    }
+  ],
+  "enhanced": true
 }

@@ -1,0 +1,101 @@
+{
+  "file": "Project_Class.htm",
+  "className": "Project",
+  "methods": [
+    {
+      "name": "load",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "load(path)"
+    },
+    {
+      "name": "save",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "Any"
+        },
+        {
+          "name": "saveExternalToxs=False",
+          "type": "Any"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "save(path, saveExternalToxs=False)"
+    },
+    {
+      "name": "quit",
+      "parameters": [
+        {
+          "name": "force=False",
+          "type": "Any"
+        },
+        {
+          "name": "crash=False",
+          "type": "Any"
+        }
+      ],
+      "returns": "None :",
+      "signature": "quit(force=False, crash=False)"
+    },
+    {
+      "name": "addPrivacy",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "Any"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "addPrivacy(key)"
+    },
+    {
+      "name": "removePrivacy",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "Any"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "removePrivacy(key)"
+    },
+    {
+      "name": "accessPrivateContents",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "Any"
+        }
+      ],
+      "returns": "bool :",
+      "signature": "accessPrivateContents(key)"
+    },
+    {
+      "name": "applyWindowSettings",
+      "parameters": [],
+      "returns": "None :",
+      "signature": "applyWindowSettings()"
+    },
+    {
+      "name": "stack",
+      "parameters": [],
+      "returns": "str :",
+      "signature": "stack()"
+    },
+    {
+      "name": "pythonStack",
+      "parameters": [],
+      "returns": "str :",
+      "signature": "pythonStack()"
+    }
+  ],
+  "methodCount": 9,
+  "enhanced": true,
+  "timestamp": "2025-08-15T03:16:44.424Z"
+}
