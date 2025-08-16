@@ -3,7 +3,22 @@
 [![npm version](https://img.shields.io/npm/v/@bottobot/td-mcp.svg)](https://www.npmjs.com/package/@bottobot/td-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Model Context Protocol (MCP) server that provides comprehensive TouchDesigner operator documentation and tutorials directly in VS Code/Codium through Claude or other MCP-compatible assistants.
+A powerful Model Context Protocol (MCP) server that brings comprehensive TouchDesigner operator documentation and tutorials directly to your AI coding assistant! 🚀
+
+I personally use it with VS Code/Codium and the Roo Code Extension alongside my favorite LLMs like Claude Opus and GPT-5. While the server should theoretically work with other applications like Docker or Claude Desktop, I haven't thoroughly tested those integrations yet.
+
+**The Story So Far:** The catalyst for this project was simple — A few months ago I decided I wanted an AI tool that could develop visuals in TouchDesigner for me. I've been making some basic things in TD for awhile but it has one of the steepest learning curves of any creative software I've ever used. How nice would it be just to ask an LLM "Please make a 720p, animated in realtime, constantly evolving, reaction diffusion simulation in TouchDesigner." and then just have it spit one out? Super duper nice is the answer in my opinion. 
+
+Like every project I undertake where I know very little, I thought it would be pretty straight forward! LOL! When I started I had no idea just how much time and tokens I would end up sinking into this one. And I still have a ways to go
+before I consider it complete with full integration into TouchDesigner itself and very little margin of error.
+
+However as far as querying information about operators and their parameters goes — it works pretty darn well! 💪 The major challenge I face with getting any LLM to use this tool effectively for developing networks with real complexity is that the models tend to forget to use the MCP server and fall back on their outdated trained knowledge of much older TouchDesigner versions. If anyone has suggestions on how to overcome this particular wrinkle, I'd absolutely love to hear your feedback!
+
+## How to Use It (My Current Workflow) ⚡
+
+Right now, I'm focused on ensuring the server returns useful and accurate Python API information. Here's my workflow: I describe the network I want to create—for example, a reaction diffusion visualization—and then ask the AI to write a Python script that generates the network inside TouchDesigner using the textport. Once that's complete, I get an 'exec' command that lets me copy and paste just one line into the textport, and voilà—a network is generated! ✨
+
+**My ultimate dream**, however, is full integration directly into TouchDesigner itself. I experimented with a web server and WebSocket approach, which sort of worked, but since the LLMs I was testing weren't generating correct Python code and kept hallucinating information while not utilizing the MCP server to its fullest potential, I've temporarily shelved this part of the project. Once it's working reliably and generating solid visualizations or networks, then full integration will be the final step! 🎯
 
 ## 🚨 Major v2.6.0 Update - Critical Search Fix
 
@@ -13,7 +28,7 @@ A Model Context Protocol (MCP) server that provides comprehensive TouchDesigner 
 
 - 🎯 **629 TouchDesigner Operators** - Complete documentation including 90+ experimental POP operators
 - 📚 **14 Interactive Tutorials** - Comprehensive TouchDesigner learning guides
-- 🐍 **553 Python API Classes** - Full Python scripting documentation
+- 🐍 **69 Python API Classes** - Full Python scripting documentation with working tools
 - 🔍 **FIXED Smart Search** - Direct search implementation (previously broken indexer removed)
 - 🔄 **Workflow Suggestions** - Get operator recommendations based on your current workflow
 - 🚀 **Zero Configuration** - Works immediately after installation
@@ -186,7 +201,7 @@ The server provides comprehensive coverage across all TouchDesigner operator fam
 
 ## Python API Documentation
 
-The server includes comprehensive Python API documentation with **553 classes** covering:
+The server includes comprehensive Python API documentation with **69 classes** covering:
 
 - Core operator classes (CHOP, TOP, SOP, DAT, MAT, COMP)
 - Utility classes (Channel, Cell, Page, etc.)
@@ -288,32 +303,42 @@ MIT License - See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Current Version**: 2.6.0
+**Current Version**: 2.6.1
 **Operators**: 629
 **Tutorials**: 14
-**Python API Classes**: 553
+**Python API Classes**: 69
 **Last Updated**: January 2025
 
-### What's New in v2.6.0 (Major Fix Release)
+### What's New in v2.6.1 (Python API Fix Release)
 
-#### 🔧 Critical Fixes
+#### 🐍 Critical Python API Fixes
+- **FIXED Python API Tools** - Both `get_python_api` and `search_python_api` tools now work correctly!
+- **Fixed Response Format** - Python API tools now return proper MCP content format instead of raw objects
+- **Enhanced Documentation Display** - Python classes now show formatted documentation with methods, members, and parameters
+- **Working Search Functionality** - Python API search now properly filters by classes, methods, and members
+
+#### 📊 Corrected Documentation Stats
+- **69 Python API Classes** - Accurate count of available Python classes (previous 553 count was incorrect)
+- **1,513 Methods** - Comprehensive method documentation across all Python classes
+- **Enhanced Class Details** - Full parameter signatures, return types, and descriptions
+
+#### 🔧 Technical Details
+- Fixed MCP content wrapper format in both Python API tools
+- Improved error handling and user-friendly error messages
+- Added proper markdown formatting for class documentation
+- Enhanced search result categorization and relevance scoring
+
+This update fixes the Python API tools that were returning no response in v2.6.0. Users can now successfully query TouchDesigner Python documentation.
+
+### Previous Updates
+
+#### v2.6.0 (Major Fix Release)
 - **FIXED Search Functionality** - The search_operators tool that was completely broken is now working!
 - **Removed Broken Indexer** - Eliminated the non-functional search indexer that was causing search failures
 - **Direct Search Implementation** - New reliable search algorithm that searches operator data directly
-
-#### 🏗️ Architecture Improvements
 - **Renamed WikiSystem to OperatorDataManager** - Clearer, more descriptive naming throughout codebase
 - **Removed Web Server** - Eliminated unnecessary web server component for cleaner architecture
 - **Pure MCP Server** - Now operates as a focused MCP server without web dependencies
-- **Improved Performance** - Direct search is faster than the broken indexer approach
-
-#### 📊 Data Completeness
-- **629 Operators Verified** - All operators confirmed accessible
-- **553 Python API Classes** - Full Python documentation included
-- **14 Tutorials** - All tutorials properly indexed and searchable
-- **3,327+ Parameters** - Complete parameter documentation
-
-This is a critical update that fixes the core search functionality. Users who experienced search returning zero results should update immediately.
 
 ### Previous Version Notes
 

@@ -24,8 +24,10 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
         if (!operatorDataManager) {
             console.error('[search_python_api] operatorDataManager is not available');
             return {
-                error: 'Wiki system not initialized',
-                details: 'The wiki system is not available for Python API queries'
+                content: [{
+                    type: "text",
+                    text: "Wiki system not initialized. The wiki system is not available for Python API queries."
+                }]
             };
         }
         
@@ -106,28 +108,89 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
         results.methods = results.methods.slice(0, limit);
         results.members = results.members.slice(0, limit);
         
-        // Remove relevance scores from output
-        results.classes.forEach(r => delete r.relevance);
-        results.methods.forEach(r => delete r.relevance);
-        results.members.forEach(r => delete r.relevance);
-        
         results.total_results = results.classes.length + results.methods.length + results.members.length;
         
-        // Add summary
-        results.summary = `Found ${results.total_results} results for "${query}"`;
-        if (category) {
-            results.summary += ` in category "${category}"`;
+        // Build formatted response text
+        let text = `# Python API Search Results for "${query}"\n\n`;
+        
+        const filters = [];
+        if (search_in !== "all") filters.push(`Search scope: ${search_in}`);
+        if (category) filters.push(`Category: ${category}`);
+        
+        if (filters.length > 0) {
+            text += `**Filters:** ${filters.join(' | ')}\n\n`;
         }
         
+        if (results.total_results === 0) {
+            text += `No Python API results found for "${query}".\n\n`;
+            text += `**Search Tips:**\n`;
+            text += `• Try a broader search term\n`;
+            text += `• Remove category filters\n`;
+            text += `• Search across all sections (classes, methods, members)\n`;
+            text += `• Check spelling\n`;
+        } else {
+            text += `Found **${results.total_results}** total results:\n\n`;
+            
+            // Show class results
+            if (results.classes.length > 0) {
+                text += `## Classes (${results.classes.length})\n\n`;
+                results.classes.forEach((cls, i) => {
+                    text += `${i + 1}. **${cls.class_name}** (${cls.category})\n`;
+                    text += `   ${cls.description || 'No description available'}\n\n`;
+                });
+            }
+            
+            // Show method results
+            if (results.methods.length > 0) {
+                text += `## Methods (${results.methods.length})\n\n`;
+                results.methods.forEach((method, i) => {
+                    text += `${i + 1}. **${method.class_name}.${method.method_name}()**\n`;
+                    if (method.signature) {
+                        text += `   **Signature:** \`${method.signature}\`\n`;
+                    }
+                    if (method.description) {
+                        text += `   ${method.description}\n`;
+                    }
+                    text += `\n`;
+                });
+            }
+            
+            // Show member results
+            if (results.members.length > 0) {
+                text += `## Members (${results.members.length})\n\n`;
+                results.members.forEach((member, i) => {
+                    text += `${i + 1}. **${member.class_name}.${member.member_name}** (${member.type || 'Unknown'})`;
+                    if (member.read_only) {
+                        text += ` *[Read Only]*`;
+                    }
+                    text += `\n`;
+                    if (member.description) {
+                        text += `   ${member.description}\n`;
+                    }
+                    text += `\n`;
+                });
+            }
+        }
+        
+        // Summary
+        text += `---\n`;
+        text += `*TouchDesigner Python API search | ${results.total_results} results found*\n`;
+        
         console.log(`[search_python_api] Returning ${results.total_results} total results`);
-        return results;
+        return {
+            content: [{
+                type: "text",
+                text
+            }]
+        };
         
     } catch (error) {
         console.error('[search_python_api] Error:', error);
         return {
-            error: 'Failed to search Python API documentation',
-            details: error.message,
-            stack: error.stack
+            content: [{
+                type: "text",
+                text: `Failed to search Python API documentation: ${error.message}`
+            }]
         };
     }
 }

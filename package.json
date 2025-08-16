@@ -1,7 +1,7 @@
 {
   "name": "@bottobot/td-mcp",
-  "version": "2.6.0",
-  "description": "TouchDesigner Documentation MCP Server v2.6 - Pure MCP server with FIXED search functionality. Features 629 operators + 14 tutorials + 553 Python API classes. Major improvements: working operator search (was completely broken), cleaner architecture (OperatorDataManager), removed web server overhead, direct search implementation for better performance. Zero-configuration setup for VS Code/Codium.",
+  "version": "2.6.1",
+  "description": "TouchDesigner Documentation MCP Server v2.6.1 - FIXED Python API tools! Features 629 operators + 14 tutorials + 69 Python API classes with working get_python_api & search_python_api tools. Previous v2.6.0 fixes: working operator search, cleaner architecture (OperatorDataManager), direct search implementation. Zero-configuration setup for VS Code/Codium.",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -50,6 +50,7 @@
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
+    "cheerio": "^1.0.0-rc.12",
     "zod": "^3.23.8"
   },
   "engines": {

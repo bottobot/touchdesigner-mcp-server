@@ -5,6 +5,27 @@ All notable changes to the TouchDesigner MCP Server will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.1] - 2025-01-16
+
+### 🐍 Critical Python API Fixes
+- **FIXED: get_python_api tool** - Python API documentation tool now returns proper responses (was returning no response)
+- **FIXED: search_python_api tool** - Python API search tool now works correctly (was returning no response)
+- **FIXED: MCP response format** - Both Python API tools now return proper MCP content format instead of raw JavaScript objects
+- **FIXED: Response structure** - All Python API responses now wrapped in required `content: [{ type: "text", text: "..." }]` format
+
+### 🔧 Technical Improvements
+- **Enhanced error handling** - Python API tools now provide user-friendly error messages in proper MCP format
+- **Improved documentation display** - Python classes now show beautifully formatted documentation with methods, members, and parameters
+- **Working search functionality** - Python API search now properly filters by classes, methods, and members with relevance scoring
+- **Corrected documentation stats** - Updated Python API class count from incorrect 553 to accurate 69 classes
+
+### 📊 Data Corrections
+- **69 Python API Classes** - Corrected count of available Python classes (1,513 methods total)
+- **Enhanced class details** - Full parameter signatures, return types, and descriptions now display properly
+- **Accurate statistics** - Fixed misleading class counts in documentation and package description
+
+This patch release fixes the critical issue where Python API tools returned no response, making them fully functional for TouchDesigner Python documentation queries.
+
 ## [2.6.0] - 2025-01-14
 
 ### 🔧 Critical Fixes
@@ -147,6 +168,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 ## Migration Guide
+
+### From v2.6.0 to v2.6.1
+
+This is a critical patch that fixes the broken Python API tools. No migration steps required, but you should:
+
+1. Update immediately if Python API tools were returning no response
+2. Restart your MCP server after updating
+3. Test Python API functionality with `get_python_api` and `search_python_api` tools
+
+The fixes are internal and restore full Python API functionality.
 
 ### From v2.5.0 to v2.6.0
 

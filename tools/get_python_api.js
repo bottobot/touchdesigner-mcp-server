@@ -24,8 +24,10 @@ export async function handler({ class_name, show_members = true, show_methods = 
         if (!operatorDataManager) {
             console.error('[get_python_api] operatorDataManager is not available');
             return {
-                error: 'Wiki system not initialized',
-                details: 'The wiki system is not available for Python API queries'
+                content: [{
+                    type: "text",
+                    text: "Wiki system not initialized. The wiki system is not available for Python API queries."
+                }]
             };
         }
         
@@ -51,62 +53,94 @@ export async function handler({ class_name, show_members = true, show_methods = 
             
             console.log(`[get_python_api] Class not found. Available: ${availableClasses.join(', ')}`);
             
+            let text = `# Python Class '${class_name}' Not Found\n\n`;
+            text += `**Available classes include:** ${availableClasses.join(', ')}...\n\n`;
+            text += `**Total classes available:** ${pythonClasses.length}\n\n`;
+            text += `**Suggestion:** Try one of the available class names listed above.`;
+            
             return {
-                error: `Python class '${class_name}' not found`,
-                suggestion: `Available classes include: ${availableClasses.join(', ')}...`,
-                total_classes: pythonClasses.length
+                content: [{
+                    type: "text",
+                    text
+                }]
             };
         }
         
         console.log(`[get_python_api] Found class: ${classEntry.className}`);
         
-        // Build response
-        const response = {
-            class_name: classEntry.className,
-            display_name: classEntry.displayName,
-            description: classEntry.description,
-            category: classEntry.category
-        };
+        // Build formatted response text
+        let text = `# ${classEntry.displayName || classEntry.className}\n\n`;
+        text += `**Category:** ${classEntry.category}\n\n`;
+        text += `## Description\n${classEntry.description}\n\n`;
         
         // Add members if requested
         if (show_members && classEntry.members) {
-            response.members = classEntry.members.map(member => ({
-                name: member.name,
-                type: member.returnType,
-                read_only: member.readOnly,
-                description: member.description
-            }));
-            response.member_count = classEntry.members.length;
-            console.log(`[get_python_api] Added ${response.member_count} members`);
+            text += `## Members (${classEntry.members.length} total)\n\n`;
+            classEntry.members.forEach(member => {
+                text += `• **${member.name}** (${member.returnType || 'Unknown'})`;
+                if (member.readOnly) {
+                    text += ` *[Read Only]*`;
+                }
+                text += `\n  ${member.description}\n\n`;
+            });
+            console.log(`[get_python_api] Added ${classEntry.members.length} members`);
         }
         
         // Add methods if requested
         if (show_methods && classEntry.methods) {
-            response.methods = classEntry.methods.map(method => ({
-                name: method.name,
-                signature: method.signature,
-                return_type: method.returnType,
-                description: method.description,
-                parameters: method.parameters
-            }));
-            response.method_count = classEntry.methods.length;
-            console.log(`[get_python_api] Added ${response.method_count} methods`);
+            text += `## Methods (${classEntry.methods.length} total)\n\n`;
+            classEntry.methods.forEach(method => {
+                text += `### ${method.name}()\n`;
+                text += `**Signature:** \`${method.signature}\`\n\n`;
+                if (method.returnType) {
+                    text += `**Returns:** ${method.returnType}\n\n`;
+                }
+                if (method.description) {
+                    text += `${method.description}\n\n`;
+                }
+                if (method.parameters && method.parameters.length > 0) {
+                    text += `**Parameters:**\n`;
+                    method.parameters.forEach(param => {
+                        text += `• **${param.name}** (${param.type || 'Any'})`;
+                        if (param.description) {
+                            text += `: ${param.description}`;
+                        }
+                        text += `\n`;
+                    });
+                    text += `\n`;
+                }
+            });
+            console.log(`[get_python_api] Added ${classEntry.methods.length} methods`);
         }
         
         // Add inheritance info if requested and available
         if (show_inherited && classEntry.inherits) {
-            response.inherits_from = classEntry.inherits;
+            text += `## Inheritance\n**Inherits from:** ${classEntry.inherits}\n\n`;
         }
         
+        // Metadata
+        text += `---\n`;
+        text += `*TouchDesigner Python API documentation`;
+        if (classEntry.enhanced) {
+            text += ` | Enhanced with method details`;
+        }
+        text += `*\n`;
+        
         console.log(`[get_python_api] Returning response for ${classEntry.className}`);
-        return response;
+        return {
+            content: [{
+                type: "text",
+                text
+            }]
+        };
         
     } catch (error) {
         console.error('[get_python_api] Error:', error);
         return {
-            error: 'Failed to retrieve Python API documentation',
-            details: error.message,
-            stack: error.stack
+            content: [{
+                type: "text",
+                text: `Failed to retrieve Python API documentation: ${error.message}`
+            }]
         };
     }
 }
