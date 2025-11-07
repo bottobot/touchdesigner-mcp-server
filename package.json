@@ -42,8 +42,7 @@
     "index.js",
     "tools/",
     "data/",
-    "wiki/data/",
-    "wiki/processor/",
+    "wiki/",
     "README.md",
     "CHANGELOG.md",
     "SETUP-INSTRUCTIONS.md"
