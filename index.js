@@ -59,7 +59,7 @@ const operatorDataManager = new OperatorDataManager({
     // Progress reporting
     progressCallback: (progress) => {
         if (progress.processed % 100 === 0 || progress.complete) {
-            console.log(`[Wiki] Processing progress: ${progress.percentage}% (${progress.processed}/${progress.total})`);
+            console.error(`[Wiki] Processing progress: ${progress.percentage}% (${progress.processed}/${progress.total})`);
         }
     },
     progressInterval: 100 // Report every 100 files
@@ -73,10 +73,10 @@ let workflowPatterns = null;
 // Load workflow patterns
 async function loadPatterns() {
   try {
-    console.log(`[Patterns] Loading from: ${PATTERNS_PATH}`);
+    console.error(`[Patterns] Loading from: ${PATTERNS_PATH}`);
     const content = await fs.readFile(PATTERNS_PATH, 'utf-8');
     workflowPatterns = JSON.parse(content);
-    console.log(`[Patterns] Loaded ${workflowPatterns.patterns.length} workflow patterns`);
+    console.error(`[Patterns] Loaded ${workflowPatterns.patterns.length} workflow patterns`);
   } catch (error) {
     console.error('[Patterns] Failed to load patterns:', error);
     workflowPatterns = { patterns: [], common_transitions: {} };
@@ -138,53 +138,53 @@ server.registerTool(
 
 // Main startup
 async function main() {
-  console.log(`TD-MCP v${VERSION} Server Starting...`);
-  console.log('================================');
-  console.log('TouchDesigner MCP Server for VS Code/Codium');
-  console.log('Following Claude.md principles: Keep it simple');
-  console.log('Pure MCP server - no WebSocket complexity\n');
+  console.error(`TD-MCP v${VERSION} Server Starting...`);
+  console.error('================================');
+  console.error('TouchDesigner MCP Server for VS Code/Codium');
+  console.error('Following Claude.md principles: Keep it simple');
+  console.error('Pure MCP server - no WebSocket complexity\n');
 
   try {
     // Initialize wiki system
-    console.log('[Server] Initializing operator data manager...');
+    console.error('[Server] Initializing operator data manager...');
     const initStartTime = Date.now();
     await operatorDataManager.initialize();
     const initDuration = Date.now() - initStartTime;
-    console.log(`[Server] Initialization took ${initDuration}ms (${(initDuration/1000).toFixed(2)}s)`);
+    console.error(`[Server] Initialization took ${initDuration}ms (${(initDuration/1000).toFixed(2)}s)`);
     
     // Load patterns (will be integrated with wiki system later)
     await loadPatterns();
     
-    console.log(`\n[Server] TD MCP v${VERSION} initialized successfully`);
+    console.error(`\n[Server] TD MCP v${VERSION} initialized successfully`);
     const stats = operatorDataManager.getSystemStats();
     const pythonApiStats = stats.pythonApiStats || { totalClasses: 0 };
-    console.log(`[Server] Wiki system ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
-    console.log(`[Server] All tools integrated with wiki system`);
-    console.log(`[Server] HTM processing foundation complete`);
+    console.error(`[Server] Wiki system ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
+    console.error(`[Server] All tools integrated with wiki system`);
+    console.error(`[Server] HTM processing foundation complete`);
   } catch (error) {
     console.error('[Server] Initialization error:', error);
     // Continue startup even if wiki system fails to initialize
-    console.log('[Server] Continuing startup with limited functionality');
+    console.error('[Server] Continuing startup with limited functionality');
   }
 
   // Connect to stdio transport
   const transport = new StdioServerTransport();
   await server.connect(transport);
 
-  console.log(`\n✓ TD-MCP v${VERSION} Server is now running with HTM Wiki System integrated`);
+  console.error(`\n✓ TD-MCP v${VERSION} Server is now running with HTM Wiki System integrated`);
 }
 
 // Graceful shutdown handling
 process.on('SIGINT', async () => {
-  console.log('\n[Server] Received SIGINT, shutting down gracefully...');
+  console.error('\n[Server] Received SIGINT, shutting down gracefully...');
   
   try {
     if (operatorDataManager) {
-      console.log('[Server] Cleaning up operator data manager...');
+      console.error('[Server] Cleaning up operator data manager...');
       operatorDataManager.destroy();
     }
     
-    console.log('[Server] Shutdown complete');
+    console.error('[Server] Shutdown complete');
     process.exit(0);
   } catch (error) {
     console.error('[Server] Error during shutdown:', error);
@@ -193,7 +193,7 @@ process.on('SIGINT', async () => {
 });
 
 process.on('SIGTERM', async () => {
-  console.log('\n[Server] Received SIGTERM, shutting down gracefully...');
+  console.error('\n[Server] Received SIGTERM, shutting down gracefully...');
   
   try {
     if (operatorDataManager) {

@@ -17,7 +17,7 @@ export const schema = {
 };
 
 export async function handler({ query, search_in = "all", category, limit = 20 }, { operatorDataManager }) {
-    console.log(`[search_python_api] Searching for: ${query}, search_in: ${search_in}, category: ${category}`);
+    console.error(`[search_python_api] Searching for: ${query}, search_in: ${search_in}, category: ${category}`);
     
     try {
         // Check if operatorDataManager is available
@@ -40,7 +40,7 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
         
         const queryLower = query.toLowerCase();
         const pythonClasses = operatorDataManager.getPythonClasses();
-        console.log(`[search_python_api] Searching through ${pythonClasses.length} Python classes`);
+        console.error(`[search_python_api] Searching through ${pythonClasses.length} Python classes`);
         
         // Search through Python classes
         for (const classEntry of pythonClasses) {
@@ -97,7 +97,7 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
             }
         }
         
-        console.log(`[search_python_api] Found ${results.classes.length} classes, ${results.methods.length} methods, ${results.members.length} members`);
+        console.error(`[search_python_api] Found ${results.classes.length} classes, ${results.methods.length} methods, ${results.members.length} members`);
         
         // Sort by relevance and limit results
         results.classes.sort((a, b) => b.relevance - a.relevance);
@@ -176,7 +176,7 @@ export async function handler({ query, search_in = "all", category, limit = 20 }
         text += `---\n`;
         text += `*TouchDesigner Python API search | ${results.total_results} results found*\n`;
         
-        console.log(`[search_python_api] Returning ${results.total_results} total results`);
+        console.error(`[search_python_api] Returning ${results.total_results} total results`);
         return {
             content: [{
                 type: "text",

@@ -93,44 +93,44 @@ export class OperatorDataManager {
     async initialize() {
         if (this.isInitialized) return;
         
-        console.log('[Wiki System] Initializing...');
+        console.error('[Wiki System] Initializing...');
         const startTime = Date.now();
         
         try {
             // Create directories
-            console.log('[Wiki System] Step 1: Creating directories...');
+            console.error('[Wiki System] Step 1: Creating directories...');
             const dirStart = Date.now();
             await this.ensureDirectories();
-            console.log(`[Wiki System] Directories created in ${Date.now() - dirStart}ms`);
+            console.error(`[Wiki System] Directories created in ${Date.now() - dirStart}ms`);
             
             // Load existing search index
-            console.log('[Wiki System] Step 2: Loading search index...');
+            console.error('[Wiki System] Step 2: Loading search index...');
             const indexStart = Date.now();
             await this.searchIndexer.loadIndex();
-            console.log(`[Wiki System] Search index loaded in ${Date.now() - indexStart}ms`);
+            console.error(`[Wiki System] Search index loaded in ${Date.now() - indexStart}ms`);
             
             // Load processed entries if available
-            console.log('[Wiki System] Step 3: Loading processed entries...');
+            console.error('[Wiki System] Step 3: Loading processed entries...');
             const entriesStart = Date.now();
             await this.loadProcessedEntries();
-            console.log(`[Wiki System] Processed entries loaded in ${Date.now() - entriesStart}ms`);
+            console.error(`[Wiki System] Processed entries loaded in ${Date.now() - entriesStart}ms`);
             
             // Load tutorials
-            console.log('[Wiki System] Step 4: Loading tutorials...');
+            console.error('[Wiki System] Step 4: Loading tutorials...');
             const tutorialsStart = Date.now();
             await this.loadTutorials();
-            console.log(`[Wiki System] Tutorials loaded in ${Date.now() - tutorialsStart}ms`);
+            console.error(`[Wiki System] Tutorials loaded in ${Date.now() - tutorialsStart}ms`);
             
             // Load Python API data
-            console.log('[Wiki System] Step 5: Loading Python API data...');
+            console.error('[Wiki System] Step 5: Loading Python API data...');
             const pythonStart = Date.now();
             await this.pythonApi.loadPythonApiData();
-            console.log(`[Wiki System] Python API data loaded in ${Date.now() - pythonStart}ms`);
+            console.error(`[Wiki System] Python API data loaded in ${Date.now() - pythonStart}ms`);
             
             this.isInitialized = true;
             const totalTime = Date.now() - startTime;
-            console.log(`[Wiki System] Initialized successfully with ${this.entries.size} operators, ${this.tutorials.size} tutorials, and ${this.pythonApi.pythonClasses.size} Python classes`);
-            console.log(`[Wiki System] Total initialization time: ${totalTime}ms (${(totalTime/1000).toFixed(2)}s)`);
+            console.error(`[Wiki System] Initialized successfully with ${this.entries.size} operators, ${this.tutorials.size} tutorials, and ${this.pythonApi.pythonClasses.size} Python classes`);
+            console.error(`[Wiki System] Total initialization time: ${totalTime}ms (${(totalTime/1000).toFixed(2)}s)`);
             
         } catch (error) {
             console.error('[Wiki System] Initialization failed:', error);
@@ -153,11 +153,11 @@ export class OperatorDataManager {
         const startTime = Date.now();
         
         try {
-            console.log('[Wiki System] Starting HTM file processing...');
+            console.error('[Wiki System] Starting HTM file processing...');
             
             // Resolve file paths
             const filePaths = Array.isArray(htmPaths) ? htmPaths : await this.discoverHTMFiles(htmPaths);
-            console.log(`[Wiki System] Found ${filePaths.length} HTM files to process`);
+            console.error(`[Wiki System] Found ${filePaths.length} HTM files to process`);
             
             // Process in batches with progress reporting
             const entries = await this.processHTMFilesWithProgress(filePaths, {
@@ -166,7 +166,7 @@ export class OperatorDataManager {
                 progressCallback: options.progressCallback || this.options.progressCallback
             });
             
-            console.log(`[Wiki System] Parsed ${entries.length} entries`);
+            console.error(`[Wiki System] Parsed ${entries.length} entries`);
             
             // Store entries
             const storeResults = await this.storeEntries(entries);
@@ -189,8 +189,8 @@ export class OperatorDataManager {
                 processingRate: Math.round((entries.length / processingTime) * 1000) // files per second
             };
             
-            console.log(`[Wiki System] Processing complete:`, results);
-            console.log(`[Wiki System] Processing rate: ${results.processingRate} files/sec`);
+            console.error(`[Wiki System] Processing complete:`, results);
+            console.error(`[Wiki System] Processing rate: ${results.processingRate} files/sec`);
             
             return results;
             
@@ -222,7 +222,7 @@ export class OperatorDataManager {
         // Create batches for concurrent processing
         const batches = this.createBatches(filePaths, concurrent);
         
-        console.log(`[Wiki System] Processing ${totalFiles} files in ${batches.length} batches...`);
+        console.error(`[Wiki System] Processing ${totalFiles} files in ${batches.length} batches...`);
         
         for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
             const batch = batches[batchIndex];
@@ -258,7 +258,7 @@ export class OperatorDataManager {
             entries.push(...batchResults.filter(entry => entry !== null));
             
             // Report batch completion
-            console.log(`[Wiki System] Batch ${batchIndex + 1}/${batches.length} complete. Processed: ${processedCount}/${totalFiles}, Errors: ${errorCount}`);
+            console.error(`[Wiki System] Batch ${batchIndex + 1}/${batches.length} complete. Processed: ${processedCount}/${totalFiles}, Errors: ${errorCount}`);
         }
         
         // Final progress report
@@ -279,7 +279,7 @@ export class OperatorDataManager {
             // Save error log for debugging
             const errorLogPath = join(this.options.dataPath, 'processing-errors.json');
             await fs.writeFile(errorLogPath, JSON.stringify(errors, null, 2));
-            console.log(`[Wiki System] Error log saved to: ${errorLogPath}`);
+            console.error(`[Wiki System] Error log saved to: ${errorLogPath}`);
         }
         
         return entries;
@@ -291,8 +291,8 @@ export class OperatorDataManager {
      * @returns {Promise<Object>} Processing results
      */
     async processTouchDesignerDocs(options = {}) {
-        console.log('[Wiki System] Starting TouchDesigner documentation processing...');
-        console.log(`[Wiki System] TD Docs path: ${this.options.tdDocsPath}`);
+        console.error('[Wiki System] Starting TouchDesigner documentation processing...');
+        console.error(`[Wiki System] TD Docs path: ${this.options.tdDocsPath}`);
         
         // Check if TD docs path exists
         try {
@@ -308,18 +308,18 @@ export class OperatorDataManager {
             batchSize: options.batchSize || 100,
             progressCallback: options.progressCallback || ((progress) => {
                 if (progress.processed % 100 === 0 || progress.complete) {
-                    console.log(`[TD Docs] Progress: ${progress.percentage}% (${progress.processed}/${progress.total}) - Errors: ${progress.errors}`);
+                    console.error(`[TD Docs] Progress: ${progress.percentage}% (${progress.processed}/${progress.total}) - Errors: ${progress.errors}`);
                 }
             })
         });
         
-        console.log(`[Wiki System] TouchDesigner documentation processing complete!`);
-        console.log(`[Wiki System] Total operators indexed: ${results.processed}`);
+        console.error(`[Wiki System] TouchDesigner documentation processing complete!`);
+        console.error(`[Wiki System] Total operators indexed: ${results.processed}`);
         
         // Also process Python API documentation
-        console.log(`[Wiki System] Processing Python API documentation...`);
+        console.error(`[Wiki System] Processing Python API documentation...`);
         const pythonApiResults = await this.pythonApi.processPythonApiDocs(options);
-        console.log(`[Wiki System] Python API processing complete: ${pythonApiResults.processed} classes`);
+        console.error(`[Wiki System] Python API processing complete: ${pythonApiResults.processed} classes`);
         
         return {
             ...results,
@@ -606,7 +606,7 @@ export class OperatorDataManager {
                 // Skip classes and deprecated entries
                 if (this.shouldFilterEntry(entry)) {
                     results.filtered++;
-                    console.log(`[Wiki System] Filtered out: ${entry.name} (${entry.type || entry.category})`);
+                    console.error(`[Wiki System] Filtered out: ${entry.name} (${entry.type || entry.category})`);
                     continue;
                 }
                 
@@ -634,11 +634,11 @@ export class OperatorDataManager {
         }
         
         if (results.filtered > 0) {
-            console.log(`[Wiki System] Filtered ${results.filtered} classes/deprecated entries`);
+            console.error(`[Wiki System] Filtered ${results.filtered} classes/deprecated entries`);
         }
         
         if (results.tutorials > 0) {
-            console.log(`[Wiki System] Stored ${results.tutorials} tutorials separately`);
+            console.error(`[Wiki System] Stored ${results.tutorials} tutorials separately`);
         }
         
         return results;
@@ -697,7 +697,7 @@ export class OperatorDataManager {
             const files = await fs.readdir(this.options.processedPath);
             const jsonFiles = files.filter(file => file.endsWith('.json'));
             
-            console.log(`[Wiki System] Loading ${jsonFiles.length} processed entries...`);
+            console.error(`[Wiki System] Loading ${jsonFiles.length} processed entries...`);
             const loadStart = Date.now();
             
             let filteredCount = 0;
@@ -706,7 +706,7 @@ export class OperatorDataManager {
             
             for (const file of jsonFiles) {
                 if (processedCount % 100 === 0 && processedCount > 0) {
-                    console.log(`[Wiki System] Loaded ${processedCount}/${jsonFiles.length} files (${((Date.now() - loadStart)/1000).toFixed(1)}s elapsed)`);
+                    console.error(`[Wiki System] Loaded ${processedCount}/${jsonFiles.length} files (${((Date.now() - loadStart)/1000).toFixed(1)}s elapsed)`);
                 }
                 try {
                     const filePath = join(this.options.processedPath, file);
@@ -746,29 +746,29 @@ export class OperatorDataManager {
             }
             
             const loadTime = Date.now() - loadStart;
-            console.log(`[Wiki System] Loaded ${this.entries.size} operators and ${this.tutorials.size} tutorials from disk in ${loadTime}ms (filtered ${filteredCount} entries)`);
+            console.error(`[Wiki System] Loaded ${this.entries.size} operators and ${this.tutorials.size} tutorials from disk in ${loadTime}ms (filtered ${filteredCount} entries)`);
             
             // Rebuild search index if entries were loaded but index is empty
             if (entriesToIndex.length > 0) {
                 const searchStats = this.searchIndexer.getSearchStats();
                 if (searchStats.totalEntries === 0) {
-                    console.log(`[Wiki System] Search index is empty, rebuilding from ${entriesToIndex.length} loaded operators...`);
+                    console.error(`[Wiki System] Search index is empty, rebuilding from ${entriesToIndex.length} loaded operators...`);
                     const rebuildStart = Date.now();
                     await this.searchIndexer.indexEntries(entriesToIndex, {
                         batchSize: 50,
                         onProgress: (progress) => {
                             if (progress.processed % 100 === 0 || progress.complete) {
-                                console.log(`[Wiki System] Indexing progress: ${progress.processed}/${progress.total}`);
+                                console.error(`[Wiki System] Indexing progress: ${progress.processed}/${progress.total}`);
                             }
                         }
                     });
                     const rebuildTime = Date.now() - rebuildStart;
-                    console.log(`[Wiki System] Search index rebuilt successfully in ${rebuildTime}ms`);
+                    console.error(`[Wiki System] Search index rebuilt successfully in ${rebuildTime}ms`);
                 }
             }
             
         } catch (error) {
-            console.log('[Wiki System] No processed entries found, starting fresh');
+            console.error('[Wiki System] No processed entries found, starting fresh');
         }
     }
 
@@ -959,7 +959,7 @@ export class OperatorDataManager {
             const files = await fs.readdir(this.tutorialsPath);
             const jsonFiles = files.filter(file => file.endsWith('.json'));
             
-            console.log(`[Wiki System] Loading ${jsonFiles.length} tutorial files...`);
+            console.error(`[Wiki System] Loading ${jsonFiles.length} tutorial files...`);
             
             for (const file of jsonFiles) {
                 try {
@@ -977,11 +977,11 @@ export class OperatorDataManager {
                 }
             }
             
-            console.log(`[Wiki System] Loaded ${this.tutorials.size} tutorials`);
+            console.error(`[Wiki System] Loaded ${this.tutorials.size} tutorials`);
             this.stats.totalTutorials = this.tutorials.size;
             
         } catch (error) {
-            console.log('[Wiki System] No tutorials found or error loading tutorials:', error.message);
+            console.error('[Wiki System] No tutorials found or error loading tutorials:', error.message);
         }
     }
 
@@ -1142,7 +1142,7 @@ export class OperatorDataManager {
      * @returns {Promise<void>}
      */
     async clearAllData() {
-        console.log('[Wiki System] Clearing all processed data...');
+        console.error('[Wiki System] Clearing all processed data...');
         
         // Clear memory
         this.entries.clear();
@@ -1172,7 +1172,7 @@ export class OperatorDataManager {
                 for (const file of files) {
                     await fs.unlink(join(this.options.processedPath, file));
                 }
-                console.log(`[Wiki System] Cleared ${files.length} processed files`);
+                console.error(`[Wiki System] Cleared ${files.length} processed files`);
             } catch (error) {
                 console.warn('[Wiki System] Error clearing processed files:', error);
             }
@@ -1190,7 +1190,7 @@ export class OperatorDataManager {
             searchQueries: 0
         };
         
-        console.log('[Wiki System] All data cleared');
+        console.error('[Wiki System] All data cleared');
     }
 
     /**
