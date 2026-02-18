@@ -169,22 +169,22 @@ async function getOperatorData(operatorDataManager) {
 
   // Method 1: Try entries Map
   if (operatorDataManager.entries && operatorDataManager.entries.size > 0) {
-    console.log(`[Search Tool] Using entries Map (${operatorDataManager.entries.size} operators)`);
+    console.error(`[Search Tool] Using entries Map (${operatorDataManager.entries.size} operators)`);
     return operatorDataManager.entries;
   }
 
   // Method 2: Try operators Map
   if (operatorDataManager.operators && operatorDataManager.operators.size > 0) {
-    console.log(`[Search Tool] Using operators Map (${operatorDataManager.operators.size} operators)`);
+    console.error(`[Search Tool] Using operators Map (${operatorDataManager.operators.size} operators)`);
     return operatorDataManager.operators;
   }
 
   // Method 3: Try listOperators function
   if (typeof operatorDataManager.listOperators === 'function') {
-    console.log('[Search Tool] Using listOperators() method');
+    console.error('[Search Tool] Using listOperators() method');
     const operators = await operatorDataManager.listOperators();
     if (operators && operators.length > 0) {
-      console.log(`[Search Tool] Retrieved ${operators.length} operators`);
+      console.error(`[Search Tool] Retrieved ${operators.length} operators`);
       return operators;
     }
   }
@@ -193,13 +193,13 @@ async function getOperatorData(operatorDataManager) {
   const possibleProperties = ['data', 'items', 'cache', 'store'];
   for (const prop of possibleProperties) {
     if (operatorDataManager[prop]) {
-      console.log(`[Search Tool] Checking property: ${prop}`);
+      console.error(`[Search Tool] Checking property: ${prop}`);
       const data = operatorDataManager[prop];
       if (data instanceof Map && data.size > 0) {
-        console.log(`[Search Tool] Using ${prop} Map (${data.size} operators)`);
+        console.error(`[Search Tool] Using ${prop} Map (${data.size} operators)`);
         return data;
       } else if (Array.isArray(data) && data.length > 0) {
-        console.log(`[Search Tool] Using ${prop} Array (${data.length} operators)`);
+        console.error(`[Search Tool] Using ${prop} Array (${data.length} operators)`);
         return data;
       }
     }

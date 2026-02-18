@@ -38,7 +38,7 @@ export class OperatorDataPythonApi {
      * @returns {Promise<Object>} Processing results
      */
     async processPythonApiDocs(options = {}) {
-        console.log('[Python API] Starting Python class documentation processing...');
+        console.error('[Python API] Starting Python class documentation processing...');
         
         // Load stub data first (for missing classes)
         await this.loadStubData();
@@ -46,7 +46,7 @@ export class OperatorDataPythonApi {
         const tdDocsPath = this.operatorDataManager.options.tdDocsPath;
         const pythonClassFiles = await this.discoverPythonClassFiles(tdDocsPath);
         
-        console.log(`[Python API] Found ${pythonClassFiles.length} Python class files`);
+        console.error(`[Python API] Found ${pythonClassFiles.length} Python class files`);
         
         const results = {
             processed: 0,
@@ -97,7 +97,7 @@ export class OperatorDataPythonApi {
         this.pythonApiStats.totalMethods = totalMethods;
         this.pythonApiStats.lastProcessed = new Date().toISOString();
         
-        console.log(`[Python API] Processing complete: ${this.pythonClasses.size} total classes, ${totalMembers} members, ${totalMethods} methods`);
+        console.error(`[Python API] Processing complete: ${this.pythonClasses.size} total classes, ${totalMembers} members, ${totalMethods} methods`);
         
         // Save to disk if persistence is enabled
         if (this.operatorDataManager.options.enablePersistence) {
@@ -257,7 +257,7 @@ export class OperatorDataPythonApi {
         };
         await fs.writeFile(indexPath, JSON.stringify(index, null, 2));
         
-        console.log(`[Python API] Saved ${this.pythonClasses.size} Python classes to disk`);
+        console.error(`[Python API] Saved ${this.pythonClasses.size} Python classes to disk`);
     }
 
     /**
@@ -265,16 +265,16 @@ export class OperatorDataPythonApi {
      * @returns {Promise<void>}
      */
     async loadPythonApiData() {
-        console.log('[Python API] Starting loadPythonApiData...');
+        console.error('[Python API] Starting loadPythonApiData...');
         const dataPath = join(this.operatorDataManager.options.dataPath, 'python-api');
-        console.log(`[Python API] Looking for saved data at: ${dataPath}`);
+        console.error(`[Python API] Looking for saved data at: ${dataPath}`);
         
         try {
             // Load index
             const indexPath = join(dataPath, 'index.json');
-            console.log(`[Python API] Trying to load index from: ${indexPath}`);
+            console.error(`[Python API] Trying to load index from: ${indexPath}`);
             const index = JSON.parse(await fs.readFile(indexPath, 'utf-8'));
-            console.log(`[Python API] Found saved index with ${index.classes.length} classes`);
+            console.error(`[Python API] Found saved index with ${index.classes.length} classes`);
             
             // Load each class
             for (const className of index.classes) {
@@ -301,28 +301,28 @@ export class OperatorDataPythonApi {
                 this.pythonApiStats = index.stats;
             }
             
-            console.log(`[Python API] Loaded ${this.pythonClasses.size} Python classes from disk`);
+            console.error(`[Python API] Loaded ${this.pythonClasses.size} Python classes from disk`);
             
         } catch (error) {
-            console.log(`[Python API] No saved Python API data found (${error.message}), processing HTML files...`);
+            console.error(`[Python API] No saved Python API data found (${error.message}), processing HTML files...`);
             
             // Load stub data first for missing critical classes
-            console.log('[Python API] Loading stub data...');
+            console.error('[Python API] Loading stub data...');
             await this.loadStubData();
-            console.log(`[Python API] After loading stubs: ${this.pythonClasses.size} classes`);
+            console.error(`[Python API] After loading stubs: ${this.pythonClasses.size} classes`);
             
             // Process HTML files from wiki/docs/python/ directory
-            console.log('[Python API] Processing HTML files...');
+            console.error('[Python API] Processing HTML files...');
             const tdDocsPath = this.operatorDataManager.options.tdDocsPath;
-            console.log(`[Python API] Scanning for Python class files in: ${tdDocsPath}`);
+            console.error(`[Python API] Scanning for Python class files in: ${tdDocsPath}`);
             
             const pythonClassFiles = await this.discoverPythonClassFiles(tdDocsPath);
-            console.log(`[Python API] Found ${pythonClassFiles.length} Python class HTML files`);
+            console.error(`[Python API] Found ${pythonClassFiles.length} Python class HTML files`);
             
             // Process each HTML file
             for (const filePath of pythonClassFiles) {
                 try {
-                    console.log(`[Python API] Processing: ${filePath}`);
+                    console.error(`[Python API] Processing: ${filePath}`);
                     const classData = await this.pythonApiParser.parseFile(filePath);
                     if (classData) {
                         // Store class data
@@ -335,19 +335,19 @@ export class OperatorDataPythonApi {
                             this.pythonClassIndex.set(displayKey, classData.className);
                         }
                         
-                        console.log(`[Python API] Loaded class: ${classData.className} (${classData.members?.length || 0} members, ${classData.methods?.length || 0} methods)`);
+                        console.error(`[Python API] Loaded class: ${classData.className} (${classData.members?.length || 0} members, ${classData.methods?.length || 0} methods)`);
                     }
                 } catch (error) {
                     console.error(`[Python API] Error processing ${filePath}:`, error.message);
                 }
             }
             
-            console.log(`[Python API] After processing HTML files: ${this.pythonClasses.size} classes`);
+            console.error(`[Python API] After processing HTML files: ${this.pythonClasses.size} classes`);
             
             // Load enhanced method data
-            console.log('[Python API] Loading enhanced data...');
+            console.error('[Python API] Loading enhanced data...');
             await this.loadEnhancedData();
-            console.log(`[Python API] After loading enhanced data: ${this.pythonClasses.size} classes`);
+            console.error(`[Python API] After loading enhanced data: ${this.pythonClasses.size} classes`);
             
             // Update stats after loading all data
             let totalMembers = 0;
@@ -362,18 +362,18 @@ export class OperatorDataPythonApi {
             this.pythonApiStats.totalMethods = totalMethods;
             this.pythonApiStats.lastProcessed = new Date().toISOString();
             
-            console.log(`[Python API] Final stats: ${this.pythonClasses.size} classes, ${totalMethods} methods, ${totalMembers} members`);
+            console.error(`[Python API] Final stats: ${this.pythonClasses.size} classes, ${totalMethods} methods, ${totalMembers} members`);
             
             // Save to disk if persistence is enabled
             if (this.operatorDataManager.options.enablePersistence) {
-                console.log('[Python API] Saving processed data to disk...');
+                console.error('[Python API] Saving processed data to disk...');
                 await this.savePythonApiData();
             }
         }
         
         // Debug: List all loaded classes
         const classNames = Array.from(this.pythonClasses.keys()).sort();
-        console.log(`[Python API] All loaded classes: ${classNames.join(', ')}`);
+        console.error(`[Python API] All loaded classes: ${classNames.join(', ')}`);
     }
     /**
      * Load stub data for missing Python classes
@@ -429,16 +429,16 @@ export class OperatorDataPythonApi {
                     
                     this.pythonClasses.set(className, classData);
                     this.pythonClassIndex.set(className.toLowerCase(), className);
-                    console.log(`[Python API] Loaded stub for ${className}`);
+                    console.error(`[Python API] Loaded stub for ${className}`);
                 } catch (error) {
                     console.warn(`[Python API] Failed to load stub ${file}:`, error.message);
                 }
             }
             
-            console.log(`[Python API] Loaded ${jsonFiles.length} stub files`);
+            console.error(`[Python API] Loaded ${jsonFiles.length} stub files`);
         } catch (error) {
             // Stub directory doesn't exist yet, that's okay
-            console.log('[Python API] No stub data directory found');
+            console.error('[Python API] No stub data directory found');
         }
     }
 
@@ -465,17 +465,17 @@ export class OperatorDataPythonApi {
                         existing.methods = data.methods;
                         existing.enhanced = true;
                         this.pythonClasses.set(className, existing);
-                        console.log(`[Python API] Enhanced ${className} with ${data.methods.length} methods`);
+                        console.error(`[Python API] Enhanced ${className} with ${data.methods.length} methods`);
                     }
                 } catch (error) {
                     console.warn(`[Python API] Failed to load enhanced data ${file}:`, error.message);
                 }
             }
             
-            console.log(`[Python API] Enhanced ${jsonFiles.length} classes with method data`);
+            console.error(`[Python API] Enhanced ${jsonFiles.length} classes with method data`);
         } catch (error) {
             // Enhanced directory doesn't exist yet, that's okay
-            console.log('[Python API] No enhanced data directory found');
+            console.error('[Python API] No enhanced data directory found');
         }
     }
 
