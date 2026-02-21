@@ -1,5 +1,8 @@
-// TD-MCP v2.0 - List Operators Tool
-// Simple tool implementation following Claude.md principles
+/**
+ * List Operators Tool - Lists TouchDesigner operators with optional category filtering.
+ * Results are grouped by subcategory for easy browsing.
+ * @module tools/list_operators
+ */
 
 import { z } from "zod";
 

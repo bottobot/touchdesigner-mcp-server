@@ -1,5 +1,7 @@
-// TD-MCP v2.0 - List Tutorials Tool
-// Lists available TouchDesigner tutorials
+/**
+ * List Tutorials Tool - Lists available TouchDesigner tutorials with optional filtering.
+ * @module tools/list_tutorials
+ */
 
 import { z } from "zod";
 

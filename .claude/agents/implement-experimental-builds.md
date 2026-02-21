@@ -1,0 +1,7 @@
+---
+name: implement-experimental-builds
+description: Implements TD experimental/beta build tracking with feature flags
+model: sonnet
+color: yellow
+---
+Implement experimental TouchDesigner build support for the TD MCP Server at /home/robert/Documents/TD-MCP/touchdesigner-mcp-server. TouchDesigner releases two tracks: stable builds (2019–2024) and experimental/beta builds with unreleased features. Tasks: (1) Create wiki/data/versions/experimental-builds.json tracking experimental TD build series, their new experimental features, known breaking changes, stability status, and Python API additions. Include at minimum 5 recent experimental build series with feature flags. (2) Create tools/get_experimental_build.js — returns info about a specific experimental build number or the latest experimental build, including new features, breaking changes vs stable, and Python API additions. (3) Create tools/list_experimental_builds.js — lists recent experimental builds grouped by feature area (rendering, Python API, operators, UI). (4) Update wiki/utils/version-filter.js to support experimental build version strings alongside stable versions. (5) Register both new tools in index.js. (6) Append to CHANGELOG.md. (7) Update README.md to note experimental build support. Verify with node --check.

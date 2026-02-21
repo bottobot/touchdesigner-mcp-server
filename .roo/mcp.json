@@ -1,0 +1,13 @@
+{
+	"mcpServers": {
+		"cc-workflow-studio": {
+			"type": "streamable-http",
+			"url": "http://127.0.0.1:33021/mcp",
+			"alwaysAllow": [
+				"get_workflow_schema",
+				"get_current_workflow",
+				"apply_workflow"
+			]
+		}
+	}
+}

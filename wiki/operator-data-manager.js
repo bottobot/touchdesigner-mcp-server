@@ -360,91 +360,167 @@ export class OperatorDataManager {
     performDirectSearch(query, options = {}) {
         const {
             category = null,
-            limit = 20,
-            fuzzy = false,
-            threshold = 0.3
+            subcategory = null,
+            parameter_search = false,
+            limit = 20
         } = options;
 
         if (!query || query.trim() === '') {
             return { results: [], total: 0 };
         }
 
-        const searchTerm = query.toLowerCase().trim();
+        // Split query into individual terms for AND-style multi-word scoring
+        const searchTerms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
         const results = [];
 
-        // Search through all entries
         for (const [id, entry] of this.entries) {
-            // Apply category filter if specified
+            // Category filter
             if (category && entry.category !== category.toUpperCase()) {
                 continue;
             }
-
-            let score = 0;
-
-            // Check name match (highest priority)
-            if (entry.name && entry.name.toLowerCase().includes(searchTerm)) {
-                score += 100;
-                // Exact match bonus
-                if (entry.name.toLowerCase() === searchTerm) {
-                    score += 50;
-                }
+            // Subcategory filter
+            if (subcategory && entry.subcategory !== subcategory) {
+                continue;
             }
 
-            // Check display name
-            if (entry.displayName && entry.displayName.toLowerCase().includes(searchTerm)) {
-                score += 90;
-            }
+            let totalScore = 0;
+            let allTermsMatched = true;
+            const matches = [];
 
-            // Check description
-            if (entry.description && entry.description.toLowerCase().includes(searchTerm)) {
-                score += 50;
-            }
+            for (const term of searchTerms) {
+                let termScore = 0;
 
-            // Check keywords
-            if (entry.keywords && Array.isArray(entry.keywords)) {
-                for (const keyword of entry.keywords) {
-                    if (keyword.toLowerCase().includes(searchTerm)) {
-                        score += 30;
-                        break;
+                // Name matching (highest priority)
+                const nameLower = (entry.name || '').toLowerCase();
+                if (nameLower.includes(term)) {
+                    termScore += 100;
+                    if (nameLower === term) termScore += 50;
+                    if (nameLower.startsWith(term)) termScore += 25;
+                    if (!matches.some(m => m.field === 'name')) {
+                        matches.push({ field: 'name', content: entry.name });
                     }
                 }
-            }
 
-            // Check parameters if option is enabled
-            if (options.parameter_search && entry.parameters && Array.isArray(entry.parameters)) {
-                for (const param of entry.parameters) {
-                    if (param.name && param.name.toLowerCase().includes(searchTerm)) {
-                        score += 20;
-                    }
-                    if (param.description && param.description.toLowerCase().includes(searchTerm)) {
-                        score += 10;
+                // Display name matching
+                const displayNameLower = (entry.displayName || '').toLowerCase();
+                if (displayNameLower.includes(term)) {
+                    termScore += 90;
+                    if (displayNameLower.startsWith(term)) termScore += 20;
+                    if (!matches.some(m => m.field === 'displayName')) {
+                        matches.push({ field: 'displayName', content: entry.displayName });
                     }
                 }
+
+                // Description matching
+                if (entry.description && entry.description.toLowerCase().includes(term)) {
+                    termScore += 50;
+                    if (!matches.some(m => m.field === 'description')) {
+                        matches.push({ field: 'description', content: entry.description.substring(0, 100) });
+                    }
+                }
+
+                // Keywords matching
+                if (entry.keywords && Array.isArray(entry.keywords)) {
+                    for (const keyword of entry.keywords) {
+                        if (keyword.toLowerCase().includes(term)) {
+                            termScore += 30;
+                            if (!matches.some(m => m.field === 'keywords' && m.content === keyword)) {
+                                matches.push({ field: 'keywords', content: keyword });
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                // Parameter search (optional)
+                if (parameter_search && entry.parameters && Array.isArray(entry.parameters)) {
+                    for (const param of entry.parameters) {
+                        const paramNameLower = (param.name || '').toLowerCase();
+                        const paramDescLower = (param.description || '').toLowerCase();
+                        if (paramNameLower.includes(term)) {
+                            termScore += 20;
+                            if (!matches.some(m => m.field === 'parameter' && m.content === param.name)) {
+                                matches.push({ field: 'parameter', content: param.name });
+                            }
+                        } else if (paramDescLower.includes(term)) {
+                            termScore += 10;
+                            if (!matches.some(m => m.field === 'parameter' && m.content === param.name)) {
+                                matches.push({ field: 'parameter', content: param.name });
+                            }
+                        }
+                    }
+                }
+
+                // Fuzzy fallback for longer terms (catches 1-character typos)
+                if (termScore === 0 && term.length > 4) {
+                    const nameTokens = nameLower.split(/[\s_-]+/);
+                    for (const token of nameTokens) {
+                        if (this._levenshtein(term, token) <= 1) {
+                            termScore += 40;
+                            if (!matches.some(m => m.field === 'name')) {
+                                matches.push({ field: 'name', content: entry.name });
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                if (termScore === 0) {
+                    allTermsMatched = false;
+                    break;
+                }
+
+                totalScore += termScore;
             }
 
-            // Add to results if score meets threshold
-            if (score > 0) {
+            if (allTermsMatched && totalScore > 0) {
                 results.push({
                     id: entry.id,
                     name: entry.name,
                     displayName: entry.displayName,
                     category: entry.category,
+                    subcategory: entry.subcategory,
                     description: entry.description,
-                    score: score
+                    keywords: entry.keywords,
+                    parameters: entry.parameters,
+                    parameterCount: entry.parameters ? entry.parameters.length : 0,
+                    tips: entry.tips,
+                    score: totalScore,
+                    relevanceScore: totalScore,
+                    matches
                 });
             }
         }
 
-        // Sort by score (highest first)
         results.sort((a, b) => b.score - a.score);
 
-        // Apply limit
-        const limitedResults = limit > 0 ? results.slice(0, limit) : results;
+        const total = results.length;
+        const limited = limit > 0 ? results.slice(0, limit) : results;
 
-        return {
-            results: limitedResults,
-            total: results.length
-        };
+        return { results: limited, total };
+    }
+
+    /**
+     * Compute Levenshtein edit distance between two strings.
+     * Used by performDirectSearch for single-character typo tolerance.
+     */
+    _levenshtein(a, b) {
+        if (a === b) return 0;
+        if (a.length === 0) return b.length;
+        if (b.length === 0) return a.length;
+        const dp = Array.from({ length: b.length + 1 }, (_, i) => i);
+        for (let j = 1; j <= a.length; j++) {
+            let prev = j;
+            for (let i = 1; i <= b.length; i++) {
+                const curr = a[j - 1] === b[i - 1]
+                    ? dp[i - 1]
+                    : 1 + Math.min(dp[i - 1], dp[i], prev);
+                dp[i - 1] = prev;
+                prev = curr;
+            }
+            dp[b.length] = prev;
+        }
+        return dp[b.length];
     }
 
     /**
@@ -835,11 +911,15 @@ export class OperatorDataManager {
         if (options.show_parameters || options.showParameters || options.parameters) {
             response.parameters = entry.parameters.map(param => ({
                 name: param.name,
+                label: param.label || param.name,
                 type: param.type,
                 defaultValue: param.defaultValue,
                 description: param.description,
                 group: param.group,
+                page: param.page || param.group || '',
                 units: param.units,
+                menuItems: param.menuItems || [],
+                menuLabels: param.menuLabels || [],
                 range: param.minValue !== null || param.maxValue !== null ? {
                     min: param.minValue,
                     max: param.maxValue

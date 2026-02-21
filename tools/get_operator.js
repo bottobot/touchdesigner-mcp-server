@@ -1,21 +1,31 @@
-// TD-MCP v2.0 - Enhanced Get Operator Tool
-// Displays comprehensive operator information
+/**
+ * Get Operator Tool - Retrieves full documentation for a TouchDesigner operator.
+ * Returns all parameters (grouped by page), code examples, tips, and warnings.
+ * v2.8: Added optional 'version' parameter to indicate compatibility context.
+ * @module tools/get_operator
+ */
 
 import { z } from "zod";
+import { normalizeVersion, getOperatorCompatInfo, getVersionInfo } from "../wiki/utils/version-filter.js";
 
 // Tool schema
 export const schema = {
   title: "Get TouchDesigner Operator",
-  description: "Get comprehensive details about a specific TouchDesigner operator",
+  description: "Get comprehensive details about a specific TouchDesigner operator. " +
+    "Optionally pass a TouchDesigner version to see compatibility notes for that release.",
   inputSchema: {
     name: z.string().describe("Operator name (e.g., 'Noise CHOP', 'Kinect Azure TOP')"),
     show_examples: z.boolean().optional().describe("Show code examples and usage"),
-    show_tips: z.boolean().optional().describe("Show tips and performance notes")
+    show_tips: z.boolean().optional().describe("Show tips and performance notes"),
+    version: z.string().optional().describe(
+      "TouchDesigner version context (e.g. '2023', '2022', '2021'). " +
+      "When provided, a compatibility note is shown for that version."
+    )
   }
 };
 
 // Tool handler
-export async function handler({ name, show_examples = true, show_tips = true }, { operatorDataManager }) {
+export async function handler({ name, show_examples = true, show_tips = true, version }, { operatorDataManager }) {
   if (!operatorDataManager) {
     return {
       content: [{
@@ -42,7 +52,74 @@ export async function handler({ name, show_examples = true, show_tips = true }, 
   
   let text = `# ${operator.displayName || operator.name}\n`;
   text += `**Category:** ${operator.category} | **Subcategory:** ${operator.subcategory || 'General'}\n\n`;
-  
+
+  // Version compatibility block (when version param is supplied)
+  if (version) {
+    const canonicalVersion = normalizeVersion(version);
+    if (canonicalVersion) {
+      try {
+        // Derive operator id from name for compat lookup
+        const opId = (operator.id || (operator.name || '').toLowerCase().replace(/[\s-]/g, '_'));
+        const [compatInfo, versionInfo] = await Promise.all([
+          getOperatorCompatInfo(opId),
+          getVersionInfo(canonicalVersion)
+        ]);
+
+        text += `## Version Compatibility (TD ${canonicalVersion})\n`;
+
+        if (versionInfo) {
+          text += `**Target version:** ${versionInfo.label} — Python ${versionInfo.pythonVersion}\n`;
+        }
+
+        if (compatInfo) {
+          const addedText = compatInfo.addedIn
+            ? `Added in TD ${compatInfo.addedIn}`
+            : 'Available since early releases';
+          text += `**Availability:** ${addedText}\n`;
+
+          if (compatInfo.removedIn) {
+            text += `**Removed in:** TD ${compatInfo.removedIn}\n`;
+          }
+
+          // Check if the target version is before addedIn
+          const { getVersionIndex } = await import("../wiki/utils/version-filter.js");
+          const targetIdx = await getVersionIndex(canonicalVersion);
+          const addedIdx = compatInfo.addedIn ? await getVersionIndex(compatInfo.addedIn) : 0;
+
+          if (addedIdx > targetIdx) {
+            text += `**Warning:** This operator was not available in TD ${canonicalVersion}. ` +
+                    `It was introduced in TD ${compatInfo.addedIn}.\n`;
+          } else {
+            text += `**Status:** Compatible with TD ${canonicalVersion}.\n`;
+          }
+
+          // Show any changedIn entries for this version
+          if (compatInfo.changedIn && compatInfo.changedIn.length > 0) {
+            const relevantChanges = compatInfo.changedIn.filter(c =>
+              parseInt(c.version) <= parseInt(canonicalVersion === '099' ? '99' : canonicalVersion)
+            );
+            if (relevantChanges.length > 0) {
+              text += `**Changes up to TD ${canonicalVersion}:**\n`;
+              relevantChanges.forEach(c => {
+                text += `  - TD ${c.version}: ${c.change}\n`;
+              });
+            }
+          }
+
+          if (compatInfo.notes) {
+            text += `**Notes:** ${compatInfo.notes}\n`;
+          }
+        } else {
+          text += `Compatibility data not available for this operator — it is likely available in all versions.\n`;
+        }
+        text += '\n';
+      } catch (compatErr) {
+        // Non-fatal — skip the compatibility block on error
+        console.error('[get_operator] Version compat lookup error:', compatErr.message);
+      }
+    }
+  }
+
   // Description
   text += `## Description\n${operator.description || operator.summary || 'No description available.'}\n\n`;
   

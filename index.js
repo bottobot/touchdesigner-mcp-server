@@ -4,13 +4,7 @@
 // Following Claude.md principles: POC first, no premature abstraction
 // Phase 5: Code Organization - Modular structure
 //
-// TODO: WIKI SYSTEM INTEGRATION REQUIRED
-// This server has had all metadata caching functionality removed and is ready for wiki integration.
-// Next steps for wiki system integration:
-// 1. Replace empty {} parameters in tool handlers with wiki system data providers
-// 2. Update tools/get_operator.js, tools/search_operators.js, tools/list_operators.js to use wiki
-// 3. Integrate workflow patterns with wiki system (currently still using local patterns.json)
-// 4. Add wiki system initialization in main() function startup
+// Wiki system fully integrated - all tools use OperatorDataManager for data access
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -30,11 +24,29 @@ import * as getTutorialTool from './tools/get_tutorial.js';
 import * as listTutorialsTool from './tools/list_tutorials.js';
 import * as getPythonApiTool from './tools/get_python_api.js';
 import * as searchPythonApiTool from './tools/search_python_api.js';
+import * as searchTutorialsTool from './tools/search_tutorials.js';
+import * as getOperatorExamplesTool from './tools/get_operator_examples.js';
+import * as listPythonClassesTool from './tools/list_python_classes.js';
+import * as compareOperatorsTool from './tools/compare_operators.js';
+import * as getVersionInfoTool from './tools/get_version_info.js';
+import * as listVersionsTool from './tools/list_versions.js';
+
+// Import experimental techniques tools (v2.9)
+import * as getExperimentalTechniquesTool from './tools/get_experimental_techniques.js';
+import * as searchExperimentalTool from './tools/search_experimental.js';
+import * as getGlslPatternTool from './tools/get_glsl_pattern.js';
+
+// Import core enhancement tools (v2.10)
+import * as getOperatorConnectionsTool from './tools/get_operator_connections.js';
+import * as getNetworkTemplateTool from './tools/get_network_template.js';
+
+// Import experimental build tools (v2.11)
+import * as getExperimentalBuildTool from './tools/get_experimental_build.js';
+import * as listExperimentalBuildsTool from './tools/list_experimental_builds.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-// TODO: Wiki system integration - patterns path will be handled by wiki system
-const PATTERNS_PATH = join(__dirname, 'data', 'patterns.json'); // Keep for now, will integrate with wiki
+const PATTERNS_PATH = join(__dirname, 'data', 'patterns.json');
 
 // Load package.json to get version
 const packageJson = JSON.parse(await fs.readFile(join(__dirname, 'package.json'), 'utf-8'));
@@ -83,9 +95,7 @@ async function loadPatterns() {
   }
 }
 
-// TODO: Wiki system integration - operator lookup will be handled by wiki system
-
-// Register tools using the wiki system
+// Register tools
 server.registerTool(
   "get_operator",
   getOperatorTool.schema,
@@ -136,13 +146,95 @@ server.registerTool(
   async (params) => await searchPythonApiTool.handler(params, { operatorDataManager })
 );
 
+// Register new v2.7 tools
+server.registerTool(
+  "search_tutorials",
+  searchTutorialsTool.schema,
+  async (params) => await searchTutorialsTool.handler(params, { operatorDataManager })
+);
+
+server.registerTool(
+  "get_operator_examples",
+  getOperatorExamplesTool.schema,
+  async (params) => await getOperatorExamplesTool.handler(params, { operatorDataManager })
+);
+
+server.registerTool(
+  "list_python_classes",
+  listPythonClassesTool.schema,
+  async (params) => await listPythonClassesTool.handler(params, { operatorDataManager })
+);
+
+server.registerTool(
+  "compare_operators",
+  compareOperatorsTool.schema,
+  async (params) => await compareOperatorsTool.handler(params, { operatorDataManager })
+);
+
+// Register version system tools (v2.8)
+server.registerTool(
+  "get_version_info",
+  getVersionInfoTool.schema,
+  async (params) => await getVersionInfoTool.handler(params, {})
+);
+
+server.registerTool(
+  "list_versions",
+  listVersionsTool.schema,
+  async (params) => await listVersionsTool.handler(params, {})
+);
+
+// Register experimental techniques tools (v2.9)
+server.registerTool(
+  "get_experimental_techniques",
+  getExperimentalTechniquesTool.schema,
+  async (params) => await getExperimentalTechniquesTool.handler(params)
+);
+
+server.registerTool(
+  "search_experimental",
+  searchExperimentalTool.schema,
+  async (params) => await searchExperimentalTool.handler(params)
+);
+
+server.registerTool(
+  "get_glsl_pattern",
+  getGlslPatternTool.schema,
+  async (params) => await getGlslPatternTool.handler(params)
+);
+
+// Register core enhancement tools (v2.10)
+server.registerTool(
+  "get_operator_connections",
+  getOperatorConnectionsTool.schema,
+  async (params) => await getOperatorConnectionsTool.handler(params, {})
+);
+
+server.registerTool(
+  "get_network_template",
+  getNetworkTemplateTool.schema,
+  async (params) => await getNetworkTemplateTool.handler(params, {})
+);
+
+// Register experimental build tools (v2.11)
+server.registerTool(
+  "get_experimental_build",
+  getExperimentalBuildTool.schema,
+  async (params) => await getExperimentalBuildTool.handler(params, {})
+);
+
+server.registerTool(
+  "list_experimental_builds",
+  listExperimentalBuildsTool.schema,
+  async (params) => await listExperimentalBuildsTool.handler(params, {})
+);
+
 // Main startup
 async function main() {
   console.log(`TD-MCP v${VERSION} Server Starting...`);
   console.log('================================');
   console.log('TouchDesigner MCP Server for VS Code/Codium');
-  console.log('Following Claude.md principles: Keep it simple');
-  console.log('Pure MCP server - no WebSocket complexity\n');
+  console.log('Pure MCP server - stdio transport\n');
 
   try {
     // Initialize wiki system
@@ -152,15 +244,13 @@ async function main() {
     const initDuration = Date.now() - initStartTime;
     console.log(`[Server] Initialization took ${initDuration}ms (${(initDuration/1000).toFixed(2)}s)`);
     
-    // Load patterns (will be integrated with wiki system later)
     await loadPatterns();
     
     console.log(`\n[Server] TD MCP v${VERSION} initialized successfully`);
     const stats = operatorDataManager.getSystemStats();
     const pythonApiStats = stats.pythonApiStats || { totalClasses: 0 };
-    console.log(`[Server] Wiki system ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
-    console.log(`[Server] All tools integrated with wiki system`);
-    console.log(`[Server] HTM processing foundation complete`);
+    console.log(`[Server] Ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
+    console.log(`[Server] All 21 tools registered`);
   } catch (error) {
     console.error('[Server] Initialization error:', error);
     // Continue startup even if wiki system fails to initialize
@@ -171,7 +261,7 @@ async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
 
-  console.log(`\n✓ TD-MCP v${VERSION} Server is now running with HTM Wiki System integrated`);
+  console.log(`\nTD-MCP v${VERSION} Server is now running`);
 }
 
 // Graceful shutdown handling

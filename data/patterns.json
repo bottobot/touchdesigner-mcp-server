@@ -268,6 +268,90 @@
         "Null"
       ],
       "use_case": "Receive OSC messages for remote control"
+    },
+    {
+      "name": "GLSL Shader Pipeline",
+      "description": "Custom GLSL shader rendering pipeline",
+      "category": "TOP",
+      "workflow": ["Noise", "GLSL", "Level", "Composite", "Out"],
+      "use_case": "Apply custom GLSL shaders for advanced visual effects"
+    },
+    {
+      "name": "Instanced Geometry",
+      "description": "GPU-instanced geometry rendering",
+      "category": "SOP_TOP",
+      "workflow": ["Box", "Noise", "Instance", "Material", "Render"],
+      "use_case": "Render thousands of instances efficiently using GPU instancing"
+    },
+    {
+      "name": "Texture Lookup Chain",
+      "description": "Color lookup table processing",
+      "category": "TOP",
+      "workflow": ["Movie File In", "Ramp", "Lookup", "Level", "Out"],
+      "use_case": "Apply color grading using lookup tables"
+    },
+    {
+      "name": "Multi-Screen Output",
+      "description": "Multi-display output configuration",
+      "category": "TOP_COMP",
+      "workflow": ["Composite", "Level", "Null", "Window"],
+      "use_case": "Output to multiple displays or projectors"
+    },
+    {
+      "name": "Sensor Data Processing",
+      "description": "Sensor input smoothing and mapping",
+      "category": "CHOP",
+      "workflow": ["Serial", "Select", "Filter", "Math", "Lag", "Null"],
+      "use_case": "Process sensor data with smoothing and range mapping"
+    },
+    {
+      "name": "NDI Video Streaming",
+      "description": "NDI network video input/output",
+      "category": "TOP",
+      "workflow": ["NDI In", "Level", "Transform", "NDI Out"],
+      "use_case": "Receive and send video over NDI network"
+    },
+    {
+      "name": "Timer-Based Animation",
+      "description": "Timer-driven animation and sequencing",
+      "category": "CHOP",
+      "workflow": ["Timer", "Math", "Pattern", "Lag", "Null"],
+      "use_case": "Create timed animations and sequences"
+    },
+    {
+      "name": "Replicator Pattern",
+      "description": "Dynamic component replication from data",
+      "category": "COMP",
+      "workflow": ["Table", "Replicator", "Container"],
+      "use_case": "Dynamically replicate components based on table data"
+    },
+    {
+      "name": "SOP to TOP Rendering",
+      "description": "3D geometry with texture rendering",
+      "category": "SOP_TOP",
+      "workflow": ["Circle", "Extrude", "Transform", "Phong MAT", "Render", "Level", "Out"],
+      "use_case": "Model 3D geometry and render to texture"
+    },
+    {
+      "name": "Switch-Based Scene System",
+      "description": "Scene switching for live performance",
+      "category": "TOP",
+      "workflow": ["Noise", "Movie File In", "Switch", "Level", "Out"],
+      "use_case": "Switch between scenes for live visual performance"
+    },
+    {
+      "name": "Python Script Automation",
+      "description": "Python-driven automation pipeline",
+      "category": "DAT",
+      "workflow": ["Text", "Script", "Table", "Null"],
+      "use_case": "Automate TouchDesigner operations using Python scripts"
+    },
+    {
+      "name": "Audio Reactive Geometry",
+      "description": "Audio-driven 3D geometry deformation",
+      "category": "CHOP_SOP_TOP",
+      "workflow": ["Audio Device In", "Audio Spectrum", "Math", "SOP to", "Noise", "Transform", "Render"],
+      "use_case": "Deform 3D geometry based on audio input"
     }
   ],
   "common_transitions": {
@@ -330,7 +414,26 @@
     "OSC In": ["Convert", "Select", "Table"],
     "Timer": ["Count", "Math", "Trigger"],
     "Count": ["Math", "Select", "Trigger"],
-    "Trigger": ["Count", "Math", "Event"]
+    "Trigger": ["Count", "Math", "Event"],
+
+    "GLSL": ["Level", "Composite", "Out", "Feedback"],
+    "Lookup": ["Level", "Composite", "Out"],
+    "Switch": ["Level", "Out", "Composite", "Null"],
+    "NDI In": ["Level", "Transform", "Composite"],
+    "NDI Out": [],
+    "Window": [],
+    "Instance": ["Material", "Render"],
+    "Extrude": ["Transform", "Material"],
+    "Circle": ["Extrude", "Transform", "Copy", "Merge"],
+    "Line": ["Transform", "Copy", "Extrude"],
+    "Rectangle": ["Transform", "Composite", "Level"],
+    "Constant": ["Math", "Merge", "Null", "Lag"],
+    "Filter": ["Math", "Lag", "Null"],
+    "Pattern": ["Math", "Lag", "Null"],
+    "Serial": ["Select", "Filter", "Math"],
+    "Script": ["Table", "Null"],
+    "Replicator": ["Container"],
+    "SOP to": ["Noise", "Transform", "Point"]
   },
   "workflow_categories": {
     "Video Processing": ["Movie File In", "Video Device In", "Transform", "Level", "Blur", "Composite"],
@@ -340,8 +443,9 @@
     "Data Processing": ["Table", "DAT to", "Convert", "Select", "Math"],
     "User Interface": ["Panel", "Button", "Slider", "Container"],
     "Control Systems": ["MIDI In", "OSC In", "Timer", "Count", "Trigger"],
-    "Effects": ["Noise", "Feedback", "Bloom", "Edge", "Chroma Key"],
-    "Output": ["Out", "Movie File Out", "Audio Device Out", "Render"]
+    "Effects": ["Noise", "Feedback", "Bloom", "Edge", "Chroma Key", "GLSL", "Lookup"],
+    "Streaming": ["NDI In", "NDI Out", "Video Stream In", "Video Stream Out"],
+    "Output": ["Out", "Movie File Out", "Audio Device Out", "Render", "NDI Out", "Window"]
   },
   "operator_purposes": {
     "Movie File In": "Load video files from disk",
@@ -358,6 +462,24 @@
     "Force": "Apply physics forces to particles",
     "Noise": "Generate procedural noise patterns",
     "Math": "Perform mathematical operations on data",
-    "Out": "Output final result to display or recording"
+    "Out": "Output final result to display or recording",
+    "Null": "Pass-through placeholder for clean references and exports",
+    "Switch": "Switch between or crossfade multiple inputs",
+    "Ramp": "Generate gradient textures for lookups and masking",
+    "GLSL": "Execute custom GLSL shader programs",
+    "Constant": "Define named channels with static values",
+    "Lag": "Smooth or delay channel values over time",
+    "Filter": "Apply smoothing and filtering to CHOP data",
+    "Select": "Select specific channels from a CHOP",
+    "Merge": "Combine channels or geometry from multiple sources",
+    "NDI In": "Receive video over NDI network",
+    "NDI Out": "Send video over NDI network",
+    "Instance": "GPU-instanced rendering of geometry",
+    "Window": "Open a window for output display",
+    "Replicator": "Dynamically create component copies from data",
+    "Timer": "Precise timing and sequencing control",
+    "Text": "Display text or hold text/script content",
+    "Lookup": "Map input values through a color lookup table",
+    "Feedback": "Create recursive feedback loops for effects"
   }
 }

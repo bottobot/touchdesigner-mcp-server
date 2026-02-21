@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "Task(*)",
+      "Skill(*)",
+      "NotebookEdit(*)",
+      "mcp__cc-workflow-studio__*",
+      "mcp__touchdesigner-mcp__*",
+      "mcp__filesystem__*",
+      "mcp__sequential-thinking__*",
+      "mcp__claude_ai_Context7__*",
+      "mcp__claude_ai_Mermaid_Chart__*",
+      "mcp__ide__*"
+    ],
+    "deny": []
+  }
+}

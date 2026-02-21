@@ -1,0 +1,7 @@
+---
+name: implement-core-tools
+description: Adds operator connections, network templates, and enhanced search
+model: sonnet
+color: orange
+---
+Implement Core Tool Enhancements for the TouchDesigner MCP Server at /home/robert/Documents/TD-MCP/touchdesigner-mcp-server. Tasks: (1) Create tools/get_operator_connections.js — returns what operators typically connect to/from a named operator (inputs, outputs, common chains). (2) Create tools/get_network_template.js — returns full network templates for use cases: video-player, generative-art, audio-reactive, data-visualization, live-performance. Each template includes operator list, connections, parameter settings, and Python scripts. (3) Enhance tools/search_operators.js: add 'type' enum filter (exact/fuzzy/tag), 'limit' param (default 20, max 50), return totalResults count in response. (4) Enhance tools/suggest_workflow.js: add connection port instructions (A output→B input), complexity rating (simple/medium/complex), estimated node count, minimum TD version requirement. (5) Create enriched wiki/data/processed/ files for: feedback_top.json, render_top.json, geo_comp.json, camera_comp.json with full parameters, tips, examples, and Python code. (6) Register 2 new tools in index.js. (7) Append to CHANGELOG.md. Verify with node --check.

@@ -1,0 +1,7 @@
+---
+name: implement-experimental-kb
+description: Builds GLSL, GPU, ML, and audio-visual experimental techniques KB
+model: sonnet
+color: purple
+---
+Implement the Experimental Techniques Knowledge Base for the TouchDesigner MCP Server at /home/robert/Documents/TD-MCP/touchdesigner-mcp-server. Tasks: (1) Create wiki/data/experimental/ directory with 7 JSON files: glsl.json (raymarching/SDF, reaction-diffusion, feedback loops, procedural textures — include actual GLSL shader code snippets), gpu-compute.json (Script TOP buffer ops, CUDA, shared memory, GPU instancing), machine-learning.json (TouchEngine CHOP/TOP, ONNX, Stable Diffusion, MediaPipe pose, note requires TD 2022+), generative-systems.json (L-systems, cellular automata, strange attractors, Replicator COMP), audio-visual.json (FFT to geometry, granular synthesis, MIDI-driven visuals, beat detection), networking.json (OSC server/client, WebSocket DAT, NDI streaming, TDAbleton sync), python-advanced.json (asyncio in TD, tdu.Dependency patterns, threading, numpy/scipy/opencv integration). (2) Create tools/get_experimental_techniques.js — browse by category. (3) Create tools/search_experimental.js — search across all categories. (4) Create tools/get_glsl_pattern.js — get specific GLSL patterns with code. (5) Register all 3 new tools in index.js. (6) Append to CHANGELOG.md. Verify with node --check.

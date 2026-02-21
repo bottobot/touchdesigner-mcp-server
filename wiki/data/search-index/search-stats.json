@@ -1,44 +1,34 @@
 {
   "stats": {
     "totalEntries": 629,
-    "totalParameters": 22580,
+    "totalParameters": 18333,
     "indexSize": 1904780,
-    "lastIndexTime": "2025-08-13T19:17:35.482Z",
+    "lastIndexTime": "2026-02-21T00:00:00.000Z",
     "searchQueries": 0,
     "averageQueryTime": 0,
     "popularQueries": [],
     "categoryDistribution": [
-      [
-        "CHOP",
-        166
-      ],
-      [
-        "POP",
-        90
-      ],
-      [
-        "COMP",
-        40
-      ],
-      [
-        "SOP",
-        112
-      ],
-      [
-        "TOP",
-        139
-      ],
-      [
-        "DAT",
-        69
-      ],
-      [
-        "MAT",
-        13
-      ]
+      ["CHOP", 166],
+      ["POP", 90],
+      ["COMP", 40],
+      ["SOP", 112],
+      ["TOP", 139],
+      ["DAT", 69],
+      ["MAT", 13]
     ],
-    "processingErrors": []
+    "processingErrors": [],
+    "searchImprovements": [
+      "2026-02-21: Removed duplicate performDirectSearch from search_operators.js - single source of truth in manager",
+      "2026-02-21: Unified result cap to 20 (was 15/20 inconsistency), configurable up to 50",
+      "2026-02-21: Added category input validation with helpful error messages",
+      "2026-02-21: Added prefix-match bonus (+25) for name ranking",
+      "2026-02-21: Added multi-term AND-logic scoring (each term must match)",
+      "2026-02-21: Added Levenshtein fuzzy fallback for terms >4 chars (1-edit tolerance)",
+      "2026-02-21: Added subcategory filter support to performDirectSearch",
+      "2026-02-21: Added label, menuItems, page fields to formatOperatorResponse parameters",
+      "2026-02-21: Cleaned 4,247 duplicate parameters from 620 operator files"
+    ]
   },
-  "timestamp": "2025-08-13T19:17:35.485Z",
-  "version": "1.0.0"
+  "timestamp": "2026-02-21T00:00:00.000Z",
+  "version": "2.7.0"
 }

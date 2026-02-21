@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "/home/robert:/home/robert",
+        "mcp/filesystem",
+        "/home/robert"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "cc-workflow-studio": {
+      "type": "http",
+      "url": "http://127.0.0.1:36211/mcp"
+    }
+  }
+}

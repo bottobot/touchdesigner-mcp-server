@@ -1,221 +1,254 @@
-# TD-MCP v2.0 Setup Instructions
-## VS Code/Codium MCP Server Integration
+# TD-MCP Setup Instructions
 
-This guide will help you set up TD-MCP v2.0 as an MCP server for VS Code/Codium integration.
+This guide covers installing and configuring the TouchDesigner MCP Server (v2.8.0) for use with
+VS Code/Codium and Claude Desktop. Read the [README](README.md) for a feature overview and full
+tool reference.
 
-## ✅ What This Is
+## Requirements
 
-A pure MCP server that provides TouchDesigner operator documentation to VS Code/Codium. No WebSocket complexity, no TouchDesigner integration scripts - just a clean MCP server.
+- Node.js 18.0 or higher - download from [nodejs.org](https://nodejs.org)
+- npm (bundled with Node.js)
+- An MCP-compatible client:
+  - VS Code or VS Codium with an MCP extension (Roo Code, Claude Dev, etc.), **or**
+  - Claude Desktop (macOS or Windows)
 
-**Key Principle**: TouchDesigner runs independently. VS Code connects to this MCP server to get operator information while you code.
+## Installation
 
----
+### Option A: Global npm install (recommended)
 
-## 🚀 Step-by-Step Setup
-
-### Step 1: Install Dependencies
-
-1. Open a terminal/command prompt
-2. Navigate to the TD-MCP V2 directory:
-   ```bash
-   cd c:/Users/rober/Repos/TD-MCP/V2
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Step 2: Test the MCP Server
-
-1. Start the MCP server to verify it works:
-   ```bash
-   node index.js
-   ```
-2. You should see:
-   ```
-   TD-MCP v2.0 Server Starting...
-   ================================
-   TouchDesigner MCP Server for VS Code/Codium
-   Following Claude.md principles: Keep it simple
-   Pure MCP server - no WebSocket complexity
-
-   [Metadata] Loaded 682 operators
-   [Patterns] Loaded 20 workflow patterns
-   ✓ TD-MCP v2.0 Server is now running
-   ```
-3. Press Ctrl+C to stop the server
-
-### Step 3: Configure VS Code/Codium
-
-1. **Add MCP Server Configuration** to your VS Code/Codium MCP settings
-2. **Point to this server** using the appropriate MCP configuration format
-3. **The server will start automatically** when VS Code/Codium needs it
-
----
-
-## 🔧 Available MCP Tools
-
-### get_operator
-Get detailed information about a specific TouchDesigner operator.
-
-**Usage in VS Code:**
-```
-Get information about the "Noise TOP" operator
+```bash
+npm install -g @bottobot/td-mcp
 ```
 
-### list_operators  
-List available TouchDesigner operators, optionally filtered by category.
+After installation, `td-mcp` is available as a command on your PATH.
 
-**Usage in VS Code:**
-```
-List all TOP operators
-```
+### Option B: npx (no install required)
 
-### search_operators
-Search for operators using contextual analysis and ranking.
+Use `npx @bottobot/td-mcp` in place of `td-mcp` in all configuration examples below.
+npx downloads the package on first use and caches it locally.
 
-**Usage in VS Code:**
-```
-Search for audio-related operators in the CHOP category
-```
+### Option C: Run from source
 
-### get_pop_learning_guide
-Get comprehensive learning information about TouchDesigner POPs (Point Operators).
-
-**Usage in VS Code:**
-```
-Get the POP learning guide
+```bash
+git clone https://github.com/bottobot/touchdesigner-mcp-server.git
+cd touchdesigner-mcp-server
+npm install
 ```
 
----
+Use `node /absolute/path/to/touchdesigner-mcp-server/index.js` in place of `td-mcp`
+in all configuration examples below.
 
-## 📊 What's Available
+## Configure Your MCP Client
 
-### Operator Categories
-- **TOP** (Texture Operators): 150+ image and video processing operators
-- **CHOP** (Channel Operators): 100+ audio and data processing operators  
-- **SOP** (Surface Operators): 200+ 3D geometry operations
-- **DAT** (Data Operators): 50+ text and data manipulation operators
-- **MAT** (Material Operators): 30+ 3D rendering materials
-- **COMP** (Component Operators): 100+ UI and system components
-- **POP** (Point Operators): 50+ particle system operators
+### Claude Desktop
 
-### Workflow Patterns
-- 20 common TouchDesigner workflow patterns
-- Cross-family operator relationships
-- Context-aware suggestions
+The configuration file location depends on your operating system:
 
----
+| Platform | Path |
+|----------|------|
+| macOS    | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+| Windows  | `%APPDATA%\Claude\claude_desktop_config.json` |
 
-## 🔍 Troubleshooting
+Add the server entry inside the `"mcpServers"` object:
 
-### Server Won't Start
-- **Check Node.js version**: Requires Node.js 18.0.0 or higher
-- **Install dependencies**: Run `npm install` in the V2 directory
-- **Check file paths**: Ensure metadata files exist in `../metadata/`
-
-### VS Code/Codium Connection Issues
-- **Check MCP configuration**: Verify the server path is correct
-- **Restart VS Code**: Sometimes needed after configuration changes
-- **Check console**: Look for MCP-related error messages
-
-### No Operators Found
-- **Check metadata**: Ensure `../metadata/` directory contains operator files
-- **Verify loading**: Server should show "Loaded 682 operators" on startup
-- **File permissions**: Ensure the server can read metadata files
-
----
-
-## 📁 File Structure
-
-```
-TD-MCP/V2/
-├── index.js                    # Main MCP server
-├── package.json               # Dependencies and configuration
-├── README.md                  # Documentation
-├── SETUP-INSTRUCTIONS.md      # This file
-├── tools/                     # Individual MCP tools
-│   ├── get_operator.js        # Get operator details
-│   ├── list_operators.js      # List operators
-│   ├── search_operators.js    # Search operators
-│   └── suggest_workflow.js    # Workflow suggestions
-├── data/
-│   └── patterns.json          # Workflow patterns (20 patterns)
-└── ../metadata/               # Operator metadata (shared with v1)
-    ├── comprehensive_top_metadata.json
-    ├── comprehensive_chop_metadata.json
-    ├── comprehensive_sop_metadata.json
-    ├── comprehensive_dat_metadata.json
-    ├── comprehensive_mat_metadata.json
-    ├── comprehensive_comp_metadata.json
-    └── comprehensive_pop_metadata.json
+**Global install:**
+```json
+{
+  "mcpServers": {
+    "td-mcp": {
+      "command": "td-mcp"
+    }
+  }
+}
 ```
 
----
+**npx (no install):**
+```json
+{
+  "mcpServers": {
+    "td-mcp": {
+      "command": "npx",
+      "args": ["@bottobot/td-mcp"]
+    }
+  }
+}
+```
 
-## 🎯 What's Working
+Restart Claude Desktop after saving the file.
 
-✅ **Pure MCP Server**: Clean, simple implementation  
-✅ **682 Operators**: Complete TouchDesigner operator database  
-✅ **20 Workflow Patterns**: Common TouchDesigner workflows  
-✅ **VS Code Integration**: Ready for MCP configuration  
-✅ **No WebSocket Complexity**: Simple, reliable architecture  
-✅ **Modular Tools**: Clean separation of functionality  
+### VS Code / Codium with MCP Extensions
 
----
+Add to your MCP settings (`.vscode/mcp.json` or the extension's settings UI):
 
-## 🚀 Usage in VS Code/Codium
+```json
+{
+  "td-mcp": {
+    "command": "npx",
+    "args": ["@bottobot/td-mcp"]
+  }
+}
+```
 
-Once configured, you can use natural language to interact with the MCP tools:
+Reload the VS Code window after changing MCP settings.
 
-### Example Queries
-- "Show me information about the Noise TOP operator"
-- "List all CHOP operators"  
-- "Search for audio processing operators"
-- "What are POP operators and how do I use them?"
-- "Find operators related to video processing"
+### Any MCP-compatible client
 
-### Workflow Integration
-- Get operator documentation while coding TouchDesigner scripts
-- Discover new operators for your projects
-- Learn about operator families and relationships
-- Access workflow patterns and best practices
+The server uses the MCP stdio transport. Point your client at the `td-mcp` binary
+(global install) or `npx @bottobot/td-mcp`. The server does **not** open a network
+port — it communicates exclusively over stdin/stdout.
 
----
+## Verify the Installation
 
-## 💡 Tips
+### Test server startup
 
-- **Use specific operator names**: "Movie File In TOP" works better than just "Movie"
-- **Try category filtering**: Narrow searches by operator family (TOP, CHOP, etc.)
-- **Explore workflow patterns**: Learn common TouchDesigner techniques
-- **Use the POP guide**: Particle systems have specialized learning resources
+```bash
+td-mcp
+```
 
----
+You should see output similar to:
 
-## 🔄 What This Is NOT
+```
+TD-MCP v2.8.0 Server Starting...
+================================
+TouchDesigner MCP Server for VS Code/Codium
 
-- ❌ **Not a WebSocket server** - Pure MCP implementation
-- ❌ **Not for TouchDesigner integration** - VS Code/Codium only
-- ❌ **Not complex** - Simple, focused tool
-- ❌ **TouchDesigner doesn't connect** - Runs independently
+[Server] Initializing operator data manager...
+[Server] Initialization took 843ms (0.84s)
+[Patterns] Loaded 32 workflow patterns
 
-## ✅ What This IS
+[Server] TD MCP v2.8.0 initialized successfully
+[Server] Ready with 629 operators, 14 tutorials, and 69 Python classes
+[Server] All 21 tools registered
+```
 
-- ✅ **Pure MCP server** for VS Code/Codium
-- ✅ **TouchDesigner documentation provider** 
-- ✅ **Simple and reliable** following Claude.md principles
-- ✅ **Focused tool** that does one thing well
+Press Ctrl+C to stop. When launched by your MCP client, this output goes to the
+client's log, not your terminal.
 
----
+### Test from your AI assistant
 
-## 🆘 Support
+Try one of these prompts:
+- "List all available TouchDesigner tutorials"
+- "Get the documentation for the Noise CHOP operator"
+- "Search for audio analysis operators"
+- "Compare Blur TOP with Luma Blur TOP"
+- "What operators were added in TouchDesigner 2022?"
+- "Show me a network template for an audio-reactive visualization"
+- "What new features are in the latest experimental TouchDesigner build?"
 
-If you encounter issues:
+## Available Tools (21 Total)
 
-1. **Test server startup**: Run `node index.js` to verify basic functionality
-2. **Check dependencies**: Ensure `npm install` completed successfully
-3. **Verify metadata**: Server should load 682 operators on startup
-4. **Check VS Code MCP configuration**: Ensure server path is correct
-5. **Restart VS Code**: Sometimes needed after configuration changes
+### Operator Tools
 
-The system is clean, simple, and ready for VS Code/Codium integration! 🎉
+| Tool                       | Description                                              |
+|----------------------------|----------------------------------------------------------|
+| `get_operator`             | Full documentation for a specific operator               |
+| `search_operators`         | Search operators with ranking and filtering              |
+| `list_operators`           | List operators by category                               |
+| `compare_operators`        | Side-by-side operator comparison                         |
+| `get_operator_examples`    | Python code examples per operator                        |
+| `suggest_workflow`         | Related operator suggestions with port wiring            |
+| `get_operator_connections` | Upstream and downstream wiring guide for an operator     |
+| `get_network_template`     | Complete network templates with Python scripts           |
+
+### Tutorial Tools
+
+| Tool               | Description                            |
+|--------------------|----------------------------------------|
+| `get_tutorial`     | Full tutorial content                  |
+| `list_tutorials`   | Browse all tutorials                   |
+| `search_tutorials` | Search tutorial content                |
+
+### Python API Tools
+
+| Tool                   | Description                            |
+|------------------------|----------------------------------------|
+| `get_python_api`       | Python class documentation             |
+| `search_python_api`    | Search Python API                      |
+| `list_python_classes`  | Browse Python API classes by category  |
+
+### Version System Tools
+
+| Tool               | Description                                                |
+|--------------------|------------------------------------------------------------|
+| `get_version_info` | Python version, new operators, and highlights for a TD release |
+| `list_versions`    | All supported TD versions (099 through 2024) with highlights   |
+
+### Experimental Techniques Tools
+
+| Tool                          | Description                                            |
+|-------------------------------|--------------------------------------------------------|
+| `get_experimental_techniques` | Advanced technique library by category with code       |
+| `search_experimental`         | Full-text search across all technique categories       |
+| `get_glsl_pattern`            | Named GLSL shader patterns, paste-ready                |
+
+### Experimental Build Tools
+
+| Tool                       | Description                                                   |
+|----------------------------|---------------------------------------------------------------|
+| `get_experimental_build`   | Details for a specific experimental TD build series           |
+| `list_experimental_builds` | List experimental series grouped by feature area              |
+
+See the [README](README.md) for full parameter documentation for each tool.
+
+## Upgrading from Earlier Versions
+
+### From v2.7.0
+
+No breaking changes. The 9 new tools are additive. All existing tool names and parameters
+remain unchanged. Optional new parameters have been added to `search_operators`,
+`get_operator`, `suggest_workflow`, `search_python_api`, and `get_python_api` — these only
+affect output when the new optional parameters are provided.
+
+### From v2.6.x
+
+No breaking changes when upgrading to v2.8.0. Restart your MCP client after upgrading.
+
+## Troubleshooting
+
+### Server won't start
+- Verify Node.js version: `node --version` must show 18.0.0 or higher
+- Run `npm install` if running from source
+- Check that `wiki/data/` contains JSON files
+
+### MCP client can't connect
+- Verify your MCP configuration JSON is valid (no trailing commas)
+- Reload VS Code window after configuration changes
+- Check the Output panel for MCP-related error messages
+- Confirm `td-mcp` is on your PATH: `which td-mcp` (or `where td-mcp` on Windows)
+
+### Search returns no results
+- Try simpler, shorter search terms
+- Remove category filters
+- Enable `parameter_search: true`
+
+### Startup says "limited functionality"
+- Check preceding log lines for the specific error
+- Common causes: corrupted JSON in `wiki/data/`, Node.js below v18
+
+### Python API tool returns no results
+- Class names are case-sensitive: use `CHOP`, `TOP`, `SOP`, not lowercase
+- Use `list_python_classes` first to see exact available class names
+
+### get_experimental_build returns an error
+- Use `list_experimental_builds` first to see valid series IDs
+- Valid series IDs follow the format `YYYY.NNNNN` (e.g., `2025.10000`)
+- Omit the `series_id` parameter to get the latest experimental series
+
+## How the Server Works
+
+This is a pure MCP stdio server. Your MCP client:
+
+1. Spawns `td-mcp` as a child process
+2. Sends JSON-RPC messages over stdin
+3. Reads responses from stdout
+4. The process stays alive for the session
+5. When the session ends, the client terminates the process
+
+The server reads all documentation from local JSON files bundled with the package.
+It makes no network requests. TouchDesigner does not need to be installed or running.
+
+## Support
+
+- [GitHub Issues](https://github.com/bottobot/touchdesigner-mcp-server/issues)
+- [TouchDesigner Docs](https://docs.derivative.ca)
+- [NPM Package](https://www.npmjs.com/package/@bottobot/td-mcp)

@@ -17,7 +17,9 @@
 
 ### What is MCP (Model Context Protocol)?
 
-The Model Context Protocol is a standard for connecting AI assistants (like Claude) with external tools and data sources. MCP servers expose functionality through a standardized interface that can be consumed by MCP-compatible clients in VS Code/Codium.
+The Model Context Protocol is a standard for connecting AI assistants (like Claude) with external
+tools and data sources. MCP servers expose functionality through a standardized interface that can
+be consumed by MCP-compatible clients in VS Code/Codium.
 
 ### Core Concepts
 
@@ -75,9 +77,9 @@ VS Code/Claude <--stdio--> MCP Server <--WebSocket--> Application Bridge <--API-
 **Use Case**: Combining documentation with control capabilities
 
 ```
-                   ┌─> Documentation Data
+                   +-> Documentation Data
 VS Code/Claude <--stdio--> MCP Server <
-                   └─> WebSocket --> Application
+                   +-> WebSocket --> Application
 ```
 
 **Characteristics**:
@@ -92,78 +94,229 @@ VS Code/Claude <--stdio--> MCP Server <
 
 ### Overview
 
-A pure MCP server providing comprehensive TouchDesigner documentation, operator information, and tutorials directly in VS Code/Codium.
+A pure MCP server (v2.8.0) providing comprehensive TouchDesigner documentation: operator
+reference, Python API docs, tutorials, advanced technique patterns, version history, and
+experimental build tracking — all served from local JSON files with zero network requests.
 
-### Architecture
+### Architecture Diagram
 
 ```
 td-mcp/
-├── index.js                    # Main MCP server (pure implementation)
-├── tools/                      # MCP tool implementations
-│   ├── get_operator.js         # Get operator details
-│   ├── search_operators.js     # Search with direct algorithm
-│   ├── suggest_workflow.js     # Workflow suggestions
-│   ├── list_operators.js       # List operators by category
-│   ├── get_tutorial.js         # Access tutorials
-│   ├── list_tutorials.js       # List available tutorials
-│   ├── get_python_api.js       # Python API documentation
-│   └── search_python_api.js    # Search Python API
-├── wiki/                       # Documentation system
-│   ├── operator-data-manager.js # Core documentation engine
-│   └── data/                   # Processed operator data
-└── data/                       # Configuration & patterns
-    └── patterns.json           # Workflow patterns
+├── index.js                              # Main MCP server entry point (21 tools registered)
+├── tools/                                # MCP tool implementations (21 files)
+│   ├── Operator Tools
+│   │   ├── get_operator.js               # Full operator documentation
+│   │   ├── search_operators.js           # Search with direct algorithm + version filter
+│   │   ├── list_operators.js             # List/filter operators by category
+│   │   ├── compare_operators.js          # Side-by-side operator comparison
+│   │   ├── get_operator_examples.js      # Python/expression code examples
+│   │   ├── suggest_workflow.js           # Workflow chain suggestions with port wiring
+│   │   ├── get_operator_connections.js   # Upstream/downstream wiring guide
+│   │   └── get_network_template.js       # Complete network templates
+│   ├── Tutorial Tools
+│   │   ├── get_tutorial.js               # Tutorial content access
+│   │   ├── list_tutorials.js             # Tutorial listing with filtering
+│   │   └── search_tutorials.js           # Tutorial full-text search
+│   ├── Python API Tools
+│   │   ├── get_python_api.js             # Python class documentation
+│   │   ├── search_python_api.js          # Python API search + version filter
+│   │   └── list_python_classes.js        # Python class browser by category
+│   ├── Version System Tools
+│   │   ├── get_version_info.js           # Stable version details
+│   │   └── list_versions.js              # All stable versions with highlights
+│   ├── Experimental Techniques Tools
+│   │   ├── get_experimental_techniques.js # Advanced technique library by category
+│   │   ├── search_experimental.js         # Full-text search across techniques
+│   │   └── get_glsl_pattern.js            # Named GLSL shader patterns
+│   └── Experimental Build Tools
+│       ├── get_experimental_build.js      # Experimental build series details
+│       └── list_experimental_builds.js    # List experimental series by feature area
+├── wiki/                                  # Documentation system
+│   ├── operator-data-manager.js           # Core documentation engine
+│   ├── operator-data-python-api.js        # Python API data manager
+│   ├── utils/
+│   │   └── version-filter.js              # Version utilities + experimental support
+│   └── data/
+│       ├── processed/                     # 629 operator JSON files
+│       ├── tutorials/                     # 14 tutorial JSON files
+│       ├── python-api/                    # 69 Python class JSON files
+│       ├── experimental/                  # 7 advanced technique JSON files
+│       ├── versions/                      # Version compatibility and experimental data
+│       └── search-index/                  # Search index data
+├── data/
+│   └── patterns.json                      # 32 workflow patterns + 72 transitions
+└── scripts/
+    ├── clean-operator-data.js             # Clean parameter descriptions
+    └── enrich-top-operators.js            # Add tips/examples to operators
 ```
 
-### Key Features
+### Key Metrics (v2.8.0)
 
-- **629 TouchDesigner Operators**: Complete documentation
-- **553 Python API Classes**: Full scripting reference
-- **14 Interactive Tutorials**: Learning guides
-- **Direct Search Implementation**: Reliable search without indexing
-- **Zero Configuration**: Works immediately after installation
+| Resource                  | Count  | Notes                                      |
+|---------------------------|--------|--------------------------------------------|
+| MCP Tools                 | 21     | Across 5 functional groups                 |
+| Operator JSON files       | 629    | All families: CHOP, TOP, SOP, DAT, COMP, MAT, POP |
+| Python API classes        | 69     | 1,510+ methods documented                  |
+| Tutorials                 | 14     | Core, advanced dev, IPC, video/integration |
+| Workflow patterns         | 32     | With 72 common transitions                 |
+| Experimental technique files | 7   | 2,000+ lines of documented code snippets   |
+| Stable TD versions        | 7      | 099 through 2024                           |
+| Experimental build series | 6      | Builds 20000 through current               |
+
+### Data Inventory
+
+#### wiki/data/processed/ (629 operator JSON files)
+
+Each operator file follows a standard schema with fields: `id`, `name`, `displayName`,
+`category`, `subcategory`, `description`, `parameters`, `tips`, `warnings`,
+`pythonExamples`, `codeExamples`, and `version`.
+
+Operator families and counts:
+
+| Family | Count | Description                                          |
+|--------|-------|------------------------------------------------------|
+| CHOP   | 166   | Channel Operators — audio, control signals, data streams |
+| TOP    | 139   | Texture Operators — 2D image and video processing    |
+| SOP    | 112   | Surface Operators — 3D geometry creation/manipulation |
+| DAT    | 69    | Data Operators — text, tables, and data handling     |
+| COMP   | 40    | Component Operators — UI elements and containers     |
+| POP    | 90    | Point Operators — particle systems (experimental)    |
+| MAT    | 13    | Material Operators — 3D rendering materials/shaders  |
+
+#### wiki/data/tutorials/ (14 tutorial JSON files)
+
+- Anatomy of a CHOP, Build a List COMP, Introduction to Python Tutorial
+- Write a GLSL TOP, Write a GLSL Material, Write a C++ CHOP, Write a C++ TOP
+- Write a C++ Plugin, Write a CUDA DLL
+- Write a Shared Memory CHOP, Write a Shared Memory TOP
+- Video Streaming User Guide, TouchDesigner Video Server Specification Guide
+- TDBitwig User Guide
+
+#### wiki/data/python-api/ (69 Python class JSON files)
+
+Core operator classes (CHOP, TOP, SOP, DAT, MAT, COMP), utility classes (Channel, Cell,
+Page), system classes (App, Project, Monitor), UI classes (Panel, Widget), and advanced
+feature classes (WebRTC, NDI, MIDI, OSC). Total: 69 classes, 1,510+ methods.
+
+#### wiki/data/versions/ (5 JSON files)
+
+- **version-manifest.json** — Canonical version registry (099 through 2024)
+- **operator-compatibility.json** — Per-operator addedIn/changedIn/removedIn fields
+- **python-api-compatibility.json** — Method-level version tracking
+- **release-highlights.json** — Key features and breaking changes per release
+- **experimental-builds.json** — 6 experimental build series (20000 through current)
+
+#### wiki/data/experimental/ (7 JSON files)
+
+Advanced TouchDesigner technique library with working code:
+
+- **glsl.json** — Raymarching, reaction-diffusion, feedback effects, procedural noise
+- **gpu-compute.json** — Script TOP numpy, CUDA, Shared Memory, GPU instancing, particles
+- **machine-learning.json** — Engine COMP, ONNX Runtime, Stable Diffusion, MediaPipe, Body Track
+- **generative-systems.json** — L-systems, cellular automata, strange attractors, Replicator, boids
+- **audio-visual.json** — FFT geometry, beat detection, granular synthesis, MIDI visuals
+- **networking.json** — OSC, WebSocket, NDI, TDAbleton, multi-machine show setup
+- **python-advanced.json** — asyncio, tdu.Dependency, threading, numpy, scipy, OpenCV
 
 ### Data Management
 
-#### OperatorDataManager (formerly WikiSystem)
+#### OperatorDataManager
 
-Central documentation engine that:
-- Loads operator metadata from JSON files
-- Manages tutorial content
-- Handles Python API documentation
-- Provides search functionality
+Central documentation engine (wiki/operator-data-manager.js) that:
+- Loads 629 operator JSON files from wiki/data/processed/ at startup
+- Manages tutorial content from wiki/data/tutorials/
+- Coordinates the Python API data manager
+- Provides the direct search algorithm (no external index dependency)
+- Caches all data in memory for the process lifetime
+
+#### Python API Data Manager
+
+Separate module (wiki/operator-data-python-api.js) managing:
+- 69 Python class definitions with member and method documentation
+- Category grouping for list_python_classes browsing
+- Search index over class names, methods, members, and descriptions
+
+#### Version Filter Utility
+
+wiki/utils/version-filter.js provides:
+- Stable version helpers: isCompatible(), filterByVersion(), getVersionIndex(),
+  normalizeVersion(), getVersionInfo(), getOperatorCompatInfo(), getPythonCompatInfo()
+- Experimental version helpers: isExperimentalVersion(), normalizeExperimentalVersion(),
+  getExperimentalBuildInfo(), loadExperimentalBuilds()
+- Lazy loading and in-memory caching of all version data files
 
 #### Direct Search Algorithm
 
 ```javascript
 performDirectSearch(query, options) {
-    // Search directly in operator data
-    // No dependency on broken indexers
-    // Contextual ranking and scoring
+    // Queries operator data directly without external index dependency
+    // Supports fuzzy, exact, and tag search modes
+    // Contextual ranking and relevance scoring
+    // Optional version filtering via version-filter.js
 }
 ```
 
-### Available Tools
+### Available Tools (21 Total)
 
-| Tool | Purpose | Parameters |
-|------|---------|------------|
-| `get_operator` | Get operator details | name, show_examples, show_tips |
-| `search_operators` | Search operators | query, category, parameter_search |
-| `list_operators` | List by category | category |
-| `suggest_workflow` | Get workflow suggestions | current_operator |
-| `get_tutorial` | Access tutorial content | name, include_content |
-| `list_tutorials` | List tutorials | search, limit, show_details |
-| `get_python_api` | Python class docs | class_name, show_members |
-| `search_python_api` | Search Python API | query, search_in, category |
+#### Operator Tools (8)
 
-### Installation & Setup
+| Tool                      | Purpose                                          | Key Parameters                                          |
+|---------------------------|--------------------------------------------------|---------------------------------------------------------|
+| `get_operator`            | Full operator documentation                      | name, show_examples, show_tips, version                 |
+| `search_operators`        | Search with ranking and filtering                | query, category, type, version, parameter_search, limit |
+| `list_operators`          | List operators by category                       | category                                                |
+| `compare_operators`       | Side-by-side operator comparison                 | operator_a, operator_b, compare_parameters              |
+| `get_operator_examples`   | Python/expression code examples                  | operator, example_type                                  |
+| `suggest_workflow`        | Workflow chain suggestions with port wiring      | current_operator                                        |
+| `get_operator_connections`| Upstream/downstream connection guide             | operator                                                |
+| `get_network_template`    | Complete network templates with Python scripts   | template                                                |
+
+#### Tutorial Tools (3)
+
+| Tool              | Purpose                            | Key Parameters                    |
+|-------------------|------------------------------------|-----------------------------------|
+| `get_tutorial`    | Full tutorial content access       | name, include_content, include_toc |
+| `list_tutorials`  | Browse tutorials with filtering    | search, limit, show_details        |
+| `search_tutorials`| Full-text tutorial search          | query, search_content, limit       |
+
+#### Python API Tools (3)
+
+| Tool                  | Purpose                              | Key Parameters                          |
+|-----------------------|--------------------------------------|-----------------------------------------|
+| `get_python_api`      | Python class documentation           | class_name, show_members, show_methods, version |
+| `search_python_api`   | Search across Python API             | query, search_in, category, version, limit |
+| `list_python_classes` | Browse Python API classes by category| category, search, show_details          |
+
+#### Version System Tools (2)
+
+| Tool               | Purpose                                         | Key Parameters        |
+|--------------------|-------------------------------------------------|-----------------------|
+| `get_version_info` | Stable version details, Python version, changes | version               |
+| `list_versions`    | All supported TD versions with highlights       | (none required)       |
+
+#### Experimental Techniques Tools (3)
+
+| Tool                           | Purpose                                  | Key Parameters                   |
+|--------------------------------|------------------------------------------|----------------------------------|
+| `get_experimental_techniques`  | Browse technique library by category     | category, technique_id           |
+| `search_experimental`          | Full-text search across all techniques   | query, category_filter, show_code, limit |
+| `get_glsl_pattern`             | Named GLSL patterns with complete code   | pattern, include_utilities       |
+
+#### Experimental Build Tools (2)
+
+| Tool                       | Purpose                                          | Key Parameters                                                        |
+|----------------------------|--------------------------------------------------|-----------------------------------------------------------------------|
+| `get_experimental_build`   | Experimental build series details                | series_id, show_features, show_breaking_changes, show_python_api, show_operators |
+| `list_experimental_builds` | List experimental series by feature area         | feature_area, stability_status, show_feature_flags, show_operators, show_breaking_changes |
+
+### Installation and Setup
 
 #### Global Installation
 ```bash
 npm install -g @bottobot/td-mcp
 ```
 
-#### VS Code Configuration
+#### VS Code / Codium Configuration
 ```json
 {
   "td-mcp": {
@@ -173,12 +326,28 @@ npm install -g @bottobot/td-mcp
 }
 ```
 
+#### Claude Desktop Configuration
+```json
+{
+  "mcpServers": {
+    "td-mcp": {
+      "command": "td-mcp"
+    }
+  }
+}
+```
+
 ### Version History
 
-- **v2.6.0**: Fixed broken search, removed web server, pure MCP
-- **v2.5.0**: Added Python API documentation
-- **v2.4.0**: Doubled tutorial content, 24% size reduction
-- **v2.0.0**: Complete rewrite as MCP server
+| Version | Date       | Key Changes                                                                   |
+|---------|------------|-------------------------------------------------------------------------------|
+| 2.8.0   | 2026-02-21 | 9 new tools (21 total): version system, experimental KB, core enhancements, experimental builds |
+| 2.7.0   | 2026-02-21 | 4 new tools (12 total): search_tutorials, get_operator_examples, list_python_classes, compare_operators |
+| 2.6.1   | 2025-01-16 | Critical fix: Python API tools returning correct MCP response format; corrected class count to 69 |
+| 2.6.0   | 2025-01-14 | Critical fix: search restored; OperatorDataManager rename; web server removed |
+| 2.5.0   | 2025-01-13 | Added Python API tools (get_python_api, search_python_api)                    |
+| 2.4.0   | 2025-01-12 | Doubled tutorial content (14 total), 24% size reduction                       |
+| 2.0.0   | 2025-01-01 | Complete rewrite as MCP server with 629 operators                             |
 
 ---
 
@@ -186,16 +355,18 @@ npm install -g @bottobot/td-mcp
 
 ### Overview
 
-An MCP server that exposes tools to control a running TouchDesigner instance through a WebSocket bridge.
+An MCP server that exposes tools to control a running TouchDesigner instance through a
+WebSocket bridge. This is a separate server from the documentation server and requires
+TouchDesigner to be running.
 
 ### Architecture
 
 ```
 td-control-mcp/
 ├── index.js                    # MCP server (stdio transport)
-├── package.json               # Node package metadata
+├── package.json                # Node package metadata
 └── td-bridge/
-    └── webserver_callbacks.py # TouchDesigner WebSocket bridge
+    └── webserver_callbacks.py  # TouchDesigner WebSocket bridge
 ```
 
 ### Communication Flow
@@ -220,40 +391,40 @@ Response: {"id": 1, "ok": true, "result": {...}}
 
 ### Available Actions
 
-| Action | Purpose | Parameters |
-|--------|---------|------------|
-| `get_status` | Get TD status | - |
-| `eval` | Evaluate Python expression | expression |
-| `run_script` | Execute Python code | code |
-| `set_param` | Set operator parameter | path, param, value |
-| `pulse` | Pulse parameter | path, param |
-| `create_op` | Create operator | parent, type, name |
-| `delete_op` | Delete operator | path |
-| `connect_ops` | Connect operators | out, into, index |
-| `op_info` | Get operator info | path |
-| `timeline_play` | Start timeline | - |
-| `timeline_stop` | Stop timeline | - |
-| `open_project` | Open .toe file | file |
-| `save_project` | Save project | file |
+| Action          | Purpose                    | Parameters               |
+|-----------------|----------------------------|--------------------------|
+| `get_status`    | Get TD status              | -                        |
+| `eval`          | Evaluate Python expression | expression               |
+| `run_script`    | Execute Python code        | code                     |
+| `set_param`     | Set operator parameter     | path, param, value       |
+| `pulse`         | Pulse parameter            | path, param              |
+| `create_op`     | Create operator            | parent, type, name       |
+| `delete_op`     | Delete operator            | path                     |
+| `connect_ops`   | Connect operators          | out, into, index         |
+| `op_info`       | Get operator info          | path                     |
+| `timeline_play` | Start timeline             | -                        |
+| `timeline_stop` | Stop timeline              | -                        |
+| `open_project`  | Open .toe file             | file                     |
+| `save_project`  | Save project               | file                     |
 
 ### MCP Tools Exposed
 
-| Tool | Purpose | Parameters |
-|------|---------|------------|
-| `td_connect` | Connect to TD | url, token |
-| `td_status` | Get project status | - |
-| `td_eval` | Evaluate expression | expression |
-| `td_run_script` | Run Python code | code |
-| `td_set_param` | Set parameter | path, param, value |
-| `td_pulse` | Pulse parameter | path, param |
-| `td_create_op` | Create operator | parent, type, name |
-| `td_delete_op` | Delete operator | path |
-| `td_connect_ops` | Connect operators | out, into, index |
-| `td_op_info` | Get operator info | path |
-| `td_timeline_play` | Play timeline | - |
-| `td_timeline_stop` | Stop timeline | - |
-| `td_open_project` | Open project | file |
-| `td_save_project` | Save project | file |
+| Tool               | Purpose               | Parameters              |
+|--------------------|-----------------------|-------------------------|
+| `td_connect`       | Connect to TD         | url, token              |
+| `td_status`        | Get project status    | -                       |
+| `td_eval`          | Evaluate expression   | expression              |
+| `td_run_script`    | Run Python code       | code                    |
+| `td_set_param`     | Set parameter         | path, param, value      |
+| `td_pulse`         | Pulse parameter       | path, param             |
+| `td_create_op`     | Create operator       | parent, type, name      |
+| `td_delete_op`     | Delete operator       | path                    |
+| `td_connect_ops`   | Connect operators     | out, into, index        |
+| `td_op_info`       | Get operator info     | path                    |
+| `td_timeline_play` | Play timeline         | -                       |
+| `td_timeline_stop` | Stop timeline         | -                       |
+| `td_open_project`  | Open project          | file                    |
+| `td_save_project`  | Save project          | file                    |
 
 ### Setup Instructions
 
@@ -282,7 +453,7 @@ npm start
 
 #### 3. Security Configuration (Optional)
 
-Set `SHARED_SECRET` in bridge script or create `td_control_secret` Text DAT:
+Set `SHARED_SECRET` in bridge script or create a `td_control_secret` Text DAT:
 ```python
 SHARED_SECRET = "your-secret-token"
 ```
@@ -313,13 +484,13 @@ td_connect_ops({ out: "/project1/noise1", into: "/project1/comp1" })
 ### Transport Mechanisms
 
 #### Stdio Transport
-- Used for MCP server ↔ VS Code communication
+- Used for MCP server to VS Code communication
 - Synchronous request/response
 - JSON-RPC style messaging
 - Built into MCP protocol
 
 #### WebSocket Transport
-- Used for MCP server ↔ Application bridge
+- Used for MCP server to application bridge
 - Asynchronous messaging
 - Supports remote connections
 - Real-time bidirectional communication
@@ -333,13 +504,13 @@ class MessageCorrelator {
         this.pending = new Map();
         this.nextId = 1;
     }
-    
+
     send(action, data) {
         const id = this.nextId++;
         return new Promise((resolve, reject) => {
             this.pending.set(id, { resolve, reject });
             this.ws.send(JSON.stringify({ id, action, data }));
-            
+
             setTimeout(() => {
                 if (this.pending.has(id)) {
                     this.pending.delete(id);
@@ -374,8 +545,8 @@ try {
 
 #### Documentation Server
 - Stateless operations
-- Data loaded once at startup
-- No persistence required
+- Data loaded once at startup and cached in memory
+- No persistence required between requests
 
 #### Control Server
 - WebSocket connection state
@@ -389,7 +560,7 @@ try {
 ### Pattern 1: Documentation-Driven Development
 
 ```
-User Query → Claude → TD-MCP → Documentation → Response → Code Generation
+User Query -> Claude -> TD-MCP -> Documentation -> Response -> Code Generation
 ```
 
 **Use Case**: Learning about operators while coding
@@ -397,7 +568,7 @@ User Query → Claude → TD-MCP → Documentation → Response → Code Generat
 ### Pattern 2: Interactive Control
 
 ```
-User Command → Claude → TD-Control-MCP → WebSocket → TouchDesigner → Visual Output
+User Command -> Claude -> TD-Control-MCP -> WebSocket -> TouchDesigner -> Visual Output
 ```
 
 **Use Case**: Building networks through natural language
@@ -405,17 +576,17 @@ User Command → Claude → TD-Control-MCP → WebSocket → TouchDesigner → V
 ### Pattern 3: Hybrid Workflow
 
 ```
-Documentation Query → TD-MCP → Information
-                                    ↓
-Control Command → TD-Control-MCP → TouchDesigner Action
+Documentation Query -> TD-MCP -> Information
+                                     |
+Control Command -> TD-Control-MCP -> TouchDesigner Action
 ```
 
-**Use Case**: Look up operator, then create and configure it
+**Use Case**: Look up operator details, then create and configure it
 
 ### Pattern 4: Validation Pipeline
 
 ```
-User Code → Claude → TD-MCP (validate) → TD-Control-MCP (execute) → Result
+User Code -> Claude -> TD-MCP (validate) -> TD-Control-MCP (execute) -> Result
 ```
 
 **Use Case**: Validate parameters before execution
@@ -428,120 +599,146 @@ User Code → Claude → TD-MCP (validate) → TD-Control-MCP (execute) → Resu
 
 #### 1. Define Tool Interface
 ```javascript
-{
+export const schema = {
     name: 'tool_name',
     description: 'What this tool does',
-    parameters: {
+    inputSchema: {
         type: 'object',
         properties: {
             param1: { type: 'string', description: 'Parameter description' }
         },
         required: ['param1']
     }
-}
+};
 ```
 
 #### 2. Implement Tool Handler
 ```javascript
-async function handleToolName(params) {
+export async function handler(params, dataManager) {
     // Validate parameters
     if (!params.param1) {
         throw new Error('param1 is required');
     }
-    
+
     // Execute tool logic
-    const result = await performOperation(params);
-    
-    // Return structured response
+    const result = await performOperation(params, dataManager);
+
+    // Return structured MCP response
     return {
-        success: true,
-        data: result
+        content: [{ type: 'text', text: result }]
     };
 }
 ```
 
-#### 3. Register with MCP Server
+#### 3. Register with MCP Server in index.js
 ```javascript
-server.addTool('tool_name', toolDefinition, handleToolName);
+import { schema as toolSchema, handler as toolHandler } from './tools/tool_name.js';
+// Add to the tools array in the ListToolsRequestSchema handler
+// Add to the switch statement in the CallToolRequestSchema handler
 ```
 
 ### Best Practices
 
 #### Error Handling
 - Always validate input parameters
-- Provide meaningful error messages
-- Include error codes for programmatic handling
+- Provide meaningful, user-readable error messages
+- Return errors in proper MCP content format
 - Log errors for debugging
 
 #### Performance
-- Cache frequently accessed data
-- Use async operations for I/O
-- Implement request timeouts
-- Batch operations when possible
+- Cache frequently accessed data at module level (not per-request)
+- Use async operations for all file I/O
+- Keep tool response sizes reasonable (use limits on list tools)
 
 #### Security
-- Validate all inputs
-- Use authentication for privileged operations
-- Sanitize paths and expressions
-- Limit operation scope
+- Validate all inputs before processing
+- Sanitize paths when constructing file paths
+- Do not expose internal file system structure in error messages
 
 #### Documentation
-- Document all tool parameters
-- Provide usage examples
-- Include error scenarios
-- Maintain changelog
+- Document all tool parameters in this file and in README.md
+- Provide usage examples in tool descriptions
+- Keep CHANGELOG.md up to date with each change
+
+### Adding Operator Data
+
+Operator data lives in `wiki/data/processed/` as JSON files. Each file follows the schema:
+
+```json
+{
+  "id": "noise_chop",
+  "name": "Noise CHOP",
+  "displayName": "Noise",
+  "category": "CHOP",
+  "subcategory": "Generate",
+  "description": "...",
+  "parameters": [
+    {
+      "name": "Period",
+      "type": "float",
+      "default": "1",
+      "description": "..."
+    }
+  ],
+  "tips": ["..."],
+  "warnings": ["..."],
+  "pythonExamples": ["..."],
+  "codeExamples": ["..."],
+  "version": "2019+"
+}
+```
 
 ---
 
 ## Troubleshooting
 
-### Common Issues
-
-#### TD-MCP Documentation Server
+### Common Issues — TD-MCP Documentation Server
 
 **Issue**: Search returns no results
-- **Cause**: Search functionality was broken in versions before 2.6.0
-- **Solution**: Update to v2.6.0 or later
+- Try simpler, shorter search terms
+- Remove category filters
+- Enable `parameter_search: true`
+- Verify Node.js 18.0+ is installed
 
 **Issue**: Server won't start
-- **Check**: Node.js version (requires 18.0+)
-- **Check**: Run `npm install` to ensure dependencies
-- **Check**: Verify data files exist in wiki/data/
+- Check Node.js version: `node --version` (requires 18.0+)
+- Run `npm install` to ensure dependencies are installed
+- Verify that `wiki/data/` contains JSON files
 
 **Issue**: VS Code can't connect
-- **Check**: MCP configuration in VS Code settings
-- **Check**: Server path is correct
-- **Check**: No port conflicts
+- Verify MCP configuration JSON is valid (no trailing commas)
+- Reload the VS Code window after changing MCP settings
+- Confirm `td-mcp` is on your PATH: `which td-mcp`
 
-#### TD Control MCP Server
+**Issue**: Tool returns "class not found" for Python API
+- Use list_python_classes to see exact class names
+- Class names are case-sensitive (e.g., "CHOP" not "Chop")
+
+### Common Issues — TD Control MCP Server
 
 **Issue**: "Not connected to TD bridge"
-- **Check**: Run `td_connect` first
-- **Check**: TouchDesigner Web Server DAT is running
-- **Check**: Port matches configuration
-- **Check**: Firewall settings
+- Run `td_connect` before other tools
+- Confirm TouchDesigner's Web Server DAT is running
+- Verify the port matches the configuration
 
 **Issue**: Parameter not found
-- **Check**: Exact parameter name (lowercase)
-- **Check**: Operator path is absolute
-- **Check**: Parameter exists on operator type
+- Verify the exact parameter name (case-sensitive)
+- Confirm the operator path is absolute (e.g., `/project1/noise1`)
 
-**Issue**: Timeouts
-- **Check**: Network connectivity
-- **Check**: TouchDesigner is responsive
-- **Check**: Increase timeout in send() method
+**Issue**: Request timeouts
+- Check that TouchDesigner is responsive
+- Verify network connectivity to the bridge port
 
 ### Diagnostic Commands
 
-#### Test TD-MCP Documentation
+#### Test TD-MCP Documentation Server startup
 ```bash
-# Test server startup
 npx @bottobot/td-mcp
-
-# Should show:
+# Expected output includes:
 # Loaded 629 operators
 # Loaded 14 tutorials
-# Loaded 553 Python API classes
+# Loaded 69 Python API classes
+# All 21 tools registered
 ```
 
 #### Test TD Control MCP
@@ -549,50 +746,27 @@ npx @bottobot/td-mcp
 // Test connection
 td_connect({ url: "ws://127.0.0.1:9988" })
 
-// Test status
-td_status()
-// Should return project info
-
 // Test evaluation
 td_eval({ expression: "op('/').name" })
-// Should return project name
+// Should return the project name
 ```
 
-### Debug Logging
+### Performance Targets
 
-#### Enable MCP Debug Output
-```bash
-export MCP_DEBUG=true
-npm start
-```
-
-#### TouchDesigner Bridge Logging
-```python
-# In webserver_callbacks.py
-DEBUG = True  # Enable debug output
-
-def log_debug(msg):
-    if DEBUG:
-        print(f"[TD-Bridge] {msg}")
-```
-
-### Performance Monitoring
-
-#### Documentation Server Metrics
-- Startup time: < 2 seconds
-- Search response: < 100ms
-- Memory usage: < 150MB
-
-#### Control Server Metrics
-- Connection time: < 500ms
-- Command latency: < 50ms
-- Timeout threshold: 5000ms
+| Metric                    | Target     |
+|---------------------------|------------|
+| Server startup time       | < 2 seconds |
+| Search response time      | < 100ms    |
+| Memory usage              | < 200MB    |
+| Tool response (operator)  | < 50ms     |
 
 ---
 
 ## Conclusion
 
-The MCP architecture provides a robust foundation for integrating TouchDesigner with AI assistants. The separation between documentation (TD-MCP) and control (TD-Control-MCP) servers allows for:
+The MCP architecture provides a robust foundation for integrating TouchDesigner with AI
+assistants. The separation between documentation (TD-MCP, 21 tools) and control
+(TD-Control-MCP) servers allows for:
 
 1. **Modularity**: Use either or both servers as needed
 2. **Stability**: Documentation queries don't affect control operations
@@ -600,4 +774,7 @@ The MCP architecture provides a robust foundation for integrating TouchDesigner 
 4. **Scalability**: Add new tools without affecting existing ones
 5. **Flexibility**: Support multiple transport and deployment options
 
-The architecture follows established patterns from other DCC integrations while providing TouchDesigner-specific optimizations and features.
+The TD-MCP documentation server (v2.8.0) now covers the complete TouchDesigner ecosystem:
+stable operator documentation, Python scripting reference, interactive tutorials, version
+history, advanced technique patterns, and experimental build tracking — all accessible
+through 21 MCP tools with no external dependencies.

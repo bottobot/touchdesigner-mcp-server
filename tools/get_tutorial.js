@@ -1,5 +1,8 @@
-// TD-MCP v2.0 - Get Tutorial Tool
-// Displays comprehensive tutorial information
+/**
+ * Get Tutorial Tool - Retrieves full content from a TouchDesigner tutorial.
+ * Returns sections, table of contents, code blocks, images, and related links.
+ * @module tools/get_tutorial
+ */
 
 import { z } from "zod";
 
@@ -36,7 +39,7 @@ export async function handler({ name, include_content = true, include_toc = true
     return {
       content: [{
         type: "text",
-        text: `Tutorial '${name}' not found.\n\nAvailable tutorials:\n${tutorialList}\n\nTry searching with 'search_tutorials' tool for more options.`
+        text: `Tutorial '${name}' not found.\n\nAvailable tutorials:\n${tutorialList}\n\nUse 'search_tutorials' to search by keyword, or 'list_tutorials' to see all tutorials.`
       }]
     };
   }

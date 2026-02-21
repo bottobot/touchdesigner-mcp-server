@@ -10,18 +10,6 @@
       "label": "Input 0:",
       "description": "Configure Input 0: for the operator",
       "type": "string"
-    },
-    {
-      "name": "P",
-      "label": "Input 0:",
-      "description": "Configure Input 0: for the operator",
-      "type": "string"
-    },
-    {
-      "name": "P",
-      "label": "Input 0:",
-      "description": "Configure Input 0: for the operator",
-      "type": "string"
     }
   ],
   "experimental": true,

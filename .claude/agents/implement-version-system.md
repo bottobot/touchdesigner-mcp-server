@@ -1,0 +1,7 @@
+---
+name: implement-version-system
+description: Implements TD version tracking and compatibility filtering
+model: sonnet
+color: green
+---
+Implement the Version System for the TouchDesigner MCP Server at /home/robert/Documents/TD-MCP/touchdesigner-mcp-server. Tasks: (1) Create wiki/data/versions/ directory with version-manifest.json (TD versions 099, 2019, 2020, 2021, 2022, 2023, 2024 with Python version per release), operator-compatibility.json (30+ operators with addedIn/changedIn/removedIn fields), python-api-compatibility.json (method-level version tracking), and release-highlights.json (key features per major version). (2) Create wiki/utils/version-filter.js with isCompatible(), filterByVersion(), getVersionIndex() functions. (3) Create tools/get_version_info.js — returns TD version info, Python version, and key features. (4) Create tools/list_versions.js — lists all supported TD versions with highlights. (5) Add optional 'version' parameter to search_operators.js, get_operator.js, search_python_api.js, get_python_api.js for version-filtered results. (6) Register both new tools in index.js. (7) Append to CHANGELOG.md under a new section. Implement fully and verify with node --check.
