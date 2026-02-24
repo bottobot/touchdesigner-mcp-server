@@ -117,7 +117,7 @@ TouchDesigner MCP Server for VS Code/Codium
 [Patterns] Loaded 32 workflow patterns
 
 [Server] TD MCP v2.8.0 initialized successfully
-[Server] Ready with 629 operators, 14 tutorials, and 69 Python classes
+[Server] Ready with 630 operators, 14 tutorials, and 69 Python classes
 [Server] All 21 tools registered
 ```
 

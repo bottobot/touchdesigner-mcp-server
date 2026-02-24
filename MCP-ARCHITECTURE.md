@@ -137,7 +137,7 @@ td-mcp/
 │   ├── utils/
 │   │   └── version-filter.js              # Version utilities + experimental support
 │   └── data/
-│       ├── processed/                     # 629 operator JSON files
+│       ├── processed/                     # 630 operator JSON files
 │       ├── tutorials/                     # 14 tutorial JSON files
 │       ├── python-api/                    # 69 Python class JSON files
 │       ├── experimental/                  # 7 advanced technique JSON files
@@ -155,7 +155,7 @@ td-mcp/
 | Resource                  | Count  | Notes                                      |
 |---------------------------|--------|--------------------------------------------|
 | MCP Tools                 | 21     | Across 5 functional groups                 |
-| Operator JSON files       | 629    | All families: CHOP, TOP, SOP, DAT, COMP, MAT, POP |
+| Operator JSON files       | 630    | All families: CHOP, TOP, SOP, DAT, COMP, MAT, POP |
 | Python API classes        | 69     | 1,510+ methods documented                  |
 | Tutorials                 | 14     | Core, advanced dev, IPC, video/integration |
 | Workflow patterns         | 32     | With 72 common transitions                 |
@@ -165,7 +165,7 @@ td-mcp/
 
 ### Data Inventory
 
-#### wiki/data/processed/ (629 operator JSON files)
+#### wiki/data/processed/ (630 operator JSON files)
 
 Each operator file follows a standard schema with fields: `id`, `name`, `displayName`,
 `category`, `subcategory`, `description`, `parameters`, `tips`, `warnings`,
@@ -176,10 +176,10 @@ Operator families and counts:
 | Family | Count | Description                                          |
 |--------|-------|------------------------------------------------------|
 | CHOP   | 166   | Channel Operators — audio, control signals, data streams |
-| TOP    | 139   | Texture Operators — 2D image and video processing    |
+| TOP    | 140   | Texture Operators — 2D image and video processing    |
 | SOP    | 112   | Surface Operators — 3D geometry creation/manipulation |
 | DAT    | 69    | Data Operators — text, tables, and data handling     |
-| COMP   | 40    | Component Operators — UI elements and containers     |
+| COMP   | 41    | Component Operators — UI elements and containers     |
 | POP    | 90    | Point Operators — particle systems (experimental)    |
 | MAT    | 13    | Material Operators — 3D rendering materials/shaders  |
 
@@ -223,7 +223,7 @@ Advanced TouchDesigner technique library with working code:
 #### OperatorDataManager
 
 Central documentation engine (wiki/operator-data-manager.js) that:
-- Loads 629 operator JSON files from wiki/data/processed/ at startup
+- Loads 630 operator JSON files from wiki/data/processed/ at startup
 - Manages tutorial content from wiki/data/tutorials/
 - Coordinates the Python API data manager
 - Provides the direct search algorithm (no external index dependency)
@@ -735,7 +735,7 @@ Operator data lives in `wiki/data/processed/` as JSON files. Each file follows t
 ```bash
 npx @bottobot/td-mcp
 # Expected output includes:
-# Loaded 629 operators
+# Loaded 630 operators
 # Loaded 14 tutorials
 # Loaded 69 Python API classes
 # All 21 tools registered

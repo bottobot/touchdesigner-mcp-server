@@ -1,7 +1,7 @@
 {
   "name": "@bottobot/td-mcp",
   "version": "2.8.0",
-  "description": "TouchDesigner MCP Server v2.8.0 - 21 MCP tools, 629 operators with clean parameter data, 69 Python API classes, 14 tutorials, 32 workflow patterns. Includes version system, experimental techniques KB, core tool enhancements, and experimental build support. Zero-configuration setup for VS Code/Codium.",
+  "description": "TouchDesigner MCP Server v2.8.0 - 21 MCP tools, 630 operators with clean parameter data, 69 Python API classes, 14 tutorials, 32 workflow patterns. Includes version system, experimental techniques KB, core tool enhancements, and experimental build support. Zero-configuration setup for VS Code/Codium.",
   "main": "index.js",
   "type": "module",
   "bin": {

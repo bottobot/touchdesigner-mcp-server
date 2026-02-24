@@ -21,15 +21,41 @@ Right now, I'm focused on ensuring the server returns useful and accurate Python
 
 ## Features
 
-- **629 TouchDesigner Operators** - Complete documentation including 90+ experimental POP operators
+- **630 TouchDesigner Operators** - Complete documentation including 90+ experimental POP operators
 - **14 Interactive Tutorials** - Comprehensive TouchDesigner learning guides
 - **69 Python API Classes** - Full Python scripting documentation with 1,510+ methods
-- **21 MCP Tools** - Search, browse, compare operators, get code examples, and query build info
-- **32 Workflow Patterns** - Curated operator chain patterns for common use cases
-- **Experimental Build Tracking** - 6 experimental TD build series documented with feature flags, breaking changes, and Python API additions
-- **Smart Search** - Direct search with category filtering and parameter search
+- **21 MCP Tools** - Across five functional groups: operator reference, tutorials, Python API, version system, and experimental content
+- **32 Workflow Patterns** - Curated operator chain patterns with 72 common transitions
+
+### Version System
+- **Version History** - All stable TD releases documented from 099 through 2024
+- **Compatibility Tracking** - Per-operator and per-method version compatibility data
+- **Python Timeline** - Full Python version history bundled with each TD release
+- **Release Highlights** - Key features and breaking changes per major release
+
+### Experimental Techniques Knowledge Base
+- **7 Technique Categories** - GLSL, GPU compute, machine learning, generative systems, audio-visual, networking, Python advanced
+- **2,000+ Lines of Code** - Working, paste-ready code snippets for advanced techniques
+- **16 Named GLSL Patterns** - Complete shader code for raymarching, reaction-diffusion, feedback, and more
+- **Difficulty Ratings** - Each technique rated with minimum TD version requirements
+
+### Core Enhancements
+- **Operator Wiring Guides** - Exact port-level connection instructions for 20+ common operators
+- **Network Templates** - Five ready-to-build network templates with Python generation scripts
+- **Version-Aware Search** - Filter operators and Python API by TD release compatibility
+- **Smart Workflow Suggestions** - Port wiring, complexity ratings, and node count estimates
+
+### Experimental Build Support
+- **6 Experimental Build Series** - Documented from builds 20000 through current (2025.10000)
+- **Feature Flag Tables** - Opt-in/opt-out flags for each experimental series
+- **Graduation Tracking** - Which experimental features graduated into stable releases
+- **Breaking Change Logs** - Per-series breaking changes versus the stable baseline
+
+### Core Server Features
+- **Smart Search** - Direct search with category filtering, parameter search, and version filtering
 - **Zero Configuration** - Works immediately after installation
 - **Pure MCP Implementation** - Clean stdio-based server, no web server overhead
+- **Local Data Processing** - All documentation served from local JSON files, no network requests
 
 ## Installation
 
@@ -87,9 +113,11 @@ Get comprehensive details about a specific TouchDesigner operator including all 
 | `name` | string | Yes | Operator name (e.g., 'Noise CHOP', 'Movie File In TOP') |
 | `show_examples` | boolean | No | Show code examples and usage |
 | `show_tips` | boolean | No | Show tips and performance notes |
+| `version` | string | No | Include compatibility block showing when the operator was added or changed for this TD version |
 
 ```
 Example: "Get detailed information about the Noise CHOP operator"
+Example: "Get the Engine COMP documentation for TD 2022"
 ```
 
 #### search_operators
@@ -100,11 +128,15 @@ Search for operators using contextual analysis and relevance ranking.
 | `query` | string | Yes | Search query |
 | `category` | string | No | Filter by category (CHOP, DAT, SOP, TOP, MAT, COMP, POP) |
 | `subcategory` | string | No | Filter by subcategory (e.g., 'Audio', 'Filters') |
+| `type` | string | No | Search mode: 'fuzzy' (default), 'exact', or 'tag' |
+| `version` | string | No | Filter to operators compatible with a specific TD version (e.g., '2022') |
 | `parameter_search` | boolean | No | Search within parameter names and descriptions |
 | `show_details` | boolean | No | Show detailed results with keywords |
+| `limit` | number | No | Maximum results (default: 10, max: 50) |
 
 ```
 Example: "Search for audio processing operators in the CHOP category"
+Example: "Find operators added in TD 2022"
 ```
 
 #### list_operators
@@ -207,9 +239,11 @@ Get documentation for a TouchDesigner Python class including members and methods
 | `show_members` | boolean | No | Show class members/properties |
 | `show_methods` | boolean | No | Show class methods |
 | `show_inherited` | boolean | No | Show inherited members and methods |
+| `version` | string | No | Annotate each method/member with its introduction version and exclude API added after this TD version |
 
 ```
 Example: "Get Python documentation for the CHOP class"
+Example: "Get Python API for the App class as of TD 2021"
 ```
 
 #### search_python_api
@@ -220,10 +254,12 @@ Search across TouchDesigner Python classes, methods, and members.
 | `query` | string | Yes | Search query |
 | `search_in` | string | No | Where to search: 'all', 'classes', 'methods', 'members' |
 | `category` | string | No | Filter by category |
+| `version` | string | No | Filter classes, methods, and members to those available in the specified TD version |
 | `limit` | number | No | Maximum results |
 
 ```
 Example: "Search Python API for audio methods"
+Example: "Find Python API methods available in TD 2020"
 ```
 
 #### list_python_classes
@@ -237,6 +273,138 @@ List all available Python API classes grouped by category.
 
 ```
 Example: "List all Python API classes in the Operator category"
+```
+
+### Version System Tools
+
+#### get_version_info
+Get detailed information about a specific TouchDesigner stable release: which Python version
+it bundles, new operators introduced, key features, Python API additions, and breaking changes.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `version` | string | Yes | TD version string (e.g., '2024', '2022', '2019', '099') |
+
+```
+Example: "What Python version does TouchDesigner 2022 use?"
+Example: "What operators were added in TouchDesigner 2023?"
+```
+
+#### list_versions
+List all supported TD versions (099, 2019, 2020, 2021, 2022, 2023, 2024) with a quick-reference
+table showing the bundled Python version and support status for each release, plus the full
+Python version timeline.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| *(none required)* | — | — | Returns all versions with highlights |
+
+```
+Example: "List all supported TouchDesigner versions"
+Example: "Show the Python version timeline for TouchDesigner"
+```
+
+### Experimental Techniques Tools
+
+#### get_experimental_techniques
+Browse a curated library of advanced TouchDesigner techniques by category. Returns
+descriptions, difficulty ratings, version requirements, operator chains, uniform tables,
+and full working code snippets.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `category` | string | Yes | Technique category. Aliases accepted: 'glsl', 'gpu-compute', 'machine-learning', 'generative-systems', 'audio-visual', 'networking', 'python-advanced' |
+| `technique_id` | string | No | ID of a specific technique within the category |
+
+```
+Example: "Show me GLSL raymarching techniques in TouchDesigner"
+Example: "Get GPU compute techniques using numpy"
+```
+
+**Available Categories:**
+
+| Category | Alias(es) | Techniques |
+|----------|-----------|-----------|
+| glsl | shader, raymarching, sdf | Raymarching, reaction-diffusion, feedback, procedural noise |
+| gpu-compute | gpu, cuda | Script TOP numpy, CUDA, Shared Memory, GPU instancing |
+| machine-learning | ml, ai | Engine COMP, ONNX, Stable Diffusion, MediaPipe, Body Track |
+| generative-systems | generative, lsystem | L-systems, Game of Life, strange attractors, boids |
+| audio-visual | audio, fft | FFT geometry, beat detection, granular synthesis, MIDI |
+| networking | network, osc, ndi | OSC, WebSocket, NDI, TDAbleton, multi-machine |
+| python-advanced | python, numpy, opencv | asyncio, tdu.Dependency, threading, numpy, OpenCV |
+
+#### search_experimental
+Full-text search across all 7 experimental technique categories. Results ranked by weighted
+field scoring (name, tags, description, notes, code).
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | Yes | Search query |
+| `category_filter` | string | No | Restrict search to one category |
+| `show_code` | boolean | No | Include code snippets in results |
+| `limit` | number | No | Maximum results (default: 10, max: 30) |
+
+```
+Example: "Search experimental techniques for reaction diffusion"
+Example: "Find GPU instancing examples in the experimental library"
+```
+
+#### get_glsl_pattern
+Retrieve a specific named GLSL pattern with complete, paste-ready shader code. Covers 16
+named patterns across raymarching, reaction-diffusion, feedback, procedural noise, cellular
+automata, and GPU particle simulation. Also provides three reusable GLSL utility libraries.
+Use `pattern: "list"` to enumerate all available patterns.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `pattern` | string | Yes | Pattern name or 'list' to see all available patterns |
+| `include_utilities` | boolean | No | Include GLSL utility library code (default: false) |
+
+```
+Example: "Get the raymarching GLSL pattern"
+Example: "List all available GLSL patterns"
+Example: "Get the reaction diffusion shader pattern"
+```
+
+### Core Enhancement Tools
+
+#### get_operator_connections
+Get a wiring guide for a specific operator: what operators typically connect upstream as
+inputs and downstream as outputs, with exact port numbers, rationale, and workflow pattern
+names. Covers 20+ common operators across all families.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `operator` | string | Yes | Operator name (with or without family suffix; case-insensitive) |
+
+```
+Example: "What connects to and from a Render TOP?"
+Example: "Show me the typical connections for a Noise CHOP"
+```
+
+#### get_network_template
+Return a complete, ready-to-use network template for a common TouchDesigner use case.
+Each template includes an operator list, a port-level connection table, parameter settings,
+and a ready-to-paste Python script that builds the network. Use `template: "list"` to see
+all available templates.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `template` | string | Yes | Template name or 'list' to enumerate all templates |
+
+**Available Templates:**
+
+| Template | Description |
+|----------|-------------|
+| `video-player` | File-based video playback with level and output controls |
+| `generative-art` | Noise-driven generative visual network |
+| `audio-reactive` | Audio analysis feeding visual parameters |
+| `data-visualization` | Table DAT driven chart and display network |
+| `live-performance` | Multi-layer compositing setup for live use |
+
+```
+Example: "Give me a network template for audio-reactive visuals"
+Example: "List all available network templates"
 ```
 
 ### Experimental Build Tools
@@ -293,10 +461,10 @@ Example: "Which experimental build series introduced the Engine COMP?"
 | Category | Count | Description |
 |----------|-------|-------------|
 | **CHOP** | 166 | Channel Operators - Audio, control signals, and data streams |
-| **TOP** | 139 | Texture Operators - 2D image and video processing |
+| **TOP** | 140 | Texture Operators - 2D image and video processing |
 | **SOP** | 112 | Surface Operators - 3D geometry creation and manipulation |
 | **DAT** | 69 | Data Operators - Text, tables, and data handling |
-| **COMP** | 40 | Component Operators - UI elements and containers |
+| **COMP** | 41 | Component Operators - UI elements and containers |
 | **MAT** | 13 | Material Operators - 3D rendering materials and shaders |
 | **POP** | 90 | Point Operators - Particle systems (experimental) |
 
@@ -339,7 +507,7 @@ The server includes documentation for **69 Python API classes** with **1,510+ me
 The TD-MCP server is built with:
 - **Pure MCP Implementation** - Clean stdio-based server following MCP standards
 - **Direct Search Algorithm** - Fast, reliable search without external index dependencies
-- **OperatorDataManager** - Centralized data management with 629 operators loaded into memory
+- **OperatorDataManager** - Centralized data management with 630 operators loaded into memory
 - **Local Data Processing** - All operator data is processed and served locally
 - **Modular Tool System** - Each of the 21 MCP tools is independently maintained
 - **Dual Release Track Support** - Stable annual releases (2019–2024) and experimental build series both fully documented
@@ -373,7 +541,7 @@ td-mcp/
 │   └── list_experimental_builds.js  # List experimental series by area
 ├── wiki/                            # Documentation system
 │   ├── data/
-│   │   ├── processed/               # 629 operator JSON files
+│   │   ├── processed/               # 630 operator JSON files
 │   │   ├── tutorials/               # 14 tutorial JSON files
 │   │   ├── python-api/              # 69 Python class JSON files
 │   │   ├── experimental/            # 7 advanced technique JSON files
@@ -479,7 +647,7 @@ MIT License - See [LICENSE](LICENSE) file for details.
 ---
 
 **Current Version**: 2.8.0
-**Operators**: 629 (with cleaned parameter descriptions)
+**Operators**: 630 (with cleaned parameter descriptions)
 **Tutorials**: 14
 **Python API Classes**: 69
 **MCP Tools**: 21

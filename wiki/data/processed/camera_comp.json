@@ -5,6 +5,21 @@
   "category": "COMP",
   "subcategory": "3D",
   "version": "Available since TouchDesigner 2019+",
+  "versionSupport": {
+    "addedIn": "099",
+    "removedIn": null,
+    "changedIn": [
+      {
+        "version": "2020",
+        "change": "Added projection matrix override parameters"
+      },
+      {
+        "version": "2023",
+        "change": "Physical camera parameters (f-stop, focal length) added"
+      }
+    ],
+    "notes": "3D camera operator; available since earliest TD releases"
+  },
   "lastUpdated": "2026-02-21T00:00:00.000Z",
   "sourceFile": "",
   "url": "https://docs.derivative.ca/Camera_COMP",
@@ -13,7 +28,7 @@
   "details": "The Camera COMP supports both perspective and orthographic projections. The Transform page controls position and orientation identically to a Geometry COMP. The Projection page controls the field-of-view, near/far clip planes, and whether to use perspective or orthographic projection. The Look At parameter makes the camera always face a specified object, which is essential for tracking rigs and cinematic follow-cameras. Camera animation is typically done by driving Transform parameters with CHOP expressions or constraints.",
   "usage": "1. Place a Camera COMP in your network at the same level as your Geometry COMPs.\n2. Set its Translate and Rotate parameters to position and orient the camera.\n3. In your Render TOP, set the Camera parameter to the Camera COMP path.\n4. Adjust FOV and near/far clip planes on the Projection page as needed.\n5. Optionally set the Look At parameter to make the camera track a Geometry COMP.",
   "tips": [
-    "The Camera COMP is referenced by path in the Render TOP Camera parameter — it is NOT wire-connected.",
+    "The Camera COMP is referenced by path in the Render TOP Camera parameter \u2014 it is NOT wire-connected.",
     "Drive Translate and Rotate parameters from CHOP expressions for smooth animated camera movement: op('null_cam')['tx']",
     "Use the Look At parameter to automatically orient the camera toward a target object without manually computing rotation.",
     "Set Projection to Orthographic for 2D-style renders, data visualisations, and isometric views.",
@@ -21,15 +36,15 @@
     "Near Clip and Far Clip define the visible depth range. Objects closer than Near or farther than Far are clipped. Keep the ratio Far/Near below 10000 for good depth buffer precision.",
     "For VR-style 360 rendering, use two cameras (left eye, right eye) with appropriate eye separation and each rendering to its own Render TOP.",
     "Use Object CHOP to extract the camera's world transform for use in CHOP-driven effects.",
-    "A Camera COMP inside a Geometry COMP or other COMP hierarchy inherits the parent's transform — useful for attaching cameras to animated objects.",
+    "A Camera COMP inside a Geometry COMP or other COMP hierarchy inherits the parent's transform \u2014 useful for attaching cameras to animated objects.",
     "For cinematic depth-of-field, render to RGBA32Float format and post-process the depth channel from a Render Pass TOP."
   ],
   "warnings": [
     "If the Render TOP Camera parameter is empty or points to a non-existent COMP, the render output will be black.",
     "Changing the camera's projection type between perspective and orthographic mid-animation causes a discontinuous jump.",
     "Very small Near Clip values (< 0.001) combined with large Far Clip values degrade depth buffer precision, causing z-fighting on overlapping surfaces.",
-    "The Look At parameter overrides Rotate settings — if Look At is active, manual rotation has no effect.",
-    "Camera COMP does not output any wire signals — it only affects renders via the Render TOP Camera parameter."
+    "The Look At parameter overrides Rotate settings \u2014 if Look At is active, manual rotation has no effect.",
+    "Camera COMP does not output any wire signals \u2014 it only affects renders via the Render TOP Camera parameter."
   ],
   "parameters": [
     {
@@ -41,7 +56,11 @@
       "type": "float",
       "dataType": "float",
       "style": "XYZ",
-      "defaultValue": [0, 0, 1],
+      "defaultValue": [
+        0,
+        0,
+        1
+      ],
       "description": "World-space position of the camera. Default Z=1 places camera looking down the -Z axis at the origin.",
       "tooltip": "Camera position in world space.",
       "commonExpressions": [
@@ -62,10 +81,16 @@
       "type": "float",
       "dataType": "float",
       "style": "XYZ",
-      "defaultValue": [0, 0, 0],
+      "defaultValue": [
+        0,
+        0,
+        0
+      ],
       "description": "Rotation of the camera in degrees. Positive Y rotation turns left; positive X rotation tilts up.",
       "tooltip": "Camera orientation in degrees.",
-      "commonExpressions": ["op('null_cam')['ry']"],
+      "commonExpressions": [
+        "op('null_cam')['ry']"
+      ],
       "isReadOnly": false,
       "isAnimatable": true,
       "order": 1,
@@ -81,9 +106,12 @@
       "dataType": "string",
       "style": "OP",
       "defaultValue": "",
-      "description": "Path to an object that the camera will always face. When set, the Rotate parameters have no effect — the camera orientation is computed automatically to point at the Look At target each frame.",
+      "description": "Path to an object that the camera will always face. When set, the Rotate parameters have no effect \u2014 the camera orientation is computed automatically to point at the Look At target each frame.",
       "tooltip": "Path to the object to track.",
-      "examples": ["geo1", "/project1/scene/target_geo"],
+      "examples": [
+        "geo1",
+        "/project1/scene/target_geo"
+      ],
       "isReadOnly": false,
       "isAnimatable": false,
       "order": 2,
@@ -99,7 +127,10 @@
       "dataType": "int",
       "style": "Menu",
       "defaultValue": "perspective",
-      "menuItems": ["perspective", "orthographic"],
+      "menuItems": [
+        "perspective",
+        "orthographic"
+      ],
       "description": "Perspective creates realistic depth foreshortening. Orthographic produces a flat, depth-compressed view useful for 2D layouts, technical drawings, and isometric views.",
       "isReadOnly": false,
       "isAnimatable": false,
@@ -120,7 +151,10 @@
       "maxValue": 179,
       "description": "Vertical field of view in degrees for perspective projection. 45 degrees is a natural lens angle. 20-30 is telephoto (compressed depth). 80-120 is wide angle.",
       "tooltip": "Vertical FOV in degrees.",
-      "commonExpressions": ["45", "op('null1')['fov']"],
+      "commonExpressions": [
+        "45",
+        "op('null1')['fov']"
+      ],
       "isReadOnly": false,
       "isAnimatable": true,
       "order": 4,
@@ -161,8 +195,21 @@
     }
   ],
   "parameterGroups": {
-    "Transform": ["Translate", "Rotate", "Scale", "Transform Order", "Look At", "Look At Up"],
-    "Projection": ["Projection", "FOV", "Near", "Far", "Aspect Ratio"]
+    "Transform": [
+      "Translate",
+      "Rotate",
+      "Scale",
+      "Transform Order",
+      "Look At",
+      "Look At Up"
+    ],
+    "Projection": [
+      "Projection",
+      "FOV",
+      "Near",
+      "Far",
+      "Aspect Ratio"
+    ]
   },
   "codeExamples": [],
   "pythonExamples": [
@@ -196,16 +243,48 @@
   "commonInputs": [],
   "commonOutputs": [],
   "relatedOperators": [
-    "Render TOP", "Geometry COMP", "Light COMP", "Object CHOP",
-    "Camera Blend COMP", "Null COMP", "Constraint COMP"
+    "Render TOP",
+    "Geometry COMP",
+    "Light COMP",
+    "Object CHOP",
+    "Camera Blend COMP",
+    "Null COMP",
+    "Constraint COMP"
   ],
-  "workflowPatterns": ["3d-render-pipeline", "live-performance", "data-visualization"],
+  "workflowPatterns": [
+    "3d-render-pipeline",
+    "live-performance",
+    "data-visualization"
+  ],
   "keywords": [
-    "camera", "viewpoint", "perspective", "orthographic", "fov", "field of view",
-    "near clip", "far clip", "look at", "orbit", "dolly", "zoom", "3d",
-    "render", "frustum", "projection", "world space", "transform", "animate"
+    "camera",
+    "viewpoint",
+    "perspective",
+    "orthographic",
+    "fov",
+    "field of view",
+    "near clip",
+    "far clip",
+    "look at",
+    "orbit",
+    "dolly",
+    "zoom",
+    "3d",
+    "render",
+    "frustum",
+    "projection",
+    "world space",
+    "transform",
+    "animate"
   ],
-  "tags": ["COMP", "3D", "Camera COMP", "rendering", "viewpoint", "projection"],
+  "tags": [
+    "COMP",
+    "3D",
+    "Camera COMP",
+    "rendering",
+    "viewpoint",
+    "projection"
+  ],
   "searchWeight": 2,
   "contentHash": "",
   "processingDate": "2026-02-21T00:00:00.000Z",
