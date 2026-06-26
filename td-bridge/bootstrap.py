@@ -124,14 +124,20 @@ def build():
     if web is None:
         web = bridge.create(webserverDAT, 'webserver')  # COMP_Class.create
     web.nodeX, web.nodeY = 400, 0
-    # Verified parameter machine-names (Web Server DAT offline help):
+    # Web Server DAT parameter machine-names, VERIFIED IN-APP against build
+    # 2025.32820: pageindex active restart port callbacks secure privatekey
+    # certificate password verifyclient minprotocol language extension customext
+    # wordwrap.
     #   port      — connection port
-    #   callbacks — DAT holding the callbacks (this is a string path/par)
+    #   callbacks — DAT holding the callbacks (op reference / path)
     #   active    — start/stop the server
-    #   secure    — TLS on/off (left default = off; we bind localhost-trust + token)
-    # NOTE: the Web Server DAT has NO 'local address' parameter — it binds on
-    # `port`. Localhost-only restriction is therefore NOT a parameter; rely on
-    # the token + Origin/Referer guard + OS firewall (see README security model).
+    #   secure    — TLS on/off (left default = off)
+    # NOTE: the Web Server DAT has NO bind-address / "Local Address" parameter on
+    # this build (the wiki-documented 'localaddress' does not exist on the live
+    # operator — confirmed by enumerating its parameters). The server listens on
+    # all interfaces; localhost-only protection therefore relies on the token +
+    # the Origin/Referer CSRF guard in router.py + the OS firewall. See the
+    # security model in td-bridge/README.md.
     web.par.port = WEB_PORT                             # Par_Class
     try:
         # callbacks par takes a DAT reference / path. Assign the router DAT.

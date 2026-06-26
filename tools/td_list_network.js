@@ -54,12 +54,14 @@ export async function handler({ parent = DEFAULT_PARENT, max_depth = 1 } = {}) {
     );
   }
 
-  // The bridge returns the children either directly as result (array) or as
-  // result.children. Accept both shapes defensively.
+  // The bridge returns { parent, maxDepth, nodes:[...], count }. Accept that
+  // (and a couple of alternative shapes) defensively.
   const r = res.result;
   let children = [];
   if (Array.isArray(r)) {
     children = r;
+  } else if (r && Array.isArray(r.nodes)) {
+    children = r.nodes;
   } else if (r && Array.isArray(r.children)) {
     children = r.children;
   }
@@ -76,8 +78,8 @@ export async function handler({ parent = DEFAULT_PARENT, max_depth = 1 } = {}) {
       const type = c.type ?? c.OPType ?? "?";
       const x = c.nodeX ?? "?";
       const y = c.nodeY ?? "?";
-      const inputs = c.inputs ?? "?";
-      const outputs = c.outputs ?? "?";
+      const inputs = Array.isArray(c.inputs) ? c.inputs.length : (c.inputs ?? "?");
+      const outputs = Array.isArray(c.outputs) ? c.outputs.length : (c.outputs ?? "?");
 
       text += `• ${path}\n`;
       text += `    type=${type}  pos=(${x}, ${y})  in=${inputs} out=${outputs}\n`;

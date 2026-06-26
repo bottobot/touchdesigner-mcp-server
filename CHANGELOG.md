@@ -5,13 +5,18 @@ All notable changes to the TouchDesigner MCP Server will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] — Live Control (experimental; pending in-app verification)
+## [Unreleased] — Live Control
 
 Adds the ability to **drive a running TouchDesigner 2025 instance** to build operator
 networks and create visuals, using only documented TouchDesigner APIs. Researched, critiqued,
-and revised in `LIVE_CONTROL_PLAN.md`; statically verified end-to-end against a mock bridge.
-**Not yet verified against a live TouchDesigner** — the `[VERIFY IN-APP]` items in
-`td-bridge/README.md` must be confirmed before this is released.
+and revised in `LIVE_CONTROL_PLAN.md`.
+
+**Verified end-to-end against live TouchDesigner 2025.32820:** the MCP tools built a
+multi-operator feedback network (Noise → Feedback → Transform → Level → Composite → HSV → Null)
+in a sandbox COMP and rendered real, evolving frames — an endlessly-iterating, noise-driven
+fractal in shape and colour. `td_status`, `td_create_operator`, `td_set_parameter` (values +
+expressions), `td_connect`, `td_layout`, `td_list_network` and `td_render` (image returned over
+MCP) all confirmed working.
 
 ### Added
 - **16 live-control MCP tools** (37 tools total): `td_status`, `td_create_operator`,
@@ -20,11 +25,21 @@ and revised in `LIVE_CONTROL_PLAN.md`; statically verified end-to-end against a 
   `td_build_pattern`, `td_build_glsl`, `td_run_python`. Each wraps exactly one documented
   `td` call (`COMP.create`, `Par.val/.expr/.pulse`, `Connector.connect`, `TOP.saveByteArray`, …).
 - **`td-bridge/`** — a user-installed TouchDesigner component (`router.py` Web Server DAT
-  callbacks + `bootstrap.py` + `README.md`). Bound to `127.0.0.1`, token-authenticated
-  (constant-time), CSRF-guarded, sandbox-confined to `/td_mcp/sandbox`, `run_python` off by default.
+  callbacks + `bootstrap.py` + `README.md`). Security: a fresh constant-time-checked token in
+  the `Authorization` header, an Origin/Referer CSRF guard, sandbox-confined to
+  `/td_mcp/sandbox`, and `run_python` off by default. (The Web Server DAT has no documented
+  bind-address parameter on build 2025.32820, so it listens on all interfaces — protection
+  relies on the token + CSRF guard + OS firewall.)
 - **`wiki/data/maps/operators.json`** — authoritative documented create tokens (from the wiki
   `opClass` field) and parameter scripting-names for 653/661 operators, scraped via
   `scripts/build-maps.js`.
+
+### Fixed (caught during live verification against TD 2025.32820)
+- `td_list_network` returned empty — it read `result.children` but the bridge sends `result.nodes`.
+- `set_parameter` on a TOP-reference parameter (e.g. the Feedback TOP target) crashed response
+  serialization (`par.eval()` returns an OP); the bridge now coerces to a JSON-safe value.
+- Removed a nonexistent `localaddress` write on the Web Server DAT — the wiki-documented param
+  does not exist on the live operator (verified by enumerating its parameters in-app).
 
 ## [3.0.0] - 2026-06-25
 

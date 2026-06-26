@@ -59,6 +59,18 @@ TOKEN_DAT_NAME = 'token'           # private Text DAT fallback (inside bridge CO
 # ----------------------------------------------------------------------------
 # Small helpers
 # ----------------------------------------------------------------------------
+def _json_safe(v):
+    """Coerce a value to something json.dumps can handle. TD objects (e.g. the
+    OP returned by an evaluated TOP-reference parameter) are not serialisable, so
+    fall back to their string form."""
+    if isinstance(v, (str, int, float, bool)) or v is None:
+        return v
+    try:
+        return str(v)
+    except Exception:
+        return repr(v)
+
+
 def _bridge_comp(dat):
     """The bridge Base COMP that owns this Web Server DAT (its parent)."""
     # dat.parent() — OP_Class: the component containing this operator.
@@ -239,7 +251,10 @@ def _cmd_set_parameter(dat, args):
         return {'path': o.path, 'par': par_name, 'expr': par.expr}
     if 'value' in args:
         par.val = args['value']            # Par_Class.val
-        return {'path': o.path, 'par': par_name, 'val': par.eval()}
+        # par.eval() can return a TD object (e.g. an OP for a TOP-reference par),
+        # which is not JSON-serialisable — coerce it. Use par.val (the stored
+        # value, e.g. the path string) wrapped for safety.
+        return {'path': o.path, 'par': par_name, 'val': _json_safe(par.val)}
     raise ValueError("set_parameter needs one of value / expr / pulse")
 
 
