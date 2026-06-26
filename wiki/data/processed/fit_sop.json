@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.989Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Fit_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Fit_SOP",
   "description": "The Fit SOP fits a Spline curve to a sequence of points or a Spline surface to an m X n mesh of points.",
   "summary": "The Fit SOP fits a Spline curve to a sequence of points or a Spline surface to an m X n mesh of points.",
   "details": "",

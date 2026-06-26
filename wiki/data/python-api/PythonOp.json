@@ -2,7 +2,7 @@
   "className": "PythonOp",
   "displayName": "PythonOp",
   "description": "The PythonOp class represents a Python operator in TouchDesigner, providing access to Python script execution and operator-specific functionality.",
-  "url": "https://docs.derivative.ca/Python_Op",
+  "url": "https://docs.derivative.ca/OP_Class",
   "members": [
     {
       "name": "module",

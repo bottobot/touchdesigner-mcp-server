@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.208Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Select_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Select_CHOP",
   "description": "The Select CHOP selects and renames channels from other CHOPs of any CHOP network. You can select the channels from control panel gadgets like sliders and buttons. It retrieves channels from one or more CHOPs.",
   "summary": "The Select CHOP selects and renames channels from other CHOPs of any CHOP network. You can select the channels from control panel gadgets like sliders and buttons. It retrieves channels from one or mo",
   "details": "",

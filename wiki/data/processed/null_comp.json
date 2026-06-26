@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.933Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Null_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Null_COMP",
   "description": "The Null Component serves as a place-holder in a scene. It can be used to transform (translate, rotate, scale) Components attached to it.",
   "summary": "The Null Component serves as a place-holder in a scene. It can be used to transform (translate, rotate, scale) Components attached to it.",
   "details": "",

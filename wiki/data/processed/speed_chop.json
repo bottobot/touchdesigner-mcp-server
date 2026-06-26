@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.826Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Speed_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Speed_CHOP",
   "description": "The Speed CHOP converts speed (units per second) to distance (units) over a time range. More generally, you give it a rate (the CHOP input) and it outputs a cumulative value. For example, the Speed CHOP converts rotation rate (rotations per second) into the number of rotation turns. ( Math-heads recognize this as an 'integral', which calculates the area under a curve. The curve is the incoming channel values over a time range, the output is the area.)",
   "summary": "The Speed CHOP converts speed (units per second) to distance (units) over a time range. More generally, you give it a rate (the CHOP input) and it outputs a cumulative value. For example, the Speed CH",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.915Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Binaural_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Binaural_CHOP",
   "description": "The Audio Binaural CHOP uses the Steam Audio API to convert from multi-channel speaker-based audio (eg. stereo, quadraphonic, 5.1, 7.1, etc.) to binaural using HRTF-based binaural rendering. The HRTF used is the default provided by Steam Audio.",
   "summary": "The Audio Binaural CHOP uses the Steam Audio API to convert from multi-channel speaker-based audio (eg. stereo, quadraphonic, 5.1, 7.1, etc.) to binaural using HRTF-based binaural rendering. The HRTF ",
   "details": "",

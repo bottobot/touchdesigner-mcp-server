@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.954Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Video_Stream_In_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Video_Stream_In_TOP",
   "description": "The Video Stream In TOP creates a client to receive video and audio across the network from RTSP, HLS, or SRT sources; or from a WebRTC peer via a WebRTC DAT.",
   "summary": "The Video Stream In TOP creates a client to receive video and audio across the network from RTSP, HLS, or SRT sources; or from a WebRTC peer via a WebRTC DAT.",
   "details": "",

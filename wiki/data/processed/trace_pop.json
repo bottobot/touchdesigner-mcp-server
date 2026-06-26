@@ -1,0 +1,323 @@
+{
+  "id": "trace_pop",
+  "name": "Trace POP",
+  "displayName": "Trace POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Trace_POP",
+  "description": "The Trace POP reads a TOP image and traces it, generating line strips around areas exceeding a certain brightness threshold. You can control the threshold using the Threshold parameter, and compare it with the pixel value determined by the Channel menu, by default the brightness. The line strips can be triangulated into triangular surfaces, ore left in its basic (fastest but least useful) form as 2-point lines. The resolution of the resulting line strips or triangle meshes can be reduced using the Resolution Multiplier parameter. You can smooth the line strips using the Smooth Edge Distance parameter which is similar to the snoothing in the [[Line Smooth POP]]. The Extend menu determines is the line strips continue around the border or are separates as open line strips. The Winding will make outer line strips that are counter-clockwise, and line strips enclosed in them to be clockwise. The output is -.5 to .5 in X (<code>P(0)</code>) but it can be re-ranged with the ReRange P parameters. You may need to adjust the Max Num Line Strips parameter or the Max Num Verts parameter (since these numbers need to be pre-determined for the GPU to avoid overflows). See also [[Polygonize POP]], [[Triangulate POP]], [[Extrude POP]]",
+  "parameters": [
+    {
+      "name": "Input Attribute Scope",
+      "parName": "inputattrscope",
+      "label": "Input Attribute Scope",
+      "type": "StrMenu",
+      "description": "When using a POP with dimension 2 as an input, the attribute scope to sample.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Use Position Attribute",
+      "parName": "posattrib",
+      "label": "Use Position Attribute",
+      "type": "Toggle",
+      "description": "When using a POP with dimension 2 as an input, whether to use the P attribute to position the threshold lines.",
+      "isReadOnly": false
+    },
+    {
+      "name": "TOP",
+      "parName": "top",
+      "label": "TOP",
+      "type": "TOP",
+      "description": "TOP to sample.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Channel",
+      "parName": "channel",
+      "label": "Channel",
+      "type": "Menu",
+      "description": "When using a TOP input, the color channel to sample.",
+      "isReadOnly": false,
+      "menuItems": [
+        "luminance",
+        "red",
+        "green",
+        "blue",
+        "alpha",
+        "rgbaverage",
+        "average",
+        "rgbmax",
+        "max"
+      ],
+      "menuLabels": [
+        "Luminance",
+        "Red",
+        "Green",
+        "Blue",
+        "Alpha",
+        "RGB Average",
+        "RGBA Average",
+        "RGB Maximum",
+        "RGBA Maximum"
+      ]
+    },
+    {
+      "name": "Resolution Multiplier",
+      "parName": "resmult",
+      "label": "Resolution Multiplier",
+      "type": "Float",
+      "description": "Resolution multiplier to apply to the input.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Threshold",
+      "parName": "threshold",
+      "label": "Threshold",
+      "type": "Float",
+      "description": "The threshold value to determine what is inside the surface and what is outside (empty).",
+      "isReadOnly": false
+    },
+    {
+      "name": "Inside",
+      "parName": "inside",
+      "label": "Inside",
+      "type": "Menu",
+      "description": "Whether values above the threshold or below or equal the threshold are considered inside. For contours, that determines the direction of the segments.",
+      "isReadOnly": false,
+      "menuItems": [
+        "below",
+        "above"
+      ],
+      "menuLabels": [
+        "Below/Equal to Threshold",
+        "Above Threshold"
+      ]
+    },
+    {
+      "name": "Extend",
+      "parName": "extend",
+      "label": "Extend",
+      "type": "Menu",
+      "description": "How to sample outside the boundaries, which is needed to determine what happens at the boundaries. Zero returns 0, Hold returns the boundary value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "hold",
+        "zero"
+      ],
+      "menuLabels": [
+        "Hold",
+        "Zero"
+      ]
+    },
+    {
+      "name": "Output",
+      "parName": "twodimensions",
+      "label": "Output",
+      "type": "Menu",
+      "description": "Whether to output a contour, lines or line strips, or a surface made of triangles.",
+      "isReadOnly": false,
+      "menuItems": [
+        "contour",
+        "contourls",
+        "surface"
+      ],
+      "menuLabels": [
+        "Contour (Lines)",
+        "Contour (Line Strips)",
+        "Surface (Triangles)"
+      ]
+    },
+    {
+      "name": "Unique Points",
+      "parName": "uniquepoints",
+      "label": "Unique Points",
+      "type": "Toggle",
+      "description": "When outputting Lines, whether the points are shared between the lines or unique to each line.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Winding",
+      "parName": "winding",
+      "label": "Winding",
+      "type": "Menu",
+      "description": "When outputting line strips, by default the closed line strips will be oriented counterclockwise around surfaces, and clockwise around holes. Counterclockwise reverses the line strips around holes so they're counterclockwise as well.",
+      "isReadOnly": false,
+      "menuItems": [
+        "natural",
+        "ccw"
+      ],
+      "menuLabels": [
+        "Natural",
+        "Counter ClockWise"
+      ]
+    },
+    {
+      "name": "Smooth Edge Distance",
+      "parName": "smooth",
+      "label": "Smooth Edge Distance",
+      "type": "Toggle",
+      "description": "When outputting line strips, smoothes the line strips, averaging neighboring points positions, using the distance value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "smooth",
+        "filterdist"
+      ],
+      "menuLabels": [
+        "Smooth Edge Distance",
+        "Smooth Edge Distance"
+      ]
+    },
+    {
+      "name": "ReRange P",
+      "parName": "rerangep",
+      "label": "ReRange P",
+      "type": "Toggle",
+      "description": "Whether to ReRange P.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Map to Low",
+      "parName": "tolow",
+      "label": "Map to Low",
+      "type": "Float",
+      "description": "The low value of the new range in X and Y.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tolow0",
+        "tolow1"
+      ],
+      "menuLabels": [
+        "Map to Low",
+        "Map to Low"
+      ]
+    },
+    {
+      "name": "Map to High",
+      "parName": "tohigh",
+      "label": "Map to High",
+      "type": "Float",
+      "description": "The high value of the new range in X d Y.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tohigh0",
+        "tohigh1"
+      ],
+      "menuLabels": [
+        "Map to High",
+        "Map to High"
+      ]
+    },
+    {
+      "name": "Normal",
+      "parName": "normal",
+      "label": "Normal",
+      "type": "Menu",
+      "description": "Whether to output a Normal (N) attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "point",
+        "prim"
+      ],
+      "menuLabels": [
+        "None",
+        "Point",
+        "Primitive"
+      ]
+    },
+    {
+      "name": "Normal Direction",
+      "parName": "normaldirection",
+      "label": "Normal Direction",
+      "type": "Menu",
+      "description": "Chooses the normal direction when outputting normals.",
+      "isReadOnly": false,
+      "menuItems": [
+        "default",
+        "z"
+      ],
+      "menuLabels": [
+        "Default",
+        "+Z"
+      ]
+    },
+    {
+      "name": "Texture Coordinates",
+      "parName": "texture",
+      "label": "Texture Coordinates",
+      "type": "Toggle",
+      "description": "Whether to output a point Texture Coordinates attribute (Tex)",
+      "isReadOnly": false
+    },
+    {
+      "name": "Fraction of Max Allocation",
+      "parName": "allocfract",
+      "label": "Fraction of Max Allocation",
+      "type": "Float",
+      "description": "This POP doesn't know in advance how much GPU memory it will need, but except in rare cases (very high amount of detail, a lot of variation in neighboring pixels in the source) it doesn't need the maximum allocation. This allows to save GPU memory. If points and primitives are missing or the info popup shows the max numbers are reached, it means the fraction is too low.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Max Num Line Strips",
+      "parName": "setmaxnumls",
+      "label": "Max Num Line Strips",
+      "type": "Toggle",
+      "description": "Optional toggle, saves some GPU memory when set correctly.",
+      "isReadOnly": false,
+      "menuItems": [
+        "setmaxnumls",
+        "maxnumls"
+      ],
+      "menuLabels": [
+        "Max Num Line Strips",
+        "Max Num Line Strips"
+      ]
+    },
+    {
+      "name": "Max Num Verts per Line Strip",
+      "parName": "setmaxnumvertsperls",
+      "label": "Max Num Verts per Line Strip",
+      "type": "Toggle",
+      "description": "Optional toggle, can help prevent the GPU being stuck in infinite loops, doesn't save memory.",
+      "isReadOnly": false,
+      "menuItems": [
+        "setmaxnumvertsperls",
+        "maxnumvertsperls"
+      ],
+      "menuLabels": [
+        "Max Num Verts per Line Strip",
+        "Max Num Verts per Line Strip"
+      ]
+    },
+    {
+      "name": "Copy Topology Info Back to CPU",
+      "parName": "cpureadback",
+      "label": "Copy Topology Info Back to CPU",
+      "type": "Toggle",
+      "description": "Copy back the point count info and topology info held on the GPU back to CPU. Causes a stall for discrete GPUs.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Trace_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Trace_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Trace_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

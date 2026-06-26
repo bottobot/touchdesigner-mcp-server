@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.046Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Lens_Distort_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Lens_Distort_TOP",
   "description": "The Lens Distort TOP applies or removes lens distortion from an image using the Brown-Conrady model. This can be used to rectify images taken from a physical camera, to apply distortion to a rendering for use in augmented reality (AR), or as a visual effect.",
   "summary": "The Lens Distort TOP applies or removes lens distortion from an image using the Brown-Conrady model. This can be used to rectify images taken from a physical camera, to apply distortion to a rendering",
   "details": "",

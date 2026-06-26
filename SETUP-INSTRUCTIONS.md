@@ -1,12 +1,12 @@
 # TD-MCP Setup Instructions
 
-This guide covers installing and configuring the TouchDesigner MCP Server (v2.8.0) for use with
+This guide covers installing and configuring the TouchDesigner MCP Server (v3.0.0) for use with
 VS Code/Codium and Claude Desktop. Read the [README](README.md) for a feature overview and full
 tool reference.
 
 ## Requirements
 
-- Node.js 18.0 or higher - download from [nodejs.org](https://nodejs.org)
+- Node.js 20.0 or higher - download from [nodejs.org](https://nodejs.org)
 - npm (bundled with Node.js)
 - An MCP-compatible client:
   - VS Code or VS Codium with an MCP extension (Roo Code, Claude Dev, etc.), **or**
@@ -108,7 +108,7 @@ td-mcp
 You should see output similar to:
 
 ```
-TD-MCP v2.8.0 Server Starting...
+TD-MCP v3.0.0 Server Starting...
 ================================
 TouchDesigner MCP Server for VS Code/Codium
 
@@ -116,12 +116,13 @@ TouchDesigner MCP Server for VS Code/Codium
 [Server] Initialization took 843ms (0.84s)
 [Patterns] Loaded 32 workflow patterns
 
-[Server] TD MCP v2.8.0 initialized successfully
-[Server] Ready with 630 operators, 14 tutorials, and 69 Python classes
+[Server] TD MCP v3.0.0 initialized successfully
+[Server] Ready with 661 operators, 14 tutorials, and 68 Python classes
 [Server] All 21 tools registered
 ```
 
-Press Ctrl+C to stop. When launched by your MCP client, this output goes to the
+This diagnostic output is written to **stderr**, so it never corrupts the JSON-RPC stream on
+stdout. Press Ctrl+C to stop. When launched by your MCP client, this output goes to the
 client's log, not your terminal.
 
 ### Test from your AI assistant
@@ -171,7 +172,7 @@ Try one of these prompts:
 | Tool               | Description                                                |
 |--------------------|------------------------------------------------------------|
 | `get_version_info` | Python version, new operators, and highlights for a TD release |
-| `list_versions`    | All supported TD versions (099 through 2024) with highlights   |
+| `list_versions`    | All supported TD versions (099 through 2025) with highlights   |
 
 ### Experimental Techniques Tools
 
@@ -192,21 +193,26 @@ See the [README](README.md) for full parameter documentation for each tool.
 
 ## Upgrading from Earlier Versions
 
-### From v2.7.0
+### From v2.8.0
 
-No breaking changes. The 9 new tools are additive. All existing tool names and parameters
-remain unchanged. Optional new parameters have been added to `search_operators`,
-`get_operator`, `suggest_workflow`, `search_python_api`, and `get_python_api` — these only
-affect output when the new optional parameters are provided.
+No breaking changes to tool names, parameters, or responses. v3.0.0 is a modernization
+release: the operator catalog grows to 661 (with the previously missing POP family members),
+Python classes are corrected to 68, version data is rewritten from live Derivative sources,
+and several boot/packaging bugs are fixed (published-package crash, "Ready with 0 operators",
+stdout/JSON-RPC corruption). Node.js 20.0+ is now required. Restart your MCP client after
+upgrading.
 
-### From v2.6.x
+### From v2.7.0 or earlier
 
-No breaking changes when upgrading to v2.8.0. Restart your MCP client after upgrading.
+No breaking changes to tool names or parameters. Optional version-aware parameters added in
+v2.8.0 (`version` on `search_operators`, `get_operator`, `suggest_workflow`,
+`search_python_api`, and `get_python_api`) remain additive. Restart your MCP client after
+upgrading.
 
 ## Troubleshooting
 
 ### Server won't start
-- Verify Node.js version: `node --version` must show 18.0.0 or higher
+- Verify Node.js version: `node --version` must show 20.0.0 or higher
 - Run `npm install` if running from source
 - Check that `wiki/data/` contains JSON files
 

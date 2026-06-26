@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.546Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Clock_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Clock_CHOP",
   "description": "The Clock CHOP generates channels that reflect the time of year, month, week, day, hour, minute, second and millisecond. It also has a moon cycle channel. It provides the date as separate channels and in different units. It presents the time in two ways:",
   "summary": "The Clock CHOP generates channels that reflect the time of year, month, week, day, hour, minute, second and millisecond. It also has a moon cycle channel. It provides the date as separate channels and",
   "details": "",

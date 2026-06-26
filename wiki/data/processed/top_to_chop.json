@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.047Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\TOP_to_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/TOP_to_CHOP",
   "description": "The TOP to CHOP converts pixels in a TOP image to CHOP channels. Each pixel color element (RGBA) is placed in a separate channel. Depending on the parameter options, the node will either create a single set of channels for the whole image or it can create a separate set of channels for each scanline (row).",
   "summary": "The TOP to CHOP converts pixels in a TOP image to CHOP channels. Each pixel color element (RGBA) is placed in a separate channel. Depending on the parameter options, the node will either create a sing",
   "details": "",

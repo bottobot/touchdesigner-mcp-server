@@ -1,7 +1,7 @@
 {
   "classes": [
     "MOD",
-    "Op",
+    "OP",
     "Pane",
     "PythonOp",
     "ScriptOp",
@@ -35,7 +35,6 @@
     "Node",
     "ObjectCOMP",
     "OP Viewer COMP",
-    "OP",
     "Page",
     "PanelCOMP",
     "PanelValue",
@@ -71,7 +70,7 @@
     "Vertex"
   ],
   "stats": {
-    "totalClasses": 69,
+    "totalClasses": 68,
     "totalMembers": 119,
     "totalMethods": 1513,
     "lastProcessed": "2025-08-16T00:12:21.716Z"

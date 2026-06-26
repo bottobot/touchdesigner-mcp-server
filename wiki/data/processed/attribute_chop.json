@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.632Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Attribute_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Attribute_CHOP",
   "description": "The Attribute CHOP adds, removes or updates attributes of the input CHOP. Currently there is only one attribute type, a \"quaternion\". This attribute type is used to group rotation channel triplets (rx,ry,rz) together.",
   "summary": "The Attribute CHOP adds, removes or updates attributes of the input CHOP. Currently there is only one attribute type, a \"quaternion\". This attribute type is used to group rotation channel triplets (rx",
   "details": "",

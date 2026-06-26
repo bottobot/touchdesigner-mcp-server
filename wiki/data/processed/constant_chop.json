@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:49:58.727Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Constant_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Constant_CHOP",
   "description": "The Constant CHOP creates new constant-value channels. Each channel can be named and assigned a different value. To create a channel, simply enter a channel name in a name parameter on the Constant page, then adjust the below value.",
   "summary": "The Constant CHOP creates new constant-value channels. Each channel can be named and assigned a different value. To create a channel, simply enter a channel name in a name parameter on the Constant pa",
   "details": "",

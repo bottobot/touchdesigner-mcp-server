@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:06.168Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Pack_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Pack_TOP",
   "description": "The Pack TOP can be used to pack 32-bit floating point values into a larger 8-bit texture, so it can saved in a lossless format such as .tiff or Animation codec. The Pack TOP can then later be used to unpack these values back to 32-bit floats. This is useful for things such as point cloud data from the Kinect TOP, or RealSense TOP.",
   "summary": "The Pack TOP can be used to pack 32-bit floating point values into a larger 8-bit texture, so it can saved in a lossless format such as .tiff or Animation codec. The Pack TOP can then later be used to",
   "details": "",

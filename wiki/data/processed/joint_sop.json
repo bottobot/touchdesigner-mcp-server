@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.456Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Joint_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Joint_SOP",
   "description": "The Joint SOP will aid in the creation of circle-based skeletons by creating a series of circles between each pair of input circles. This SOP requires at least a pair of circles in order to work correctly.",
   "summary": "The Joint SOP will aid in the creation of circle-based skeletons by creating a series of circles between each pair of input circles. This SOP requires at least a pair of circles in order to work corre",
   "details": "",

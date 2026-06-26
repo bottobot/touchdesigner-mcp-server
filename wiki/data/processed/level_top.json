@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:03.090Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Level_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Level_TOP",
   "description": "The Level TOP adjusts image contrast, brightness, gamma, black level, color range, quantization, opacity and more. See also the Luma Level TOP which preserves hue and saturation more accurately, but is slower.",
   "summary": "The Level TOP adjusts image contrast, brightness, gamma, black level, color range, quantization, opacity and more. See also the Luma Level TOP which preserves hue and saturation more accurately, but i",
   "details": "",

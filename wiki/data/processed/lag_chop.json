@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.839Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Lag_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Lag_CHOP",
   "description": "The Lag CHOP adds lag and overshoot to channels. It can also limit the velocity and acceleration of channels. Lag slows down rapid changes in the input channels. Overshoot amplifies the changes in the input channels.",
   "summary": "The Lag CHOP adds lag and overshoot to channels. It can also limit the velocity and acceleration of channels. Lag slows down rapid changes in the input channels. Overshoot amplifies the changes in the",
   "details": "",

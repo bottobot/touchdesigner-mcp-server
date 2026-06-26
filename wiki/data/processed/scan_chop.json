@@ -1,0 +1,301 @@
+{
+  "id": "scan_chop",
+  "name": "Scan CHOP",
+  "displayName": "Scan CHOP",
+  "category": "CHOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Scan_CHOP",
+  "description": "'''DEPRECATED:''' use the [[Laser CHOP]] instead. The Scan CHOP converts a [[SOP]] or [[TOP]] to oscilloscope or laser friendly control waves. The output is usually in the audible range and can be heard directly via an [[Audio Device Out CHOP]], or used to drive the X and Y deflector inputs of an oscilloscope, or a laser projector recreating the imagery. The output can also be visualized through use of a [[Limit SOP]]. A sample component found at: [http://www.derivative.ca/Forum/viewtopic.php?f=22&t=1201 Op to Audio CHOP example] A sample video can be found at: [http://vimeo.com/channels/touchdesigner#3750626 Total Internal Reflection] See also: [[EtherDream CHOP]], [[EtherDream DAT]]",
+  "parameters": [
+    {
+      "name": "Source OP",
+      "parName": "source",
+      "label": "Source OP",
+      "type": "",
+      "description": "Choose the source node family.",
+      "isReadOnly": false,
+      "menuItems": [
+        "top",
+        "sop",
+        "chop"
+      ],
+      "menuLabels": [
+        "TOP",
+        "SOP",
+        "CHOP"
+      ]
+    },
+    {
+      "name": "Sample Rate",
+      "parName": "rate",
+      "label": "Sample Rate",
+      "type": "",
+      "description": "Samples per second, the output sample rate.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Swap Output",
+      "parName": "swap",
+      "label": "Swap Output",
+      "type": "",
+      "description": "Reverse the X and Y channel outputs.",
+      "isReadOnly": false
+    },
+    {
+      "name": "X Scale",
+      "parName": "xscale",
+      "label": "X Scale",
+      "type": "",
+      "description": "Scale the x amplitude.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Y Scale",
+      "parName": "yscale",
+      "label": "Y Scale",
+      "type": "",
+      "description": "Scale the y amplitude.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Rotate",
+      "parName": "rotate",
+      "label": "Rotate",
+      "type": "",
+      "description": "Specified in degrees, rotates the output x,y values.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Randomize Samples",
+      "parName": "randomize",
+      "label": "Randomize Samples",
+      "type": "",
+      "description": "Output all samples in a random order. Creates a fuzzy chaotic image on an oscilloscope.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Output Color",
+      "parName": "color",
+      "label": "Output Color",
+      "type": "",
+      "description": "If on, r,g,b channels are created.If on, r,g,b channels are created.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Red Scale",
+      "parName": "redscale",
+      "label": "Red Scale",
+      "type": "",
+      "description": "Scale the output r channel.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Green Scale",
+      "parName": "greenscale",
+      "label": "Green Scale",
+      "type": "",
+      "description": "Scale the output g channel.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Blue Scale",
+      "parName": "bluescale",
+      "label": "Blue Scale",
+      "type": "",
+      "description": "Scale the output b channel.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Blanking Count",
+      "parName": "blankingcount",
+      "label": "Blanking Count",
+      "type": "",
+      "description": "In the case of SOP input, the number of black/off positions to insert between geometry primitives. In the case of TOP input, the number of black/off positions to insert between full raster scans. Color output must be enabled.In the case of SOP input, the number of black/off positions to insert between geometry primitives. In the case of TOP input, the number of black/off positions to insert between full raster scans. Color output must be enabled.",
+      "isReadOnly": false
+    },
+    {
+      "name": "TOP",
+      "parName": "top",
+      "label": "TOP",
+      "type": "",
+      "description": "Path to the TOP node.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Width",
+      "parName": "width",
+      "label": "Width",
+      "type": "",
+      "description": "The number of columns to resample the image at.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Height",
+      "parName": "height",
+      "label": "Height",
+      "type": "",
+      "description": "The number of rows to resample the image at.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Level",
+      "parName": "level",
+      "label": "Level",
+      "type": "",
+      "description": "The number of brightness levels each pixel can have.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Auto Reduce",
+      "parName": "limit",
+      "label": "Auto Reduce",
+      "type": "",
+      "description": "Automatically reduce the number of rows and columns dynamically to keep the output frame rate at a constant level.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Layered",
+      "parName": "layered",
+      "label": "Layered",
+      "type": "",
+      "description": "Output the pixels in order of brightness, else they are output left to right for each row.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Interleave",
+      "parName": "interleave",
+      "label": "Interleave",
+      "type": "",
+      "description": "Controls the order in which rows are output to minimize flicker.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sweep",
+        "evenodd",
+        "max"
+      ],
+      "menuLabels": [
+        "Sweep",
+        "Even Odd",
+        "Max"
+      ]
+    },
+    {
+      "name": "SOP",
+      "parName": "sop",
+      "label": "SOP",
+      "type": "",
+      "description": "Path to the SOP node.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Vertex Order",
+      "parName": "vertexorder",
+      "label": "Vertex Order",
+      "type": "",
+      "description": "Output the points in the same order as the vertices of each polygon, instead of the order in which the points are defined in the geometry.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Limit Step Size",
+      "parName": "limitstep",
+      "label": "Limit Step Size",
+      "type": "",
+      "description": "Breakup long x,y jumps into several smaller incremental jumps.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Step Size",
+      "parName": "stepsize",
+      "label": "Step Size",
+      "type": "",
+      "description": "The distance each x,y can change when above option enabled.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Vertex Repeat",
+      "parName": "vertexrepeat",
+      "label": "Vertex Repeat",
+      "type": "",
+      "description": "Repeat each vertex of the each primitive multiple times.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Camera",
+      "parName": "camera",
+      "label": "Camera",
+      "type": "",
+      "description": "Project the geometry onto a 2D plane from this camera, otherwise, only the original x,y components of the geometry are used.",
+      "isReadOnly": false
+    },
+    {
+      "name": "CHOP",
+      "parName": "chop",
+      "label": "CHOP",
+      "type": "",
+      "description": "Path to the CHOP node.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Trigger",
+      "parName": "trigger",
+      "label": "Trigger",
+      "type": "",
+      "description": "The output graph will begin where its value exceeds this value. This allows for steady 'frozen' waveforms, analagous to an oscilloscope triggered sweep.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Trigger Value",
+      "parName": "triggerval",
+      "label": "Trigger Value",
+      "type": "",
+      "description": "The value to begin the trigger.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Trim",
+      "parName": "trim",
+      "label": "Trim",
+      "type": "",
+      "description": "Limit the length of the CHOP to be scanned.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Trim Value",
+      "parName": "trimval",
+      "label": "Trim Value",
+      "type": "",
+      "description": "The length of the CHOP to be scanned.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Trim Units",
+      "parName": "trimunits",
+      "label": "Trim Units",
+      "type": "",
+      "description": "Select the units to use for this parameter, Samples, Frames, or Seconds.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Scan_CHOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Scan_CHOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Scan_CHOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

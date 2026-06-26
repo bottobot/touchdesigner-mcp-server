@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.871Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Laser_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Laser_CHOP",
   "description": "The Laser CHOP produces channels that can drive a laser projector. It uses the points and lines of a SOP or CHOP and outputs the channels at a specified sample rate, typically 10,000 to 96,000 samples per second. The Laser CHOP gives optimal control over the movement of the reflectors of the laser projector as well as enhanced color control. In particular, it gives better control of lines being straight, end-points being not cut off or over-drawn, and eliminating tails, all adjustable using a set of parameters.",
   "summary": "The Laser CHOP produces channels that can drive a laser projector. It uses the points and lines of a SOP or CHOP and outputs the channels at a specified sample rate, typically 10,000 to 96,000 samples",
   "details": "",

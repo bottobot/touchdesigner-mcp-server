@@ -3,686 +3,307 @@
   "id": "line_divide_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Line Divide POP takes any set of line strips, and for each it generates a new line strip that is subdivided using various interpolation methods. The default is linear interpolation with 4 divisions between incoming points.",
+  "description": "The Line Divide POP takes any set of line strips, and for each it generates a new line strip that is subdivided using various interpolation methods. The default is linear interpolation with 4 divisions between incoming points. You can choose the Interpolation Method, the default being Linear interpolation, but you can also choose spline types like Cardinal, BSpline, Beziers and Quadratic. With the spline types, it can use incoming attributes (like those set in the [[Line POP]]) that specify the spline properties like <code>Weight</code>, tangents (<code>TanIn</code> and <code>TanOut</code>), tangent constraints (<code>TanInConstraint</code>) and/or tension. It will also interpret an interpolation method per-point if a <code>SegMethod</code> attribute exists. There are two stages of doing divisions, The first stage allows setting the total divisions for the line strip, or divisions per-segment, dividing by distance along the curves, or by curvature of the line strip. It interpolates all the attributes. The second stage lets you further re-sample the line strip with one of three methods: Divisions per Line Strip, Distance between Points, or Points as Keyframes. Points as Keyframes interpolates by treating one attribute as an independent variable (like <code>Time</code>, or <code>U</code>), like a <code>y = f(x)</code> mathematical function. (For example, if you have an attribute <code>Time</code> on the points, you can resample curves at equal steps of time, assuming you curves express values over time.) NOTE: The Maximum Number of Vertices parameter is required because it is not known on the GPU how many points you will end up with, and the GPU needs to pre-allocate enough memory to do the job. Oherwise line strips will be truncated. To add: distinguish the different beziers, explain <code>TanInConstraint</code>. <code>ControlPoint</code> attribute (laser) See also [[Line POP]], [[Curve POP]], [[Point POP]], [[Primitive POP]], [[Pattern POP]].",
   "parameters": [
     {
-      "name": "Weight",
-      "label": "Interpolation Method per Segment",
-      "description": "Configure Interpolation Method per Segment for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Cardinal (Interpolating)",
-          "value": "cardinal",
-          "description": ""
-        },
-        {
-          "label": "BSpline",
-          "value": "bspline",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier With Tangents",
-          "value": "cubicbeziertang",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier",
-          "value": "cubicbezier",
-          "description": ""
-        },
-        {
-          "label": "Quadratic Bezier",
-          "value": "quadraticbezier",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Segment",
-          "value": "segment",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Distance by Curvature",
-          "value": "curvature",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Points as Keyframes",
-          "value": "keyframes",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "interpmethodpersegment",
-      "label": "Interpolation Method per Segment",
-      "description": "Configure Interpolation Method per Segment for the operator",
-      "type": "string"
-    },
-    {
-      "name": "segmethodattr",
-      "label": "Segment Method Attribute",
-      "description": "Configure Segment Method Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "interpmethod",
-      "label": "Interpolation Method",
-      "description": "Configure Interpolation Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Cardinal (Interpolating)",
-          "value": "cardinal",
-          "description": ""
-        },
-        {
-          "label": "BSpline",
-          "value": "bspline",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier With Tangents",
-          "value": "cubicbeziertang",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier",
-          "value": "cubicbezier",
-          "description": ""
-        },
-        {
-          "label": "Quadratic Bezier",
-          "value": "quadraticbezier",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "linear",
-      "label": "Linear",
-      "description": "Configure Linear for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Cardinal (Interpolating)",
-          "value": "cardinal",
-          "description": ""
-        },
-        {
-          "label": "BSpline",
-          "value": "bspline",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier With Tangents",
-          "value": "cubicbeziertang",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier",
-          "value": "cubicbezier",
-          "description": ""
-        },
-        {
-          "label": "Quadratic Bezier",
-          "value": "quadraticbezier",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "useweight",
-      "label": "Weight Attribute",
-      "description": "Configure Weight Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "weightattr",
-      "label": "Weight Attribute Name",
-      "description": "Configure Weight Attribute Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "usetanin",
-      "label": "In Tangent Attribute",
-      "description": "Configure In Tangent Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "taninattr",
-      "label": "In Tangent Attribute Name",
-      "description": "Configure In Tangent Attribute Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "usetanout",
-      "label": "Out Tangent Attribute",
-      "description": "Configure Out Tangent Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "tanoutattr",
-      "label": "Out Tangent Attribute Name",
-      "description": "Configure Out Tangent Attribute Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "usetaninconst",
-      "label": "In Tangent Constraint Attribute",
-      "description": "Configure In Tangent Constraint Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "taninconstattr",
-      "label": "In Tangent Constraint Attribute Name",
-      "description": "Configure In Tangent Constraint Attribute Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "clamped",
-      "label": "Clamped",
-      "description": "Configure Clamped for the operator",
-      "type": "string"
-    },
-    {
-      "name": "tension",
-      "label": "Tension",
-      "description": "Configure Tension for the operator",
-      "type": "string"
-    },
-    {
-      "name": "divmethod",
+      "name": "Divisions Method",
+      "parName": "divmethod",
       "label": "Divisions Method",
-      "description": "Configure Divisions Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Segment",
-          "value": "segment",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Distance by Curvature",
-          "value": "curvature",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "The method to apply the divisions.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "linestrip",
+        "segment",
+        "dist",
+        "curvature"
+      ],
+      "menuLabels": [
+        "None",
+        "Divisions per Line Strip",
+        "Divisions per Segment",
+        "Distance between Points",
+        "Distance by Curvature"
       ]
     },
     {
-      "name": "linestrip",
-      "label": "Divisions per Line Strip",
-      "description": "Configure Divisions per Line Strip for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Segment",
-          "value": "segment",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Distance by Curvature",
-          "value": "curvature",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "divs",
+      "name": "Divisions",
+      "parName": "divs",
       "label": "Divisions",
-      "description": "Configure Divisions for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of divisions.",
+      "isReadOnly": false
     },
     {
-      "name": "mindist",
+      "name": "Min Distance",
+      "parName": "mindist",
       "label": "Min Distance",
-      "description": "Configure Min Distance for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "The minimum distance between points in the output line strips.",
+      "isReadOnly": false
     },
     {
-      "name": "maxdist",
+      "name": "Max Distance",
+      "parName": "maxdist",
       "label": "Max Distance",
-      "description": "Configure Max Distance for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Divide the line so there are no two adjacent points farther apart than this distance - max distance between points.",
+      "isReadOnly": false
     },
     {
-      "name": "minmaxbias",
+      "name": "Min Max Bias",
+      "parName": "minmaxbias",
       "label": "Min Max Bias",
-      "description": "Configure Min Max Bias for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Bias of point creation - more near the minimum or more near the maximum distance.",
+      "isReadOnly": false
     },
     {
-      "name": "byedge",
+      "name": "By Edge",
+      "parName": "byedge",
       "label": "By Edge",
-      "description": "Configure By Edge for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When dividing using the distance between points, whether to restart at each segment (edge).",
+      "isReadOnly": false
     },
     {
-      "name": "addctrlpointattr",
+      "name": "Add ControlPoint Attribute",
+      "parName": "addctrlpointattr",
       "label": "Add ControlPoint Attribute",
-      "description": "Configure Add ControlPoint Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output a ControlPoint attribute set to 1 for control points.",
+      "isReadOnly": false
     },
     {
-      "name": "maxverts",
+      "name": "Maximum Number of Vertices",
+      "parName": "maxverts",
       "label": "Maximum Number of Vertices",
-      "description": "Configure Maximum Number of Vertices for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Sets the number of vertices to be allocated. It should be bigger than the actual number of vertices created (visible in info popup). More vertices allocated use more GPU memory.",
+      "isReadOnly": false
     },
     {
-      "name": "resamplemethod",
+      "name": "Interpolation Method per Segment",
+      "parName": "interpmethodpersegment",
+      "label": "Interpolation Method per Segment",
+      "type": "Toggle",
+      "description": "When toggle is on, it uses a separate interpolation method for each segment in the input line strips.",
+      "isReadOnly": false,
+      "menuItems": [
+        "interpmethodpersegment",
+        "segmethodattr"
+      ],
+      "menuLabels": [
+        "Interpolation Method per Segment",
+        "Segment Method Attribute"
+      ]
+    },
+    {
+      "name": "Interpolation Method",
+      "parName": "interpmethod",
+      "label": "Interpolation Method",
+      "type": "Menu",
+      "description": "Method to use for interpolation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linear",
+        "cardinal",
+        "bspline",
+        "cubicbeziertang",
+        "cubicbezier",
+        "quadraticbezier"
+      ],
+      "menuLabels": [
+        "Linear",
+        "Cardinal (Interpolating)",
+        "BSpline",
+        "Cubic Bezier With Tangents",
+        "Cubic Bezier",
+        "Quadratic Bezier"
+      ]
+    },
+    {
+      "name": "Weight Attribute",
+      "parName": "useweight",
+      "label": "Weight Attribute",
+      "type": "Toggle",
+      "description": "When on, the points will have a weight attribute affecting the tightness of the curve around the point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "useweight",
+        "weightattr"
+      ],
+      "menuLabels": [
+        "Weight Attribute",
+        "Weight Attribute Name"
+      ]
+    },
+    {
+      "name": "In Tangent Attribute",
+      "parName": "usetanin",
+      "label": "In Tangent Attribute",
+      "type": "Toggle",
+      "description": "When on, the points will have a attribute to be the tangent going into the point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "usetanin",
+        "taninattr"
+      ],
+      "menuLabels": [
+        "In Tangent Attribute",
+        "In Tangent Attribute Name"
+      ]
+    },
+    {
+      "name": "Out Tangent Attribute",
+      "parName": "usetanout",
+      "label": "Out Tangent Attribute",
+      "type": "Toggle",
+      "description": "When on, the points will have a attribute to be the tangent going out of the point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "usetanout",
+        "tanoutattr"
+      ],
+      "menuLabels": [
+        "Out Tangent Attribute",
+        "Out Tangent Attribute Name"
+      ]
+    },
+    {
+      "name": "In Tangent Constraint Attribute",
+      "parName": "usetaninconst",
+      "label": "In Tangent Constraint Attribute",
+      "type": "Toggle",
+      "description": "When on, the points will have an attribute to be constraints of a curve at that point..",
+      "isReadOnly": false,
+      "menuItems": [
+        "usetaninconst",
+        "taninconstattr"
+      ],
+      "menuLabels": [
+        "In Tangent Constraint Attribute",
+        "In Tangent Constraint Attribute Name"
+      ]
+    },
+    {
+      "name": "Clamped",
+      "parName": "clamped",
+      "label": "Clamped",
+      "type": "Toggle",
+      "description": "When using Cardinal or BSpline interpolation, whether to duplicate the start and end control points so the resulting curve start and end at the control points. Only has an effect on open line strips.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Tension",
+      "parName": "tension",
+      "label": "Tension",
+      "type": "Float",
+      "description": "Controls how tightly the cardinal line strip bends through the control points",
+      "isReadOnly": false
+    },
+    {
+      "name": "Post-Resample Method",
+      "parName": "resamplemethod",
       "label": "Post-Resample Method",
-      "description": "Configure Post-Resample Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Points as Keyframes",
-          "value": "keyframes",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Resampling method used after division.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "linestrip",
+        "dist",
+        "keyframes"
+      ],
+      "menuLabels": [
+        "None",
+        "Divisions per Line Strip",
+        "Distance between Points",
+        "Points as Keyframes"
       ]
     },
     {
-      "name": "none",
-      "label": "None",
-      "description": "Configure None for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Points as Keyframes",
-          "value": "keyframes",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "resampledivs",
+      "name": "Divisions",
+      "parName": "resampledivs",
       "label": "Divisions",
-      "description": "Configure Divisions for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of divisions.",
+      "isReadOnly": false
     },
     {
-      "name": "resampledist",
-      "label": "Distance",
-      "description": "Configure Distance for the operator",
-      "type": "string"
-    },
-    {
-      "name": "indvarattr",
+      "name": "Independant Variable Attribute",
+      "parName": "indvarattr",
       "label": "Independant Variable Attribute",
-      "description": "Configure Independant Variable Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Attribute to use as the independent variable.",
+      "isReadOnly": false
     },
     {
-      "name": "indvarstep",
+      "name": "Independant Variable Step",
+      "parName": "indvarstep",
       "label": "Independant Variable Step",
-      "description": "Configure Independant Variable Step for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Step size to use for the independent variable, usually a fraction of the independent variable range.",
+      "isReadOnly": false
     },
     {
-      "name": "resamplemaxverts",
+      "name": "Maximum Number of Vertices",
+      "parName": "resamplemaxverts",
       "label": "Maximum Number of Vertices",
-      "description": "Configure Maximum Number of Vertices for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Sets the number of vertices to be allocated. It should be bigger than the actual number of vertices created (visible in info popup). More vertices allocated use more GPU memory.",
+      "isReadOnly": false
     },
     {
-      "name": "maxtries",
+      "name": "Max Tries for Binary Search",
+      "parName": "maxtries",
       "label": "Max Tries for Binary Search",
-      "description": "Configure Max Tries for Binary Search for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Max number of iterations for binary search when linearly resampling.",
+      "isReadOnly": false
     },
     {
-      "name": "rmvunusedpts",
+      "name": "Remove Unused Points",
+      "parName": "rmvunusedpts",
       "label": "Remove Unused Points",
-      "description": "Configure Remove Unused Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Removes unused points not referenced by primitives.",
+      "isReadOnly": false
     },
     {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "name": "Max Distance",
+      "parName": "resamplemaxdist",
+      "label": "Max Distance",
+      "type": "Float",
+      "description": "Maximum Distance between Points",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Line_Divide_POP.htm",
-  "parsedAt": "2025-08-08T03:03:56.801Z"
+  "parsedAt": "2025-08-08T03:03:56.801Z",
+  "url": "https://docs.derivative.ca/Line_Divide_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Line_Divide_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Line_Divide_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Line_Divide_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

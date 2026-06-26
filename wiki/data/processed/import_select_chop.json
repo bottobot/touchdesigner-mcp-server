@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.991Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Import_Select_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Import_Select_CHOP",
   "description": "The Import Select CHOP is used to specify CHOP channels from an importing file such as FBX COMP or USD COMP. One of the main purpose of these channels is to represent the changes of transformation of different primitives or the state of some dynamic features of importing file. The Import Select CHOP can have its own animation controls within the Play page or use the settings from its parent COMP.",
   "summary": "The Import Select CHOP is used to specify CHOP channels from an importing file such as FBX COMP or USD COMP. One of the main purpose of these channels is to represent the changes of transformation of ",
   "details": "",

@@ -3,970 +3,177 @@
   "id": "skin_deform_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "(needs to be updated) A popular way to deform geometry based on Transforms or a full skeleton is called Skinning. Skinning involves having each point being affected by some number of transforms, each one with a different weight.",
+  "description": "('''needs to be updated''') A popular way to deform geometry based on Transforms or a full skeleton is called Skinning. Skinning involves having each point being affected by some number of transforms, each one with a different weight. == Description of Attributes == ==== Detail attribute pCaptPath ==== The pCaptPath detail attribute is an index attribute that contains a list of paths to COMPs are used as bones. The first path is for index 0, the next for index 1 etc. You can use the [[SOP to DAT]] to inspect the values of this attribute. ==== Detail attribute pCaptData ==== This attribute has the same number of entries as pCaptPath. It contains 20 floats per entry. The first 16 make up a matrix for the bind/rest pose of the joint. The other 4 are unused in TouchDesigner and are legacy values from Houdini. ==== Point or Vertex attribute pCapt[] ==== This attribute contains pairs of information. In each pair the first value is the index number of the transform that affects the point, and the second number is the weight for that particular transform. When deforming, TouchDesigner uses the index from this attribute to find the correct COMP, using pCaptPath. The sum of all the weights for a given points should add up to 1. An index of -1 indicates that there is no transform to apply for that entry. The attribute has a size which will indicate the number of entries it has (pCapt[8] for example). This size includes both the indices and the weights, so if pCapt has a size of 8, it means a maximum of 4 transforms (4 transforms and 4 weights) are applied to each point. The size of pCapt will be big enough to accommodate the point with the most transforms deforming it. It's possible (or even likely) that there will be just one or two points in a geometry that are affected by many more transforms than the rest, you can use the [[Bone Group SOP]] to trim out these points and make pCapt smaller. ==== Unsupported Houdini attributes ==== ''pCaptSkelRoot'' - This attribute is the path to the root of the skeleton in Houdini. Since it's unlikely the path in Houdini will be a match to the path in TouchDesigner, we don't support this attribute. Instead there is a Skeleton Root Path parameter in our Deform SOP and Deform page of MATs. ''pCaptAlpha'' - This attribute isn't supported. ''pCaptFrame'' - This attribute isn't supported. == Deforming on the CPU == To deform on the CPU simply use the Deform SOP. The Deform SOP uses Point Capture Attributes rather than Vertex Capture Attributes. You'll need to specify the path to the skeleton in the Skeleton Root Path parameter. For example, to deform in [[FBX]] on the CPU: an [[Import Select SOP]] with capture attributes can be used as an input to the Deform SOP. The skeleton root path of the Deform SOP will be the [[FBX COMP]]. == Deforming on the GPU == Deforming on the GPU is very fast (practically free), but requires a bit more work to setup. The first issue is that most GPUs can only handle the required data for between 50 and 200 bones in a single pass. What this means is that the geometry needs to be split up into subsections, each of which are affected by a different subset of the bones of the skeleton. These are called Bone Groups. The [[Bone Group SOP]] will split up geometry with capture attributes into different bone groups. The detail attributes pCaptData and pCaptPath will be split up into detail attributes with postfixes starting at 0. So for example if the geometry gets split into two bone groups, there will be detail attributes pCaptData0, pCaptPath0, pCaptData1, and pCaptPath1. The original pCaptData and pCaptPath will be deleted. The point/vertex attribute pCapt will become a vertex attribute named pCapt. There will also be primitives groups named boneGroup0, boneGroup1 that contain all of the primitives in each bone group. You should isolate out each of the primitive bone groups using the [[Delete SOP]]. Next drop down a MAT (like the [[Phong MAT]]) that supports deforms. You will need to give the MAT a few pieces of information: * The path to the SOP that contains the deform information you want this MAT to use. This is generally the Delete SOP, or some node after it. * The name of the pCaptData and pCaptPath attribute. So for example if you are rendering bone group 0 with this MAT, you'd specify pCaptData0 and pCaptPath0. * The path to the root of the skeleton. ==== Deforming using a GLSL MAT ==== The GLSL MAT supports automatic deform code, you just setup the options on the deform page just like a Phong MAT, and call [code]TDDeform()[/code] on vertex positions and normals to deform them. The correct deform code is automatically generated and prepended to your shader code when it's sent to the GPU. ==== Writing your own deform code ==== You can write whatever deform code you want yourself in a GLSL shader. Here is how the automatically generated deform code looks in case you want to use this as a starting point. In this example the pCapt attribute has 12 entries (pCapt[12] in the info popup)., which means it has 6 bones it can reference. Since they are collapsed into vec4 for the shader inputs, this means pCapt in the shader is declared as <code>in vec4 pCapt[3]</code>, since that is 12 entries total. Be careful if the size of pCapt in the SOP is not evenly divisible by 4. In that case the last pair of value in the last pCapt entry in the GLSL shader would be undefined. For exmaple if pCapt was pCapt[10] in the SOP, then pCapt in the shader would still be declared as <code>in vec4 pCapt[3]</code>. However the pCapt[2].z and pCapt[2].w values are undefined and should not be used. The index will not be equal to -1 necessarily, so that can't be checked against. The matrix returned by TDBoneMat() is composed of the world transform for that bone for that frame and the bind pose. The bind pose doesn't change and is contained in the pCaptData attribute. The world transform is calculated from the COMP for the bone every frame. The are multipled together like this: WorldTransform*BindPose <syntaxhighlight lang=glsl> vec4 TDSkinnedDeform(vec4 pos) { vec4 newp = vec4(0.0, 0.0, 0.0, 1.0); int index; if (pCapt[0].x >= 0.0) { index = int(pCapt[0].x); newp += (TDBoneMat(index) * pos) * pCapt[0].y; } else { return pos; } if (pCapt[0].z >= 0.0) { index = int(pCapt[0].z); newp += (TDBoneMat(index) * pos) * pCapt[0].w; } if (pCapt[1].x >= 0.0) { index = int(pCapt[1].x); newp += (TDBoneMat(index) * pos) * pCapt[1].y; } if (pCapt[1].z >= 0.0) { index = int(pCapt[1].z); newp += (TDBoneMat(index) * pos) * pCapt[1].w; } if (pCapt[2].x >= 0.0) { index = int(pCapt[2].x); newp += (TDBoneMat(index) * pos) * pCapt[2].y; } if (pCapt[2].z >= 0.0) { index = int(pCapt[2].z); newp += (TDBoneMat(index) * pos) * pCapt[2].w; } newp.w = 1.0; return newp; }</syntaxhighlight> [[ Category: Rendering ]] [[Category:TDPages]]",
   "parameters": [
     {
-      "name": "in vec4 pCapt[3]",
+      "name": "Mode",
+      "parName": "mode",
       "label": "Mode",
-      "description": "pCaptSkelRoot",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Skin Deform Geometry",
-          "value": "skindeformgeo",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute",
-          "value": "skindeformattrib",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute Scope as Position",
-          "value": "skindeformattribscopepos",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute Scope as Vector",
-          "value": "skindeformattribscopevec",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Choose what the skin deform is applied to.",
+      "isReadOnly": false,
+      "menuItems": [
+        "skindeformgeo",
+        "skindeformattrib",
+        "skindeformattribscopepos",
+        "skindeformattribscopevec"
+      ],
+      "menuLabels": [
+        "Skin Deform Geometry",
+        "Skin Deform Attribute",
+        "Skin Deform Attribute Scope as Position",
+        "Skin Deform Attribute Scope as Vector"
       ]
     },
     {
-      "name": "mode",
-      "label": "Mode",
-      "description": "Configure Mode for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Skin Deform Geometry",
-          "value": "skindeformgeo",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute",
-          "value": "skindeformattrib",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute Scope as Position",
-          "value": "skindeformattribscopepos",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute Scope as Vector",
-          "value": "skindeformattribscopevec",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "skindeformgeo",
-      "label": "Skin Deform Geometry",
-      "description": "Configure Skin Deform Geometry for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Skin Deform Geometry",
-          "value": "skindeformgeo",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute",
-          "value": "skindeformattrib",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute Scope as Position",
-          "value": "skindeformattribscopepos",
-          "description": ""
-        },
-        {
-          "label": "Skin Deform Attribute Scope as Vector",
-          "value": "skindeformattribscopevec",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attrclass",
+      "name": "Attribute Class",
+      "parName": "attrclass",
       "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "inputattscope",
+      "name": "Input Attribute (Scope)",
+      "parName": "inputattrscope",
       "label": "Input Attribute (Scope)",
-      "description": "Configure Input Attribute (Scope) for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Input attribute when mode is Skin Deform Attribute, input attribute scope when mode is Skin Deform Attribute Scope",
+      "isReadOnly": false
     },
     {
-      "name": "bonepaths",
+      "name": "Bone Paths Attribute",
+      "parName": "bonepaths",
       "label": "Bone Paths Attribute",
-      "description": "Configure Bone Paths Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "The name of the bone paths detail attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "bonebindposes",
+      "name": "Bone Bind Poses Attribute",
+      "parName": "bonebindposes",
       "label": "Bone Bind Poses Attribute",
-      "description": "Configure Bone Bind Poses Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "The name of the bone bind poses detail attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "delcaptattrs",
+      "name": "Delete Capture Attributes",
+      "parName": "delcaptattrs",
       "label": "Delete Capture Attributes",
-      "description": "Configure Delete Capture Attributes for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable deleting the point capture attributes after it deforms the geometry",
+      "isReadOnly": false
     },
     {
-      "name": "skelrootpath",
+      "name": "Skeleton Root Path",
+      "parName": "skelrootpath",
       "label": "Skeleton Root Path",
-      "description": "Configure Skeleton Root Path for the operator",
-      "type": "string"
+      "type": "Object",
+      "description": "Specifies the path to the root of the skeleton.",
+      "isReadOnly": false
     },
     {
-      "name": "vlength",
+      "name": "Vectors Maintain Length",
+      "parName": "vlength",
       "label": "Vectors Maintain Length",
-      "description": "Configure Vectors Maintain Length for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable preserving the original vector length after applying transformations.",
+      "isReadOnly": false
     },
     {
-      "name": "outputattrscope",
+      "name": "Output Attribute (Scope)",
+      "parName": "outputattrscope",
       "label": "Output Attribute (Scope)",
-      "description": "Configure Output Attribute (Scope) for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "P",
-      "label": "P",
-      "description": "Configure P for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overrideautoattr",
-      "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "newattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "StrMenu",
+      "description": "Name of attribute to output (can choose components of attribute), can choose from menu.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "color",
+        "dcolor",
+        "dir",
+        "ddir",
+        "1",
+        "2",
+        "3",
+        "4",
+        "attrdefaultval0",
+        "attrdefaultval1",
+        "attrdefaultval2",
+        "attrdefaultval3"
+      ],
+      "menuLabels": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "Color",
+        "Color (double)",
+        "Direction",
+        "Direction (double)",
+        "1",
+        "2",
+        "3",
+        "4",
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Skin_Deform_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.627Z"
+  "parsedAt": "2025-08-08T03:03:59.627Z",
+  "url": "https://docs.derivative.ca/Skin_Deform_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Skin_Deform_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Skin_Deform_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Skin_Deform_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

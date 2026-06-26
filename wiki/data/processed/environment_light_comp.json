@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.942Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Environment_Light_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Environment_Light_COMP",
   "description": "The Environment Light Component controls the color and intensity of an environmental light in a given scene. This light, unlike the Light Component, has no particular position. It comes from outside all of the objects in the scene and lights them. The orientation of the objects and the Environment Light Map will affect how each side of the objects is lit. However the position of the objects in space will have no effect on how the environment light hits them.",
   "summary": "The Environment Light Component controls the color and intensity of an environmental light in a given scene. This light, unlike the Light Component, has no particular position. It comes from outside a",
   "details": "",

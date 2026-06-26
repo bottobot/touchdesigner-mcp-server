@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "int",
       "readOnly": true,
-      "description": "beginFrames member"
-    },
-    {
-      "name": "beginFrames",
-      "id": "bodyContent",
-      "returnType": "int",
-      "readOnly": true,
-      "description": "beginFrames member"
+      "description": ""
     }
   ],
   "methods": [],

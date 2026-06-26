@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.267Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OAK_Select_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OAK_Select_CHOP",
   "description": "The OAK Select CHOP is like a Script CHOP combined with a Select CHOP, and any of the other hardware-specific CHOPs. The basic operation involves providing an OAK Device CHOP and a stream name. In the simplest case, the stream's data will show up as well-named channels. For example, ImgDetections messages indicating the 2D coordinates and labels of detected objects will show up as CHOP channels without any manual coding. In more complex cases such as hand landmark tracking, the stream may be of NNData or Buffer type, requiring the user to implement a callback and parse the data.",
   "summary": "The OAK Select CHOP is like a Script CHOP combined with a Select CHOP, and any of the other hardware-specific CHOPs. The basic operation involves providing an OAK Device CHOP and a stream name. In the",
   "details": "",

@@ -3,1742 +3,473 @@
   "id": "texture_map_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Texture Map POP creates the Tex attribute which is used to apply texture maps to surfaces, or to position procedurally-generated textures to surfaces.",
+  "description": "The Texture Map POP creates the <code>Tex</code> attribute which is used to apply texture maps to surfaces, or to position procedurally-generated textures to surfaces. The <code>Tex</code> attribute is a float3 3-component attribute. It can appear as a point attribute or a vertex attribute. It is created by all the generator POPs like the [[Plane POP]], [[Grid POP]], [[Sphere POP]], [[Rectangle POP]], [[Box POP]] etc., but <code>Tex</code> can also created with the Texture Map POP. There are various projection methods, each useful depending on the type of geometry it is being applied to and its use-case. Equirectangular Inside and Outside is a spherical polar longitude/latitude mapping used on vertices, used in VR, either to be viewed from the inside of a sphere or outside. Domes require the mapping type Equidistant Azimuth, a fish eye projection. Projection mapping uses perspective from camera simulating what is \"seen\" from the position of a projector. Triplanar Coordinates is a type that generates 3 sets of texture coordinates (3 attributes) used to map 1 texture onto an object but is a blend of 3 orthographic projections onto 3 sides of an object. There is nothing special about the <code>Tex</code> attribute - any attribute can be used by a Material. The [[Normalize POP]] and the [[Projection POP]] produce attributes that can be used with a material, like doing orhtographic scaled projections, or spherical/cylindrical projections. Some materials require multiple texture coordinates, which can be created with any of these methods in creating <code>Tex2</code>, <code>Tex3</code>, etc. and provided to the materials. Note: In SOPs this was similar to the use of the <code>uvw</code> attribute for texture coordinates. See also [[PBR MAT]], [[Phong MAT]], [[Normalize POP]] and the [[Projection POP]]",
   "parameters": [
     {
-      "name": "Tex",
+      "name": "Primitive Group",
+      "parName": "group",
       "label": "Primitive Group",
-      "description": "Configure Primitive Group for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "XYZ Normalized (Point)",
-          "value": "xyznorm",
-          "description": ""
-        },
-        {
-          "label": "XYZ Position (Point)",
-          "value": "xyzposition",
-          "description": ""
-        },
-        {
-          "label": "Cylindrical (Vertex)",
-          "value": "cylin",
-          "description": ""
-        },
-        {
-          "label": "Face (Vertex)",
-          "value": "face",
-          "description": ""
-        },
-        {
-          "label": "Equirectangular Inside (Spherical Polar) (Vertex)",
-          "value": "equirectangularin",
-          "description": ""
-        },
-        {
-          "label": "Equirectangular Outside (Spherical Polar) (Vertex)",
-          "value": "equirectangularout",
-          "description": ""
-        },
-        {
-          "label": "Equidistant Azimuth (Fish Eye) (Point)",
-          "value": "equiazimuth",
-          "description": ""
-        },
-        {
-          "label": "Perspective From Camera (Point)",
-          "value": "persp",
-          "description": ""
-        },
-        {
-          "label": "Triplanar Coordinates (Point)",
-          "value": "triplanar",
-          "description": ""
-        },
-        {
-          "label": "X Axis",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "Y Axis",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "Z Axis",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspectx",
-          "description": ""
-        },
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspecty",
-          "description": ""
-        },
-        {
-          "label": "Natural location",
-          "value": "natural",
-          "description": ""
-        },
-        {
-          "label": "Point texture",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex texture (fix seams)",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "su",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sv",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sw",
-          "description": ""
-        },
-        {
-          "label": "Offset",
-          "value": "offsetu",
-          "description": ""
-        },
-        {
-          "label": "Offset",
-          "value": "offsetv",
-          "description": ""
-        },
-        {
-          "label": "Offset",
-          "value": "offsetw",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        },
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "scaletwox",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "scaletwoy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "scaletwoz",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "StrMenu",
+      "description": "Optional primitive group to select.",
+      "isReadOnly": false
     },
     {
-      "name": "group",
-      "label": "Primitive Group",
-      "description": "Configure Primitive Group for the operator",
-      "type": "string"
-    },
-    {
-      "name": "transforminput",
+      "name": "Transform Input Texture Coord",
+      "parName": "transforminput",
       "label": "Transform Input Texture Coord",
-      "description": "Configure Transform Input Texture Coord for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable transforms on the input texture coordinates.",
+      "isReadOnly": false
     },
     {
-      "name": "inputtexattr",
+      "name": "Input Texture Coord Attribute",
+      "parName": "inputtexattr",
       "label": "Input Texture Coord Attribute",
-      "description": "Configure Input Texture Coord Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Input Texture coordinate attribute to transform.",
+      "isReadOnly": false
     },
     {
-      "name": "type",
-      "label": "Texture Type",
-      "description": "Configure Texture Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "XYZ Normalized (Point)",
-          "value": "xyznorm",
-          "description": ""
-        },
-        {
-          "label": "XYZ Position (Point)",
-          "value": "xyzposition",
-          "description": ""
-        },
-        {
-          "label": "Cylindrical (Vertex)",
-          "value": "cylin",
-          "description": ""
-        },
-        {
-          "label": "Face (Vertex)",
-          "value": "face",
-          "description": ""
-        },
-        {
-          "label": "Equirectangular Inside (Spherical Polar) (Vertex)",
-          "value": "equirectangularin",
-          "description": ""
-        },
-        {
-          "label": "Equirectangular Outside (Spherical Polar) (Vertex)",
-          "value": "equirectangularout",
-          "description": ""
-        },
-        {
-          "label": "Equidistant Azimuth (Fish Eye) (Point)",
-          "value": "equiazimuth",
-          "description": ""
-        },
-        {
-          "label": "Perspective From Camera (Point)",
-          "value": "persp",
-          "description": ""
-        },
-        {
-          "label": "Triplanar Coordinates (Point)",
-          "value": "triplanar",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "xyznorm",
-      "label": "XYZ Normalized (Point)",
-      "description": "Configure XYZ Normalized (Point) for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "XYZ Normalized (Point)",
-          "value": "xyznorm",
-          "description": ""
-        },
-        {
-          "label": "XYZ Position (Point)",
-          "value": "xyzposition",
-          "description": ""
-        },
-        {
-          "label": "Cylindrical (Vertex)",
-          "value": "cylin",
-          "description": ""
-        },
-        {
-          "label": "Face (Vertex)",
-          "value": "face",
-          "description": ""
-        },
-        {
-          "label": "Equirectangular Inside (Spherical Polar) (Vertex)",
-          "value": "equirectangularin",
-          "description": ""
-        },
-        {
-          "label": "Equirectangular Outside (Spherical Polar) (Vertex)",
-          "value": "equirectangularout",
-          "description": ""
-        },
-        {
-          "label": "Equidistant Azimuth (Fish Eye) (Point)",
-          "value": "equiazimuth",
-          "description": ""
-        },
-        {
-          "label": "Perspective From Camera (Point)",
-          "value": "persp",
-          "description": ""
-        },
-        {
-          "label": "Triplanar Coordinates (Point)",
-          "value": "triplanar",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "posattr",
+      "name": "Position Attribute",
+      "parName": "posattr",
       "label": "Position Attribute",
-      "description": "Configure Position Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Projected position attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "axis",
+      "name": "Projection Axis",
+      "parName": "axis",
       "label": "Projection Axis",
-      "description": "Configure Projection Axis for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "X Axis",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "Y Axis",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "Z Axis",
-          "value": "z",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Transform axis used for the projection",
+      "isReadOnly": false,
+      "menuItems": [
+        "x",
+        "y",
+        "z"
+      ],
+      "menuLabels": [
+        "X Axis",
+        "Y Axis",
+        "Z Axis"
       ]
     },
     {
-      "name": "x",
-      "label": "X Axis",
-      "description": "Configure X Axis for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "X Axis",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "Y Axis",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "Z Axis",
-          "value": "z",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "fov",
+      "name": "FOV Angle",
+      "parName": "fov",
       "label": "FOV Angle",
-      "description": "Configure FOV Angle for the operator",
-      "type": "string"
+      "type": "",
+      "description": "Determines the camera's field of view angle.",
+      "isReadOnly": false
     },
     {
-      "name": "camera",
+      "name": "Center Mode",
+      "parName": "centermode",
+      "label": "Center Mode",
+      "type": "Menu",
+      "description": "For fisheye projection, whether the projection will use the bounding box center or a manually specified center.",
+      "isReadOnly": false,
+      "menuItems": [
+        "bbcenter",
+        "manual"
+      ],
+      "menuLabels": [
+        "Bounding Box Center",
+        "Manual"
+      ]
+    },
+    {
+      "name": "Center",
+      "parName": "center",
+      "label": "Center",
+      "type": "XYZW",
+      "description": "For fisheye projection, when center is manual, the position of the center to use for the projection.",
+      "isReadOnly": false,
+      "menuItems": [
+        "centerx",
+        "centery",
+        "centerz"
+      ],
+      "menuLabels": [
+        "Center",
+        "Center",
+        "Center"
+      ]
+    },
+    {
+      "name": "Camera",
+      "parName": "camera",
       "label": "Camera",
-      "description": "Configure Camera for the operator",
-      "type": "string"
+      "type": "Object",
+      "description": "Specify the camera component.",
+      "isReadOnly": false
     },
     {
-      "name": "cameraaspect",
+      "name": "Camera Aspect",
+      "parName": "cameraaspect",
       "label": "Camera Aspect",
-      "description": "Configure Camera Aspect for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspectx",
-          "description": ""
-        },
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspecty",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The aspect ratio for the projection.",
+      "isReadOnly": false,
+      "menuItems": [
+        "cameraaspectx",
+        "cameraaspecty"
+      ],
+      "menuLabels": [
+        "Camera Aspect",
+        "Camera Aspect"
       ]
     },
     {
-      "name": "cameraaspectx",
-      "label": "Camera Aspect",
-      "description": "Configure Camera Aspect for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspectx",
-          "description": ""
-        },
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspecty",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "applyto",
+      "name": "Apply to",
+      "parName": "applyto",
       "label": "Apply to",
-      "description": "Configure Apply to for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Natural location",
-          "value": "natural",
-          "description": ""
-        },
-        {
-          "label": "Point texture",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex texture (fix seams)",
-          "value": "vertex",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Where to apply the texture coordinates.",
+      "isReadOnly": false,
+      "menuItems": [
+        "natural",
+        "point",
+        "vertex"
+      ],
+      "menuLabels": [
+        "Natural location",
+        "Point texture",
+        "Vertex texture (fix seams)"
       ]
     },
     {
-      "name": "natural",
-      "label": "Natural location",
-      "description": "Configure Natural location for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Natural location",
-          "value": "natural",
-          "description": ""
-        },
-        {
-          "label": "Point texture",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex texture (fix seams)",
-          "value": "vertex",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "s",
+      "name": "Scale",
+      "parName": "s",
       "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "su",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sv",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sw",
-          "description": ""
-        }
+      "type": "UVW",
+      "description": "UV transform scaling factor.",
+      "isReadOnly": false,
+      "menuItems": [
+        "su",
+        "sv",
+        "sw"
+      ],
+      "menuLabels": [
+        "Scale",
+        "Scale",
+        "Scale"
       ]
     },
     {
-      "name": "su",
-      "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "su",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sv",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sw",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "offset",
+      "name": "Offset",
+      "parName": "offset",
       "label": "Offset",
-      "description": "Configure Offset for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Offset",
-          "value": "offsetu",
-          "description": ""
-        },
-        {
-          "label": "Offset",
-          "value": "offsetv",
-          "description": ""
-        },
-        {
-          "label": "Offset",
-          "value": "offsetw",
-          "description": ""
-        }
+      "type": "UVW",
+      "description": "Adds an offset to the resulting texture mapping.",
+      "isReadOnly": false,
+      "menuItems": [
+        "offsetu",
+        "offsetv",
+        "offsetw"
+      ],
+      "menuLabels": [
+        "Offset",
+        "Offset",
+        "Offset"
       ]
     },
     {
-      "name": "offsetu",
-      "label": "Offset",
-      "description": "Configure Offset for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Offset",
-          "value": "offsetu",
-          "description": ""
-        },
-        {
-          "label": "Offset",
-          "value": "offsetv",
-          "description": ""
-        },
-        {
-          "label": "Offset",
-          "value": "offsetw",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "angle",
+      "name": "Rotate",
+      "parName": "angle",
       "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "string"
+      "type": "",
+      "description": "Rotates the texture coordinate the specified value.",
+      "isReadOnly": false
     },
     {
-      "name": "fixseams",
+      "name": "Fix Face Seams",
+      "parName": "fixseams",
       "label": "Fix Face Seams",
-      "description": "Configure Fix Face Seams for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable attempting to correct texture continuity at face seams.",
+      "isReadOnly": false
     },
     {
-      "name": "outputattrscope",
+      "name": "Output Attribute Scope",
+      "parName": "outputattrscope",
       "label": "Output Attribute Scope",
-      "description": "Configure Output Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Name of attribute to output (can choose components of attribute), can choose from menu.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth"
+      ],
+      "menuLabels": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth"
       ]
     },
     {
-      "name": "P",
-      "label": "P",
-      "description": "Configure P for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overrideautoattr",
+      "name": "Override Automatic Attribute",
+      "parName": "overrideautoattr",
       "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to override the kind of attribute automatically created based on the POP input and parameters. Allows to specify manually the type and number of components of the new attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "newattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
+      "name": "Attribute Type",
+      "parName": "attrtype",
+      "label": "Attribute Type",
+      "type": "Menu",
+      "description": "The output attribute's data type, default float.",
+      "isReadOnly": false,
+      "menuItems": [
+        "float",
+        "double",
+        "int",
+        "uint",
+        "color",
+        "dcolor",
+        "dir",
+        "ddir"
+      ],
+      "menuLabels": [
+        "float",
+        "double",
+        "int",
+        "uint",
+        "Color",
+        "Color (double)",
+        "Direction",
+        "Direction (double)"
       ]
     },
     {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
+      "name": "Components",
+      "parName": "attrnumcomps",
+      "label": "Components",
+      "type": "Menu",
+      "description": "The number of components in the new custom attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "1",
+        "2",
+        "3",
+        "4"
       ]
     },
     {
-      "name": "attrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
+      "name": "Default Value",
+      "parName": "attrdefaultval",
+      "label": "Default Value",
+      "type": "Float",
+      "description": "Default values of the output attribute components if they cannot be computed.",
+      "isReadOnly": false,
+      "menuItems": [
+        "attrdefaultval0",
+        "attrdefaultval1",
+        "attrdefaultval2",
+        "attrdefaultval3"
+      ],
+      "menuLabels": [
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     },
     {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
+      "name": "Texture Method",
+      "parName": "texmethod",
+      "label": "Texture Method",
+      "type": "Menu",
+      "description": "Determines how the texture coordinates are applied.",
+      "isReadOnly": false,
+      "menuItems": [
+        "xyznorm",
+        "xyzposition",
+        "cylin",
+        "face",
+        "facefitoutside",
+        "equirectangularin",
+        "equirectangularout",
+        "equiazimuth",
+        "persp",
+        "triplanar"
+      ],
+      "menuLabels": [
+        "XYZ Normalized (Point)",
+        "XYZ Position (Point)",
+        "Cylindrical (Vertex)",
+        "Face (Vertex)",
+        "Face Fit Outside (Vertex)",
+        "Equirectangular Inside (Spherical Polar) (Vertex)",
+        "Equirectangular Outside (Spherical Polar) (Vertex)",
+        "Equidistant Azimuth (Fish Eye) (Point)",
+        "Perspective From Camera (Point)",
+        "Triplanar Coordinates (Point)"
       ]
     },
     {
-      "name": "newattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "xord",
+      "name": "Transform Order",
+      "parName": "xord",
       "label": "Transform Order",
-      "description": "Configure Transform Order for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the overall transform order for the transformations.",
+      "isReadOnly": false,
+      "menuItems": [
+        "srt",
+        "str",
+        "rst",
+        "rts",
+        "tsr",
+        "trs"
+      ],
+      "menuLabels": [
+        "Scale Rotate Translate",
+        "Scale Translate Rotate",
+        "Rotate Scale Translate",
+        "Rotate Translate Scale",
+        "Translate Scale Rotate",
+        "Translate Rotate Scale"
       ]
     },
     {
-      "name": "srt",
-      "label": "Scale Rotate Translate",
-      "description": "Configure Scale Rotate Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rord",
+      "name": "Rotate Order",
+      "parName": "rord",
       "label": "Rotate Order",
-      "description": "Configure Rotate Order for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the order of the rotations within the overall transform order.",
+      "isReadOnly": false,
+      "menuItems": [
+        "xyz",
+        "xzy",
+        "yxz",
+        "yzx",
+        "zxy",
+        "zyx"
+      ],
+      "menuLabels": [
+        "Rx Ry Rz",
+        "Rx Rz Ry",
+        "Ry Rx Rz",
+        "Ry Rz Rx",
+        "Rz Rx Ry",
+        "Rz Ry Rx"
       ]
     },
     {
-      "name": "xyz",
-      "label": "Rx Ry Rz",
-      "description": "Configure Rx Ry Rz for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "t",
+      "name": "Translate",
+      "parName": "t",
       "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Translate the texture coordinates in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty",
+        "tz"
+      ],
+      "menuLabels": [
+        "Translate",
+        "Translate",
+        "Translate"
       ]
     },
     {
-      "name": "tx",
-      "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "r",
+      "name": "Rotate",
+      "parName": "r",
       "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Rotate the points around the corresponding X, Y and Z axes. Angles are given in degrees.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rx",
+        "ry",
+        "rz"
+      ],
+      "menuLabels": [
+        "Rotate",
+        "Rotate",
+        "Rotate"
       ]
     },
     {
-      "name": "rx",
-      "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "scaletwo",
+      "name": "Scale",
+      "parName": "scaletwo",
       "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "scaletwox",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "scaletwoy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "scaletwoz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "UV transform scaling factor.",
+      "isReadOnly": false,
+      "menuItems": [
+        "scaletwox",
+        "scaletwoy",
+        "scaletwoz"
+      ],
+      "menuLabels": [
+        "Scale",
+        "Scale",
+        "Scale"
       ]
     },
     {
-      "name": "scaletwox",
-      "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "scaletwox",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "scaletwoy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "scaletwoz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "p",
+      "name": "Pivot",
+      "parName": "p",
       "label": "Pivot",
-      "description": "Configure Pivot for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "px",
-      "label": "Pivot",
-      "description": "Configure Pivot for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "XYZW",
+      "description": "The pivot point for the transform rotates and scales.",
+      "isReadOnly": false,
+      "menuItems": [
+        "px",
+        "py",
+        "pz"
+      ],
+      "menuLabels": [
+        "Pivot",
+        "Pivot",
+        "Pivot"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Texture_Map_POP.htm",
-  "parsedAt": "2025-08-08T03:04:00.271Z"
+  "parsedAt": "2025-08-08T03:04:00.271Z",
+  "url": "https://docs.derivative.ca/Texture_Map_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Texture_Map_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Texture_Map_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Texture_Map_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

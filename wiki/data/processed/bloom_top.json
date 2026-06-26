@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.475Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Bloom_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Bloom_TOP",
   "description": "The Bloom TOP creates a glow effect around bright parts of the input image that simulates light bouncing around a lens assembly of a camera. Parameters control how much of the bright spots of your input image get bloomed, how wide the bloom gets spread, and how it rolls off into the un-bloomed areas.",
   "summary": "The Bloom TOP creates a glow effect around bright parts of the input image that simulates light bouncing around a lens assembly of a camera. Parameters control how much of the bright spots of your inp",
   "details": "",

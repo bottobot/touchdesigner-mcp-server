@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.684Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Feedback_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Feedback_CHOP",
   "description": "The Feedback CHOP stores channels from the current frame to be used in a later frame, without forcing recooking back one frame. It allows you to get the state of a CHOP as it was one frame or time slice ago.",
   "summary": "The Feedback CHOP stores channels from the current frame to be used in a later frame, without forcing recooking back one frame. It allows you to get the state of a CHOP as it was one frame or time sli",
   "details": "",

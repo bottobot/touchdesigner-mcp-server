@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.753Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Handle_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Handle_CHOP",
   "description": "The Handle CHOP is the \"engine\" which drives Inverse Kinematic solutions using the Handle COMP. The role of the Handle CHOP is to generate rotation values for the bones which will bring their attached handles as close to their respective targets as possible.",
   "summary": "The Handle CHOP is the \"engine\" which drives Inverse Kinematic solutions using the Handle COMP. The role of the Handle CHOP is to generate rotation values for the bones which will bring their attached",
   "details": "",

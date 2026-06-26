@@ -3,531 +3,147 @@
   "id": "histogram_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Histogram POP takes an attribute from its input, creates an output with one attribute (Count attribute) and a specified number of points (Number of Bins parameter), and for each input point, adds 1 to one of the bins. This gives a \"frequency distribution\".",
+  "description": "The Histogram POP takes an attribute from its input, creates an output with one attribute (Count attribute) and a specified number of points (Number of Bins parameter), and for each input point, adds 1 to one of the bins. This gives a \"frequency distribution\". It divides the entire range of values (Input Range parameter) into a series of intervals, and then counts how many values fall into each interval (bin). Values of the input that are outside the lower and upper range of the bins can be ignored, clamped to the min or max, or added to two extra bins that count values out of range. It can also output the interval start values into a separate attribute <code>BinValue</code>. By it nature, it works on a single component of a vector attribute, such as <code>P(1)</code>. You may want to first convert a vector to a float using length() in an Math POP. You can histogram point attributes or primitive attributes. The result is often viewed with a [[POP to CHOP]], or with the popViewer component which can show an attribute as a graph. The Histogram POP takes all the values of a single component attribute, for example <code>P(1)</code> and for each input point, adds 1 to a bin of the output. The output has N bins which is actually N points with one attribute <code>Count</code>. The user specifies the value that the first bin represents, and the value that the last bin represents, and using N, the Histogram POP determines the low and high values represented by each bin. Count starts at 0 for all bins, and the appropriate bin gets incremented by 1 for each input points. See also: [[Accumulate POP]], [[Analyze POP]], [[ReRange POP]]",
   "parameters": [
     {
-      "name": "BinValue",
+      "name": "Attribute Class",
+      "parName": "attrclass",
       "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Input Range",
-          "value": "inputrange1",
-          "description": ""
-        },
-        {
-          "label": "Input Range",
-          "value": "inputrange2",
-          "description": ""
-        },
-        {
-          "label": "Floor",
-          "value": "floor",
-          "description": ""
-        },
-        {
-          "label": "Round",
-          "value": "round",
-          "description": ""
-        },
-        {
-          "label": "Ceiling",
-          "value": "ceiling",
-          "description": ""
-        },
-        {
-          "label": "Clamp",
-          "value": "clamp",
-          "description": ""
-        },
-        {
-          "label": "Discard",
-          "value": "discard",
-          "description": ""
-        },
-        {
-          "label": "Extra Out-of-Range Bins",
-          "value": "extrabins",
-          "description": "of-Range Bins extrabins -"
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "attrclass",
-      "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
+      "name": "Input Attribute Scope",
+      "parName": "inputattrscope",
+      "label": "Input Attribute Scope",
+      "type": "StrMenu",
+      "description": "Scalar input attribute or vector attribute component.",
+      "isReadOnly": false
     },
     {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "inputattr",
-      "label": "Input Attribute",
-      "description": "Configure Input Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "useinputrange",
+      "name": "Use Input Range",
+      "parName": "useinputrange",
       "label": "Use Input Range",
-      "description": "Configure Use Input Range for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Specify teh range of the input attribute values. Default range is 0 to the number of bins.",
+      "isReadOnly": false
     },
     {
-      "name": "inputrange",
+      "name": "Input Range",
+      "parName": "inputrange",
       "label": "Input Range",
-      "description": "Configure Input Range for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Input Range",
-          "value": "inputrange1",
-          "description": ""
-        },
-        {
-          "label": "Input Range",
-          "value": "inputrange2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "When used, the input range gets divided in to Number of Bins.",
+      "isReadOnly": false,
+      "menuItems": [
+        "inputrange1",
+        "inputrange2",
+        "inputrangemin",
+        "inputrangemax"
+      ],
+      "menuLabels": [
+        "Input Range",
+        "Input Range",
+        "Input Range",
+        "Input Range"
       ]
     },
     {
-      "name": "inputrange1",
-      "label": "Input Range",
-      "description": "Configure Input Range for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Input Range",
-          "value": "inputrange1",
-          "description": ""
-        },
-        {
-          "label": "Input Range",
-          "value": "inputrange2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "outputbinval",
+      "name": "Output Bin Value",
+      "parName": "outputbinval",
       "label": "Output Bin Value",
-      "description": "Configure Output Bin Value for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output a separate attribute with the bin values, when using an input range.",
+      "isReadOnly": false
     },
     {
-      "name": "quantize",
+      "name": "Quantize",
+      "parName": "quantize",
       "label": "Quantize",
-      "description": "Configure Quantize for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Floor",
-          "value": "floor",
-          "description": ""
-        },
-        {
-          "label": "Round",
-          "value": "round",
-          "description": ""
-        },
-        {
-          "label": "Ceiling",
-          "value": "ceiling",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Convert values into a finite set of discrete levels.",
+      "isReadOnly": false,
+      "menuItems": [
+        "floor",
+        "round",
+        "ceiling"
+      ],
+      "menuLabels": [
+        "Floor",
+        "Round",
+        "Ceiling"
       ]
     },
     {
-      "name": "floor",
-      "label": "Floor",
-      "description": "Configure Floor for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Floor",
-          "value": "floor",
-          "description": ""
-        },
-        {
-          "label": "Round",
-          "value": "round",
-          "description": ""
-        },
-        {
-          "label": "Ceiling",
-          "value": "ceiling",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "outsiderange",
+      "name": "Outside Range",
+      "parName": "outsiderange",
       "label": "Outside Range",
-      "description": "Configure Outside Range for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Clamp",
-          "value": "clamp",
-          "description": ""
-        },
-        {
-          "label": "Discard",
-          "value": "discard",
-          "description": ""
-        },
-        {
-          "label": "Extra Out-of-Range Bins",
-          "value": "extrabins",
-          "description": "of-Range Bins extrabins -"
-        }
+      "type": "Menu",
+      "description": "Determines the behavior outside the input range.",
+      "isReadOnly": false,
+      "menuItems": [
+        "clamp",
+        "discard",
+        "extrabins"
+      ],
+      "menuLabels": [
+        "Clamp",
+        "Discard",
+        "Extra Out-of-Range Bins"
       ]
     },
     {
-      "name": "clamp",
-      "label": "Clamp",
-      "description": "Configure Clamp for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Clamp",
-          "value": "clamp",
-          "description": ""
-        },
-        {
-          "label": "Discard",
-          "value": "discard",
-          "description": ""
-        },
-        {
-          "label": "Extra Out-of-Range Bins",
-          "value": "extrabins",
-          "description": "of-Range Bins extrabins -"
-        }
-      ]
-    },
-    {
-      "name": "numbins",
+      "name": "Number of Bins",
+      "parName": "numbins",
       "label": "Number of Bins",
-      "description": "Configure Number of Bins for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of bins to sort the attribute values in.",
+      "isReadOnly": false
     },
     {
-      "name": "countattr",
+      "name": "Count Attribute",
+      "parName": "countattr",
       "label": "Count Attribute",
-      "description": "Configure Count Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Str",
+      "description": "Sets the attribute scope when outputting the count attribute",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Histogram_POP.htm",
-  "parsedAt": "2025-08-08T03:03:56.415Z"
+  "parsedAt": "2025-08-08T03:03:56.415Z",
+  "url": "https://docs.derivative.ca/Histogram_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Histogram_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Histogram_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Histogram_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

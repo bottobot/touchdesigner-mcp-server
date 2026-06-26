@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.897Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Video_Device_In_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Video_Device_In_TOP",
   "description": "The Video Device In TOP can be used to capture video from an external camera, capture card, capture dongle, IP camera, or video decoder connected to the system. Multiple devices can simultaneously stream video into TouchDesigner by using multiple Device In TOPs. HD-SDI video can be streamed into TouchDesigner through capture cards such and those from Blackmagic Design, AJA and Deltacast.",
   "summary": "The Video Device In TOP can be used to capture video from an external camera, capture card, capture dongle, IP camera, or video decoder connected to the system. Multiple devices can simultaneously str",
   "details": "",

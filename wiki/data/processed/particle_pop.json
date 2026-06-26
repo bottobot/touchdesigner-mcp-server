@@ -3,1128 +3,379 @@
   "id": "particle_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Particle POP is used for creating and controlling motion of \"particles\" for particle system simulations. A particle is simply a POP point with special attributes that are created by the Particle POP or added/modified manually by the user in a feedback-type loop, making it easy for customization. POPs are able to handle millions+ of points as they fully run on the GPU.",
+  "description": "The Particle POP is used for creating and controlling motion of \"particles\" for particle system simulations. A particle is simply a POP point with special attributes that are created by the Particle POP or added/modified manually by the user in a feedback-type loop, making it easy for customization. POPs are able to handle millions+ of points as they fully run on the GPUThe initial position comes from the input P attribute, parameters allow you to define initial states for mass, drag, and the Map page lets you get these states from the input attributes. Particles are created with an initial position (<code>P</code>) and a velocity (<code>PartVel</code>) as well as mass (<code>PartMass</code>). (1) Position comes from the input POP's <code>P</code> attribute, (2) Velocity, mass, etc come from the Particle POP's parameters, (3) the Map page lets you get these initial states from some of the input attributes. Particles can be emitted based on a constant emission rate or can be emitted based on an input attribute. When emitting based on an input attribute, the Particle POP checks the emitting attribute for each input point and emits that many particles at that position every frame (the emission value is converted to an integer). The Map page lets you override some particle parameters by reading per-point values coming from attributes. This includes mass (Initial Mass parameter creating <code>PartMass</code> attribute), Life Expect and Life Variance (<code>PartLifeSpan</code>), Initial Drag and Velocity Damping (<code>PartDrag</code>), and Initial Velocity (<code>PartVel</code>). Any new attributes feed back from the target POP. The particle system is open and highly customizable. It is based on a feedback loop where the output of the Particle POP is sent to standard POP nodes and the [[Force Radial POP]] node that adds force, constrain points, change states to dying/etc, leading to a Null POP at the end of the feedback chain. That Null POP is used by the Particle POP to retrieve the system's state for the next frame (specified by the Target Feedback Loop POP parameter). The Particle POP looks for the attributes <code>PartForce</code> and <code>PartVel</code> to compute the positions for the current frame. The Particle POP is based on the features and behavior of the [[Feedback POP]]. To Initialize, Start, end, pause, speed, pre-roll the particle system, it uses the TouchDesigner \"Initialize / Start\" standard based on the [[Timer CHOP]]. It shares several of the same parameters, and if you attach an [[Info CHOP]] to the Particle POP, you will see the same state channels and timer channels as the Timer CHOP. You can Pre-Roll the simulation some number of seconds when you Initialize, so that when you press Start, the simulation will be already underway and not be adding its first particles. When a particle is born from a point of the input POP, you can transfer attributes to that particle from the input point and rename them, using the Attributes page. You can create new attributes as well with an initial value. topic: These attributes modified every loop cycle thereafter. See examples in POP <code>Examples/</code> and <code>Overview.toe</code> See [https://www.notion.so/touchdesigner/Learning-About-POPs-3f7645a368a043f99cd143e2382b8ab0?source=copy_link#b5c2dbaa61024dd888bc4661f98fef42 Learning about POPs] Pro tip: If you turn off \"Enable Time Integration\" so you can compute velocity and position yourself, the simulation speed parameter still affects birth rate and how long particles stay alive, but it needs to be taken into account by your custom integration to have an effect on the actual speed of the simulation. Built-in damping and drag are also disabled since they're part of the integration and dependent on the time step (<code>PartDrag</code> attribute still gets created though) See also [[Feedback POP]], [[POP]]",
   "parameters": [
     {
-      "name": "P",
-      "label": "Target Particles Update POP",
-      "description": "Configure Target Particles Update POP for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Reuse Point Ids in Loop",
-          "value": "loop",
-          "description": ""
-        },
-        {
-          "label": "Reuse First Available Point Id",
-          "value": "unused",
-          "description": ""
-        },
-        {
-          "label": "Don't Reuse Point Ids",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Birth Rate",
-          "value": "rate",
-          "description": ""
-        },
-        {
-          "label": "Birth Attribute",
-          "value": "attr",
-          "description": ""
-        },
-        {
-          "label": "S",
-          "value": "seconds",
-          "description": ""
-        },
-        {
-          "label": "F",
-          "value": "frames",
-          "description": ""
-        },
-        {
-          "label": "S",
-          "value": "seconds",
-          "description": ""
-        },
-        {
-          "label": "F",
-          "value": "frames",
-          "description": ""
-        },
-        {
-          "label": "S",
-          "value": "seconds",
-          "description": ""
-        },
-        {
-          "label": "F",
-          "value": "frames",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valuea",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "name": "Target Feedback Loop POP",
+      "parName": "targetpop",
+      "label": "Target Feedback Loop POP",
+      "type": "POP",
+      "description": "A reference to a POP node downstream in the network. This reference will cause a feedback loop and re-injects the particles next frame",
+      "isReadOnly": false
     },
     {
-      "name": "particlesupdatepop",
-      "label": "Target Particles Update POP",
-      "description": "Configure Target Particles Update POP for the operator",
-      "type": "string"
-    },
-    {
-      "name": "createpointprim",
+      "name": "Create Point Primitives",
+      "parName": "createpointprim",
       "label": "Create Point Primitives",
-      "description": "Configure Create Point Primitives for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable creating point primitives",
+      "isReadOnly": false
     },
     {
-      "name": "pointidreuse",
+      "name": "Point Id Reuse",
+      "parName": "pointidreuse",
       "label": "Point Id Reuse",
-      "description": "Configure Point Id Reuse for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Reuse Point Ids in Loop",
-          "value": "loop",
-          "description": ""
-        },
-        {
-          "label": "Reuse First Available Point Id",
-          "value": "unused",
-          "description": ""
-        },
-        {
-          "label": "Don't Reuse Point Ids",
-          "value": "none",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Point Id recycling mode.",
+      "isReadOnly": false,
+      "menuItems": [
+        "loop",
+        "unused",
+        "none"
+      ],
+      "menuLabels": [
+        "Reuse Point Ids in Loop",
+        "Reuse First Available Point Id",
+        "Don't Reuse Point Ids"
       ]
     },
     {
-      "name": "loop",
-      "label": "Reuse Point Ids in Loop",
-      "description": "Configure Reuse Point Ids in Loop for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Reuse Point Ids in Loop",
-          "value": "loop",
-          "description": ""
-        },
-        {
-          "label": "Reuse First Available Point Id",
-          "value": "unused",
-          "description": ""
-        },
-        {
-          "label": "Don't Reuse Point Ids",
-          "value": "none",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxparticles",
+      "name": "Maximum Particles",
+      "parName": "maxparticles",
       "label": "Maximum Particles",
-      "description": "Configure Maximum Particles for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Sets the maximum number of particles.",
+      "isReadOnly": false
     },
     {
-      "name": "emissionmode",
+      "name": "Emission from",
+      "parName": "emissionmode",
       "label": "Emission from",
-      "description": "Configure Emission from for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Birth Rate",
-          "value": "rate",
-          "description": ""
-        },
-        {
-          "label": "Birth Attribute",
-          "value": "attr",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines how particles are emitted",
+      "isReadOnly": false,
+      "menuItems": [
+        "rate",
+        "attr"
+      ],
+      "menuLabels": [
+        "Birth Rate",
+        "Birth Attribute"
       ]
     },
     {
-      "name": "rate",
+      "name": "Birth Rate",
+      "parName": "birthrate",
       "label": "Birth Rate",
-      "description": "Configure Birth Rate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Birth Rate",
-          "value": "rate",
-          "description": ""
-        },
-        {
-          "label": "Birth Attribute",
-          "value": "attr",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Number of particles born each unit of time",
+      "isReadOnly": false,
+      "menuItems": [
+        "birthrate",
+        "birthrateunit"
+      ],
+      "menuLabels": [
+        "Birth Rate",
+        "Birth Rate Unit"
       ]
     },
     {
-      "name": "birthrate",
-      "label": "Birth Rate",
-      "description": "Configure Birth Rate for the operator",
-      "type": "string"
-    },
-    {
-      "name": "birthrateunit",
-      "label": "Birth Rate Unit",
-      "description": "Configure Birth Rate Unit for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "S",
-          "value": "seconds",
-          "description": ""
-        },
-        {
-          "label": "F",
-          "value": "frames",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "seconds",
-      "label": "S",
-      "description": "Configure S for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "S",
-          "value": "seconds",
-          "description": ""
-        },
-        {
-          "label": "F",
-          "value": "frames",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "birthattr",
+      "name": "Input Birth Attribute",
+      "parName": "birthattr",
       "label": "Input Birth Attribute",
-      "description": "Configure Input Birth Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Input attribute to specify birth rate.",
+      "isReadOnly": false
     },
     {
-      "name": "rndinputpts",
+      "name": "Randomize Input Points",
+      "parName": "rndinputpts",
       "label": "Randomize Input Points",
-      "description": "Configure Randomize Input Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable source points shuffling.",
+      "isReadOnly": false
     },
     {
-      "name": "life",
+      "name": "Life Expect",
+      "parName": "life",
       "label": "Life Expect",
-      "description": "Configure Life Expect for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lifeunit",
-      "label": "Life Expect Unit",
-      "description": "Configure Life Expect Unit for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "S",
-          "value": "seconds",
-          "description": ""
-        },
-        {
-          "label": "F",
-          "value": "frames",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Life Expectancy average time.",
+      "isReadOnly": false,
+      "menuItems": [
+        "life",
+        "lifeunit"
+      ],
+      "menuLabels": [
+        "Life Expect",
+        "Life Expect Unit"
       ]
     },
     {
-      "name": "lifevariance",
-      "label": "Life Variance",
-      "description": "Configure Life Variance for the operator",
-      "type": "string"
+      "name": "Life Variance (Fraction)",
+      "parName": "lifevariance",
+      "label": "Life Variance (Fraction)",
+      "type": "Float",
+      "description": "Life Expectancy variation as fraction of life expectancy. Particle lifetime distribution is repeating over time. Animate the Random Seed parameter to avoid this.",
+      "isReadOnly": false
     },
     {
-      "name": "randomseed",
+      "name": "Random Seed",
+      "parName": "randomseed",
       "label": "Random Seed",
-      "description": "Configure Random Seed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Life variance and source position random seed.",
+      "isReadOnly": false
     },
     {
-      "name": "damping",
+      "name": "Enable Time Integration",
+      "parName": "timeintegration",
+      "label": "Enable Time Integration",
+      "type": "Toggle",
+      "description": "Determines whether particles update their positions and velocities over time.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Jitter Births During Frame",
+      "parName": "jitterbirthtime",
+      "label": "Jitter Births During Frame",
+      "type": "Toggle",
+      "description": "Randomizes the exact spawn time of particles within each frame.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Jitter Birth Position",
+      "parName": "jitterbirthpos",
+      "label": "Jitter Birth Position",
+      "type": "Float",
+      "description": "Randomly displaces particle birth positions within a defined radius around the source.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Initial Velocity",
+      "parName": "initvelocity",
+      "label": "Initial Velocity",
+      "type": "XYZW",
+      "description": "Determines the particle's initial velocity in Units per second.",
+      "isReadOnly": false,
+      "menuItems": [
+        "initvelocityx",
+        "initvelocityy",
+        "initvelocityz"
+      ],
+      "menuLabels": [
+        "Initial Velocity",
+        "Initial Velocity",
+        "Initial Velocity"
+      ]
+    },
+    {
+      "name": "Initial Mass",
+      "parName": "initmass",
+      "label": "Initial Mass",
+      "type": "Float",
+      "description": "Determines the particle's mass.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Initial Drag",
+      "parName": "initdrag",
+      "label": "Initial Drag",
+      "type": "Float",
+      "description": "Determines the drag factor applied to the particle causing it to decelerate.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Velocity Damping",
+      "parName": "damping",
       "label": "Velocity Damping",
-      "description": "Configure Velocity Damping for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Sets a multiplicative coefficient applied each frame to the particle's velocity to reduce its speed over time. It scales velocity down each frame exponentially.",
+      "isReadOnly": false
     },
     {
-      "name": "initializepulse",
+      "name": "Initialize",
+      "parName": "initializepulse",
       "label": "Initialize",
-      "description": "Configure Initialize for the operator",
-      "type": "string"
+      "type": "Pulse",
+      "description": "Initializes the POP from its input and parameters, it indicates it’s ready by turning on the ready channel in an attached Info CHOP, awaiting a Start pulse.",
+      "isReadOnly": false
     },
     {
-      "name": "startpulse",
+      "name": "Start",
+      "parName": "startpulse",
       "label": "Start",
-      "description": "Configure Start for the operator",
-      "type": "string"
+      "type": "Pulse",
+      "description": "Start the particle simulation.",
+      "isReadOnly": false
     },
     {
-      "name": "play",
+      "name": "Play",
+      "parName": "play",
       "label": "Play",
-      "description": "Configure Play for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Pause or play the feedback loop.",
+      "isReadOnly": false,
+      "menuItems": [
+        "play",
+        "steppulse"
+      ],
+      "menuLabels": [
+        "Play",
+        "Step Pulse"
+      ]
     },
     {
-      "name": "speed",
+      "name": "Speed",
+      "parName": "speed",
       "label": "Speed",
-      "description": "Configure Speed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Simulation speed.",
+      "isReadOnly": false
     },
     {
-      "name": "preroll",
+      "name": "Pre-Roll",
+      "parName": "preroll",
       "label": "Pre-Roll",
-      "description": "Configure Pre-Roll for the operator",
-      "type": "string"
-    },
-    {
-      "name": "prerollunit",
-      "label": "Pre-Roll Unit",
-      "description": "Configure Pre-Roll Unit for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "S",
-          "value": "seconds",
-          "description": ""
-        },
-        {
-          "label": "F",
-          "value": "frames",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Run the loop for this time before it is ready during initialization..",
+      "isReadOnly": false,
+      "menuItems": [
+        "preroll",
+        "prerollunit"
+      ],
+      "menuLabels": [
+        "Pre-Roll",
+        "Pre-Roll Unit"
       ]
     },
     {
-      "name": "donepulse",
+      "name": "Go to Done",
+      "parName": "donepulse",
       "label": "Go to Done",
-      "description": "Configure Go to Done for the operator",
-      "type": "string"
+      "type": "Pulse",
+      "description": "Will immediately go to the done state.",
+      "isReadOnly": false
     },
     {
-      "name": "attrs",
-      "label": "In Attributes",
-      "description": "Configure In Attributes for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "name": "Input Attributes",
+      "parName": "attrs",
+      "label": "Input Attributes",
+      "type": "StrMenu",
+      "description": "Input attributes to copy to new particles.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "*",
-      "label": "*",
-      "description": "Configure * for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "renameto",
+      "name": "Rename to",
+      "parName": "renameto",
       "label": "Rename to",
-      "description": "Configure Rename to for the operator",
-      "type": "string"
+      "type": "Str",
+      "description": "Change the input attributes to a new name.",
+      "isReadOnly": false
     },
     {
-      "name": "initvelattr",
-      "label": "Initial Velocity Attribute",
-      "description": "Configure Initial Velocity Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "usemassattr",
-      "label": "Use Mass Attribute",
-      "description": "Configure Use Mass Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "initmassattr",
-      "label": "Initial Mass Attribute",
-      "description": "Configure Initial Mass Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "usedragattr",
-      "label": "Use Drag Attribute",
-      "description": "Configure Use Drag Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "initdragattr",
-      "label": "Initial Drag Attribute",
-      "description": "Configure Initial Drag Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "usedeathattr",
+      "name": "Use Death Attribute",
+      "parName": "usedeathattr",
       "label": "Use Death Attribute",
-      "description": "Configure Use Death Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable using the Death Attribute to force-kill particles.",
+      "isReadOnly": false
     },
     {
-      "name": "attr",
+      "name": "New Attribute",
+      "parName": "attr",
       "label": "New Attribute",
-      "description": "Configure New Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Name of sequential block to create new attributes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "attr0name",
+        "attr0customname",
+        "attr0type",
+        "attr0numcomps",
+        "attr0value0",
+        "attr0value1",
+        "attr0value2",
+        "attr0value3"
+      ],
+      "menuLabels": [
+        "New Attribute Name",
+        "Custom Name",
+        "Attribute Type",
+        "Components",
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     },
     {
-      "name": "attr0name",
-      "label": "New Attribute Name",
-      "description": "Configure New Attribute Name for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "custom",
-      "label": "Custom",
-      "description": "Configure Custom for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0customname",
-      "label": "Custom Name",
-      "description": "Configure Custom Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0type",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0numcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0value",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0valuer",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "name": "Mapping",
+      "parName": "map",
+      "label": "Mapping",
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for attribute-to-parameter mapping.",
+      "isReadOnly": false,
+      "menuItems": [
+        "life",
+        "lifevariance",
+        "damping",
+        "initvelocity",
+        "initvelocityx",
+        "initvelocityy",
+        "initvelocityz",
+        "initmass",
+        "initdrag",
+        "set",
+        "mult",
+        "add"
+      ],
+      "menuLabels": [
+        "life (Life Expect)",
+        "lifevariance (Life Variance (Fraction))",
+        "damping (Velocity Damping)",
+        "initvelocity (Initial Velocity)",
+        "initvelocityx",
+        "initvelocityy",
+        "initvelocityz",
+        "initmass (Initial Mass)",
+        "initdrag (Initial Drag)",
+        "Set",
+        "Multiply",
+        "Add"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Particle_POP.htm",
-  "parsedAt": "2025-08-08T03:03:58.212Z"
+  "parsedAt": "2025-08-08T03:03:58.212Z",
+  "url": "https://docs.derivative.ca/Particle_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Particle_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Particle_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Particle_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

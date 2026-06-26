@@ -3,605 +3,151 @@
   "id": "revolve_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Revolve POP generates a surface of revolution from any set of line strips. The points of the line strip are swept around a chosen axis, generating a mesh of points that are connected together according to the Connectivity menu.",
+  "description": "The Revolve POP generates a surface of revolution from any set of line strips. The points of the line strip are swept around a chosen axis, generating a mesh of points that are connected together according to the Connectivity menu. The default Connectivity is quads, suitable for surface rendering, but the mesh can be connected as line strips in either direction, or simply unconnected points. The axis can be the X Y or Z axis, but the default axis is formed by the first and last point of the line strip. (Auto-Pivot on) Each line strip generates its own surface of revolution.",
   "parameters": [
     {
-      "name": "axis",
+      "name": "Axis",
+      "parName": "axis",
       "label": "Axis",
-      "description": "Configure Axis for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Auto",
-          "value": "auto",
-          "description": ""
-        },
-        {
-          "label": "X",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "Y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "Z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "Rows",
-          "value": "rows",
-          "description": ""
-        },
-        {
-          "label": "Columns",
-          "value": "cols",
-          "description": ""
-        },
-        {
-          "label": "Rows and Columns",
-          "value": "rowcol",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Alternating Triangles",
-          "value": "alttriangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertNormals",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertNormals",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "The axis around which to revolve the input curve to create the output geometry.",
+      "isReadOnly": false,
+      "menuItems": [
+        "auto",
+        "x",
+        "y",
+        "z"
+      ],
+      "menuLabels": [
+        "Auto",
+        "X",
+        "Y",
+        "Z"
       ]
     },
     {
-      "name": "auto",
-      "label": "Auto",
-      "description": "Configure Auto for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Auto",
-          "value": "auto",
-          "description": ""
-        },
-        {
-          "label": "X",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "Y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "Z",
-          "value": "z",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "autopivot",
+      "name": "Auto Pivot",
+      "parName": "autopivot",
       "label": "Auto Pivot",
-      "description": "Configure Auto Pivot for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Make the pivot axis be the line between the first point and the last point for each line strip.",
+      "isReadOnly": false
     },
     {
-      "name": "p",
+      "name": "Pivot",
+      "parName": "p",
       "label": "Pivot",
-      "description": "Configure Pivot for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The pivot point for the transform rotates and scales.",
+      "isReadOnly": false,
+      "menuItems": [
+        "px",
+        "py",
+        "pz"
+      ],
+      "menuLabels": [
+        "Pivot",
+        "Pivot",
+        "Pivot"
       ]
     },
     {
-      "name": "px",
-      "label": "Pivot",
-      "description": "Configure Pivot for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "surftype",
+      "name": "Connectivity",
+      "parName": "surftype",
       "label": "Connectivity",
-      "description": "Configure Connectivity for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "Rows",
-          "value": "rows",
-          "description": ""
-        },
-        {
-          "label": "Columns",
-          "value": "cols",
-          "description": ""
-        },
-        {
-          "label": "Rows and Columns",
-          "value": "rowcol",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Alternating Triangles",
-          "value": "alttriangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines the primitive used to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "points",
+        "rows",
+        "cols",
+        "rowcol",
+        "triangles",
+        "alttriangles",
+        "quads"
+      ],
+      "menuLabels": [
+        "None",
+        "Point Prims",
+        "Rows",
+        "Columns",
+        "Rows and Columns",
+        "Triangles",
+        "Alternating Triangles",
+        "Quadrilaterals"
       ]
     },
     {
-      "name": "none",
-      "label": "None",
-      "description": "Configure None for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "Rows",
-          "value": "rows",
-          "description": ""
-        },
-        {
-          "label": "Columns",
-          "value": "cols",
-          "description": ""
-        },
-        {
-          "label": "Rows and Columns",
-          "value": "rowcol",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Alternating Triangles",
-          "value": "alttriangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "divs",
+      "name": "Divisions",
+      "parName": "divs",
       "label": "Divisions",
-      "description": "Configure Divisions for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of divisions.",
+      "isReadOnly": false
     },
     {
-      "name": "texture",
+      "name": "Texture Coordinates",
+      "parName": "texture",
       "label": "Texture Coordinates",
-      "description": "Configure Texture Coordinates for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertNormals",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the attribute class where the texture coordinates should be created.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "pointNormals",
+        "vertNormals"
+      ],
+      "menuLabels": [
+        "None",
+        "Point",
+        "Vertex"
       ]
     },
     {
-      "name": "normal",
+      "name": "Normal",
+      "parName": "normal",
       "label": "Normal",
-      "description": "Configure Normal for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertNormals",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Choose whether to create a normal attribute and the attribute class of the normal attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "pointNormals",
+        "vertNormals"
+      ],
+      "menuLabels": [
+        "None",
+        "Point",
+        "Vertex"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Revolve_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.474Z"
+  "parsedAt": "2025-08-08T03:03:59.474Z",
+  "url": "https://docs.derivative.ca/Revolve_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Revolve_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Revolve_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Revolve_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.621Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\UDP_In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/UDP_In_DAT",
   "description": "The UDP In DAT is used for receiving information over a UDP connection between two remotely located computers. It captures all the messages without any queuing or buffering, and allows you to send it any messages you want. Once this DAT has received a message it can reply to the sender using the 'send' command. Using the send command before it has received a message will not work because it doesn't know where to send data yet. When in multicast mode it doesn't send out a multicast message, it sends a reply directly to the originator for the last multicast message it got.",
   "summary": "The UDP In DAT is used for receiving information over a UDP connection between two remotely located computers. It captures all the messages without any queuing or buffering, and allows you to send it ",
   "details": "",

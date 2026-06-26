@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.142Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Cross_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Cross_CHOP",
   "description": "The Cross CHOP is a multi input OP that blends between 2 inputs at a time. This is similar to a Switch CHOP however the Cross CHOP allows for interpolation between the inputs.",
   "summary": "The Cross CHOP is a multi input OP that blends between 2 inputs at a time. This is similar to a Switch CHOP however the Cross CHOP allows for interpolation between the inputs.",
   "details": "",

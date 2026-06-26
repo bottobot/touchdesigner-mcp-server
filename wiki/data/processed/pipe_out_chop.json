@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.572Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Pipe_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Pipe_Out_CHOP",
   "description": "The Pipe Out CHOP can be used to transmit data out of TouchDesigner to other processes running on a remote machine using a network connection. If the other process is another TouchDesigner process, a Pipe In CHOP in that process can be used to receive the data. Multiple PipeIn CHOPs can connect to a PipeOut CHOP.",
   "summary": "The Pipe Out CHOP can be used to transmit data out of TouchDesigner to other processes running on a remote machine using a network connection. If the other process is another TouchDesigner process, a ",
   "details": "",

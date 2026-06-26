@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.983Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Time_Slice_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Time_Slice_CHOP",
   "description": "The Time Slice CHOP outputs a time slice of samples. It is used to generate smooth in-betweens when TouchDesigner cannot cook/draw fast enough and keep up with the animation's frames per second. When you send it to a Record CHOP or Gesture CHOP, you will see the channels recorded and playing back more smoothly.",
   "summary": "The Time Slice CHOP outputs a time slice of samples. It is used to generate smooth in-betweens when TouchDesigner cannot cook/draw fast enough and keep up with the animation's frames per second. When ",
   "details": "",

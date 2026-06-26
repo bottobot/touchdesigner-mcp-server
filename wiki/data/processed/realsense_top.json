@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.216Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\RealSense_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/RealSense_TOP",
   "description": "Hardware: The librealsense SDK v2.50.0 does not look like it will be updated for Apple Silicon, so it is not an option to add to these builds.",
   "summary": "Hardware: The librealsense SDK v2.50.0 does not look like it will be updated for Apple Silicon, so it is not an option to add to these builds.",
   "details": "",

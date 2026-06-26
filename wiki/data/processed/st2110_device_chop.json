@@ -7,5 +7,17 @@
   "parameters": [],
   "experimental": true,
   "sourceFile": "Experimental-ST2110_Device_CHOP.htm",
-  "parsedAt": "2025-08-08T03:03:59.958Z"
+  "parsedAt": "2025-08-08T03:03:59.958Z",
+  "url": "https://docs.derivative.ca/ST2110_Device_CHOP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": []
 }

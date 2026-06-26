@@ -1,0 +1,323 @@
+{
+  "id": "alembic_in_pop",
+  "name": "Alembic In POP",
+  "displayName": "Alembic In POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Alembic_In_POP",
+  "description": "The Alembic In POP loads and plays back [http://www.alembic.io/ Alembic] file geometry and multi-frame sequences. The supported Alembic primitives are polymesh, curves, and points for geometry. As well, Alembic transformations are supported. Polymesh primitives are imported as triangles or quads for faces of 3 or 4 vertices respectively, and as a closed line strip for faces with greater than 4 vertices. For Alembic files that contain animation, use the controls on the Play page. Press Start to run and loop it. Press Cue and then scrub the Cue Time parameter to scrub the full range of the animation. With Cue off, you can adjust Speed and pause with Play. Alternately set Play Mode to Specify Index and change the Index parameter to control the current animation position expressed as fraction, seconds, frame or index (the frame number internal to the <code>.abc</code> file). An Alembic archive may contain one or more object paths for one or multiple geometries. It is possible to view these objects all at once or select them separately using the 'Object Path' parameter menu. If separate selected objects contain duplicate attributes (ie. sharing a name) but associated with a different attribute class (eg. vertex vs. point), then the duplicate attribute will be converted to a vertex attribute. Each object in an Alembic file schema may possess standard or custom attributes. The standard attributes are normal (<code>N</code>), velocity (<code>V</code>), and texture coordinates (<code>Tex</code>). Multiple custom attributes may live in an Alembic schema with more flexible names and types. Caveat - Most Alembic attributes are supported but not all convert one-to-one into a POP format: * 16-bit int attributes (eg. Int16, V2s, P3s, etc.) are converted to 32-bit int. * 64-bit attributes (eg. Uint64, Int64, V2d, etc.) are converted to double, which is the only 64-bit attribute that POPs currently support. * Attributes with > 4 components (eg. Box3f, M33f, M44f etc.) are packed as an array of vec4's. If there is an array of these attributes then they will be packed together back-to-back. Eg. M44f has 16 components and will be imported as float4[4], and M44f[2] will be imported as float4[8] with M44f[0] first followed by M44f[1]. List of '''unsupported''' attributes: * String/WString * 8-bit and 16-bit float color * Bool * UChar/Char The conversion between the Alembic geometries scopes to the TouchDesigner attributes types are shown in the table below: class=\"wikitable\" !colspan=\"2\" - style=\"width: 50%; background-color: white;\" align=\"center\" '''Alembic Scope''' style=\"width: 50%; background-color: white;\" align=\"center\" '''TouchDesigner Attribute''' - Varying, Vertex Point - Facevarying Vertex - Uniform, Constant Primitive - } See also [[Alembic]], [[Alembic Out POP]], [[File In POP]], [[File Out POP]]",
+  "parameters": [
+    {
+      "name": "Alembic File",
+      "parName": "file",
+      "label": "Alembic File",
+      "type": "File",
+      "description": "The file path to the Alembic file.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Object Path",
+      "parName": "objectpath",
+      "label": "Object Path",
+      "type": "StrMenu",
+      "description": "Specify which geometry object to be loaded. Each geometry object can represent a hierarchies of multiple geometries. It is also possible to choose the \"All Objects\" (ie. \"*\") option from the list of available objects. This option is selected by default.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*",
+        "/box_object1/color1"
+      ],
+      "menuLabels": [
+        "*",
+        "/box_object1/color1"
+      ]
+    },
+    {
+      "name": "Load Type",
+      "parName": "loadtype",
+      "label": "Load Type",
+      "type": "Menu",
+      "description": "Select whether to load the file on this frame or next. Loading next frame will significantly reduce overall cook time.",
+      "isReadOnly": false,
+      "menuItems": [
+        "immediate",
+        "nextframe"
+      ],
+      "menuLabels": [
+        "Immediate (Slow)",
+        "Next Frame (Fast)"
+      ]
+    },
+    {
+      "name": "Transform",
+      "parName": "xform",
+      "label": "Transform",
+      "type": "Menu",
+      "description": "Select which transform is applied if the transform data is available from the input Alembic file.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "staticlocalxform",
+        "staticworldxform",
+        "dynamicxform"
+      ],
+      "menuLabels": [
+        "None",
+        "Static Local Transformation",
+        "Static World Transformation",
+        "Dynamic Transformation"
+      ]
+    },
+    {
+      "name": "Interpolation",
+      "parName": "interp",
+      "label": "Interpolation",
+      "type": "Menu",
+      "description": "Interpolate between the samples/keyframes in the Alembic file. This parameter only works if the selected geometries are defined as dynamic and the transformation information are available from the input Alembic file.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "interp"
+      ],
+      "menuLabels": [
+        "None",
+        "Linear Interpolation"
+      ]
+    },
+    {
+      "name": "Unload",
+      "parName": "loadfile",
+      "label": "Unload",
+      "type": "Toggle",
+      "description": "Toggling the unload to \"on\" will unload the file and close it. By setting it to \"off\", the file will be loaded again. When the file is unloaded it can be overwritten by other applications or deleted.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Shift Animation Start",
+      "parName": "shiftanimationstart",
+      "label": "Shift Animation Start",
+      "type": "Toggle",
+      "description": "A toggle to specify whether to shift the animation to the start of animation indicated in the importing file.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Sample Rate Mode",
+      "parName": "sampleratemode",
+      "label": "Sample Rate Mode",
+      "type": "Menu",
+      "description": "Sets the sample rate source.",
+      "isReadOnly": false,
+      "menuItems": [
+        "filefps",
+        "custom"
+      ],
+      "menuLabels": [
+        "File FPS",
+        "Custom"
+      ]
+    },
+    {
+      "name": "Sample Rate",
+      "parName": "samplerate",
+      "label": "Sample Rate",
+      "type": "Float",
+      "description": "Sets the custom sample rate.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Play Mode",
+      "parName": "playmode",
+      "label": "Play Mode",
+      "type": "Menu",
+      "description": "Pause or play the geometry animation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lockedtotimeline",
+        "specifyindex",
+        "sequential"
+      ],
+      "menuLabels": [
+        "Locked to Timeline",
+        "Specify Index",
+        "Sequential"
+      ]
+    },
+    {
+      "name": "Initialize",
+      "parName": "initialize",
+      "label": "Initialize",
+      "type": "Pulse",
+      "description": "Resets the animation to its initial state.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Start",
+      "parName": "start",
+      "label": "Start",
+      "type": "Pulse",
+      "description": "Start playback of animation sequence.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Cue",
+      "parName": "cue",
+      "label": "Cue",
+      "type": "Toggle",
+      "description": "A toggle to jump to Cue Point when it is set to ON and it stays at that position. Only available when Play Mode is Sequential.",
+      "isReadOnly": false,
+      "menuItems": [
+        "cue",
+        "cuepulse"
+      ],
+      "menuLabels": [
+        "Cue",
+        "Cue Pulse"
+      ]
+    },
+    {
+      "name": "Cue Point",
+      "parName": "cuepoint",
+      "label": "Cue Point",
+      "type": "Float",
+      "description": "Set any index in the animation as a point to jump to.",
+      "isReadOnly": false,
+      "menuItems": [
+        "cuepoint",
+        "cuepointunit"
+      ],
+      "menuLabels": [
+        "Cue Point",
+        "Cue Point Unit"
+      ]
+    },
+    {
+      "name": "Play",
+      "parName": "play",
+      "label": "Play",
+      "type": "Toggle",
+      "description": "Enable playback.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Index",
+      "parName": "index",
+      "label": "Index",
+      "type": "Float",
+      "description": "This parameter explicitly sets the animation position when Play Mode is set to Specify Index. The units’ menu on the right lets you specify the index in the following units: Index, Frames, Seconds, and Fraction (percentage).",
+      "isReadOnly": false,
+      "menuItems": [
+        "index",
+        "indexunit"
+      ],
+      "menuLabels": [
+        "Index",
+        "Index Unit"
+      ]
+    },
+    {
+      "name": "Speed",
+      "parName": "speed",
+      "label": "Speed",
+      "type": "Float",
+      "description": "Playback speed.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Trim",
+      "parName": "trim",
+      "label": "Trim",
+      "type": "Toggle",
+      "description": "Enable the Trim Start and Trim End parameters.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Trim Start",
+      "parName": "tstart",
+      "label": "Trim Start",
+      "type": "Float",
+      "description": "The time to consider the starting time of 0.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tstart",
+        "tstartunit"
+      ],
+      "menuLabels": [
+        "Trim Start",
+        "Trim Start Unit"
+      ]
+    },
+    {
+      "name": "Trim End",
+      "parName": "tend",
+      "label": "Trim End",
+      "type": "Float",
+      "description": "TTGrime the end of the animation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tend",
+        "tendunit"
+      ],
+      "menuLabels": [
+        "Trim End",
+        "Trim End Unit"
+      ]
+    },
+    {
+      "name": "Extend Left",
+      "parName": "textendleft",
+      "label": "Extend Left",
+      "type": "Menu",
+      "description": "Determines how the parent COMP handles animation positions that lie before the Trim Start position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "hold",
+        "cycle",
+        "mirror"
+      ],
+      "menuLabels": [
+        "Hold",
+        "Cycle",
+        "Mirror"
+      ]
+    },
+    {
+      "name": "Extend Right",
+      "parName": "textendright",
+      "label": "Extend Right",
+      "type": "Menu",
+      "description": "Determines how the parent COMP handles animation positions that lie after the Trim End position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "hold",
+        "cycle",
+        "mirror"
+      ],
+      "menuLabels": [
+        "Hold",
+        "Cycle",
+        "Mirror"
+      ]
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Alembic_In_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Alembic_In_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Alembic_In_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

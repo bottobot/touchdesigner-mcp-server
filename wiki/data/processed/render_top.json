@@ -5,53 +5,32 @@
   "category": "TOP",
   "subcategory": "3D Rendering",
   "version": "Available since TouchDesigner 2019+",
-  "versionSupport": {
-    "name": "Render TOP",
-    "category": "TOP",
-    "addedIn": "099",
-    "changedIn": [
-      {
-        "version": "2020",
-        "change": "Added MSAA antialiasing support"
-      },
-      {
-        "version": "2022",
-        "change": "PBR material pipeline improvements"
-      },
-      {
-        "version": "2023",
-        "change": "NVIDIA DLSS upscaling integration"
-      }
-    ],
-    "removedIn": null,
-    "notes": "3D scene renderer"
-  },
   "lastUpdated": "2026-02-21T00:00:00.000Z",
   "sourceFile": "",
   "url": "https://docs.derivative.ca/Render_TOP",
-  "description": "The Render TOP is the core operator for rendering 3D scenes in TouchDesigner. It rasterises a 3D scene \u2014 defined by one or more Geometry COMPs, a Camera COMP, and optional Light COMPs \u2014 into a 2D RGBA image. The scene objects are referenced by path in parameters, not through wire connections. The Render TOP outputs the final composited pixel colour including material shading, alpha, depth, and optional render passes.",
+  "description": "The Render TOP is the core operator for rendering 3D scenes in TouchDesigner. It rasterises a 3D scene — defined by one or more Geometry COMPs, a Camera COMP, and optional Light COMPs — into a 2D RGBA image. The scene objects are referenced by path in parameters, not through wire connections. The Render TOP outputs the final composited pixel colour including material shading, alpha, depth, and optional render passes.",
   "summary": "Renders a 3D scene (Geometry COMPs + Camera COMP + Lights) into a 2D image. The primary bridge between the 3D COMP world and the 2D TOP world.",
   "details": "The Render TOP uses OpenGL rasterisation. It supports multi-sample anti-aliasing (MSAA), depth buffers, multiple render targets (via Render Pass TOPs), alpha pre-multiplication, and instanced rendering. The Geometry, Camera, and Light parameters each accept paths to COMPs in the same or different networks. Lights affect all geometry in the scene unless material-side lighting is disabled.",
   "usage": "1. Create a Geometry COMP in your network and connect SOP geometry to it.\n2. Create a Camera COMP.\n3. Create a Render TOP.\n4. Set the Render TOP Camera parameter to the Camera COMP path.\n5. Set the Geometry parameter to the Geometry COMP path (or use '*' to include all visible Geometry COMPs).\n6. The Render TOP output (port 0) is now a live 2D render of the 3D scene.\n7. Wire the output to Level TOP, Composite TOP, or Out TOP for further processing.",
   "tips": [
-    "Set the Camera parameter to a Camera COMP path, not a wire \u2014 Render TOP has no TOP inputs.",
+    "Set the Camera parameter to a Camera COMP path, not a wire — Render TOP has no TOP inputs.",
     "Use '*' in the Geometry parameter to automatically render all visible Geometry COMPs in the same level.",
     "Enable Depth Buffer to allow proper depth-sorted transparency and Render Pick CHOP interaction.",
     "Use Render Pass TOP to extract separate render buffers (colour, depth, normals, position) from a single render call.",
     "Anti-alias the output with the Samples parameter (1 = none, 4 = 4xMSAA). Higher samples cost GPU memory.",
     "Use multiple Render TOPs with the same scene but different cameras for split-screen or security-camera effects.",
     "Set Pixel Format to RGBA16Float for HDR rendering that can handle values above 1.0 for bloom post-processing.",
-    "The Render TOP respects the Display flag on Geometry COMPs \u2014 turn off Display on a Geometry COMP to exclude it from the render without removing the Geometry parameter.",
+    "The Render TOP respects the Display flag on Geometry COMPs — turn off Display on a Geometry COMP to exclude it from the render without removing the Geometry parameter.",
     "Wire the Render TOP output into a Level TOP to do basic tone-mapping, or into a GLSL TOP for custom post-processing.",
     "Use Light COMPs (Point Light, Directional Light, Environment Light) to add dynamic lighting. Reference them in the Light parameter."
   ],
   "warnings": [
-    "Render TOP has NO top-level wire inputs \u2014 scene objects are set via parameters (Camera, Geometry, Light).",
+    "Render TOP has NO top-level wire inputs — scene objects are set via parameters (Camera, Geometry, Light).",
     "If the Camera parameter is empty the render output is black.",
     "Very high MSAA sample counts (8x, 16x) can exhaust GPU VRAM. Use 2x or 4x for a good quality/performance balance.",
     "Geometry COMPs must have a Material (MAT) assigned or they will render with the default fallback material (flat grey).",
     "Transparent materials require correct render order: render opaque geometry first, then transparent geometry in a second Render TOP or sorted pass.",
-    "Instanced rendering (via Geometry COMP instance parameters) multiplies draw call cost \u2014 use Script CHOP or a Constant CHOP to supply instance transforms."
+    "Instanced rendering (via Geometry COMP instance parameters) multiplies draw call cost — use Script CHOP or a Constant CHOP to supply instance transforms."
   ],
   "parameters": [
     {
@@ -64,7 +43,7 @@
       "dataType": "string",
       "style": "OP",
       "defaultValue": "",
-      "description": "Path to the Camera COMP that defines the viewpoint and projection for this render. Required \u2014 without a camera the output is black.",
+      "description": "Path to the Camera COMP that defines the viewpoint and projection for this render. Required — without a camera the output is black.",
       "tooltip": "Path to Camera COMP",
       "examples": [
         "cam1",

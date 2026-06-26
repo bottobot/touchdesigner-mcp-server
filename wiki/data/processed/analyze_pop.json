@@ -3,696 +3,237 @@
   "id": "analyze_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Analyze POP analyzes any point, vertex or primitive attributes of a POP, and outputs a single point containing the resulting statistics. It typically computes an average, minimum or maximum values of any attribute.",
+  "description": "The Analyze POP analyzes any point, vertex or primitive attributes of a POP, and outputs a single point containing the resulting statistics. It typically computes an average, minimum or maximum values of any attribute. Attach an Analyze POP to a [[POP to DAT]] (and set its Transpose) to see what it comes up with. If you select more than one attribute, or if you select all (*), it will append the attribute names of the input POP to all the output attribute names. Tip: The results on the Analyze POP are a single point on the GPU. What you do with it next affects performance. The more you stay on the GPU the faster it will be. Pulling the results to the CPU and using them in parameters will be slower. You can get it to the CPU on the next frame (faster) by using a POP to CHOP but of course it's delayed. Or you can fully stay in the GPU’s POP world by passing the point as an input to other operators like to a Math Mix POP. In the case of an attribute with multiple components, the analysis is per component. For example for <code>P</code>, <code>Min(0)</code> is the min X value, <code>Min(1)</code> is the min Y value. <code>indexMin(0)</code> is the index of the point with the min X value, <code>IndexMin(1)</code> is the index of the point with the min Y value. It can optionaly output the sum and power of the samples of the input attribute. As noted above it can output the index of the point (the point number) of the sample with the maximum or minimum value of the selected input attribute. It is also possible to combine the components of a vector to a single component before performing the analysis, using the Combine Components menu. '''Note''': Palette: popViewer can show the ranges of all attributes. See also: [[Accumulate POP]], [[Histogram POP]]",
   "parameters": [
     {
-      "name": "P",
+      "name": "Attributes Class",
+      "parName": "attrclass",
       "label": "Attributes Class",
-      "description": "Configure Attributes Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Subtract",
-          "value": "sub",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mul",
-          "description": ""
-        },
-        {
-          "label": "Divide",
-          "value": "div",
-          "description": ""
-        },
-        {
-          "label": "Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        },
-        {
-          "label": "Length",
-          "value": "len",
-          "description": ""
-        },
-        {
-          "label": "Don't Create P Attribute",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Centroid",
-          "value": "centroid",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Maximum",
-          "value": "max",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "attrsclass",
-      "label": "Attributes Class",
-      "description": "Configure Attributes Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "group",
+      "name": "Group",
+      "parName": "group",
       "label": "Group",
-      "description": "Configure Group for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "If there are input groups, specifying a group name in this field will cause this POP to act only upon the group specified.",
+      "isReadOnly": false
     },
     {
-      "name": "numgroupelements",
+      "name": "Number of Elements in Group",
+      "parName": "numgroupelements",
       "label": "Number of Elements in Group",
-      "description": "Configure Number of Elements in Group for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Output an attribute with the number of elements in the selected group.",
+      "isReadOnly": false
     },
     {
-      "name": "inputattrs",
+      "name": "Input Attributes",
+      "parName": "inputattrs",
       "label": "Input Attributes",
-      "description": "Configure Input Attributes for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Input attributes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "*",
-      "label": "*",
-      "description": "Configure * for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "appendattrname",
+      "name": "Append Attrib Names to Output",
+      "parName": "appendattrname",
       "label": "Append Attrib Names to Output",
-      "description": "Configure Append Attrib Names to Output for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Makes the output attribute names include the name of the input attributes that are being analyzed, for clarity.",
+      "isReadOnly": false
     },
     {
-      "name": "combine",
+      "name": "Combine Components",
+      "parName": "combine",
       "label": "Combine Components",
-      "description": "Configure Combine Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Subtract",
-          "value": "sub",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mul",
-          "description": ""
-        },
-        {
-          "label": "Divide",
-          "value": "div",
-          "description": ""
-        },
-        {
-          "label": "Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        },
-        {
-          "label": "Length",
-          "value": "len",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "First perform an operation to combine all components of an attribute into one value, then analye the results.",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "add",
+        "sub",
+        "mul",
+        "div",
+        "avg",
+        "min",
+        "max",
+        "len"
+      ],
+      "menuLabels": [
+        "Off",
+        "Add",
+        "Subtract",
+        "Multiply",
+        "Divide",
+        "Average",
+        "Minimum",
+        "Maximum",
+        "Length"
       ]
     },
     {
-      "name": "off",
-      "label": "Off",
-      "description": "Configure Off for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Subtract",
-          "value": "sub",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mul",
-          "description": ""
-        },
-        {
-          "label": "Divide",
-          "value": "div",
-          "description": ""
-        },
-        {
-          "label": "Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        },
-        {
-          "label": "Length",
-          "value": "len",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "avg",
+      "name": "Average",
+      "parName": "avg",
       "label": "Average",
-      "description": "Configure Average for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
     },
     {
-      "name": "centroid",
+      "name": "Centroid",
+      "parName": "centroid",
       "label": "Centroid",
-      "description": "Configure Centroid for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Outputs the average of the minimum and maximum values of the attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "min",
+      "name": "Minimum",
+      "parName": "min",
       "label": "Minimum",
-      "description": "Configure Minimum for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
     },
     {
-      "name": "max",
+      "name": "Maximum",
+      "parName": "max",
       "label": "Maximum",
-      "description": "Configure Maximum for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
     },
     {
-      "name": "size",
+      "name": "Size",
+      "parName": "size",
       "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable size computation on the input attribute by subtracting the minimum value from the maximum values.",
+      "isReadOnly": false
     },
     {
-      "name": "minindex",
+      "name": "Index of Minimum",
+      "parName": "minindex",
       "label": "Index of Minimum",
-      "description": "Configure Index of Minimum for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Index of the element with the minimum value.",
+      "isReadOnly": false
     },
     {
-      "name": "maxindex",
+      "name": "Index of Maximum",
+      "parName": "maxindex",
       "label": "Index of Maximum",
-      "description": "Configure Index of Maximum for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Index of the element with the maximum value.",
+      "isReadOnly": false
     },
     {
-      "name": "sum",
+      "name": "Sum",
+      "parName": "sum",
       "label": "Sum",
-      "description": "Configure Sum for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Compute the sum of attribute or components of attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "rmspower",
+      "name": "RMS Power",
+      "parName": "rmspower",
       "label": "RMS Power",
-      "description": "Configure RMS Power for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable discrete root-mean-square power computation.",
+      "isReadOnly": false
     },
     {
-      "name": "numpointsvertsprims",
+      "name": "Num Points, Vertices, Primitives",
+      "parName": "numpointsvertsprims",
       "label": "Num Points, Vertices, Primitives",
-      "description": "Configure Num Points, Vertices, Primitives for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Output the number of points, vertices, and primitives, in attributes.",
+      "isReadOnly": false
     },
     {
-      "name": "numprimsbatch",
+      "name": "Num Prims/Verts per Type",
+      "parName": "numprimsbatch",
       "label": "Num Prims/Verts per Type",
-      "description": "Configure Num Prims/Verts per Type for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Output the number of primitives and vertices per primitive type in attributes.",
+      "isReadOnly": false
     },
     {
-      "name": "dimension",
+      "name": "Dimension",
+      "parName": "dimension",
       "label": "Dimension",
-      "description": "Configure Dimension for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Outputs the dimension sizes of this POP.",
+      "isReadOnly": false
     },
     {
-      "name": "pattrvals",
+      "name": "P Attribute Values",
+      "parName": "pattrvals",
       "label": "P Attribute Values",
-      "description": "Configure P Attribute Values for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Don't Create P Attribute",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Centroid",
-          "value": "centroid",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Maximum",
-          "value": "max",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "none",
-      "label": "Don't Create P Attribute",
-      "description": "Configure Don't Create P Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Don't Create P Attribute",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Centroid",
-          "value": "centroid",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Input Attribute Maximum",
-          "value": "max",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Choose which analyzed result to place in the P attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "avg",
+        "centroid",
+        "min",
+        "max"
+      ],
+      "menuLabels": [
+        "Don't Create P Attribute",
+        "Input Attribute Average",
+        "Input Attribute Centroid",
+        "Input Attribute Minimum",
+        "Input Attribute Maximum"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Analyze_POP.htm",
-  "parsedAt": "2025-08-08T03:03:54.093Z"
+  "parsedAt": "2025-08-08T03:03:54.093Z",
+  "url": "https://docs.derivative.ca/Analyze_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Analyze_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Analyze_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Analyze_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.335Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\CHOP_to_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/CHOP_to_TOP",
   "description": "The CHOP to TOP puts CHOP channels into a TOP image. By default the texture created will be 32-bit floating point to match the precision of the CHOP data. This can be changed setting the TOP's Pixel Format to something other than 'Input'.",
   "summary": "The CHOP to TOP puts CHOP channels into a TOP image. By default the texture created will be 32-bit floating point to match the precision of the CHOP data. This can be changed setting the TOP's Pixel F",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.962Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Import_Select_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Import_Select_SOP",
   "description": "The Import Select SOP is used to import and load the geometry types primitives defined in USD COMP and FBX COMP. It essentially loads any geometry type that USD COMP or FBX COMP can support such as a Mesh, Points, NURBS Curves or Patches, Basis Curves. Each geometry represents one primitive from the loading file or it can be a set of primitives merged together for better performance.",
   "summary": "The Import Select SOP is used to import and load the geometry types primitives defined in USD COMP and FBX COMP. It essentially loads any geometry type that USD COMP or FBX COMP can support such as a ",
   "details": "",

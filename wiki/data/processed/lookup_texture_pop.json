@@ -3,1492 +3,387 @@
   "id": "lookup_texture_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Lookup Texture POP in its simplest form takes two attributes (the Lookup Attribute U and the Lookup Attribute V) with values in the 0-1 range and for each point, uses the attribute value as an index into the pixels of a TOP, pulling the four RGBA values, and placing those values into POP attributes.",
+  "description": "The Lookup Texture POP in its simplest form takes two attributes (the Lookup Attribute U and the Lookup Attribute V) with values in the 0-1 range and for each point, uses the attribute value as an index into the pixels of a TOP, pulling the four RGBA values, and placing those values into POP attributes. If the U index is 0, it pulls values from the first column of the TOP, and if the index is 1 it pulls from the last column of the TOP. If the Lookup Index Units menu is set to Pixel Index, The lookup index can be expressed as pixel number, going from 0 to imagewidth-1. If the index is out of range, the Extend Left and Right menus determine what to do to the index before doing the lookup, such as holding it at 0 or 1, or cycling the value between 0 and 1. The Output Attribute Scope parameter determine what to do with each of the RGBA pixel values when they are retrieved - you can re-range the value before putting it in the specified output attribute. You can lookup into a 3D texture TOP by including an attribute component name in the Lookup Attribute W parameter. See also [[Lookup Attribute POP]], [[Lookup Channel POP]], [[Curve POP]] (Lookup page)",
   "parameters": [
     {
-      "name": "attrclass",
+      "name": "Attribute Class",
+      "parName": "attrclass",
       "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset0",
-          "description": ""
-        },
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset1",
-          "description": ""
-        },
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset2",
-          "description": ""
-        },
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex0",
-          "description": ""
-        },
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex1",
-          "description": ""
-        },
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex2",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered0",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered1",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered2",
-          "description": ""
-        },
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic0",
-          "description": ""
-        },
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic1",
-          "description": ""
-        },
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic2",
-          "description": ""
-        },
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend0",
-          "description": ""
-        },
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend1",
-          "description": ""
-        },
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend2",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow0",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow1",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow2",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow3",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh0",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh1",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh2",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh3",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow0",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow1",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow2",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow3",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh0",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh1",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh2",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh3",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "group",
+      "name": "Group",
+      "parName": "group",
       "label": "Group",
-      "description": "Configure Group for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "If there are input groups, specifying a group name in this field will cause this POP to act only upon the group specified.",
+      "isReadOnly": false
     },
     {
-      "name": "top",
+      "name": "TOP",
+      "parName": "top",
       "label": "TOP",
-      "description": "Configure TOP for the operator",
-      "type": "string"
+      "type": "TOP",
+      "description": "TOP to use for lookup.",
+      "isReadOnly": false
     },
     {
-      "name": "lookupattr0",
-      "label": "Lookup Attribute U",
-      "description": "Configure Lookup Attribute U for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lookupattr1",
-      "label": "Lookup Attribute V",
-      "description": "Configure Lookup Attribute V for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lookupattr2",
-      "label": "Lookup Attribute W",
-      "description": "Configure Lookup Attribute W for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lookupoffset",
-      "label": "Lookup Offset",
-      "description": "Configure Lookup Offset for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset0",
-          "description": ""
-        },
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset1",
-          "description": ""
-        },
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset2",
-          "description": ""
-        }
+      "name": "Lookup Index Units",
+      "parName": "indexunit",
+      "label": "Lookup Index Units",
+      "type": "Menu",
+      "description": "Units for lookup index attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "indexunit0",
+        "indexunit1",
+        "indexunit2"
+      ],
+      "menuLabels": [
+        "Lookup Index Units",
+        "Lookup Index Units",
+        "Lookup Index Units"
       ]
     },
     {
-      "name": "lookupoffset0",
-      "label": "Lookup Offset",
-      "description": "Configure Lookup Offset for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset0",
-          "description": ""
-        },
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset1",
-          "description": ""
-        },
-        {
-          "label": "Lookup Offset",
-          "value": "lookupoffset2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pixelindex",
-      "label": "Lookup Attr is Pixel Index",
-      "description": "Configure Lookup Attr is Pixel Index for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex0",
-          "description": ""
-        },
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex1",
-          "description": ""
-        },
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pixelindex0",
-      "label": "Lookup Attr is Pixel Index",
-      "description": "Configure Lookup Attr is Pixel Index for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex0",
-          "description": ""
-        },
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex1",
-          "description": ""
-        },
-        {
-          "label": "Lookup Attr is Pixel Index",
-          "value": "pixelindex2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pixelcentered",
+      "name": "Pixel Centered Sampling Location",
+      "parName": "pixelcentered",
       "label": "Pixel Centered Sampling Location",
-      "description": "Configure Pixel Centered Sampling Location for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered0",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered1",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered2",
-          "description": ""
-        }
+      "type": "Toggle",
+      "description": "Enable input remapping to sample pixels centers.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pixelcentered0",
+        "pixelcentered1",
+        "pixelcentered2"
+      ],
+      "menuLabels": [
+        "Pixel Centered Sampling Location",
+        "Pixel Centered Sampling Location",
+        "Pixel Centered Sampling Location"
       ]
     },
     {
-      "name": "pixelcentered0",
-      "label": "Pixel Centered Sampling Location",
-      "description": "Configure Pixel Centered Sampling Location for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered0",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered1",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered Sampling Location",
-          "value": "pixelcentered2",
-          "description": ""
-        }
+      "name": "Cyclic Index",
+      "parName": "cyclic",
+      "label": "Cyclic Index",
+      "type": "Toggle",
+      "description": "When enabled, the index wraps so the end connects back to the start, letting the full range map evenly across the cycle.",
+      "isReadOnly": false,
+      "menuItems": [
+        "cyclic0",
+        "cyclic1",
+        "cyclic2"
+      ],
+      "menuLabels": [
+        "Cyclic Index",
+        "Cyclic Index",
+        "Cyclic Index"
       ]
     },
     {
-      "name": "cyclic",
-      "label": "Cyclic Lookup",
-      "description": "Configure Cyclic Lookup for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic0",
-          "description": ""
-        },
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic1",
-          "description": ""
-        },
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "cyclic0",
-      "label": "Cyclic Lookup",
-      "description": "Configure Cyclic Lookup for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic0",
-          "description": ""
-        },
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic1",
-          "description": ""
-        },
-        {
-          "label": "Cyclic Lookup",
-          "value": "cyclic2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "inputextend",
+      "name": "Input Extend Mode",
+      "parName": "inputextend",
       "label": "Input Extend Mode",
-      "description": "Configure Input Extend Mode for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend0",
-          "description": ""
-        },
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend1",
-          "description": ""
-        },
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend2",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "What happens when the lookup index attribute is outside of the valid range (0 to 1 for normalized, 0 to numPixels-1 for Pixel Index)",
+      "isReadOnly": false,
+      "menuItems": [
+        "inputextend0",
+        "inputextend1",
+        "inputextend2"
+      ],
+      "menuLabels": [
+        "Input Extend Mode",
+        "Input Extend Mode",
+        "Input Extend Mode"
       ]
     },
     {
-      "name": "inputextend0",
-      "label": "Input Extend Mode",
-      "description": "Configure Input Extend Mode for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend0",
-          "description": ""
-        },
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend1",
-          "description": ""
-        },
-        {
-          "label": "Input Extend Mode",
-          "value": "inputextend2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "interpolate",
+      "name": "Interpolate",
+      "parName": "interpolate",
       "label": "Interpolate",
-      "description": "Configure Interpolate for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When on, the TOP can be interpolated between pixels. When off, the nearest pixel used.",
+      "isReadOnly": false
     },
     {
-      "name": "usedepthoffset",
+      "name": "Use Depth Offset",
+      "parName": "usedepthoffset",
       "label": "Use Depth Offset",
-      "description": "Configure Use Depth Offset for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable using the texture's depth offset for Texture 3D TOPs.",
+      "isReadOnly": false
     },
     {
-      "name": "channelmask",
+      "name": "Channel Mask",
+      "parName": "channelmask",
       "label": "Channel Mask",
-      "description": "Configure Channel Mask for the operator",
-      "type": "string"
+      "type": "Menu",
+      "description": "Allows to choose which color channels to sample in the TOP.",
+      "isReadOnly": false
     },
     {
-      "name": "fromlow",
+      "name": "From Low",
+      "parName": "fromlow",
       "label": "From Low",
-      "description": "Configure From Low for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Low",
-          "value": "fromlow0",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow1",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow2",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow3",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Reranges the index attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fromlow0",
+        "fromlow1",
+        "fromlow2",
+        "fromlow3"
+      ],
+      "menuLabels": [
+        "From Low",
+        "From Low",
+        "From Low",
+        "From Low"
       ]
     },
     {
-      "name": "fromlow0",
-      "label": "From Low",
-      "description": "Configure From Low for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Low",
-          "value": "fromlow0",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow1",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow2",
-          "description": ""
-        },
-        {
-          "label": "From Low",
-          "value": "fromlow3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "fromhigh",
+      "name": "From High",
+      "parName": "fromhigh",
       "label": "From High",
-      "description": "Configure From High for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From High",
-          "value": "fromhigh0",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh1",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh2",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh3",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Reranges the value resulting from the lookup.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fromhigh0",
+        "fromhigh1",
+        "fromhigh2",
+        "fromhigh3"
+      ],
+      "menuLabels": [
+        "From High",
+        "From High",
+        "From High",
+        "From High"
       ]
     },
     {
-      "name": "fromhigh0",
-      "label": "From High",
-      "description": "Configure From High for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From High",
-          "value": "fromhigh0",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh1",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh2",
-          "description": ""
-        },
-        {
-          "label": "From High",
-          "value": "fromhigh3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "tolow",
+      "name": "To Low",
+      "parName": "tolow",
       "label": "To Low",
-      "description": "Configure To Low for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "To Low",
-          "value": "tolow0",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow1",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow2",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow3",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Sets low value on the output range.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tolow0",
+        "tolow1",
+        "tolow2",
+        "tolow3"
+      ],
+      "menuLabels": [
+        "To Low",
+        "To Low",
+        "To Low",
+        "To Low"
       ]
     },
     {
-      "name": "tolow0",
-      "label": "To Low",
-      "description": "Configure To Low for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "To Low",
-          "value": "tolow0",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow1",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow2",
-          "description": ""
-        },
-        {
-          "label": "To Low",
-          "value": "tolow3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "tohigh",
+      "name": "To High",
+      "parName": "tohigh",
       "label": "To High",
-      "description": "Configure To High for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "To High",
-          "value": "tohigh0",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh1",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh2",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh3",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Sets high value on the output range.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tohigh0",
+        "tohigh1",
+        "tohigh2",
+        "tohigh3"
+      ],
+      "menuLabels": [
+        "To High",
+        "To High",
+        "To High",
+        "To High"
       ]
     },
     {
-      "name": "tohigh0",
-      "label": "To High",
-      "description": "Configure To High for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "To High",
-          "value": "tohigh0",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh1",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh2",
-          "description": ""
-        },
-        {
-          "label": "To High",
-          "value": "tohigh3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "outputattrscope",
+      "name": "Output Attribute Scope",
+      "parName": "outputattrscope",
       "label": "Output Attribute Scope",
-      "description": "Configure Output Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Name of attribute to output (can choose components of attribute), can choose from menu.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth"
+      ],
+      "menuLabels": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth"
       ]
     },
     {
-      "name": "P",
-      "label": "P",
-      "description": "Configure P for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overrideautoattr",
+      "name": "Override Automatic Attribute",
+      "parName": "overrideautoattr",
       "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to override the kind of attribute automatically created based on the POP input and parameters. Allows to specify manually the type and number of components of the new attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "newattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
+      "name": "Attribute Type",
+      "parName": "attrtype",
+      "label": "Attribute Type",
+      "type": "Menu",
+      "description": "The output attribute's data type, default float.",
+      "isReadOnly": false,
+      "menuItems": [
+        "float",
+        "double",
+        "int",
+        "uint",
+        "color",
+        "dcolor",
+        "dir",
+        "ddir"
+      ],
+      "menuLabels": [
+        "float",
+        "double",
+        "int",
+        "uint",
+        "Color",
+        "Color (double)",
+        "Direction",
+        "Direction (double)"
       ]
     },
     {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
+      "name": "Components",
+      "parName": "attrnumcomps",
+      "label": "Components",
+      "type": "Menu",
+      "description": "The number of components in the new custom attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "1",
+        "2",
+        "3",
+        "4"
       ]
     },
     {
-      "name": "attrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
+      "name": "Default Value",
+      "parName": "attrdefaultval",
+      "label": "Default Value",
+      "type": "Float",
+      "description": "Default values of the output attribute components if they cannot be computed.",
+      "isReadOnly": false,
+      "menuItems": [
+        "attrdefaultval0",
+        "attrdefaultval1",
+        "attrdefaultval2",
+        "attrdefaultval3"
+      ],
+      "menuLabels": [
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     },
     {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
+      "name": "Lookup Index Attribute U",
+      "parName": "lookupindexattr0",
+      "label": "Lookup Index Attribute U",
+      "type": "StrMenu",
+      "description": "Attribute to use as the index for the U coordinate of the lookup.",
+      "isReadOnly": false
     },
     {
-      "name": "newattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
+      "name": "Lookup Index Attribute V",
+      "parName": "lookupindexattr1",
+      "label": "Lookup Index Attribute V",
+      "type": "StrMenu",
+      "description": "Attribute to use as the index for the V coordinate of the lookup.",
+      "isReadOnly": false
     },
     {
-      "name": "newattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
+      "name": "Lookup Index Attribute W",
+      "parName": "lookupindexattr2",
+      "label": "Lookup Index Attribute W",
+      "type": "StrMenu",
+      "description": "Attribute to use as the index for the W coordinate of the lookup.",
+      "isReadOnly": false
     },
     {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "name": "Lookup Index Offset",
+      "parName": "lookupindexoffset",
+      "label": "Lookup Index Offset",
+      "type": "Float",
+      "description": "Offset for the lookup index.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lookupindexoffset0",
+        "lookupindexoffset1",
+        "lookupindexoffset2"
+      ],
+      "menuLabels": [
+        "Lookup Index Offset",
+        "Lookup Index Offset",
+        "Lookup Index Offset"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Lookup_Texture_POP.htm",
-  "parsedAt": "2025-08-08T03:03:57.175Z"
+  "parsedAt": "2025-08-08T03:03:57.175Z",
+  "url": "https://docs.derivative.ca/Lookup_Texture_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Lookup_Texture_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Lookup_Texture_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Lookup_Texture_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

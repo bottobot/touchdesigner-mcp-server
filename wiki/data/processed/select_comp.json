@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.259Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Select_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Select_COMP",
   "description": "The Select component selects a Panel Component from any other location. This allows a panel to appear in multiple other panels. Note that the Select component does not support child panels ie. through its output connector or embedded panels.",
   "summary": "The Select component selects a Panel Component from any other location. This allows a panel to appear in multiple other panels. Note that the Select component does not support child panels ie. through",
   "details": "",

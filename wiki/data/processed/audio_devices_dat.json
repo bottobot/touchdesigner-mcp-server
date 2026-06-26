@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.925Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Devices_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Devices_DAT",
   "description": "The Audio Devices DAT provides information about all detected audio devices including driver, direction (input or output), label, and name that can be referenced in the Audio Device In CHOP and Audio Device Out CHOP.",
   "summary": "The Audio Devices DAT provides information about all detected audio devices including driver, direction (input or output), label, and name that can be referenced in the Audio Device In CHOP and Audio ",
   "details": "",

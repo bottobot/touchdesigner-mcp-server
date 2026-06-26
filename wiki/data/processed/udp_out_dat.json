@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.672Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\UDP_Out_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/UDP_Out_DAT",
   "description": "The UDP Out DAT is used to send information over a UDP connection to/from a remotely-located computer. Use the sendBytes() or send() methods of the udpoutDAT_Class to send messages.",
   "summary": "The UDP Out DAT is used to send information over a UDP connection to/from a remotely-located computer. Use the sendBytes() or send() methods of the udpoutDAT_Class to send messages.",
   "details": "",

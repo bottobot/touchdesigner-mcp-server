@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:04.983Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Null_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Null_TOP",
   "description": "The Null TOP has no effect on the image. It is an instance of the TOP connected to its input. The Null TOP is often used when making reference to a TOP network, allowing new TOPs to be added to the network (upstream) without the need to update the reference.",
   "summary": "The Null TOP has no effect on the image. It is an instance of the TOP connected to its input. The Null TOP is often used when making reference to a TOP network, allowing new TOPs to be added to the ne",
   "details": "",

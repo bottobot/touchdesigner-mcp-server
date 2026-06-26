@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.928Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Sprinkle_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Sprinkle_SOP",
   "description": "The Sprinkle SOP is used to add points to either the surface or the volume of a SOP. You can create points on a surface, or within a closed volume based on the Method menu. The Surface method keeps the distribution of points constant per unit area of surface, whereas Per-Primitive gives each primitive, usually triangles, a constant number per primitive no matter their size.",
   "summary": "The Sprinkle SOP is used to add points to either the surface or the volume of a SOP. You can create points on a surface, or within a closed volume based on the Method menu. The Surface method keeps th",
   "details": "",

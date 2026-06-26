@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.263Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Rectangle_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Rectangle_SOP",
   "description": "The Rectangle SOP creates a 4-sided polygon. It is a planar surface. The rectangle can be explicitly sized, or sized from other sources such as at the camera's view frustum, or the bounding box of a SOP connected to this node's input.",
   "summary": "The Rectangle SOP creates a 4-sided polygon. It is a planar surface. The rectangle can be explicitly sized, or sized from other sources such as at the camera's view frustum, or the bounding box of a S",
   "details": "",

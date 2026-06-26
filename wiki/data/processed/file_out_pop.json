@@ -1,0 +1,239 @@
+{
+  "id": "file_out_pop",
+  "name": "File Out POP",
+  "displayName": "File Out POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/File_Out_POP",
+  "description": "The File Out POP allows you to write out POP contents to different file types. This includes point cloud and geometry file types. You can record a sequence of files by setting the Type parameter to File Sequence. You can toggle the Record parameter which will start to create files or, when paused, add single files at a time with the Add Frame pulse parameter. Some file formats have fixed attributes that File Out POP will look for such as the SPZ and OBJ file format, while other formats allow arbitrary point attribute writing such as the EXR and PLY file format. Only the OBJ format supports writing vertex attributes for Normal and Texture only, while no primitive attributes are written for any format. * <code>OBJ</code> - Requires <code>P(float3)</code>. Supports point and vertex Normals (<code>N</code> written as <code>vn</code>) and Texture (specified by Tex Coord Attrib parameter <code>vt</code>) attributes. Point Normals and Textures will be converted to vertex attributes while vertex attributes stay unchanged. Supports writing RGB Color attribute as an unofficial extension. Supports writing triangles and quads (<code>f</code>) and linestrips (<code>l</code>). * <code>SPZ</code> - Requires <code>P(float3)</code>, <code>Color(float4)</code>, <code>Scale(float3)</code>, and <code>Rot(float4)</code>. The spherical harmonics attribute <code>Sh</code> is optional and if present must be size 3, 8, or 15 corresponding with the [https://github.com/nianticlabs/spz?tab=readme-ov-file#spherical-harmonics spherical harmonics degree] * <code>E57</code> - Requires <code>P(float3)</code>. Supports point <code>Color</code> and <code>N</code>. * <code>PLY</code> - Supports arbitrary point attribute writing. Support geometry writing. * <code>EXR</code> - Supports arbitrary point attribute writing. When array attributes are written, if an array index is not specified (i.e. <code>Arr</code> instead of <code>Arr[4]</code>). It will loop through and replace <code>$i</code> in the output channel with the array index similar to the [[Point File In POP]]. Frames per Second determines the number of files to output per second of the timeline. See also [[Alembic Out POP]], [[File In POP]], [[Point File In POP]].",
+  "parameters": [
+    {
+      "name": "Type",
+      "parName": "type",
+      "label": "Type",
+      "type": "Menu",
+      "description": "Choose to output to a single file per Record/Add, or a sequentially-named sequence of files while it is recording.",
+      "isReadOnly": false,
+      "menuItems": [
+        "file",
+        "filesequence"
+      ],
+      "menuLabels": [
+        "File",
+        "File Sequence"
+      ]
+    },
+    {
+      "name": "Object File Type",
+      "parName": "objectfiletype",
+      "label": "Object File Type",
+      "type": "Menu",
+      "description": "The object file format type.",
+      "isReadOnly": false,
+      "menuItems": [
+        "obj",
+        "exr",
+        "ply",
+        "spz",
+        "e57"
+      ],
+      "menuLabels": [
+        "OBJ",
+        "EXR",
+        "PLY",
+        "SPZ",
+        "E57"
+      ]
+    },
+    {
+      "name": "Unique Suffix",
+      "parName": "uniquesuff",
+      "label": "Unique Suffix",
+      "type": "Toggle",
+      "description": "When enabled, <code>me.fileSuffix</code> will be a unique suffix when used in the file parameter.",
+      "isReadOnly": false
+    },
+    {
+      "name": "N",
+      "parName": "n",
+      "label": "N",
+      "type": "Int",
+      "description": "N is the index used in <code>me.fileSuffix</code>. When unique suffix is enabled, N specifies the starting index to increment from when calculating a unique suffix/name.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Leading Zeros Digits",
+      "parName": "leadingzerosdigits",
+      "label": "Leading Zeros Digits",
+      "type": "Int",
+      "description": "Specify the minimum number of suffix digits that the filename will have. If the sequence number is less than this number, leading zeros will be appended to total the number of suffix digits to be this value. Enabled only for File Sequences.",
+      "isReadOnly": false
+    },
+    {
+      "name": "File",
+      "parName": "file",
+      "label": "File",
+      "type": "File",
+      "description": "Sets the path and filename of the movie file that is saved out. The filename must include the file extension such as .obj/.exr etc.",
+      "isReadOnly": false
+    },
+    {
+      "name": "FPS",
+      "parName": "fps",
+      "label": "FPS",
+      "type": "Float",
+      "description": "The frame rate of the file sequence with respect to the timeline FPS.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Limit Length",
+      "parName": "limitlength",
+      "label": "Limit Length",
+      "type": "Toggle",
+      "description": "This can be used to automatically stop recording the file once it reaches a specified length.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Length",
+      "parName": "length",
+      "label": "Length",
+      "type": "Float",
+      "description": "The length to stop recording the file at.",
+      "isReadOnly": false,
+      "menuItems": [
+        "length",
+        "lengthunit"
+      ],
+      "menuLabels": [
+        "Length",
+        "Length Unit"
+      ]
+    },
+    {
+      "name": "Record",
+      "parName": "record",
+      "label": "Record",
+      "type": "Toggle",
+      "description": "When this parameter is set to 1, the file will be recording.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Record Pulse",
+      "parName": "recordpulse",
+      "label": "Record Pulse",
+      "type": "Pulse",
+      "description": "Instantly write out a file.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Pause",
+      "parName": "pause",
+      "label": "Pause",
+      "type": "Toggle",
+      "description": "Pauses the recording.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Add Frame",
+      "parName": "addframe",
+      "label": "Add Frame",
+      "type": "Pulse",
+      "description": "Adds a single frame to the output for each click of the button. Pause must be '''On''' to enable the Add Frame parameter.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Max Active Saves",
+      "parName": "maxactive",
+      "label": "Max Active Saves",
+      "type": "Int",
+      "description": "Specifies the maximum number of file saving tasks can be running at once.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Include Primitives",
+      "parName": "includeprim",
+      "label": "Include Primitives",
+      "type": "Toggle",
+      "description": "This can be used to enable writing primtive data to the file.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Tex Coord Attribute",
+      "parName": "texcoordattrib",
+      "label": "Tex Coord Attribute",
+      "type": "Str",
+      "description": "When writing out to geometry files including texture coordinates, the name of the texture attribute to use (doesn't have to be <code>Tex</code>).",
+      "isReadOnly": false
+    },
+    {
+      "name": "Output Color Space",
+      "parName": "outputcolorspace",
+      "label": "Output Color Space",
+      "type": "Menu",
+      "description": "Override / set the color space, or use the color space in the file, or assume default if there is none.",
+      "isReadOnly": false,
+      "menuItems": [
+        "srgb",
+        "srgblinear",
+        "rec601ntsc",
+        "rec709",
+        "rec2020",
+        "rec2020st2084pq",
+        "rec2020hlg",
+        "dcip3",
+        "dcip3d60",
+        "displayp3d65",
+        "aces2065-1",
+        "acescg",
+        "acesproxy",
+        "passthrough"
+      ],
+      "menuLabels": [
+        "sRGB",
+        "sRGB - Linear",
+        "Rec.601 (NTSC)",
+        "Rec.709",
+        "Rec.2020",
+        "Rec.2020 ST2084PQ",
+        "Rec.2020 HLG",
+        "DCI-P3",
+        "DCI-P3 (D60)",
+        "Display P3 (D65)",
+        "ACES2065-1",
+        "ACEScg",
+        "ACESproxy",
+        "Passthrough"
+      ]
+    },
+    {
+      "name": "Attribute",
+      "parName": "attr",
+      "label": "Attribute",
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to create fields in the file from attributes.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=File_Out_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live File_Out_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=File_Out_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

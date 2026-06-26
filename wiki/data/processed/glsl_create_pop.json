@@ -1,0 +1,273 @@
+{
+  "id": "glsl_create_pop",
+  "name": "GLSL Create POP",
+  "displayName": "GLSL Create POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/GLSL_Create_POP",
+  "description": "This POP is deprecated and will be removed. Use GLSL Advanced POP with or without Topology POP to create primitives with GLSL instead.",
+  "parameters": [
+    {
+      "name": "Compute Shader",
+      "parName": "computedat",
+      "label": "Compute Shader",
+      "type": "DAT",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Primitive Type",
+      "parName": "primtype",
+      "label": "Primitive Type",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "triangle",
+        "quads",
+        "lines",
+        "points"
+      ],
+      "menuLabels": [
+        "Triangles",
+        "Quads",
+        "Lines",
+        "Points"
+      ]
+    },
+    {
+      "name": "Max Number of Primitives",
+      "parName": "maxprims",
+      "label": "Max Number of Primitives",
+      "type": "Int",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Indirect",
+      "parName": "indirect",
+      "label": "Indirect",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Number of Threads",
+      "parName": "numthreadsmode",
+      "label": "Number of Threads",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "auto",
+        "manual"
+      ],
+      "menuLabels": [
+        "Auto",
+        "Manual"
+      ]
+    },
+    {
+      "name": "Work Group Size",
+      "parName": "workgroupsize",
+      "label": "Work Group Size",
+      "type": "Int",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "workgroupsizex",
+        "workgroupsizey",
+        "workgroupsizez"
+      ],
+      "menuLabels": [
+        "Work Group Size",
+        "Work Group Size",
+        "Work Group Size"
+      ]
+    },
+    {
+      "name": "Dispatch Size",
+      "parName": "dispatchsize",
+      "label": "Dispatch Size",
+      "type": "Int",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "dispatchsizex",
+        "dispatchsizey",
+        "dispatchsizez"
+      ],
+      "menuLabels": [
+        "Dispatch Size",
+        "Dispatch Size",
+        "Dispatch Size"
+      ]
+    },
+    {
+      "name": "POPs",
+      "parName": "pops",
+      "label": "POPs",
+      "type": "POP",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Vector",
+      "parName": "vec",
+      "label": "Vector",
+      "type": "Sequence",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "float",
+        "vec2",
+        "vec3",
+        "vec4",
+        "double",
+        "dvec2",
+        "dvec3",
+        "dvec4",
+        "int",
+        "ivec2",
+        "ivec3",
+        "ivec4",
+        "uint",
+        "uvec2",
+        "uvec3",
+        "uvec4",
+        "vec0valuex",
+        "vec0valuey",
+        "vec0valuez",
+        "vec0valuew"
+      ],
+      "menuLabels": [
+        "float",
+        "vec2",
+        "vec3",
+        "vec4",
+        "double",
+        "dvec2",
+        "dvec3",
+        "dvec4",
+        "int",
+        "ivec2",
+        "ivec3",
+        "ivec4",
+        "uint",
+        "uvec2",
+        "uvec3",
+        "uvec4",
+        "Value",
+        "Value",
+        "Value",
+        "Value"
+      ]
+    },
+    {
+      "name": "Sampler",
+      "parName": "sampler",
+      "label": "Sampler",
+      "type": "Sequence",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "hold",
+        "zero",
+        "repeat",
+        "mirror",
+        "hold",
+        "zero",
+        "repeat",
+        "mirror",
+        "hold",
+        "zero",
+        "repeat",
+        "mirror",
+        "nearest",
+        "linear"
+      ],
+      "menuLabels": [
+        "Hold",
+        "Zero",
+        "Repeat",
+        "Mirror",
+        "Hold",
+        "Zero",
+        "Repeat",
+        "Mirror",
+        "Hold",
+        "Zero",
+        "Repeat",
+        "Mirror",
+        "Nearest Pixel",
+        "Interpolate Pixels"
+      ]
+    },
+    {
+      "name": "Array",
+      "parName": "array",
+      "label": "Array",
+      "type": "Sequence",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "float",
+        "vec2",
+        "vec3",
+        "vec4"
+      ],
+      "menuLabels": [
+        "float",
+        "vec2",
+        "vec3",
+        "vec4"
+      ]
+    },
+    {
+      "name": "Matrix",
+      "parName": "matrix",
+      "label": "Matrix",
+      "type": "Sequence",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Atomic Counter",
+      "parName": "ac",
+      "label": "Atomic Counter",
+      "type": "Sequence",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Constant",
+      "parName": "const",
+      "label": "Constant",
+      "type": "Sequence",
+      "description": "",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=GLSL_Create_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live GLSL_Create_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=GLSL_Create_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.758Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Constraint_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Constraint_COMP",
   "description": "A Constraint COMP is used to restrict the movement of the bodies in a set of Actor COMPs. Currently this can be done in a few ways: point to point, hinge or slider. Constraints can either be applied on a single body or between two bodies. Constraints can be used to create connectivity between bodies, or to create bodies that can move but need to have that movement restricted in some way. Some examples of constraints in the real world: a train, a door, an arm.",
   "summary": "A Constraint COMP is used to restrict the movement of the bodies in a set of Actor COMPs. Currently this can be done in a few ways: point to point, hinge or slider. Constraints can either be applied o",
   "details": "",

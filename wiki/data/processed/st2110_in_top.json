@@ -1,0 +1,199 @@
+{
+  "id": "st2110_in_top",
+  "name": "ST2110 In TOP",
+  "displayName": "ST2110 In TOP",
+  "category": "TOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/ST2110_In_TOP",
+  "description": "Support for [[Blackmagic_Design|Blackmagic IP range]], [https://www.aja.com/products/kona-ip25 AJA IP25] and Deltacast DELTA-ip-ST2110 devices. See also [[ST2110 Out TOP]], [[ST2110 Device CHOP]].",
+  "parameters": [
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "Toggle",
+      "description": "Controls if this input has it's connection open and is capturing data.",
+      "isReadOnly": false
+    },
+    {
+      "name": "ST2110 Device CHOP",
+      "parName": "st2110devicechop",
+      "label": "ST2110 Device CHOP",
+      "type": "CHOP",
+      "description": "Since a NIC has one set of settings such as DHCP/IP settings, that is controlled for each device using the [[ST2110 Device CHOP]]. This node will use that device to discover available input channels, and use the settings configured in that node for it's operation.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Device",
+      "parName": "device",
+      "label": "Device",
+      "type": "Menu",
+      "description": "Will be populated when the [[ST2110 Device CHOP]] is active and configured properly. Select which input channel on the device to use.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Setup Mode",
+      "parName": "setupmode",
+      "label": "Setup Mode",
+      "type": "Menu",
+      "description": "Controls how this node configures it's input streams.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sdpparameters",
+        "nmos"
+      ],
+      "menuLabels": [
+        "SDP Parameters",
+        "NMOS"
+      ]
+    },
+    {
+      "name": "Video SDP",
+      "parName": "videosdp",
+      "label": "Video SDP",
+      "type": "Str",
+      "description": "The SDP string for the video essence.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Audio SDP",
+      "parName": "audiosdp",
+      "label": "Audio SDP",
+      "type": "Str",
+      "description": "The SDP string for the audio essence.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Ancillary SDP",
+      "parName": "ancillarysdp",
+      "label": "Ancillary SDP",
+      "type": "Str",
+      "description": "The SDP string for the ancillary essence.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Set Source IP from SDP",
+      "parName": "setsourceipfromsdp",
+      "label": "Set Source IP from SDP",
+      "type": "Toggle",
+      "description": "On devices that support it, this causes the Source IP to also be assigned to the device's configuration, based on what is in the SDP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Main Stream Identifier",
+      "parName": "mainstreamidentifier",
+      "label": "Main Stream Identifier",
+      "type": "Str",
+      "description": "Default's to 'primary' when blank, controls the name of identifier to select the section of the SDP to use, for the main stream.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Stream Identifier",
+      "parName": "spsstreamidentifier",
+      "label": "SPS Stream Identifier",
+      "type": "Str",
+      "description": "Default's to 'secondary' when blank, controls the name of identifier to select the section of the SDP to use, for the SPS stream.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Deinterlace",
+      "parName": "deinterlace",
+      "label": "Deinterlace",
+      "type": "Menu",
+      "description": "Controls how the content is deinterlaced, if desired.",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "even",
+        "odd",
+        "bob"
+      ],
+      "menuLabels": [
+        "Off",
+        "Even",
+        "Odd",
+        "Bob (Split)"
+      ]
+    },
+    {
+      "name": "Field Precedence",
+      "parName": "precedence",
+      "label": "Field Precedence",
+      "type": "Menu",
+      "description": "When using 'Bob (Split)' deinterlacing, controls which field is used as the first frame of the two fields.",
+      "isReadOnly": false,
+      "menuItems": [
+        "even",
+        "odd"
+      ],
+      "menuLabels": [
+        "Even",
+        "Odd"
+      ]
+    },
+    {
+      "name": "Input Pixel Format",
+      "parName": "inputpixelformat",
+      "label": "Input Pixel Format",
+      "type": "Menu",
+      "description": "Controls the bit depth to convert the input signal into when uploading the data to the GPU.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fixed8",
+        "fixed10"
+      ],
+      "menuLabels": [
+        "8-bit",
+        "10-bit"
+      ]
+    },
+    {
+      "name": "Transfer Mode",
+      "parName": "transfermode",
+      "label": "Transfer Mode",
+      "type": "Menu",
+      "description": "Controls the strategy used to upload images to the GPU.",
+      "isReadOnly": false,
+      "menuItems": [
+        "automatic",
+        "preupload",
+        "ondemand"
+      ],
+      "menuLabels": [
+        "Automatic",
+        "Pre-Upload",
+        "On-Demand"
+      ]
+    },
+    {
+      "name": "Reset Stats",
+      "parName": "resetstats",
+      "label": "Reset Stats",
+      "type": "Pulse",
+      "description": "Reset the stats given from the [[Info CHOP]].",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ST2110_In_TOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live ST2110_In_TOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=ST2110_In_TOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

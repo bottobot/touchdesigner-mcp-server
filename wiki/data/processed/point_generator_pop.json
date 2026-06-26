@@ -3,1405 +3,407 @@
   "id": "point_generator_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Point Generator POP creates a specified number of points, either randomly or in a pattern, on the surface of shape or within the volume of a closed shape.",
+  "description": "The Point Generator POP creates a specified number of points, either randomly or in a pattern, on the surface of shape or within the volume of a closed shape. The Shape is not a set of polygons (see [[Sprinkle POP]] for that) but is a common mathematical shape like a sphere, circle, box, cylinder, torus, rectangle or line, whose shape and position/scale/rotation is controlled with POP parameters. A menu chooses between points on a surface, or points within its volume. Volumes should be closed surfaces, but Point Generator still gives a distribution of points around holes of non-closed surfaces. A Random toggle, when off, gives predictable but patterned distribution of points on/in surfaces. There are controls of orientation axis and angles of the basic shapes. Note: Presently there is no option to make the distribution of points be uniform per unit of surface area. For example, triangles get approximately the same number of points on small triangles as on large triangles. (future option) A Random distribution of points along a line segment in Line mode is controlled with two points in XYZ. You can add normal (<code>N</code> float3) and tangent (<code>T</code> float4) attribute vectors on points, vertices or primitives, with some choices of further randomization of these attributes. See also [[Sprinkle POP]], [[Random POP]], [[Noise POP]]",
   "parameters": [
     {
-      "name": "N",
+      "name": "Shape",
+      "parName": "shape",
       "label": "Shape",
-      "description": "Configure Shape for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Sphere",
-          "value": "sphere",
-          "description": ""
-        },
-        {
-          "label": "Box",
-          "value": "box",
-          "description": ""
-        },
-        {
-          "label": "Torus",
-          "value": "torus",
-          "description": ""
-        },
-        {
-          "label": "Tube",
-          "value": "tube",
-          "description": ""
-        },
-        {
-          "label": "Rectangle",
-          "value": "rectangle",
-          "description": ""
-        },
-        {
-          "label": "Circle",
-          "value": "circle",
-          "description": ""
-        },
-        {
-          "label": "Line",
-          "value": "line",
-          "description": ""
-        },
-        {
-          "label": "Volume",
-          "value": "volume",
-          "description": ""
-        },
-        {
-          "label": "Surface",
-          "value": "surface",
-          "description": ""
-        },
-        {
-          "label": "XY Plane",
-          "value": "xy",
-          "description": ""
-        },
-        {
-          "label": "YZ Plane",
-          "value": "yz",
-          "description": ""
-        },
-        {
-          "label": "ZX Plane",
-          "value": "zx",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size3",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radius1",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radius2",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radius3",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa1",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa2",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa3",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb1",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb2",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb3",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertNormals",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primNormals",
-          "description": ""
-        },
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "random",
-          "description": ""
-        },
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Random to Normal",
-          "value": "randomtonormal",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "random",
-          "description": ""
-        },
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        },
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sx",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sz",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Sets the points generated shape.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sphere",
+        "box",
+        "torus",
+        "tube",
+        "rectangle",
+        "circle",
+        "line"
+      ],
+      "menuLabels": [
+        "Sphere",
+        "Box",
+        "Torus",
+        "Tube",
+        "Rectangle",
+        "Circle",
+        "Line"
       ]
     },
     {
-      "name": "shape",
-      "label": "Shape",
-      "description": "Configure Shape for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Sphere",
-          "value": "sphere",
-          "description": ""
-        },
-        {
-          "label": "Box",
-          "value": "box",
-          "description": ""
-        },
-        {
-          "label": "Torus",
-          "value": "torus",
-          "description": ""
-        },
-        {
-          "label": "Tube",
-          "value": "tube",
-          "description": ""
-        },
-        {
-          "label": "Rectangle",
-          "value": "rectangle",
-          "description": ""
-        },
-        {
-          "label": "Circle",
-          "value": "circle",
-          "description": ""
-        },
-        {
-          "label": "Line",
-          "value": "line",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sphere",
-      "label": "Sphere",
-      "description": "Configure Sphere for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Sphere",
-          "value": "sphere",
-          "description": ""
-        },
-        {
-          "label": "Box",
-          "value": "box",
-          "description": ""
-        },
-        {
-          "label": "Torus",
-          "value": "torus",
-          "description": ""
-        },
-        {
-          "label": "Tube",
-          "value": "tube",
-          "description": ""
-        },
-        {
-          "label": "Rectangle",
-          "value": "rectangle",
-          "description": ""
-        },
-        {
-          "label": "Circle",
-          "value": "circle",
-          "description": ""
-        },
-        {
-          "label": "Line",
-          "value": "line",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "createpointprim",
+      "name": "Create Point Primitives",
+      "parName": "createpointprim",
       "label": "Create Point Primitives",
-      "description": "Configure Create Point Primitives for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable creating point primitives",
+      "isReadOnly": false
     },
     {
-      "name": "numpoints",
+      "name": "Number of Points",
+      "parName": "numpoints",
       "label": "Number of Points",
-      "description": "Configure Number of Points for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Sets the number of points.",
+      "isReadOnly": false
     },
     {
-      "name": "distribution",
+      "name": "Distribution",
+      "parName": "distribution",
       "label": "Distribution",
-      "description": "Configure Distribution for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Volume",
-          "value": "volume",
-          "description": ""
-        },
-        {
-          "label": "Surface",
-          "value": "surface",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines what distribution type is returned",
+      "isReadOnly": false,
+      "menuItems": [
+        "volume",
+        "surface"
+      ],
+      "menuLabels": [
+        "Volume",
+        "Surface"
       ]
     },
     {
-      "name": "volume",
-      "label": "Volume",
-      "description": "Configure Volume for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Volume",
-          "value": "volume",
-          "description": ""
-        },
-        {
-          "label": "Surface",
-          "value": "surface",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "random",
+      "name": "Random",
+      "parName": "random",
       "label": "Random",
-      "description": "Configure Random for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable random surface distribution.",
+      "isReadOnly": false
     },
     {
-      "name": "seed",
+      "name": "Seed",
+      "parName": "seed",
       "label": "Seed",
-      "description": "Configure Seed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Numerical value that initializes the randomization.",
+      "isReadOnly": false
     },
     {
-      "name": "orientation",
+      "name": "Orientation",
+      "parName": "orient",
       "label": "Orientation",
-      "description": "Configure Orientation for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "XY Plane",
-          "value": "xy",
-          "description": ""
-        },
-        {
-          "label": "YZ Plane",
-          "value": "yz",
-          "description": ""
-        },
-        {
-          "label": "ZX Plane",
-          "value": "zx",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the point cloud orientation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "default",
+        "xy",
+        "yz",
+        "zx"
+      ],
+      "menuLabels": [
+        "Default",
+        "XY Plane (Z axis)",
+        "YZ Plane (X axis)",
+        "ZX Plane (Y axis)"
       ]
     },
     {
-      "name": "xy",
-      "label": "XY Plane",
-      "description": "Configure XY Plane for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "XY Plane",
-          "value": "xy",
-          "description": ""
-        },
-        {
-          "label": "YZ Plane",
-          "value": "yz",
-          "description": ""
-        },
-        {
-          "label": "ZX Plane",
-          "value": "zx",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "size",
+      "name": "Size",
+      "parName": "size",
       "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size3",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The geometry 3D size.",
+      "isReadOnly": false,
+      "menuItems": [
+        "size1",
+        "size2",
+        "size3",
+        "sizex",
+        "sizey",
+        "sizez"
+      ],
+      "menuLabels": [
+        "Size",
+        "Size",
+        "Size",
+        "Size",
+        "Size",
+        "Size"
       ]
     },
     {
-      "name": "size1",
-      "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "radius",
+      "name": "Radius",
+      "parName": "radius",
       "label": "Radius",
-      "description": "Configure Radius for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Radius",
-          "value": "radius1",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radius2",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radius3",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Radius.",
+      "isReadOnly": false,
+      "menuItems": [
+        "radius1",
+        "radius2",
+        "radius3",
+        "radiusx",
+        "radiusy",
+        "radiusz"
+      ],
+      "menuLabels": [
+        "Radius",
+        "Radius",
+        "Radius",
+        "Radius",
+        "Radius",
+        "Radius"
       ]
     },
     {
-      "name": "radius1",
-      "label": "Radius",
-      "description": "Configure Radius for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Radius",
-          "value": "radius1",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radius2",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radius3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "height",
+      "name": "Height",
+      "parName": "height",
       "label": "Height",
-      "description": "Configure Height for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "The height of the tube.",
+      "isReadOnly": false
     },
     {
-      "name": "pointa",
+      "name": "Point A",
+      "parName": "pointa",
       "label": "Point A",
-      "description": "Configure Point A for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point A",
-          "value": "pointa1",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa2",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa3",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Line first point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointa1",
+        "pointa2",
+        "pointa3",
+        "pointax",
+        "pointay",
+        "pointaz"
+      ],
+      "menuLabels": [
+        "Point A",
+        "Point A",
+        "Point A",
+        "Point A",
+        "Point A",
+        "Point A"
       ]
     },
     {
-      "name": "pointa1",
-      "label": "Point A",
-      "description": "Configure Point A for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point A",
-          "value": "pointa1",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa2",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pointb",
+      "name": "Point B",
+      "parName": "pointb",
       "label": "Point B",
-      "description": "Configure Point B for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point B",
-          "value": "pointb1",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb2",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb3",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Line second point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointb1",
+        "pointb2",
+        "pointb3",
+        "pointbx",
+        "pointby",
+        "pointbz"
+      ],
+      "menuLabels": [
+        "Point B",
+        "Point B",
+        "Point B",
+        "Point B",
+        "Point B",
+        "Point B"
       ]
     },
     {
-      "name": "pointb1",
-      "label": "Point B",
-      "description": "Configure Point B for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point B",
-          "value": "pointb1",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb2",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "normal",
+      "name": "Normal",
+      "parName": "normal",
       "label": "Normal",
-      "description": "Configure Normal for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertNormals",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primNormals",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Choose whether to create a normal attribute and the attribute class of the normal attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "pointNormals",
+        "vertNormals",
+        "primNormals"
+      ],
+      "menuLabels": [
+        "None",
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "none",
-      "label": "None",
-      "description": "Configure None for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertNormals",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primNormals",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "normaldirection",
+      "name": "Normal Direction",
+      "parName": "normaldirection",
       "label": "Normal Direction",
-      "description": "Configure Normal Direction for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "random",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Choose the normal direction.",
+      "isReadOnly": false,
+      "menuItems": [
+        "default",
+        "random"
+      ],
+      "menuLabels": [
+        "Default",
+        "Random"
       ]
     },
     {
-      "name": "default",
-      "label": "Default",
-      "description": "Configure Default for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "random",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "dotangent",
+      "name": "Tangent",
+      "parName": "dotangent",
       "label": "Tangent",
-      "description": "Configure Tangent for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Random to Normal",
-          "value": "randomtonormal",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "random",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the tangent mode.",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "default",
+        "randomtonormal",
+        "random"
+      ],
+      "menuLabels": [
+        "Off",
+        "Default",
+        "Random to Normal",
+        "Random"
       ]
     },
     {
-      "name": "off",
-      "label": "Off",
-      "description": "Configure Off for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Random to Normal",
-          "value": "randomtonormal",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "random",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "xord",
+      "name": "Transform Order",
+      "parName": "xord",
       "label": "Transform Order",
-      "description": "Configure Transform Order for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the overall transform order for the transformations.",
+      "isReadOnly": false,
+      "menuItems": [
+        "srt",
+        "str",
+        "rst",
+        "rts",
+        "tsr",
+        "trs"
+      ],
+      "menuLabels": [
+        "Scale Rotate Translate",
+        "Scale Translate Rotate",
+        "Rotate Scale Translate",
+        "Rotate Translate Scale",
+        "Translate Scale Rotate",
+        "Translate Rotate Scale"
       ]
     },
     {
-      "name": "srt",
-      "label": "Scale Rotate Translate",
-      "description": "Configure Scale Rotate Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rord",
+      "name": "Rotate Order",
+      "parName": "rord",
       "label": "Rotate Order",
-      "description": "Configure Rotate Order for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the order of the rotations within the overall transform order.",
+      "isReadOnly": false,
+      "menuItems": [
+        "xyz",
+        "xzy",
+        "yxz",
+        "yzx",
+        "zxy",
+        "zyx"
+      ],
+      "menuLabels": [
+        "Rx Ry Rz",
+        "Rx Rz Ry",
+        "Ry Rx Rz",
+        "Ry Rz Rx",
+        "Rz Rx Ry",
+        "Rz Ry Rx"
       ]
     },
     {
-      "name": "xyz",
-      "label": "Rx Ry Rz",
-      "description": "Configure Rx Ry Rz for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "t",
+      "name": "Translate",
+      "parName": "t",
       "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Translate the points in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty",
+        "tz"
+      ],
+      "menuLabels": [
+        "Translate",
+        "Translate",
+        "Translate"
       ]
     },
     {
-      "name": "tx",
-      "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "r",
+      "name": "Rotate",
+      "parName": "r",
       "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Rotate the points around the corresponding X, Y and Z axes. Angles are given in degrees.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rx",
+        "ry",
+        "rz"
+      ],
+      "menuLabels": [
+        "Rotate",
+        "Rotate",
+        "Rotate"
       ]
     },
     {
-      "name": "rx",
-      "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "s",
+      "name": "Scale",
+      "parName": "s",
       "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "sx",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "These three fields scale the Source geometry in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sx",
+        "sy",
+        "sz"
+      ],
+      "menuLabels": [
+        "Scale",
+        "Scale",
+        "Scale"
       ]
     },
     {
-      "name": "sx",
-      "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "sx",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "p",
+      "name": "Pivot",
+      "parName": "p",
       "label": "Pivot",
-      "description": "Configure Pivot for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "px",
-      "label": "Pivot",
-      "description": "Configure Pivot for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "XYZW",
+      "description": "The pivot point for the transform rotates and scales.",
+      "isReadOnly": false,
+      "menuItems": [
+        "px",
+        "py",
+        "pz"
+      ],
+      "menuLabels": [
+        "Pivot",
+        "Pivot",
+        "Pivot"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Point_Generator_POP.htm",
-  "parsedAt": "2025-08-08T03:03:58.538Z"
+  "parsedAt": "2025-08-08T03:03:58.538Z",
+  "url": "https://docs.derivative.ca/Point_Generator_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Point_Generator_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Point_Generator_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Point_Generator_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

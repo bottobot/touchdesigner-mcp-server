@@ -31,16 +31,16 @@ import * as compareOperatorsTool from './tools/compare_operators.js';
 import * as getVersionInfoTool from './tools/get_version_info.js';
 import * as listVersionsTool from './tools/list_versions.js';
 
-// Import experimental techniques tools (v2.9)
+// Import experimental techniques tools
 import * as getExperimentalTechniquesTool from './tools/get_experimental_techniques.js';
 import * as searchExperimentalTool from './tools/search_experimental.js';
 import * as getGlslPatternTool from './tools/get_glsl_pattern.js';
 
-// Import core enhancement tools (v2.10)
+// Import core enhancement tools
 import * as getOperatorConnectionsTool from './tools/get_operator_connections.js';
 import * as getNetworkTemplateTool from './tools/get_network_template.js';
 
-// Import experimental build tools (v2.11)
+// Import experimental build tools
 import * as getExperimentalBuildTool from './tools/get_experimental_build.js';
 import * as listExperimentalBuildsTool from './tools/list_experimental_builds.js';
 
@@ -62,7 +62,7 @@ const server = new McpServer({
 const operatorDataManager = new OperatorDataManager({
     wikiPath: join(__dirname, 'wiki'),
     dataPath: join(__dirname, 'wiki', 'data'),
-    processedPath: join(__dirname, 'wiki', 'data', 'processed'), // Point to processed directory with all 649 operators
+    processedPath: join(__dirname, 'wiki', 'data', 'processed'), // Operator data directory (processed operator JSON)
     searchIndexPath: join(__dirname, 'wiki', 'data', 'search-index'),
     enablePersistence: true,
     autoIndex: true,
@@ -71,7 +71,7 @@ const operatorDataManager = new OperatorDataManager({
     // Progress reporting
     progressCallback: (progress) => {
         if (progress.processed % 100 === 0 || progress.complete) {
-            console.log(`[Wiki] Processing progress: ${progress.percentage}% (${progress.processed}/${progress.total})`);
+            console.error(`[Wiki] Processing progress: ${progress.percentage}% (${progress.processed}/${progress.total})`);
         }
     },
     progressInterval: 100 // Report every 100 files
@@ -85,10 +85,10 @@ let workflowPatterns = null;
 // Load workflow patterns
 async function loadPatterns() {
   try {
-    console.log(`[Patterns] Loading from: ${PATTERNS_PATH}`);
+    console.error(`[Patterns] Loading from: ${PATTERNS_PATH}`);
     const content = await fs.readFile(PATTERNS_PATH, 'utf-8');
     workflowPatterns = JSON.parse(content);
-    console.log(`[Patterns] Loaded ${workflowPatterns.patterns.length} workflow patterns`);
+    console.error(`[Patterns] Loaded ${workflowPatterns.patterns.length} workflow patterns`);
   } catch (error) {
     console.error('[Patterns] Failed to load patterns:', error);
     workflowPatterns = { patterns: [], common_transitions: {} };
@@ -146,7 +146,7 @@ server.registerTool(
   async (params) => await searchPythonApiTool.handler(params, { operatorDataManager })
 );
 
-// Register new v2.7 tools
+// Register tutorial-search and operator-example tools
 server.registerTool(
   "search_tutorials",
   searchTutorialsTool.schema,
@@ -171,7 +171,7 @@ server.registerTool(
   async (params) => await compareOperatorsTool.handler(params, { operatorDataManager })
 );
 
-// Register version system tools (v2.8)
+// Register version system tools
 server.registerTool(
   "get_version_info",
   getVersionInfoTool.schema,
@@ -184,7 +184,7 @@ server.registerTool(
   async (params) => await listVersionsTool.handler(params, {})
 );
 
-// Register experimental techniques tools (v2.9)
+// Register experimental techniques tools
 server.registerTool(
   "get_experimental_techniques",
   getExperimentalTechniquesTool.schema,
@@ -203,7 +203,7 @@ server.registerTool(
   async (params) => await getGlslPatternTool.handler(params)
 );
 
-// Register core enhancement tools (v2.10)
+// Register core enhancement tools
 server.registerTool(
   "get_operator_connections",
   getOperatorConnectionsTool.schema,
@@ -216,7 +216,7 @@ server.registerTool(
   async (params) => await getNetworkTemplateTool.handler(params, {})
 );
 
-// Register experimental build tools (v2.11)
+// Register experimental build tools
 server.registerTool(
   "get_experimental_build",
   getExperimentalBuildTool.schema,
@@ -231,50 +231,53 @@ server.registerTool(
 
 // Main startup
 async function main() {
-  console.log(`TD-MCP v${VERSION} Server Starting...`);
-  console.log('================================');
-  console.log('TouchDesigner MCP Server for VS Code/Codium');
-  console.log('Pure MCP server - stdio transport\n');
+  console.error(`TD-MCP v${VERSION} Server Starting...`);
+  console.error('================================');
+  console.error('TouchDesigner MCP Server for VS Code/Codium');
+  console.error('Pure MCP server - stdio transport\n');
 
   try {
     // Initialize wiki system
-    console.log('[Server] Initializing operator data manager...');
+    console.error('[Server] Initializing operator data manager...');
     const initStartTime = Date.now();
     await operatorDataManager.initialize();
     const initDuration = Date.now() - initStartTime;
-    console.log(`[Server] Initialization took ${initDuration}ms (${(initDuration/1000).toFixed(2)}s)`);
+    console.error(`[Server] Initialization took ${initDuration}ms (${(initDuration/1000).toFixed(2)}s)`);
     
     await loadPatterns();
     
-    console.log(`\n[Server] TD MCP v${VERSION} initialized successfully`);
+    console.error(`\n[Server] TD MCP v${VERSION} initialized successfully`);
     const stats = operatorDataManager.getSystemStats();
     const pythonApiStats = stats.pythonApiStats || { totalClasses: 0 };
-    console.log(`[Server] Ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
-    console.log(`[Server] All 21 tools registered`);
+    console.error(`[Server] Ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
+    console.error(`[Server] All 21 tools registered`);
   } catch (error) {
-    console.error('[Server] Initialization error:', error);
-    // Continue startup even if wiki system fails to initialize
-    console.log('[Server] Continuing startup with limited functionality');
+    // A hard initialization failure means the operator/Python/tutorial data could not
+    // be loaded. Continuing would silently serve empty/not-found results to every tool,
+    // which is worse than failing loudly. Exit non-zero so the problem is visible.
+    console.error('[Server] Initialization failed:', error);
+    console.error('[Server] Refusing to start with missing data — exiting (code 1).');
+    process.exit(1);
   }
 
   // Connect to stdio transport
   const transport = new StdioServerTransport();
   await server.connect(transport);
 
-  console.log(`\nTD-MCP v${VERSION} Server is now running`);
+  console.error(`\nTD-MCP v${VERSION} Server is now running`);
 }
 
 // Graceful shutdown handling
 process.on('SIGINT', async () => {
-  console.log('\n[Server] Received SIGINT, shutting down gracefully...');
+  console.error('\n[Server] Received SIGINT, shutting down gracefully...');
   
   try {
     if (operatorDataManager) {
-      console.log('[Server] Cleaning up operator data manager...');
+      console.error('[Server] Cleaning up operator data manager...');
       operatorDataManager.destroy();
     }
     
-    console.log('[Server] Shutdown complete');
+    console.error('[Server] Shutdown complete');
     process.exit(0);
   } catch (error) {
     console.error('[Server] Error during shutdown:', error);
@@ -283,7 +286,7 @@ process.on('SIGINT', async () => {
 });
 
 process.on('SIGTERM', async () => {
-  console.log('\n[Server] Received SIGTERM, shutting down gracefully...');
+  console.error('\n[Server] Received SIGTERM, shutting down gracefully...');
   
   try {
     if (operatorDataManager) {

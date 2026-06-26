@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.926Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Corner_Pin_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Corner_Pin_TOP",
   "description": "The Corner Pin TOP can perform two operations. The Extract page lets you specify a sub-section of the image to use by moving 4 points. The Corner Pin page let you move the corner points of the extracted image to any location.",
   "summary": "The Corner Pin TOP can perform two operations. The Extract page lets you specify a sub-section of the image to use by moving 4 points. The Corner Pin page let you move the corner points of the extract",
   "details": "",

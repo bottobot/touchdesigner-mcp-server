@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.091Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Script_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Script_DAT",
   "description": "The Script DAT runs a script each time the DAT cooks and can build/modify the output table based in the optional input tables. The Script DAT is created with a docked (attached) DAT that contains three Python methods: cook, onPulse, and setupParameters. The cook method is run each time the Script DAT cooks. The setupParameters method is run whenever the Setup Parameter button on the Script page is pressed. The onPulse method is run whenever a custom pulse parameter is pushed.",
   "summary": "The Script DAT runs a script each time the DAT cooks and can build/modify the output table based in the optional input tables. The Script DAT is created with a docked (attached) DAT that contains thre",
   "details": "",

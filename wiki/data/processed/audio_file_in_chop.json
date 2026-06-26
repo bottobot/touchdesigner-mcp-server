@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.021Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_File_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_File_In_CHOP",
   "description": "The Audio File In CHOP reads audio from files on disk or at http:// addresses. File types .mp3, .aif, .aiff, .au, and .wav files are supported. It always outputs time sliced audio data. If you want to record the data, use a Record CHOP or Movie File Out TOP.",
   "summary": "The Audio File In CHOP reads audio from files on disk or at http:// addresses. File types .mp3, .aif, .aiff, .au, and .wav files are supported. It always outputs time sliced audio data. If you want to",
   "details": "",

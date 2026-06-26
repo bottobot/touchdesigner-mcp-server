@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.057Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Capture_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Capture_SOP",
   "description": "The Capture SOP is used to weight points in a geometry to capture regions. The weighting scheme is described in the next section, Capture Region SOP.",
   "summary": "The Capture SOP is used to weight points in a geometry to capture regions. The weighting scheme is described in the next section, Capture Region SOP.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.970Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Null_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Null_SOP",
   "description": "The Null SOP has no effect on the geometry. It is an instance of the SOP connected to its input. The Null SOP is often used when making reference to a SOP network, allowing new SOPs to be added to the network (upstream) without the need to update the reference.",
   "summary": "The Null SOP has no effect on the geometry. It is an instance of the SOP connected to its input. The Null SOP is often used when making reference to a SOP network, allowing new SOPs to be added to the",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.418Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Animation_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Animation_COMP",
   "description": "The Animation Component is a special component used for creating keyframe animation channels. The component contains a pre-defined network utilizing a Keyframe CHOP and a number of Table DATs to define the animated CHOP channels.",
   "summary": "The Animation Component is a special component used for creating keyframe animation channels. The component contains a pre-defined network utilizing a Keyframe CHOP and a number of Table DATs to defin",
   "details": "",

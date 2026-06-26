@@ -5,7 +5,7 @@
  */
 
 import { z } from "zod";
-import { normalizeVersion, getPythonCompatInfo, getVersionInfo, getVersionIndex, loadPythonApiCompat } from "../wiki/utils/version-filter.js";
+import { normalizeVersion, getVersionInfo, getVersionIndex, loadPythonApiCompat } from "../wiki/utils/version-filter.js";
 
 export const schema = {
     title: "Get Python API Documentation",
@@ -25,7 +25,7 @@ export const schema = {
 };
 
 export async function handler({ class_name, show_members = true, show_methods = true, show_inherited = false, version }, { operatorDataManager }) {
-    console.log(`[get_python_api] Handling request for class: ${class_name}`);
+    console.error(`[get_python_api] Handling request for class: ${class_name}`);
     
     try {
         // Check if operatorDataManager is available
@@ -41,11 +41,11 @@ export async function handler({ class_name, show_members = true, show_methods = 
         
         // Normalize class name
         const normalizedName = class_name.replace(/class$/i, '').trim();
-        console.log(`[get_python_api] Normalized name: ${normalizedName}`);
+        console.error(`[get_python_api] Normalized name: ${normalizedName}`);
         
         // Search for Python class entry
         const pythonClasses = operatorDataManager.getPythonClasses();
-        console.log(`[get_python_api] Total Python classes available: ${pythonClasses.length}`);
+        console.error(`[get_python_api] Total Python classes available: ${pythonClasses.length}`);
         
         const classEntry = pythonClasses.find(c =>
             c.className.toLowerCase() === normalizedName.toLowerCase() ||
@@ -59,7 +59,7 @@ export async function handler({ class_name, show_members = true, show_methods = 
                 .sort()
                 .slice(0, 10);
             
-            console.log(`[get_python_api] Class not found. Available: ${availableClasses.join(', ')}`);
+            console.error(`[get_python_api] Class not found. Available: ${availableClasses.join(', ')}`);
             
             let text = `# Python Class '${class_name}' Not Found\n\n`;
             text += `**Available classes include:** ${availableClasses.join(', ')}...\n\n`;
@@ -74,13 +74,13 @@ export async function handler({ class_name, show_members = true, show_methods = 
             };
         }
         
-        console.log(`[get_python_api] Found class: ${classEntry.className}`);
+        console.error(`[get_python_api] Found class: ${classEntry.className}`);
 
         // Resolve version filtering
         const canonicalVersion = version ? normalizeVersion(version) : null;
         let versionTargetIdx = -1;
         let pyApiData = null;
-        const versionOrder = ['099', '2019', '2020', '2021', '2022', '2023', '2024'];
+        const versionOrder = ['099', '2019', '2020', '2021', '2022', '2023', '2025'];
 
         if (canonicalVersion) {
             versionTargetIdx = await getVersionIndex(canonicalVersion);
@@ -130,8 +130,9 @@ export async function handler({ class_name, show_members = true, show_methods = 
             text += `## Members (${filteredMembers.length} total${canonicalVersion && filteredMembers.length < classEntry.members.length ? `, ${classEntry.members.length - filteredMembers.length} excluded for TD ${canonicalVersion}` : ''})\n\n`;
             filteredMembers.forEach(member => {
                 const addedIn = getAddedInVersion(member.name, 'member');
-                text += `• **${member.name}** (${member.returnType || 'Unknown'})`;
-                if (member.readOnly) {
+                const memberType = member.returnType || member.type || 'Unknown';
+                text += `• **${member.name}** (${memberType})`;
+                if (member.readOnly ?? member.readonly) {
                     text += ` *[Read Only]*`;
                 }
                 if (addedIn && addedIn !== '099') {
@@ -139,7 +140,7 @@ export async function handler({ class_name, show_members = true, show_methods = 
                 }
                 text += `\n  ${member.description}\n\n`;
             });
-            console.log(`[get_python_api] Added ${filteredMembers.length} members`);
+            console.error(`[get_python_api] Added ${filteredMembers.length} members`);
         }
 
         // Add methods if requested
@@ -153,8 +154,11 @@ export async function handler({ class_name, show_members = true, show_methods = 
                     text += `*Added in TD ${addedIn}*\n\n`;
                 }
                 text += `**Signature:** \`${method.signature}\`\n\n`;
-                if (method.returnType) {
-                    text += `**Returns:** ${method.returnType}\n\n`;
+                // Data stores the return type under `returns` (e.g. "Channel | None :") with a
+                // trailing " :" artifact; older entries used `returnType`. Read both, strip the artifact.
+                const returns = (method.returns || method.returnType || '').replace(/\s*:\s*$/, '').trim();
+                if (returns) {
+                    text += `**Returns:** ${returns}\n\n`;
                 }
                 if (method.description) {
                     text += `${method.description}\n\n`;
@@ -171,7 +175,7 @@ export async function handler({ class_name, show_members = true, show_methods = 
                     text += `\n`;
                 }
             });
-            console.log(`[get_python_api] Added ${filteredMethods.length} methods`);
+            console.error(`[get_python_api] Added ${filteredMethods.length} methods`);
         }
 
         // Add inheritance info if requested and available
@@ -190,7 +194,7 @@ export async function handler({ class_name, show_members = true, show_methods = 
         }
         text += `*\n`;
         
-        console.log(`[get_python_api] Returning response for ${classEntry.className}`);
+        console.error(`[get_python_api] Returning response for ${classEntry.className}`);
         return {
             content: [{
                 type: "text",

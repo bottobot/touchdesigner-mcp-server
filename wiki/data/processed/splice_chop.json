@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.904Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Splice_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Splice_CHOP",
   "description": "The Splice CHOP inserts CHOP channels connected to the second input into the channels of the first input. You can specify the start sample and length of where to remove samples.",
   "summary": "The Splice CHOP inserts CHOP channels connected to the second input into the channels of the first input. You can specify the start sample and length of where to remove samples.",
   "details": "",

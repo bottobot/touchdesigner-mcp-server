@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.573Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Depth_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Depth_TOP",
   "description": "The Depth TOP reads an image containing depth information from a scene described in a specified Render TOP. The resulting image is black (0) at pixels where the surface is at the near depth value (Camera's parameter \"Near\"). It is white (1) at pixels where the surface is at the far depth value (parameter \"Far\").",
   "summary": "The Depth TOP reads an image containing depth information from a scene described in a specified Render TOP. The resulting image is black (0) at pixels where the surface is at the near depth value (Cam",
   "details": "",

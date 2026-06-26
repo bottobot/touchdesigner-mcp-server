@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.916Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Time_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Time_COMP",
   "description": "The Time Component allows each component to have its own timeline (clock). The Time Component contains a network of operators that can drive a Timeline, drive animations in Animation COMPs, or be used to drive any custom time-based system. The Time Component's parameters define the speed, range, various options for the time system.",
   "summary": "The Time Component allows each component to have its own timeline (clock). The Time Component contains a network of operators that can drive a Timeline, drive animations in Animation COMPs, or be used",
   "details": "",

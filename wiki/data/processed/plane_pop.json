@@ -1,0 +1,231 @@
+{
+  "id": "plane_pop",
+  "name": "Plane POP",
+  "displayName": "Plane POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Plane_POP",
+  "description": "The Plane POP creates rows and columns of points in a planar grid shape. The points can be connected with a variety of primitives using the Connectivity menu. The Connectivity menu lets you output triangles, alternating triangles, quads, lines, line strips, point primitives or no primitives (None, only points). You specify number of rows and columns. Columns refers to the divisions in X by default, Rows to the divisions in Y by default. In the Connectivity menu you can create lines and line strips along Rows, Columns or both merged together. The Orientation menu lets you place the grid on the YZ plane, or the ZX plane. Anchor will line up the left, center or right side of the grid to X=0, Y=0 or Z=0. The planar grid can then be post-rotated and post-translated using the Rotate and Translate parameters. Dimension: When the grid is passed to other POPs it cannot be known for certain how many rows and columns were specified. However the Plane POP (and other generator POPs) output its [[Dimension]]s as metadata to all POPs connected to it, indicating its organizations of points in the points list. A plane grid has dimensions <code>''numCols numRows''</code>, which can be used by built-in attributes like <code>_Dim[]</code> or by GLSL code. You can output point or vertex normals (creating the <code>N</code> attribute), and you can output point or vertex texture coordinates (<code>Tex</code> attribute). After the Orientation is applied, say it is YZ, texture coordinates are assigned where the first component <code>Tex(0)</code> is along the axis of the first letter (Y in the YZ orientation), and <code>Tex(1)</code> is along the axis of the second letter (Z in the YZ orientation). The Plane POP takes an input which will cause the starting grid to have the same bounding box as the bounding box of the input. Then turning on Modify Bounds lets you further transform the tube. See also [[Grid POP]], [[Sphere POP]], [[Torus POP]], [[Revolve POP]], [[Dimension]]",
+  "parameters": [
+    {
+      "name": "Connectivity",
+      "parName": "surftype",
+      "label": "Connectivity",
+      "type": "Menu",
+      "description": "Determines the primitive used to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "points",
+        "rows",
+        "cols",
+        "rowcol",
+        "triangles",
+        "alttriangles",
+        "quads"
+      ],
+      "menuLabels": [
+        "None",
+        "Point Primitives",
+        "Rows",
+        "Columns",
+        "Rows and Columns",
+        "Triangles",
+        "Alternating Triangles",
+        "Quadrilaterals"
+      ]
+    },
+    {
+      "name": "Line Type",
+      "parName": "linetype",
+      "label": "Line Type",
+      "type": "Menu",
+      "description": "Specifies whether lines should be made of line strip primitives or lines primitives.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linestrip",
+        "lines"
+      ],
+      "menuLabels": [
+        "Line Strip",
+        "Lines"
+      ]
+    },
+    {
+      "name": "Orientation",
+      "parName": "orient",
+      "label": "Orientation",
+      "type": "Menu",
+      "description": "Sets the plane orientation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "xy",
+        "yz",
+        "zx"
+      ],
+      "menuLabels": [
+        "XY plane",
+        "YZ plane",
+        "ZX plane"
+      ]
+    },
+    {
+      "name": "Modify Bounds",
+      "parName": "modifybounds",
+      "label": "Modify Bounds",
+      "type": "Toggle",
+      "description": "Available only when an input is connected to the POP to set bounds for the POP. When Modify Bounds is On the parameters below will further modify the shape of the POP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Size",
+      "parName": "size",
+      "label": "Size",
+      "type": "UVW",
+      "description": "The plane 2D size.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sizeu",
+        "sizev"
+      ],
+      "menuLabels": [
+        "Size",
+        "Size"
+      ]
+    },
+    {
+      "name": "Columns",
+      "parName": "cols",
+      "label": "Columns",
+      "type": "Int",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Rows",
+      "parName": "rows",
+      "label": "Rows",
+      "type": "Int",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Anchor U",
+      "parName": "anchoru",
+      "label": "Anchor U",
+      "type": "Float",
+      "description": "Puts the left side, the middle or the right side at the origin 0.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Anchor V",
+      "parName": "anchorv",
+      "label": "Anchor V",
+      "type": "Float",
+      "description": "Puts the bottom side, the middle or the top side at the origin 0.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Translate",
+      "parName": "t",
+      "label": "Translate",
+      "type": "XYZW",
+      "description": "Translate the points in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty",
+        "tz"
+      ],
+      "menuLabels": [
+        "Translate",
+        "Translate",
+        "Translate"
+      ]
+    },
+    {
+      "name": "Rotate",
+      "parName": "r",
+      "label": "Rotate",
+      "type": "XYZW",
+      "description": "Rotate the points around the corresponding X, Y and Z axes. Angles are given in degrees.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rx",
+        "ry",
+        "rz"
+      ],
+      "menuLabels": [
+        "Rotate",
+        "Rotate",
+        "Rotate"
+      ]
+    },
+    {
+      "name": "Uniform Scale",
+      "parName": "scale",
+      "label": "Uniform Scale",
+      "type": "Float",
+      "description": "Specifies a uniform scale factor in all axes.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Normal",
+      "parName": "normal",
+      "label": "Normal",
+      "type": "Menu",
+      "description": "Choose whether to create a normal attribute and the attribute class of the normal attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "pointNormals",
+        "vertNormals"
+      ],
+      "menuLabels": [
+        "None",
+        "Point",
+        "Vertex"
+      ]
+    },
+    {
+      "name": "Texture Coordinates",
+      "parName": "texture",
+      "label": "Texture Coordinates",
+      "type": "Menu",
+      "description": "Sets the attribute class where the texture coordinates should be created.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "point",
+        "vert"
+      ],
+      "menuLabels": [
+        "None",
+        "Point",
+        "Vertex"
+      ]
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Plane_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Plane_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Plane_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

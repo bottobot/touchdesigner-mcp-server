@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.338Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Analyze_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Analyze_CHOP",
   "description": "The Analyze CHOP looks at the values of all the values of a channel, and outputs a single-number result into the output. The output is one sample long. It can analyze for maximum, average, peaks and other aspects of a channel.",
   "summary": "The Analyze CHOP looks at the values of all the values of a channel, and outputs a single-number result into the output. The output is one sample long. It can analyze for maximum, average, peaks and o",
   "details": "",

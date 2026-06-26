@@ -172,7 +172,7 @@ export async function handler(
     // Footer
     text += `---\n`;
     text += `**Usage Tips:**\n`;
-    text += `- Use \`get_experimental_build({ series_id: "2025.10000" })\` for full details on a specific series\n`;
+    text += `- Use \`get_experimental_build({ series_id: "2025.30000" })\` for full details on a specific series\n`;
     text += `- Use \`list_experimental_builds({ feature_area: "rendering" })\` to filter by area\n`;
     text += `- Use \`list_experimental_builds({ stability_status: "experimental" })\` to see only active pre-releases\n`;
     text += `- Use \`list_versions\` to see stable TouchDesigner releases\n`;

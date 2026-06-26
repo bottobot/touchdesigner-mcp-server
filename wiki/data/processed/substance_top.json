@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.117Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Substance_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Substance_TOP",
   "description": "There is a tight integration between TouchDesigner and Allegorithmic (Adobe) Substance Designer, a material creation package that is also node-based and has extensive material libraries. The Substance TOP allows you to load .sbsar files from Substance Designer to use with the PBR Material.",
   "summary": "There is a tight integration between TouchDesigner and Allegorithmic (Adobe) Substance Designer, a material creation package that is also node-based and has extensive material libraries. The Substance",
   "details": "",

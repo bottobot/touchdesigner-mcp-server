@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.431Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Blend_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Blend_COMP",
   "description": "The Blend Component allows the blending of its attached 3D objects, allowing you to animate the parents of Components, sequencing (object A to object B to C, etc.), partial transformation inheritance, three-point orientation, and other effects. It gives you some extra flexibility in setting up parent-child relationships. It operates like the Switch and Sequence Blend SOPs insofar as it takes more than one input and blends or switches those into one output.\tIt affects the object transform only, not the contents of the blended components.",
   "summary": "The Blend Component allows the blending of its attached 3D objects, allowing you to animate the parents of Components, sequencing (object A to object B to C, etc.), partial transformation inheritance,",
   "details": "",

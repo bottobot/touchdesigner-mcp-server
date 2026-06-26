@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.884Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Cache_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Cache_SOP",
   "description": "The Cache SOP collects its input geometry in a cache for faster random-access playback of multiple SOPs. It should be used when cook times for a chain of SOPs is long and a quicker playback is needed.",
   "summary": "The Cache SOP collects its input geometry in a cache for faster random-access playback of multiple SOPs. It should be used when cook times for a chain of SOPs is long and a quicker playback is needed.",
   "details": "",

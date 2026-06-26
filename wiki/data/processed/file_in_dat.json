@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.818Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\File_In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/File_In_DAT",
   "description": "The File In DAT reads in .txt text files and .dat table files. It will attempt to read any other file as raw text. The file can be located on disk or on the web. Use http:// when specifying a URL.",
   "summary": "The File In DAT reads in .txt text files and .dat table files. It will attempt to read any other file as raw text. The file can be located on disk or on the web. Use http:// when specifying a URL.",
   "details": "",

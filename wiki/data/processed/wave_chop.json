@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:12.069Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Wave_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Wave_CHOP",
   "description": "The Wave CHOP makes repeating waves with a variety of shapes. It is by default 10-seconds of 1-second sine waves, a total of 600 frames. You can adjust period (frequency), phase, shape, amplitude and offset.",
   "summary": "The Wave CHOP makes repeating waves with a variety of shapes. It is by default 10-seconds of 1-second sine waves, a total of 600 frames. You can adjust period (frequency), phase, shape, amplitude and ",
   "details": "",

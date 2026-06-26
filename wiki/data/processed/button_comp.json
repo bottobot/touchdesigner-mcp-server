@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.856Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Button_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Button_COMP",
   "description": "The Button Component is used in panels to provide interactive on/off buttons, including toggle buttons, momentary buttons, and sets of radio buttons or exclusive buttons. Radio and exclusive buttons act as a group, which can be as simple as all Button components in a Container component. The group can be specified more tightly using the Button Group Label parameter or the Button Group DAT parameter.",
   "summary": "The Button Component is used in panels to provide interactive on/off buttons, including toggle buttons, momentary buttons, and sets of radio buttons or exclusive buttons. Radio and exclusive buttons a",
   "details": "",

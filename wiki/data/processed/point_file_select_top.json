@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.675Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Point_File_Select_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Point_File_Select_TOP",
   "description": "The Point File Select TOP allows you to create additional output images from a point file loaded into a Point File In TOP. This TOP is useful if your point data file has more than 4 channels e.g. XYZ position and RGB colors. It is more efficient to use a Point File Select TOP rather than a second Point File In TOP since the file will only be loaded once.",
   "summary": "The Point File Select TOP allows you to create additional output images from a point file loaded into a Point File In TOP. This TOP is useful if your point data file has more than 4 channels e.g. XYZ ",
   "details": "",

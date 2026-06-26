@@ -1,0 +1,143 @@
+{
+  "id": "line_resample_pop",
+  "name": "Line Resample POP",
+  "displayName": "Line Resample POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Line_Resample_POP",
+  "description": "The Line Resample POP will take a set of line strips, and for each one, resample the line strip in one of four methods: number of Divisions per Line Strip, a specified Distance between Points, point separation based on the curvature of the line strip at each of the original points (By Curvature), and lastly, dividing based on stepping uniformly along another attribute of the line strip (Points as Keyframes) using an \"Independent Variable Attribute\". Using a <code>ControlPoint</code> attribute you can make the resampled curve pass through (include) the control points exactly. Resampling By Curvature has two distance parameters - the Minimum Distance where the curvature is high, and the Maximum Distance where the curvature is low (straight sections). Min Max Bias will create more or less minimum-distance points. Line Resample POP doe not change the shape of the lines, unlike [[Line Smooth POP]]. See also [[Line Divide POP]], [[Line Smooth POP]].",
+  "parameters": [
+    {
+      "name": "Resample Method",
+      "parName": "resamplemethod",
+      "label": "Resample Method",
+      "type": "Menu",
+      "description": "Line strip resample method.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "linestrip",
+        "dist",
+        "curvature",
+        "keyframes"
+      ],
+      "menuLabels": [
+        "None",
+        "Divisions per Line Strip",
+        "Distance between Points",
+        "By Curvature",
+        "Points as Keyframes"
+      ]
+    },
+    {
+      "name": "Divisions",
+      "parName": "resampledivs",
+      "label": "Divisions",
+      "type": "Int",
+      "description": "The number of divisions.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Min Distance",
+      "parName": "resamplemindist",
+      "label": "Min Distance",
+      "type": "Float",
+      "description": "The minimum distance between points in the output line strips.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Max Distance",
+      "parName": "resamplemaxdist",
+      "label": "Max Distance",
+      "type": "Float",
+      "description": "Maximum Distance between Points",
+      "isReadOnly": false
+    },
+    {
+      "name": "Min Max Bias",
+      "parName": "resampleminmaxbias",
+      "label": "Min Max Bias",
+      "type": "Float",
+      "description": "Bias of point creation - more near the minimum or more near the maximum distance.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Control Points Attribute",
+      "parName": "usectrlpoints",
+      "label": "Control Points Attribute",
+      "type": "Toggle",
+      "description": "One attribute will contain 0 or 1 values in points to signify which ones are control points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "usectrlpoints",
+        "ctrlpointsattr"
+      ],
+      "menuLabels": [
+        "Control Points Attribute",
+        "Control Points Attribute Name"
+      ]
+    },
+    {
+      "name": "Independant Variable Attribute",
+      "parName": "indvarattr",
+      "label": "Independant Variable Attribute",
+      "type": "StrMenu",
+      "description": "Attribute to use as the independent variable.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Independant Variable Step",
+      "parName": "indvarstep",
+      "label": "Independant Variable Step",
+      "type": "Float",
+      "description": "Step size to use for the independent variable, usually a fraction of the independent variable range.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Maximum Number of Vertices",
+      "parName": "maxverts",
+      "label": "Maximum Number of Vertices",
+      "type": "Int",
+      "description": "Sets the number of vertices to be allocated. It should be bigger than the actual number of vertices created (visible in info popup). More vertices allocated use more GPU memory.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Max Tries for Binary Search",
+      "parName": "maxtries",
+      "label": "Max Tries for Binary Search",
+      "type": "Int",
+      "description": "Max number of iterations for binary search when linearly resampling.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Remove Unused Points",
+      "parName": "rmvunusedpts",
+      "label": "Remove Unused Points",
+      "type": "Toggle",
+      "description": "Removes unused points not referenced by primitives.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Line_Resample_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Line_Resample_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Line_Resample_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

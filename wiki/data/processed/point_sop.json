@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.704Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Point_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Point_SOP",
   "description": "The Point SOP allows you to get right into the geometry and manipulate the position, color, texture coordinates, and normals of the points in the Source, and other attributes. The Point SOP also lets you create custom point attributes. It is the complement to the Primitive SOP. Using a second input allows for combining of two SOPs using their respective expressions (see: PointSOP Class). If the second input has less points than the first input, the points in the second input will be cycled.",
   "summary": "The Point SOP allows you to get right into the geometry and manipulate the position, color, texture coordinates, and normals of the points in the Source, and other attributes. The Point SOP also lets ",
   "details": "",

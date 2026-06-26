@@ -11,6 +11,7 @@
 import { z } from "zod";
 import {
   normalizeVersion,
+  isExperimentalVersion,
   getVersionInfo,
   loadReleaseHighlights,
   loadOperatorCompat,
@@ -23,7 +24,8 @@ export const schema = {
   description: "Get detailed information about a specific TouchDesigner version including Python version, new operators, key features, and API changes.",
   inputSchema: {
     version: z.string().describe(
-      "TouchDesigner version to look up (e.g. '2023', '2022', '2021', '2020', '2019', '099')"
+      "TouchDesigner stable version to look up (e.g. '2025', '2023', '2022', '2021', '2020', '2019', '099'). " +
+      "For an experimental build series (e.g. '2025.30000') use get_experimental_build instead."
     ),
     show_new_operators: z.boolean().optional().describe(
       "Include list of operators added in this version (default: true)"
@@ -51,7 +53,20 @@ export async function handler(
     return {
       content: [{
         type: "text",
-        text: "Please provide a TouchDesigner version. Supported versions: 099, 2019, 2020, 2021, 2022, 2023, 2024"
+        text: "Please provide a TouchDesigner version. Supported versions: 099, 2019, 2020, 2021, 2022, 2023, 2025"
+      }]
+    };
+  }
+
+  // Experimental build series (YYYY.NNNNN, or the "experimental" alias) are not stable
+  // releases — redirect the caller to the dedicated experimental-build tool.
+  if (isExperimentalVersion(version)) {
+    return {
+      content: [{
+        type: "text",
+        text: `"${String(version).trim()}" is an experimental TouchDesigner build series, not a stable release.\n\n` +
+              `Use get_experimental_build({ series_id: "${String(version).trim()}" }) for its details, ` +
+              `or list_experimental_builds to see all experimental series.`
       }]
     };
   }
@@ -64,8 +79,10 @@ export async function handler(
         content: [{
           type: "text",
           text: `Unrecognised version "${version}".\n\n` +
-                `Supported TouchDesigner versions: 099, 2019, 2020, 2021, 2022, 2023, 2024\n\n` +
-                `Examples: get_version_info({ version: "2023" }) or get_version_info({ version: "2022" })`
+                `Supported TouchDesigner versions: 099, 2019, 2020, 2021, 2022, 2023, 2025\n\n` +
+                `Note: there was never a TouchDesigner 2024 official release — the line went 2023 → 2025.\n` +
+                `For experimental builds (e.g. "2025.30000") use get_experimental_build.\n\n` +
+                `Examples: get_version_info({ version: "2025" }) or get_version_info({ version: "2023" })`
         }]
       };
     }

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.524Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Anti_Alias_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Anti_Alias_TOP",
   "description": "The Anti-Alias TOP uses a screen space antialiasing technique called ‘SMAA: Enhanced Subpixel Morphological Antialiasing’. Detailed information here: http://www.iryoku.com/smaa/  It uses an image’s luminance, color or a depth map to detect edges of objects and then applies anti-aliasing to those edges. The current implementation does not yet use the temporal features of it, so each image is individually anti-aliased without requiring knowledge of other frames. It doesn’t require the extra memory that regular Render TOP anti-aliasing does, and avoids work involved with antialiasing polygon edges that are ultimately occluded by another object.",
   "summary": "The Anti-Alias TOP uses a screen space antialiasing technique called ‘SMAA: Enhanced Subpixel Morphological Antialiasing’. Detailed information here: http://www.iryoku.com/smaa/  It uses an image’s lu",
   "details": "",

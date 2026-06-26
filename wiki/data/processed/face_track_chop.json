@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.597Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Face_Track_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Face_Track_CHOP",
   "description": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This operator uses the Augmented Reality (AR) SDK of the Nvidia Maxine system and requires a 20 series and above Nvidia RTX card to operate.",
   "summary": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This operator uses the Augmented Reality (AR) SDK of the Nvidia Maxine system and requires a 20 series and ab",
   "details": "",

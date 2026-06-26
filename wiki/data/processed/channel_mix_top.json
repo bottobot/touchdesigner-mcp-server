@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.161Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Channel_Mix_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Channel_Mix_TOP",
   "description": "The Channel Mix TOP allows mixing of the input RGBA channels to any other color channel of the output. For example, the pixels in the blue channel of the input can be added to the output's red channel, added or subtracted by the amount in Red parameter's blue column.",
   "summary": "The Channel Mix TOP allows mixing of the input RGBA channels to any other color channel of the output. For example, the pixels in the blue channel of the input can be added to the output's red channel",
   "details": "",

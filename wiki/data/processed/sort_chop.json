@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.768Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Sort_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Sort_CHOP",
   "description": "The Sort CHOP re-orders the inputs channels samples by value or by random. Specifying a channel to be sorted will reorder all channels samples according to the new order. This node does not change the order of the channels relative to each other. To sort the channels relative to each other use a Reorder CHOP.",
   "summary": "The Sort CHOP re-orders the inputs channels samples by value or by random. Specifying a channel to be sorted will reorder all channels samples according to the new order. This node does not change the",
   "details": "",

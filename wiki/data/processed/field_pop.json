@@ -3,2302 +3,635 @@
   "id": "field_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Field POP adds a Weight attribute that represents, for each point, how much a shape defined by the Field POP overlaps with each point. It is often used to cut out sections of points in point clouds. Its shapes include spheres (ellipsoids), cylinders, planes, paraboloids, etc, where all points within the shape (or on one side of the shape) are given a Weight of 1 and all other points are 0.",
+  "description": "The Field POP adds a <code>Weight</code> attribute that determines how much each point is within a 3D shape. Fields are bounding regions in 3D space. The shapes include spheres (ellipsoids), cylinders, planes, paraboloids, etc, where all points within the shape (or on one side of the shape) are given a Weight of 1 and all other points are 0. The Field POP is often used to isolate or cut out sections of points in point clouds. It also can output a <code>Dist</code> attribute, which is a distance to the surface for points that are outside the shape. The Transition Range parameter softens the <code>Weight</code> transition from 1 to 0. It is the distance over which the weight goes from 1 to 0. Transition Align determines where the transition from 1 to 0 starts. By default the weight is .5 at the Radius for a sphere field. if Align is -.5 the weight has dropped to 0 at the radius, and if align is .5, the weight is 1 at the radius and drops to 0 outside the radius. Similar for other field shapes. The Transition Type allows for linear, ease-in ease-out, or smooth step transitions from 1 to 0. '''Multiple fields in one Field POP''': A parameter called Specification POP is a pointer to a POP where each point is a specification defining a separate field - one point per field. The attributes of the specification POP are named the same as parameters tokens in the Field POP, and override the parameters for each field. Menus and toggles are represented as integers, starting at 0 for the first menu entry. You need only to create a Point POP with attributes named as the Field POP parameters, and then add a point per field, and set their values. (An attribute <code>sizex</code> will override the Size X (<code>sizex</code>) parameter.) Alternately you can generate points procedurally with attributes that match the Field POP parameter names. The workflow is the same as multiple strings defined in a specification DAT of the [[Geo Text COMP]] and the [[Text COMP]]. '''Using P as field position''': Although the rule is that the attribute name must be the same as the name of the parameter of the Field POP, <code>P</code> (position attribute) is a special case as it overrides <code>tx</code>, <code>ty</code> and <code>tz</code> parameters of the Field POP. If the node <code>point1</code> has attributes <code>radx</code> and <code>P</code>, they override the Field POP's <code>radx</code>, <code>tx</code>, <code>ty</code> and <code>tz</code> parameters. '''Multiple weights raw or mixed''': When you specify multiple fields, their weights are mixed together into the <code>Weight</code> attribute (using a blend mode like Screen of the [[Composite TOP]] - combining multi-fields increase the <code>Weight</code> but it never exceeds 1). Alternately the weight for each field can be output raw in a multi-value <code>Weights</code> array attribute. The <code>Weight</code> or <code>Distance</code> attribute can be added/multiplied with any another attribute, like a <code>PartForce</code> attribute to confine forces to certain regions.",
   "parameters": [
     {
-      "name": "attrclass",
+      "name": "Attribute Class",
+      "parName": "attrclass",
       "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Sphere",
-          "value": "sphere",
-          "description": ""
-        },
-        {
-          "label": "Box",
-          "value": "box",
-          "description": ""
-        },
-        {
-          "label": "Torus",
-          "value": "torus",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Infinite",
-          "value": "cylinderinfinite",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Capped",
-          "value": "cylindercapped",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Rounded",
-          "value": "cylinderrounded",
-          "description": ""
-        },
-        {
-          "label": "Capsule",
-          "value": "capsule",
-          "description": ""
-        },
-        {
-          "label": "X-Plane",
-          "value": "xplane",
-          "description": "Plane xplane -"
-        },
-        {
-          "label": "Y-Plane",
-          "value": "yplane",
-          "description": "Plane yplane -"
-        },
-        {
-          "label": "Z-Plane",
-          "value": "zplane",
-          "description": "Plane zplane -"
-        },
-        {
-          "label": "Parabola",
-          "value": "parabola",
-          "description": ""
-        },
-        {
-          "label": "Line Projection",
-          "value": "lineprojection",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "sizex",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "sizey",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "sizez",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radx",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "rady",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radz",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa1",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa2",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa3",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb1",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb2",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb3",
-          "description": ""
-        },
-        {
-          "label": "Strength",
-          "value": "strengthx",
-          "description": ""
-        },
-        {
-          "label": "Strength",
-          "value": "strengthy",
-          "description": ""
-        },
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Smooth Step",
-          "value": "smoothstep",
-          "description": ""
-        },
-        {
-          "label": "Ease In Ease Out",
-          "value": "easeinout",
-          "description": ""
-        },
-        {
-          "label": "To Range",
-          "value": "torange1",
-          "description": ""
-        },
-        {
-          "label": "To Range",
-          "value": "torange2",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        },
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sx",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sz",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "fieldattrscope",
+      "name": "Field Attribute Scope",
+      "parName": "fieldattrscope",
       "label": "Field Attribute Scope",
-      "description": "Configure Field Attribute Scope for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Determines the scope of the attribute used to output the weight.",
+      "isReadOnly": false
     },
     {
-      "name": "specpop",
-      "label": "Spec POP",
-      "description": "Configure Spec POP for the operator",
-      "type": "string"
+      "name": "Specification POP",
+      "parName": "specpop",
+      "label": "Specification POP",
+      "type": "POP",
+      "description": "Reference to a POP where each point is a specification defining a separate field.",
+      "isReadOnly": false
     },
     {
-      "name": "mode",
+      "name": "Mode",
+      "parName": "mode",
       "label": "Mode",
-      "description": "Configure Mode for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Sphere",
-          "value": "sphere",
-          "description": ""
-        },
-        {
-          "label": "Box",
-          "value": "box",
-          "description": ""
-        },
-        {
-          "label": "Torus",
-          "value": "torus",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Infinite",
-          "value": "cylinderinfinite",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Capped",
-          "value": "cylindercapped",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Rounded",
-          "value": "cylinderrounded",
-          "description": ""
-        },
-        {
-          "label": "Capsule",
-          "value": "capsule",
-          "description": ""
-        },
-        {
-          "label": "X-Plane",
-          "value": "xplane",
-          "description": "Plane xplane -"
-        },
-        {
-          "label": "Y-Plane",
-          "value": "yplane",
-          "description": "Plane yplane -"
-        },
-        {
-          "label": "Z-Plane",
-          "value": "zplane",
-          "description": "Plane zplane -"
-        },
-        {
-          "label": "Parabola",
-          "value": "parabola",
-          "description": ""
-        },
-        {
-          "label": "Line Projection",
-          "value": "lineprojection",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Select the shape of the field.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sphere",
+        "box",
+        "torus",
+        "tubeinfinite",
+        "tubecapped",
+        "tuberounded",
+        "capsule",
+        "xplane",
+        "yplane",
+        "zplane",
+        "parabola",
+        "lineprojection"
+      ],
+      "menuLabels": [
+        "Sphere",
+        "Box",
+        "Torus",
+        "Tube Infinite",
+        "Tube Capped",
+        "Tube Rounded",
+        "Capsule",
+        "X-Plane",
+        "Y-Plane",
+        "Z-Plane",
+        "Parabola",
+        "Line Projection"
       ]
     },
     {
-      "name": "sphere",
-      "label": "Sphere",
-      "description": "Configure Sphere for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Sphere",
-          "value": "sphere",
-          "description": ""
-        },
-        {
-          "label": "Box",
-          "value": "box",
-          "description": ""
-        },
-        {
-          "label": "Torus",
-          "value": "torus",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Infinite",
-          "value": "cylinderinfinite",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Capped",
-          "value": "cylindercapped",
-          "description": ""
-        },
-        {
-          "label": "Cylinder Rounded",
-          "value": "cylinderrounded",
-          "description": ""
-        },
-        {
-          "label": "Capsule",
-          "value": "capsule",
-          "description": ""
-        },
-        {
-          "label": "X-Plane",
-          "value": "xplane",
-          "description": "Plane xplane -"
-        },
-        {
-          "label": "Y-Plane",
-          "value": "yplane",
-          "description": "Plane yplane -"
-        },
-        {
-          "label": "Z-Plane",
-          "value": "zplane",
-          "description": "Plane zplane -"
-        },
-        {
-          "label": "Parabola",
-          "value": "parabola",
-          "description": ""
-        },
-        {
-          "label": "Line Projection",
-          "value": "lineprojection",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "size",
+      "name": "Size",
+      "parName": "size",
       "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Size",
-          "value": "sizex",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "sizey",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "sizez",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The geometry 3D size.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sizex",
+        "sizey",
+        "sizez"
+      ],
+      "menuLabels": [
+        "Size",
+        "Size",
+        "Size"
       ]
     },
     {
-      "name": "sizex",
-      "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Size",
-          "value": "sizex",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "sizey",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "sizez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rad",
+      "name": "Radius",
+      "parName": "rad",
       "label": "Radius",
-      "description": "Configure Radius for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Radius",
-          "value": "radx",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "rady",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Radius of field.",
+      "isReadOnly": false,
+      "menuItems": [
+        "radx",
+        "rady",
+        "radz"
+      ],
+      "menuLabels": [
+        "Radius",
+        "Radius",
+        "Radius"
       ]
     },
     {
-      "name": "radx",
-      "label": "Radius",
-      "description": "Configure Radius for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Radius",
-          "value": "radx",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "rady",
-          "description": ""
-        },
-        {
-          "label": "Radius",
-          "value": "radz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "height",
+      "name": "Height",
+      "parName": "height",
       "label": "Height",
-      "description": "Configure Height for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "The height of the tube.",
+      "isReadOnly": false
     },
     {
-      "name": "roundness",
+      "name": "Roundness",
+      "parName": "roundness",
       "label": "Roundness",
-      "description": "Configure Roundness for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Roundness factor for rounded fields modes.",
+      "isReadOnly": false
     },
     {
-      "name": "pointa",
+      "name": "Point A",
+      "parName": "pointa",
       "label": "Point A",
-      "description": "Configure Point A for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point A",
-          "value": "pointa1",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa2",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa3",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Shape first point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointax",
+        "pointay",
+        "pointaz"
+      ],
+      "menuLabels": [
+        "Point A",
+        "Point A",
+        "Point A"
       ]
     },
     {
-      "name": "pointa1",
-      "label": "Point A",
-      "description": "Configure Point A for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point A",
-          "value": "pointa1",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa2",
-          "description": ""
-        },
-        {
-          "label": "Point A",
-          "value": "pointa3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pointb",
+      "name": "Point B",
+      "parName": "pointb",
       "label": "Point B",
-      "description": "Configure Point B for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point B",
-          "value": "pointb1",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb2",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb3",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Shape second point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointbx",
+        "pointby",
+        "pointbz"
+      ],
+      "menuLabels": [
+        "Point B",
+        "Point B",
+        "Point B"
       ]
     },
     {
-      "name": "pointb1",
-      "label": "Point B",
-      "description": "Configure Point B for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point B",
-          "value": "pointb1",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb2",
-          "description": ""
-        },
-        {
-          "label": "Point B",
-          "value": "pointb3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "strength",
+      "name": "Strength",
+      "parName": "strength",
       "label": "Strength",
-      "description": "Configure Strength for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Strength",
-          "value": "strengthx",
-          "description": ""
-        },
-        {
-          "label": "Strength",
-          "value": "strengthy",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Sets the field strength.",
+      "isReadOnly": false,
+      "menuItems": [
+        "strengthx",
+        "strengthy"
+      ],
+      "menuLabels": [
+        "Strength",
+        "Strength"
       ]
     },
     {
-      "name": "strengthx",
-      "label": "Strength",
-      "description": "Configure Strength for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Strength",
-          "value": "strengthx",
-          "description": ""
-        },
-        {
-          "label": "Strength",
-          "value": "strengthy",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "exponent",
+      "name": "Exponent",
+      "parName": "exponent",
       "label": "Exponent",
-      "description": "Configure Exponent for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Sets the exponent on parabola fields.",
+      "isReadOnly": false
     },
     {
-      "name": "weight",
-      "label": "Weight",
-      "description": "Configure Weight for the operator",
-      "type": "string"
-    },
-    {
-      "name": "transitionrange",
+      "name": "Transition Range",
+      "parName": "transitionrange",
       "label": "Transition Range",
-      "description": "Configure Transition Range for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Determines a transition range for weights.",
+      "isReadOnly": false
     },
     {
-      "name": "transitionalign",
+      "name": "Transition Align",
+      "parName": "transitionalign",
       "label": "Transition Align",
-      "description": "Configure Transition Align for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "With Transition Range > 0, by default the weight is .5 at the Radius. if Align is -.5 the weight has dropped to 0 at the radius, and if align is .5, the weight is 1 at the radius and drops to 0 outside the radius.",
+      "isReadOnly": false
     },
     {
-      "name": "transitiontype",
+      "name": "Transition Type",
+      "parName": "transitiontype",
       "label": "Transition Type",
-      "description": "Configure Transition Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Smooth Step",
-          "value": "smoothstep",
-          "description": ""
-        },
-        {
-          "label": "Ease In Ease Out",
-          "value": "easeinout",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines a transition function for weights.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linear",
+        "smoothstep",
+        "easeinout"
+      ],
+      "menuLabels": [
+        "Linear",
+        "Smooth Step",
+        "Ease In Ease Out"
       ]
     },
     {
-      "name": "linear",
-      "label": "Linear",
-      "description": "Configure Linear for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Smooth Step",
-          "value": "smoothstep",
-          "description": ""
-        },
-        {
-          "label": "Ease In Ease Out",
-          "value": "easeinout",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "absvalue",
+      "name": "Absolute Value",
+      "parName": "absvalue",
       "label": "Absolute Value",
-      "description": "Configure Absolute Value for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable using the absolute value on the transitioned weight.",
+      "isReadOnly": false
     },
     {
-      "name": "invert",
+      "name": "Invert",
+      "parName": "invert",
       "label": "Invert",
-      "description": "Configure Invert for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Invert the attribute value resulting from the field.",
+      "isReadOnly": false
     },
     {
-      "name": "torange",
+      "name": "To Range",
+      "parName": "torange",
       "label": "To Range",
-      "description": "Configure To Range for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "To Range",
-          "value": "torange1",
-          "description": ""
-        },
-        {
-          "label": "To Range",
-          "value": "torange2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Sets the output range on the weigths.",
+      "isReadOnly": false,
+      "menuItems": [
+        "torangemin",
+        "torangemax"
+      ],
+      "menuLabels": [
+        "To Range",
+        "To Range"
       ]
     },
     {
-      "name": "torange1",
-      "label": "To Range",
-      "description": "Configure To Range for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "To Range",
-          "value": "torange1",
-          "description": ""
-        },
-        {
-          "label": "To Range",
-          "value": "torange2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "deletezeros",
+      "name": "Delete Zeros",
+      "parName": "deletezeros",
       "label": "Delete Zeros",
-      "description": "Configure Delete Zeros for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable removal of points with weigth zero.",
+      "isReadOnly": false
     },
     {
-      "name": "outputattrscope",
-      "label": "Output Attribute Scope",
-      "description": "Configure Output Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
+      "name": "Line Strip Behavior",
+      "parName": "linestripbehavior",
+      "label": "Line Strip Behavior",
+      "type": "Menu",
+      "description": "What to do when points of a line strip are deleted.",
+      "isReadOnly": false,
+      "menuItems": [
+        "delpointoflinestrip",
+        "splitlinestrip",
+        "dellinestrip"
+      ],
+      "menuLabels": [
+        "Delete Point of Line Strip",
+        "Split Line Strip",
+        "Delete Line Strip"
       ]
     },
     {
-      "name": "P",
-      "label": "P",
-      "description": "Configure P for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overrideautoattr",
-      "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "newattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "signeddistance",
-      "label": "Signed Distance",
-      "description": "Configure Signed Distance for the operator",
-      "type": "string"
-    },
-    {
-      "name": "sdoutputattrscope",
-      "label": "Signed Distance Output Attribute Scope",
-      "description": "Configure Signed Distance Output Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sdoverrideautoattrib",
-      "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "sdnewattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sdattrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sdnewattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sdnewattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "sdnewattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "xord",
+      "name": "Transform Order",
+      "parName": "xord",
       "label": "Transform Order",
-      "description": "Configure Transform Order for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the overall transform order for the transformations.",
+      "isReadOnly": false,
+      "menuItems": [
+        "srt",
+        "str",
+        "rst",
+        "rts",
+        "tsr",
+        "trs"
+      ],
+      "menuLabels": [
+        "Scale Rotate Translate",
+        "Scale Translate Rotate",
+        "Rotate Scale Translate",
+        "Rotate Translate Scale",
+        "Translate Scale Rotate",
+        "Translate Rotate Scale"
       ]
     },
     {
-      "name": "srt",
-      "label": "Scale Rotate Translate",
-      "description": "Configure Scale Rotate Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale Rotate Translate",
-          "value": "srt",
-          "description": ""
-        },
-        {
-          "label": "Scale Translate Rotate",
-          "value": "str",
-          "description": ""
-        },
-        {
-          "label": "Rotate Scale Translate",
-          "value": "rst",
-          "description": ""
-        },
-        {
-          "label": "Rotate Translate Scale",
-          "value": "rts",
-          "description": ""
-        },
-        {
-          "label": "Translate Scale Rotate",
-          "value": "tsr",
-          "description": ""
-        },
-        {
-          "label": "Translate Rotate Scale",
-          "value": "trs",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rord",
+      "name": "Rotate Order",
+      "parName": "rord",
       "label": "Rotate Order",
-      "description": "Configure Rotate Order for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the order of the rotations within the overall transform order.",
+      "isReadOnly": false,
+      "menuItems": [
+        "xyz",
+        "xzy",
+        "yxz",
+        "yzx",
+        "zxy",
+        "zyx"
+      ],
+      "menuLabels": [
+        "Rx Ry Rz",
+        "Rx Rz Ry",
+        "Ry Rx Rz",
+        "Ry Rz Rx",
+        "Rz Rx Ry",
+        "Rz Ry Rx"
       ]
     },
     {
-      "name": "xyz",
-      "label": "Rx Ry Rz",
-      "description": "Configure Rx Ry Rz for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rx Ry Rz",
-          "value": "xyz",
-          "description": ""
-        },
-        {
-          "label": "Rx Rz Ry",
-          "value": "xzy",
-          "description": ""
-        },
-        {
-          "label": "Ry Rx Rz",
-          "value": "yxz",
-          "description": ""
-        },
-        {
-          "label": "Ry Rz Rx",
-          "value": "yzx",
-          "description": ""
-        },
-        {
-          "label": "Rz Rx Ry",
-          "value": "zxy",
-          "description": ""
-        },
-        {
-          "label": "Rz Ry Rx",
-          "value": "zyx",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "t",
+      "name": "Translate",
+      "parName": "t",
       "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Translate the field in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty",
+        "tz"
+      ],
+      "menuLabels": [
+        "Translate",
+        "Translate",
+        "Translate"
       ]
     },
     {
-      "name": "tx",
-      "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "r",
+      "name": "Rotate",
+      "parName": "r",
       "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Rotate the points around the corresponding X, Y and Z axes. Angles are given in degrees.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rx",
+        "ry",
+        "rz"
+      ],
+      "menuLabels": [
+        "Rotate",
+        "Rotate",
+        "Rotate"
       ]
     },
     {
-      "name": "rx",
-      "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "s",
+      "name": "Scale",
+      "parName": "s",
       "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "sx",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "These three fields scale the Source geometry in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sx",
+        "sy",
+        "sz"
+      ],
+      "menuLabels": [
+        "Scale",
+        "Scale",
+        "Scale"
       ]
     },
     {
-      "name": "sx",
-      "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "sx",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sy",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "sz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "p",
+      "name": "Pivot",
+      "parName": "p",
       "label": "Pivot",
-      "description": "Configure Pivot for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The pivot point for the transform rotates and scales.",
+      "isReadOnly": false,
+      "menuItems": [
+        "px",
+        "py",
+        "pz"
+      ],
+      "menuLabels": [
+        "Pivot",
+        "Pivot",
+        "Pivot"
       ]
     },
     {
-      "name": "px",
-      "label": "Pivot",
-      "description": "Configure Pivot for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Pivot",
-          "value": "px",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "py",
-          "description": ""
-        },
-        {
-          "label": "Pivot",
-          "value": "pz",
-          "description": ""
-        }
+      "name": "Weight",
+      "parName": "weight",
+      "label": "Weight",
+      "type": "Toggle",
+      "description": "Output a field weight attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "weight",
+        "outputattr"
+      ],
+      "menuLabels": [
+        "Weight",
+        "Weight Output Attribute"
       ]
     },
     {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
+      "name": "Signed Distance",
+      "parName": "signeddistance",
+      "label": "Signed Distance",
+      "type": "Toggle",
+      "description": "Output a signed distance attribute for each point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "signeddistance",
+        "sdoutputattr"
+      ],
+      "menuLabels": [
+        "Signed Distance",
+        "Signed Distance Output Attribute"
       ]
     },
     {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
+      "name": "Per-Field Weights",
+      "parName": "perfieldweights",
+      "label": "Per-Field Weights",
+      "type": "Toggle",
+      "description": "Output an attribute array value for each field in the Specification POP.",
+      "isReadOnly": false,
+      "menuItems": [
+        "perfieldweights",
+        "perfieldweightsoutputattr"
+      ],
+      "menuLabels": [
+        "Per-Field Weights",
+        "Weights"
       ]
     },
     {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "name": "Per-Field Distances",
+      "parName": "perfielddistances",
+      "label": "Per-Field Distances",
+      "type": "Toggle",
+      "description": "Output an attribute array value for each field in the Specification POP.",
+      "isReadOnly": false,
+      "menuItems": [
+        "perfielddistances",
+        "perfielddistancesoutputattr"
+      ],
+      "menuLabels": [
+        "Per-Field Distances",
+        "Distances"
       ]
     },
     {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "name": "Combine Operation",
+      "parName": "combineop",
+      "label": "Combine Operation",
+      "type": "Menu",
+      "description": "Specify how to combine the output value with the combine attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "add",
+        "mult"
+      ],
+      "menuLabels": [
+        "None",
+        "Add",
+        "Multiply"
+      ]
+    },
+    {
+      "name": "Combine Entity",
+      "parName": "combineentity",
+      "label": "Combine Entity",
+      "type": "Menu",
+      "description": "Specify which computed value to use for the combine operation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "weight",
+        "signeddistance"
+      ],
+      "menuLabels": [
+        "Weight",
+        "Signed Distance"
+      ]
+    },
+    {
+      "name": "Combine Attribute",
+      "parName": "combineattr",
+      "label": "Combine Attribute",
+      "type": "StrMenu",
+      "description": "Input attribute scope for the combine operation.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Combine Output Attribute",
+      "parName": "combineoutputattr",
+      "label": "Combine Output Attribute",
+      "type": "StrMenu",
+      "description": "Output attribute scope for the combine operation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth"
+      ],
+      "menuLabels": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth"
+      ]
+    },
+    {
+      "name": "Override Automatic Attribute",
+      "parName": "combineoverrideautoattr",
+      "label": "Override Automatic Attribute",
+      "type": "Toggle",
+      "description": "Whether to override the kind of attribute automatically created based on the POP input and parameters. Allows to specify manually the type and number of components of the new attribute.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Attribute Type",
+      "parName": "combineattrtype",
+      "label": "Attribute Type",
+      "type": "Menu",
+      "description": "The combined output attribute's data type, default float.",
+      "isReadOnly": false,
+      "menuItems": [
+        "float",
+        "double",
+        "int",
+        "uint",
+        "color",
+        "dcolor",
+        "dir",
+        "ddir"
+      ],
+      "menuLabels": [
+        "float",
+        "double",
+        "int",
+        "uint",
+        "Color",
+        "Color (double)",
+        "Direction",
+        "Direction (double)"
+      ]
+    },
+    {
+      "name": "Components",
+      "parName": "combineattrnumcomps",
+      "label": "Components",
+      "type": "Menu",
+      "description": "The number of components in the new custom attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "name": "Default Value",
+      "parName": "combineattrdefaultval",
+      "label": "Default Value",
+      "type": "Float",
+      "description": "Default values of the output attribute components if they cannot be computed.",
+      "isReadOnly": false,
+      "menuItems": [
+        "combineattrdefaultval0",
+        "combineattrdefaultval1",
+        "combineattrdefaultval2",
+        "combineattrdefaultval3"
+      ],
+      "menuLabels": [
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Field_POP.htm",
-  "parsedAt": "2025-08-08T03:03:55.692Z"
+  "parsedAt": "2025-08-08T03:03:55.692Z",
+  "url": "https://docs.derivative.ca/Field_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Field_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Field_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Field_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

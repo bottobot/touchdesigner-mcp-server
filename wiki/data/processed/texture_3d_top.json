@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.618Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Texture_3D_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Texture_3D_TOP",
   "description": "The Texture 3D TOP creates a 3D texture map. It saves a series of images in one array of pixels. This TOP can be used with Time Machine TOP, as well as materials. Using materials, a particular image in this array can be accessed by specifying a W texture coordinate, while the U and V coordinates are used to specify a texture location on that image. Refer to the 3D Texture article for more information.",
   "summary": "The Texture 3D TOP creates a 3D texture map. It saves a series of images in one array of pixels. This TOP can be used with Time Machine TOP, as well as materials. Using materials, a particular image i",
   "details": "",

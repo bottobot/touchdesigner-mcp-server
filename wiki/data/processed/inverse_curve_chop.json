@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.337Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Inverse_Curve_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Inverse_Curve_CHOP",
   "description": "The Inverse Curve CHOP calculates an inverse kinematics simulation for bone objects using a curve object.",
   "summary": "The Inverse Curve CHOP calculates an inverse kinematics simulation for bone objects using a curve object.",
   "details": "",

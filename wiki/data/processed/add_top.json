@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.179Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Add_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Add_TOP",
   "description": "The Add TOP composites the input images together by adding the pixel values. Output = Input1 + Input2. It clamps a color channel if the sum exceeds 1.",
   "summary": "The Add TOP composites the input images together by adding the pixel values. Output = Input1 + Input2. It clamps a color channel if the sum exceeds 1.",
   "details": "",

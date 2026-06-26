@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.809Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Normal_Map_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Normal_Map_TOP",
   "description": "The Normal Map TOP takes an input image and creates a normal map by finding edges in the image. This can then be used for bump mapping (See Phong MAT and PBR MAT).",
   "summary": "The Normal Map TOP takes an input image and creates a normal map by finding edges in the image. This can then be used for bump mapping (See Phong MAT and PBR MAT).",
   "details": "",

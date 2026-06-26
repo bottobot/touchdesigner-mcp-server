@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.885Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Hole_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Hole_SOP",
   "description": "The Hole SOP is for making holes where faces are enclosed, even if they are not in the same plane. It can also remove existing holes from the input geometry.",
   "summary": "The Hole SOP is for making holes where faces are enclosed, even if they are not in the same plane. It can also remove existing holes from the input geometry.",
   "details": "",

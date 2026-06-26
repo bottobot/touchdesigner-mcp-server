@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.238Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Record_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Record_CHOP",
   "description": "The Record CHOP takes the channels coming in the first (Position) input, converts and records them internally, and outputs the stored channels as the CHOP output. The optional second (Active) input is used to enable and disable the recording.",
   "summary": "The Record CHOP takes the channels coming in the first (Position) input, converts and records them internally, and outputs the stored channels as the CHOP output. The optional second (Active) input is",
   "details": "",

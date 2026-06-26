@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.314Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Refine_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Refine_SOP",
   "description": "The Refine SOP allows you to increase the number of CVs in any NURBS, Bzier, or polygonal surface or face without changing its shape. It is also used to decrease the number of CVs within a given tolerance (i.e. a simple but fast method of data reduction).",
   "summary": "The Refine SOP allows you to increase the number of CVs in any NURBS, Bzier, or polygonal surface or face without changing its shape. It is also used to decrease the number of CVs within a given toler",
   "details": "",

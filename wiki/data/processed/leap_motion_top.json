@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.018Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Leap_Motion_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Leap_Motion_TOP",
   "description": "The Leap Motion TOP gets the image from the Leap Motion controller's cameras. To enable this feature the option Allow Images must be turned on in the Leap Motion Control Panel.",
   "summary": "The Leap Motion TOP gets the image from the Leap Motion controller's cameras. To enable this feature the option Allow Images must be turned on in the Leap Motion Control Panel.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.975Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Import_Select_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Import_Select_TOP",
   "description": "The Import Select TOP loads the texture map images such as Color Map, Normal Map, Metallic Map and so forth that are defined in FBX COMP or USD COMP. The image binaries can be encoded within the importing file (e.g. .usdz format) or specified as an external asset with an valid path.",
   "summary": "The Import Select TOP loads the texture map images such as Color Map, Normal Map, Metallic Map and so forth that are defined in FBX COMP or USD COMP. The image binaries can be encoded within the impor",
   "details": "",

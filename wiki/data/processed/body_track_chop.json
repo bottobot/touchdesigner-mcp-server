@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.567Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Body_Track_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Body_Track_CHOP",
   "description": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This operator uses the Augmented Reality (AR) SDK of the Nvidia Maxine system and requires a 20, 30, or 40 series Nvidia RTX GPU.",
   "summary": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This operator uses the Augmented Reality (AR) SDK of the Nvidia Maxine system and requires a 20, 30, or 40 se",
   "details": "",

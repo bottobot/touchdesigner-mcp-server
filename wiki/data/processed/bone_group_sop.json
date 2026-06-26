@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.596Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Bone_Group_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Bone_Group_SOP",
   "description": "The Bone Group SOP groups primitives by common bones (shared bones). For more information regarding using Bone Groups for deforming geometry, see this article: Deforming_Geometry_(Skinning). All capture weights are re-normalized.",
   "summary": "The Bone Group SOP groups primitives by common bones (shared bones). For more information regarding using Bone Groups for deforming geometry, see this article: Deforming_Geometry_(Skinning). All captu",
   "details": "",

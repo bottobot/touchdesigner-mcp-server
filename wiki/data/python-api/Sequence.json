@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "int",
       "readOnly": true,
-      "description": "blockSize member"
-    },
-    {
-      "name": "blockSize",
-      "id": "bodyContent",
-      "returnType": "int",
-      "readOnly": true,
-      "description": "blockSize member"
+      "description": ""
     }
   ],
   "methods": [

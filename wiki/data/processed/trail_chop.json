@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.356Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Trail_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Trail_CHOP",
   "description": "The Trail CHOP displays a history of its input channels back in time. A window of time is displayed from the current frame back in time, the size of this window is set by the Window Length parameter. The last sample in the Trail CHOP is a sample of the input at the current frame. Note: If the input channels change in number or names, the Trail CHOP clears its trails and begins anew.  You can use a Replace CHOP in this case to create stand in values.",
   "summary": "The Trail CHOP displays a history of its input channels back in time. A window of time is displayed from the current frame back in time, the size of this window is set by the Window Length parameter. ",
   "details": "",

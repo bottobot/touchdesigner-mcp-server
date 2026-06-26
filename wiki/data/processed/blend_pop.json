@@ -3,616 +3,163 @@
   "id": "blend_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Blend POP lets you blend together an attribute that occurs in all of it input POPs, such as the P attribute of all the inputs.",
+  "description": "The Blend POP lets you blend together an attribute that occurs in all of it input POPs, such as the P attribute of all the inputs. There are at least 8 blend types. The simplest blend types will do operations like average an attribute of all the inputs, or take the maximum, minimum, sum or product of all the inputs for one attribute. The more complex blend types will mix based on a Blend Input factor (often a number between 0 and 1) for each input. You can specify more than one point attribute, more than one vertex and more than one primitive attribute to blend at the same time. You can get blend weights from attributes of the input POPs. The Blend POP's architecture for handling multiple inputs is similar to the [[Attribute Combine POP]]. '''Per-point mapping of parameters''' - The Random POP has a Map page, which allows every point to get a different value for the Blend Input weight parameter. In this mechanism, a separate attribute in the input contains values that override (or add to / multiply by) the parameter value. See [[Mapping POP Attributes to Parameters]].",
   "parameters": [
     {
-      "name": "blendtype",
+      "name": "Blend Type",
+      "parName": "blendtype",
       "label": "Blend Type",
-      "description": "Configure Blend Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Differencing",
-          "value": "differencing",
-          "description": ""
-        },
-        {
-          "label": "Proportional",
-          "value": "proportional",
-          "description": ""
-        },
-        {
-          "label": "Proportional Smoothed",
-          "value": "proportionalsmoothed",
-          "description": ""
-        },
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mul",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        },
-        {
-          "label": "Ignore",
-          "value": "ignore",
-          "description": ""
-        },
-        {
-          "label": "Warning",
-          "value": "warning",
-          "description": ""
-        },
-        {
-          "label": "Error",
-          "value": "error",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "One",
-          "value": "one",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "The Nth point of each input is blended according to this menu. The first group are simple blends, the last group depends on the weight of each input.",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "avg",
+        "add",
+        "mul",
+        "min",
+        "max",
+        "differencing",
+        "proportional",
+        "proportionalsmoothed"
+      ],
+      "menuLabels": [
+        "Off",
+        "Average",
+        "Add",
+        "Multiply",
+        "Minimum",
+        "Maximum",
+        "Differencing",
+        "Proportional",
+        "Proportional Smoothed"
       ]
     },
     {
-      "name": "differencing",
-      "label": "Differencing",
-      "description": "Configure Differencing for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Differencing",
-          "value": "differencing",
-          "description": ""
-        },
-        {
-          "label": "Proportional",
-          "value": "proportional",
-          "description": ""
-        },
-        {
-          "label": "Proportional Smoothed",
-          "value": "proportionalsmoothed",
-          "description": ""
-        },
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mul",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lengthmismatchnotif",
+      "name": "Length Mismatch",
+      "parName": "lengthmismatchnotif",
       "label": "Length Mismatch",
-      "description": "Configure Length Mismatch for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Ignore",
-          "value": "ignore",
-          "description": ""
-        },
-        {
-          "label": "Warning",
-          "value": "warning",
-          "description": ""
-        },
-        {
-          "label": "Error",
-          "value": "error",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Length mis-match motification action.",
+      "isReadOnly": false,
+      "menuItems": [
+        "ignore",
+        "warning",
+        "error",
+        "lengthmismatchnotif",
+        "lengthmismatchaction"
+      ],
+      "menuLabels": [
+        "Ignore",
+        "Warning",
+        "Error",
+        "Length Mismatch",
+        "Length Mismatch Action"
       ]
     },
     {
-      "name": "ignore",
-      "label": "Ignore",
-      "description": "Configure Ignore for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Ignore",
-          "value": "ignore",
-          "description": ""
-        },
-        {
-          "label": "Warning",
-          "value": "warning",
-          "description": ""
-        },
-        {
-          "label": "Error",
-          "value": "error",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lengthmismatchaction",
-      "label": "Length Mismatch Action",
-      "description": "Configure Length Mismatch Action for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "One",
-          "value": "one",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "hold",
-      "label": "Hold",
-      "description": "Configure Hold for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "One",
-          "value": "one",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "weightchop",
+      "name": "Blend Weights CHOP",
+      "parName": "weightchop",
       "label": "Blend Weights CHOP",
-      "description": "Configure Blend Weights CHOP for the operator",
-      "type": "string"
+      "type": "CHOP",
+      "description": "Instead of the blend weights coling from parameters, they can come from a CHOP, wither one weight per channel, or one weight per sample.",
+      "isReadOnly": false
     },
     {
-      "name": "pointattrscope",
+      "name": "Point Attribute Scope",
+      "parName": "pointattrscope",
       "label": "Point Attribute Scope",
-      "description": "Configure Point Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "The Point attribute scope to blend.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "*",
-      "label": "*",
-      "description": "Configure * for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "primattrscope",
+      "name": "Primitive Attribute Scope",
+      "parName": "primattrscope",
       "label": "Primitive Attribute Scope",
-      "description": "Configure Primitive Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "The Primitive attribute scope to blend.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "vertattrscope",
+      "name": "Vertex Attribute Scope",
+      "parName": "vertattrscope",
       "label": "Vertex Attribute Scope",
-      "description": "Configure Vertex Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "The Vertex attribute scope to blend.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "pointweight",
-      "label": "Point Weight",
-      "description": "Configure Point Weight for the operator",
-      "type": "string"
-    },
-    {
-      "name": "primweight",
-      "label": "Primitive Weight",
-      "description": "Configure Primitive Weight for the operator",
-      "type": "string"
-    },
-    {
-      "name": "vertweight",
-      "label": "Vertex Weight",
-      "description": "Configure Vertex Weight for the operator",
-      "type": "string"
-    },
-    {
-      "name": "input",
+      "name": "Input",
+      "parName": "input",
       "label": "Input",
-      "description": "Configure Input for the operator",
-      "type": "string"
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks managing the inputs of the POP.",
+      "isReadOnly": false
     },
     {
-      "name": "input0pop",
-      "label": "In POP(s)",
-      "description": "Configure In POP(s) for the operator",
-      "type": "string"
-    },
-    {
-      "name": "input0weight",
-      "label": "Blend Input",
-      "description": "Configure Blend Input for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "name": "Mapping",
+      "parName": "map",
+      "label": "Mapping",
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for attribute-to-parameter mapping.",
+      "isReadOnly": false,
+      "menuItems": [
+        "input0weight",
+        "set",
+        "mult",
+        "add"
+      ],
+      "menuLabels": [
+        "input0weight (Blend Input)",
+        "Set",
+        "Multiply",
+        "Add"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Blend_POP.htm",
-  "parsedAt": "2025-08-08T03:03:54.346Z"
+  "parsedAt": "2025-08-08T03:03:54.346Z",
+  "url": "https://docs.derivative.ca/Blend_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Blend_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Blend_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Blend_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

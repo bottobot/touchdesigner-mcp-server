@@ -1,15 +1,54 @@
 {
   "schemaVersion": "1.0",
-  "description": "Per-operator version compatibility tracking. Fields: addedIn (first version available), changedIn (versions with notable changes), removedIn (if operator was removed).",
+  "description": "Per-operator version compatibility tracking. Fields: addedIn (first version available), changedIn (versions with notable changes — only populated where a change is substantiated by an official release note), removedIn (if operator was removed).",
+  "_provenance": [
+    {
+      "fact": "POPs (Point Operators) are the flagship new operator family of the 2025 official release — the first new operator family in over a decade.",
+      "url": "https://derivative.ca/community-post/2025-official-update/73153",
+      "quote": "This year's release is quite special with the introduction of a completely new family of operators called Point Operators (POPs)... This is the first new operator family we've added in over a decade and it promises to be a game changer for the way you work in TouchDesigner!"
+    },
+    {
+      "fact": "POPs are a new family of operators introduced in the 2025.30000 release, running on the GPU to create or modify 3D data.",
+      "url": "https://docs.derivative.ca/Release_Notes/2025.30000",
+      "quote": "Introducing POPs, aka Point Operators! POPs are a new family of operators that run on the GPU and create or modify 3D data."
+    },
+    {
+      "fact": "POPs were announced on 2024-05-19; DATs (2005) were the previous new operator family.",
+      "url": "https://derivative.ca/community-post/pops-new-operator-family-touchdesigner/69468",
+      "quote": "It's not every day we introduce a new operator family for TouchDesigner. DATs (Data Operators) was the last family created in 2005."
+    },
+    {
+      "fact": "The 2025 official release bundles Python 3.11.10.",
+      "url": "https://derivative.ca/community-post/2025-official-update/73153",
+      "quote": "TouchDesigner's core python version has been updated to 3.11.10."
+    },
+    {
+      "fact": "Vulkan became TouchDesigner's graphics API and OpenGL was retired as of the 2022 release; core Python was upgraded to 3.9.5.",
+      "url": "https://derivative.ca/community-post/2022-official-update/66222",
+      "quote": "The openGL engine used for the last 20 years is gone and TouchDesigner's graphics API is now Vulkan."
+    },
+    {
+      "fact": "TD 2021 official Python was 3.7.2; Python 3.9.5 first arrived in the 2021.38110 experimental build alongside the Vulkan transition.",
+      "url": "https://derivative.ca/release/experimental-202138110/65595",
+      "quote": "The version of Python in TouchDesigner has been updated to 3.9.5. The previous version was Python 3.7.2."
+    },
+    {
+      "fact": "The Body Track CHOP belongs to the 2022 NVIDIA Maxine AI operator wave; it uses the Nvidia Maxine AR SDK and requires an RTX GPU.",
+      "url": "https://docs.derivative.ca/Body_Track_CHOP",
+      "quote": "This operator uses the Augmented Reality (AR SDK) of the Nvidia Maxine system and requires a 20, 30, 40 or 50 series Nvidia RTX GPU."
+    },
+    {
+      "fact": "Nvidia Maxine-SDK based operators are a recognized operator family in the 2022 series release notes.",
+      "url": "https://docs.derivative.ca/Release_Notes/2022.20000",
+      "quote": "The machine learning models for Nvidia operators using Maxine SDKs have been updated to include models for the 40-series Geforce and Professional A-series Ada generation GPUs."
+    }
+  ],
   "operators": {
     "noise_chop": {
       "name": "Noise CHOP",
       "category": "CHOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2021", "change": "Added new noise types including Sparse and Alligator" },
-        { "version": "2022", "change": "Improved performance for high harmonic counts" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Available since earliest TD releases"
     },
@@ -25,10 +64,7 @@
       "name": "Math CHOP",
       "category": "CHOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added vector math operations" },
-        { "version": "2022", "change": "Added combine operation for multi-channel math" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Core arithmetic operator"
     },
@@ -36,9 +72,7 @@
       "name": "Filter CHOP",
       "category": "CHOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2021", "change": "Added new filter types: Butterworth, Chebyshev" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Low/high/band-pass filter"
     },
@@ -46,10 +80,7 @@
       "name": "Audio File In CHOP",
       "category": "CHOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added FMOD support for larger file libraries" },
-        { "version": "2023", "change": "Improved streaming for long files" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Core audio playback operator"
     },
@@ -57,9 +88,7 @@
       "name": "Audio Device In CHOP",
       "category": "CHOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2022", "change": "Added ASIO driver support" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Hardware audio input"
     },
@@ -67,9 +96,7 @@
       "name": "Timer CHOP",
       "category": "CHOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2021", "change": "Added segment-based timing and callbacks" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Timing and sequencing"
     },
@@ -85,9 +112,7 @@
       "name": "LFO CHOP",
       "category": "CHOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added sync options for multi-channel LFOs" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Low frequency oscillator"
     },
@@ -103,24 +128,15 @@
       "name": "Script CHOP",
       "category": "CHOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2019", "change": "Python 3.7 with asyncio available in scripts" },
-        { "version": "2021", "change": "Python 3.9 features available" },
-        { "version": "2023", "change": "Python 3.11 significant performance boost" }
-      ],
+      "changedIn": [],
       "removedIn": null,
-      "notes": "Python scripting CHOP — Python version tracks TD version"
+      "notes": "Python scripting CHOP — bundled Python version tracks the TD release (3.7.2 in 2021 official, 3.9.5 from 2022, 3.11.10 in 2025)"
     },
     "movie_file_in_top": {
       "name": "Movie File In TOP",
       "category": "TOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added H.265/HEVC support" },
-        { "version": "2021", "change": "Added HAP alpha codec support" },
-        { "version": "2022", "change": "Added AV1 codec support" },
-        { "version": "2023", "change": "Improved GPU decoding performance" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Core video playback operator"
     },
@@ -128,11 +144,7 @@
       "name": "Render TOP",
       "category": "TOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added MSAA antialiasing support" },
-        { "version": "2022", "change": "PBR material pipeline improvements" },
-        { "version": "2023", "change": "NVIDIA DLSS upscaling integration" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "3D scene renderer"
     },
@@ -140,10 +152,7 @@
       "name": "GLSL TOP",
       "category": "TOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added compute shader support" },
-        { "version": "2022", "change": "Added SSBO buffer access" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "GPU shader operator"
     },
@@ -151,9 +160,7 @@
       "name": "Noise TOP",
       "category": "TOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2021", "change": "Added new noise algorithms including Worley" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Procedural texture noise"
     },
@@ -161,10 +168,7 @@
       "name": "Blur TOP",
       "category": "TOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2021", "change": "Added bokeh/lens blur filter type" },
-        { "version": "2022", "change": "GPU-optimized Gaussian blur" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Image blur filter"
     },
@@ -172,9 +176,7 @@
       "name": "Composite TOP",
       "category": "TOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added blend modes: Multiply, Screen, Overlay, Hard Light" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Image compositing"
     },
@@ -182,9 +184,7 @@
       "name": "Level TOP",
       "category": "TOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added HDR range controls" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Color level adjustments"
     },
@@ -192,10 +192,7 @@
       "name": "NDI In TOP",
       "category": "TOP",
       "addedIn": "2019",
-      "changedIn": [
-        { "version": "2021", "change": "NDI 5 protocol support" },
-        { "version": "2022", "change": "NDI HX2 support for compressed streams" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Network video input via NDI protocol"
     },
@@ -203,44 +200,39 @@
       "name": "NDI Out TOP",
       "category": "TOP",
       "addedIn": "2019",
-      "changedIn": [
-        { "version": "2021", "change": "NDI 5 protocol support" },
-        { "version": "2022", "change": "NDI HX2 compressed output" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Network video output via NDI protocol"
     },
     "nvidia_background_top": {
       "name": "NVIDIA Background TOP",
       "category": "TOP",
-      "addedIn": "2023",
+      "addedIn": "2022",
       "changedIn": [],
       "removedIn": null,
-      "notes": "Requires NVIDIA RTX GPU and TD 2023+"
+      "notes": "NVIDIA Maxine AI background segmentation; requires an NVIDIA RTX GPU"
     },
     "nvidia_denoise_top": {
       "name": "NVIDIA Denoise TOP",
       "category": "TOP",
-      "addedIn": "2023",
+      "addedIn": "2022",
       "changedIn": [],
       "removedIn": null,
-      "notes": "AI-powered denoising, requires NVIDIA RTX GPU"
+      "notes": "NVIDIA Maxine AI-powered denoising; requires an NVIDIA RTX GPU"
     },
     "nvidia_upscaler_top": {
       "name": "NVIDIA Upscaler TOP",
       "category": "TOP",
-      "addedIn": "2023",
+      "addedIn": "2022",
       "changedIn": [],
       "removedIn": null,
-      "notes": "DLSS/NIS upscaling, requires NVIDIA RTX GPU"
+      "notes": "NVIDIA Maxine AI upscaling; requires an NVIDIA RTX GPU"
     },
     "kinect_azure_top": {
       "name": "Kinect Azure TOP",
       "category": "TOP",
       "addedIn": "2020",
-      "changedIn": [
-        { "version": "2021", "change": "Body tracking improvements, new skeleton data" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Azure Kinect depth camera support"
     },
@@ -248,9 +240,7 @@
       "name": "Kinect Azure CHOP",
       "category": "CHOP",
       "addedIn": "2020",
-      "changedIn": [
-        { "version": "2021", "change": "Added hand tracking channels" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Azure Kinect body tracking data"
     },
@@ -258,11 +248,7 @@
       "name": "Web Render TOP",
       "category": "TOP",
       "addedIn": "2020",
-      "changedIn": [
-        { "version": "2021", "change": "Chromium engine updated to support WebGL 2.0" },
-        { "version": "2022", "change": "Added Web Audio API support" },
-        { "version": "2023", "change": "Chromium updated with better WebGPU preview support" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Embedded Chromium browser renderer"
     },
@@ -270,10 +256,7 @@
       "name": "WebRTC DAT",
       "category": "DAT",
       "addedIn": "2021",
-      "changedIn": [
-        { "version": "2022", "change": "Added data channel support for bidirectional messaging" },
-        { "version": "2023", "change": "Improved ICE/STUN server configuration" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "WebRTC peer-to-peer communication"
     },
@@ -281,10 +264,7 @@
       "name": "MQTT Client DAT",
       "category": "DAT",
       "addedIn": "2019",
-      "changedIn": [
-        { "version": "2021", "change": "MQTT 5.0 protocol support added" },
-        { "version": "2022", "change": "TLS certificate authentication" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "MQTT IoT messaging protocol"
     },
@@ -292,9 +272,7 @@
       "name": "Table DAT",
       "category": "DAT",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "CSV import/export improvements" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Core data table operator"
     },
@@ -302,11 +280,7 @@
       "name": "Script DAT",
       "category": "DAT",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2019", "change": "Python 3.7 async/await support" },
-        { "version": "2021", "change": "Python 3.9 features" },
-        { "version": "2023", "change": "Python 3.11 performance improvements" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Python scripting DAT"
     },
@@ -314,10 +288,7 @@
       "name": "Execute DAT",
       "category": "DAT",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added onFrameStart and onFrameEnd callbacks" },
-        { "version": "2022", "change": "Added onDeviceChange callback" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Event-driven Python execution"
     },
@@ -325,33 +296,23 @@
       "name": "Geometry COMP",
       "category": "COMP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Instancing improvements with instance attributes" },
-        { "version": "2022", "change": "LOD (Level of Detail) system added" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "3D geometry container"
     },
     "engine_comp": {
       "name": "Engine COMP",
       "category": "COMP",
-      "addedIn": "2020",
-      "changedIn": [
-        { "version": "2021", "change": "Improved multi-threading for parallel execution" },
-        { "version": "2022", "change": "Added GPU context isolation" },
-        { "version": "2023", "change": "Replication improvements for clustered setups" }
-      ],
+      "addedIn": "2022",
+      "changedIn": [],
       "removedIn": null,
-      "notes": "Isolated execution context for performance"
+      "notes": "Isolated TouchEngine execution context; graduated to stable in the 2022 release"
     },
     "replicator_comp": {
       "name": "Replicator COMP",
       "category": "COMP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2021", "change": "Added Python onReplicate callbacks" },
-        { "version": "2022", "change": "Improved template cloning performance" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Dynamic operator replication"
     },
@@ -359,21 +320,15 @@
       "name": "USD COMP",
       "category": "COMP",
       "addedIn": "2022",
-      "changedIn": [
-        { "version": "2023", "change": "USD 23.x support with improved material binding" },
-        { "version": "2024", "change": "Improved USD hydra rendering pipeline" }
-      ],
+      "changedIn": [],
       "removedIn": null,
-      "notes": "Universal Scene Description integration"
+      "notes": "Universal Scene Description integration; graduated to stable in the 2022 release"
     },
     "widget_comp": {
       "name": "Widget COMP",
       "category": "COMP",
       "addedIn": "2022",
-      "changedIn": [
-        { "version": "2023", "change": "Added new widget types: Slider, Knob, XY Pad" },
-        { "version": "2024", "change": "Theme system and custom styling" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "UI widget system"
     },
@@ -381,11 +336,7 @@
       "name": "PBR MAT",
       "category": "MAT",
       "addedIn": "2019",
-      "changedIn": [
-        { "version": "2020", "change": "Added clearcoat and sheen material layers" },
-        { "version": "2022", "change": "Improved subsurface scattering" },
-        { "version": "2023", "change": "Improved HDRI environment lighting integration" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Physically-based rendering material"
     },
@@ -393,10 +344,7 @@
       "name": "GLSL MAT",
       "category": "MAT",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2020", "change": "Added geometry shader support" },
-        { "version": "2022", "change": "Tessellation shader support" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Custom GLSL shader material"
     },
@@ -404,70 +352,55 @@
       "name": "Noise SOP",
       "category": "SOP",
       "addedIn": "099",
-      "changedIn": [
-        { "version": "2021", "change": "Added Alligator and Sparse noise types" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Deformation noise for geometry"
     },
     "particle_pop": {
       "name": "Particle POP",
       "category": "POP",
-      "addedIn": "2022",
-      "changedIn": [
-        { "version": "2023", "change": "GPU acceleration for large particle counts" },
-        { "version": "2024", "change": "Improved collision detection" }
-      ],
+      "addedIn": "2025",
+      "changedIn": [],
       "removedIn": null,
-      "notes": "Point Operator particle system, introduced in 2022"
+      "notes": "Point Operator particle system; POPs are the new operator family that shipped as the flagship of the 2025 release"
     },
     "glsl_pop": {
       "name": "GLSL POP",
       "category": "POP",
-      "addedIn": "2022",
-      "changedIn": [
-        { "version": "2023", "change": "Compute shader integration for GPU particles" }
-      ],
+      "addedIn": "2025",
+      "changedIn": [],
       "removedIn": null,
-      "notes": "Custom GLSL compute shaders for point data"
+      "notes": "Custom GLSL compute shaders for point data; part of the POP family introduced in the 2025 release"
     },
     "force_pop": {
       "name": "Force POP",
       "category": "POP",
-      "addedIn": "2022",
-      "changedIn": [
-        { "version": "2024", "change": "Added turbulence and vortex force types" }
-      ],
+      "addedIn": "2025",
+      "changedIn": [],
       "removedIn": null,
-      "notes": "Apply forces to point systems"
+      "notes": "Apply forces to point systems; part of the POP family introduced in the 2025 release"
     },
     "opencolorio_top": {
       "name": "OpenColorIO TOP",
       "category": "TOP",
       "addedIn": "2020",
-      "changedIn": [
-        { "version": "2022", "change": "OCIO v2 support" },
-        { "version": "2023", "change": "Improved HDR color space handling" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Color management via OpenColorIO"
     },
     "body_track_chop": {
       "name": "Body Track CHOP",
       "category": "CHOP",
-      "addedIn": "2023",
+      "addedIn": "2022",
       "changedIn": [],
       "removedIn": null,
-      "notes": "AI-based body tracking, requires NVIDIA RTX GPU"
+      "notes": "NVIDIA Maxine AR-SDK AI body tracking (34 key points); part of the 2022 NVIDIA AI operator wave and requires an NVIDIA RTX GPU"
     },
     "renderstream_in_top": {
       "name": "RenderStream In TOP",
       "category": "TOP",
       "addedIn": "2021",
-      "changedIn": [
-        { "version": "2022", "change": "Disguise d3 protocol v2 support" },
-        { "version": "2023", "change": "Improved synchronization for multi-engine setups" }
-      ],
+      "changedIn": [],
       "removedIn": null,
       "notes": "Disguise/d3 RenderStream integration"
     }

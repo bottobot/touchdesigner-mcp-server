@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.779Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Sort_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Sort_SOP",
   "description": "The Sort SOP allows you to sort points and primitives in different ways. Sometimes the primitives are arranged in the desired order, but the point order is not. There are many possible combinations. To sort vertices, use the Primitive SOP.",
   "summary": "The Sort SOP allows you to sort points and primitives in different ways. Sometimes the primitives are arranged in the desired order, but the point order is not. There are many possible combinations. T",
   "details": "",

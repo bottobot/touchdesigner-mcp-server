@@ -3,1341 +3,331 @@
   "id": "line_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Line POP generates a line strip where you create a set of points using parameters, and then subdivide each segment using various interpolation methods. The default is two points with 20 divisions between them, linearly interpolated.",
+  "description": "The Line POP generates a line strip where you create a set of points using parameters, and then (optionally) subdivides each segment using various interpolation methods. The default is two points with 20 divisions between them, linearly interpolated. You add a point by creating a new sequential block on the Points page and specifying the position <code>P</code> using its parameters. But each point can have any set of attributes: On the Setup page, use New Attribute to define all the attributes you want for the points. The points are automatically connected as a line strip. On Setup, you can choose the Interpolation Method for the Divisions page, the default being Linear interpolation, but also possible are splines including Cardinal, BSpline, Beziers and Quadratic. With the spline types, the Line POP adds extra parameters on the Point page for setting the spline weight, tangents and/or tension. You can also choose to have a different interpolation method per-point. On the Setup page, the toggle Multiple Line Strips lets you break the points into separate line strips, thus a parameter is added to the Points' sequential block that lets you indicate where the line breaks are. Also points can be repeated, and line strips can be open or closed. The Divisions page subdivides the line strips in two stages. The first stage allows setting the total divisions for the line strip, or the divisions per-segment, or lets you divide by distance along the curves. The second stage lets you further re-sample the line strip, adding or removing points. If you want to output your pre-divided point list, then do some other operations on it with other POPs, and later divide using the [[Line Divide POP]], you can output the line strip(s) of the Line POP with the necessary attributes to be used by the Line Divide POP to control the divisions, including the interpolation type (<code>SegMethod</code>, in integer form). <code>SegMethod</code> is 0 for Linear, 1 for Cardinal and so on following the order in the Interpolation Method menu. It will also output attributes for weight and tangents etc. Look at the mclick popup info box to see the attributes it outputs. This mode is chosen with the Output menu. See also [[Line Divide POP]], [[Curve POP]], [[Point POP]], [[Primitive POP]], [[Pattern POP]].",
   "parameters": [
     {
-      "name": "P",
-      "label": "Multiple Line Strips",
-      "description": "Configure Multiple Line Strips for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Cardinal (Interpolating)",
-          "value": "cardinal",
-          "description": ""
-        },
-        {
-          "label": "BSpline",
-          "value": "bspline",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier With Tangents",
-          "value": "cubicbeziertang",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier",
-          "value": "cubicbezier",
-          "description": ""
-        },
-        {
-          "label": "Quadratic Bezier",
-          "value": "quadraticbezier",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valuea",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posx",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posy",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posz",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posx",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posy",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posz",
-          "description": ""
-        },
-        {
-          "label": "Subdivided Lines",
-          "value": "subdivlines",
-          "description": ""
-        },
-        {
-          "label": "Control Points",
-          "value": "ctrlpoints",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Segment",
-          "value": "segment",
-          "description": ""
-        },
-        {
-          "label": "Divisions Defined per Segment",
-          "value": "defpersegment",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points (per Segment)",
-          "value": "distseg",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Points as Keyframes",
-          "value": "keyframes",
-          "description": ""
-        },
-        {
-          "label": "P(0)",
-          "value": "P(0)",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "multiplelinestrips",
-      "label": "Multiple Line Strips",
-      "description": "Configure Multiple Line Strips for the operator",
-      "type": "string"
-    },
-    {
-      "name": "interpmethodpersegment",
-      "label": "Interpolation Method per Segment",
-      "description": "Configure Interpolation Method per Segment for the operator",
-      "type": "string"
-    },
-    {
-      "name": "interpmethod",
-      "label": "Interpolation Method",
-      "description": "Configure Interpolation Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Cardinal (Interpolating)",
-          "value": "cardinal",
-          "description": ""
-        },
-        {
-          "label": "BSpline",
-          "value": "bspline",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier With Tangents",
-          "value": "cubicbeziertang",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier",
-          "value": "cubicbezier",
-          "description": ""
-        },
-        {
-          "label": "Quadratic Bezier",
-          "value": "quadraticbezier",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "linear",
-      "label": "Linear",
-      "description": "Configure Linear for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Cardinal (Interpolating)",
-          "value": "cardinal",
-          "description": ""
-        },
-        {
-          "label": "BSpline",
-          "value": "bspline",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier With Tangents",
-          "value": "cubicbeziertang",
-          "description": ""
-        },
-        {
-          "label": "Cubic Bezier",
-          "value": "cubicbezier",
-          "description": ""
-        },
-        {
-          "label": "Quadratic Bezier",
-          "value": "quadraticbezier",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "tension",
-      "label": "Tension",
-      "description": "Configure Tension for the operator",
-      "type": "string"
-    },
-    {
-      "name": "enableweights",
-      "label": "Enable Weights",
-      "description": "Configure Enable Weights for the operator",
-      "type": "string"
-    },
-    {
-      "name": "enabletangent",
-      "label": "Enable Tangents",
-      "description": "Configure Enable Tangents for the operator",
-      "type": "string"
-    },
-    {
-      "name": "enablepointrepeat",
-      "label": "Enable Point Repeat",
-      "description": "Configure Enable Point Repeat for the operator",
-      "type": "string"
-    },
-    {
-      "name": "closed",
-      "label": "Closed",
-      "description": "Configure Closed for the operator",
-      "type": "string"
-    },
-    {
-      "name": "premultcolor",
-      "label": "Pre-Multiply RGB by Alpha",
-      "description": "Configure Pre-Multiply RGB by Alpha for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr",
-      "label": "New Attribute",
-      "description": "Configure New Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0name",
-      "label": "Name",
-      "description": "Configure Name for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "custom",
-      "label": "Custom",
-      "description": "Configure Custom for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0customname",
-      "label": "Custom Name",
-      "description": "Configure Custom Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0type",
-      "label": "Type",
-      "description": "Configure Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0numcomps",
-      "label": "Number of Components",
-      "description": "Configure Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0value",
-      "label": "Default Value",
-      "description": "Configure Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0valuer",
-      "label": "Default Value",
-      "description": "Configure Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "Default Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pt",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Position",
-          "value": "pt0posx",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posy",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posz",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posx",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posy",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pt0pos",
-      "label": "Position",
-      "description": "Configure Position for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Position",
-          "value": "pt0posx",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posy",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pt0posx",
-      "label": "Position",
-      "description": "Configure Position for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Position",
-          "value": "pt0posx",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posy",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt0posz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pt1pos",
-      "label": "Position",
-      "description": "Configure Position for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Position",
-          "value": "pt1posx",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posy",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pt1posx",
-      "label": "Position",
-      "description": "Configure Position for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Position",
-          "value": "pt1posx",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posy",
-          "description": ""
-        },
-        {
-          "label": "Position",
-          "value": "pt1posz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "output",
+      "name": "Output",
+      "parName": "output",
       "label": "Output",
-      "description": "Configure Output for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Subdivided Lines",
-          "value": "subdivlines",
-          "description": ""
-        },
-        {
-          "label": "Control Points",
-          "value": "ctrlpoints",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Instead of subdividing the line strip, it can output your point list as undivided control points that can be later subdivided with a [[Line Divide POP]]. It will add interpolation attributes like <code>SegMethod</code>.",
+      "isReadOnly": false,
+      "menuItems": [
+        "subdivlines",
+        "ctrlpoints"
+      ],
+      "menuLabels": [
+        "Subdivided Lines",
+        "Control Points"
       ]
     },
     {
-      "name": "subdivlines",
-      "label": "Subdivided Lines",
-      "description": "Configure Subdivided Lines for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Subdivided Lines",
-          "value": "subdivlines",
-          "description": ""
-        },
-        {
-          "label": "Control Points",
-          "value": "ctrlpoints",
-          "description": ""
-        }
+      "name": "Multiple Line Strips",
+      "parName": "multiplelinestrips",
+      "label": "Multiple Line Strips",
+      "type": "Toggle",
+      "description": "Allows the creation of multiple line strips, adding a line break toggle per point.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Interpolation Method per Segment",
+      "parName": "interpmethodpersegment",
+      "label": "Interpolation Method per Segment",
+      "type": "Toggle",
+      "description": "When toggle is on, it uses a separate interpolation method for each segment in the input line strips.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Interpolation Method",
+      "parName": "interpmethod",
+      "label": "Interpolation Method",
+      "type": "Menu",
+      "description": "Method to use for interpolation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linear",
+        "cardinal",
+        "bspline",
+        "cubicbeziertang",
+        "cubicbezier",
+        "quadraticbezier"
+      ],
+      "menuLabels": [
+        "Linear",
+        "Cardinal (Interpolating)",
+        "BSpline",
+        "Cubic Bezier With Tangents",
+        "Cubic Bezier",
+        "Quadratic Bezier"
       ]
     },
     {
-      "name": "divmethod",
+      "name": "Tension",
+      "parName": "tension",
+      "label": "Tension",
+      "type": "Float",
+      "description": "Controls how tightly the cardinal line strip bends through the control points",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Weights",
+      "parName": "enableweights",
+      "label": "Enable Weights",
+      "type": "Toggle",
+      "description": "Enable specifying control points weigths",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Tangents",
+      "parName": "enabletangent",
+      "label": "Enable Tangents",
+      "type": "Toggle",
+      "description": "Enable specifying control points tangents",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Point Repeat",
+      "parName": "enablepointrepeat",
+      "label": "Enable Point Repeat",
+      "type": "Toggle",
+      "description": "Enable specifying repeated control points for B-Splines",
+      "isReadOnly": false
+    },
+    {
+      "name": "Closed",
+      "parName": "closed",
+      "label": "Closed",
+      "type": "Toggle",
+      "description": "The last vertex is connected to the first vertex.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Pre-Multiply RGB by Alpha",
+      "parName": "premultcolor",
+      "label": "Pre-Multiply RGB by Alpha",
+      "type": "Toggle",
+      "description": "Enable RGB values pre-multiplication with the Alpha.",
+      "isReadOnly": false
+    },
+    {
+      "name": "New Attribute",
+      "parName": "attr",
+      "label": "New Attribute",
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to create new attributes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "custom",
+        "n",
+        "color",
+        "tex",
+        "pointscale",
+        "linewidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "dir",
+        "ddir",
+        "1",
+        "2",
+        "3",
+        "4",
+        "attr0value0",
+        "attr0value1",
+        "attr0value2",
+        "attr0value3"
+      ],
+      "menuLabels": [
+        "Custom",
+        "N",
+        "Color",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "dir",
+        "dbl dir",
+        "1",
+        "2",
+        "3",
+        "4",
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
+      ]
+    },
+    {
+      "name": "Point",
+      "parName": "pt",
+      "label": "Point",
+      "type": "Sequence",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "pt0posx",
+        "pt0posy",
+        "pt0posz",
+        "pt1posx",
+        "pt1posy",
+        "pt1posz"
+      ],
+      "menuLabels": [
+        "Position",
+        "Position",
+        "Position",
+        "Position",
+        "Position",
+        "Position"
+      ]
+    },
+    {
+      "name": "Divisions Method",
+      "parName": "divmethod",
       "label": "Divisions Method",
-      "description": "Configure Divisions Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Segment",
-          "value": "segment",
-          "description": ""
-        },
-        {
-          "label": "Divisions Defined per Segment",
-          "value": "defpersegment",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points (per Segment)",
-          "value": "distseg",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "The method to apply the divisions.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linestrip",
+        "segment",
+        "defpersegment",
+        "distseg"
+      ],
+      "menuLabels": [
+        "Divisions per Line Strip",
+        "Divisions per Segment",
+        "Divisions Defined per Segment",
+        "Distance between Points (per Segment)"
       ]
     },
     {
-      "name": "linestrip",
-      "label": "Divisions per Line Strip",
-      "description": "Configure Divisions per Line Strip for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Segment",
-          "value": "segment",
-          "description": ""
-        },
-        {
-          "label": "Divisions Defined per Segment",
-          "value": "defpersegment",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points (per Segment)",
-          "value": "distseg",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "divs",
+      "name": "Divisions",
+      "parName": "divs",
       "label": "Divisions",
-      "description": "Configure Divisions for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of divisions.",
+      "isReadOnly": false
     },
     {
-      "name": "dist",
+      "name": "Distance",
+      "parName": "dist",
       "label": "Distance",
-      "description": "Configure Distance for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Distance between points when post-resampling by distance.",
+      "isReadOnly": false
     },
     {
-      "name": "addctrlpointattr",
+      "name": "Add ControlPoint Attribute",
+      "parName": "addctrlpointattr",
       "label": "Add ControlPoint Attribute",
-      "description": "Configure Add ControlPoint Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to the output control points with attributes or subdivided line strips.",
+      "isReadOnly": false
     },
     {
-      "name": "resamplemethod",
+      "name": "Post-Resample Method",
+      "parName": "resamplemethod",
       "label": "Post-Resample Method",
-      "description": "Configure Post-Resample Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Points as Keyframes",
-          "value": "keyframes",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Resampling method used after division.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "linestrip",
+        "dist",
+        "keyframes"
+      ],
+      "menuLabels": [
+        "None",
+        "Divisions per Line Strip",
+        "Distance between Points",
+        "Points as Keyframes"
       ]
     },
     {
-      "name": "none",
-      "label": "None",
-      "description": "Configure None for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Divisions per Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Distance between Points",
-          "value": "dist",
-          "description": ""
-        },
-        {
-          "label": "Points as Keyframes",
-          "value": "keyframes",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "resampledivs",
+      "name": "Divisions",
+      "parName": "resampledivs",
       "label": "Divisions",
-      "description": "Configure Divisions for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of divisions.",
+      "isReadOnly": false
     },
     {
-      "name": "resampledist",
+      "name": "Distance",
+      "parName": "resampledist",
       "label": "Distance",
-      "description": "Configure Distance for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Sets the maximum distance when resampling by distance between points",
+      "isReadOnly": false
     },
     {
-      "name": "indvarattr",
+      "name": "Independant Variable Attribute",
+      "parName": "indvarattr",
       "label": "Independant Variable Attribute",
-      "description": "Configure Independant Variable Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P(0)",
-          "value": "P(0)",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Attribute to use as the independent variable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P(0)"
+      ],
+      "menuLabels": [
+        "P(0)"
       ]
     },
     {
-      "name": "P(0)",
-      "label": "P(0)",
-      "description": "Configure P(0) for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P(0)",
-          "value": "P(0)",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "indvarstep",
+      "name": "Independant Variable Step",
+      "parName": "indvarstep",
       "label": "Independant Variable Step",
-      "description": "Configure Independant Variable Step for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Step size to use for the independent variable, usually a fraction of the independent variable range.",
+      "isReadOnly": false
     },
     {
-      "name": "resamplemaxverts",
+      "name": "Maximum Number of Vertices",
+      "parName": "resamplemaxverts",
       "label": "Maximum Number of Vertices",
-      "description": "Configure Maximum Number of Vertices for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Sets the number of vertices to be allocated. It should be bigger than the actual number of vertices created (visible in info popup). More vertices allocated use more GPU memory.",
+      "isReadOnly": false
     },
     {
-      "name": "maxtries",
+      "name": "Max Tries for Binary Search",
+      "parName": "maxtries",
       "label": "Max Tries for Binary Search",
-      "description": "Configure Max Tries for Binary Search for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Int",
+      "description": "Max number of iterations for binary search when linearly resampling.",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Line_POP.htm",
-  "parsedAt": "2025-08-08T03:03:56.930Z"
+  "parsedAt": "2025-08-08T03:03:56.930Z",
+  "url": "https://docs.derivative.ca/Line_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Line_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Line_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Line_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

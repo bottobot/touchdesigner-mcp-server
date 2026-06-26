@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.268Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\PBR_MAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/PBR_MAT",
   "description": "The PBR MAT creates a material using a Physically Based Rendering (PBR) lighting model. It has support for textures, reflections, bumps, cone lights, rim lights, alpha maps and more.",
   "summary": "The PBR MAT creates a material using a Physically Based Rendering (PBR) lighting model. It has support for textures, reflections, bumps, cone lights, rim lights, alpha maps and more.",
   "details": "",

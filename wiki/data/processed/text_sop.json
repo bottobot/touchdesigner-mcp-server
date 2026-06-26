@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.740Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Text_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Text_SOP",
   "description": "The Text SOP creates text geometry from any TrueType or OpenType font that is installed on the system, or any TrueType/OpenType font file on disk. Unicode is supported.",
   "summary": "The Text SOP creates text geometry from any TrueType or OpenType font that is installed on the system, or any TrueType/OpenType font file on disk. Unicode is supported.",
   "details": "",

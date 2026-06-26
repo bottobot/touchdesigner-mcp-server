@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.938Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Filter_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Filter_CHOP",
   "description": "The Filter CHOP smooths or sharpens the input channels. It filters by combining each sample and a range of its neighbor samples to set the new value of that sample. Each filter type uses its own weighting factors for the neighboring samples. The Filter Width determines the number of neighbors to use.",
   "summary": "The Filter CHOP smooths or sharpens the input channels. It filters by combining each sample and a range of its neighbor samples to set the new value of that sample. Each filter type uses its own weigh",
   "details": "",

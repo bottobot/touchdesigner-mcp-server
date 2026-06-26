@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.420Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Deform_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Deform_SOP",
   "description": "The Deform SOP takes geometry along with point weights (assigned by the Capture SOP) and deforms geometry as Capture Regions are moved. This gives you the flexibility to procedurally modify geometry between the Capture and Deform SOPs.",
   "summary": "The Deform SOP takes geometry along with point weights (assigned by the Capture SOP) and deforms geometry as Capture Regions are moved. This gives you the flexibility to procedurally modify geometry b",
   "details": "",

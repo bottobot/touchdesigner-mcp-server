@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.336Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Phaser_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Phaser_CHOP",
   "description": "The Phaser CHOP does staggered (time-offset) animation interpolation. Phaser outputs one channel with multi-samples. Each sample animates from 0 to 1 over a cycle, but each sample value rises from 0 and arrives at 1 at different times.",
   "summary": "The Phaser CHOP does staggered (time-offset) animation interpolation. Phaser outputs one channel with multi-samples. Each sample animates from 0 to 1 over a cycle, but each sample value rises from 0 a",
   "details": "",

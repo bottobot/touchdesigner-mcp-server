@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.900Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Merge_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Merge_SOP",
   "description": "The Merge SOP merges geometry from multiple SOPs. You can merge SOPs by wiring them into the Merge SOP, and/or you can specify the names in the SOPs parameter, where you can include wildcard Pattern Matching to merge large sets of SOPs with similar names.",
   "summary": "The Merge SOP merges geometry from multiple SOPs. You can merge SOPs by wiring them into the Merge SOP, and/or you can specify the names in the SOPs parameter, where you can include wildcard Pattern M",
   "details": "",

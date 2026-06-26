@@ -1,0 +1,73 @@
+{
+  "id": "triangulate_pop",
+  "name": "Triangulate POP",
+  "displayName": "Triangulate POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Triangulate_POP",
+  "description": "The Triangulate POP converts each closed line strip into a set of triangles that fill the interior of the line strip. The default assumes that all line strips are convex. Set Mode to Convex and Concave if you are not certain all line strips are convex. Open line strips and other primitive types are passed through unmodified. It supports inputs with a combination of primitive types and open and close line strips, and everything that is not a closed line strip passes through. Quads pass through by default, however an option triangulates quads. If the Mode menu is Convex Only it runs highly parallel (fast). If it is Convex and Concave - it can get very slow for longer line strips. Max Verts per Input Line Strip need to be set accordingly, Max iterations can be set to limit number of iterations (leaving some closed line strips partially triangulated) '''Note''': A line strip is concave if you can draw a line from one point to another point and cross the line strip. Otherwise it is a convex line strip, for example a circle. See also [[Polygonize POP]], [[Trace POP]]",
+  "parameters": [
+    {
+      "name": "Mode",
+      "parName": "mode",
+      "label": "Mode",
+      "type": "Menu",
+      "description": "Sets the mode to use to triangulate closed line strips.",
+      "isReadOnly": false,
+      "menuItems": [
+        "convex",
+        "concave"
+      ],
+      "menuLabels": [
+        "Convex Only",
+        "Convex and Concave (Slower)"
+      ]
+    },
+    {
+      "name": "Triangulate Quads",
+      "parName": "triangulatequads",
+      "label": "Triangulate Quads",
+      "type": "Toggle",
+      "description": "Whether to turn quad primitives into triangles.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Max Verts per Input Line Strip",
+      "parName": "lsmaxverts",
+      "label": "Max Verts per Input Line Strip",
+      "type": "Int",
+      "description": "In convex and concave mode, the maximum number of vertices per closed input line strip. This should be a constant, changing the value causes the compute shader to recompile. Closed line Strips with more vertices will currently be removed from the output.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Max Iterations",
+      "parName": "maxiter",
+      "label": "Max Iterations",
+      "type": "Int",
+      "description": "In convex and concave mode, the maximum number of iterations to try to triangulate each closed line strip in input. Currently optional parameter to limit the cook time for very long line strips. If the number is too low, closed line strips will be partially triangulated. Knwown issue: If not set closed line strips self intersecting can cause an infinite loop and freeze TouchDesigner.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Triangulate_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Triangulate_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Triangulate_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

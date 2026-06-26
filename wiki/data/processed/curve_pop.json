@@ -3,1523 +3,283 @@
   "id": "curve_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Curve POP is used to generate a curve in XY (Z=0) that can be used as a lookup curve for a Lookup Attribute POP or elsewhere. It is a \"function\" in that the P(0) X-value steps forward uniformly from point to point, while the P(1) Y-value takes on different interpolated shapes. The curve it generates is also in an attribute Curve, which you can use instead of P(1) for clarity.",
+  "description": "The Curve POP is used to generate a curve in XY (Z=0) that can be used as a lookup curve for a [[Lookup Attribute POP]] or elsewhere. It is a \"function\" in that the <code>P(0)</code> X-value steps forward uniformly from point to point, while the <code>P(1)</code> Y-value takes on different interpolated shapes. The curve it generates is also in an attribute <code>Curve</code>, which you can use instead of <code>P(1)</code> for clarity. Like the [[S Curve CHOP]], it defaults to an ease-in ease-out curve, but the Curve POP lets you add multiple segments (sequential blocks) that enable a greater range of curves. The curve can be made of several segments defined by [[Sequential Blocks]] of parameters, each with its own start and end values and Curve Type. The Curve Type includes Constant, Linear, the Eases and Bezier. The Alpha and Beta values affect the curve, where Alpha makes it more- or less-sloped, and Beta makes it more biased to the start or end of the segment. When Bezier is selected, Slope In and Slope Out affect the slopes at the end-points of the segment. More generally, we treat the 2 axes as U and V. The curves can output as points-only, a linestrip, or as an RGBA color curves. Because the U values can start and end at any value, you can normalize the curve so the U values (<code>P(0)</code>) are between 0 and 1. The curve can be extended to double length and made symmetric using the Symmetric toggle. The Lookup page lets you apply the curve as a lookup without first converting anything to points. This preerves maximum accuracy, and avoids interpolation problems when a lookup curve sharply steps from one value to another as may occur between two segments. In this case you attach an input POP where you want to modify one or more attributes with the curve. In this mode it behaves similar to the [[Lookup Attribute POP]]. Tip: If you want specific points to exactly hit your U keyframe values, make sure your (Number of Points - 1) is divisible evenly by your U values. See also [[S Curve CHOP]], [[Line POP]], [[Lookup Attribute POP]], [[Pattern POP]]",
   "parameters": [
     {
-      "name": "P(0)",
+      "name": "Total Length",
+      "parName": "totallength",
       "label": "Total Length",
-      "description": "Configure Total Length for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Points",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Color Strip",
-          "value": "colorstrip",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "Constant",
-          "value": "constant",
-          "description": ""
-        },
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Ease In",
-          "value": "easein",
-          "description": ""
-        },
-        {
-          "label": "Ease Out",
-          "value": "easeout",
-          "description": ""
-        },
-        {
-          "label": "Ease In Ease Out",
-          "value": "easeinout",
-          "description": ""
-        },
-        {
-          "label": "Bezier",
-          "value": "bezier",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Slope",
-          "value": "slope",
-          "description": ""
-        },
-        {
-          "label": "Cycle",
-          "value": "cycle",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Slope",
-          "value": "slope",
-          "description": ""
-        },
-        {
-          "label": "Cycle",
-          "value": "cycle",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Int",
+      "description": "Determines the number of points.",
+      "isReadOnly": false
     },
     {
-      "name": "totallength",
-      "label": "Total Length",
-      "description": "Configure Total Length for the operator",
-      "type": "string"
-    },
-    {
-      "name": "outputcurve",
+      "name": "Output Curve",
+      "parName": "outputcurve",
       "label": "Output Curve",
-      "description": "Configure Output Curve for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Points",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Color Strip",
-          "value": "colorstrip",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Selects the type of primitive to output.",
+      "isReadOnly": false,
+      "menuItems": [
+        "points",
+        "linestrip",
+        "colorstrip"
+      ],
+      "menuLabels": [
+        "Points",
+        "Line Strips",
+        "Color Strip"
       ]
     },
     {
-      "name": "points",
-      "label": "Points",
-      "description": "Configure Points for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Points",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Color Strip",
-          "value": "colorstrip",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "normalizeu",
+      "name": "Normalize U",
+      "parName": "normalizeu",
       "label": "Normalize U",
-      "description": "Configure Normalize U for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Normalize all the U values so their range is 0 to 1.",
+      "isReadOnly": false
     },
     {
-      "name": "symmetric",
+      "name": "Symmetric",
+      "parName": "symmetric",
       "label": "Symmetric",
-      "description": "Configure Symmetric for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable mirroring the curve segments.",
+      "isReadOnly": false
     },
     {
-      "name": "parsize",
+      "name": "Parameter Size",
+      "parName": "parsize",
       "label": "Parameter Size",
-      "description": "Configure Parameter Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Number of independent configurable parameter values.",
+      "isReadOnly": false,
+      "menuItems": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "1",
+        "2",
+        "3",
+        "4"
       ]
     },
     {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "startu",
+      "name": "Start U",
+      "parName": "startu",
       "label": "Start U",
-      "description": "Configure Start U for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Start U position for the first segment.",
+      "isReadOnly": false
     },
     {
-      "name": "seg",
+      "name": "Segment",
+      "parName": "seg",
       "label": "Segment",
-      "description": "Configure Segment for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Constant",
-          "value": "constant",
-          "description": ""
-        },
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Ease In",
-          "value": "easein",
-          "description": ""
-        },
-        {
-          "label": "Ease Out",
-          "value": "easeout",
-          "description": ""
-        },
-        {
-          "label": "Ease In Ease Out",
-          "value": "easeinout",
-          "description": ""
-        },
-        {
-          "label": "Bezier",
-          "value": "bezier",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for creating curve segments.",
+      "isReadOnly": false,
+      "menuItems": [
+        "constant",
+        "linear",
+        "easein",
+        "easeout",
+        "easeinout",
+        "bezier"
+      ],
+      "menuLabels": [
+        "Constant",
+        "Linear",
+        "Ease In",
+        "Ease Out",
+        "Ease In Ease Out",
+        "Bezier"
       ]
     },
     {
-      "name": "seg0type",
-      "label": "Curve Type",
-      "description": "Configure Curve Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Constant",
-          "value": "constant",
-          "description": ""
-        },
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Ease In",
-          "value": "easein",
-          "description": ""
-        },
-        {
-          "label": "Ease Out",
-          "value": "easeout",
-          "description": ""
-        },
-        {
-          "label": "Ease In Ease Out",
-          "value": "easeinout",
-          "description": ""
-        },
-        {
-          "label": "Bezier",
-          "value": "bezier",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "constant",
-      "label": "Constant",
-      "description": "Configure Constant for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Constant",
-          "value": "constant",
-          "description": ""
-        },
-        {
-          "label": "Linear",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "Ease In",
-          "value": "easein",
-          "description": ""
-        },
-        {
-          "label": "Ease Out",
-          "value": "easeout",
-          "description": ""
-        },
-        {
-          "label": "Ease In Ease Out",
-          "value": "easeinout",
-          "description": ""
-        },
-        {
-          "label": "Bezier",
-          "value": "bezier",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "seg0u",
-      "label": "U",
-      "description": "Configure U for the operator",
-      "type": "string"
-    },
-    {
-      "name": "seg0specstartval",
-      "label": "Specify Start Value",
-      "description": "Configure Specify Start Value for the operator",
-      "type": "string"
-    },
-    {
-      "name": "seg0startval",
-      "label": "Start Value",
-      "description": "Configure Start Value for the operator",
-      "type": "string"
-    },
-    {
-      "name": "seg0endval",
-      "label": "End Value",
-      "description": "Configure End Value for the operator",
-      "type": "string"
-    },
-    {
-      "name": "seg0alpha",
-      "label": "Alpha",
-      "description": "Configure Alpha for the operator",
-      "type": "string"
-    },
-    {
-      "name": "seg0beta",
-      "label": "Beta",
-      "description": "Configure Beta for the operator",
-      "type": "string"
-    },
-    {
-      "name": "seg0slopein",
-      "label": "Slope in",
-      "description": "Configure Slope in for the operator",
-      "type": "string"
-    },
-    {
-      "name": "seg0slopeout",
-      "label": "Slope Out",
-      "description": "Configure Slope Out for the operator",
-      "type": "string"
-    },
-    {
-      "name": "applylookup",
+      "name": "Apply Lookup",
+      "parName": "applylookup",
       "label": "Apply Lookup",
-      "description": "Configure Apply Lookup for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "The Lookup page lets you apply the curve as a lookup without first converting anything to points.",
+      "isReadOnly": false
     },
     {
-      "name": "lookupindexattr",
+      "name": "Lookup Index Attribute",
+      "parName": "lookupindexattr",
       "label": "Lookup Index Attribute",
-      "description": "Configure Lookup Index Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Attribute to use as the index for the lookup.",
+      "isReadOnly": false
     },
     {
-      "name": "fromlow",
+      "name": "From Low High",
+      "parName": "fromlow",
       "label": "From Low High",
-      "description": "Configure From Low High for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Reranges the attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fromlow",
+        "fromhigh"
+      ],
+      "menuLabels": [
+        "From Low High",
+        "From High"
+      ]
     },
     {
-      "name": "fromhigh",
-      "label": "From High",
-      "description": "Configure From High for the operator",
-      "type": "string"
-    },
-    {
-      "name": "tolow",
+      "name": "To Low High",
+      "parName": "tolow",
       "label": "To Low High",
-      "description": "Configure To Low High for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Reranges the input lookup attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tolow",
+        "tohigh"
+      ],
+      "menuLabels": [
+        "To Low High",
+        "To High"
+      ]
     },
     {
-      "name": "tohigh",
-      "label": "To High",
-      "description": "Configure To High for the operator",
-      "type": "string"
-    },
-    {
-      "name": "extendleft",
+      "name": "Extend Left and Right",
+      "parName": "extendleft",
       "label": "Extend Left and Right",
-      "description": "Configure Extend Left and Right for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Slope",
-          "value": "slope",
-          "description": ""
-        },
-        {
-          "label": "Cycle",
-          "value": "cycle",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "What happens when the lookup samples outside of the range.",
+      "isReadOnly": false,
+      "menuItems": [
+        "hold",
+        "slope",
+        "cycle",
+        "mirror",
+        "extendleft",
+        "extendright"
+      ],
+      "menuLabels": [
+        "Hold",
+        "Slope",
+        "Cycle",
+        "Mirror",
+        "Extend Left and Right",
+        "Extend Right"
       ]
     },
     {
-      "name": "hold",
-      "label": "Hold",
-      "description": "Configure Hold for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Slope",
-          "value": "slope",
-          "description": ""
-        },
-        {
-          "label": "Cycle",
-          "value": "cycle",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "extendright",
-      "label": "Extend Right",
-      "description": "Configure Extend Right for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Slope",
-          "value": "slope",
-          "description": ""
-        },
-        {
-          "label": "Cycle",
-          "value": "cycle",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lookup",
+      "name": "Lookup",
+      "parName": "lookup",
       "label": "Lookup",
-      "description": "Configure Lookup for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval4",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks of lookups.",
+      "isReadOnly": false,
+      "menuItems": [
+        "set",
+        "add",
+        "mult",
+        "min",
+        "max",
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "dir",
+        "ddir",
+        "1",
+        "2",
+        "3",
+        "4",
+        "lookup0attrdefaultval0",
+        "lookup0attrdefaultval1",
+        "lookup0attrdefaultval2",
+        "lookup0attrdefaultval3"
+      ],
+      "menuLabels": [
+        "Set",
+        "Add",
+        "Multiply",
+        "Minimum",
+        "Maximum",
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "dir",
+        "dbl dir",
+        "1",
+        "2",
+        "3",
+        "4",
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     },
     {
-      "name": "lookup0multiply",
-      "label": "Multiply",
-      "description": "Configure Multiply for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lookup0add",
-      "label": "Add",
-      "description": "Configure Add for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lookup0combineop",
-      "label": "Combine Operation",
-      "description": "Configure Combine Operation for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "set",
-      "label": "Set",
-      "description": "Configure Set for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        },
-        {
-          "label": "Minimum",
-          "value": "min",
-          "description": ""
-        },
-        {
-          "label": "Maximum",
-          "value": "max",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lookup0outputattrscope",
-      "label": "Output Attribute Scope",
-      "description": "Configure Output Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "P",
-      "label": "P",
-      "description": "Configure P for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lookup0overrideautoattr",
-      "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lookup0newattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lookup0attrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lookup0newattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lookup0newattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "lookup0newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "name": "Extend Right",
+      "parName": "extendright",
+      "label": "Extend Right",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "hold",
+        "slope",
+        "cycle",
+        "mirror"
+      ],
+      "menuLabels": [
+        "Hold",
+        "Slope",
+        "Cycle",
+        "Mirror"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Curve_POP.htm",
-  "parsedAt": "2025-08-08T03:03:55.079Z"
+  "parsedAt": "2025-08-08T03:03:55.079Z",
+  "url": "https://docs.derivative.ca/Curve_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Curve_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Curve_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Curve_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

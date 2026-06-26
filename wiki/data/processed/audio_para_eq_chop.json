@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.081Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Para_EQ_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Para_EQ_CHOP",
   "description": "The Audio Para EQ CHOP (parametric equalizer) applies up to 3 parametric filters to the incoming sound. The three filters are in series, where internally, the second filter takes its input from the output of the first filter, and so on.",
   "summary": "The Audio Para EQ CHOP (parametric equalizer) applies up to 3 parametric filters to the incoming sound. The three filters are in series, where internally, the second filter takes its input from the ou",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.960Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OSC_Out_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OSC_Out_DAT",
   "description": "The OSC Out DAT is used for sending information over a OSC connection between remotely located computers. Use the .sendOSC() python method to output the OSC messages.",
   "summary": "The OSC Out DAT is used for sending information over a OSC connection between remotely located computers. Use the .sendOSC() python method to output the OSC messages.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.070Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Parameter_Execute_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Parameter_Execute_DAT",
   "description": "The Parameter Execute DAT runs a script when a parameter of any operator changes state. There are 4 ways a parameter can trigger the script: if its value, expression, export, or enable state changes.",
   "summary": "The Parameter Execute DAT runs a script when a parameter of any operator changes state. There are 4 ways a parameter can trigger the script: if its value, expression, export, or enable state changes.",
   "details": "",

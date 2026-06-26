@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.230Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Touch_In_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Touch_In_TOP",
   "description": "The Touch In TOP will read in image data send over a TCP/IP network connection from a Touch Out TOP. The other TouchDesigner process can be on the same computer or from another computer anywhere on the connected network.",
   "summary": "The Touch In TOP will read in image data send over a TCP/IP network connection from a Touch Out TOP. The other TouchDesigner process can be on the same computer or from another computer anywhere on th",
   "details": "",

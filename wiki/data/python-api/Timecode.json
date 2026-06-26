@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "tdu.Timecode",
       "readOnly": true,
-      "description": "countdown member"
-    },
-    {
-      "name": "countdown",
-      "id": "bodyContent",
-      "returnType": "tdu.Timecode",
-      "readOnly": true,
-      "description": "countdown member"
+      "description": ""
     }
   ],
   "methods": [
@@ -164,36 +157,6 @@
       ],
       "returns": "&gt;   new   Timecode   will   be   -  12  :  22  :  33  :  45. ",
       "signature": "rates(eg. 29.97). True by default.       n  .  setComponents  (  12  ,   22  ,   33  ,   45  ,   negative  =  True  ,   fps  =  60  )"
-    },
-    {
-      "name": "fps",
-      "parameters": [
-        {
-          "name": "Keyword",
-          "type": "Any"
-        },
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "The Timecode's  FPS . If not specified then the  FPS  will not change.       n  .  setString  (  '01:01:00:00'  ,   fps  =  60  ) ",
-      "signature": "fps(Keyword, Optional)"
-    },
-    {
-      "name": "fps",
-      "parameters": [
-        {
-          "name": "Keyword",
-          "type": "Any"
-        },
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "The Timecode's  FPS . If not specified then the  FPS  will not change.       n  .  setTotalFrames  (  120  ,   fps  =  60  )   # new Timecode will be 00:00:02:00 ",
-      "signature": "fps(Keyword, Optional)"
     }
   ],
   "enhanced": true

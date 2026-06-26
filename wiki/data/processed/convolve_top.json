@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.859Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Convolve_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Convolve_TOP",
   "description": "The Convolve TOP uses a DAT table containing numeric coefficients. For each pixel, it combines its RGBA values and it's neighboring pixels' RGBA values by multiplying the values by the corresponding coefficients in the table, adding the results together. For example, if the table is 5 rows and 5 columns, the pixel and its 24 neighbors are combined.",
   "summary": "The Convolve TOP uses a DAT table containing numeric coefficients. For each pixel, it combines its RGBA values and it's neighboring pixels' RGBA values by multiplying the values by the corresponding c",
   "details": "",

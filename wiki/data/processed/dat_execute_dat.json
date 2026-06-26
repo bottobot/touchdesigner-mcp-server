@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.348Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\DAT_Execute_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/DAT_Execute_DAT",
   "description": "The DAT Execute DAT monitors another DAT's contents and runs a script when those contents change. The other DAT is usually a table.",
   "summary": "The DAT Execute DAT monitors another DAT's contents and runs a script when those contents change. The other DAT is usually a table.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.006Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Parameter_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Parameter_DAT",
   "description": "The Parameter DAT outputs a table of parameter names and values of an operator, including custom parameters, from any OP type.",
   "summary": "The Parameter DAT outputs a table of parameter names and values of an operator, including custom parameters, from any OP type.",
   "details": "",

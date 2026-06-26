@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.460Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Transpose_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Transpose_DAT",
   "description": "The Transpose DAT converts rows into columns. The number of rows becomes the number of columns, and vice versa.",
   "summary": "The Transpose DAT converts rows into columns. The number of rows becomes the number of columns, and vice versa.",
   "details": "",

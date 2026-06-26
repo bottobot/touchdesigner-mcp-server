@@ -1,0 +1,353 @@
+{
+  "id": "zed_pop",
+  "name": "ZED POP",
+  "displayName": "ZED POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/ZED_POP",
+  "description": "The ZED POP uses the [[ZED]] StereoLabs SDK to scan and create geometry meshes (triangles) by moving it around the room or an object of interest. It also has the option to display a live point cloud from the depth image passed to it from the ZED TOP. After pressing start the ZED POP uses each frame of video to build up the mesh, with the preview of the captured points in the viewer. To know what ZED SDK we are using, refer to the [[ZED]] page. See also [[ZED]], [[ZED TOP]], [[ZED CHOP]] and [[ZED SOP]]",
+  "parameters": [
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "Toggle",
+      "description": "Extra pass to free unused GPU memory.",
+      "isReadOnly": false
+    },
+    {
+      "name": "ZED TOP",
+      "parName": "zedtop",
+      "label": "ZED TOP",
+      "type": "TOP",
+      "description": "Reference to a ZED TOP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Output Mode",
+      "parName": "outputmode",
+      "label": "Output Mode",
+      "type": "Menu",
+      "description": "Whether to output a mesh or a point cloud.",
+      "isReadOnly": false,
+      "menuItems": [
+        "mesh",
+        "pointcloud"
+      ],
+      "menuLabels": [
+        "Mesh",
+        "Point Cloud"
+      ]
+    },
+    {
+      "name": "Connectivity",
+      "parName": "connectivity",
+      "label": "Connectivity",
+      "type": "Menu",
+      "description": "Determines whether and how to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "points",
+        "triangles"
+      ],
+      "menuLabels": [
+        "None",
+        "Point Primitives",
+        "Triangles"
+      ]
+    },
+    {
+      "name": "Initialize",
+      "parName": "initialize",
+      "label": "Initialize",
+      "type": "Pulse",
+      "description": "Clears the extracted geometry and resets spatial mapping.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Start",
+      "parName": "startpulse",
+      "label": "Start",
+      "type": "Pulse",
+      "description": "Start playback.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Play",
+      "parName": "play",
+      "label": "Play",
+      "type": "Toggle",
+      "description": "Enable playback.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Go to Done",
+      "parName": "donepulse",
+      "label": "Go to Done",
+      "type": "Pulse",
+      "description": "Will immediately go to the done state.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Preview",
+      "parName": "preview",
+      "label": "Preview",
+      "type": "Menu",
+      "description": "Camera preview mode.",
+      "isReadOnly": false,
+      "menuItems": [
+        "nopreview",
+        "limited",
+        "limited"
+      ],
+      "menuLabels": [
+        "No Preview",
+        "Limited Preview",
+        "Full Preview"
+      ]
+    },
+    {
+      "name": "Maximum Memory",
+      "parName": "maxmemory",
+      "label": "Maximum Memory",
+      "type": "Int",
+      "description": "Sets the maximum memory used for spatial mapping.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Resolution",
+      "parName": "resolution",
+      "label": "Resolution",
+      "type": "Float",
+      "description": "Spatial mapping resolution in meters.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Range",
+      "parName": "range",
+      "label": "Range",
+      "type": "Float",
+      "description": "Depth range in meters.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Normals",
+      "parName": "normals",
+      "label": "Normals",
+      "type": "Toggle",
+      "description": "When enabled, the extracted geometry will have normals.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Color",
+      "parName": "color",
+      "label": "Color",
+      "type": "Toggle",
+      "description": "Output color information as an attribute.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Filter",
+      "parName": "filter",
+      "label": "Filter",
+      "type": "Menu",
+      "description": "The greater the filtering, the more the resulting mesh is smoothed, small holes are filled, and small blobs of non-connected triangles are deleted.",
+      "isReadOnly": false,
+      "menuItems": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "menuLabels": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    },
+    {
+      "name": "Perspective",
+      "parName": "perspective",
+      "label": "Perspective",
+      "type": "Menu",
+      "description": "Camera perspective.",
+      "isReadOnly": false,
+      "menuItems": [
+        "left",
+        "right"
+      ],
+      "menuLabels": [
+        "Left",
+        "Right"
+      ]
+    },
+    {
+      "name": "Rerange from Low High",
+      "parName": "rerangefromlow",
+      "label": "Rerange from Low High",
+      "type": "Float",
+      "description": "Range for input values.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rerangefromlow",
+        "rerangefromhigh"
+      ],
+      "menuLabels": [
+        "Rerange from Low High",
+        "Rerange from High"
+      ]
+    },
+    {
+      "name": "Rerange to Low High",
+      "parName": "rerangetolow",
+      "label": "Rerange to Low High",
+      "type": "Float",
+      "description": "Range for output values.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rerangetolow",
+        "rerangetohigh"
+      ],
+      "menuLabels": [
+        "Rerange to Low High",
+        "Rerange to High"
+      ]
+    },
+    {
+      "name": "Mirror Image",
+      "parName": "mirrorimage",
+      "label": "Mirror Image",
+      "type": "Toggle",
+      "description": "Mirrors the input image.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Camera",
+      "parName": "camera",
+      "label": "Camera",
+      "type": "Object",
+      "description": "Specify the camera component.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Override Camera View",
+      "parName": "overridecamera",
+      "label": "Override Camera View",
+      "type": "Toggle",
+      "description": "When on, overrides the View settings from the selected camera object.",
+      "isReadOnly": false
+    },
+    {
+      "name": "View Angle Method",
+      "parName": "viewanglemethod",
+      "label": "View Angle Method",
+      "type": "Menu",
+      "description": "Sets the method to convert the depth TOP.",
+      "isReadOnly": false,
+      "menuItems": [
+        "horfov",
+        "vertfov",
+        "focallengths"
+      ],
+      "menuLabels": [
+        "Horizontal FOV",
+        "Vertical FOV",
+        "Focal Lengths"
+      ]
+    },
+    {
+      "name": "FOV Angle",
+      "parName": "fov",
+      "label": "FOV Angle",
+      "type": "Float",
+      "description": "Determines the camera's field of view angle.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Focal Length (Fx, Fy)",
+      "parName": "focallengths",
+      "label": "Focal Length (Fx, Fy)",
+      "type": "XYZW",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "focallengthsx",
+        "focallengthsy"
+      ],
+      "menuLabels": [
+        "Focal Length (Fx, Fy)",
+        "Focal Length (Fx, Fy)"
+      ]
+    },
+    {
+      "name": "Optical Center (Cx, Cy)",
+      "parName": "center",
+      "label": "Optical Center (Cx, Cy)",
+      "type": "XYZW",
+      "description": "The location of the center of the camera for the depth projection.",
+      "isReadOnly": false,
+      "menuItems": [
+        "centerx",
+        "centery"
+      ],
+      "menuLabels": [
+        "Optical Center (Cx, Cy)",
+        "Optical Center (Cx, Cy)"
+      ]
+    },
+    {
+      "name": "Delete Near Points",
+      "parName": "deletenear",
+      "label": "Delete Near Points",
+      "type": "Toggle",
+      "description": "Enable removal of points that are close to the camera.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Near Depth",
+      "parName": "depthnear",
+      "label": "Near Depth",
+      "type": "Float",
+      "description": "Depth of the near clipping plane.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Delete Far Points",
+      "parName": "deletefar",
+      "label": "Delete Far Points",
+      "type": "Toggle",
+      "description": "Enable removal of points that are far from the camera.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Far Depth",
+      "parName": "depthfar",
+      "label": "Far Depth",
+      "type": "Float",
+      "description": "Depth of the far clipping plane.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ZED_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live ZED_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=ZED_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

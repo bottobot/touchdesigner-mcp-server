@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.884Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Laser_Device_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Laser_Device_CHOP",
   "description": "The Laser Device CHOP can send laser points to supported laser devices: EtherDream, Helios, and ShowNET. The devices can be connected to a laser using an ILDA cable, except in the case of ShowNET when an onboard DAC is used. Applications of the Laser Device CHOP include displaying computer-generated shape animations or other special effects of a light show.",
   "summary": "The Laser Device CHOP can send laser points to supported laser devices: EtherDream, Helios, and ShowNET. The devices can be connected to a laser using an ILDA cable, except in the case of ShowNET when",
   "details": "",

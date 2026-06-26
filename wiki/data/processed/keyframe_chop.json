@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.614Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Keyframe_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Keyframe_CHOP",
   "description": "The Keyframe CHOP uses channel and keys data in an Animation COMP and creates channels of samples at a selectable sample rate (frames per second).",
   "summary": "The Keyframe CHOP uses channel and keys data in an Animation COMP and creates channels of samples at a selectable sample rate (frames per second).",
   "details": "",

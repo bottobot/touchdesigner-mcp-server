@@ -1,0 +1,343 @@
+{
+  "id": "force_radial_pop",
+  "name": "Force Radial POP",
+  "displayName": "Force Radial POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Force_Radial_POP",
+  "description": "The Force Radial POP is used in a [[Particle POP]] loop and outputs a float3 attribute named <code>PartForce</code> that sums a set of forces defined in the Force Radial POP. The forces include, first on the Global page, a single global force, plus a Wind Speed converted to a wind force. These forces are by default uniform for all particles, but because it can be affected by attributes on the Map page, each particle (point) can have a different global force or wind speed applied to it. Currently the conversion of wind speed to wind force is hard-wired in the Force Radial POP, but more detailed control will be provided in a future build. On the Force (Local) page, you can choose between Radial, Axial, Spiral and Planar local fore types, with position (Translate), Direction, rolloff (Radius) and Strength controls. The global and local forces are added together. In one Force Radial POP, the local force is added to the global and wind forces to generate a <code>PartForce</code> attribute. If the input of the Force Radial POP already exists, then the Force Radial POP's sum of forces is added to the input's <code>PartForce</code>. Thus you can string a bunch of Force Radial POPs together and optionally mask each one with a [[Field POP]] by multiplying its <code>Weight</code> attribute by Force Radial's <code>PartForce</code> attribute. Assuming <code>PartForce</code> is in the (usually Null) POP at the end of the Particle POP's feedback loop, <code>PartForce</code> feeds back to the Particle POP where it is used to calculate all particles' velocity and position on the next frame of the simulation. However you can define multiple local forces in one Force Radial POP: To enable many forces to be included in one Force Radial POP, the parameter called Specification POP is a pointer to, usually, a [[Point POP]], where each point of the Point POP defines a separate local force, where the attribute names are matched to the the parameter names (for example, attribute <code>strength</code> represents the Strength parameter). In the Point POP you need to create the appropriate matching attributes. Then the sum of the local forces are added to the global and wind forces to generate the <code>PartForce</code> attribute. Note that you can create the <code>PartForce</code> attribute any way you want - using Noise, Math Mix, Pattern, Lookup, GLSL POPs etc. You don't need the Force POP - it is just a convenience. See also [[Particle POP]], [[Field POP]].",
+  "parameters": [
+    {
+      "name": "Specification POP",
+      "parName": "specpop",
+      "label": "Specification POP",
+      "type": "POP",
+      "description": "Reference to a POP where each point is a specification defining a separate force.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Position",
+      "parName": "pos",
+      "label": "Position",
+      "type": "XYZW",
+      "description": "Forces center position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "posx",
+        "posy",
+        "posz"
+      ],
+      "menuLabels": [
+        "Position",
+        "Position",
+        "Position"
+      ]
+    },
+    {
+      "name": "Direction",
+      "parName": "direction",
+      "label": "Direction",
+      "type": "XYZW",
+      "description": "Determines the radial force main direction.",
+      "isReadOnly": false,
+      "menuItems": [
+        "directionx",
+        "directiony",
+        "directionz"
+      ],
+      "menuLabels": [
+        "Direction",
+        "Direction",
+        "Direction"
+      ]
+    },
+    {
+      "name": "Enable Radial",
+      "parName": "radial",
+      "label": "Enable Radial",
+      "type": "Toggle",
+      "description": "Enable the radial force.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Radial Strength",
+      "parName": "radialstrength",
+      "label": "Radial Strength",
+      "type": "Float",
+      "description": "Radial force magnitude.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Axial",
+      "parName": "axial",
+      "label": "Enable Axial",
+      "type": "Toggle",
+      "description": "Enable the axial force.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Axis Rotation",
+      "parName": "axialr",
+      "label": "Axis Rotation",
+      "type": "XYZW",
+      "description": "3D rotation for the axial force direction. The base axis is the Direction.",
+      "isReadOnly": false,
+      "menuItems": [
+        "axialrx",
+        "axialry",
+        "axialrz"
+      ],
+      "menuLabels": [
+        "Axis Rotation",
+        "Axis Rotation",
+        "Axis Rotation"
+      ]
+    },
+    {
+      "name": "Axial Strength",
+      "parName": "axialstrength",
+      "label": "Axial Strength",
+      "type": "Float",
+      "description": "The strength of the force along the Direction axis.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Spiral",
+      "parName": "spiral",
+      "label": "Enable Spiral",
+      "type": "Toggle",
+      "description": "Enable the spiral force.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Spiral Rotation",
+      "parName": "spiralr",
+      "label": "Spiral Rotation",
+      "type": "XYZW",
+      "description": "3D rotation for the spiral force axis. The base axis is the Direction.",
+      "isReadOnly": false,
+      "menuItems": [
+        "spiralrx",
+        "spiralry",
+        "spiralrz"
+      ],
+      "menuLabels": [
+        "Spiral Rotation",
+        "Spiral Rotation",
+        "Spiral Rotation"
+      ]
+    },
+    {
+      "name": "Spiral Strength",
+      "parName": "spiralstrength",
+      "label": "Spiral Strength",
+      "type": "Float",
+      "description": "Spiral force magnitude.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Planar",
+      "parName": "planar",
+      "label": "Enable Planar",
+      "type": "Toggle",
+      "description": "Enable the planar force.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Planar Exponent",
+      "parName": "planarexponent",
+      "label": "Planar Exponent",
+      "type": "Float",
+      "description": "Planar force distance exponent.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Planar Strength",
+      "parName": "planarstrength",
+      "label": "Planar Strength",
+      "type": "Float",
+      "description": "Planar force factor.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Falloff",
+      "parName": "falloff",
+      "label": "Falloff",
+      "type": "Menu",
+      "description": "Sets the falloff type on the forces.",
+      "isReadOnly": false,
+      "menuItems": [
+        "scurve",
+        "power",
+        "inversedistance",
+        "none"
+      ],
+      "menuLabels": [
+        "S Curve",
+        "Bias Power",
+        "Inverse Distance",
+        "None"
+      ]
+    },
+    {
+      "name": "Steepness",
+      "parName": "falloffsteepness",
+      "label": "Steepness",
+      "type": "Float",
+      "description": "Controls the steepness of the S-Curve falloff.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Bias",
+      "parName": "falloffbias",
+      "label": "Bias",
+      "type": "Float",
+      "description": "In the S Curve falloff, this biases the curve to fall off closer to its inner limit or its outer limit.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Exponent",
+      "parName": "falloffexponent",
+      "label": "Exponent",
+      "type": "Float",
+      "description": "Sets the exponent on the distance when enabling falloff by inverse distance.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Radius",
+      "parName": "falloffradius",
+      "label": "Radius",
+      "type": "Float",
+      "description": "The radius of the falloff.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Plateau",
+      "parName": "falloffplateau",
+      "label": "Plateau",
+      "type": "Float",
+      "description": "The plateau of the falloff.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Limit Near-Range",
+      "parName": "fallofflimitrange",
+      "label": "Limit Near-Range",
+      "type": "Float",
+      "description": "The near-range limit of the falloff.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Global Force",
+      "parName": "globforce",
+      "label": "Global Force",
+      "type": "XYZW",
+      "description": "Global force direction.",
+      "isReadOnly": false,
+      "menuItems": [
+        "globforcex",
+        "globforcey",
+        "globforcez"
+      ],
+      "menuLabels": [
+        "Global Force",
+        "Global Force",
+        "Global Force"
+      ]
+    },
+    {
+      "name": "Global Force Multiplier",
+      "parName": "globforcemult",
+      "label": "Global Force Multiplier",
+      "type": "Float",
+      "description": "Multiplier for the global force.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Wind Speed",
+      "parName": "windspeed",
+      "label": "Wind Speed",
+      "type": "XYZW",
+      "description": "Global wind speed.",
+      "isReadOnly": false,
+      "menuItems": [
+        "windspeedx",
+        "windspeedy",
+        "windspeedz"
+      ],
+      "menuLabels": [
+        "Wind Speed",
+        "Wind Speed",
+        "Wind Speed"
+      ]
+    },
+    {
+      "name": "Wind Speed Multiplier",
+      "parName": "windspeedmult",
+      "label": "Wind Speed Multiplier",
+      "type": "Float",
+      "description": "Multiplier for global wind speed.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Mapping",
+      "parName": "map",
+      "label": "Mapping",
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for attribute-to-parameter mapping.",
+      "isReadOnly": false,
+      "menuItems": [
+        "globforce",
+        "globforcex",
+        "globforcey",
+        "globforcez",
+        "globforcemult",
+        "windspeed",
+        "windspeedx",
+        "windspeedy",
+        "windspeedz",
+        "windspeedmult",
+        "set",
+        "mult",
+        "add"
+      ],
+      "menuLabels": [
+        "globforce (Global Force)",
+        "globforcex",
+        "globforcey",
+        "globforcez",
+        "globforcemult (Global Force Multiplier)",
+        "windspeed (Wind Speed)",
+        "windspeedx",
+        "windspeedy",
+        "windspeedz",
+        "windspeedmult (Wind Speed Multiplier)",
+        "Set",
+        "Multiply",
+        "Add"
+      ]
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Force_Radial_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Force_Radial_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Force_Radial_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

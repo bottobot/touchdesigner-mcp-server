@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.875Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\PosiStageNet_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/PosiStageNet_CHOP",
   "description": "This operator decodes PosiStageNet protocol data into CHOP channels. PosiStageNet will track any number of objects and output their position, orientation, speed, acceleration, or the objects' target position.",
   "summary": "This operator decodes PosiStageNet protocol data into CHOP channels. PosiStageNet will track any number of objects and output their position, orientation, speed, acceleration, or the objects' target p",
   "details": "",

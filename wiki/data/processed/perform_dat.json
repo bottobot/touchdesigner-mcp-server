@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.306Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Perform_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Perform_DAT",
   "description": "The Perform DAT logs various performance times in a Table DAT format. These benchmarks are similar to those reported by the Performance Monitor.",
   "summary": "The Perform DAT logs various performance times in a Table DAT format. These benchmarks are similar to those reported by the Performance Monitor.",
   "details": "",

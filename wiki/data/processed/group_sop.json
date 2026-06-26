@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.708Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Group_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Group_SOP",
   "description": "The Group SOP generates groups of points or primitives according to various criteria and allows you to act upon these groups. Elements can occur in more than one group. Groups are used in many parts of the SOP Editor to specify which portion(s) of input geometry you wish a SOP to act upon.",
   "summary": "The Group SOP generates groups of points or primitives according to various criteria and allows you to act upon these groups. Elements can occur in more than one group. Groups are used in many parts o",
   "details": "",

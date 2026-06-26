@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.534Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\JSON_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/JSON_DAT",
   "description": "The JSON DAT converts and filters JSON text using JSONPath syntax and outputs the filtered results. It eliminates having to code scripts to parse and manipulate JSON, and keeps the data flow procedural.",
   "summary": "The JSON DAT converts and filters JSON text using JSONPath syntax and outputs the filtered results. It eliminates having to code scripts to parse and manipulate JSON, and keeps the data flow procedura",
   "details": "",

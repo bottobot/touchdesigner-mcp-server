@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "tuple[str, ...]",
       "readOnly": true,
-      "description": "bindExpr member"
-    },
-    {
-      "name": "bindExpr",
-      "id": "bodyContent",
-      "returnType": "tuple[str, ...]",
-      "readOnly": true,
-      "description": "bindExpr member"
+      "description": ""
     }
   ],
   "methods": [

@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:49:57.546Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Blur_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Blur_TOP",
   "description": "The Blur TOP blurs the image with various kernel filters and radii. It can do multi-pass blurs and can do horizontal-only or vertical-only blurs.",
   "summary": "The Blur TOP blurs the image with various kernel filters and radii. It can do multi-pass blurs and can do horizontal-only or vertical-only blurs.",
   "details": "",

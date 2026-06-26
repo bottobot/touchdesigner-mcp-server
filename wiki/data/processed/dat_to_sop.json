@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.393Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\DAT_to_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/DAT_to_SOP",
   "description": "The DAT to SOP can be used to create geometry from DAT tables, or if a SOP input is specified, to modify attributes on existing geometry. See also the Add SOP.",
   "summary": "The DAT to SOP can be used to create geometry from DAT tables, or if a SOP input is specified, to modify attributes on existing geometry. See also the Add SOP.",
   "details": "",

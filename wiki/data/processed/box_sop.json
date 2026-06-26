@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.690Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Box_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Box_SOP",
   "description": "The Box SOP creates cuboids. These can be used as geometries by themselves, or they can be sub-divided for use with the Lattice SOP.",
   "summary": "The Box SOP creates cuboids. These can be used as geometries by themselves, or they can be sub-divided for use with the Lattice SOP.",
   "details": "",

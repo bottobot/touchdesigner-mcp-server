@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.043Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Nvidia_Background_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Nvidia_Background_TOP",
   "description": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This TOP uses the AI Green Screening module from the Nvidia Maxine Video Effects engine and requires a 20, 30 or 40 series Nvidia RTX card to operate.",
   "summary": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This TOP uses the AI Green Screening module from the Nvidia Maxine Video Effects engine and requires a 20, 30",
   "details": "",

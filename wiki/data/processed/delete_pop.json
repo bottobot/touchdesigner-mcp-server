@@ -3,1420 +3,301 @@
   "id": "delete_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Delete POP removes (or keeps) points or primitives using 5 methods found on the Attribute, Thin, Pattern, Group and Bounding pages.  You can choose to delete points or primitives.  On the Attribute page you can delete based on the values of point or primitive attributes. On the Thin page you can delete based on parameter-defined ranges, steps or randomly. You can delete based on patterns using Pattern Matching on the Pattern page. You can delete based on point or primitive groups on the Group page. You can delete based on bounding ranges on any attribute on the Bounding page.",
+  "description": "The Delete POP removes (or keeps) points or primitives using 5 methods found on the Attribute, Thin, Pattern, Group and Bounding pages. You can choose to delete points or primitives. On the Attribute page you can delete based on the values of point or primitive attributes. On the Thin page you can delete based on parameter-defined ranges, steps or randomly. You can delete based on patterns using [[Pattern Matching]] on the Pattern page. You can delete based on point or primitive groups on the Group page. You can delete based on bounding ranges on any attribute on the Bounding page. Four of the methods let you build the logic using sequential blocks of parameters. For example on the Attribute page, one block selects <code>P(0) > 0</code> and another that selects <code>P(1) < 0</code> and ANDed together they will delete points in a quarter of the space. Otherwise is common to build an attribute in a [[Math Mix POP]] and use it in the Delete POP. When deleting primitives, if points or vertices are no longer used, they are deleted. When deleting points, the vertices and primitives that use them can be deleted in part or entirely. Deleted points can cause like strips to be split, trimmed or deleted entirely. For pattern matching on the Pattern page, see [[Pattern Matching]]. Note: Deleting attributes can be done with the [[Attribute POP]], the [[Select POP]] and all the Math POPs. See also [[Group POP]]. The [[Field POP]] also can delete points.",
   "parameters": [
     {
-      "name": "P(0) > 0",
+      "name": "Operation",
+      "parName": "invert",
       "label": "Operation",
-      "description": "Configure Operation for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Delete Selected",
-          "value": "dele",
-          "description": ""
-        },
-        {
-          "label": "Delete Non-Selected",
-          "value": "keep",
-          "description": "Selected keep -"
-        },
-        {
-          "label": "Primitives",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Points",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Delete Point of Line Strip",
-          "value": "delpointoflinestrip",
-          "description": ""
-        },
-        {
-          "label": "Split Line Strip",
-          "value": "splitlinestrip",
-          "description": ""
-        },
-        {
-          "label": "Delete Line Strip",
-          "value": "dellinestrip",
-          "description": ""
-        },
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        },
-        {
-          "label": "<",
-          "value": "lt",
-          "description": ""
-        },
-        {
-          "label": "<=",
-          "value": "lte",
-          "description": ""
-        },
-        {
-          "label": ">",
-          "value": "gt",
-          "description": ""
-        },
-        {
-          "label": ">=",
-          "value": "gte",
-          "description": ""
-        },
-        {
-          "label": "==",
-          "value": "eq",
-          "description": ""
-        },
-        {
-          "label": "!=",
-          "value": "ne",
-          "description": ""
-        },
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "0-50",
-          "value": "0-50",
-          "description": "50 0-50 -"
-        },
-        {
-          "label": "0-50:2",
-          "value": "0-50:2",
-          "description": "50:2 0-50:2 -"
-        },
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        },
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        },
-        {
-          "label": "Bounding Box",
-          "value": "boundingbox",
-          "description": ""
-        },
-        {
-          "label": "Bounding Sphere",
-          "value": "boundingsphere",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatex",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatey",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatez",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatex",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatey",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatez",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scalex",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scaley",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scalez",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Inverts the selection of elements being deleted.",
+      "isReadOnly": false,
+      "menuItems": [
+        "dele",
+        "keep",
+        "delete"
+      ],
+      "menuLabels": [
+        "Delete Selected",
+        "Delete Non-Selected",
+        "Delete Selected"
       ]
     },
     {
-      "name": "invert",
-      "label": "Operation",
-      "description": "Configure Operation for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Delete Selected",
-          "value": "dele",
-          "description": ""
-        },
-        {
-          "label": "Delete Non-Selected",
-          "value": "keep",
-          "description": "Selected keep -"
-        }
-      ]
-    },
-    {
-      "name": "dele",
-      "label": "Delete Selected",
-      "description": "Configure Delete Selected for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Delete Selected",
-          "value": "dele",
-          "description": ""
-        },
-        {
-          "label": "Delete Non-Selected",
-          "value": "keep",
-          "description": "Selected keep -"
-        }
-      ]
-    },
-    {
-      "name": "entity",
+      "name": "Entity",
+      "parName": "entity",
       "label": "Entity",
-      "description": "Configure Entity for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Primitives",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Points",
-          "value": "point",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the attribute class to use.",
+      "isReadOnly": false,
+      "menuItems": [
+        "primitive",
+        "point"
+      ],
+      "menuLabels": [
+        "Primitives",
+        "Points"
       ]
     },
     {
-      "name": "primitive",
-      "label": "Primitives",
-      "description": "Configure Primitives for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Primitives",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Points",
-          "value": "point",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "linestripbehavior",
+      "name": "Line Strip Behavior",
+      "parName": "linestripbehavior",
       "label": "Line Strip Behavior",
-      "description": "Configure Line Strip Behavior for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Delete Point of Line Strip",
-          "value": "delpointoflinestrip",
-          "description": ""
-        },
-        {
-          "label": "Split Line Strip",
-          "value": "splitlinestrip",
-          "description": ""
-        },
-        {
-          "label": "Delete Line Strip",
-          "value": "dellinestrip",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "What to do when points of a line strip are deleted.",
+      "isReadOnly": false,
+      "menuItems": [
+        "delpointoflinestrip",
+        "splitlinestrip",
+        "dellinestrip"
+      ],
+      "menuLabels": [
+        "Delete Point of Line Strip",
+        "Split Line Strip",
+        "Delete Line Strip"
       ]
     },
     {
-      "name": "delpointoflinestrip",
-      "label": "Delete Point of Line Strip",
-      "description": "Configure Delete Point of Line Strip for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Delete Point of Line Strip",
-          "value": "delpointoflinestrip",
-          "description": ""
-        },
-        {
-          "label": "Split Line Strip",
-          "value": "splitlinestrip",
-          "description": ""
-        },
-        {
-          "label": "Delete Line Strip",
-          "value": "dellinestrip",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "cpureadback",
+      "name": "Copy Topology Info Back to CPU",
+      "parName": "cpureadback",
       "label": "Copy Topology Info Back to CPU",
-      "description": "Configure Copy Topology Info Back to CPU for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable copying the point count and topology information held on the GPU to the CPU.",
+      "isReadOnly": false
     },
     {
-      "name": "attr",
+      "name": "Attribute",
+      "parName": "attr",
       "label": "Attribute",
-      "description": "Configure Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        },
-        {
-          "label": "<",
-          "value": "lt",
-          "description": ""
-        },
-        {
-          "label": "<=",
-          "value": "lte",
-          "description": ""
-        },
-        {
-          "label": ">",
-          "value": "gt",
-          "description": ""
-        },
-        {
-          "label": ">=",
-          "value": "gte",
-          "description": ""
-        },
-        {
-          "label": "==",
-          "value": "eq",
-          "description": ""
-        },
-        {
-          "label": "!=",
-          "value": "ne",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to create new attributes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "and",
+        "or",
+        "xor",
+        "nand",
+        "nor",
+        "lt",
+        "lte",
+        "gt",
+        "gte",
+        "eq",
+        "ne"
+      ],
+      "menuLabels": [
+        "And",
+        "Or",
+        "Exclusive Or",
+        "Not And",
+        "Not Or",
+        "<",
+        "<=",
+        ">",
+        ">=",
+        "==",
+        "!="
       ]
     },
     {
-      "name": "attr0combine",
-      "label": "Combine",
-      "description": "Configure Combine for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "and",
-      "label": "And",
-      "description": "Configure And for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0inattr",
-      "label": "Attribute",
-      "description": "Configure Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0func",
-      "label": "Function",
-      "description": "Configure Function for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "<",
-          "value": "lt",
-          "description": ""
-        },
-        {
-          "label": "<=",
-          "value": "lte",
-          "description": ""
-        },
-        {
-          "label": ">",
-          "value": "gt",
-          "description": ""
-        },
-        {
-          "label": ">=",
-          "value": "gte",
-          "description": ""
-        },
-        {
-          "label": "==",
-          "value": "eq",
-          "description": ""
-        },
-        {
-          "label": "!=",
-          "value": "ne",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lt",
-      "label": "<",
-      "description": "Configure < for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "<",
-          "value": "lt",
-          "description": ""
-        },
-        {
-          "label": "<=",
-          "value": "lte",
-          "description": ""
-        },
-        {
-          "label": ">",
-          "value": "gt",
-          "description": ""
-        },
-        {
-          "label": ">=",
-          "value": "gte",
-          "description": ""
-        },
-        {
-          "label": "==",
-          "value": "eq",
-          "description": ""
-        },
-        {
-          "label": "!=",
-          "value": "ne",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0value",
-      "label": "Value",
-      "description": "Configure Value for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0invert",
-      "label": "Invert",
-      "description": "Configure Invert for the operator",
-      "type": "string"
-    },
-    {
-      "name": "thinenabled",
+      "name": "Enabled",
+      "parName": "thinenabled",
       "label": "Enabled",
-      "description": "Configure Enabled for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable thinning by index range, index step or random index.",
+      "isReadOnly": false
     },
     {
-      "name": "thinoutrange",
+      "name": "Thin Out Range",
+      "parName": "thinoutrange",
       "label": "Thin Out Range",
-      "description": "Configure Thin Out Range for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable index-based point filtering.",
+      "isReadOnly": false
     },
     {
-      "name": "thinrangestart",
+      "name": "Thin Range Start",
+      "parName": "thinrangestart",
       "label": "Thin Range Start",
-      "description": "Configure Thin Range Start for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Determines the starting index for range-based point filtering.",
+      "isReadOnly": false
     },
     {
-      "name": "thinrangelength",
+      "name": "Thin Range Length",
+      "parName": "thinrangelength",
       "label": "Thin Range Length",
-      "description": "Configure Thin Range Length for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Determines the number of points being filtered by index range.",
+      "isReadOnly": false
     },
     {
-      "name": "thinstep",
+      "name": "Thin Step",
+      "parName": "thinstep",
       "label": "Thin Step",
-      "description": "Configure Thin Step for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Filters every Nth point.",
+      "isReadOnly": false
     },
     {
-      "name": "thinrandom",
+      "name": "Thin Random",
+      "parName": "thinrandom",
       "label": "Thin Random",
-      "description": "Configure Thin Random for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Determines the proportion of points randomly filtered.",
+      "isReadOnly": false
     },
     {
-      "name": "thinrandomseed",
+      "name": "Thin Random Seed",
+      "parName": "thinrandomseed",
       "label": "Thin Random Seed",
-      "description": "Configure Thin Random Seed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Sets the random seed for points being randomly filtered.",
+      "isReadOnly": false
     },
     {
-      "name": "thininvert",
+      "name": "Invert",
+      "parName": "thininvert",
       "label": "Invert",
-      "description": "Configure Invert for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Invert the selection resulting from the current conditions in the block.",
+      "isReadOnly": false
     },
     {
-      "name": "pattern",
+      "name": "Pattern",
+      "parName": "pattern",
       "label": "Pattern",
-      "description": "Configure Pattern for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "0-50",
-          "value": "0-50",
-          "description": "50 0-50 -"
-        },
-        {
-          "label": "0-50:2",
-          "value": "0-50:2",
-          "description": "50:2 0-50:2 -"
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for index-matching pattern.",
+      "isReadOnly": false,
+      "menuItems": [
+        "and",
+        "or",
+        "xor",
+        "nand",
+        "nor",
+        "*",
+        "0-50",
+        "0-50:2",
+        "[*]",
+        "[*:4]",
+        "[0-49]",
+        "[0-49:2]",
+        "^[*:4]",
+        "[*:5:7]",
+        "[1,4,9]",
+        "1 4 [7-9]"
+      ],
+      "menuLabels": [
+        "And",
+        "Or",
+        "Exclusive Or",
+        "Not And",
+        "Not Or",
+        "*",
+        "0-50",
+        "0-50:2",
+        "[*]",
+        "[*:4]",
+        "[0-49]",
+        "[0-49:2]",
+        "^[*:4]",
+        "[*:5:7]",
+        "[1,4,9]",
+        "1 4 [7-9]"
       ]
     },
     {
-      "name": "pattern0combine",
-      "label": "Combine",
-      "description": "Configure Combine for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pattern0pattern",
-      "label": "Pattern",
-      "description": "Configure Pattern for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "0-50",
-          "value": "0-50",
-          "description": "50 0-50 -"
-        },
-        {
-          "label": "0-50:2",
-          "value": "0-50:2",
-          "description": "50:2 0-50:2 -"
-        }
-      ]
-    },
-    {
-      "name": "*",
-      "label": "*",
-      "description": "Configure * for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "0-50",
-          "value": "0-50",
-          "description": "50 0-50 -"
-        },
-        {
-          "label": "0-50:2",
-          "value": "0-50:2",
-          "description": "50:2 0-50:2 -"
-        }
-      ]
-    },
-    {
-      "name": "pattern0invert",
-      "label": "Invert",
-      "description": "Configure Invert for the operator",
-      "type": "string"
-    },
-    {
-      "name": "group",
+      "name": "Group",
+      "parName": "group",
       "label": "Group",
-      "description": "Configure Group for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for input groups, specifying a group name in this field will cause this POP to act only upon the group specified.",
+      "isReadOnly": false,
+      "menuItems": [
+        "and",
+        "or",
+        "xor",
+        "nand",
+        "nor"
+      ],
+      "menuLabels": [
+        "And",
+        "Or",
+        "Exclusive Or",
+        "Not And",
+        "Not Or"
       ]
     },
     {
-      "name": "group0combine",
-      "label": "Combine",
-      "description": "Configure Combine for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "group0name",
-      "label": "Group",
-      "description": "Configure Group for the operator",
-      "type": "string"
-    },
-    {
-      "name": "group0invert",
-      "label": "Invert",
-      "description": "Configure Invert for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bound",
+      "name": "Bound",
+      "parName": "bound",
       "label": "Bound",
-      "description": "Configure Bound for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        },
-        {
-          "label": "Bounding Box",
-          "value": "boundingbox",
-          "description": ""
-        },
-        {
-          "label": "Bounding Sphere",
-          "value": "boundingsphere",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatex",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatey",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatez",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatex",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatey",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatez",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scalex",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scaley",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scalez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0combine",
-      "label": "Combine",
-      "description": "Configure Combine for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "And",
-          "value": "and",
-          "description": ""
-        },
-        {
-          "label": "Or",
-          "value": "or",
-          "description": ""
-        },
-        {
-          "label": "Exclusive Or",
-          "value": "xor",
-          "description": ""
-        },
-        {
-          "label": "Not And",
-          "value": "nand",
-          "description": ""
-        },
-        {
-          "label": "Not Or",
-          "value": "nor",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0inattr",
-      "label": "Attribute",
-      "description": "Configure Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bound0type",
-      "label": "Bounding Type",
-      "description": "Configure Bounding Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Bounding Box",
-          "value": "boundingbox",
-          "description": ""
-        },
-        {
-          "label": "Bounding Sphere",
-          "value": "boundingsphere",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "boundingbox",
-      "label": "Bounding Box",
-      "description": "Configure Bounding Box for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Bounding Box",
-          "value": "boundingbox",
-          "description": ""
-        },
-        {
-          "label": "Bounding Sphere",
-          "value": "boundingsphere",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0translate",
-      "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "bound0translatex",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatey",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0translatex",
-      "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "bound0translatex",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatey",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "bound0translatez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0rotate",
-      "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "bound0rotatex",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatey",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0rotatex",
-      "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "bound0rotatex",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatey",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "bound0rotatez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0scale",
-      "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "bound0scalex",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scaley",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scalez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0scalex",
-      "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Scale",
-          "value": "bound0scalex",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scaley",
-          "description": ""
-        },
-        {
-          "label": "Scale",
-          "value": "bound0scalez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bound0invert",
-      "label": "Invert",
-      "description": "Configure Invert for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for bounding volumes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "and",
+        "or",
+        "xor",
+        "nand",
+        "nor",
+        "boundingbox",
+        "boundingsphere",
+        "bound0translatex",
+        "bound0translatey",
+        "bound0translatez",
+        "bound0rotatex",
+        "bound0rotatey",
+        "bound0rotatez",
+        "bound0scalex",
+        "bound0scaley",
+        "bound0scalez"
+      ],
+      "menuLabels": [
+        "And",
+        "Or",
+        "Exclusive Or",
+        "Not And",
+        "Not Or",
+        "Bounding Box",
+        "Bounding Sphere",
+        "Translate",
+        "Translate",
+        "Translate",
+        "Rotate",
+        "Rotate",
+        "Rotate",
+        "Scale",
+        "Scale",
+        "Scale"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Delete_POP.htm",
-  "parsedAt": "2025-08-08T03:03:55.195Z"
+  "parsedAt": "2025-08-08T03:03:55.195Z",
+  "url": "https://docs.derivative.ca/Delete_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Delete_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Delete_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Delete_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

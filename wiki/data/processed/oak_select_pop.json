@@ -1,0 +1,65 @@
+{
+  "id": "oak_select_pop",
+  "name": "OAK Select POP",
+  "displayName": "OAK Select POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/OAK_Select_POP",
+  "description": "The OAK Select POP can receive point cloud data.",
+  "parameters": [
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "Toggle",
+      "description": "When enabled, data from the specified OAK Device CHOP will be retrieved.",
+      "isReadOnly": false
+    },
+    {
+      "name": "OAK Device CHOP",
+      "parName": "chop",
+      "label": "OAK Device CHOP",
+      "type": "CHOP",
+      "description": "Reference to the OAK Device CHOP running a depthai pipeline.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Stream",
+      "parName": "stream",
+      "label": "Stream",
+      "type": "StrMenu",
+      "description": "The name of the stream to be received.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Cache Size",
+      "parName": "cachesize",
+      "label": "Cache Size",
+      "type": "Int",
+      "description": "The Cache Size parameter works like the Queue Size parameter on the OAK Select CHOP. Picking 2 is a good default choice because it enables TouchDesigner to show an image to the user while asynchronously writing new data into the remaining buffer.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=OAK_Select_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live OAK_Select_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=OAK_Select_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:08.111Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Ramp_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Ramp_TOP",
   "description": "The Ramp TOP allows you to interactively create vertical, horizontal, radial, and circular ramps. Using the ramp bar and the color picker, you can add as many color tabs to the ramp as you like, each with its own color and alpha values. Click on a color tab to select it and change its color. Click elsewhere on the ramp bar to add another color keyframe. Drag a color tab off the ramp bar to delete it.",
   "summary": "The Ramp TOP allows you to interactively create vertical, horizontal, radial, and circular ramps. Using the ramp bar and the color picker, you can add as many color tabs to the ramp as you like, each ",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.912Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Sprite_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Sprite_SOP",
   "description": "The Sprite SOP creates geometry (quad sprites) at point positions defined by the CHOP referenced in the XYZ CHOP parameter.",
   "summary": "The Sprite SOP creates geometry (quad sprites) at point positions defined by the CHOP referenced in the XYZ CHOP parameter.",
   "details": "",

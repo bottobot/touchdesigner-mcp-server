@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.932Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Video_Devices_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Video_Devices_DAT",
   "description": "The Video Devices DAT provides information about all detected video devices including driver, direction (input or output), label, and name that can be referenced in the Video Device In TOP and Video Device Out TOP.",
   "summary": "The Video Devices DAT provides information about all detected video devices including driver, direction (input or output), label, and name that can be referenced in the Video Device In TOP and Video D",
   "details": "",

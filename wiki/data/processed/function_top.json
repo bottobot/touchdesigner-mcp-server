@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.304Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Function_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Function_TOP",
   "description": "The Function TOP can perform mathematical operations like sin, cos, or exp on the color values of the input image. Different functions can be performed on each color channel. Some functions will take an additional value from the Base, Exponent or Constant Value parameters, and some functions take an additional input value from the second input image.",
   "summary": "The Function TOP can perform mathematical operations like sin, cos, or exp on the color values of the input image. Different functions can be performed on each color channel. Some functions will take ",
   "details": "",

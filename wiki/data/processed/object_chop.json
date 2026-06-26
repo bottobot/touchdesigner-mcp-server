@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.303Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Object_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Object_CHOP",
   "description": "The Object CHOP compares two objects and outputs channels containing their raw or relative positions and orientations. The information that can be output is:",
   "summary": "The Object CHOP compares two objects and outputs channels containing their raw or relative positions and orientations. The information that can be output is:",
   "details": "",

@@ -1,0 +1,83 @@
+{
+  "id": "serial_devices_dat",
+  "name": "Serial Devices DAT",
+  "displayName": "Serial Devices DAT",
+  "category": "DAT",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Serial_Devices_DAT",
+  "description": "Provide a list of connected serial devices which can be refreshed manually or at periodic intervals. A callback DAT is provided to react to addition/removal of devices.",
+  "parameters": [
+    {
+      "name": "Callbacks DAT",
+      "parName": "callbacks",
+      "label": "Callbacks DAT",
+      "type": "DAT",
+      "description": "Runs this script once for each change to the table. See [[serialdevicesDAT_Class]] for usage.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Usage",
+      "parName": "usage",
+      "label": "Usage",
+      "type": "Menu",
+      "description": "Specify which serial devices to report information about based on their availability.",
+      "isReadOnly": false,
+      "menuItems": [
+        "any",
+        "inuse",
+        "notinuse"
+      ],
+      "menuLabels": [
+        "Any",
+        "In Use",
+        "Not In Use"
+      ]
+    },
+    {
+      "name": "Refresh Pulse",
+      "parName": "refreshpulse",
+      "label": "Refresh Pulse",
+      "type": "Pulse",
+      "description": "Instantly poll for serial device changes and update the table.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Polling",
+      "parName": "enablepolling",
+      "label": "Enable Polling",
+      "type": "Toggle",
+      "description": "While on, poll for serial device changes periodically and update the table.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Polling Time",
+      "parName": "pollingtime",
+      "label": "Polling Time",
+      "type": "Float",
+      "description": "Time in seconds to wait for the next poll.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Serial_Devices_DAT&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Serial_Devices_DAT wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Serial_Devices_DAT&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

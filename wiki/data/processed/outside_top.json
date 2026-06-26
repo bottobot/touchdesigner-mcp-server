@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:06.043Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Outside_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Outside_TOP",
   "description": "The Outside TOP places Input1 'outside' Input2. Input1 is visible in the output wherever Input2's alpha is <1. This is the opposite operation to the Inside TOP.",
   "summary": "The Outside TOP places Input1 'outside' Input2. Input1 is visible in the output wherever Input2's alpha is <1. This is the opposite operation to the Inside TOP.",
   "details": "",

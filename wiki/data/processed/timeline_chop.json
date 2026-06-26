@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.869Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Timeline_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Timeline_CHOP",
   "description": "The Timeline CHOP outputs time-based CHOP channels for a specific component. The time channels are defined by a Time Component whose Path can be determined using the python expression me.time. When a Reference Node is specified, the time defined at that node is used.  When the Reference Node is not specified, then the time defined at the Timeline CHOP's location is used (ie. time defined at me.time).",
   "summary": "The Timeline CHOP outputs time-based CHOP channels for a specific component. The time channels are defined by a Time Component whose Path can be determined using the python expression me.time. When a ",
   "details": "",

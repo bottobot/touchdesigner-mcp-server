@@ -3,495 +3,317 @@
   "id": "ray_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Ray POP casts a ray from each points of the input, in the direction defined by the Ray Attribute, and outputs new attributes that report what each ray hits.",
+  "description": "The Ray POP casts a ray from each points of the input, in the direction defined by the Ray Attribute, and outputs new attributes that report what each ray hits. The second input is the set of triangles and quads that the rays are tested against. The Ray POP can count the number of primitives it hit as it transmits through all primitive in its line, and the distance to the closest primitive. It can output properties of the primitive it hit - its primitive index, the barymetric position on the primitive it hit, and the values of any attributes on the primitive it hit. It can also output information about rays that are reflected. Assuming the Collision Geometry is a closed surface, the Ray POP can report whether it is located inside or outside the volume. It can be put into a mode where it outputs line strips representing the rays that it casts, intersects and reflects. By default, the Ray POP projects the points on the collision mesh, Scale is a 0 to 1 multiplier between original position and projected position, Lift is also a control to move the point along the ray but in absolute units (to move points inside or outside a bit from the collision surface. It can leverage [[Hardware Ray Tracing]]. See also [[Math Mix POP]] (has ray functions)",
   "parameters": [
     {
-      "name": "rayattrib",
+      "name": "Ray Attribute",
+      "parName": "rayattrib",
       "label": "Ray Attribute",
-      "description": "Configure Ray Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "StrMenu",
+      "description": "Ray direction attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "negateray",
+      "name": "Negate Ray",
+      "parName": "negateray",
       "label": "Negate Ray",
-      "description": "Configure Negate Ray for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Negates the direction of the ray.",
+      "isReadOnly": false
     },
     {
-      "name": "numbounces",
+      "name": "Number of Bounces",
+      "parName": "numbounces",
       "label": "Number of Bounces",
-      "description": "Configure Number of Bounces for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of bounces for the rays.",
+      "isReadOnly": false
     },
     {
-      "name": "connectpoints",
+      "name": "Connect Points",
+      "parName": "connectpoints",
       "label": "Connect Points",
-      "description": "Configure Connect Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When doing multiple bounces, for each input point whether to connect the intersections as a line strip.",
+      "isReadOnly": false
     },
     {
-      "name": "limitraylength",
+      "name": "Limit Ray Length",
+      "parName": "limitraylength",
       "label": "Limit Ray Length",
-      "description": "Configure Limit Ray Length for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "The ray length will be limited.",
+      "isReadOnly": false,
+      "menuItems": [
+        "limitraylength",
+        "raydistancemaxattr"
+      ],
+      "menuLabels": [
+        "Limit Ray Length",
+        "Ray Distance Max Attrib"
+      ]
     },
     {
-      "name": "raydistancemaxattr",
-      "label": "Ray Distance Max Attrib",
-      "description": "Configure Ray Distance Max Attrib for the operator",
-      "type": "string"
-    },
-    {
-      "name": "trimray",
+      "name": "Trim Ray",
+      "parName": "trimray",
       "label": "Trim Ray",
-      "description": "Configure Trim Ray for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Option to trim ray line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "trimray",
+        "trimdistanceattr"
+      ],
+      "menuLabels": [
+        "Trim Ray",
+        "Trim Distance Attrib"
+      ]
     },
     {
-      "name": "trimdistanceattr",
-      "label": "Trim Distance Attrib",
-      "description": "Configure Trim Distance Attrib for the operator",
-      "type": "string"
+      "name": "Hardware Ray Tracing",
+      "parName": "hwraytracing",
+      "label": "Hardware Ray Tracing",
+      "type": "Menu",
+      "description": "Selects mode for Hardware Ray Tracing if supported",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "fastbuild",
+        "fasttrace"
+      ],
+      "menuLabels": [
+        "Off",
+        "Fast Build (Dynamic Geometry)",
+        "Fast Trace (Static Geometry)"
+      ]
     },
     {
-      "name": "anyhit",
+      "name": "Opaque Geometry",
+      "parName": "opaque",
+      "label": "Opaque Geometry",
+      "type": "Toggle",
+      "description": "When using hardware raytracing, specify whether the collision geometry is treated as opaque (only the closest or the first hit is returned) or not.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Any Hit",
+      "parName": "anyhit",
       "label": "Any Hit",
-      "description": "Configure Any Hit for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to return the first hit, not guaranteed to be the closest or the farthest one.",
+      "isReadOnly": false
     },
     {
-      "name": "hitnormal",
+      "name": "Hit Normal",
+      "parName": "hitnormal",
       "label": "Hit Normal",
-      "description": "Configure Hit Normal for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Generate normal attribute at hit locations.",
+      "isReadOnly": false,
+      "menuItems": [
+        "hitnormal",
+        "hitnormalname"
+      ],
+      "menuLabels": [
+        "Hit Normal",
+        "Hit Normal Name"
+      ]
     },
     {
-      "name": "hitnormalname",
-      "label": "Hit Normal Name",
-      "description": "Configure Hit Normal Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "doreflectedray",
+      "name": "Reflected Ray",
+      "parName": "doreflectedray",
       "label": "Reflected Ray",
-      "description": "Configure Reflected Ray for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute containing the reflected ray direction.",
+      "isReadOnly": false,
+      "menuItems": [
+        "doreflectedray",
+        "reflectedrayname"
+      ],
+      "menuLabels": [
+        "Reflected Ray",
+        "Reflected Ray Name"
+      ]
     },
     {
-      "name": "reflectedrayname",
-      "label": "Reflected Ray Name",
-      "description": "Configure Reflected Ray Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "dist",
+      "name": "Point Intersection Distance",
+      "parName": "dist",
       "label": "Point Intersection Distance",
-      "description": "Configure Point Intersection Distance for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the distance between the original point and the intersection with the collision geometry.",
+      "isReadOnly": false,
+      "menuItems": [
+        "dist",
+        "distname"
+      ],
+      "menuLabels": [
+        "Point Intersection Distance",
+        "Point Intersection Distance Name"
+      ]
     },
     {
-      "name": "distname",
-      "label": "Point Intersection Distance Name",
-      "description": "Configure Point Intersection Distance Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "farhit",
+      "name": "Farthest Hit",
+      "parName": "farhit",
       "label": "Farthest Hit",
-      "description": "Configure Farthest Hit for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the farthest hit position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "farhit",
+        "farhitname"
+      ],
+      "menuLabels": [
+        "Farthest Hit",
+        "Farthest Hit Name"
+      ]
     },
     {
-      "name": "farhitname",
-      "label": "Farthest Hit Name",
-      "description": "Configure Farthest Hit Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "numhits",
+      "name": "Number of Hits",
+      "parName": "numhits",
       "label": "Number of Hits",
-      "description": "Configure Number of Hits for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "The Number of hits for rays passing through all the primitives in the ray direction.",
+      "isReadOnly": false,
+      "menuItems": [
+        "numhits",
+        "numhitsname"
+      ],
+      "menuLabels": [
+        "Number of Hits",
+        "Number of Hits Name"
+      ]
     },
     {
-      "name": "numhitsname",
-      "label": "Number of Hits Name",
-      "description": "Configure Number of Hits Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "inside",
+      "name": "Inside",
+      "parName": "inside",
       "label": "Inside",
-      "description": "Configure Inside for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Outputs an attribute containing 0 for rays stating outside a volume (a closed polygon surface), or 1 for rays originating inside a volume.",
+      "isReadOnly": false,
+      "menuItems": [
+        "inside",
+        "insidename"
+      ],
+      "menuLabels": [
+        "Inside",
+        "Inside Name"
+      ]
     },
     {
-      "name": "insidename",
-      "label": "Inside Name",
-      "description": "Configure Inside Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "hitprimindex",
+      "name": "Hit Primitive Index",
+      "parName": "hitprimindex",
       "label": "Hit Primitive Index",
-      "description": "Configure Hit Primitive Index for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Generate primitive index at hit locations.",
+      "isReadOnly": false,
+      "menuItems": [
+        "hitprimindex",
+        "hitprimindexname"
+      ],
+      "menuLabels": [
+        "Hit Primitive Index",
+        "Hit Primitive Index Name"
+      ]
     },
     {
-      "name": "hitprimindexname",
-      "label": "Hit Primitive Index Name",
-      "description": "Configure Hit Primitive Index Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "barycoords",
+      "name": "Barycentric Coordinates",
+      "parName": "barycoords",
       "label": "Barycentric Coordinates",
-      "description": "Configure Barycentric Coordinates for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the barycentric coordinates of the intersection point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "barycoords",
+        "barycoordsname"
+      ],
+      "menuLabels": [
+        "Barycentric Coordinates",
+        "Barycentric Coordinates Name"
+      ]
     },
     {
-      "name": "barycoordsname",
-      "label": "Barycentric Coordinates Name",
-      "description": "Configure Barycentric Coordinates Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "scale",
+      "name": "Scale",
+      "parName": "scale",
       "label": "Scale",
-      "description": "Configure Scale for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Intersection scaling factor.",
+      "isReadOnly": false
     },
     {
-      "name": "lift",
+      "name": "Lift",
+      "parName": "lift",
       "label": "Lift",
-      "description": "Configure Lift for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "This value offsets the point from the collision geometry in the direction of its normal.",
+      "isReadOnly": false
     },
     {
-      "name": "hitpointattrscope",
+      "name": "Hit Point Attr Scope",
+      "parName": "hitpointattrscope",
       "label": "Hit Point Attr Scope",
-      "description": "Configure Hit Point Attr Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Point attributes to sample on the collision geometry.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "*",
-      "label": "*",
-      "description": "Configure * for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "hitprimattrscope",
+      "name": "Hit Primitive Attr Scope",
+      "parName": "hitprimattrscope",
       "label": "Hit Primitive Attr Scope",
-      "description": "Configure Hit Primitive Attr Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Primitive attributes to sample on the collision geometry.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "hitvertattrscope",
+      "name": "Hit Vertex Attr Scope",
+      "parName": "hitvertattrscope",
       "label": "Hit Vertex Attr Scope",
-      "description": "Configure Hit Vertex Attr Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "StrMenu",
+      "description": "Vertex attributes to sample on the collision geometry.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Ray_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.325Z"
+  "parsedAt": "2025-08-08T03:03:59.325Z",
+  "url": "https://docs.derivative.ca/Ray_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Ray_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Ray_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Ray_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

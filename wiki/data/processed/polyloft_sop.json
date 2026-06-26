@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.756Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Polyloft_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Polyloft_SOP",
   "description": "The Polyloft SOP generates meshes of triangles by connecting (i.e. lofting/stitching) the points of open or closed faces without adding any new points. Polyloft can also connect groups of unrelated points in a similar fashion. The faces and the point groups need not have the same number of points.",
   "summary": "The Polyloft SOP generates meshes of triangles by connecting (i.e. lofting/stitching) the points of open or closed faces without adding any new points. Polyloft can also connect groups of unrelated po",
   "details": "",

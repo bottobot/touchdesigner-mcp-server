@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.516Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Multi_Touch_In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Multi_Touch_In_DAT",
   "description": "The Multi Touch In DAT is used for receiving messages and events from the Windows standard multi-touch API. It captures all the messages, where each new message changes the table it outputs. When a messages is added to the DAT, any script can be called pointing to the new message. The Multi Touch In DAT can be sent to the Render Pick DAT, or used with interactTouch methods in the Panel Component and Web Render TOP.  Multi Touch DAT is not supported on macOS.",
   "summary": "The Multi Touch In DAT is used for receiving messages and events from the Windows standard multi-touch API. It captures all the messages, where each new message changes the table it outputs. When a me",
   "details": "",

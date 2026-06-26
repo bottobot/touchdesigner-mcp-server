@@ -3,9 +3,105 @@
   "id": "connectivity_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Connectivity POP is still in development and is intended to re-connect the input's points with a set of primitives, similar to what the Grid POP or Torus POP does to their sets of points. It works on any POP that has multi-Dimensions, that is, rows, columns, slices and any number of dimensions.",
-  "parameters": [],
+  "description": "The Connectivity POP is intended to re-connect the input's points with a set of new primitives, similar to what the [[Grid POP]] or [[Torus POP]] does to their sets of points. It works on any POP, especially those that ore organized as multi-[[Dimension]]s, that is, having rows, columns, slices and any number of dimensions. Like the Grid POP you can connect the points in any dimension with line strips, or in any two dimensions with meshes of triangles or quads, or leave them as point primitives or no primitives. It generally takes care of the incoming POP's arrangements points, and also offers more kinds of line strip connections, like zig-zag or spiral connections of points. See also [[Torus POP]], [[Dimension POP]], [[Dimension]], [[Grid POP]], [[Plane POP]]",
+  "parameters": [
+    {
+      "name": "Connectivity",
+      "parName": "surftype",
+      "label": "Connectivity",
+      "type": "Menu",
+      "description": "Determines the primitive used to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "points",
+        "lines",
+        "linestrips",
+        "linestripperplane",
+        "zigzagperplane",
+        "spiralperplane",
+        "triangles",
+        "alttriangles",
+        "quads"
+      ],
+      "menuLabels": [
+        "None",
+        "Point Primitives",
+        "Lines",
+        "Line Strips",
+        "Line Strip per Plane",
+        "Zig Zag per Plane",
+        "Spiral per Plane",
+        "Triangles",
+        "Alternating Triangles",
+        "Quadrilaterals"
+      ]
+    },
+    {
+      "name": "(First) Dimension Index",
+      "parName": "firstdim",
+      "label": "(First) Dimension Index",
+      "type": "Int",
+      "description": "Select the dimension index. For modes requiring two dimensions, selects the first dimension index.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Second Dimension Index",
+      "parName": "seconddim",
+      "label": "Second Dimension Index",
+      "type": "Int",
+      "description": "Dimension index to the second dimension.",
+      "isReadOnly": false
+    },
+    {
+      "name": "(First) Dimension Closed",
+      "parName": "firstdimclosed",
+      "label": "(First) Dimension Closed",
+      "type": "Toggle",
+      "description": "Enable wrapping on the first dimension.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Second Dimension Closed",
+      "parName": "seconddimclosed",
+      "label": "Second Dimension Closed",
+      "type": "Toggle",
+      "description": "Enable wrapping on the second dimension.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Reorder Points by Prim/Vertex Order",
+      "parName": "reorderpoints",
+      "label": "Reorder Points by Prim/Vertex Order",
+      "type": "Toggle",
+      "description": "Reorder points by primitive or vertex reference order.",
+      "isReadOnly": false
+    }
+  ],
   "experimental": true,
   "sourceFile": "Experimental-Connectivity_POP.htm",
-  "parsedAt": "2025-08-08T03:03:54.744Z"
+  "parsedAt": "2025-08-08T03:03:54.744Z",
+  "url": "https://docs.derivative.ca/Connectivity_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Connectivity_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Connectivity_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Connectivity_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

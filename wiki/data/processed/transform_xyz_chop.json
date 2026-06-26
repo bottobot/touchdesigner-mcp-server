@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.437Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Transform_XYZ_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Transform_XYZ_CHOP",
   "description": "The Transform XYZ CHOP is used to transform positions and vector. The difference between transforming a position vs. a vector is that a vector won't have the translation portion of the transformation applied to it.The Transform XYZ CHOP first groups the channels from the first input by looking for 'x', 'y' and 'z' as the last character in the channel names. Then it treats each of the sets created as either a Position or a Vector depending on the parameter choice. The second input can be connected, and must describe a transform in the same format of channels that the Transform CHOP supports. The second input is combined with the 'Transform' page parameters, and the resulting transform is applied to the input positions and vectors.CHOPs with multiple-samples can be provided, which allows for larger amount of positional data to be transformed in a single CHOP.",
   "summary": "The Transform XYZ CHOP is used to transform positions and vector. The difference between transforming a position vs. a vector is that a vector won't have the translation portion of the transformation ",
   "details": "",

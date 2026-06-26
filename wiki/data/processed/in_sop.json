@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.407Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\In_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/In_SOP",
   "description": "The In SOP creates a SOP input in a Component. Component inputs are positioned alphanumerically on the left side of the node.",
   "summary": "The In SOP creates a SOP input in a Component. Component inputs are positioned alphanumerically on the left side of the node.",
   "details": "",

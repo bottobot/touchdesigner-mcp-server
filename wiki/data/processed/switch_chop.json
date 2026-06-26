@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.241Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Switch_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Switch_CHOP",
   "description": "The Switch CHOP allows you to control the flow of channels through a CHOPnet. It selects one of the input CHOPs by index and copies it exactly. This is useful for selecting one of several \"gestures\" or actions. Only one input chop can be selected at a time.",
   "summary": "The Switch CHOP allows you to control the flow of channels through a CHOPnet. It selects one of the input CHOPs by index and copies it exactly. This is useful for selecting one of several \"gestures\" o",
   "details": "",

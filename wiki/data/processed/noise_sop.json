@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.756Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Noise_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Noise_SOP",
   "description": "The Noise SOP displaces geometry points using noise patterns. It uses the same math as the Noise CHOP.",
   "summary": "The Noise SOP displaces geometry points using noise patterns. It uses the same math as the Noise CHOP.",
   "details": "",

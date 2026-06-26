@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.599Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Slope_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Slope_TOP",
   "description": "The Slope TOP generates pixels that represent the difference between its value and its neighbouring pixels' values. Given that default RGBA pixel values are between 0 and 1, the value of .5 means the neighbor's values are the same as the pixel's value. Values output in the red channel that are above .5 indicate the values are increasing left-to-right. Values output in the blue channel that are above .5 indicate the values are increasing bottom-to-top.",
   "summary": "The Slope TOP generates pixels that represent the difference between its value and its neighbouring pixels' values. Given that default RGBA pixel values are between 0 and 1, the value of .5 means the ",
   "details": "",

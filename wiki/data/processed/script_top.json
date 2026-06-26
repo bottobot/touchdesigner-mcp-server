@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.143Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Script_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Script_TOP",
   "description": "The Script TOP can be used to generate a TOP image using a Python script. The core feature it exposes is copyNumpyArray, which takes a NumPy array as input, and fills the TOP with the given image. How the NumPy array is generated is entirely up to the script writter, custom code, OpenCV, etc.",
   "summary": "The Script TOP can be used to generate a TOP image using a Python script. The core feature it exposes is copyNumpyArray, which takes a NumPy array as input, and fills the TOP with the given image. How",
   "details": "",

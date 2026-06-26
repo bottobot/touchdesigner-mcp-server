@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.541Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\GLSL_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/GLSL_COMP",
   "description": "The GLSL COMP uses shaders to render an image in a panel directly to the screen. It is useful for rendering pixel accurate UIs as the resolution will automatically adapt to the DPI scaling of the screen it is displayed on. Panel variables can be accessed in the shader for responding to user events,",
   "summary": "The GLSL COMP uses shaders to render an image in a panel directly to the screen. It is useful for rendering pixel accurate UIs as the resolution will automatically adapt to the DPI scaling of the scre",
   "details": "",

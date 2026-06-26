@@ -1,0 +1,259 @@
+{
+  "id": "st2110_out_top",
+  "name": "ST2110 Out TOP",
+  "displayName": "ST2110 Out TOP",
+  "category": "TOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/ST2110_Out_TOP",
+  "description": "Support for Blackmagic, AJA and Deltacast ST2110 devices. To obtain the SDPs generated for the output essences, use an [[Info DAT]] and choose which SDP to obtain. See also [[ST2110 In TOP]], [[ST2110 Device CHOP]].",
+  "parameters": [
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "Toggle",
+      "description": "Controls if this node is sending out data over the ST2110 device.",
+      "isReadOnly": false
+    },
+    {
+      "name": "ST2110 Device CHOP",
+      "parName": "st2110devicechop",
+      "label": "ST2110 Device CHOP",
+      "type": "CHOP",
+      "description": "Since a NIC has one set of settings such as DHCP/IP settings, that is controlled for each device using the ST2110 Device CHOP. This node will use that device to discover available output channels, and use the settings configured in that node for it's operation.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Device",
+      "parName": "device",
+      "label": "Device",
+      "type": "Menu",
+      "description": "Will be populated when the ST2110 Device CHOP is active and configured properly. Select which output channel on the device to use.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Video Destination IP",
+      "parName": "videodestip",
+      "label": "Video Destination IP",
+      "type": "Str",
+      "description": "The multicast IP address that the video essence should be sent on.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Video Source Port",
+      "parName": "videosourceport",
+      "label": "Video Source Port",
+      "type": "Int",
+      "description": "The local network port number that the video essence should be sent from. Some devices will auto-select this port.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Video Destination Port",
+      "parName": "videodestport",
+      "label": "Video Destination Port",
+      "type": "Int",
+      "description": "The destination network port number that the video essence should be sent to.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Video Payload Id",
+      "parName": "videopayloadid",
+      "label": "Video Payload Id",
+      "type": "Int",
+      "description": "The Payload Id number to assign to the RTP packets for the video essence. Usually 96 for video.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Signal Format",
+      "parName": "signalformat",
+      "label": "Signal Format",
+      "type": "Menu",
+      "description": "The Video Signal Format to send the video as.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Output Pixel Format",
+      "parName": "outputpixelformat",
+      "label": "Output Pixel Format",
+      "type": "Menu",
+      "description": "The Pixel Format to send data over the wire as.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fixed8",
+        "fixed10"
+      ],
+      "menuLabels": [
+        "8-bit",
+        "10-bit"
+      ]
+    },
+    {
+      "name": "Timecode Object/CHOP/DAT",
+      "parName": "timecodeop",
+      "label": "Timecode Object/CHOP/DAT",
+      "type": "CHOP",
+      "description": "For devices that support timecode, this can point to a [[Timecode]] source to send over the ancillary essence.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Memory Mode",
+      "parName": "memorymode",
+      "label": "Memory Mode",
+      "type": "Menu",
+      "description": "Controls how the video data is copied to the output device.",
+      "isReadOnly": false,
+      "menuItems": [
+        "automatic",
+        "pinned",
+        "regular"
+      ],
+      "menuLabels": [
+        "Automatic",
+        "Pinned",
+        "Regular"
+      ]
+    },
+    {
+      "name": "Audio CHOP",
+      "parName": "audiochop",
+      "label": "Audio CHOP",
+      "type": "CHOP",
+      "description": "A timesliced audio CHOP that is either 44110 or 48000 Hz, but not all devices support both of those sample rates. This will be sent out over the audio essence.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Audio Buffer Length",
+      "parName": "audiobufferlength",
+      "label": "Audio Buffer Length",
+      "type": "Float",
+      "description": "How long of an audio buffer queue to hold. This helps avoid audio pops in the event video generation stutters.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Audio Dest IP",
+      "parName": "audiodestip",
+      "label": "Audio Dest IP",
+      "type": "Str",
+      "description": "The multicast IP address that the audio essence should be sent on.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Audio Source Port",
+      "parName": "audiosourceport",
+      "label": "Audio Source Port",
+      "type": "Int",
+      "description": "The local network port number that the audio essence should be sent from. Some devices will auto-select this port.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Audio Destination Port",
+      "parName": "audiodestport",
+      "label": "Audio Destination Port",
+      "type": "Int",
+      "description": "The destination network port number that the audio essence should be sent to.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Audio Payload Id",
+      "parName": "audiopayloadid",
+      "label": "Audio Payload Id",
+      "type": "Int",
+      "description": "The Payload Id number to assign to the RTP packets for the audio essence. Usually 97 for audio.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable SPS",
+      "parName": "enablesps",
+      "label": "Enable SPS",
+      "type": "Toggle",
+      "description": "Controls if the SPS stream is active or not.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Video Destination IP",
+      "parName": "spsvideodestip",
+      "label": "SPS Video Destination IP",
+      "type": "Str",
+      "description": "The multicast IP address that the video SPS essence should be sent on.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Video Source Port",
+      "parName": "spsvideosourceport",
+      "label": "SPS Video Source Port",
+      "type": "Int",
+      "description": "The local network port number that the video SPS essence should be sent from. Some devices will auto-select this port.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Video Destination Port",
+      "parName": "spsvideodestport",
+      "label": "SPS Video Destination Port",
+      "type": "Int",
+      "description": "The destination network port number that the video SPS essence should be sent to.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Video Payload Id",
+      "parName": "spsvideopayloadid",
+      "label": "SPS Video Payload Id",
+      "type": "Int",
+      "description": "The Payload Id number to assign to the RTP packets for the SPS video essence. Usually 96 for video.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Audio Dest IP",
+      "parName": "spsaudiodestip",
+      "label": "SPS Audio Dest IP",
+      "type": "Str",
+      "description": "The multicast IP address that the audio SPS essence should be sent on.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Audio Source Port",
+      "parName": "spsaudiosourceport",
+      "label": "SPS Audio Source Port",
+      "type": "Int",
+      "description": "The local network port number that the audio SPS essence should be sent from. Some devices will auto-select this port.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Audio Destination Port",
+      "parName": "spsaudiodestport",
+      "label": "SPS Audio Destination Port",
+      "type": "Int",
+      "description": "The destination network port number that the audio SPS essence should be sent to.",
+      "isReadOnly": false
+    },
+    {
+      "name": "SPS Audio Payload Id",
+      "parName": "spsaudiopayloadid",
+      "label": "SPS Audio Payload Id",
+      "type": "Int",
+      "description": "The Payload Id number to assign to the RTP packets for the audio SPS essence. Usually 97 for audio.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ST2110_Out_TOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live ST2110_Out_TOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=ST2110_Out_TOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

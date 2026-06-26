@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.690Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OP_Viewer_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OP_Viewer_TOP",
   "description": "The OP Viewer TOP can display the Node Viewer for any other operator as a TOP image. If the operator source is a Panel Component, panel interaction through the TOP image is also supported.",
   "summary": "The OP Viewer TOP can display the Node Viewer for any other operator as a TOP image. If the operator source is a Panel Component, panel interaction through the TOP image is also supported.",
   "details": "",

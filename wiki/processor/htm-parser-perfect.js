@@ -69,7 +69,7 @@ export class HtmParserPerfect {
             this.stats.entriesCreated++;
             this.stats.parametersExtracted += parameters.length;
             
-            console.log(`[HtmParserPerfect] Parsed ${operatorInfo.displayName} (${operatorInfo.category}) - ${parameters.length} parameters`);
+            console.error(`[HtmParserPerfect] Parsed ${operatorInfo.displayName} (${operatorInfo.category}) - ${parameters.length} parameters`);
             
             return entry;
             

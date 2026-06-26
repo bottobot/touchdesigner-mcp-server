@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.234Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Curveclay_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Curveclay_SOP",
   "description": "The Curveclay SOP is similar to the Clay SOP in that you deform a spline surface not by modifying the CVs but by directly manipulating the surface. However, instead of using a point on the surface, you use one or more faces to deform that surface. Also, CurveClay does not yet support polygonal meshes. \t\t\nThe combination of inputs will determine the modes of transformation. For any combination of inputs, the following parameters modify the following behaviors of the SOP.",
   "summary": "The Curveclay SOP is similar to the Clay SOP in that you deform a spline surface not by modifying the CVs but by directly manipulating the surface. However, instead of using a point on the surface, yo",
   "details": "",

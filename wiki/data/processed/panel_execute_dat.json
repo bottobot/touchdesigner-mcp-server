@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:06.873Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Panel_Execute_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Panel_Execute_DAT",
   "description": "The Panel Execute DAT will run its script when the Panel Values of a specified panel component changes. You can specify which panel values to monitor, and trigger scripts based on their values changing in various ways.",
   "summary": "The Panel Execute DAT will run its script when the Panel Values of a specified panel component changes. You can specify which panel values to monitor, and trigger scripts based on their values changin",
   "details": "",

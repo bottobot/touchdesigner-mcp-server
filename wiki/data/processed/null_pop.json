@@ -3,16 +3,41 @@
   "id": "null_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Null POP does nothing - it passes its input to its output unchanged. It does not consume any CPU or GPU memory.",
+  "description": "The Null POP does nothing - it passes its input to its output unchanged. It does not consume any CPU or GPU memory. It is used as a placeholder, and it is best practice while you are working on building a chain of POPs, to put a Null POP at the end, name it something meaningful, and then refer to the Null POP farther downstream, so you can add in new POPs in the chain and not have to think about where the Null is connected. Note that POPs in general will not consume any memory for attributes that are unchanged by a POP. For example if the input to a Math POP has <code>P</code>, <code>Tex</code> and <code>Color</code> attributes, and the Math POP affect only the <code>Color</code> attribute, it will not copy the memory for the <code>P</code> and <code>Tex</code> attributes - it will \"point to\" or retrieve <code>P</code> and <code>Tex</code> from whichever POP they were last modified or created. The popup info (on the middle-click button) on a POP shows which attributes are references (have a <code>(r)</code> beside them).",
   "parameters": [
     {
-      "name": "P",
-      "label": "Input 0:",
-      "description": "Configure Input 0: for the operator",
-      "type": "string"
+      "name": "Bypass",
+      "parName": "bypass",
+      "label": "Bypass",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Null_POP.htm",
-  "parsedAt": "2025-08-08T03:03:57.981Z"
+  "parsedAt": "2025-08-08T03:03:57.981Z",
+  "url": "https://docs.derivative.ca/Null_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Null_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Null_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Null_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

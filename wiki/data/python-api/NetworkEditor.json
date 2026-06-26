@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "bool",
       "readOnly": true,
-      "description": "showBackdropCHOPs member"
-    },
-    {
-      "name": "showBackdropCHOPs",
-      "id": "bodyContent",
-      "returnType": "bool",
-      "readOnly": true,
-      "description": "showBackdropCHOPs member"
+      "description": ""
     }
   ],
   "methods": [

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.100Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_NDI_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_NDI_CHOP",
   "description": "Retrieves the audio from a NDI In TOP's NDI stream. The audio signal can then be modified or output via CHOPs.  See NDI.",
   "summary": "Retrieves the audio from a NDI In TOP's NDI stream. The audio signal can then be modified or output via CHOPs.  See NDI.",
   "details": "",

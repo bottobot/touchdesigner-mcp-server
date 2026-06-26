@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "str",
       "readOnly": true,
-      "description": "folder member"
-    },
-    {
-      "name": "folder",
-      "id": "bodyContent",
-      "returnType": "str",
-      "readOnly": true,
-      "description": "folder member"
+      "description": ""
     }
   ],
   "methods": [

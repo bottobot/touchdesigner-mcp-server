@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.772Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Bullet_Solver_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Bullet_Solver_COMP",
   "description": "In a Bullet Dynamics system, the Bullet Solver COMP is analogous to the world/simulation in which actors/bodies (ie. Actor COMPs) operate. A Bullet Solver COMP contains any number of actors/bodies (Actor COMPs) or forces (Force COMP/Impulse Force COMP), and as the name suggests it also uses the Bullet Physics API to step through the simulation.",
   "summary": "In a Bullet Dynamics system, the Bullet Solver COMP is analogous to the world/simulation in which actors/bodies (ie. Actor COMPs) operate. A Bullet Solver COMP contains any number of actors/bodies (Ac",
   "details": "",

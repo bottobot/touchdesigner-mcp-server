@@ -1,0 +1,173 @@
+{
+  "id": "tcpip_dat",
+  "name": "TCP/IP DAT",
+  "displayName": "TCP/IP DAT",
+  "category": "DAT",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/TCP/IP_DAT",
+  "description": "The TCP/IP DAT is used for sending and receiving information over a TCP/IP connection between two remotely located computers. It captures all the messages without any queuing or buffering, and allows you to send it any messages you want. Send messages using the [[tcpipDAT_Class]]. Handle received messages using the callback DAT attached to the TCP/IP DAT. See [[Network Protocols]]. This DAT can be used to intercept all the raw information being sent from a Pipe Out CHOP for example. The [[Pipe In CHOP]] and [[Pipe Out CHOP]] also communicate through a TCP/IP connection, though they use a specific syntax. See also [[Peer Class]], [[UDP In DAT]], [[UDP Out DAT]]. For Tscript. see Tscript <code>send</code> Command. '''NOTE for Windows OS - If experiencing connection issues make sure Windows Firewall is disabled.'''",
+  "parameters": [
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "Toggle",
+      "description": "This check box enables the connection.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Connection Mode",
+      "parName": "mode",
+      "label": "Connection Mode",
+      "type": "Menu",
+      "description": "Specify if this operator is communicating as a '''client''' or a '''server'''.",
+      "isReadOnly": false,
+      "menuItems": [
+        "client",
+        "server"
+      ],
+      "menuLabels": [
+        "This Operator is Client",
+        "This Operator is Server"
+      ]
+    },
+    {
+      "name": "Network Address",
+      "parName": "address",
+      "label": "Network Address",
+      "type": "Str",
+      "description": "If this node is communicating as a client, this should be the IP address of the server.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Port",
+      "parName": "port",
+      "label": "Port",
+      "type": "Int",
+      "description": "The network port to listen on or connect to, depending on of the node is the server or client respectively.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Shared Connection",
+      "parName": "shared",
+      "label": "Shared Connection",
+      "type": "Toggle",
+      "description": "Use the same connection as other networking DATs using the same network protocol.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Row/Callback Format",
+      "parName": "format",
+      "label": "Row/Callback Format",
+      "type": "Menu",
+      "description": "Determines how the incoming data is parsed into the table.",
+      "isReadOnly": false,
+      "menuItems": [
+        "perbyte",
+        "perline",
+        "all"
+      ],
+      "menuLabels": [
+        "One Per Byte",
+        "One Per Line",
+        "One For All Received Data"
+      ]
+    },
+    {
+      "name": "Local Address",
+      "parName": "localaddress",
+      "label": "Local Address",
+      "type": "",
+      "description": "Specify an IP address to listen on when in server mode, useful when the system has multiple NICs (Network Interface Card) and you want to select which one to use. When left blank, the TCP/IP DAT will listen on all interfaces.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Callbacks DAT",
+      "parName": "callbacks",
+      "label": "Callbacks DAT",
+      "type": "DAT",
+      "description": "The Callbacks DAT will execute once for each message received.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Execute from",
+      "parName": "executeloc",
+      "label": "Execute from",
+      "type": "Menu",
+      "description": "Determines the location the script is run from.",
+      "isReadOnly": false,
+      "menuItems": [
+        "current",
+        "callbacks",
+        "op"
+      ],
+      "menuLabels": [
+        "Current Node",
+        "Callbacks DAT",
+        "Specified Operator"
+      ]
+    },
+    {
+      "name": "From Operator",
+      "parName": "fromop",
+      "label": "From Operator",
+      "type": "OP",
+      "description": "The component who's state change will trigger the DAT to execute its script when <span class=\"tipTextDAT\">Execute from</span> is set to <span class=\"tipTextDAT\">On Panel Change</span>. This component is also the path that the script will be executed from if the <span class=\"tipTextDAT\">Execute from</span> parameter is set to <span class=\"tipTextDAT\">Specified Component</span>.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Clamp Output",
+      "parName": "clamp",
+      "label": "Clamp Output",
+      "type": "Toggle",
+      "description": "The DAT is limited to 100 messages by default but with Clamp Output, this can be set to anything including unlimited.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Maximum Lines",
+      "parName": "maxlines",
+      "label": "Maximum Lines",
+      "type": "Int",
+      "description": "Limits the number of messages, older messages are removed from the list first.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Clear Output",
+      "parName": "clear",
+      "label": "Clear Output",
+      "type": "Pulse",
+      "description": "Deletes all lines except the heading. To clear with a script command, here is an example: <code>opparm -c /serial1 clear</code>",
+      "isReadOnly": false
+    },
+    {
+      "name": "Bytes Column",
+      "parName": "bytes",
+      "label": "Bytes Column",
+      "type": "Toggle",
+      "description": "Outputs the raw bytes of the message in a separate column.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TCP%2FIP_DAT&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from TCP/IP_DAT",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=TCP%2FIP_DAT&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

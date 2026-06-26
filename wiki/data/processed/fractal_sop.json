@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.197Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Fractal_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Fractal_SOP",
   "description": "The Fractal SOP allows you created jagged mountain-like divisions of the input geometry. It will create random-looking deviations and sub-divisions along either a specified normal vector (the Direction xyz fields) or the vertex normals of the input geometry. This is great for the creation of terrains and landscapes.",
   "summary": "The Fractal SOP allows you created jagged mountain-like divisions of the input geometry. It will create random-looking deviations and sub-divisions along either a specified normal vector (the Directio",
   "details": "",

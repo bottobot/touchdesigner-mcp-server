@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.773Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\DMX_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/DMX_In_CHOP",
   "description": "The DMX In CHOP receives channels from DMX, Art-Net, sACN or KiNET devices. Channel values for DMX are 0-255. Note that input rate is limited to the DMX maximum refresh rate of 44Hz.",
   "summary": "The DMX In CHOP receives channels from DMX, Art-Net, sACN or KiNET devices. Channel values for DMX are 0-255. Note that input rate is limited to the DMX maximum refresh rate of 44Hz.",
   "details": "",

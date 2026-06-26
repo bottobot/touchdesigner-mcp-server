@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.157Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Surfsect_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Surfsect_SOP",
   "description": "The Surfsect SOP performs boolean operations with NURBS and Bezier surfaces, or only generates profiles where the surfaces intersect. The individual surfaces do not need to be solids (i.e. wrap in U and V), nor do they need to form a solid as a group (for example, you can cut a grid with a sphere).",
   "summary": "The Surfsect SOP performs boolean operations with NURBS and Bezier surfaces, or only generates profiles where the surfaces intersect. The individual surfaces do not need to be solids (i.e. wrap in U a",
   "details": "",

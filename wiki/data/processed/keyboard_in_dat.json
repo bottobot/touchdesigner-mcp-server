@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.584Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Keyboard_In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Keyboard_In_DAT",
   "description": "The Keyboard In DAT lists the most recent key events in its FIFO (first in/first out) table. There is one row for every key press down and every key-up, including Shift, Ctrl and Alt, with distinction between left and right side. For convenience, with each key press, a column indicates if the  Shift, Ctrl and Alt were being held down at the time.",
   "summary": "The Keyboard In DAT lists the most recent key events in its FIFO (first in/first out) table. There is one row for every key press down and every key-up, including Shift, Ctrl and Alt, with distinction",
   "details": "",

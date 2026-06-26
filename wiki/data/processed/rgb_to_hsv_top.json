@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.889Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\RGB_to_HSV_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/RGB_to_HSV_TOP",
   "description": "The RGV to HSV TOP converts the image from RGB to HSV colorspace. The R channel becomes Hue, the G channel becomes Saturation, and the B channel becomes Value.",
   "summary": "The RGV to HSV TOP converts the image from RGB to HSV colorspace. The R channel becomes Hue, the G channel becomes Saturation, and the B channel becomes Value.",
   "details": "",

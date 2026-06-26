@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.892Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Engine_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Engine_COMP",
   "description": "The Engine COMP will run a .tox file (component) in a separate process. It uses TouchEngine to manage these processes and pass data between the loaded component and the main project.",
   "summary": "The Engine COMP will run a .tox file (component) in a separate process. It uses TouchEngine to manage these processes and pass data between the loaded component and the main project.",
   "details": "",

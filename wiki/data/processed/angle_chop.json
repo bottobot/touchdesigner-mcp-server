@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.441Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Angle_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Angle_CHOP",
   "description": "The Angle CHOP is a general purpose converter between degrees, radians, quaternions and vectors. Different formats assume a specific ordering of input channels.",
   "summary": "The Angle CHOP is a general purpose converter between degrees, radians, quaternions and vectors. Different formats assume a specific ordering of input channels.",
   "details": "",

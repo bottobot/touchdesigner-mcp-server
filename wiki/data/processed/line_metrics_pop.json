@@ -3,546 +3,377 @@
   "id": "line_metrics_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "You can add metrics attributes to Line Strips. They can be created as point attribute or the vertex attributes.",
+  "description": "You can add metrics attributes to Line Strips. They can be created as point attribute or the vertex attributes. This gives good information about the points and the context they are in. For each point you can get the direction to the next and previous points, or the distance back to the start of the line strip, or the line strip number it is in… things useful for Math POPs or Lookup POPs. A convenience of the Line Metrics POP is to give nice values to awkward situations like co-incident points (two or more consecutive points in the same location), especially direction vectors. That’s what the Continuous Direction parameter does. It would work with Direction to Next, Direction to Previous, and do nice things to the Tangent vectors by keeping them in line.",
   "parameters": [
     {
-      "name": "attrclass",
+      "name": "Attribute Class",
+      "parName": "attrclass",
       "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex"
       ]
     },
     {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "dispnext",
+      "name": "Displacement to Next",
+      "parName": "dispnext",
       "label": "Displacement to Next",
-      "description": "Configure Displacement to Next for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the displacement to the next vertex in the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "dispnext",
+        "dispnextname"
+      ],
+      "menuLabels": [
+        "Displacement to Next",
+        "Displacement to Next Attrib Name"
+      ]
     },
     {
-      "name": "dispnextname",
-      "label": "Displacement to Next Attrib Name",
-      "description": "Configure Displacement to Next Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "dispprev",
+      "name": "Displacement to Previous",
+      "parName": "dispprev",
       "label": "Displacement to Previous",
-      "description": "Configure Displacement to Previous for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the displacement to the previous vertex in the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "dispprev",
+        "dispprevname"
+      ],
+      "menuLabels": [
+        "Displacement to Previous",
+        "Displacement to Previous Attrib Name"
+      ]
     },
     {
-      "name": "dispprevname",
-      "label": "Displacement to Previous Attrib Name",
-      "description": "Configure Displacement to Previous Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "distnext",
+      "name": "Distance to Next",
+      "parName": "distnext",
       "label": "Distance to Next",
-      "description": "Configure Distance to Next for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the distance to the next vertex in the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "distnext",
+        "distnextname"
+      ],
+      "menuLabels": [
+        "Distance to Next",
+        "Distance to Next Attrib Name"
+      ]
     },
     {
-      "name": "distnextname",
-      "label": "Distance to Next Attrib Name",
-      "description": "Configure Distance to Next Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "distprev",
+      "name": "Distance to Previous",
+      "parName": "distprev",
       "label": "Distance to Previous",
-      "description": "Configure Distance to Previous for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the distance to the previous vertex in the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "distprev",
+        "distprevname"
+      ],
+      "menuLabels": [
+        "Distance to Previous",
+        "Distance to Previous Attrib Name"
+      ]
     },
     {
-      "name": "distprevname",
-      "label": "Distance to Previous Attrib Name",
-      "description": "Configure Distance to Previous Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "dirnext",
+      "name": "Direction to Next",
+      "parName": "dirnext",
       "label": "Direction to Next",
-      "description": "Configure Direction to Next for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the direction to the next vertex in the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "dirnext",
+        "dirnextname"
+      ],
+      "menuLabels": [
+        "Direction to Next",
+        "Direction to Next Attrib Name"
+      ]
     },
     {
-      "name": "dirnextname",
-      "label": "Direction to Next Attrib Name",
-      "description": "Configure Direction to Next Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "dirprev",
+      "name": "Direction to Previous",
+      "parName": "dirprev",
       "label": "Direction to Previous",
-      "description": "Configure Direction to Previous for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the direction to the previous vertex in the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "dirprev",
+        "dirprevname"
+      ],
+      "menuLabels": [
+        "Direction to Previous",
+        "Direction to Previous Attrib Name"
+      ]
     },
     {
-      "name": "dirprevname",
-      "label": "Direction to Previous Attrib Name",
-      "description": "Configure Direction to Previous Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "tangent",
+      "name": "Tangent",
+      "parName": "tangent",
       "label": "Tangent",
-      "description": "Configure Tangent for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Output a tangent attribute for each point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tangent",
+        "tangentname"
+      ],
+      "menuLabels": [
+        "Tangent",
+        "Tangent Attrib Name"
+      ]
     },
     {
-      "name": "tangentname",
-      "label": "Tangent Attrib Name",
-      "description": "Configure Tangent Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "curvature",
+      "name": "Curvature",
+      "parName": "curvature",
       "label": "Curvature",
-      "description": "Configure Curvature for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute containing the curvature.",
+      "isReadOnly": false,
+      "menuItems": [
+        "curvature",
+        "curvaturename"
+      ],
+      "menuLabels": [
+        "Curvature",
+        "Curvature Attrib Name"
+      ]
     },
     {
-      "name": "curvaturename",
-      "label": "Curvature Attrib Name",
-      "description": "Configure Curvature Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "angleperdist",
+      "name": "Angle per Distance",
+      "parName": "angleperdist",
       "label": "Angle per Distance",
-      "description": "Configure Angle per Distance for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output Angle per Distance.",
+      "isReadOnly": false,
+      "menuItems": [
+        "angleperdist",
+        "angleperdistname"
+      ],
+      "menuLabels": [
+        "Angle per Distance",
+        "Angle per Distance Attrib Name"
+      ]
     },
     {
-      "name": "angleperdistname",
-      "label": "Angle per Distance Attrib Name",
-      "description": "Configure Angle per Distance Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "continuousdir",
+      "name": "Continuous Direction",
+      "parName": "continuousdir",
       "label": "Continuous Direction",
-      "description": "Configure Continuous Direction for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable returning continuous directions for co-incident points",
+      "isReadOnly": false
     },
     {
-      "name": "maxneighbors",
+      "name": "Max Neighbors",
+      "parName": "maxneighbors",
       "label": "Max Neighbors",
-      "description": "Configure Max Neighbors for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "When computing Direction vector, how far to look when points are in same position as next or previous points.",
+      "isReadOnly": false
     },
     {
-      "name": "diststart",
+      "name": "Distance from Start",
+      "parName": "diststart",
       "label": "Distance from Start",
-      "description": "Configure Distance from Start for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the distance from the start of the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "diststart",
+        "diststartname"
+      ],
+      "menuLabels": [
+        "Distance from Start",
+        "Distance from Start Attrib Name"
+      ]
     },
     {
-      "name": "diststartname",
-      "label": "Distance from Start Attrib Name",
-      "description": "Configure Distance from Start Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "distend",
+      "name": "Distance from End",
+      "parName": "distend",
       "label": "Distance from End",
-      "description": "Configure Distance from End for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the distance from the end of the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "distend",
+        "distendname"
+      ],
+      "menuLabels": [
+        "Distance from End",
+        "Distance from End Attrib Name"
+      ]
     },
     {
-      "name": "distendname",
-      "label": "Distance from End Attrib Name",
-      "description": "Configure Distance from End Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "diststartnorm",
+      "name": "Distance from Start Normalized",
+      "parName": "diststartnorm",
       "label": "Distance from Start Normalized",
-      "description": "Configure Distance from Start Normalized for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the normalized distance from the start of the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "diststartnorm",
+        "diststartnormname"
+      ],
+      "menuLabels": [
+        "Distance from Start Normalized",
+        "Distance from Start Normalized Attrib Name"
+      ]
     },
     {
-      "name": "diststartnormname",
-      "label": "Distance from Start Normalized Attrib Name",
-      "description": "Configure Distance from Start Normalized Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "distendnorm",
+      "name": "Distance from End Normalized",
+      "parName": "distendnorm",
       "label": "Distance from End Normalized",
-      "description": "Configure Distance from End Normalized for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the normalized distance from the end of the line strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "distendnorm",
+        "distendnormname"
+      ],
+      "menuLabels": [
+        "Distance from End Normalized",
+        "Distance from End Normalized Attrib Name"
+      ]
     },
     {
-      "name": "distendnormname",
-      "label": "Distance from End Normalized Attrib Name",
-      "description": "Configure Distance from End Normalized Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "primlen",
+      "name": "Line Strip Length",
+      "parName": "primlen",
       "label": "Line Strip Length",
-      "description": "Configure Line Strip Length for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable addition of line strip length attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "primlen",
+        "primlenname"
+      ],
+      "menuLabels": [
+        "Line Strip Length",
+        "Line Strip Length Attrib Name"
+      ]
     },
     {
-      "name": "primlenname",
-      "label": "Line Strip Length Attrib Name",
-      "description": "Configure Line Strip Length Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "primlenprim",
+      "name": "Length Attrib Primitive Attribute",
+      "parName": "primlenprim",
       "label": "Length Attrib Primitive Attribute",
-      "description": "Configure Length Attrib Primitive Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When on, the attribute created for the length of the line strip is a primitive attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "pointindex",
+      "name": "Vert Index in Line Strip",
+      "parName": "pointindex",
       "label": "Vert Index in Line Strip",
-      "description": "Configure Vert Index in Line Strip for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Output the vertex index for each point, assuming unique.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointindex",
+        "pointindexname"
+      ],
+      "menuLabels": [
+        "Vert Index in Line Strip",
+        "Vert Index Attrib Name"
+      ]
     },
     {
-      "name": "pointindexname",
-      "label": "Vert Index Attrib Name",
-      "description": "Configure Vert Index Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "numverts",
+      "name": "Number of Verts in Line Strip",
+      "parName": "numverts",
       "label": "Number of Verts in Line Strip",
-      "description": "Configure Number of Verts in Line Strip for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Outputs attribute for number of vertices in current point's like strip.",
+      "isReadOnly": false,
+      "menuItems": [
+        "numverts",
+        "numvertsname"
+      ],
+      "menuLabels": [
+        "Number of Verts in Line Strip",
+        "Number of Verts Attrib Name"
+      ]
     },
     {
-      "name": "numvertsname",
-      "label": "Number of Verts Attrib Name",
-      "description": "Configure Number of Verts Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "vertindexnorm",
+      "name": "Vert Index in Line Strip Normalized",
+      "parName": "vertindexnorm",
       "label": "Vert Index in Line Strip Normalized",
-      "description": "Configure Vert Index in Line Strip Normalized for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Output the vertex index normalized to 0-1 for each point, assuming unique.",
+      "isReadOnly": false,
+      "menuItems": [
+        "vertindexnorm",
+        "vertindexnormname"
+      ],
+      "menuLabels": [
+        "Vert Index in Line Strip Normalized",
+        "Vert Index Normalized Attrib Name"
+      ]
     },
     {
-      "name": "vertindexnormname",
-      "label": "Vert Index Normalized Attrib Name",
-      "description": "Configure Vert Index Normalized Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "linestripindex",
+      "name": "Line Strip Index",
+      "parName": "linestripindex",
       "label": "Line Strip Index",
-      "description": "Configure Line Strip Index for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable addition of line strip index attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linestripindex",
+        "linestripindexname"
+      ],
+      "menuLabels": [
+        "Line Strip Index",
+        "Line Strip Index Attrib Name"
+      ]
     },
     {
-      "name": "linestripindexname",
-      "label": "Line Strip Index Attrib Name",
-      "description": "Configure Line Strip Index Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsindexnorm",
+      "name": "Line Strip Index Normalized",
+      "parName": "lsindexnorm",
       "label": "Line Strip Index Normalized",
-      "description": "Configure Line Strip Index Normalized for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsindexnormname",
-      "label": "Line Strip Index Normalized Attrib Name",
-      "description": "Configure Line Strip Index Normalized Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Toggle",
+      "description": "Enable addition of normalized line strip index attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lsindexnorm",
+        "lsindexnormname"
+      ],
+      "menuLabels": [
+        "Line Strip Index Normalized",
+        "Line Strip Index Normalized Attrib Name"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Line_Metrics_POP.htm",
-  "parsedAt": "2025-08-08T03:03:56.855Z"
+  "parsedAt": "2025-08-08T03:03:56.855Z",
+  "url": "https://docs.derivative.ca/Line_Metrics_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Line_Metrics_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Line_Metrics_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Line_Metrics_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

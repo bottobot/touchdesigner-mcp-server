@@ -1,0 +1,363 @@
+{
+  "id": "layer_top",
+  "name": "Layer TOP",
+  "displayName": "Layer TOP",
+  "category": "TOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Layer_TOP",
+  "description": "",
+  "parameters": [
+    {
+      "name": "Fixed Layer",
+      "parName": "fixedlayer",
+      "label": "Fixed Layer",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "basetop",
+        "blanklayer",
+        "firstinput"
+      ],
+      "menuLabels": [
+        "Base TOP",
+        "Blank Layer",
+        "First Input"
+      ]
+    },
+    {
+      "name": "Base TOP",
+      "parName": "base",
+      "label": "Base TOP",
+      "type": "TOP",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Layer Resolution",
+      "parName": "layerres",
+      "label": "Layer Resolution",
+      "type": "Int",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "layerresw",
+        "layerresh"
+      ],
+      "menuLabels": [
+        "Layer Resolution",
+        "Layer Resolution"
+      ]
+    },
+    {
+      "name": "Layer Color",
+      "parName": "layercolor",
+      "label": "Layer Color",
+      "type": "RGBA",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "layercolorr",
+        "layercolorg",
+        "layercolorb"
+      ],
+      "menuLabels": [
+        "Layer Color",
+        "Layer Color",
+        "Layer Color"
+      ]
+    },
+    {
+      "name": "Layer Alpha",
+      "parName": "layeralpha",
+      "label": "Layer Alpha",
+      "type": "Float",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Crop",
+      "parName": "enblcrop",
+      "label": "Enable Crop",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Pre-Fit Overlay",
+      "parName": "prefit",
+      "label": "Pre-Fit Overlay",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "prefitperlayer",
+        "fill",
+        "fithorz",
+        "fitvert",
+        "fitbest",
+        "fitoutside",
+        "nativeres"
+      ],
+      "menuLabels": [
+        "Per Layer",
+        "Fill",
+        "Fit Horizontal",
+        "Fit Vertical",
+        "Fit Best",
+        "Fit Outside",
+        "Native Resolution"
+      ]
+    },
+    {
+      "name": "Justify Horizontal",
+      "parName": "justifyh",
+      "label": "Justify Horizontal",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "left",
+        "center",
+        "right"
+      ],
+      "menuLabels": [
+        "Left",
+        "Center",
+        "Right"
+      ]
+    },
+    {
+      "name": "Justify Vertical",
+      "parName": "justifyv",
+      "label": "Justify Vertical",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "bottom",
+        "center",
+        "top"
+      ],
+      "menuLabels": [
+        "Bottom",
+        "Center",
+        "Top"
+      ]
+    },
+    {
+      "name": "Extend",
+      "parName": "extend",
+      "label": "Extend",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "extperlayer",
+        "hold",
+        "zero",
+        "repeat",
+        "mirror"
+      ],
+      "menuLabels": [
+        "Per Layer",
+        "Hold",
+        "Zero",
+        "Repeat",
+        "Mirror"
+      ]
+    },
+    {
+      "name": "Enable Rotate",
+      "parName": "enblrot",
+      "label": "Enable Rotate",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Translate",
+      "parName": "enbltrans",
+      "label": "Enable Translate",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Scale",
+      "parName": "enblscale",
+      "label": "Enable Scale",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Uniform Scale",
+      "parName": "enbluniscale",
+      "label": "Enable Uniform Scale",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Pivot",
+      "parName": "enblpivot",
+      "label": "Enable Pivot",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Opacity",
+      "parName": "enblopac",
+      "label": "Enable Opacity",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Luma Level",
+      "parName": "enblluma",
+      "label": "Enable Luma Level",
+      "type": "Toggle",
+      "description": "",
+      "isReadOnly": false
+    },
+    {
+      "name": "Operation",
+      "parName": "operand",
+      "label": "Operation",
+      "type": "Menu",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "opperlayer",
+        "add",
+        "atop",
+        "average",
+        "brightest",
+        "burncolor",
+        "burnlinear",
+        "chromadifference",
+        "color",
+        "darkercolor",
+        "difference",
+        "dimmest",
+        "divide",
+        "dodge",
+        "exclude",
+        "freeze",
+        "glow",
+        "hardlight",
+        "hardmix",
+        "heat",
+        "hue",
+        "inside",
+        "insideluminance",
+        "inverse",
+        "lightercolor",
+        "luminancedifference",
+        "maximum",
+        "minimum",
+        "multiply",
+        "negate",
+        "outside",
+        "outsideluminance",
+        "over",
+        "overlay",
+        "pinlight",
+        "reflect",
+        "screen",
+        "softlight",
+        "linearlight",
+        "stencilluminance",
+        "subtract",
+        "subtractive",
+        "under",
+        "vividlight",
+        "xor",
+        "yfilm",
+        "zfilm"
+      ],
+      "menuLabels": [
+        "Per Layer",
+        "Add",
+        "Atop",
+        "Average",
+        "Brightest",
+        "Burn Color",
+        "Burn Linear",
+        "Chroma Difference",
+        "Color",
+        "Darker Color",
+        "Difference",
+        "Dimmest",
+        "Divide",
+        "Dodge",
+        "Exclude",
+        "Freeze",
+        "Glow",
+        "Hard Light",
+        "Hard Mix",
+        "Heat",
+        "Hue",
+        "Inside",
+        "Inside Luminance",
+        "Inverse",
+        "Lighter Color",
+        "Luminance Difference",
+        "Maximum",
+        "Minimum",
+        "Multiply",
+        "Negate",
+        "Outside",
+        "Outside Luminance",
+        "Over",
+        "Overlay",
+        "Pinlight",
+        "Reflect",
+        "Screen",
+        "Soft Light",
+        "Linear Light",
+        "Stencil Luminance",
+        "Subtract",
+        "Subtractive",
+        "Under",
+        "Vivid Light",
+        "Xor",
+        "Y Film",
+        "Z Film"
+      ]
+    },
+    {
+      "name": "Layer",
+      "parName": "lay",
+      "label": "Layer",
+      "type": "Sequence",
+      "description": "",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Layer_TOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Layer_TOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Layer_TOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

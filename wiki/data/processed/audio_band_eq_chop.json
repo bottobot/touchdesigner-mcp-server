@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.890Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Band_EQ_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Band_EQ_CHOP",
   "description": "The Audio Band EQ CHOP is a 16-band equalizer which filters audio input channels in the same way that a conventional band (graphic) equalizer uses a bank of sliders to filter fixed-frequency bands of sound.",
   "summary": "The Audio Band EQ CHOP is a 16-band equalizer which filters audio input channels in the same way that a conventional band (graphic) equalizer uses a bank of sliders to filter fixed-frequency bands of ",
   "details": "",

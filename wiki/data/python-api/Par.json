@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "Any",
       "readOnly": true,
-      "description": "val member"
-    },
-    {
-      "name": "val",
-      "id": "bodyContent",
-      "returnType": "Any",
-      "readOnly": true,
-      "description": "val member"
+      "description": ""
     }
   ],
   "methods": [

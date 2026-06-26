@@ -1,0 +1,121 @@
+{
+  "id": "zed_select_top",
+  "name": "ZED Select TOP",
+  "displayName": "ZED Select TOP",
+  "category": "TOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/ZED_Select_TOP",
+  "description": "This TOP is used to select extra images from the device configured in the [[ZED TOP]]. Such as the depth, color image, disparity map etc.",
+  "parameters": [
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "Toggle",
+      "description": "Controls whether this TOP is retrieving image data from the device. The primary [[ZED TOP]] must also be active to receive data.",
+      "isReadOnly": false
+    },
+    {
+      "name": "ZED TOP",
+      "parName": "zedtop",
+      "label": "ZED TOP",
+      "type": "TOP",
+      "description": "The name of the primary [[ZED TOP]] that is configuring the camera. The primary TOP controls which camera the select TOP receives data from.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Perspective",
+      "parName": "perspective",
+      "label": "Perspective",
+      "type": "Menu",
+      "description": "Choose between Left or Right camera.",
+      "isReadOnly": false,
+      "menuItems": [
+        "left",
+        "right"
+      ],
+      "menuLabels": [
+        "Left",
+        "Right"
+      ]
+    },
+    {
+      "name": "Image",
+      "parName": "image",
+      "label": "Image",
+      "type": "Menu",
+      "description": "Selects between the Color, Depth, Confidence, Disparity, Normals, Point Cloud or Spatial Texture modes.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Maximum Depth",
+      "parName": "maxdepth",
+      "label": "Maximum Depth",
+      "type": "Float",
+      "description": "Sets the maximum depth in meters.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Too Close Value",
+      "parName": "toocloseval",
+      "label": "Too Close Value",
+      "type": "Float",
+      "description": "For depth pixels that are too close to resolve, this pixel value will be output instead.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Too Far Value",
+      "parName": "toofarval",
+      "label": "Too Far Value",
+      "type": "Float",
+      "description": "For depth pixels that are too far to resolve, this pixel value will be output instead.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Unknown Value",
+      "parName": "unknownval",
+      "label": "Unknown Value",
+      "type": "Float",
+      "description": "For depth pixels whose depth can not be determined, output this value instead.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Rerange",
+      "parName": "rerange",
+      "label": "Rerange",
+      "type": "Toggle",
+      "description": "Enabling this will remap pixel values to 0-1.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Mirror Image",
+      "parName": "mirrorimage",
+      "label": "Mirror Image",
+      "type": "Toggle",
+      "description": "Flips the image in the y-axis.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ZED_Select_TOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live ZED_Select_TOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=ZED_Select_TOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

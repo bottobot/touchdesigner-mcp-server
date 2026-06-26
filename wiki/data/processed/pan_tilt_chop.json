@@ -7,5 +7,17 @@
   "parameters": [],
   "experimental": true,
   "sourceFile": "Experimental-Pan_Tilt_CHOP.htm",
-  "parsedAt": "2025-08-08T03:03:58.084Z"
+  "parsedAt": "2025-08-08T03:03:58.084Z",
+  "url": "https://docs.derivative.ca/Pan_Tilt_CHOP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": []
 }

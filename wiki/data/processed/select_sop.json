@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.215Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Select_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Select_SOP",
   "description": "The Select SOP allows you to reference a SOP from any other location in TouchDesigner. If only one other SOP is referenced, its memory is shared instead of re-created in this SOP.",
   "summary": "The Select SOP allows you to reference a SOP from any other location in TouchDesigner. If only one other SOP is referenced, its memory is shared instead of re-created in this SOP.",
   "details": "",

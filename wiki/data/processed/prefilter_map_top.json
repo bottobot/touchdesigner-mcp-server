@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.955Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\PreFilter_Map_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/PreFilter_Map_TOP",
   "description": "The PreFilter TOP uses spherical harmonics to calculate a Pre-Filtered Diffuse Map or Pre-Filtered Specular Map for use in the Environment Light COMP.\nThe output of the PreFilter Map TOP can not have further processing done to them before being used by the Environment Light.",
   "summary": "The PreFilter TOP uses spherical harmonics to calculate a Pre-Filtered Diffuse Map or Pre-Filtered Specular Map for use in the Environment Light COMP.\nThe output of the PreFilter Map TOP can not have ",
   "details": "",

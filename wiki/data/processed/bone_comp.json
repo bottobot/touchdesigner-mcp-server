@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.642Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Bone_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Bone_COMP",
   "description": "The Bone Component is the foundation of all of the Character Tools. It is a Component with most of the properties of a Geometry Component. It also has some extra features such as length, two types of geometry, end-to-end linking, and kinematic parameters.",
   "summary": "The Bone Component is the foundation of all of the Character Tools. It is a Component with most of the properties of a Geometry Component. It also has some extra features such as length, two types of ",
   "details": "",

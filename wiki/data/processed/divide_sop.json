@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.711Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Divide_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Divide_SOP",
   "description": "The Divide SOP divides incoming polygonal geometry. It will smooth input polygons, dividing polygons, as well as sub-divide input polygons using the Bricker option. Bricker is also useful for polygon faces with more than four edges to chop them up into quads and triangles allowing for proper shading when using deformation tools.",
   "summary": "The Divide SOP divides incoming polygonal geometry. It will smooth input polygons, dividing polygons, as well as sub-divide input polygons using the Bricker option. Bricker is also useful for polygon ",
   "details": "",

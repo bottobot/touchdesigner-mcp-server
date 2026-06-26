@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.231Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\FreeD_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/FreeD_Out_CHOP",
   "description": "The FreeD Out CHOP sends camera tracking information, including position and orientation, to an external device or program over the network using the popular device-indepedent FreeD protocol. This can be used to emulate a physical camera or to send data to another program/device that can process FreeD tracking data. Data packets are sent out once per frame based on the current data in the CHOP channels. If one of the expected channels is not found in the input, then a default value will be sent. FreeD data can be received from other devices using the corresponding FreeD In CHOP.",
   "summary": "The FreeD Out CHOP sends camera tracking information, including position and orientation, to an external device or program over the network using the popular device-indepedent FreeD protocol. This can",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.461Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OpenColorIO_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OpenColorIO_TOP",
   "description": "The OpenColorIO TOP utilizes the OpenColorIO library (http://opencolorio.org/) to apply various transforms and lookup tables to your textures and images. The default order that the transforms are applied is: Color Space, File, CDL, Output (Display).\t\t\nThis order can be changed using multiple OpenColorIO TOPs in a chain, with any unnecessary transforms toggled off.\t\nThe color space of TouchDesigner TOPs is linear, so generally, images inported to TouchDesigner have to be converted to linear, if they are non-linearly encoded.",
   "summary": "The OpenColorIO TOP utilizes the OpenColorIO library (http://opencolorio.org/) to apply various transforms and lookup tables to your textures and images. The default order that the transforms are appl",
   "details": "",

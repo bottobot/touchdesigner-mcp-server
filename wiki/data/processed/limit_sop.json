@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.227Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Limit_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Limit_SOP",
   "description": "The Limit SOP creates geometry from samples fed to it by CHOPs. It creates geometry at every point in the sample. Different types of geometry can be created using the Output Type parameter on the Channels Page.",
   "summary": "The Limit SOP creates geometry from samples fed to it by CHOPs. It creates geometry at every point in the sample. Different types of geometry can be created using the Output Type parameter on the Chan",
   "details": "",

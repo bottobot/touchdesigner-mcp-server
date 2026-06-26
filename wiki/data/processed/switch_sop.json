@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.255Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Switch_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Switch_SOP",
   "description": "The Switch SOP switches between up to 9999 possible inputs. The output of this SOP is specified by the Select Input field. This is useful for switching the output between several inputs depending on the evaluation of an expression placed in the Select Input field.",
   "summary": "The Switch SOP switches between up to 9999 possible inputs. The output of this SOP is specified by the Select Input field. This is useful for switching the output between several inputs depending on t",
   "details": "",

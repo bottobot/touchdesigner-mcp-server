@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.166Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Pattern_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Pattern_CHOP",
   "description": "The Pattern CHOP generates a sequence of samples in a channel. Unlike the Wave CHOP its purpose is generating arrays of samples that have no reference to time (seconds or frames).",
   "summary": "The Pattern CHOP generates a sequence of samples in a channel. Unlike the Wave CHOP its purpose is generating arrays of samples that have no reference to time (seconds or frames).",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.207Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Touch_In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Touch_In_DAT",
   "description": "The Touch In DAT receives full tables across the network from the Touch Out DAT, as opposed to messages with the other network based DATs.",
   "summary": "The Touch In DAT receives full tables across the network from the Touch Out DAT, as opposed to messages with the other network based DATs.",
   "details": "",

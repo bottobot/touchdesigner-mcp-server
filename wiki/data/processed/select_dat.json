@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.225Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Select_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Select_DAT",
   "description": "The Select DAT allows you to fetch a DAT from any other location in the project, and to select any subset of rows and columns if it is a table.",
   "summary": "The Select DAT allows you to fetch a DAT from any other location in the project, and to select any subset of rows and columns if it is a table.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.221Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\FreeD_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/FreeD_In_CHOP",
   "description": "The FreeD CHOP reads incoming camera tracking data sent over a network using the FreeD protocol and outputs CHOP channels that can be used to control a virtual 3D camera. FreeD is not exclusive to any particular tracking system, but is frequenty used as an interchange protocol since it is supported by a wide range of hardware and software. However, as an older standard, it is lower precision and does not contain len distortion data like Stype or Ncam, so it is recommended to use the hardware specific protocol when possible. Examples of hardware and software that support FreeD are Viz Virtual Studio and Panasonic PTZ cameras.",
   "summary": "The FreeD CHOP reads incoming camera tracking data sent over a network using the FreeD protocol and outputs CHOP channels that can be used to control a virtual 3D camera. FreeD is not exclusive to any",
   "details": "",

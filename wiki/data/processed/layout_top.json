@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.934Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Layout_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Layout_TOP",
   "description": "The Layout TOP positions multiple input TOPs into rows, columns, or grids. It can either fit all the TOPs into a specific resolution (determined by the Common page) by scaling the inputs, or it can scale its own resolution to be larger to accomodate the native resolution of the inputs.",
   "summary": "The Layout TOP positions multiple input TOPs into rows, columns, or grids. It can either fit all the TOPs into a specific resolution (determined by the Common page) by scaling the inputs, or it can sc",
   "details": "",

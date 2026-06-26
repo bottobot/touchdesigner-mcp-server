@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.373Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Transform_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Transform_SOP",
   "description": "The Transform SOP translates, rotates and scales the input geometry in \"object space\" or local to the SOP. The Model Editor and the Transform SOP both work in \"object space\", and change the X Y Z positions of the points. In contrast, animating the transformation channels of an object in the Geometry Viewer Pane moves/scales the entire object in \"world space\" and does not affect the XYZ point positions of the geometry.",
   "summary": "The Transform SOP translates, rotates and scales the input geometry in \"object space\" or local to the SOP. The Model Editor and the Transform SOP both work in \"object space\", and change the X Y Z posi",
   "details": "",
