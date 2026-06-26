@@ -38,7 +38,8 @@ or response shapes; Node.js 20.0+ is now required.
   TD 2024). POPs are correctly placed in the 2025 release; Vulkan became the sole graphics
   API as of the 2022.20000 release; Python timelines corrected.
 - **Dependencies updated** — `@modelcontextprotocol/sdk` to ^1.29.0, `zod` to ^3.25.0,
-  `cheerio` moved to a devDependency (^1.1.2), and `engines.node` raised to `>=20.0.0`.
+  `cheerio` updated to ^1.1.2 (kept as a runtime dependency — the data manager imports the
+  HTM processor at load time), and `engines.node` raised to `>=20.0.0`.
 
 ### Fixed
 
