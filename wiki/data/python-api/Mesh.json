@@ -1,0 +1,45 @@
+{
+  "className": "Mesh",
+  "displayName": "Mesh",
+  "category": "General",
+  "description": "A Mesh describes an instance of a single geometry mesh. It is an instance of a Prim Class.",
+  "inherits": "Prim",
+  "members": [
+    {
+      "name": "closedU",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns True if the mesh is closed in U, False otherwise."
+    },
+    {
+      "name": "closedV",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns True if the mesh is closed in V, False otherwise."
+    },
+    {
+      "name": "numRows",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Number of rows in the mesh."
+    },
+    {
+      "name": "numCols",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Number of columns in the mesh."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/Mesh_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Mesh_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Mesh Class wiki page",
+      "url": "https://docs.derivative.ca/Mesh_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

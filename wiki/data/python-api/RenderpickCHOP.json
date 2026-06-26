@@ -1,0 +1,27 @@
+{
+  "className": "RenderpickCHOP",
+  "displayName": "RenderpickCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "pickedSOP",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The SOP that was last picked."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/RenderpickCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=RenderpickCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the RenderpickCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/RenderpickCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

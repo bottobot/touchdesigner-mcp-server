@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.450Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Phong_MAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Phong_MAT",
   "description": "The Phong MAT creates a material using the Phong Shading model. It has support for textures, reflections, bumps, cone lights, rim lights, alpha maps and more. You can output its GLSL shader into two DATs for further adaptation in a GLSL MAT by using the Output Shader parameter.",
   "summary": "The Phong MAT creates a material using the Phong Shading model. It has support for textures, reflections, bumps, cone lights, rim lights, alpha maps and more. You can output its GLSL shader into two D",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.072Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\MIDI_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/MIDI_Out_CHOP",
   "description": "The MIDI Out CHOP sends MIDI events to any available MIDI devices when its input channels change. More flexibly, the Python midioutCHOP Class can be used to send any type of MIDI event to a MIDI device via an existing MIDI Out CHOP. In Tscript, the midi command can output MIDI events.",
   "summary": "The MIDI Out CHOP sends MIDI events to any available MIDI devices when its input channels change. More flexibly, the Python midioutCHOP Class can be used to send any type of MIDI event to a MIDI devic",
   "details": "",

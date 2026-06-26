@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "bool",
       "readOnly": true,
-      "description": "active member"
-    },
-    {
-      "name": "active",
-      "id": "bodyContent",
-      "returnType": "bool",
-      "readOnly": true,
-      "description": "active member"
+      "description": ""
     }
   ],
   "methods": [

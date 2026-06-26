@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.087Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Info_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Info_DAT",
   "description": "The Info DAT gives you string information about a node. Only some nodes contain additional string information which can be accessed by the Info DAT.",
   "summary": "The Info DAT gives you string information about a node. Only some nodes contain additional string information which can be accessed by the Info DAT.",
   "details": "",

@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "float",
       "readOnly": false,
-      "description": "x member"
-    },
-    {
-      "name": "x",
-      "id": "bodyContent",
-      "returnType": "float",
-      "readOnly": false,
-      "description": "x member"
+      "description": ""
     }
   ],
   "methods": []

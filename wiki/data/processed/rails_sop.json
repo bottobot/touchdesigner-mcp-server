@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.131Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Rails_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Rails_SOP",
   "description": "The Rails SOP generates surfaces by stretching cross-sections between two rails. This is similar to the Sweep SOP, but it gives more control over the orientation and scaling of the cross-sections. The first SOP input is the cross-section which will be replicated, and is typically placed in the XY plane. The second input SOP source is the rails along which the cross-section is replicated.",
   "summary": "The Rails SOP generates surfaces by stretching cross-sections between two rails. This is similar to the Sweep SOP, but it gives more control over the orientation and scaling of the cross-sections. The",
   "details": "",

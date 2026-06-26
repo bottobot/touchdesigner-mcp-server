@@ -1,0 +1,273 @@
+{
+  "className": "TimerCHOP",
+  "displayName": "TimerCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "beginFrame",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Get a list of begin values in frames. 0-based."
+    },
+    {
+      "name": "beginSample",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Get a list of begin values in samples. 0-based."
+    },
+    {
+      "name": "beginSeconds",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Get a list of begin values in seconds."
+    },
+    {
+      "name": "cumulativeFrames",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the cumulative time expressed in frames. See `.cumulativeSeconds`."
+    },
+    {
+      "name": "cumulativeSample",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the cumulative time expressed in samples. See `.cumulativeSeconds`."
+    },
+    {
+      "name": "cumulativeSamples",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the cumulative time expressed in samples. See `.cumulativeSeconds`."
+    },
+    {
+      "name": "cumulativeSeconds",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Get the cumulative time expressed in seconds. It counts from 0 when you Start. Unlike `.runningSeconds`, it is slowed/sped by the Speed parameter, and paused by the Play parameter. It continues to increase if there is any looping, jumping or scrubbing around."
+    },
+    {
+      "name": "cumulativeTimecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get the cumulative time as a Timecode Object. See Timecode Class. See `.cumulativeSeconds`."
+    },
+    {
+      "name": "masterFrames",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get or set the master time expressed in frames. 0-based. See `.masterSeconds`."
+    },
+    {
+      "name": "masterFrame",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get or set the master time expressed in frames. 0-based. See `.masterSeconds`."
+    },
+    {
+      "name": "masterSamples",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get or set the master time expressed in samples. See `.masterSeconds`."
+    },
+    {
+      "name": "masterSample",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get or set the master time expressed in samples. See `.masterSeconds`."
+    },
+    {
+      "name": "masterSeconds",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set the master time expressed in seconds. It counts from 0 when you Start, `.masterSeconds` is slowed/sped by the Speed parameter, and paused by the Play parameter. It jumps to the appropriate time when you scrub. This is the main clock in the Timer CHOP and can be set directly using python (`OP.masterSeconds = val`), or use the `.goTo()` function which has more options. When multi-segments are specified to the Timer CHOP, it reflects the time as if you ran through the segments without interrupting it. If in any segment Cycle is on and Cycle Limit is off, it calculates as if the cycle runs only once."
+    },
+    {
+      "name": "masterFraction",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set the master time expressed in fractional form. See `.masterSeconds`."
+    },
+    {
+      "name": "masterTimecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": false,
+      "description": "Get or set the master time expressed as a Timecode Object. See Timecode Class. See `.masterSeconds`."
+    },
+    {
+      "name": "cycle",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set the cycle index of the current segment."
+    },
+    {
+      "name": "fraction",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Get the time index in fractional form, same as the `timer_fraction` channel. Used in the callbacks, it's more up-to-date to the current frame. (When using segments, it's the first segment)."
+    },
+    {
+      "name": "playingFrames",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the playing time expressed in frames. 0-based. See `.playingSeconds`."
+    },
+    {
+      "name": "playingSample",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the playing time expressed in samples. See `.playingSeconds`."
+    },
+    {
+      "name": "playingSamples",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the playing time expressed in samples. See `.playingSeconds`."
+    },
+    {
+      "name": "playingSeconds",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Get the playing time expressed in seconds. It counts from 0 when you Start. it is unaffected by the Speed parameter, but unlike `.runningSeconds`, it is paused by the Play parameter. It continues to increase if there is any looping, jumping or scrubbing around."
+    },
+    {
+      "name": "playingTimecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get the playing time as a Timecode Object. See Timecode Class. See `.playingSeconds`."
+    },
+    {
+      "name": "runningFraction",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get the running time index expressed in fractional form. See `.runningSeconds`. This will be an estimate as the actual length is approximated on start."
+    },
+    {
+      "name": "runningFrames",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get the running time expressed in frames. 0-based. See `.runningSeconds`."
+    },
+    {
+      "name": "runningFrame",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get the running time expressed in frames. 0-based. See `.runningSeconds`."
+    },
+    {
+      "name": "runningSamples",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get the running time index expressed in samples. See `.runningSeconds`."
+    },
+    {
+      "name": "runningSample",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get the running time index expressed in samples. See `.runningSeconds`."
+    },
+    {
+      "name": "runningSeconds",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get the running time expressed in seconds. It keeps counting up after Start and is not affected by changing the Speed or pausing Play or scrubbing. It is basically the \"wall clock\" after pressing Start. (You normally don't set the value, use `.masterSeconds`.) It doesn't reset to 0 until you Initialize or Start again."
+    },
+    {
+      "name": "runningTimecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": false,
+      "description": "Get the running time index as a Timecode Object. See Timecode Class. See `.runningSeconds`."
+    },
+    {
+      "name": "runningLengthFrames",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Get the running length expressed in frames."
+    },
+    {
+      "name": "runningLengthSamples",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Get the running length expressed in samples."
+    },
+    {
+      "name": "runningLengthSeconds",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Get the running length expressed in seconds."
+    },
+    {
+      "name": "runningLengthTimecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get the running length as a Timecode Object. See Timecode Class."
+    },
+    {
+      "name": "segment",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set the segment index."
+    },
+    {
+      "name": "segments",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Get the list of segments."
+    },
+    {
+      "name": "timecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get the master timecode. See Timecode Class."
+    }
+  ],
+  "methods": [
+    {
+      "name": "goToNextSegment",
+      "signature": "goToNextSegmentgoToNextSegment()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Jump to the next segment. Equivalent to pulsing the Go to Next Segment parameter on the Segments Page."
+    },
+    {
+      "name": "goToCycleEnd",
+      "signature": "goToCycleEndgoToCycleEnd()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Jump to the end of the current cycle. Equivalent to pulsing the Go to End of Cycle parameter on the Timer Page."
+    },
+    {
+      "name": "goTo",
+      "signature": "goTogoTo(segment=0, cycle=0, endOfCycle=True, seconds=0, frame=0, sample=0,  fraction=0)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Allows the user to jump to a different time index based on the arguments passed in. Only one unit of time (seconds, frame, sample, fraction) can be specified when calling this method. For example, including both seconds and frame will yield an error. If there are multiple segments, and only a unit of time is specified, the method will jump to the corresponding running time index. If either a segment index or a cycle index or both are specified along with a unit of time, the method will jump to the corresponding local time index. There are fifteen different combinations of arguments that the user can pass in. An example of how this method can be called is: timerop.goTo(segment=1, cycle=2, seconds=5, endOfCycle=True). *segment - (Keyword, Optional) If specified, will jump to the indicated segment number (0 is first). *cycle - (Keyword, Optional) If specified, will jump to the indicated cycle number (0 is first). *endOfCycle - (Keyword, Optional) False by default. If specified as True, the goTo() function with the specified arguments will be called again at the end of the cycle, causing a jump only at that time to the specified location. *seconds - (Keyword, Optional) If specified, will jump to the indicated time index. Cannot also specify frame, sample, or fraction. *frame - (Keyword, Optional) If specified, will jump to the indicated time index. Cannot also specify seconds, sample, or fraction. *sample - (Keyword, Optional) If specified, will jump to the indicated time index. Cannot also specify seconds, frame, or fraction. *fraction - (Keyword, Optional) If specified, will jump to the indicated time index. Cannot also specify seconds, frame, or sample."
+    },
+    {
+      "name": "goToPrevSegment",
+      "signature": "goToPrevSegmentgoToPrevSegment()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Jump to the previous segment. Equivalent to pulsing the Go to Previous Segment parameter on the Segments Page."
+    },
+    {
+      "name": "lastCycle",
+      "signature": "lastCyclelastCycle()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sets the current cycle to be the last cycle of the current segment. Equivalent to pulsing the Exit at End of Cycle parameter on the Timer Page."
+    }
+  ],
+  "url": "https://docs.derivative.ca/TimerCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TimerCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the TimerCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/TimerCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

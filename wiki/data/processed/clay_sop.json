@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.400Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Clay_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Clay_SOP",
   "description": "The Clay SOP deforms faces and surfaces by pulling points that lie directly on them. As opposed to the Point SOP or other SOPs that manipulate control points (CVs), the Clay SOP operates on the primitive contours themselves, providing a direct, intuitive, and unconstrained way of reshaping geometry. Thus, rather than translating CVs to change the aspect of the primitive, the Clay SOP takes the inverse approach of manipulating the primitive's skin to reposition the CVs.",
   "summary": "The Clay SOP deforms faces and surfaces by pulling points that lie directly on them. As opposed to the Point SOP or other SOPs that manipulate control points (CVs), the Clay SOP operates on the primit",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.943Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Primitive_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Primitive_SOP",
   "description": "The Primitive SOP is like the Point SOP but manipulates a primitive's position, size, orientation, color, alpha, in addition to primitive-specific attributes, such as reversing primitive normals. The Primitive SOP also lets you create custom primitive attributes.",
   "summary": "The Primitive SOP is like the Point SOP but manipulates a primitive's position, size, orientation, color, alpha, in addition to primitive-specific attributes, such as reversing primitive normals. The ",
   "details": "",

@@ -1,0 +1,9 @@
+{
+  "//": "Example MCP client config for the TouchDesigner MCP server. Copy to your client's MCP config (e.g. .mcp.json, Claude Desktop config, or VS Code settings) to enable td-mcp.",
+  "mcpServers": {
+    "td-mcp": {
+      "command": "npx",
+      "args": ["-y", "@bottobot/td-mcp"]
+    }
+  }
+}

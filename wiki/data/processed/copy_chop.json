@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.890Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Copy_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Copy_CHOP",
   "description": "The Copy CHOP produces multiple copies of the second input along the timeline of the first input. The first input provides the trigger signals or the convolve levels.",
   "summary": "The Copy CHOP produces multiple copies of the second input along the timeline of the first input. The first input provides the trigger signals or the convolve levels.",
   "details": "",

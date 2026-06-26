@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.176Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Monochrome_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Monochrome_TOP",
   "description": "The Monochrome TOP changes an image to greyscale colors. You can choose from a number of different methods to convert the image to greyscale using the RGB and Alpha menus.",
   "summary": "The Monochrome TOP changes an image to greyscale colors. You can choose from a number of different methods to convert the image to greyscale using the RGB and Alpha menus.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.055Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\MIDI_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/MIDI_In_CHOP",
   "description": "The MIDI In CHOP reads Note events, Controller events, Program Change events, System Exclusive messages and Timing events from both MIDI devices and files. See also MIDI In Map CHOP.",
   "summary": "The MIDI In CHOP reads Note events, Controller events, Program Change events, System Exclusive messages and Timing events from both MIDI devices and files. See also MIDI In Map CHOP.",
   "details": "",

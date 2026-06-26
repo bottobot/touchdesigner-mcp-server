@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.989Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\MIDI_Event_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/MIDI_Event_DAT",
   "description": "The MIDI Event DAT logs all MIDI messages coming into or out of TouchDesigner from all MIDI In/Out operators. Note: no messages will be logged if there are no active MIDI In or Out operators set to receive them. It outputs columns in a table format: message, type, channel, index, value.",
   "summary": "The MIDI Event DAT logs all MIDI messages coming into or out of TouchDesigner from all MIDI In/Out operators. Note: no messages will be logged if there are no active MIDI In or Out operators set to re",
   "details": "",

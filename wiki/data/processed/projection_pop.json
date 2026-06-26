@@ -3,1058 +3,245 @@
   "id": "projection_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Projection POP takes a float3 3D spatial attribute, like P, and outputs to a float3 attribute, transforming the attribute between cartesian (orthographic), polar, cylindrical, and perspective coordinate systems.  For example, all the the points in cartesian X, Y and Z format can be converted into a polar longitude/latitude/radius format.",
+  "description": "The Projection POP takes a float3 3D spatial attribute, like <code>P</code>, and outputs to a float3 attribute, transforming the attribute between cartesian (orthographic), polar, cylindrical, and perspective coordinate systems. For example, all the the points in cartesian X, Y and Z format can be converted into a polar longitude/latitude/radius format. The menu From Coordinate System lets you choose how to interpret the 3 numbers of the input attribute: * Cartesian treats the 3 numbers of the float3 attribute as X, Y and Z in the usual 3D \"orthogonal\" coordinate space. (In TouchDesigner X is horizontal left-to-right, Y is vertical bottom to top. Z is along line of sight distant to near.) * Spherical treats the three numbers of the attribute as longitude, latitude and radius, assuming the axis is the vertical Y axis. * Cylindrical treats the 3 numbers of the attribute as latitude (angle around Y), Y value and a radius. * Screen Space is a perspective form along the Z axis - you need to specify additional camera/perspective info. 0,0 is the bottom left corner, 1, 1 is top right. * Normalized Device Coordinates (NDC) - For points within the field of view, the first and second components are between -1 and 1 where 0,0 is at the center. The third component is between 0 and 1 (as re-ranged to the Near and Far distances). The menu To Coordinate System lets you choose what form you want the 3 numbers of the output attribute to be in. The angles can be expressed in * Degrees in the usual graphics standard (360 is a full rotation), or * Radians (Pi 3.14157 is one full rotation) * Cycles (value of 1 means one full 360 degrees rotation) * Normalized - a 0-1 normalized form which, like Spherical longitude is like a wraparound: looking along the -Z axis, the value is 0 at the back, .25 the left, .5 is face-on, .75 at the right, and 1 at the back. For latitude the value goes from 0 at the south pole and 1 at the north pole. This is used for mapping a texture on a sphere sometimes. See also tbe [[Sphere POP]], [[Tube POP]], [[Normalize POP]] and the [[Texture Map POP]].",
   "parameters": [
     {
-      "name": "P",
+      "name": "Attribute Class",
+      "parName": "attrclass",
       "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Cartesian",
-          "value": "cartesian",
-          "description": ""
-        },
-        {
-          "label": "Spherical",
-          "value": "spherical",
-          "description": ""
-        },
-        {
-          "label": "Cylindrical",
-          "value": "cylindrical",
-          "description": ""
-        },
-        {
-          "label": "Screen Space",
-          "value": "screenspace",
-          "description": ""
-        },
-        {
-          "label": "Normalized Device Coordinates",
-          "value": "ndc",
-          "description": ""
-        },
-        {
-          "label": "Cartesian",
-          "value": "cartesian",
-          "description": ""
-        },
-        {
-          "label": "Spherical",
-          "value": "spherical",
-          "description": ""
-        },
-        {
-          "label": "Cylindrical",
-          "value": "cylindrical",
-          "description": ""
-        },
-        {
-          "label": "Screen Space",
-          "value": "screenspace",
-          "description": ""
-        },
-        {
-          "label": "Normalized Device Coordinates",
-          "value": "ndc",
-          "description": ""
-        },
-        {
-          "label": "Degrees",
-          "value": "deg",
-          "description": ""
-        },
-        {
-          "label": "Radians",
-          "value": "rad",
-          "description": ""
-        },
-        {
-          "label": "Cycles",
-          "value": "cycle",
-          "description": ""
-        },
-        {
-          "label": "Normalized",
-          "value": "norm",
-          "description": ""
-        },
-        {
-          "label": "Aspect Ratio",
-          "value": "aspectx",
-          "description": ""
-        },
-        {
-          "label": "Aspect Ratio",
-          "value": "aspecty",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "attrclass",
-      "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "group",
+      "name": "Group",
+      "parName": "group",
       "label": "Group",
-      "description": "Configure Group for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "If there are input groups, specifying a group name in this field will cause this POP to act only upon the group specified.",
+      "isReadOnly": false
     },
     {
-      "name": "inputattrscope",
+      "name": "Input Attribute Scope",
+      "parName": "inputattrscope",
       "label": "Input Attribute Scope",
-      "description": "Configure Input Attribute Scope for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Input's attributes you want to affect within the chosen attribute class, or attribute components.",
+      "isReadOnly": false
     },
     {
-      "name": "fromcoordsys",
+      "name": "From Coordinate System",
+      "parName": "fromcoordsys",
       "label": "From Coordinate System",
-      "description": "Configure From Coordinate System for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Cartesian",
-          "value": "cartesian",
-          "description": ""
-        },
-        {
-          "label": "Spherical",
-          "value": "spherical",
-          "description": ""
-        },
-        {
-          "label": "Cylindrical",
-          "value": "cylindrical",
-          "description": ""
-        },
-        {
-          "label": "Screen Space",
-          "value": "screenspace",
-          "description": ""
-        },
-        {
-          "label": "Normalized Device Coordinates",
-          "value": "ndc",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "The coordinate system to convert from.",
+      "isReadOnly": false,
+      "menuItems": [
+        "cartesian",
+        "spherical",
+        "cylindrical",
+        "screenspace",
+        "ndc"
+      ],
+      "menuLabels": [
+        "Cartesian",
+        "Spherical",
+        "Cylindrical",
+        "Screen Space",
+        "Normalized Device Coordinates"
       ]
     },
     {
-      "name": "cartesian",
-      "label": "Cartesian",
-      "description": "Configure Cartesian for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Cartesian",
-          "value": "cartesian",
-          "description": ""
-        },
-        {
-          "label": "Spherical",
-          "value": "spherical",
-          "description": ""
-        },
-        {
-          "label": "Cylindrical",
-          "value": "cylindrical",
-          "description": ""
-        },
-        {
-          "label": "Screen Space",
-          "value": "screenspace",
-          "description": ""
-        },
-        {
-          "label": "Normalized Device Coordinates",
-          "value": "ndc",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "tocoordsys",
+      "name": "To Coordinate System",
+      "parName": "tocoordsys",
       "label": "To Coordinate System",
-      "description": "Configure To Coordinate System for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Cartesian",
-          "value": "cartesian",
-          "description": ""
-        },
-        {
-          "label": "Spherical",
-          "value": "spherical",
-          "description": ""
-        },
-        {
-          "label": "Cylindrical",
-          "value": "cylindrical",
-          "description": ""
-        },
-        {
-          "label": "Screen Space",
-          "value": "screenspace",
-          "description": ""
-        },
-        {
-          "label": "Normalized Device Coordinates",
-          "value": "ndc",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Specifies the target coordinate system for the operation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "cartesian",
+        "spherical",
+        "cylindrical",
+        "screenspace",
+        "ndc"
+      ],
+      "menuLabels": [
+        "Cartesian",
+        "Spherical",
+        "Cylindrical",
+        "Screen Space",
+        "Normalized Device Coordinates"
       ]
     },
     {
-      "name": "angunit",
+      "name": "Angle Units",
+      "parName": "angunit",
       "label": "Angle Units",
-      "description": "Configure Angle Units for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Degrees",
-          "value": "deg",
-          "description": ""
-        },
-        {
-          "label": "Radians",
-          "value": "rad",
-          "description": ""
-        },
-        {
-          "label": "Cycles",
-          "value": "cycle",
-          "description": ""
-        },
-        {
-          "label": "Normalized",
-          "value": "norm",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "The unit for the angles, when some of the coordinates are angles in the source or destination coordinate system.",
+      "isReadOnly": false,
+      "menuItems": [
+        "deg",
+        "rad",
+        "cycle",
+        "norm"
+      ],
+      "menuLabels": [
+        "Degrees",
+        "Radians",
+        "Cycles",
+        "Normalized"
       ]
     },
     {
-      "name": "deg",
-      "label": "Degrees",
-      "description": "Configure Degrees for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Degrees",
-          "value": "deg",
-          "description": ""
-        },
-        {
-          "label": "Radians",
-          "value": "rad",
-          "description": ""
-        },
-        {
-          "label": "Cycles",
-          "value": "cycle",
-          "description": ""
-        },
-        {
-          "label": "Normalized",
-          "value": "norm",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "camera",
+      "name": "Camera",
+      "parName": "camera",
       "label": "Camera",
-      "description": "Configure Camera for the operator",
-      "type": "string"
+      "type": "Object",
+      "description": "Specify the camera component.",
+      "isReadOnly": false
     },
     {
-      "name": "aspectcorrectuv",
+      "name": "Aspect Correct UVs",
+      "parName": "aspectcorrectuv",
       "label": "Aspect Correct UVs",
-      "description": "Configure Aspect Correct UVs for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether respect the aspec ratio for the projection.",
+      "isReadOnly": false
     },
     {
-      "name": "aspect",
+      "name": "Aspect Ratio",
+      "parName": "aspect",
       "label": "Aspect Ratio",
-      "description": "Configure Aspect Ratio for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Aspect Ratio",
-          "value": "aspectx",
-          "description": ""
-        },
-        {
-          "label": "Aspect Ratio",
-          "value": "aspecty",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The aspect ratio of the camera projection.",
+      "isReadOnly": false,
+      "menuItems": [
+        "aspectx",
+        "aspecty"
+      ],
+      "menuLabels": [
+        "Aspect Ratio",
+        "Aspect Ratio"
       ]
     },
     {
-      "name": "aspectx",
-      "label": "Aspect Ratio",
-      "description": "Configure Aspect Ratio for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Aspect Ratio",
-          "value": "aspectx",
-          "description": ""
-        },
-        {
-          "label": "Aspect Ratio",
-          "value": "aspecty",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "fov",
+      "name": "Horizontal FOV",
+      "parName": "fov",
       "label": "Horizontal FOV",
-      "description": "Configure Horizontal FOV for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Horizontal field of view when source or destination coordinate system is screen space or normalized device coordinates.",
+      "isReadOnly": false
     },
     {
-      "name": "near",
-      "label": "Near",
-      "description": "Configure Near for the operator",
-      "type": "string"
+      "name": "Near Depth",
+      "parName": "depthnear",
+      "label": "Near Depth",
+      "type": "Float",
+      "description": "Depth of the near clipping plane.",
+      "isReadOnly": false
     },
     {
-      "name": "far",
-      "label": "Far",
-      "description": "Configure Far for the operator",
-      "type": "string"
+      "name": "Far Depth",
+      "parName": "depthfar",
+      "label": "Far Depth",
+      "type": "Float",
+      "description": "Depth of the far clipping plane.",
+      "isReadOnly": false
     },
     {
-      "name": "outputattrscope",
+      "name": "Output Attribute Scope",
+      "parName": "outputattrscope",
       "label": "Output Attribute Scope",
-      "description": "Configure Output Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overrideautoattr",
-      "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "newattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "StrMenu",
+      "description": "Name of attribute to output (can choose components of attribute), can choose from menu.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "color",
+        "dcolor",
+        "dir",
+        "ddir",
+        "1",
+        "2",
+        "3",
+        "4",
+        "attrdefaultval0",
+        "attrdefaultval1",
+        "attrdefaultval2",
+        "attrdefaultval3"
+      ],
+      "menuLabels": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "Color",
+        "Color (double)",
+        "Direction",
+        "Direction (double)",
+        "1",
+        "2",
+        "3",
+        "4",
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Projection_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.071Z"
+  "parsedAt": "2025-08-08T03:03:59.071Z",
+  "url": "https://docs.derivative.ca/Projection_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Projection_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Projection_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Projection_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

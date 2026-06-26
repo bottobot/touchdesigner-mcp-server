@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.313Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Ambient_Light_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Ambient_Light_COMP",
   "description": "The Ambient Light Component controls the color and intensity of the environmental light in a given scene. This light, unlike the Light Component, has no particular source. The light it sheds comes from everywhere as opposed to a point light source or focused spotlight.",
   "summary": "The Ambient Light Component controls the color and intensity of the environmental light in a given scene. This light, unlike the Light Component, has no particular source. The light it sheds comes fro",
   "details": "",

@@ -1,0 +1,239 @@
+{
+  "id": "render_simple_top",
+  "name": "Render Simple TOP",
+  "displayName": "Render Simple TOP",
+  "category": "TOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Render_Simple_TOP",
+  "description": "The Render Simple TOP renders a single POP with a basic transform, light and an optional texture map or material. Other controls include orthographic/perspective, object color and background RGBA. The camera is located along the Z-axis. The Normalize Geo parameter will translate and uniformly scale the POP geometry to fit in a box of size 2 in at the origin. You can render in wireframe or substitute the material with any MAT. The POP's render/display flags are ignored. Render Simple does not require a [[Camera COMP]], [[Geometry COMP]] or [[Light COMP]] that is required by the more full-featured [[Render TOP]]. See also [[Render TOP]]",
+  "parameters": [
+    {
+      "name": "Orthographic",
+      "parName": "ortho",
+      "label": "Orthographic",
+      "type": "Toggle",
+      "description": "Enable this to make the project become orthograhic instead of perspective.",
+      "isReadOnly": false
+    },
+    {
+      "name": "FOV",
+      "parName": "fov",
+      "label": "FOV",
+      "type": "Float",
+      "description": "The horizontal FOV in degrees, when using perspective projection.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Ortho Width",
+      "parName": "orthowidth",
+      "label": "Ortho Width",
+      "type": "Float",
+      "description": "The orthographic width, when using orthographic projection.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Camera Distance",
+      "parName": "camdistance",
+      "label": "Camera Distance",
+      "type": "Float",
+      "description": "The distance along the Z-axis the camera is placed at. Similar to the Translate Z of a Camera COMP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Normalize Geo",
+      "parName": "normalizegeo",
+      "label": "Normalize Geo",
+      "type": "Float",
+      "description": "Translate and uniformly scale the POP geometry to fit in a cube of size 2 at the origin.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Background Color",
+      "parName": "bgcolor",
+      "label": "Background Color",
+      "type": "RGBA",
+      "description": "The background color to place behind the rendered geometry. Note that this is always pre-multiplied by the alpha, so set the alpha to 1.0 to get a non-transparent background.",
+      "isReadOnly": false,
+      "menuItems": [
+        "bgcolorr",
+        "bgcolorg",
+        "bgcolorb",
+        "bgcolora"
+      ],
+      "menuLabels": [
+        "Background Color",
+        "Background Color",
+        "Background Color",
+        "Background Color"
+      ]
+    },
+    {
+      "name": "POP",
+      "parName": "pop",
+      "label": "POP",
+      "type": "POP",
+      "description": "The path to a single POP to render.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Geometry Translate",
+      "parName": "geotranslate",
+      "label": "Geometry Translate",
+      "type": "XYZW",
+      "description": "Translate the geometry relative to it's original position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "geotranslatex",
+        "geotranslatey",
+        "geotranslatez"
+      ],
+      "menuLabels": [
+        "Geometry Translate",
+        "Geometry Translate",
+        "Geometry Translate"
+      ]
+    },
+    {
+      "name": "Geometry Rotate",
+      "parName": "georotate",
+      "label": "Geometry Rotate",
+      "type": "XYZW",
+      "description": "Rotate the geometry relative to it's original position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "georotatex",
+        "georotatey",
+        "georotatez"
+      ],
+      "menuLabels": [
+        "Geometry Rotate",
+        "Geometry Rotate",
+        "Geometry Rotate"
+      ]
+    },
+    {
+      "name": "Geometry Scale",
+      "parName": "geoscale",
+      "label": "Geometry Scale",
+      "type": "Float",
+      "description": "Apply a uniform scale to the geometry relative to it's original position.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Light Translate",
+      "parName": "lighttranslate",
+      "label": "Light Translate",
+      "type": "XYZW",
+      "description": "Translate the single point light that is applied to this render in world space.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lighttranslatex",
+        "lighttranslatey",
+        "lighttranslatez"
+      ],
+      "menuLabels": [
+        "Light Translate",
+        "Light Translate",
+        "Light Translate"
+      ]
+    },
+    {
+      "name": "Material Source",
+      "parName": "materialsource",
+      "label": "Material Source",
+      "type": "Menu",
+      "description": "Select where the material that is applied to this POP comes from, some internal parameters, or a MAT node.",
+      "isReadOnly": false,
+      "menuItems": [
+        "internalphong",
+        "matnode"
+      ],
+      "menuLabels": [
+        "Internal Phong",
+        "MAT Node"
+      ]
+    },
+    {
+      "name": "Wireframe",
+      "parName": "wireframe",
+      "label": "Wireframe",
+      "type": "Toggle",
+      "description": "When a Internal Phong is used, this turns on it's wire-frame mode.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Constant",
+      "parName": "constant",
+      "label": "Constant",
+      "type": "RGBA",
+      "description": "Contant color value for the Internal Phong Mode.",
+      "isReadOnly": false,
+      "menuItems": [
+        "constantr",
+        "constantg",
+        "constantb"
+      ],
+      "menuLabels": [
+        "Constant",
+        "Constant",
+        "Constant"
+      ]
+    },
+    {
+      "name": "Diffuse",
+      "parName": "diffuse",
+      "label": "Diffuse",
+      "type": "RGBA",
+      "description": "Diffuse Color for the Internal Phong Mode.",
+      "isReadOnly": false,
+      "menuItems": [
+        "diffuser",
+        "diffuseg",
+        "diffuseb"
+      ],
+      "menuLabels": [
+        "Diffuse",
+        "Diffuse",
+        "Diffuse"
+      ]
+    },
+    {
+      "name": "Color Map",
+      "parName": "colormap",
+      "label": "Color Map",
+      "type": "TOP",
+      "description": "A TOP that will be used for the 'Color Map' for the Internal Phong Mode.",
+      "isReadOnly": false
+    },
+    {
+      "name": "MAT",
+      "parName": "mat",
+      "label": "MAT",
+      "type": "MAT",
+      "description": "A MAT node to use as the material, instead of the Internal Phong.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Render_Simple_TOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Render_Simple_TOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Render_Simple_TOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

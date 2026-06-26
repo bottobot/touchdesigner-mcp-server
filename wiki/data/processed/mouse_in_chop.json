@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.293Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Mouse_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Mouse_In_CHOP",
   "description": "The Mouse In CHOP outputs X and Y screen values for the mouse device and monitors the up/down state of the three mouse buttons.",
   "summary": "The Mouse In CHOP outputs X and Y screen values for the mouse device and monitors the up/down state of the three mouse buttons.",
   "details": "",

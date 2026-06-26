@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.377Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/In_CHOP",
   "description": "The In CHOP gets channels that are connected to one of the inputs of the component. For each In CHOP inside a component, there is one input connector added to the In CHOP's parent component.",
   "summary": "The In CHOP gets channels that are connected to one of the inputs of the component. For each In CHOP inside a component, there is one input connector added to the In CHOP's parent component.",
   "details": "",

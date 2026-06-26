@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "OP",
       "readOnly": true,
-      "description": "owner member"
-    },
-    {
-      "name": "owner",
-      "id": "bodyContent",
-      "returnType": "OP",
-      "readOnly": true,
-      "description": "owner member"
+      "description": ""
     }
   ],
   "methods": [],

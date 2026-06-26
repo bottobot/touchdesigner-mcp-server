@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.958Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Camera_Blend_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Camera_Blend_COMP",
   "description": "The Camera Blend Component blends the 3D object transforms and viewing settings of multiple Camera Components together. It gives you some extra flexibility in setting up parent-child relationships. It operates like the Switch SOP and Sequence Blend SOPs insofar as it takes more than one input and blends or switches those into one output.",
   "summary": "The Camera Blend Component blends the 3D object transforms and viewing settings of multiple Camera Components together. It gives you some extra flexibility in setting up parent-child relationships. It",
   "details": "",

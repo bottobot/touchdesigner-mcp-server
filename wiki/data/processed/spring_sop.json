@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.892Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Spring_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Spring_SOP",
   "description": "The Spring SOP deforms and moves the input geometry using spring \"forces\" on the edges of polygons and on masses attached to each point.",
   "summary": "The Spring SOP deforms and moves the input geometry using spring \"forces\" on the edges of polygons and on masses attached to each point.",
   "details": "",

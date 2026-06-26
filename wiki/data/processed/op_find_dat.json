@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.706Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OP_Find_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OP_Find_DAT",
   "description": "The OP Find DAT traverses the component hierarchy starting at one component and looking at all nodes within that component, and outputs a table with one row per node that matches criteria the user chooses. For example, the criteria could be all Ramp TOPs, or all nodes whose name starts with “wave”, or all nodes with the Clone parameter set to “master1”, or all Geometry components with a tag called “emitter”.",
   "summary": "The OP Find DAT traverses the component hierarchy starting at one component and looking at all nodes within that component, and outputs a table with one row per node that matches criteria the user cho",
   "details": "",

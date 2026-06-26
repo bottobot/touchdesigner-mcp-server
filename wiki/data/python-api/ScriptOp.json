@@ -2,7 +2,7 @@
   "className": "ScriptOp",
   "displayName": "ScriptOp",
   "description": "The ScriptOp class represents script operators in TouchDesigner (Script CHOP, Script DAT, Script SOP, Script TOP), providing specialized functionality for each script operator type.",
-  "url": "https://docs.derivative.ca/Script_Operators",
+  "url": "https://docs.derivative.ca/Script_SOP",
   "members": [
     {
       "name": "scriptType",

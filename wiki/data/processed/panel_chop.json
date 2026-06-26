@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:06.855Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Panel_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Panel_CHOP",
   "description": "The Panel CHOP reads Panel Values from Panel Components into CHOP channels. Panel values can also be accessed by using the panel Member of the PanelCOMP Class.",
   "summary": "The Panel CHOP reads Panel Values from Panel Components into CHOP channels. Panel values can also be accessed by using the panel Member of the PanelCOMP Class.",
   "details": "",

@@ -3,1244 +3,389 @@
   "id": "point_file_in_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Point File In POP loads 3D point data into POPs from either a single file or a sequence of files. The Point File In POP will load all available point data after you select field names and give them attribute names. Fields include standard ones like XYZ position, normal vectors, texture coordinates and RGBA color. More specialized fields are read in via any number of sequential blocks that map fields to attributes.",
+  "description": "The Point File In POP loads 3D point data into POPs from either a single file or a sequence of files. The Point File In POP will load all available point data after you select field names and give them attribute names. Fields include standard ones like XYZ position, normal vectors, texture coordinates and RGBA color. More specialized fields are read in via any number of sequential blocks that map fields to attributes. By default, field <code>x</code>, <code>y</code> and <code>z</code> are placed into the <code>P</code> attribute, and <code>r g b a</code> into the <code>Color</code> attribute, but that can be all re-assigned. The sequential blocks can create float, float2, float3 and float4 attributes, as well as arrays of values (no matrices or double at the moment). The Thin page lets you skip points in the file, either randomly or in patterns. The ReRange page lets you scale/offset attribute values without having to create a temporary version of an attribute. The Point File In POP will read point data from various mesh and floating point data files including: <code>.obj</code>, <code>.ply</code>, <code>.fits</code> (astronomy format), and <code>.exr</code>. It can also load ASCII point files (<code>.xyz</code>, <code>.pts</code>, <code>.csv</code>, <code>.txt</code>, etc) with one point per line and comma- or space-separated fields. The first line in ASCII point files can either be the number of points, the names of the point fields or the first point in the file. For a complete list, see [[File Types]]. The OpenEXR file format is generally best to use as it is binary, can be read in multi-frame file sequences that uses TouchDesigner's movie file pre-reading and buffering, and can be written from TouchDesigner's [[Movie File Out TOP]] with unlimited numbers of channels. '''Gaussian Splat files''': The Point File In POP can read in all the specialized attributes of Gaussian Splat files. Give there are over 45 components of attributes, there is an example file in POPs <code>Examples / GaussianSplats/</code> with a full setup, and there is an example in Help -> Browse Samples : <code>PointClouds/</code> (TBD: Examine the state of a Point File In POP by attaching an Info CHOP. This will show information like the number of points, fields per point and the number of frames. It also shows dynamic information like the file open status, current frame, readahead frames and queue size, dropped frame count, CPU decode time and GPU upload time.) Headers: If the file contains any additional header data, this can be viewed by attaching an [[Info DAT]]. Header data is stored as key-value pairs with the keys in the first column and the corresponding data in the second column, which can easily be interpreted with python. All of the ASCII point list formats are loaded the same way whether their extension is <code>txt</code>, <code>csv</code>, <code>xyz</code>, etc. The parser looks for the first separating character (comma, space or tab) and then uses that to delimit the rest of the file. It will ignore delimiters that are inside single or double quotes. There are a few special rules depending on the delimiter style e.g. multiple spaces are merged together, but a comma at the end of a line indicates a blank field afterwards. Once a delimiter is established, The first line can be the number of points, but it is ignored. If the next line are strings then it is treated as a row of headers (channel names). Each row after that is considered the attributes of point. Some file formats can be read by both the Point File In POP and [[File In POP]], with the difference being the Point File In POP does not import any geometry data that may be in the file. This is a list of files that both OPs can read. * <code>.ply</code> file format can contain geometry data * <code>.obj</code> file format can contain geometry data and vertex data",
   "parameters": [
     {
-      "name": "x",
+      "name": "File",
+      "parName": "file",
       "label": "File",
-      "description": "Configure File for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        },
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        },
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        },
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        },
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P(0) P(1) P(2)",
-          "value": "P(0) P(1) P(2)",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color(0) Color(1) Color(2)",
-          "value": "Color(0) Color(1) Color(2)",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "P.i01",
-          "value": "P.i01",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "File",
+      "description": "The path and name of the point file to load.",
+      "isReadOnly": false
     },
     {
-      "name": "file",
-      "label": "File",
-      "description": "Configure File for the operator",
-      "type": "string"
-    },
-    {
-      "name": "reload",
+      "name": "Reload",
+      "parName": "reload",
       "label": "Reload",
-      "description": "Configure Reload for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Re-import and load the geometry.",
+      "isReadOnly": false,
+      "menuItems": [
+        "reload",
+        "reloadpulse"
+      ],
+      "menuLabels": [
+        "Reload",
+        "Reload Pulse"
+      ]
     },
     {
-      "name": "reloadpulse",
-      "label": "Reload Pulse",
-      "description": "Configure Reload Pulse for the operator",
-      "type": "string"
-    },
-    {
-      "name": "createpointprim",
+      "name": "Create Point Primitives",
+      "parName": "createpointprim",
       "label": "Create Point Primitives",
-      "description": "Configure Create Point Primitives for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable creating point primitives",
+      "isReadOnly": false
     },
     {
-      "name": "maxpointsenable",
+      "name": "Max Number of Points",
+      "parName": "maxpointsenable",
       "label": "Max Number of Points",
-      "description": "Configure Max Number of Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable the setting of the max number of points.",
+      "isReadOnly": false
     },
     {
-      "name": "maxpoints",
-      "label": "Number of Points",
-      "description": "Configure Number of Points for the operator",
-      "type": "string"
+      "name": "Max Number of Points",
+      "parName": "maxpoints",
+      "label": "Max Number of Points",
+      "type": "Int",
+      "description": "Sets the max number of points when the automatic max number of points is overriden.",
+      "isReadOnly": false
     },
     {
-      "name": "positionfields",
+      "name": "Position Fields",
+      "parName": "positionfields",
       "label": "Position Fields",
-      "description": "Configure Position Fields for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Fields mapped to the position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a"
+      ],
+      "menuLabels": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a"
       ]
     },
     {
-      "name": "normalfields",
+      "name": "Normal Fields",
+      "parName": "normalfields",
       "label": "Normal Fields",
-      "description": "Configure Normal Fields for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Fields for the normal attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a"
+      ],
+      "menuLabels": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a"
       ]
     },
     {
-      "name": "texturefields",
+      "name": "Texture Fields",
+      "parName": "texturefields",
       "label": "Texture Fields",
-      "description": "Configure Texture Fields for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Fields mapped to the texture coordinates.",
+      "isReadOnly": false,
+      "menuItems": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a"
+      ],
+      "menuLabels": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a"
       ]
     },
     {
-      "name": "colorfields",
+      "name": "Color Fields",
+      "parName": "colorfields",
       "label": "Color Fields",
-      "description": "Configure Color Fields for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "The fields to use for the color attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a"
+      ],
+      "menuLabels": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a"
       ]
     },
     {
-      "name": "attr",
+      "name": "Attribute",
+      "parName": "attr",
       "label": "Attribute",
-      "description": "Configure Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for attribute conditions.",
+      "isReadOnly": false,
+      "menuItems": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a",
+        "none",
+        "color",
+        "dir"
+      ],
+      "menuLabels": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "r",
+        "g",
+        "b",
+        "a",
+        "None",
+        "Color",
+        "Direction"
       ]
     },
     {
-      "name": "attr0fields",
-      "label": "Fields",
-      "description": "Configure Fields for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "x",
-          "value": "x",
-          "description": ""
-        },
-        {
-          "label": "y",
-          "value": "y",
-          "description": ""
-        },
-        {
-          "label": "z",
-          "value": "z",
-          "description": ""
-        },
-        {
-          "label": "nx",
-          "value": "nx",
-          "description": ""
-        },
-        {
-          "label": "ny",
-          "value": "ny",
-          "description": ""
-        },
-        {
-          "label": "nz",
-          "value": "nz",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        }
+      "name": "Input Color Space",
+      "parName": "inputcolorspace",
+      "label": "Input Color Space",
+      "type": "Menu",
+      "description": "Override / set the color space, or use the color space in the file, or assume default if there is none.",
+      "isReadOnly": false,
+      "menuItems": [
+        "automatic",
+        "srgb",
+        "srgblinear",
+        "rec601ntsc",
+        "rec709",
+        "rec2020",
+        "rec2020st2084pq",
+        "rec2020hlg",
+        "dcip3",
+        "dcip3d60",
+        "displayp3d65",
+        "displayp3d65linear",
+        "aces2065-1",
+        "acescg",
+        "acesproxy",
+        "passthrough"
+      ],
+      "menuLabels": [
+        "Automatic",
+        "sRGB",
+        "sRGB - Linear",
+        "Rec.601 (NTSC)",
+        "Rec.709",
+        "Rec.2020",
+        "Rec.2020 ST2084PQ",
+        "Rec.2020 HLG",
+        "DCI-P3",
+        "DCI-P3 (D60)",
+        "Display P3 (D65)",
+        "Display P3 (D65) - Linear",
+        "ACES2065-1",
+        "ACEScg",
+        "ACESproxy",
+        "Passthrough"
       ]
     },
     {
-      "name": "attr0name",
-      "label": "Attribute Name",
-      "description": "Configure Attribute Name for the operator",
-      "type": "string"
+      "name": "Input Reference White",
+      "parName": "inputreferencewhite",
+      "label": "Input Reference White",
+      "type": "Menu",
+      "description": "Color space to use for the incoming data.",
+      "isReadOnly": false,
+      "menuItems": [
+        "default",
+        "sdr",
+        "hdr",
+        "ui"
+      ],
+      "menuLabels": [
+        "Default For Color Space",
+        "Standard (SDR)",
+        "High (HDR)",
+        "UI"
+      ]
     },
     {
-      "name": "attr0isarray",
-      "label": "Array",
-      "description": "Configure Array for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0arraysize",
-      "label": "Array Size",
-      "description": "Configure Array Size for the operator",
-      "type": "string"
-    },
-    {
-      "name": "thinoutrange",
+      "name": "Thin Out Range",
+      "parName": "thinoutrange",
       "label": "Thin Out Range",
-      "description": "Configure Thin Out Range for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable index-based point filtering.",
+      "isReadOnly": false
     },
     {
-      "name": "thinrangestart",
+      "name": "Thin Range Start",
+      "parName": "thinrangestart",
       "label": "Thin Range Start",
-      "description": "Configure Thin Range Start for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Determines the starting index for range-based point filtering.",
+      "isReadOnly": false
     },
     {
-      "name": "thinrangelength",
+      "name": "Thin Range Length",
+      "parName": "thinrangelength",
       "label": "Thin Range Length",
-      "description": "Configure Thin Range Length for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Determines the number of points being filtered by index range.",
+      "isReadOnly": false
     },
     {
-      "name": "thinstep",
+      "name": "Thin Step",
+      "parName": "thinstep",
       "label": "Thin Step",
-      "description": "Configure Thin Step for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Filters every Nth point.",
+      "isReadOnly": false
     },
     {
-      "name": "thinrandom",
+      "name": "Thin Random",
+      "parName": "thinrandom",
       "label": "Thin Random",
-      "description": "Configure Thin Random for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Determines the proportion of points randomly filtered.",
+      "isReadOnly": false
     },
     {
-      "name": "thinrandomseed",
+      "name": "Thin Random Seed",
+      "parName": "thinrandomseed",
       "label": "Thin Random Seed",
-      "description": "Configure Thin Random Seed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Sets the random seed for points being randomly filtered.",
+      "isReadOnly": false
     },
     {
-      "name": "rerange",
+      "name": "Rerange",
+      "parName": "rerange",
       "label": "Rerange",
-      "description": "Configure Rerange for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P(0) P(1) P(2)",
-          "value": "P(0) P(1) P(2)",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color(0) Color(1) Color(2)",
-          "value": "Color(0) Color(1) Color(2)",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "P.i01",
-          "value": "P.i01",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rerange0scope",
-      "label": "Scope",
-      "description": "Configure Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P(0) P(1) P(2)",
-          "value": "P(0) P(1) P(2)",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color(0) Color(1) Color(2)",
-          "value": "Color(0) Color(1) Color(2)",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "P.i01",
-          "value": "P.i01",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "P",
-      "label": "P",
-      "description": "Configure P for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P(0) P(1) P(2)",
-          "value": "P(0) P(1) P(2)",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color(0) Color(1) Color(2)",
-          "value": "Color(0) Color(1) Color(2)",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "P.i01",
-          "value": "P.i01",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rerange0parsize",
-      "label": "Parameter Size",
-      "description": "Configure Parameter Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rerange0fromlow",
-      "label": "Map from Low",
-      "description": "Configure Map from Low for the operator",
-      "type": "string"
-    },
-    {
-      "name": "rerange0fromhigh",
-      "label": "Map from High",
-      "description": "Configure Map from High for the operator",
-      "type": "string"
-    },
-    {
-      "name": "rerange0tolow",
-      "label": "Map to Low",
-      "description": "Configure Map to Low for the operator",
-      "type": "string"
-    },
-    {
-      "name": "rerange0tohigh",
-      "label": "Map to High",
-      "description": "Configure Map to High for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to re-range created attributes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "P.i01",
+        "Color",
+        "Color.rgb",
+        "N",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "P",
+        "P.i01",
+        "Color",
+        "Color.rgb",
+        "N",
+        "1",
+        "2",
+        "3",
+        "4"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Point_File_In_POP.htm",
-  "parsedAt": "2025-08-08T03:03:58.473Z"
+  "parsedAt": "2025-08-08T03:03:58.473Z",
+  "url": "https://docs.derivative.ca/Point_File_In_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Point_File_In_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Point_File_In_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Point_File_In_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

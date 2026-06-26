@@ -1,0 +1,26 @@
+{
+  "className": "SequenceCollection",
+  "displayName": "SequenceCollection",
+  "category": "General",
+  "description": "The SequenceCollection class can be used to access sequences by name.",
+  "members": [
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The OP to which this object belongs."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/SequenceCollection_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=SequenceCollection_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the SequenceCollection Class wiki page",
+      "url": "https://docs.derivative.ca/SequenceCollection_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

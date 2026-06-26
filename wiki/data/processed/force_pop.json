@@ -8,7 +8,7 @@
     {
       "name": "PartForce",
       "label": "Spec POP",
-      "description": "Configure Spec POP for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -231,13 +231,13 @@
     {
       "name": "specpop",
       "label": "Spec POP",
-      "description": "Configure Spec POP for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "globforce",
       "label": "Global Force",
-      "description": "Configure Global Force for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -260,7 +260,7 @@
     {
       "name": "globforcex",
       "label": "Global Force",
-      "description": "Configure Global Force for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -283,13 +283,13 @@
     {
       "name": "globforcemult",
       "label": "Global Force Multiplier",
-      "description": "Configure Global Force Multiplier for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "windforce",
       "label": "Wind Force",
-      "description": "Configure Wind Force for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -312,7 +312,7 @@
     {
       "name": "windforcex",
       "label": "Wind Force",
-      "description": "Configure Wind Force for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -335,13 +335,13 @@
     {
       "name": "windforcemult",
       "label": "Wind Force Multiplier",
-      "description": "Configure Wind Force Multiplier for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "forcetype",
       "label": "Local Force Type",
-      "description": "Configure Local Force Type for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -369,7 +369,7 @@
     {
       "name": "radial",
       "label": "Radial",
-      "description": "Configure Radial for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -397,7 +397,7 @@
     {
       "name": "t",
       "label": "Translate",
-      "description": "Configure Translate for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -420,7 +420,7 @@
     {
       "name": "tx",
       "label": "Translate",
-      "description": "Configure Translate for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -443,19 +443,19 @@
     {
       "name": "rad",
       "label": "Radius",
-      "description": "Configure Radius for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "amount",
       "label": "Amount",
-      "description": "Configure Amount for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "direction",
       "label": "Direction",
-      "description": "Configure Direction for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -478,7 +478,7 @@
     {
       "name": "directionx",
       "label": "Direction",
-      "description": "Configure Direction for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -501,7 +501,7 @@
     {
       "name": "map",
       "label": "Mapping",
-      "description": "Configure Mapping for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -574,19 +574,19 @@
     {
       "name": "map0op",
       "label": "OP",
-      "description": "Configure OP for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "map0element",
       "label": "Element",
-      "description": "Configure Element for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "map0parm",
       "label": "Parameter",
-      "description": "Configure Parameter for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -644,7 +644,7 @@
     {
       "name": "map0combineop",
       "label": "Combine Operation",
-      "description": "Configure Combine Operation for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -667,7 +667,7 @@
     {
       "name": "set",
       "label": "Set",
-      "description": "Configure Set for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -690,19 +690,19 @@
     {
       "name": "bypass",
       "label": "Bypass",
-      "description": "Configure Bypass for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "delinputattrs",
       "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
+      "description": "",
       "type": "string"
     },
     {
       "name": "parmcolorspace",
       "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -765,7 +765,7 @@
     {
       "name": "srgb",
       "label": "sRGB",
-      "description": "Configure sRGB for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -828,7 +828,7 @@
     {
       "name": "parmreferencewhite",
       "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -851,7 +851,7 @@
     {
       "name": "default",
       "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
+      "description": "",
       "type": "menu",
       "options": [
         {
@@ -874,5 +874,18 @@
   ],
   "experimental": true,
   "sourceFile": "Experimental-Force_POP.htm",
-  "parsedAt": "2025-08-08T03:03:55.819Z"
+  "parsedAt": "2025-08-08T03:03:55.819Z",
+  "url": "https://docs.derivative.ca/Force_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": false
 }

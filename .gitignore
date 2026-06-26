@@ -21,3 +21,9 @@ Thumbs.db
 # Test coverage
 coverage/
 .nyc_output/
+
+# Local project MCP config (personal; do not publish). See .mcp.json.example for a td-mcp sample.
+.mcp.json
+
+# Working/modernization artifacts (not for publish)
+.modernization-backup/

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.502Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Photoshop_In_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Photoshop_In_TOP",
   "description": "The Photoshop In TOP can stream the output from Photoshop into TouchDesigner.  Photoshop can be running on the same computer as TouchDesigner or any other computer on the network.  Photoshop can be running on a Windows or Mac computer.  If the Lock Document Name parameter is left empty, then the TOP will grab whichever document is currently active in Photoshop.",
   "summary": "The Photoshop In TOP can stream the output from Photoshop into TouchDesigner.  Photoshop can be running on the same computer as TouchDesigner or any other computer on the network.  Photoshop can be ru",
   "details": "",

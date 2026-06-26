@@ -1,0 +1,433 @@
+{
+  "id": "text_pop",
+  "name": "Text POP",
+  "displayName": "Text POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Text_POP",
+  "description": "The Text POP creates geometry from any [http://en.wikipedia.org/wiki/TrueType TrueType] or [http://en.wikipedia.org/wiki/OpenType OpenType] font that is installed on the system, or any TrueType/OpenType font file on disk. [[Unicode]] is supported. Text POP supports two connectivity modes Triangles, and Line Strips. Extrusion is enabled for Triangle mode. Line Strips create a closed line strip for each polygon. When Bridge Holes is toggled, if a glyph has holes these polygons will be bridged together to form a single closed line strip. '''Process multiple strings transformed separately''': The Specification DAT and Specification CHOP allow for individual strings to be each positioned and styled independently in 3D. Each line in the specification OP is an indepedent text block with its own alignment. Every row of the Spec DAT represents a \"text block\". Every Spec DAT contains a column named <code>text</code> which is the string that overrides the Text parameter. Most columns override a Text POP parameter, such as <code>text</code>, <code>tx</code> and <code>fontsize</code>. Some column names noted below have no corresponding parameter. The Spec CHOP can also specify values per block. When including a Spec CHOP the number of Spec CHOP samples needs to be the same number of rows as the Spec DAT following the first column header. Parameters that can be overridden are <code>tx</code>, <code>ty</code>, <code>tz</code>, <code>rx</code>, <code>ry</code>, <code>rz</code>, <code>sx</code>, <code>sy</code>, <code>sz</code>, <code>px</code>, <code>py</code>, <code>pz</code>, <code>tracking</code>, <code>trackingx</code>, <code>trackingy</code>, <code>linespacing</code>, <code>wordwrap</code>, <code>wordwrapsize</code>, <code>fontsize</code>, <code>fontsizex</code>, <code>fontsizey</code>, <code>fontcolorr</code>, <code>fontcolorg</code>, <code>fontcolorb</code>, <code>fontcolora</code>, <code>text</code>, <code>alignx</code> and <code>aligny</code>. <code>tracking</code> and <code>fontsize</code> are the same as <code>trackingx</code> and <code>fontsizex</code> respectively. <code>text</code>, <code>alignx</code> and <code>aligny</code> can only be specified through the Table DAT. To put newlines or tabs into the text string formatting, turn the Text parameter into expression mode and use <code>\\n</code> and <code>\\t</code> respectively. For example <code>'first\\nsecond'</code> will put the two words on separate lines. '''Transforming text blocks''': The column or channel names can include <code>tx</code>, <code>ty</code>, <code>tz</code> and all the rotate and scale channels (which use the Transform Order parameter). A special column/channel called <code>append</code> can be used, when <code>append</code> is <code>1</code>, to position one block of text relative to the end of the previous block. Regular transforms are inherited by each appended text block. Local transforms (<code>ltx</code>, <code>lrz</code>, etc), can be used to apply additional transforms to a block that are not inherited by appended blocks. If the special column/channel <code>localxform</code> is set to '<code>pre</code>', then the local transform is applied in world space before the inherited transforms are applied. '''Text POP vs Geo Text COMP vs Text COMP vs Text TOP''' - The Text POP creates linestrip outlines and triangles, existing as 3D data that can be further manipulated in POPs. The Geo Text COMP, when rendered with a Render TOP, creates pixels without converting to POPs or a 3D outline form - they are rendered directly on quadrilateral polygons in the 3D scene as if they are texture maps. The Text COMP does something similar in 2D panels - strings are rendered directly into panel pixels, and the Text COMP is interactive like any panel COMP. The Text TOP simply renders the pixels directly into a TOP image in the same way. Note: The Text POP does most of its work on the CPU. See also: [[Text TOP]], [[Text COMP]], [[Geo Text COMP]], [[Unicode]], [[Triangulate POP]], [[Extrude POP]].",
+  "parameters": [
+    {
+      "name": "Connectivity",
+      "parName": "connectivity",
+      "label": "Connectivity",
+      "type": "Menu",
+      "description": "Determines the primitive used to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "triangles",
+        "linestrips"
+      ],
+      "menuLabels": [
+        "Triangles",
+        "Line Strips"
+      ]
+    },
+    {
+      "name": "Bridge Holes",
+      "parName": "bridgeholes",
+      "label": "Bridge Holes",
+      "type": "Toggle",
+      "description": "Bridges holes between interior and exterior line strips for glyphs with holes. Only available for Line Strips.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Mode",
+      "parName": "mode",
+      "label": "Mode",
+      "type": "Menu",
+      "description": "Controls whether the contents are taken from the Text parameter or from a Specification DAT/CHOP.",
+      "isReadOnly": false,
+      "menuItems": [
+        "text",
+        "specdat"
+      ],
+      "menuLabels": [
+        "Text",
+        "Specification DAT/CHOP"
+      ]
+    },
+    {
+      "name": "Text",
+      "parName": "text",
+      "label": "Text",
+      "type": "Str",
+      "description": "The string of text to create as geometry. If newlines or tabs are desired, change this parameter to expression mode, and specify a Python string that includes <code>\\n</code> or <code>\\t</code> to signify newlines and tabs. E.g <code>'First Line\\nSecond Line'</code>.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Specification DAT",
+      "parName": "specdat",
+      "label": "Specification DAT",
+      "type": "DAT",
+      "description": "A path to a [[Table DAT]] that is the source of the text data when in Specification mode. The table should have 2 or 3 columns labeled <code>tx</code>, <code>ty</code>, <code>tx</code> and <code>text</code> in its first row. Each row after that will display one line of text at the given x, y coordinates as measured from the bottom-left corner. x and y are measured in POP space units.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Specification CHOP",
+      "parName": "specchop",
+      "label": "Specification CHOP",
+      "type": "CHOP",
+      "description": "A path to a CHOP that can provide numerical data when in Specification mode. Channels named <code>tx</code>, <code>ty</code> or <code>tz</code> can be used to position the text data specified in the Specificaction DAT. Each data row in the DAT should have a corresponding sample in the CHOP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Scale Font to BBox Height",
+      "parName": "scalefonttobboxheight",
+      "label": "Scale Font to BBox Height",
+      "type": "Toggle",
+      "description": "Scale the font’s vertical size so it’s based on the vertical bounding box of the font.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Break Language",
+      "parName": "breaklang",
+      "label": "Break Language",
+      "type": "Menu",
+      "description": "Language type hint to help format the glyphs correctly. This should be a abbreviation from the Text TOP/SOP Unicode Language Abbreviations table.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Reading Direction",
+      "parName": "readingdirection",
+      "label": "Reading Direction",
+      "type": "Menu",
+      "description": "Use to set whether the language reads Left to Right or Right to Left.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lefttoright",
+        "righttoleft"
+      ],
+      "menuLabels": [
+        "Left To Right",
+        "Right To Left"
+      ]
+    },
+    {
+      "name": "Word Wrap",
+      "parName": "wordwrap",
+      "label": "Word Wrap",
+      "type": "Toggle",
+      "description": "When checked text is automatically line wrapped once it takes up the space set in Word Wrap Size parameter below.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Word Wrap Size",
+      "parName": "wordwrapsize",
+      "label": "Word Wrap Size",
+      "type": "Float",
+      "description": "Determines the amount of 3D space used before the line wraps.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Smart Punctuation",
+      "parName": "smartpunct",
+      "label": "Smart Punctuation",
+      "type": "Toggle",
+      "description": "Enables the use of smart punctuation. For example, pairs of quotes will be replaced with appropriate angled quotes, 3 periods will be replaced with an ellipses character and two hypens will become an em-dash.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Level of Detail",
+      "parName": "levelofdetail",
+      "label": "Level of Detail",
+      "type": "Int",
+      "description": "Controls the quality of the text's shape by adding/removing subdivisions to the geometry.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Font",
+      "parName": "font",
+      "label": "Font",
+      "type": "Menu",
+      "description": "Select the font for the text from this drop down menu. All fonts are provided by the OS, any [http://en.wikipedia.org/wiki/TrueType TrueType] font that is loaded into the OS can be used.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Font File",
+      "parName": "fontfile",
+      "label": "Font File",
+      "type": "File",
+      "description": "Specify any TrueType or OpenType font file (<code>.ttf, .otf file</code>) to use for the text. When using a font file, the Font menu above is disabled.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Typeface",
+      "parName": "typeface",
+      "label": "Typeface",
+      "type": "Menu",
+      "description": "Select a specific typeface for the current font e.g. Bold, Regular, Italic, etc.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Font Size",
+      "parName": "fontsize",
+      "label": "Font Size",
+      "type": "XYZW",
+      "description": "Sets the font size. The font size defines the distance from the baseline to the top of the layout box for the given font. The default size of 1 of the default font is close to the vertical size of capital letters with no descenders.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fontsizex",
+        "fontsizey"
+      ],
+      "menuLabels": [
+        "Font Size",
+        "Font Size"
+      ]
+    },
+    {
+      "name": "Keep Font Ratio",
+      "parName": "keepfontratio",
+      "label": "Keep Font Ratio",
+      "type": "Toggle",
+      "description": "Ignores Y value in Font Size. Sets both X and Y size to Font Size X.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Tracking",
+      "parName": "tracking",
+      "label": "Tracking",
+      "type": "XYZW",
+      "description": "The amount of space to add between letters in X and Y. Tracking is way of adding an arbitrary offset between letters. There already is a default offset associated with each font so the letters are flush against each other. The Tracking parameter this adds to that and allows for a Y offset.",
+      "isReadOnly": false,
+      "menuItems": [
+        "trackingx",
+        "trackingy"
+      ],
+      "menuLabels": [
+        "Tracking",
+        "Tracking"
+      ]
+    },
+    {
+      "name": "Line Spacing",
+      "parName": "linespacing",
+      "label": "Line Spacing",
+      "type": "Float",
+      "description": "Determines the amount of space between lines of text.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Horizontal Align",
+      "parName": "alignx",
+      "label": "Horizontal Align",
+      "type": "Menu",
+      "description": "Determines how the text is positioned horizontally in the panel. For example, with left alignment, the text will be positioned against the left side of the panel plus any defined padding.",
+      "isReadOnly": false,
+      "menuItems": [
+        "left",
+        "center",
+        "right"
+      ],
+      "menuLabels": [
+        "Left",
+        "Center",
+        "Right"
+      ]
+    },
+    {
+      "name": "Vertical Align",
+      "parName": "aligny",
+      "label": "Vertical Align",
+      "type": "Menu",
+      "description": "Determines how the text is positioned vertically inside the panel.",
+      "isReadOnly": false,
+      "menuItems": [
+        "bottom",
+        "center",
+        "top",
+        "baseline"
+      ],
+      "menuLabels": [
+        "Bottom",
+        "Center",
+        "Top",
+        "Baseline"
+      ]
+    },
+    {
+      "name": "Font Color",
+      "parName": "fontcolor",
+      "label": "Font Color",
+      "type": "RGBA",
+      "description": "The default color of the text.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fontcolorr",
+        "fontcolorg",
+        "fontcolorb"
+      ],
+      "menuLabels": [
+        "Font Color",
+        "Font Color",
+        "Font Color"
+      ]
+    },
+    {
+      "name": "Font Alpha",
+      "parName": "fontalpha",
+      "label": "Font Alpha",
+      "type": "Float",
+      "description": "The blending value used to display the text. 1 is opaque while 0 is transparent.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Extrude",
+      "parName": "extrude",
+      "label": "Extrude",
+      "type": "Toggle",
+      "description": "Extrude each glyph. Only enabled when set to Triangles.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Extrude Depth",
+      "parName": "extrudedepth",
+      "label": "Extrude Depth",
+      "type": "Float",
+      "description": "Extrusion depth.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Transform Order",
+      "parName": "xord",
+      "label": "Transform Order",
+      "type": "Menu",
+      "description": "Sets the overall transform order for the transformations. The transform order determines the order in which transformations take place. Depending on the order, you can achieve different results using the exact same values. Choose the appropriate order from the menu.",
+      "isReadOnly": false,
+      "menuItems": [
+        "srt",
+        "str",
+        "rst",
+        "rts",
+        "tsr",
+        "trs"
+      ],
+      "menuLabels": [
+        "Scale Rotate Translate",
+        "Scale Translate Rotate",
+        "Rotate Scale Translate",
+        "Rotate Translate Scale",
+        "Translate Scale Rotate",
+        "Translate Rotate Scale"
+      ]
+    },
+    {
+      "name": "Rotate Order",
+      "parName": "rord",
+      "label": "Rotate Order",
+      "type": "Menu",
+      "description": "Sets the order of the rotations within the overall transform order.",
+      "isReadOnly": false,
+      "menuItems": [
+        "xyz",
+        "xzy",
+        "yxz",
+        "yzx",
+        "zxy",
+        "zyx"
+      ],
+      "menuLabels": [
+        "Rx Ry Rz",
+        "Rx Rz Ry",
+        "Ry Rx Rz",
+        "Ry Rz Rx",
+        "Rz Rx Ry",
+        "Rz Ry Rx"
+      ]
+    },
+    {
+      "name": "Translate",
+      "parName": "t",
+      "label": "Translate",
+      "type": "XYZW",
+      "description": "These three fields move the geometry in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty",
+        "tz"
+      ],
+      "menuLabels": [
+        "Translate",
+        "Translate",
+        "Translate"
+      ]
+    },
+    {
+      "name": "Rotate",
+      "parName": "r",
+      "label": "Rotate",
+      "type": "XYZW",
+      "description": "These three fields rotate the geometry in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rx",
+        "ry",
+        "rz"
+      ],
+      "menuLabels": [
+        "Rotate",
+        "Rotate",
+        "Rotate"
+      ]
+    },
+    {
+      "name": "Scale",
+      "parName": "s",
+      "label": "Scale",
+      "type": "XYZW",
+      "description": "These three fields scale the geometry in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sx",
+        "sy",
+        "sz"
+      ],
+      "menuLabels": [
+        "Scale",
+        "Scale",
+        "Scale"
+      ]
+    },
+    {
+      "name": "Pivot",
+      "parName": "p",
+      "label": "Pivot",
+      "type": "XYZW",
+      "description": "The pivot point for the transformations (not the same as the pivot point in the pivot channels). The pivot point parameters allow you to define the point about which geometry scales and rotates. Altering the pivot point produces different results depending on the transformation performed on the object. For example, during a scaling operation, if the pivot point of an object is located at: <code>-1, -1, 0</code> and you wanted to scale the object by <code>0.5</code> (reduce its size by 50%) the object would scale toward the pivot point and appear to slide down and to the left.",
+      "isReadOnly": false,
+      "menuItems": [
+        "px",
+        "py",
+        "pz"
+      ],
+      "menuLabels": [
+        "Pivot",
+        "Pivot",
+        "Pivot"
+      ]
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Text_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Text_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Text_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

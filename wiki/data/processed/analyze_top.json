@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.378Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Analyze_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Analyze_TOP",
   "description": "The Analyze TOP takes any image and determines various characteristics of it, such as the average pixel color, the pixel with the maximum luminance, or the min and max values in each channel. The result is stored in a 1x1, 1xN or Nx1 image depending on the chosen scope (See Scope parameter below). The calculated values can be brought into CHOPs using the TOP to CHOP node.",
   "summary": "The Analyze TOP takes any image and determines various characteristics of it, such as the average pixel color, the pixel with the maximum luminance, or the min and max values in each channel. The resu",
   "details": "",

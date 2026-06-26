@@ -1,0 +1,155 @@
+{
+  "id": "field_comp",
+  "name": "Field COMP",
+  "displayName": "Field COMP",
+  "category": "COMP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Field_COMP",
+  "description": "'''Note''': Field COMP deprecated build 2022.24200, use [[Text COMP]]. The Field Component lets you enter text strings and renders text generated with the [[Text TOP]]. Internally it contains a Text TOP which points to one cell of a DAT that contains the text to render. The Field COMP modifies the DAT cell as text is entered. [[image:FieldCOMP.png]]",
+  "parameters": [
+    {
+      "name": "Field Type",
+      "parName": "fieldtype",
+      "label": "Field Type",
+      "type": "",
+      "description": "Specify what kind of data can be input into the field.",
+      "isReadOnly": false,
+      "menuItems": [
+        "string",
+        "float",
+        "integer"
+      ],
+      "menuLabels": [
+        "String",
+        "Float",
+        "Integer"
+      ]
+    },
+    {
+      "name": "Enable Field Format Numbers",
+      "parName": "fieldformatnumbers",
+      "label": "Enable Field Format Numbers",
+      "type": "",
+      "description": "Use when Field Type is set to 'Float' or 'Integer' to add formatting options to the number display.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Field Total Digits",
+      "parName": "fielddigits",
+      "label": "Field Total Digits",
+      "type": "",
+      "description": "Use when Field Type is set to 'Float' or 'Integer' to set the total number of digits that will be displayed.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Field Decimal Digits",
+      "parName": "fielddecimal",
+      "label": "Field Decimal Digits",
+      "type": "",
+      "description": "Use when Field Type is set to 'Float' to set the total number of decimal digits, digits after the decimal place.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Field Trailing Zeros",
+      "parName": "fieldzeroes",
+      "label": "Field Trailing Zeros",
+      "type": "",
+      "description": "Use when Field Type is set to 'Float' to activate trailing zeros to fill the total digits setting.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Field Leading Zero",
+      "parName": "fieldleadzero",
+      "label": "Field Leading Zero",
+      "type": "",
+      "description": "Use when Field Type is set to 'Float' to activate leading zeros to fill the total digits setting.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Field Lock",
+      "parName": "fieldlock",
+      "label": "Field Lock",
+      "type": "",
+      "description": "When checked on the field can not be edited.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Expand Tscript Variables",
+      "parName": "fieldexpand",
+      "label": "Expand Tscript Variables",
+      "type": "",
+      "description": "Will expand any variables that are input into the field.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Render Password Protected",
+      "parName": "fieldprotected",
+      "label": "Render Password Protected",
+      "type": "",
+      "description": "Renders all characters as \"*\", useful for hiding strings in password fields.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Spaces to Underscores",
+      "parName": "fieldconspaces",
+      "label": "Spaces to Underscores",
+      "type": "",
+      "description": "Converts spaces to underscores.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Allow Multi-Line Input",
+      "parName": "fieldmultiline",
+      "label": "Allow Multi-Line Input",
+      "type": "",
+      "description": "Toggle this one to allow for multi-line inputs in the field. When off text entry is limited to a single line.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enter as Newline with no Shift",
+      "parName": "fieldnoshift",
+      "label": "Enter as Newline with no Shift",
+      "type": "",
+      "description": "<Enter> key works as newline (carriage return) so you do not have to hold down shift for a newline.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Render Cursor",
+      "parName": "fieldcursor",
+      "label": "Render Cursor",
+      "type": "",
+      "description": "Toggle this setting to turn on and off the cursor display in the field.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Focus Order",
+      "parName": "fieldfocus",
+      "label": "Focus Order",
+      "type": "",
+      "description": "The path to a DAT with a list of field component focus orders. The DAT should container a list of paths relative to the DAT parent in the focus order. When the user hits <tab> or <shift+tab> the focus will automatically be set to the field before or after the entry for this field. If the path for this field is not specified in focus order table, the focus will remain unchanged.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Field_COMP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Field_COMP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Field_COMP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

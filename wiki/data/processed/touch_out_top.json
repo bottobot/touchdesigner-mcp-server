@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.255Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Touch_Out_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Touch_Out_TOP",
   "description": "The Touch Out TOP sends a TOP image stream over TCP/IP to a Touch In TOP. The Touch In TOP can be in another TouchDesigner session on the same computer or on a computer anywhere on the connected network.",
   "summary": "The Touch Out TOP sends a TOP image stream over TCP/IP to a Touch In TOP. The Touch In TOP can be in another TouchDesigner session on the same computer or on a computer anywhere on the connected netwo",
   "details": "",

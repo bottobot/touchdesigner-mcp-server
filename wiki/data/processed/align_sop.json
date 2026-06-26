@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.221Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Align_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Align_SOP",
   "description": "The Align SOP aligns a group of primitives to each other or to an auxiliary input, by translating or rotating each primitive along any pivot point.",
   "summary": "The Align SOP aligns a group of primitives to each other or to an auxiliary input, by translating or rotating each primitive along any pivot point.",
   "details": "",

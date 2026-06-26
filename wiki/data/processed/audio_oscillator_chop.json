@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.062Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Oscillator_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Oscillator_CHOP",
   "description": "The Audio Oscillator CHOP generates sounds in three ways. It repeats common waveforms (sine, triangle), it generates white noise (a random number for each sample), or it repeats a prepared incoming audio clip of any duration. It outputs typically 44100 samples per second. In contrast, the LFO CHOP by default generates waves at lower frequencies and lower sample rates (60 samples/second), however both Audio Oscillator and LFO are interchangeable by changing their frequencies and sample rates.",
   "summary": "The Audio Oscillator CHOP generates sounds in three ways. It repeats common waveforms (sine, triangle), it generates white noise (a random number for each sample), or it repeats a prepared incoming au",
   "details": "",

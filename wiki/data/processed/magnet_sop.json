@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.685Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Magnet_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Magnet_SOP",
   "description": "The Magnet SOP allows you to affect deformations of the input geometry with another object using a \"magnetic field\" of influence, defined by a metaball field. It allows the creation of animated bumps and dents within objects, and other special effects.",
   "summary": "The Magnet SOP allows you to affect deformations of the input geometry with another object using a \"magnetic field\" of influence, defined by a metaball field. It allows the creation of animated bumps ",
   "details": "",

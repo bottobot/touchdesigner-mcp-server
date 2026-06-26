@@ -1,0 +1,28 @@
+{
+  "className": "PhongMAT",
+  "displayName": "PhongMAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "MAT",
+  "members": [],
+  "methods": [
+    {
+      "name": "outputShader",
+      "signature": "outputShaderoutputShader(includeGeoShader=False, instanceTexturing=False)",
+      "returns": "glslMAT",
+      "parameters": [],
+      "description": "Will cause a new GLSL MAT to be created based on the current settings for this MAT. * includeGeoShader - (Keyword, Optional) Set to True if you want a stub geometry shader to be included. * instanceTexturing - (Keyword, Optional) Set to True if you want code that consumes instance textures to be included."
+    }
+  ],
+  "url": "https://docs.derivative.ca/PhongMAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=PhongMAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the PhongMAT Class wiki page",
+      "url": "https://docs.derivative.ca/PhongMAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

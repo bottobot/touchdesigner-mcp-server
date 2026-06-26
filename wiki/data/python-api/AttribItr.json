@@ -1,0 +1,32 @@
+{
+  "className": "AttribItr",
+  "displayName": "AttribItr",
+  "category": "General",
+  "description": "The AttribItr class holds a list of attribute values that come from a POP.",
+  "members": [
+    {
+      "name": "name",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The name of the attribute this list contains."
+    },
+    {
+      "name": "owner",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The node this attribute came from."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/AttribItr_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=AttribItr_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the AttribItr Class wiki page",
+      "url": "https://docs.derivative.ca/AttribItr_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

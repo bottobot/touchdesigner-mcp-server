@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.427Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\List_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/List_COMP",
   "description": "The List Component lets you create large lists that are highly customizable via the List COMPs initialization and callback functions. Refer to the Build a List COMP article for more info on using this COMP.",
   "summary": "The List Component lets you create large lists that are highly customizable via the List COMPs initialization and callback functions. Refer to the Build a List COMP article for more info on using this",
   "details": "",

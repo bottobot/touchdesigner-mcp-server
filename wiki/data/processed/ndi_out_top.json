@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.675Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\NDI_Out_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/NDI_Out_TOP",
   "description": "The NDI Out TOP will send image and audio data over IP to other Newtek NDI® (Network Data Interface) enabled applications. The NDI® protocol is created by Newtek.",
   "summary": "The NDI Out TOP will send image and audio data over IP to other Newtek NDI® (Network Data Interface) enabled applications. The NDI® protocol is created by Newtek.",
   "details": "",

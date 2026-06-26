@@ -1,0 +1,87 @@
+{
+  "className": "Undo",
+  "displayName": "Undo",
+  "category": "General",
+  "description": "A class to enable and disable undo functionality. Undo blocks can be created in scripts. At the end of callbacks, any dangling undo blocks will be terminated. See examples at bottom of page. This class is available as a member of the global UI Class, via `ui.undo`.",
+  "members": [
+    {
+      "name": "globalState",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Is global undo enabled or not."
+    },
+    {
+      "name": "redoStack",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "A list of names for redo operations available."
+    },
+    {
+      "name": "state",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Is undo enabled or not."
+    },
+    {
+      "name": "undoStack",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "A list of names for undo operations available."
+    }
+  ],
+  "methods": [
+    {
+      "name": "startBlock",
+      "signature": "startBlockstartBlock(name, enable=True)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Start a named undo block. While the block is active, any script changes to TouchDesigner objects that are undoable in the editor will be added to the undo stack. * name - The name of the block, which should briefly describe the change that would be undone. * enable - In the rare case you want to insert a block that doesn't store undo info within a block that does, you can create a block with enable off. Example:"
+    },
+    {
+      "name": "clear",
+      "signature": "clearclear()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Clear undo and redo stack. This will terminate any current undo blocks."
+    },
+    {
+      "name": "addCallback",
+      "signature": "addCallbackaddCallback(callback, info=None)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Add a Python callback into the current undo block. The callback should be defined as . The `isUndo` argument tells if the call is an undo or a redo (the same callback is used for both) and the `info` argument is the same Python object passed to `addCallback`, and should contain any information needed to perform the undo/redo. * callback - user defined callback function. Should be defined as * info - this argument will be passed back to user in the callback"
+    },
+    {
+      "name": "redo",
+      "signature": "redoredo()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Redo the next operation. This will terminate any current undo blocks."
+    },
+    {
+      "name": "undo",
+      "signature": "undoundo()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Undo the last operation. This will terminate any current undo blocks."
+    },
+    {
+      "name": "endBlock",
+      "signature": "endBlockendBlock()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Terminate an undo block."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Undo_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Undo_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Undo Class wiki page",
+      "url": "https://docs.derivative.ca/Undo_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

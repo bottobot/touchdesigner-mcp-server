@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:12.032Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Warp_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Warp_CHOP",
   "description": "The Warp CHOP time-warps the channels of the first input (the Pre-Warp Channels) using one warping channel in the second input (the Warp Curve). The Warp Curve acts as either a rate control or an index control, as explained below. The Warp CHOP usually works on non-time-sliced channels, like pre-key-framed channels of motion. See also the Lookup CHOP, the Speed CHOP and the Audio Oscillator CHOP.",
   "summary": "The Warp CHOP time-warps the channels of the first input (the Pre-Warp Channels) using one warping channel in the second input (the Warp Curve). The Warp Curve acts as either a rate control or an inde",
   "details": "",

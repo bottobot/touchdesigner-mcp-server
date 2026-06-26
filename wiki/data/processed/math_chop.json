@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:03.719Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Math_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Math_CHOP",
   "description": "The Math CHOP performs arithmetic operations on channels. The channels of a CHOP can be combined into one channel, and several CHOPs can be combined into one CHOP.",
   "summary": "The Math CHOP performs arithmetic operations on channels. The channels of a CHOP can be combined into one channel, and several CHOPs can be combined into one CHOP.",
   "details": "",

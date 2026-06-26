@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.504Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Joystick_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Joystick_CHOP",
   "description": "The Joystick CHOP outputs values for all 6 possible axes on any game controller (joysticks, game controllers, driving wheels, etc.), as well as up to 32 button, 2 sliders and 4 POV Hats.",
   "summary": "The Joystick CHOP outputs values for all 6 possible axes on any game controller (joysticks, game controllers, driving wheels, etc.), as well as up to 32 button, 2 sliders and 4 POV Hats.",
   "details": "",

@@ -1,94 +1,166 @@
 {
   "schemaVersion": "1.0",
   "description": "TouchDesigner version manifest with Python version mapping and release metadata",
+  "_provenance": [
+    {
+      "fact": "TouchDesigner 2025 official bundles Python 3.11.10",
+      "url": "https://derivative.ca/community-post/2025-official-update/73153",
+      "quote": "TouchDesigner's core python version has been updated to 3.11.10."
+    },
+    {
+      "fact": "TouchDesigner 2025 latest official build is 2025.32820 (2026-05-06); the 2025 series is the only current series and runs 2025.30000..2025.32820 (no 2024 official series exists; no 2026 series exists)",
+      "url": "https://derivative.ca/download/archive",
+      "quote": "2025.32820 (released 06 May, 2026) is the most recent 2025 release; year series shown are 2019, 2020, 2021, 2022, 2023, 2025 — no 2024 series and no 2026 series are listed."
+    },
+    {
+      "fact": "POPs (Point Operators) are the 2025 flagship: a new GPU operator family",
+      "url": "https://docs.derivative.ca/Release_Notes/2025.30000",
+      "quote": "Introducing POPs, aka Point Operators! POPs are a new family of operators that run on the GPU and create or modify 3D data."
+    },
+    {
+      "fact": "POPs are the first new operator family in over a decade (per the 2025 official update). The longer 'two decades / DATs 2005' framing is sourced separately from the POPs announcement page below, not from this update post.",
+      "url": "https://derivative.ca/community-post/2025-official-update/73153",
+      "quote": "This is the first new operator family we've added in over a decade and it promises to be a game changer for the way you work in TouchDesigner!"
+    },
+    {
+      "fact": "POPs were announced 2024-05-19; the previous new operator family was DATs in 2005",
+      "url": "https://derivative.ca/community-post/pops-new-operator-family-touchdesigner/69468",
+      "quote": "It's not every day we introduce a new operator family for TouchDesigner. DATs (Data Operators) was the last family created in 2005. (announced May 19th, 2024)"
+    },
+    {
+      "fact": "TouchDesigner 2021 OFFICIAL Python was 3.7.2; Python 3.9.5 arrived in the 2021 EXPERIMENTAL build 2021.38110",
+      "url": "https://derivative.ca/release/experimental-202138110/65595",
+      "quote": "The version of Python in TouchDesigner has been updated to 3.9.5. The previous version was Python 3.7.2."
+    },
+    {
+      "fact": "TouchDesigner 2020 official bundled Python 3.7.2",
+      "url": "https://docs.derivative.ca/Release_Notes/2020.20000",
+      "quote": "Python 3.7.2 is now the built-in version of python."
+    },
+    {
+      "fact": "TouchDesigner 2022 official upgraded core Python to 3.9.5 and made Vulkan the sole graphics API (OpenGL removed)",
+      "url": "https://derivative.ca/community-post/2022-official-update/66222",
+      "quote": "Beginning with an upgrade of TouchDesigner's core python to version 3.9.5. ... The openGL engine used for the last 20 years is gone and TouchDesigner's graphics API is now Vulkan."
+    },
+    {
+      "fact": "TouchDesigner 2023 official upgraded Python to 3.11 (patch version not stated on the announcement)",
+      "url": "https://derivative.ca/community-post/2023-official-update",
+      "quote": "The Python version in TouchDesigner has been upgraded to 3.11."
+    },
+    {
+      "fact": "TouchDesigner 2025 experimental builds also run Python 3.11.10 (experimental build series 2025.30060..2025.31310)",
+      "url": "https://docs.derivative.ca/Release_Notes/2025.30000/experimental",
+      "quote": "TouchDesigner's Python version has been updated to 3.11.10"
+    },
+    {
+      "fact": "UNVERIFIED: 099 patch-level Python version (3.5.1). Only the 3.5 major.minor lineage is asserted; no fetched source substantiated the exact patch. Build range expressed as a year note (2017-2018).",
+      "url": "https://derivative.ca/download/archive",
+      "quote": "099 series build numbers were not enumerated on the current archive page; 3.5.1 patch level is retained from legacy data and is UNVERIFIED."
+    },
+    {
+      "fact": "UNVERIFIED: 2019 Python patch-level (kept as 3.7 major.minor). The 2019 official release-notes Python page returned HTTP 404 on fetch; only the 3.7 lineage is asserted (2020 official was confirmed 3.7.2, and 2019 predates it).",
+      "url": "https://docs.derivative.ca/Release_Notes/2020.20000",
+      "quote": "Python 3.7.2 is now the built-in version of python. (2019-specific patch level could not be fetched; 2019 page 404'd)"
+    },
+    {
+      "fact": "UNVERIFIED: 2023 Python patch-level. The 2023 announcement states only 3.11; the legacy 3.11.1 patch could not be substantiated, so pythonVersion is set to the sourced 3.11.",
+      "url": "https://derivative.ca/community-post/2023-official-update",
+      "quote": "The Python version in TouchDesigner has been upgraded to 3.11."
+    },
+    {
+      "fact": "Build ranges per series from the release archive (min/max in YYYY.NNNNN form): 2019 = 2019.14650..2019.20700; 2020 = 2020.20020..2020.28110; 2021 = 2021.10330..2021.16960; 2022 = 2022.24200..2022.35320; 2023 = 2023.11290..2023.12600.",
+      "url": "https://derivative.ca/download/archive",
+      "quote": "2019: 2019.20700 ... 2019.14650 | 2020: 2020.28110 ... 2020.20020 | 2021: 2021.16960 ... 2021.10330 | 2022: 2022.35320 ... 2022.24200 | 2023: 2023.12600 ... 2023.11290"
+    }
+  ],
   "versions": [
     {
       "id": "099",
       "label": "TouchDesigner 099",
       "majorVersion": 99,
-      "buildRange": { "min": 2017, "max": 2018 },
+      "buildRange": { "min": "2017 (year)", "max": "2018 (year)" },
       "releaseYear": 2017,
-      "pythonVersion": "3.5.1",
+      "pythonVersion": "3.5",
       "pythonMajorMinor": "3.5",
       "supportStatus": "legacy",
-      "notes": "Legacy non-commercial and commercial release. Python 3.5 introduced. First modern Python integration."
+      "notes": "Legacy non-commercial and commercial release. Python 3.5 lineage. First modern Python integration. (099 build numbers are not enumerated on the current release archive; build range shown as a year note. Patch-level Python version unverified — see _provenance.)"
     },
     {
       "id": "2019",
       "label": "TouchDesigner 2019",
       "majorVersion": 2019,
-      "buildRange": { "min": 25200, "max": 28000 },
+      "buildRange": { "min": "2019.14650", "max": "2019.20700" },
       "releaseYear": 2019,
-      "pythonVersion": "3.7.4",
+      "pythonVersion": "3.7",
       "pythonMajorMinor": "3.7",
       "supportStatus": "legacy",
-      "notes": "Python upgraded to 3.7. Added asyncio support, dataclasses, f-strings. NDI support improved."
+      "notes": "Python 3.7 lineage. Build range 2019.14650..2019.20700 (from release archive). Patch-level Python version unverified (2019 release-notes Python page returned 404) — see _provenance."
     },
     {
       "id": "2020",
       "label": "TouchDesigner 2020",
       "majorVersion": 2020,
-      "buildRange": { "min": 28000, "max": 60000 },
+      "buildRange": { "min": "2020.20020", "max": "2020.28110" },
       "releaseYear": 2020,
-      "pythonVersion": "3.7.7",
+      "pythonVersion": "3.7.2",
       "pythonMajorMinor": "3.7",
       "supportStatus": "legacy",
-      "notes": "Python 3.7.7. Instanced geometry improvements. Vulkan renderer preview. CUDA integration expanded."
+      "notes": "Python 3.7.2 is the built-in version (confirmed in the 2020.20000 release notes). Build range 2020.20020..2020.28110 (from release archive). Note: Vulkan was experimental in the 2021 series, not a 2020 preview."
     },
     {
       "id": "2021",
       "label": "TouchDesigner 2021",
       "majorVersion": 2021,
-      "buildRange": { "min": 60000, "max": 65000 },
+      "buildRange": { "min": "2021.10330", "max": "2021.16960" },
       "releaseYear": 2021,
-      "pythonVersion": "3.9.5",
-      "pythonMajorMinor": "3.9",
-      "supportStatus": "maintenance",
-      "notes": "Python upgraded to 3.9. Added GLSL advanced pipeline, improved SOP/POP systems. Bullet physics updates."
+      "pythonVersion": "3.7.2",
+      "pythonMajorMinor": "3.7",
+      "supportStatus": "legacy",
+      "notes": "Official 2021 Python is 3.7.2. Python 3.9.5 arrived later in the 2021 EXPERIMENTAL build 2021.38110 (and became official in the 2022 release). Vulkan was experimental in the 2021 series (e.g. 2021.38110). Build range 2021.10330..2021.16960 (from release archive)."
     },
     {
       "id": "2022",
       "label": "TouchDesigner 2022",
       "majorVersion": 2022,
-      "buildRange": { "min": 28040, "max": 32660 },
+      "buildRange": { "min": "2022.24200", "max": "2022.35320" },
       "releaseYear": 2022,
-      "pythonVersion": "3.9.9",
+      "pythonVersion": "3.9.5",
       "pythonMajorMinor": "3.9",
-      "supportStatus": "maintenance",
-      "notes": "Python 3.9.9. Point Operators (POP) system introduced. USD integration. Web Render TOP improvements."
+      "supportStatus": "legacy",
+      "notes": "Core Python upgraded to 3.9.5. Vulkan became the SOLE graphics API (OpenGL fully removed) as of the 2022.20000 release. Engine COMP and USD COMP graduated to stable. Build range 2022.24200..2022.35320 (from release archive)."
     },
     {
       "id": "2023",
       "label": "TouchDesigner 2023",
       "majorVersion": 2023,
-      "buildRange": { "min": 11600, "max": 19000 },
+      "buildRange": { "min": "2023.11290", "max": "2023.12600" },
       "releaseYear": 2023,
-      "pythonVersion": "3.11.1",
+      "pythonVersion": "3.11",
       "pythonMajorMinor": "3.11",
-      "supportStatus": "active",
-      "notes": "Python upgraded to 3.11. Significant performance improvements. NVIDIA AI tools (background removal, upscaler, denoise). Engine COMP improvements."
+      "supportStatus": "maintenance",
+      "notes": "Python upgraded to 3.11 (up to 10-60% faster, better error reporting). Build range 2023.11290..2023.12600 (from release archive). Superseded by the 2025 series. Patch-level Python version unverified — announcement states only 3.11."
     },
     {
-      "id": "2024",
-      "label": "TouchDesigner 2024",
-      "majorVersion": 2024,
-      "buildRange": { "min": 28070, "max": null },
-      "releaseYear": 2024,
-      "pythonVersion": "3.11.7",
+      "id": "2025",
+      "label": "TouchDesigner 2025",
+      "majorVersion": 2025,
+      "buildRange": { "min": "2025.30000", "max": "2025.32820" },
+      "releaseYear": 2025,
+      "pythonVersion": "3.11.10",
       "pythonMajorMinor": "3.11",
       "supportStatus": "current",
-      "notes": "Python 3.11.7. Current stable release. RenderStream improvements, Widget COMP enhancements, enhanced POP system, improved USD pipeline."
+      "notes": "Current stable release. Core Python updated to 3.11.10. Flagship feature is the POP (Point Operators) family — a new GPU operator family that creates or modifies 3D data, the first new operator family in roughly two decades (DATs in 2005 were the last). POPs were announced 2024-05-19 and shipped with the 2025 release. Latest official build 2025.32820 (2026-05-06); series range 2025.30000..2025.32820. There has never been a 2024 official release."
     }
   ],
-  "versionOrder": ["099", "2019", "2020", "2021", "2022", "2023", "2024"],
-  "currentStable": "2024",
+  "versionOrder": ["099", "2019", "2020", "2021", "2022", "2023", "2025"],
+  "currentStable": "2025",
   "pythonVersionMap": {
     "099": "3.5",
     "2019": "3.7",
     "2020": "3.7",
-    "2021": "3.9",
+    "2021": "3.7",
     "2022": "3.9",
     "2023": "3.11",
-    "2024": "3.11"
+    "2025": "3.11"
   }
 }

@@ -29,8 +29,9 @@ export async function handler({ name, include_content = true, include_toc = true
     };
   }
 
+  try {
   const tutorial = await operatorDataManager.getTutorial(name);
-  
+
   if (!tutorial) {
     // Try to list available tutorials
     const { tutorials } = await operatorDataManager.listTutorials({ limit: 10 });
@@ -165,4 +166,13 @@ export async function handler({ name, include_content = true, include_toc = true
       text
     }]
   };
+  } catch (error) {
+    console.error('[get_tutorial] Error:', error);
+    return {
+      content: [{
+        type: "text",
+        text: `Failed to retrieve tutorial '${name}': ${error.message}`
+      }]
+    };
+  }
 }

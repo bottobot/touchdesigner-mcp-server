@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.759Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\FIFO_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/FIFO_DAT",
   "description": "The FIFO DAT maintains a user-set maximum number of rows in a table. You add rows using the appendRow() method found in DAT Class. When its capacity is reached, the first row is removed. After the maximum number of rows is reached, the oldest row is discarded when a new row is added.",
   "summary": "The FIFO DAT maintains a user-set maximum number of rows in a table. You add rows using the appendRow() method found in DAT Class. When its capacity is reached, the first row is removed. After the max",
   "details": "",

@@ -1,0 +1,185 @@
+{
+  "id": "alembic_out_pop",
+  "name": "Alembic Out POP",
+  "displayName": "Alembic Out POP",
+  "category": "POP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Alembic_Out_POP",
+  "description": "The Alembic Out POP writes POP contents to an Alembic <code>.abc</code> file. It outputs points, vertices, and primitives similarly but not identically to the POPs structure. <code>.abc</code> files can contain multi-frame animations and built in and custom attributes. Multiple POPs can be input as separate objects within one Alembic file. Each Alembic Out POP's Input requires exactly one of the following POPs primitive types to be present. * Points are written as <code>OPoints</code>. * Triangle and Quad primitives are written as <code>OPolyMesh</code>. * Line Strips and Lines are written as <code>OCurves</code> with curve type set to Linear. Where <code>OPoints</code>, <code>OPolyMesh</code>, and <code>OCurves</code> are the underlying objects passed to the Alembic SDK. '''Note''' - each input POP must contain a single primitive type (i.e. an input POP can have only Triangles or only Point Primitives, however not both). TouchDesigner converts Line Strip data to a set of points and list of lengths as Alembic's <code>OCurves</code> does not support vertex index references like they do for Triangles and Quads when exported to <code>OPolyMesh</code>. This means closed line strips are written out with a repeated starting vertex indicating its closed. (i.e. a closed line strip <code>0,1,2,3,0</code> will become an open line strip <code>0,1,2,3,4</code> where 0 and 4 are the same point). The [[Alembic In POP]] detects when the initial and final points are repeated and converts it into a closed line strip. '''Output of Attributes''': * Point primitives support writing all Point attributes * Triangle and Quad primitives support writing all Point, Vertex and Primitive attributes * Lines and Line Strips support writing '''builtin''' Point and Primitive attributes. (see below for built in attributes) '''Vertex List''': Alembic uses a reversed winding order for primitives compared to TouchDesigner, this means the vertex order for each primitive is flipped when writing as well as when reading from the Alembic In POP. '''Built in Attributes''': Alembic Out POP will automatically export the following built in attributes * <code>Color</code> attribute written as <code>Cd float4</code> * <code>N</code> attribute written as <code>N float3</code> * <code>Tex</code> attribute written as either <code>uv float2</code> or when Export 3D Texture Coord is toggled as <code>uv float3</code> '''Note ''' - Line Strips and Lines only support built-in attributes for Point and Primitive attributes and does not support custom attribute writing. For animated point clouds specifying the point attributes Point Id and Velocity writes these attributes as follows. * Point Ids as <code>.pointIds int64</code> * Velocity as <code>.velocities float3</code> These attributes can be created from nodes such as [[Particle POP]] that create <code>PartId</code> and <code>PartVel</code> or as a custom attribute. '''Custom Attribute data types''': Point, Triangle, and Quad primitive support the following custom attribute types * <code>uint</code>, <code>int</code>, <code>float</code>, <code>double</code> * <code>int2</code>, <code>float2</code>, <code>double2</code> * <code>int3</code>, <code>float3</code>, <code>double3</code> * Array attributes '''Output of POP groups''': Alembic Out POP ignores POP groups. '''Animated multi-frame output''': The Topology Unchanged toggle can be enabled when an animated object does not have changing topologies, this will cause the topology to be written out once at the beginning. '''Outputting multiple POPs to one Alembic file''': Alembic Out POP supports exporting multiple POPs into a single Alembic file each as it's own individual object, under the root. For example writing two POPs will result in objects with paths <code>/object1</code> and <code>/object2</code>. See also [[Alembic]], [[Alembic In POP]], [[File Out POP]]",
+  "parameters": [
+    {
+      "name": "Input",
+      "parName": "input",
+      "label": "Input",
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks managing the inputs of the POP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Unique Suffix",
+      "parName": "uniquesuff",
+      "label": "Unique Suffix",
+      "type": "Toggle",
+      "description": "When enabled, me.fileSuffix will be a unique suffix when used in the file parameter.",
+      "isReadOnly": false
+    },
+    {
+      "name": "N",
+      "parName": "n",
+      "label": "N",
+      "type": "Int",
+      "description": "N is the index used in me.fileSuffix. When unique suffix is enabled, N specifies the starting index to increment from when calculating a unique suffix/name.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Leading Zeros Digits",
+      "parName": "leadingzerosdigits",
+      "label": "Leading Zeros Digits",
+      "type": "Int",
+      "description": "Specify the minimum number of suffix digits that the filename will have. If the index number is less than this number, leading zeros will be appended to total the number of suffix digits to be this value.",
+      "isReadOnly": false
+    },
+    {
+      "name": "File",
+      "parName": "file",
+      "label": "File",
+      "type": "File",
+      "description": "Sets the path and filename of the movie file that is saved out. The filename must include the file extension such as .obj/.exr etc.",
+      "isReadOnly": false
+    },
+    {
+      "name": "FPS",
+      "parName": "fps",
+      "label": "FPS",
+      "type": "Float",
+      "description": "The frame rate of the Alembic file created.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Limit Length",
+      "parName": "limitlength",
+      "label": "Limit Length",
+      "type": "Toggle",
+      "description": "This can be used to automatically stop recording the file once it reaches a specified length.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Length",
+      "parName": "length",
+      "label": "Length",
+      "type": "Float",
+      "description": "The length to stop recording the file at.",
+      "isReadOnly": false,
+      "menuItems": [
+        "length",
+        "lengthunit"
+      ],
+      "menuLabels": [
+        "Length",
+        "Length Unit"
+      ]
+    },
+    {
+      "name": "Record",
+      "parName": "record",
+      "label": "Record",
+      "type": "Toggle",
+      "description": "When this parameter is set to 1, the file will be recording.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Record Pulse",
+      "parName": "recordpulse",
+      "label": "Record Pulse",
+      "type": "Pulse",
+      "description": "Instantly write out a file.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Pause",
+      "parName": "pause",
+      "label": "Pause",
+      "type": "Toggle",
+      "description": "Pauses the recording.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Add Frame",
+      "parName": "addframe",
+      "label": "Add Frame",
+      "type": "Pulse",
+      "description": "Adds a single frame to the output for each click of the button. Pause must be '''On''' to enable the Add Frame parameter.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Max Active Saves",
+      "parName": "maxactive",
+      "label": "Max Active Saves",
+      "type": "Int",
+      "description": "Specifies the maximum number of file saving tasks can be running at once.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Include Primitives",
+      "parName": "includeprim",
+      "label": "Include Primitives",
+      "type": "Toggle",
+      "description": "This can be used to enable writing primtive data to the file.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Tex Coord Attribute",
+      "parName": "texcoordattrib",
+      "label": "Tex Coord Attribute",
+      "type": "Str",
+      "description": "When writing out to geometry files including texture coordinates, the name of the texture attribute to use (doesn't have to be Tex).",
+      "isReadOnly": false
+    },
+    {
+      "name": "Topology Unchanged",
+      "parName": "unchangedtopology",
+      "label": "Topology Unchanged",
+      "type": "Toggle",
+      "description": "When writing can be used to indicate the topology will be unchanging, this will mean the topology will only be written once.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Samples per Second",
+      "parName": "abcfps",
+      "label": "Samples per Second",
+      "type": "Float",
+      "description": "Specify the time sampling rate provided to the Alembic library",
+      "isReadOnly": false
+    },
+    {
+      "name": "Export 3D Texture Coord",
+      "parName": "abc3dtex",
+      "label": "Export 3D Texture Coord",
+      "type": "Toggle",
+      "description": "When toggled textures will be written to a custom attrib with 3D textures, as Alembic supports 2D textures by default.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Alembic_Out_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Alembic_Out_POP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Alembic_Out_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

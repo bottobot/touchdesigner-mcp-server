@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "str",
       "readOnly": true,
-      "description": "name member"
-    },
-    {
-      "name": "name",
-      "id": "bodyContent",
-      "returnType": "str",
-      "readOnly": true,
-      "description": "name member"
+      "description": ""
     }
   ],
   "methods": [],

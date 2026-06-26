@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.805Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Threshold_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Threshold_TOP",
   "description": "The Threshold TOP creates a matte with pixel values set to 0 for pixels below the threshold value, and 1 for pixels greater than or equal to the threshold value.",
   "summary": "The Threshold TOP creates a matte with pixel values set to 0 for pixels below the threshold value, and 1 for pixels greater than or equal to the threshold value.",
   "details": "",

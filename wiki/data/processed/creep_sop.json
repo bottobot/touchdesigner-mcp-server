@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.132Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Creep_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Creep_SOP",
   "description": "The Creep SOP lets you deform and animate Source Input (input0) geometry along the surface of the Path Input (input1) geometry.",
   "summary": "The Creep SOP lets you deform and animate Source Input (input0) geometry along the surface of the Path Input (input1) geometry.",
   "details": "",

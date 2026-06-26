@@ -1,0 +1,19 @@
+{
+  "className": "OPEXShortcut",
+  "displayName": "OPEXShortcut",
+  "category": "General",
+  "description": "OPEXShortcut",
+  "members": [],
+  "methods": [],
+  "url": "https://docs.derivative.ca/OPEXShortcut_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=OPEXShortcut_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the OPEXShortcut Class wiki page",
+      "url": "https://docs.derivative.ca/OPEXShortcut_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

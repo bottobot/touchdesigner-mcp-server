@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.362Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/In_DAT",
   "description": "The In DAT is used to create a DAT input in a Component. Component inputs are positioned alphanumerically on the left side of the Component. Disconnecting an input to an In DAT will still keep the contents instanced to the original input.",
   "summary": "The In DAT is used to create a DAT input in a Component. Component inputs are positioned alphanumerically on the left side of the Component. Disconnecting an input to an In DAT will still keep the con",
   "details": "",

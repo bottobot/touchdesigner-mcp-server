@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.449Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Rename_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Rename_CHOP",
   "description": "The Rename CHOP renames channels. Channels names from the input CHOP are matched using the From pattern, and are renamed to the corresponding name in the To pattern. Channels that do not match the From pattern are not affected.",
   "summary": "The Rename CHOP renames channels. Channels names from the input CHOP are matched using the From pattern, and are renamed to the corresponding name in the To pattern. Channels that do not match the Fro",
   "details": "",

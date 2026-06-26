@@ -3,1234 +3,245 @@
   "id": "chop_to_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The CHOP to POP takes CHOP channels and lets you convert them to attributes of a POP. Each CHOP sample becomes one POP point.",
+  "description": "The CHOP to POP takes CHOP channels and lets you convert them to attributes of a POP. Each CHOP sample becomes one POP point. You can manually list the CHOP channels you want to convert, and then list the names of the POP attributes you want create, matching channels to attributes one by one. Built-in attributes like <code>P</code>, <code>N</code>, <code>Color</code> and <code>Tex</code> are assumed to be their multi-component forms. Other channel names will be assumed to be converted to scalar float attributes. Channel to attribute mapping can be done through sequential blocks which give you more control over the type of attribute you create, for example, an array of 5 integers. Alternately, channels can be automatically converted to attributes based on a naming standard. Set the Channels Selection menu to Autoconvert Precise Names. This is the same channel naming standard that [[POP to CHOP]] produces when POP to CHOP's Name Format menu is set to Precise, which handles attributes that have <code>()</code> and <code>[]</code>: * the attribute name is the same including maintaining capital letters * components of a vector attribute have <code>_0 _1 _2</code> suffixed i.e. <code>Tex_0 Tex_1 Tex_2</code> * [[Array Attribute]]s are create with channel names with a leading-following underscore - <code>MyArray_0_</code>. For example, channel names A<code>bc_0_</code> and <code>Abc_1_</code> create an array attribute named <code>Abc</code> with 2 float elements. * for vector arrays <code>MyVectorArray_0_1</code>. * The channel name optionally has a single character at the end to signify data type: <code>f</code> (float), <code>F</code> (double), <code>i</code> int, <code>I</code> double int, <code>u</code> unsigned, <code>U</code> double unsigned. You can get the <code>P</code> position attribute from the CHOP, or you can create your own line for <code>P</code> with a start-end position that you specify. The POP points can be connected as an open or closed linestrip, or be created as single-point primitives, or have no primitives. You can override the number of points that it produces and CHOP to POP will optionally interpolate from samples of the input. See also [[POP to CHOP]]",
   "parameters": [
     {
-      "name": "P",
+      "name": "CHOP",
+      "parName": "chop",
       "label": "CHOP",
-      "description": "Configure CHOP for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "Start Position",
-          "value": "startposx",
-          "description": ""
-        },
-        {
-          "label": "Start Position",
-          "value": "startposy",
-          "description": ""
-        },
-        {
-          "label": "Start Position",
-          "value": "startposz",
-          "description": ""
-        },
-        {
-          "label": "End Position",
-          "value": "endposx",
-          "description": ""
-        },
-        {
-          "label": "End Position",
-          "value": "endposy",
-          "description": ""
-        },
-        {
-          "label": "End Position",
-          "value": "endposz",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P(0)",
-          "value": "P(0)",
-          "description": ""
-        },
-        {
-          "label": "P(1)",
-          "value": "P(1)",
-          "description": ""
-        },
-        {
-          "label": "P(2)",
-          "value": "P(2)",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color(0)",
-          "value": "Color(0)",
-          "description": ""
-        },
-        {
-          "label": "Color(1)",
-          "value": "Color(1)",
-          "description": ""
-        },
-        {
-          "label": "Color(2)",
-          "value": "Color(2)",
-          "description": ""
-        },
-        {
-          "label": "Color(3)",
-          "value": "Color(3)",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "N(0)",
-          "value": "N(0)",
-          "description": ""
-        },
-        {
-          "label": "N(1)",
-          "value": "N(1)",
-          "description": ""
-        },
-        {
-          "label": "N(2)",
-          "value": "N(2)",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "Tex(0)",
-          "value": "Tex(0)",
-          "description": ""
-        },
-        {
-          "label": "Tex(1)",
-          "value": "Tex(1)",
-          "description": ""
-        },
-        {
-          "label": "Tex(2)",
-          "value": "Tex(2)",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "p",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "dvector",
-          "value": "dvector",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue4",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "CHOP",
+      "description": "The CHOP to convert to POP attributes.",
+      "isReadOnly": false
     },
     {
-      "name": "chop",
-      "label": "CHOP",
-      "description": "Configure CHOP for the operator",
-      "type": "string"
-    },
-    {
-      "name": "surftype",
+      "name": "Connectivity",
+      "parName": "surftype",
       "label": "Connectivity",
-      "description": "Configure Connectivity for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines the primitive used to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "points",
+        "linestrip",
+        "lines"
+      ],
+      "menuLabels": [
+        "None",
+        "Point Primitives",
+        "Line Strip",
+        "Lines"
       ]
     },
     {
-      "name": "none",
-      "label": "None",
-      "description": "Configure None for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overridenumpoints",
+      "name": "Override Number of Points",
+      "parName": "overridenumpoints",
       "label": "Override Number of Points",
-      "description": "Configure Override Number of Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When on, overrides the number of points to create.",
+      "isReadOnly": false,
+      "menuItems": [
+        "overridenumpoints",
+        "numpoints"
+      ],
+      "menuLabels": [
+        "Override Number of Points",
+        "Number of Points"
+      ]
     },
     {
-      "name": "numpoints",
-      "label": "Number of Points",
-      "description": "Configure Number of Points for the operator",
-      "type": "string"
-    },
-    {
-      "name": "interpolate",
+      "name": "Interpolate",
+      "parName": "interpolate",
       "label": "Interpolate",
-      "description": "Configure Interpolate for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When on, the CHOP can be interpolated between samples. When off, the nearest sample is used. Only when the POP is set to a different number of points than samples.",
+      "isReadOnly": false
     },
     {
-      "name": "specifypos",
+      "name": "Specify Position",
+      "parName": "specifypos",
       "label": "Specify Position",
-      "description": "Configure Specify Position for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable mapping the samples to a points positions range.",
+      "isReadOnly": false
     },
     {
-      "name": "startpos",
+      "name": "Start Position",
+      "parName": "startpos",
       "label": "Start Position",
-      "description": "Configure Start Position for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Start Position",
-          "value": "startposx",
-          "description": ""
-        },
-        {
-          "label": "Start Position",
-          "value": "startposy",
-          "description": ""
-        },
-        {
-          "label": "Start Position",
-          "value": "startposz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Start position for samples mapped to a points positions range.",
+      "isReadOnly": false,
+      "menuItems": [
+        "startposx",
+        "startposy",
+        "startposz"
+      ],
+      "menuLabels": [
+        "Start Position",
+        "Start Position",
+        "Start Position"
       ]
     },
     {
-      "name": "startposx",
-      "label": "Start Position",
-      "description": "Configure Start Position for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Start Position",
-          "value": "startposx",
-          "description": ""
-        },
-        {
-          "label": "Start Position",
-          "value": "startposy",
-          "description": ""
-        },
-        {
-          "label": "Start Position",
-          "value": "startposz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "endpos",
+      "name": "End Position",
+      "parName": "endpos",
       "label": "End Position",
-      "description": "Configure End Position for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "End Position",
-          "value": "endposx",
-          "description": ""
-        },
-        {
-          "label": "End Position",
-          "value": "endposy",
-          "description": ""
-        },
-        {
-          "label": "End Position",
-          "value": "endposz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "End position for samples mapped to a points positions range.",
+      "isReadOnly": false,
+      "menuItems": [
+        "endposx",
+        "endposy",
+        "endposz"
+      ],
+      "menuLabels": [
+        "End Position",
+        "End Position",
+        "End Position"
       ]
     },
     {
-      "name": "endposx",
-      "label": "End Position",
-      "description": "Configure End Position for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "End Position",
-          "value": "endposx",
-          "description": ""
-        },
-        {
-          "label": "End Position",
-          "value": "endposy",
-          "description": ""
-        },
-        {
-          "label": "End Position",
-          "value": "endposz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "closed",
+      "name": "Closed",
+      "parName": "closed",
       "label": "Closed",
-      "description": "Configure Closed for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "The last vertex is connected to the first vertex.",
+      "isReadOnly": false
     },
     {
-      "name": "chanscope",
+      "name": "Channels Selection",
+      "parName": "chanssel",
+      "label": "Channels Selection",
+      "type": "Menu",
+      "description": "Channels can be automatically converted to attributes based on a naming standard.",
+      "isReadOnly": false,
+      "menuItems": [
+        "spec",
+        "precisenamessuffix",
+        "precisenames"
+      ],
+      "menuLabels": [
+        "Specify Channels",
+        "Autoconvert Precise Names with Type Suffix",
+        "Autoconvert Precise Names"
+      ]
+    },
+    {
+      "name": "Channel Scope",
+      "parName": "chanscope",
       "label": "Channel Scope",
-      "description": "Configure Channel Scope for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Pattern of channel names to convert to attribute point values.",
+      "isReadOnly": false
     },
     {
-      "name": "attrscope",
+      "name": "Attribute Scope",
+      "parName": "attrscope",
       "label": "Attribute Scope",
-      "description": "Configure Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P(0)",
-          "value": "P(0)",
-          "description": ""
-        },
-        {
-          "label": "P(1)",
-          "value": "P(1)",
-          "description": ""
-        },
-        {
-          "label": "P(2)",
-          "value": "P(2)",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color(0)",
-          "value": "Color(0)",
-          "description": ""
-        },
-        {
-          "label": "Color(1)",
-          "value": "Color(1)",
-          "description": ""
-        },
-        {
-          "label": "Color(2)",
-          "value": "Color(2)",
-          "description": ""
-        },
-        {
-          "label": "Color(3)",
-          "value": "Color(3)",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "N(0)",
-          "value": "N(0)",
-          "description": ""
-        },
-        {
-          "label": "N(1)",
-          "value": "N(1)",
-          "description": ""
-        },
-        {
-          "label": "N(2)",
-          "value": "N(2)",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "Tex(0)",
-          "value": "Tex(0)",
-          "description": ""
-        },
-        {
-          "label": "Tex(1)",
-          "value": "Tex(1)",
-          "description": ""
-        },
-        {
-          "label": "Tex(2)",
-          "value": "Tex(2)",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "A list of attributes to be created according to the channel scope.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "P(0)",
+        "P(1)",
+        "P(2)",
+        "Color",
+        "Color(0)",
+        "Color(1)",
+        "Color(2)",
+        "Color(3)",
+        "N",
+        "N(0)",
+        "N(1)",
+        "N(2)",
+        "Tex",
+        "Tex(0)",
+        "Tex(1)",
+        "Tex(2)"
+      ],
+      "menuLabels": [
+        "P",
+        "P(0)",
+        "P(1)",
+        "P(2)",
+        "Color",
+        "Color(0)",
+        "Color(1)",
+        "Color(2)",
+        "Color(3)",
+        "N",
+        "N(0)",
+        "N(1)",
+        "N(2)",
+        "Tex",
+        "Tex(0)",
+        "Tex(1)",
+        "Tex(2)"
       ]
     },
     {
-      "name": "attr",
+      "name": "Attributes",
+      "parName": "attrs",
+      "label": "Attributes",
+      "type": "StrMenu",
+      "description": "Attributes to create when matching channels are found in the CHOP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "New Attribute",
+      "parName": "attr",
       "label": "New Attribute",
-      "description": "Configure New Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "p",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "dvector",
-          "value": "dvector",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0chanscope",
-      "label": "Channel Scope",
-      "description": "Configure Channel Scope for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0name",
-      "label": "New Attribute Name",
-      "description": "Configure New Attribute Name for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "p",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "custom",
-      "label": "Custom",
-      "description": "Configure Custom for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "p",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0customname",
-      "label": "Custom Name",
-      "description": "Configure Custom Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0type",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "dvector",
-          "value": "dvector",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "dvector",
-          "value": "dvector",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0numcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0defvalue",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0defvalue1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to create new attributes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "attr0name",
+        "attr0customname",
+        "attr0type",
+        "attr0numcomps",
+        "attr0defaultval0",
+        "attr0defaultval1",
+        "attr0defaultval2",
+        "attr0defaultval3"
+      ],
+      "menuLabels": [
+        "New Attribute Name",
+        "Custom Name",
+        "Attribute Type",
+        "Components",
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-CHOP_to_POP.htm",
-  "parsedAt": "2025-08-08T03:03:54.653Z"
+  "parsedAt": "2025-08-08T03:03:54.653Z",
+  "url": "https://docs.derivative.ca/CHOP_to_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=CHOP_to_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live CHOP_to_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=CHOP_to_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

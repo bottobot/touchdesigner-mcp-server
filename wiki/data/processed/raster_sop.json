@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.137Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Raster_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Raster_SOP",
   "description": "The Raster SOP converts TOP image data to geometry by scanning left to right, top to bottom, outputting a geometry point at each pixel. This output can be used to display image data on laser devices, oscilloscopes or similar devices using the Laser CHOP. This is different from the Trace SOP which only outputs contour shapes from an image.",
   "summary": "The Raster SOP converts TOP image data to geometry by scanning left to right, top to bottom, outputting a geometry point at each pixel. This output can be used to display image data on laser devices, ",
   "details": "",

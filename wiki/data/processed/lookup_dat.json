@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.516Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Lookup_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Lookup_DAT",
   "description": "The Lookup DAT  outputs values from a lookup Table. The first input is an index into the second input.",
   "summary": "The Lookup DAT  outputs values from a lookup Table. The first input is an index into the second input.",
   "details": "",

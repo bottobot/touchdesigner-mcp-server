@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.974Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Video_Stream_Out_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Video_Stream_Out_TOP",
   "description": "Note: This TOP uses the Nvidia Hardware Encoder to create the stream and therefore requires an Nvidia GPU and Windows to operate.",
   "summary": "Note: This TOP uses the Nvidia Hardware Encoder to create the stream and therefore requires an Nvidia GPU and Windows to operate.",
   "details": "",

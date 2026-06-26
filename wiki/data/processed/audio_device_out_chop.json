@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.952Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Device_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Device_Out_CHOP",
   "description": "The Audio Device Out CHOP sends audio to any of the attached audio output devices using DirectSound/CoreAudio or ASIO. \t\t\t\nThe second input on the Audio Device Out CHOP can be used for volume control.",
   "summary": "The Audio Device Out CHOP sends audio to any of the attached audio output devices using DirectSound/CoreAudio or ASIO. \t\t\t\nThe second input on the Audio Device Out CHOP can be used for volume control.",
   "details": "",

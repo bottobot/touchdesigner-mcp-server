@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.269Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\CHOP_to_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/CHOP_to_SOP",
   "description": "The CHOP to SOP takes CHOP channels and generates 3D polygons in a SOP. It reads sample data from a CHOP and converts it into point positions and point attributes. This makes it complementary to the SOP to CHOP. The Channels created by the SOP to CHOP can be modified and then re-inserted into the SOP network via a CHOP to SOP.",
   "summary": "The CHOP to SOP takes CHOP channels and generates 3D polygons in a SOP. It reads sample data from a CHOP and converts it into point positions and point attributes. This makes it complementary to the S",
   "details": "",

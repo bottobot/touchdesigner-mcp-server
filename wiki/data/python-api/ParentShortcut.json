@@ -1,0 +1,19 @@
+{
+  "className": "ParentShortcut",
+  "displayName": "ParentShortcut",
+  "category": "General",
+  "description": "ParentShortcut",
+  "members": [],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ParentShortcut_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ParentShortcut_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ParentShortcut Class wiki page",
+      "url": "https://docs.derivative.ca/ParentShortcut_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "udt_in_dat",
+  "name": "UDT In DAT",
+  "displayName": "UDT In DAT",
+  "category": "DAT",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/UDT_In_DAT",
+  "description": "'''NOTE This DAT has been removed from TouchDesigner 2021 Official builds and later.''' The UDT In DAT is used for receiving information over a [[UDT]] connection between two remotely located computers. It captures all the messages without any queuing or buffering, and allows you to send it any messages you want. UDT Streaming is a reliable, streaming, connection orientated protocol. A single server can send to multiple clients at the same time. Handle received messages using the callback DAT attached to the UDT In DAT. Send replies using the [[udtinDAT_Class]]. See also [[Peer Class]], [[UDT Out DAT]], [[Network Protocols]]. '''NOTE for Windows OS - If experiencing connection issues make sure Windows Firewall is disabled.'''",
+  "parameters": [
+    {
+      "name": "Protocol",
+      "parName": "protocol",
+      "label": "Protocol",
+      "type": "",
+      "description": "Select which protocol to use, refer to the [[Network Protocols]] article for more information.",
+      "isReadOnly": false,
+      "menuItems": [
+        "faststreaming",
+        "reliablemsging"
+      ],
+      "menuLabels": [
+        "Fast Streaming",
+        "Reliable Messaging"
+      ]
+    },
+    {
+      "name": "Network Address",
+      "parName": "address",
+      "label": "Network Address",
+      "type": "",
+      "description": "You can put an IP address to listen on (224.0.0.1). This parameter is only needed for multicast protocols.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Port",
+      "parName": "port",
+      "label": "Port",
+      "type": "",
+      "description": "The network port the listen on.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Shared Connection",
+      "parName": "shared",
+      "label": "Shared Connection",
+      "type": "",
+      "description": "Use the same connection as other networking DATs using the same network protocol.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Row/Callback Format",
+      "parName": "format",
+      "label": "Row/Callback Format",
+      "type": "",
+      "description": "Determines how the incoming data is parsed into the table.",
+      "isReadOnly": false,
+      "menuItems": [
+        "perbyte",
+        "perline",
+        "permessage"
+      ],
+      "menuLabels": [
+        "One Per Byte",
+        "One Per Line",
+        "One Per Message"
+      ]
+    },
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "",
+      "description": "This check box enables the connection.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Callbacks DAT",
+      "parName": "callbacks",
+      "label": "Callbacks DAT",
+      "type": "",
+      "description": "The Callbacks DAT will execute once for each message coming in. See [[udtinDAT_Class]] for usage.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Execute from",
+      "parName": "executeloc",
+      "label": "Execute from",
+      "type": "",
+      "description": "Determines the location the script is run from.",
+      "isReadOnly": false,
+      "menuItems": [
+        "current",
+        "callbacks",
+        "op"
+      ],
+      "menuLabels": [
+        "Current Node",
+        "Callbacks DAT",
+        "Specified Operator"
+      ]
+    },
+    {
+      "name": "From Operator",
+      "parName": "fromop",
+      "label": "From Operator",
+      "type": "",
+      "description": "The operator whose state change will trigger the DAT to execute its script when <span class=\"tipTextDAT\">Execute from</span> is set to <span class=\"tipTextDAT\">Specified Operator</span>. This operator is also the path that the script will be executed from if the <span class=\"tipTextDAT\">Execute from</span> parameter is set to <span class=\"tipTextDAT\">Specified Operator</span>.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Clamp Output",
+      "parName": "clamp",
+      "label": "Clamp Output",
+      "type": "",
+      "description": "The DAT is limited to 100 messages by default but with Clamp Output, this can be set to anything including unlimited.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Maximum Lines",
+      "parName": "maxlines",
+      "label": "Maximum Lines",
+      "type": "",
+      "description": "Limits the number of messages, older messages are removed from the list first.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Clear Output",
+      "parName": "clear",
+      "label": "Clear Output",
+      "type": "",
+      "description": "Deletes all lines except the heading. To clear with a python script <code>op(''\"opname\"'').par.clear.pulse()</code>",
+      "isReadOnly": false
+    },
+    {
+      "name": "Bytes Column",
+      "parName": "bytes",
+      "label": "Bytes Column",
+      "type": "",
+      "description": "Outputs the raw bytes of the message in a separate column.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=UDT_In_DAT&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live UDT_In_DAT wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=UDT_In_DAT&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

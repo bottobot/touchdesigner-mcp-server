@@ -1,0 +1,249 @@
+{
+  "className": "GeometryStagingData",
+  "displayName": "GeometryStagingData",
+  "category": "General",
+  "description": "This class holds the staging data required to define 3D geometry before it is passed to the Script POP for final construction. It supports defining primitives as well as point, vertex, and primitive attribute data. Attribute values can be appended directly or populated by copying from existing POP buffers. Likewise, new primitives may be appended, or an entire primitive buffer can be copied from another POP instance. See also: POP Class, ScriptPOP Class, AttribList Class",
+  "members": [
+    {
+      "name": "pointAttributeValues",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "A dictionary mapping each attribute name to an AttribList of staged point attribute values."
+    },
+    {
+      "name": "primAttributeValues",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "A dictionary mapping each attribute name to an AttribList of staged primitive attribute values."
+    },
+    {
+      "name": "vertAttributeValues",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "A dictionary mapping each attribute name to an AttribList of staged vertex attribute values."
+    }
+  ],
+  "methods": [
+    {
+      "name": "allocatePointAttribValues",
+      "signature": "allocatePointAttribValuesallocatePointAttribValues(numValues)",
+      "returns": "dict",
+      "parameters": [],
+      "description": "Allocates multiple point attribute values. Returns a dictionary of AttribList per attribute name. * `numValues` - The number of values to allocate."
+    },
+    {
+      "name": "allocatePrimAttribValues",
+      "signature": "allocatePrimAttribValuesallocatePrimAttribValues(numValues)",
+      "returns": "dict",
+      "parameters": [],
+      "description": "Allocates multiple primitive attribute values. Returns a dictionary of AttribList per attribute name. * `numValues` - The number of values to allocate."
+    },
+    {
+      "name": "allocateVertAttribValues",
+      "signature": "allocateVertAttribValuesallocateVertAttribValues(numValues)",
+      "returns": "dict",
+      "parameters": [],
+      "description": "Allocates multiple vertex attribute values. Returns a dictionary of AttribList per attribute name. * `numValues` - The number of values to allocate."
+    },
+    {
+      "name": "appendDimension",
+      "signature": "appendDimensionappendDimension(dimensionSize)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds a dimension to the metadata to describe the point list's structure. * `dimensionSize` - The dimension size."
+    },
+    {
+      "name": "appendPointAttribValue",
+      "signature": "appendPointAttribValueappendPointAttribValue(attributeName, value)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Adds a point attribute element. Returns the total number of elements. * `attributeName` - The attribute name. * `value` - The value or a tuple of components, columns and array values."
+    },
+    {
+      "name": "appendPointAttribValues",
+      "signature": "appendPointAttribValuesappendPointAttribValues(attributeName, values)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Adds multiple point attribute elements. Returns the total number of elements. * `attributeName` - The attribute name. * `values` - The list of values to add. Elements in the list can be float, int or tuples."
+    },
+    {
+      "name": "appendPrimAttribValue",
+      "signature": "appendPrimAttribValueappendPrimAttribValue(attributeName, value)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Adds a primitive attribute element. Returns the total number of elements. * `attributeName` - The attribute name. * `value` - The value or a tuple of components, columns and array values."
+    },
+    {
+      "name": "appendPrimAttribValues",
+      "signature": "appendPrimAttribValuesappendPrimAttribValues(attributeName, values)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Adds multiple primitive attribute elements. Returns the total number of elements. * `attributeName` - The attribute name. * `values` - The list of values to add. Elements in the list can be float, int or tuples."
+    },
+    {
+      "name": "appendPrimLine",
+      "signature": "appendPrimLineappendPrimLine(pointIndex0, pointIndex1)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds a line primitive. * `pointIndex0` - The point index 0. * `pointIndex1` - The point index 1."
+    },
+    {
+      "name": "appendPrimLineStrip",
+      "signature": "appendPrimLineStripappendPrimLineStrip(pointIndices)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds a line strip primitive. * `pointIndices` - The tuple containing the point indices."
+    },
+    {
+      "name": "appendPrimLineStrips",
+      "signature": "appendPrimLineStripsappendPrimLineStrips(pointIndices)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds a line strip primitive. * `pointIndices` - A list of tuples of point indices."
+    },
+    {
+      "name": "appendPrimLines",
+      "signature": "appendPrimLinesappendPrimLines(pointIndices)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds multiple line primitives. * `pointIndices` - A list of point indices."
+    },
+    {
+      "name": "appendPrimPoint",
+      "signature": "appendPrimPointappendPrimPoint(pointIndex)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds a point primitive. * `pointIndex` - The point index."
+    },
+    {
+      "name": "appendPrimPoints",
+      "signature": "appendPrimPointsappendPrimPoints(pointIndices)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds multiple point primitives. * `pointIndices` - A list of point indices."
+    },
+    {
+      "name": "appendPrimQuad",
+      "signature": "appendPrimQuadappendPrimQuad(pointIndex0, pointIndex1, pointIndex2, pointIndex3)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds a quadrilateral primitive. * `pointIndex0` - The point index 0. * `pointIndex1` - The point index 1. * `pointIndex2` - The point index 2. * `pointIndex3` - The point index 3."
+    },
+    {
+      "name": "appendPrimQuads",
+      "signature": "appendPrimQuadsappendPrimQuads(pointIndices)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds a quadrilateral primitive. * `pointIndices` - A list of point indices."
+    },
+    {
+      "name": "appendPrimTriangle",
+      "signature": "appendPrimTriangleappendPrimTriangle(pointIndex0, pointIndex1, pointIndex2)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds a triangle primitive. * `pointIndex0` - The point index 0. * `pointIndex1` - The point index 1. * `pointIndex2` - The point index 2."
+    },
+    {
+      "name": "appendPrimTriangles",
+      "signature": "appendPrimTrianglesappendPrimTriangles(pointIndices)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Adds multiple triangle primitives. * `pointIndices` - A list of point indices."
+    },
+    {
+      "name": "appendVertAttribValue",
+      "signature": "appendVertAttribValueappendVertAttribValue(attributeName, value)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Adds a vertex attribute element. Returns the total number of elements. * `attributeName` - The attribute name. * `value` - The value or a tuple of components, columns and array values."
+    },
+    {
+      "name": "appendVertAttribValues",
+      "signature": "appendVertAttribValuesappendVertAttribValues(attributeName, values)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Adds multiple vertex attribute elements. Returns the total number of elements. * `attributeName` - The attribute name. * `values` - The list of values to add. Elements in the list can be float, int or tuples."
+    },
+    {
+      "name": "clear",
+      "signature": "clearclear()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Clears the staging data."
+    },
+    {
+      "name": "copy",
+      "signature": "copycopy(pop)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Copies the GPU POP attributes values and primitive indices to the staging GPU buffers. * `pop` - The POP to copy the information from."
+    },
+    {
+      "name": "copyPointAttribBuffer",
+      "signature": "copyPointAttribBuffercopyPointAttribBuffer(pop, attributeName, stagingAttributeName)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Copies a POP attribute buffer to a staging data buffer. * `pop` The POP to copy the buffer from. * `attributeName` - The POP's attribute name. * `stagingAttributeName` - (Keyword, Optional) The staging attribute name."
+    },
+    {
+      "name": "copyPrimAttribBuffer",
+      "signature": "copyPrimAttribBuffercopyPrimAttribBuffer(pop, attributeName, stagingAttributeName)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Copies a POP attribute buffer to a staging data buffer. * `pop` The POP to copy the buffer from. * `attributeName` - The POP's attribute name. * `stagingAttributeName` - (Keyword, Optional) The staging attribute name."
+    },
+    {
+      "name": "copyPrims",
+      "signature": "copyPrimscopyPrims(pop)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Copies the GPU primitives index buffers. * `pop` - The POP to copy the information from."
+    },
+    {
+      "name": "copyVertAttribBuffer",
+      "signature": "copyVertAttribBuffercopyVertAttribBuffer(pop, attributeName, stagingAttributeName)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Copies a POP attribute buffer to a staging data buffer. * `pop` The POP to copy the buffer from. * `attributeName` - The POP's attribute name. * `stagingAttributeName` - (Keyword, Optional) The staging attribute name."
+    },
+    {
+      "name": "download",
+      "signature": "downloaddownload(pop, delayed=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Copies a POP attributes values and primitives indices. * `pop` - The POP to download the information from. * `delayed` - (Keyword, Optional) If set to True, the download results will be delayed, avoiding stalling the GPU waiting for the result immediately."
+    },
+    {
+      "name": "createPointAttrib",
+      "signature": "createPointAttribcreatePointAttrib(attributeName, numComps=1, numMatRows=1, numMatCols=1, arrSize=1, type=AttribDataType.FLOAT32, qualifier=AttribQualifier.NONE)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Creates a point attribute. * `attributeName` - The attribute name. * `numComps` - (Keyword, Optional) The number of components. * `numMatRows` - (Keyword, Optional) The number of matrix rows. * `numMatCols` - (Keyword, Optional) The number of matrix columns. * `arrSize` - (Keyword, Optional) Specifies the maximum number of elements allowed in the array. A value of 0 (or leaving it unset) indicates the attribute is a single, non-array value. * `type` - (Keyword, Optional) The attribute data type. * `qualifier` - (Keyword, Optional) The attribute qualifier. * `defaultValue` - (Keyword, Optional) A tuple with a maximun of 4 elements to set the default components values."
+    },
+    {
+      "name": "createPrimAttrib",
+      "signature": "createPrimAttribcreatePrimAttrib(attributeName, numComps=1, numMatRows=1,, numMatCols=1, isArray=False, arrSize=1, type=AttribDataType.FLOAT32, qualifier=AttribQualifier.NONE)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Creates a primitive attribute. * `attributeName` - The attribute name. * `numComps` - (Keyword, Optional) The number of components. * `numMatRows` - (Keyword, Optional) The number of matrix rows. * `numMatCols` - (Keyword, Optional) The number of matrix columns. * `arrSize` - (Keyword, Optional) Specifies the maximum number of elements allowed in the array. A value of 0 (or leaving it unset) indicates the attribute is a single, non-array value. * `type` - (Keyword, Optional) The attribute data type. * `qualifier` - (Keyword, Optional) The attribute qualifier. * `defaultValue` - (Keyword, Optional) A tuple with a maximun of 4 elements to set the default components values."
+    },
+    {
+      "name": "createVertAttrib",
+      "signature": "createVertAttribcreateVertAttrib(attributeName, numComps=1, numMatRows=1, numMatCols=1, arrSize=1, type=AttribDataType.FLOAT32, qualifier=AttribQualifier.NONE)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Creates a vertex attribute. * `attributeName` - The attribute name. * `numComps` - (Keyword, Optional) The number of components. * `numMatRows` - (Keyword, Optional) The number of matrix rows. * `numMatCols` - (Keyword, Optional) The number of matrix columns. * `arrSize` - (Keyword, Optional) Specifies the maximum number of elements allowed in the array. A value of 0 (or leaving it unset) indicates the attribute is a single, non-array value. * `type` - (Keyword, Optional) The attribute data type. (AttribDataType.FLOAT32, AttribDataType.FLOAT64, AttribDataType.INT32, AttribDataType.UINT32) * `qualifier` - (Keyword, Optional) The attribute qualifier. (AttribQualifier.NONE, AttribQualifier.NONE, AttribQualifier.DIRECTION, AttribQualifier.TRANSFORM_MATRIX, AttribQualifier.COLOR, AttribQualifier.QUATERNION) * `defaultValue` - (Keyword, Optional) A tuple with a maximun of 4 elements to set the default components values."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Experimental_GeometryStagingData_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Experimental%3AGeometryStagingData_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Experimental:GeometryStagingData Class wiki page",
+      "url": "https://docs.derivative.ca/Experimental_GeometryStagingData_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

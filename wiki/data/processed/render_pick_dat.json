@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.649Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Render_Pick_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Render_Pick_DAT",
   "description": "The Render Pick DAT lets you get information about the 3D surface at any pixel of any 3D render, allowing you to implement multi-touch on a 3D rendered scene. It samples a rendering (from a Render TOP or a Render Pass TOP) and returns 3D information from the geometry at the specified pick locations.",
   "summary": "The Render Pick DAT lets you get information about the 3D surface at any pixel of any 3D render, allowing you to implement multi-touch on a 3D rendered scene. It samples a rendering (from a Render TOP",
   "details": "",

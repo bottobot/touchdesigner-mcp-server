@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.272Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Select_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Select_TOP",
   "description": "The Select TOP allows you to reference a TOP from any other location in TouchDesigner. To save graphics memory, the Select TOP creates an instance of the TOP references.",
   "summary": "The Select TOP allows you to reference a TOP from any other location in TouchDesigner. To save graphics memory, the Select TOP creates an instance of the TOP references.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.751Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\DMX_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/DMX_Out_CHOP",
   "description": "The DMX Out CHOP sends channels to DMX, Art-Net, sACN, KiNET, or FTDI devices. Channel values for DMX are 0-255.",
   "summary": "The DMX Out CHOP sends channels to DMX, Art-Net, sACN, KiNET, or FTDI devices. Channel values for DMX are 0-255.",
   "details": "",

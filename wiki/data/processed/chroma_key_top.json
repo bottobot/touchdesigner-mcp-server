@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.312Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Chroma_Key_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Chroma_Key_TOP",
   "description": "The Chroma Key TOP pulls a key matte from the image using Hue, Saturation, and Value settings. If a pixel falls between the Min and Max parameters for all three settings, then it is included in the key. It outputs an alpha map, or the image with the key color removed.",
   "summary": "The Chroma Key TOP pulls a key matte from the image using Hue, Saturation, and Value settings. If a pixel falls between the Min and Max parameters for all three settings, then it is included in the ke",
   "details": "",

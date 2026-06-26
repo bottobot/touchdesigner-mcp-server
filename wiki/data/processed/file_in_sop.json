@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.840Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\File_In_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/File_In_SOP",
   "description": "The File In SOP allows you to read a geometry file that may have been previously created in the Model Editor, output geometry from a SOP, or generated from other software such as Houdini. The geometry file can be read in from disk or from the web. Use http:// when specifying a URL.",
   "summary": "The File In SOP allows you to read a geometry file that may have been previously created in the Model Editor, output geometry from a SOP, or generated from other software such as Houdini. The geometry",
   "details": "",

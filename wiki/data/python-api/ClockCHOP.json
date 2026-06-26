@@ -1,0 +1,27 @@
+{
+  "className": "ClockCHOP",
+  "displayName": "ClockCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "timecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "\"Get a Timecode object representation of the hour, minute, second, and msec components.\""
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ClockCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ClockCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ClockCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/ClockCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

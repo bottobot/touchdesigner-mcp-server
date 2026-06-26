@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.660Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\NDI_In_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/NDI_In_TOP",
   "description": "The NDI In TOP will obtain its image data over IP from other DI® (Network Data Interface) enabled applications. The NDI® protocol is created by Newtek.",
   "summary": "The NDI In TOP will obtain its image data over IP from other DI® (Network Data Interface) enabled applications. The NDI® protocol is created by Newtek.",
   "details": "",

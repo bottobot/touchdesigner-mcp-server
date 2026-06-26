@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.002Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Impulse_Force_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Impulse_Force_COMP",
   "description": "An Impulse Force COMP will create a force in the simulation that can be applied for 1 frame using the Pulse Force parameter. In the real world, impulse forces are forces applied over a very short duration, however in Bullet this is somewhat simplified, and they are instead applied instantly (for a single frame). Examples of impulse forces are kicking a ball or shooting a cannon. The velocities of the affected bodies are changed in an instant by the impulse force, and after that instant the force no longer has an effect unless applied again.",
   "summary": "An Impulse Force COMP will create a force in the simulation that can be applied for 1 frame using the Pulse Force parameter. In the real world, impulse forces are forces applied over a very short dura",
   "details": "",

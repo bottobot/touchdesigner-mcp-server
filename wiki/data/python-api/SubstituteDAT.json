@@ -1,0 +1,45 @@
+{
+  "className": "SubstituteDAT",
+  "displayName": "SubstituteDAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "DAT",
+  "members": [
+    {
+      "name": "inputCell",
+      "returnType": "Cell",
+      "readOnly": true,
+      "description": "The current input cell being evaluated. From the cell you can get its row, column and value. e.g. me.inputCell.val or use the specific members listed below."
+    },
+    {
+      "name": "inputCol",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The current input colunn being evaluated."
+    },
+    {
+      "name": "inputRow",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The current input row being evaluated."
+    },
+    {
+      "name": "inputTable",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The current input DAT being evaluated."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/SubstituteDAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=SubstituteDAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the SubstituteDAT Class wiki page",
+      "url": "https://docs.derivative.ca/SubstituteDAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

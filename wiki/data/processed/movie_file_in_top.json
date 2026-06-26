@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:04.354Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Movie_File_In_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Movie_File_In_TOP",
   "description": "The Movie File In TOP loads movies, still images, or a sequence of still images into TOPs. It will read images in .jpg, .gif, .tif, or .bmp format. It will read movies in QuickTime's .mov format, .mp4, .mpg, .mpeg, .avi, .wmv, .dpx, Cineform and Hap Q formats (including Hap Q with Alpha).",
   "summary": "The Movie File In TOP loads movies, still images, or a sequence of still images into TOPs. It will read images in .jpg, .gif, .tif, or .bmp format. It will read movies in QuickTime's .mov format, .mp4",
   "details": "",

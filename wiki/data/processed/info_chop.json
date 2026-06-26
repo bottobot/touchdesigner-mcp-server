@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.126Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Info_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Info_CHOP",
   "description": "The Info CHOP gives you extra information about a node. All nodes contain extra inside information, and different types of nodes (TOPs, CHOPs, etc) contain different subsets of information. This additional information can be accessed via an Info CHOP.",
   "summary": "The Info CHOP gives you extra information about a node. All nodes contain extra inside information, and different types of nodes (TOPs, CHOPs, etc) contain different subsets of information. This addit",
   "details": "",

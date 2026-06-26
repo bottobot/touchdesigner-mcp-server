@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.346Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Object_Merge_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Object_Merge_SOP",
   "description": "The Object Merge SOP allows you to merge the geometry of several SOPs spanning different components. The SOP data will be baked so that all merged SOPs are relative to each other as if they were located using the transforms of the COMPs they originally came from.",
   "summary": "The Object Merge SOP allows you to merge the geometry of several SOPs spanning different components. The SOP data will be baked so that all merged SOPs are relative to each other as if they were locat",
   "details": "",

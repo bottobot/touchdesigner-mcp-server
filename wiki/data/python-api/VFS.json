@@ -1,0 +1,76 @@
+{
+  "className": "VFS",
+  "displayName": "VFS",
+  "category": "General",
+  "description": "The VFS Class describes a COMP's Virtual File System. To access a virtual file in any operator's file parameter, use the virtual path format: vfs::. VFSFile_Class does the file operators.",
+  "members": [
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "Get the OP owner."
+    }
+  ],
+  "methods": [
+    {
+      "name": "[]",
+      "signature": "[name]",
+      "returns": "VFSFile",
+      "parameters": [],
+      "description": "VFS Files may be easily accessed using the [] syntax. *name - Must be an exact VFS file name. Wildcards are not supported. If not found, an error will be raised."
+    },
+    {
+      "name": "addByteArray",
+      "signature": "addByteArrayaddByteArray(byteArray, name)",
+      "returns": "VFSFile",
+      "parameters": [],
+      "description": "Add an embedded file from a bytearray to the component. Returns a VFSFile instance of the added file. To delete the file, see `destroy()` on VFSFile Class. * byteArray - A bytearray or bytes object representing the contents of the file. * name - The name of the file on VFS."
+    },
+    {
+      "name": "addFile",
+      "signature": "addFileaddFile(filePath, overrideName=None)",
+      "returns": "VFSFile",
+      "parameters": [],
+      "description": "Add an embedded file from disk to the component with an option to override the name. Returns a VFSFile instance of the added file. To delete the file, see `destroy()` on VFSFile Class. *filePath - The path of the file on disk to add. *overrideName (Keyword, Optional) - When specified, will override the name of the file in VFS."
+    },
+    {
+      "name": "export",
+      "signature": "exportexport(folder, pattern='*', overwrite=False)",
+      "returns": "list",
+      "parameters": [],
+      "description": "Exports any matching files to the folder on disk. If overwrite is True then any existing files on disks with the same name will be overwritten. Returns a list of paths on disk to the exported files. *folder - The folder on disk to export the files to. *pattern (Keyword, Optional) - The pattern to match names by. *overwrite (Keyword, Optional) - When True, will overwrite any files that share the same name."
+    },
+    {
+      "name": "find",
+      "signature": "findfind(pattern='*')",
+      "returns": "list",
+      "parameters": [],
+      "description": "Finds all files in VFS with names matching the pattern. Returns a list of VFSFile objects. *pattern (Keyword, Optional) - The pattern to match names by."
+    },
+    {
+      "name": "len",
+      "signature": "lenlen(VFS)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the total number of virtual files."
+    },
+    {
+      "name": "iterator",
+      "signature": "iteratorIterator",
+      "returns": "str",
+      "parameters": [],
+      "description": "Iterate over each virtual file name."
+    }
+  ],
+  "url": "https://docs.derivative.ca/VFS_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=VFS_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the VFS Class wiki page",
+      "url": "https://docs.derivative.ca/VFS_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

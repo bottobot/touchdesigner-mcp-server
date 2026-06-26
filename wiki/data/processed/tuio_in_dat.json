@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.604Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\TUIO_In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/TUIO_In_DAT",
   "description": "The TUIO In DAT receives and parses TUIO messages (received over network) into columns in the table. TUIO packets OSC bundles, so TUIO data can also be viewed in its more raw form in an OSC In DAT.\tIt currently uses the TUIO 1.1 protocol. The TUIO 2.0 protocol is not yet supported.",
   "summary": "The TUIO In DAT receives and parses TUIO messages (received over network) into columns in the table. TUIO packets OSC bundles, so TUIO data can also be viewed in its more raw form in an OSC In DAT.\tIt",
   "details": "",

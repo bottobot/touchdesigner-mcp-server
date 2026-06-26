@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.590Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Composite_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Composite_CHOP",
   "description": "The Composite CHOP layers (blends) the channels of one CHOP on the channels of another CHOP. The first input is the base input and the second is the layer input. It is designed for blending static multi-frame motion channels. Blending time-sliced channels or single-frame channels should be done with the Blend CHOP.",
   "summary": "The Composite CHOP layers (blends) the channels of one CHOP on the channels of another CHOP. The first input is the base input and the second is the layer input. It is designed for blending static mul",
   "details": "",

@@ -1,0 +1,62 @@
+{
+  "className": "ScriptPOP",
+  "displayName": "ScriptPOP",
+  "category": "Operator",
+  "description": "This class inherits from the POP class. It references a specific Script POP. It can build a POP geometry from a GeometryStagingData object. See also: POP Class, GeometryStagingData Class",
+  "members": [],
+  "methods": [
+    {
+      "name": "appendCustomPage",
+      "signature": "appendCustomPageappendCustomPage(name)",
+      "returns": "Page",
+      "parameters": [],
+      "description": "Add a new page of custom parameters. See Page Class for more details. Example:"
+    },
+    {
+      "name": "buildGeometry",
+      "signature": "buildGeometrybuildGeometry(geometryStagingData, forceCopy=False)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Allocates the attributes and the primitive memory and uploads the staging data to the GPU. The staging data is cleared by default. * `geometryStagingData` - Staging information that defines the geometry to be created. * `forceCopy` - (Keyword, Optional) If set to True, the function copies the geometry staging data and doesn't clear it."
+    },
+    {
+      "name": "clear",
+      "signature": "clearclear()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Clears the built geometry."
+    },
+    {
+      "name": "createGeometryStagingData",
+      "signature": "createGeometryStagingDatacreateGeometryStagingData()",
+      "returns": "GeometryStagingData",
+      "parameters": [],
+      "description": "Creates a GeometryStagingData object to hold the intermediate geometry definition. This is a static method."
+    },
+    {
+      "name": "destroyCustomPars",
+      "signature": "destroyCustomParsdestroyCustomPars()",
+      "returns": "int",
+      "parameters": [],
+      "description": "Remove all custom parameters from the Script POP. Returns number of destroyed pars."
+    },
+    {
+      "name": "sortCustomPages",
+      "signature": "sortCustomPagessortCustomPages(*pages)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Reorder custom parameter pages. * `pages` - any number of page names in their new order Example:"
+    }
+  ],
+  "url": "https://docs.derivative.ca/Experimental_ScriptPOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Experimental%3AScriptPOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Experimental:ScriptPOP Class wiki page",
+      "url": "https://docs.derivative.ca/Experimental_ScriptPOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

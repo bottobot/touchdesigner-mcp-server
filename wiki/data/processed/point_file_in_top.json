@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.651Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Point_File_In_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Point_File_In_TOP",
   "description": "The Point File In TOP loads 3D point data into TOPs from either a single file or a sequence of files. Points are composed of one or more floating point values such as XYZ positions, RGB color values, 3D normals, scanner intensity, etc. The Point File in TOP will load all available point data, but only four channels can be placed into the output image. By default, the first four point data channels are placed into the red, green, blue and alpha channels respectively; however, you can assign any point channel to a colour channel using the parameters on the Point Data page. Attach a Point File Select TOP to create additional output images from the same source file.",
   "summary": "The Point File In TOP loads 3D point data into TOPs from either a single file or a sequence of files. Points are composed of one or more floating point values such as XYZ positions, RGB color values, ",
   "details": "",

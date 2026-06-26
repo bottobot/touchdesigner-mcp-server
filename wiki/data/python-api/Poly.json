@@ -1,0 +1,27 @@
+{
+  "className": "Poly",
+  "displayName": "Poly",
+  "category": "General",
+  "description": "A Poly describes an instance of a single geometry polygon. It is an instance of a Prim Class.",
+  "inherits": "Prim",
+  "members": [
+    {
+      "name": "closed",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns True if the poly is closed, False otherwise."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/Poly_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Poly_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Poly Class wiki page",
+      "url": "https://docs.derivative.ca/Poly_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

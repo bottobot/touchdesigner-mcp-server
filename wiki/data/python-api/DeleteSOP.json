@@ -1,0 +1,33 @@
+{
+  "className": "DeleteSOP",
+  "displayName": "DeleteSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "inputPoint",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The current point being evaluated. Can only be used in the parameters for this SOP."
+    },
+    {
+      "name": "inputPrim",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The current primitive being evaluated. Can only be used in the parameters for this SOP."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/DeleteSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=DeleteSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the DeleteSOP Class wiki page",
+      "url": "https://docs.derivative.ca/DeleteSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

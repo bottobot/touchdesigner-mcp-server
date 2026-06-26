@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:12.203Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Web_Render_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Web_Render_TOP",
   "description": "The Web Render TOP takes a URL or DAT and renders a webpage via a separate browser process that uses Chromium Embedded Frameworks, and passes the result back through shared memory. It renders non-Flash pages, including HTML, HTML5, PDF, SVG and more. Targets can be on the internet, in local files with a file:// syntax, or a DAT.",
   "summary": "The Web Render TOP takes a URL or DAT and renders a webpage via a separate browser process that uses Chromium Embedded Frameworks, and passes the result back through shared memory. It renders non-Flas",
   "details": "",

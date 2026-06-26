@@ -3,3537 +3,931 @@
   "id": "glsl_advanced_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "Refer to the Write GLSL POPs article for more info on using this POP.",
+  "description": "'''Refer to the [[Write GLSL POPs]] article for more info on using this POP.''' In single shader dispatch mode, runs a single compute shader that can read and write to points, verts, and primitive attributes simultaneously. In per primitive batch mode, runs the shader once per primitive batch. The number of threads mode defines how many threads are used.",
   "parameters": [
     {
-      "name": "computedat",
+      "name": "Compute Shader",
+      "parName": "computedat",
       "label": "Compute Shader",
-      "description": "Configure Compute Shader for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Single Shader Dispatch",
-          "value": "single",
-          "description": ""
-        },
-        {
-          "label": "Per Primitive Batch",
-          "value": "perprimbatch",
-          "description": ""
-        },
-        {
-          "label": "Per Input Point",
-          "value": "inputpoint",
-          "description": ""
-        },
-        {
-          "label": "Per Input Vertex",
-          "value": "inputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Input Primitive",
-          "value": "inputprim",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Point",
-          "value": "outputpoint",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Vertex",
-          "value": "outputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Primitive",
-          "value": "outputprim",
-          "description": ""
-        },
-        {
-          "label": "Manual Number of Elements",
-          "value": "numelems",
-          "description": ""
-        },
-        {
-          "label": "Number of Elements from Attribute",
-          "value": "numelemsattrib",
-          "description": ""
-        },
-        {
-          "label": "Manual Number of Threads",
-          "value": "manual",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizex",
-          "description": ""
-        },
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizey",
-          "description": ""
-        },
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizez",
-          "description": ""
-        },
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizex",
-          "description": ""
-        },
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizey",
-          "description": ""
-        },
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizez",
-          "description": ""
-        },
-        {
-          "label": "Per Input Vertex",
-          "value": "inputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Input Primitive",
-          "value": "inputprim",
-          "description": ""
-        },
-        {
-          "label": "Per Output Vertex",
-          "value": "outputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Output Primitive",
-          "value": "outputprim",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "Write Only",
-          "value": "writeonly",
-          "description": ""
-        },
-        {
-          "label": "Read-Write",
-          "value": "readwrite",
-          "description": "Write readwrite -"
-        },
-        {
-          "label": "Performance",
-          "value": "performance",
-          "description": "Performant noise."
-        },
-        {
-          "label": "Quality",
-          "value": "quality",
-          "description": "Quality noise."
-        },
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "Auto",
-          "value": "auto",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Manual",
-          "value": "manual",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Don't Initialize",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Copy input primitives (extra verts 0)",
-          "value": "copy",
-          "description": ""
-        },
-        {
-          "label": "Set vertices to 0",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "From Attributes",
-          "value": "fromattrs",
-          "description": ""
-        },
-        {
-          "label": "From Parameters",
-          "value": "fromparams",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Write Only",
-          "value": "writeonly",
-          "description": ""
-        },
-        {
-          "label": "Read-Write",
-          "value": "readwrite",
-          "description": "Write readwrite -"
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valuea",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Transform Matrix",
-          "value": "transformMatrix",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "vec2",
-          "value": "vec2",
-          "description": ""
-        },
-        {
-          "label": "vec3",
-          "value": "vec3",
-          "description": ""
-        },
-        {
-          "label": "vec4",
-          "value": "vec4",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "dvec2",
-          "value": "dvec2",
-          "description": ""
-        },
-        {
-          "label": "dvec3",
-          "value": "dvec3",
-          "description": ""
-        },
-        {
-          "label": "dvec4",
-          "value": "dvec4",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "ivec2",
-          "value": "ivec2",
-          "description": ""
-        },
-        {
-          "label": "ivec3",
-          "value": "ivec3",
-          "description": ""
-        },
-        {
-          "label": "ivec4",
-          "value": "ivec4",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "uvec2",
-          "value": "uvec2",
-          "description": ""
-        },
-        {
-          "label": "uvec3",
-          "value": "uvec3",
-          "description": ""
-        },
-        {
-          "label": "uvec4",
-          "value": "uvec4",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuex",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuey",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuez",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuew",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "vec2",
-          "value": "vec2",
-          "description": ""
-        },
-        {
-          "label": "vec3",
-          "value": "vec3",
-          "description": ""
-        },
-        {
-          "label": "vec4",
-          "value": "vec4",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "DAT",
+      "description": "Points to the DAT holding the Compute Shader. Drag & Drop a DAT here, or manually enter the path to the DAT.",
+      "isReadOnly": false
     },
     {
-      "name": "shaderdispatchmode",
+      "name": "Shader Dispatch Mode",
+      "parName": "shaderdispatchmode",
       "label": "Shader Dispatch Mode",
-      "description": "Configure Shader Dispatch Mode for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Single Shader Dispatch",
-          "value": "single",
-          "description": ""
-        },
-        {
-          "label": "Per Primitive Batch",
-          "value": "perprimbatch",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Specifies the compute shader dispatch mode.",
+      "isReadOnly": false,
+      "menuItems": [
+        "single",
+        "perprimbatch"
+      ],
+      "menuLabels": [
+        "Single Shader Dispatch",
+        "Per Primitive Batch"
       ]
     },
     {
-      "name": "single",
-      "label": "Single Shader Dispatch",
-      "description": "Configure Single Shader Dispatch for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Single Shader Dispatch",
-          "value": "single",
-          "description": ""
-        },
-        {
-          "label": "Per Primitive Batch",
-          "value": "perprimbatch",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "numthreadsmode",
-      "label": "Number of Threads Mode",
-      "description": "Configure Number of Threads Mode for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Per Input Point",
-          "value": "inputpoint",
-          "description": ""
-        },
-        {
-          "label": "Per Input Vertex",
-          "value": "inputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Input Primitive",
-          "value": "inputprim",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Point",
-          "value": "outputpoint",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Vertex",
-          "value": "outputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Primitive",
-          "value": "outputprim",
-          "description": ""
-        },
-        {
-          "label": "Manual Number of Elements",
-          "value": "numelems",
-          "description": ""
-        },
-        {
-          "label": "Number of Elements from Attribute",
-          "value": "numelemsattrib",
-          "description": ""
-        },
-        {
-          "label": "Manual Number of Threads",
-          "value": "manual",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "inputpoint",
-      "label": "Per Input Point",
-      "description": "Configure Per Input Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Per Input Point",
-          "value": "inputpoint",
-          "description": ""
-        },
-        {
-          "label": "Per Input Vertex",
-          "value": "inputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Input Primitive",
-          "value": "inputprim",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Point",
-          "value": "outputpoint",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Vertex",
-          "value": "outputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Max Output Primitive",
-          "value": "outputprim",
-          "description": ""
-        },
-        {
-          "label": "Manual Number of Elements",
-          "value": "numelems",
-          "description": ""
-        },
-        {
-          "label": "Number of Elements from Attribute",
-          "value": "numelemsattrib",
-          "description": ""
-        },
-        {
-          "label": "Manual Number of Threads",
-          "value": "manual",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "numelems",
+      "name": "Number of Elements",
+      "parName": "numelems",
       "label": "Number of Elements",
-      "description": "Configure Number of Elements for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of elements when setting it manually with a parameter.",
+      "isReadOnly": false
     },
     {
-      "name": "numelemspop",
+      "name": "POP",
+      "parName": "numelemspop",
       "label": "POP",
-      "description": "Configure POP for the operator",
-      "type": "string"
+      "type": "POP",
+      "description": "POP reference when setting the number of elements from an attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "numelemsclass",
+      "name": "Num Elements Attrib",
+      "parName": "numelemsclass",
       "label": "Num Elements Attrib",
-      "description": "Configure Num Elements Attrib for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the attribute class where the number of elements can be found.",
+      "isReadOnly": false,
+      "menuItems": [
+        "numelemsclass",
+        "numelemsattr"
+      ],
+      "menuLabels": [
+        "Num Elements Attrib",
+        "Num Elements Attrib"
       ]
     },
     {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "numelemsattr",
-      "label": "Num Elements Attrib",
-      "description": "Configure Num Elements Attrib for the operator",
-      "type": "string"
-    },
-    {
-      "name": "workgroupsize",
+      "name": "Work Group Size",
+      "parName": "workgroupsize",
       "label": "Work Group Size",
-      "description": "Configure Work Group Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizex",
-          "description": ""
-        },
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizey",
-          "description": ""
-        },
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizez",
-          "description": ""
-        }
+      "type": "Int",
+      "description": "Specifies the workgroup size when manually setting the number of threads.",
+      "isReadOnly": false,
+      "menuItems": [
+        "workgroupsizex",
+        "workgroupsizey",
+        "workgroupsizez"
+      ],
+      "menuLabels": [
+        "Work Group Size",
+        "Work Group Size",
+        "Work Group Size"
       ]
     },
     {
-      "name": "workgroupsizex",
-      "label": "Work Group Size",
-      "description": "Configure Work Group Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizex",
-          "description": ""
-        },
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizey",
-          "description": ""
-        },
-        {
-          "label": "Work Group Size",
-          "value": "workgroupsizez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "dispatchsize",
+      "name": "Dispatch Size",
+      "parName": "dispatchsize",
       "label": "Dispatch Size",
-      "description": "Configure Dispatch Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizex",
-          "description": ""
-        },
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizey",
-          "description": ""
-        },
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizez",
-          "description": ""
-        }
+      "type": "Int",
+      "description": "Determines the number of thread groups to launch in each dimension.",
+      "isReadOnly": false,
+      "menuItems": [
+        "dispatchsizex",
+        "dispatchsizey",
+        "dispatchsizez"
+      ],
+      "menuLabels": [
+        "Dispatch Size",
+        "Dispatch Size",
+        "Dispatch Size"
       ]
     },
     {
-      "name": "dispatchsizex",
-      "label": "Dispatch Size",
-      "description": "Configure Dispatch Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizex",
-          "description": ""
-        },
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizey",
-          "description": ""
-        },
-        {
-          "label": "Dispatch Size",
-          "value": "dispatchsizez",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "numthreadsbatchmode",
+      "name": "Number of Threads per Batch Mode",
+      "parName": "numthreadsbatchmode",
       "label": "Number of Threads per Batch Mode",
-      "description": "Configure Number of Threads per Batch Mode for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Per Input Vertex",
-          "value": "inputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Input Primitive",
-          "value": "inputprim",
-          "description": ""
-        },
-        {
-          "label": "Per Output Vertex",
-          "value": "outputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Output Primitive",
-          "value": "outputprim",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets how the number of threads per primitive batch is determined.",
+      "isReadOnly": false,
+      "menuItems": [
+        "inputvert",
+        "inputprim",
+        "outputvert",
+        "outputprim"
+      ],
+      "menuLabels": [
+        "Per Input Vertex",
+        "Per Input Primitive",
+        "Per Output Vertex",
+        "Per Output Primitive"
       ]
     },
     {
-      "name": "inputvert",
-      "label": "Per Input Vertex",
-      "description": "Configure Per Input Vertex for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Per Input Vertex",
-          "value": "inputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Input Primitive",
-          "value": "inputprim",
-          "description": ""
-        },
-        {
-          "label": "Per Output Vertex",
-          "value": "outputvert",
-          "description": ""
-        },
-        {
-          "label": "Per Output Primitive",
-          "value": "outputprim",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "ptoutputattrs",
+      "name": "Point Output Attributes",
+      "parName": "ptoutputattrs",
       "label": "Point Output Attributes",
-      "description": "Configure Point Output Attributes for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Input point attributes modified by the shader.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "*",
-      "label": "*",
-      "description": "Configure * for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "primoutputattrs",
+      "name": "Prim Output Attributes",
+      "parName": "primoutputattrs",
       "label": "Prim Output Attributes",
-      "description": "Configure Prim Output Attributes for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Input primitive attributes modified by the shader.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "vertoutputattrs",
+      "name": "Vert Output Attributes",
+      "parName": "vertoutputattrs",
       "label": "Vert Output Attributes",
-      "description": "Configure Vert Output Attributes for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "The vertex attributes to output.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     },
     {
-      "name": "outputaccess",
+      "name": "Output Access",
+      "parName": "outputaccess",
       "label": "Output Access",
-      "description": "Configure Output Access for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Write Only",
-          "value": "writeonly",
-          "description": ""
-        },
-        {
-          "label": "Read-Write",
-          "value": "readwrite",
-          "description": "Write readwrite -"
-        }
+      "type": "Menu",
+      "description": "Controls whether the attribute buffers can only be read from or read from and written to.",
+      "isReadOnly": false,
+      "menuItems": [
+        "writeonly",
+        "readwrite"
+      ],
+      "menuLabels": [
+        "Write Only",
+        "Read-Write"
       ]
     },
     {
-      "name": "writeonly",
-      "label": "Write Only",
-      "description": "Configure Write Only for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Write Only",
-          "value": "writeonly",
-          "description": ""
-        },
-        {
-          "label": "Read-Write",
-          "value": "readwrite",
-          "description": "Write readwrite -"
-        }
-      ]
-    },
-    {
-      "name": "initoutputattrs",
+      "name": "Initialize Output Attributes",
+      "parName": "initoutputattrs",
       "label": "Initialize Output Attributes",
-      "description": "Configure Initialize Output Attributes for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Copy input attributes values for existing attributes, set the attributes values to their defaults for new attributes. It's a separate compute shader dispatch happening before the POP custom compute shader dispatch.",
+      "isReadOnly": false
     },
     {
-      "name": "input",
+      "name": "Copy Previous Pass Output to Input",
+      "parName": "prevpassoutput",
+      "label": "Copy Previous Pass Output to Input",
+      "type": "Toggle",
+      "description": "Enable copying the previous pass outputs to the next pass inputs.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Passes",
+      "parName": "npasses",
+      "label": "Passes",
+      "type": "Int",
+      "description": "Number of shader passes.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Input",
+      "parName": "input",
       "label": "Input",
-      "description": "Configure Input for the operator",
-      "type": "string"
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks managing the inputs of the POP.",
+      "isReadOnly": false
     },
     {
-      "name": "input0pops",
-      "label": "In POPs",
-      "description": "Configure In POPs for the operator",
-      "type": "string"
-    },
-    {
-      "name": "simplexnoise",
+      "name": "TDSimplexNoise()",
+      "parName": "simplexnoise",
       "label": "TDSimplexNoise()",
-      "description": "Configure TDSimplexNoise() for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Performance",
-          "value": "performance",
-          "description": "Performant noise."
-        },
-        {
-          "label": "Quality",
-          "value": "quality",
-          "description": "Quality noise."
-        }
+      "type": "Menu",
+      "description": "Sets the implementation to use for a simplex noise method that can be called in the shader.",
+      "isReadOnly": false,
+      "menuItems": [
+        "performance",
+        "quality"
+      ],
+      "menuLabels": [
+        "Performance",
+        "Quality"
       ]
     },
     {
-      "name": "performance",
-      "label": "Performance",
-      "description": "Configure Performance for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Performance",
-          "value": "performance",
-          "description": "Performant noise."
-        },
-        {
-          "label": "Quality",
-          "value": "quality",
-          "description": "Quality noise."
-        }
+      "name": "Number of Threads",
+      "parName": "numthreadsmode",
+      "label": "Number of Threads",
+      "type": "Menu",
+      "description": "Selects how to set the number of threads for the custom compute shader dispatch.",
+      "isReadOnly": false,
+      "menuItems": [
+        "inputpoint",
+        "inputvert",
+        "inputprim",
+        "outputpoint",
+        "outputvert",
+        "outputprim",
+        "numelems",
+        "numelemsattrib",
+        "manual"
+      ],
+      "menuLabels": [
+        "Per Input Point",
+        "Per Input Vertex",
+        "Per Input Primitive",
+        "Per Max Output Point",
+        "Per Max Output Vertex",
+        "Per Max Output Primitive",
+        "Manual Number of Elements",
+        "Number of Elements from Attribute",
+        "Manual Number of Threads"
       ]
     },
     {
-      "name": "render",
+      "name": "Render",
+      "parName": "render",
       "label": "Render",
-      "description": "Configure Render for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enables rendering in the viewer. Disable when output data is in an intermediate or non-renderable state",
+      "isReadOnly": false
     },
     {
-      "name": "maxpointsmode",
+      "name": "Max Points",
+      "parName": "maxpointsmode",
       "label": "Max Points",
-      "description": "Configure Max Points for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines if the maximum number of points is determined by the input or by a custom value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "maxpointsmode",
+        "maxpoints"
+      ],
+      "menuLabels": [
+        "Max Points",
+        "Max Points"
       ]
     },
     {
-      "name": "frominput",
-      "label": "From Input",
-      "description": "Configure From Input for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        }
+      "name": "Point Count Info",
+      "parName": "pointcountinfo",
+      "label": "Point Count Info",
+      "type": "Menu",
+      "description": "Input point count source.",
+      "isReadOnly": false,
+      "menuItems": [
+        "input",
+        "fromattrs",
+        "fromparams"
+      ],
+      "menuLabels": [
+        "From Input",
+        "From Attributes",
+        "From Max Parameters"
       ]
     },
     {
-      "name": "maxpoints",
-      "label": "Max Points",
-      "description": "Configure Max Points for the operator",
-      "type": "string"
-    },
-    {
-      "name": "maxtrianglesmode",
-      "label": "Max Triangles",
-      "description": "Configure Max Triangles for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxtriangles",
-      "label": "Max Triangles",
-      "description": "Configure Max Triangles for the operator",
-      "type": "string"
-    },
-    {
-      "name": "maxquadsmode",
-      "label": "Max Quads",
-      "description": "Configure Max Quads for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxquads",
-      "label": "Max Quads",
-      "description": "Configure Max Quads for the operator",
-      "type": "string"
-    },
-    {
-      "name": "maxlinestripsmode",
-      "label": "Max Line Strips",
-      "description": "Configure Max Line Strips for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxlinestrips",
-      "label": "Max Line Strips",
-      "description": "Configure Max Line Strips for the operator",
-      "type": "string"
-    },
-    {
-      "name": "maxlsvertsmode",
-      "label": "Max Line Strip Verts",
-      "description": "Configure Max Line Strip Verts for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxlsverts",
-      "label": "Max Line Strip Verts",
-      "description": "Configure Max Line Strip Verts for the operator",
-      "type": "string"
-    },
-    {
-      "name": "maxlinesmode",
-      "label": "Max Lines",
-      "description": "Configure Max Lines for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxlines",
-      "label": "Max Lines",
-      "description": "Configure Max Lines for the operator",
-      "type": "string"
-    },
-    {
-      "name": "maxpointprimsmode",
-      "label": "Max Point Prims",
-      "description": "Configure Max Point Prims for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "frominput",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxpointprims",
-      "label": "Max Point Prims",
-      "description": "Configure Max Point Prims for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsinfoupdate",
-      "label": "Line Strip Info Update",
-      "description": "Configure Line Strip Info Update for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Auto",
-          "value": "auto",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Manual",
-          "value": "manual",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "auto",
-      "label": "Auto",
-      "description": "Configure Auto for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Auto",
-          "value": "auto",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Manual",
-          "value": "manual",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lsinfopop",
-      "label": "Line Strip Info POP",
-      "description": "Configure Line Strip Info POP for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsinfoclass",
-      "label": "Line Strip Info Attribute",
-      "description": "Configure Line Strip Info Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lsinfoattr",
-      "label": "Line Strip Info Attribute",
-      "description": "Configure Line Strip Info Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsindexpop",
-      "label": "Line Strip Index per Vert POP",
-      "description": "Configure Line Strip Index per Vert POP for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsindexclass",
-      "label": "Line Strip Index per Vert Attribute",
-      "description": "Configure Line Strip Index per Vert Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "lsindexattr",
-      "label": "Line Strip Index per Vert Attrib",
-      "description": "Configure Line Strip Index per Vert Attrib for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsmaxvertsoverride",
-      "label": "Max Verts per Line Strip",
-      "description": "Configure Max Verts per Line Strip for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsmaxverts",
-      "label": "Max Verts per Line Strip",
-      "description": "Configure Max Verts per Line Strip for the operator",
-      "type": "string"
-    },
-    {
-      "name": "initoutputprims",
-      "label": "Initialize Output Primitives",
-      "description": "Configure Initialize Output Primitives for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Don't Initialize",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Copy input primitives (extra verts 0)",
-          "value": "copy",
-          "description": ""
-        },
-        {
-          "label": "Set vertices to 0",
-          "value": "zero",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "none",
-      "label": "Don't Initialize",
-      "description": "Configure Don't Initialize for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Don't Initialize",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Copy input primitives (extra verts 0)",
-          "value": "copy",
-          "description": ""
-        },
-        {
-          "label": "Set vertices to 0",
-          "value": "zero",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pointcounttopoinfo",
-      "label": "Point Count and Topology Info",
-      "description": "Configure Point Count and Topology Info for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "From Attributes",
-          "value": "fromattrs",
-          "description": ""
-        },
-        {
-          "label": "From Parameters",
-          "value": "fromparams",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pointcountmode",
+      "name": "Point Count",
+      "parName": "pointcountmode",
       "label": "Point Count",
-      "description": "Configure Point Count for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Output point count source.",
+      "isReadOnly": false,
+      "menuItems": [
+        "input",
+        "zero",
+        "set"
+      ],
+      "menuLabels": [
+        "From Input",
+        "Zero",
+        "Set"
       ]
     },
     {
-      "name": "pointcountpop",
+      "name": "Point Count POP",
+      "parName": "pointcountpop",
       "label": "Point Count POP",
-      "description": "Configure Point Count POP for the operator",
-      "type": "string"
+      "type": "POP",
+      "description": "POP that holds the point count.",
+      "isReadOnly": false
     },
     {
-      "name": "pointcountclass",
+      "name": "Point Count Attribute",
+      "parName": "pointcountclass",
       "label": "Point Count Attribute",
-      "description": "Configure Point Count Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Attribute class of the attribute that holds the point count.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointcountclass",
+        "pointcountattr"
+      ],
+      "menuLabels": [
+        "Point Count Attribute",
+        "Point Count Attribute"
       ]
     },
     {
-      "name": "pointcountattr",
-      "label": "Point Count Attribute",
-      "description": "Configure Point Count Attribute for the operator",
-      "type": "string"
+      "name": "Max Triangles",
+      "parName": "maxtrianglesmode",
+      "label": "Max Triangles",
+      "type": "Menu",
+      "description": "Specifies how to set the max number of triangle primitives. If the POP topology info is on the CPU, that's the actual number of triangle primitives.",
+      "isReadOnly": false,
+      "menuItems": [
+        "maxtrianglesmode",
+        "maxtriangles"
+      ],
+      "menuLabels": [
+        "Max Triangles",
+        "Max Triangles"
+      ]
     },
     {
-      "name": "topoinfopop",
+      "name": "Max Quads",
+      "parName": "maxquadsmode",
+      "label": "Max Quads",
+      "type": "Menu",
+      "description": "Specifies how to set the max number of quadrilaterals primitives. If the POP topology info is on the CPU, that's the actual number of quadrilateral primitives.",
+      "isReadOnly": false,
+      "menuItems": [
+        "maxquadsmode",
+        "maxquads"
+      ],
+      "menuLabels": [
+        "Max Quads",
+        "Max Quads"
+      ]
+    },
+    {
+      "name": "Max Line Strips",
+      "parName": "maxlinestripsmode",
+      "label": "Max Line Strips",
+      "type": "Menu",
+      "description": "Specifies how to set the maximum number of line strips.",
+      "isReadOnly": false,
+      "menuItems": [
+        "maxlinestripsmode",
+        "maxlinestrips"
+      ],
+      "menuLabels": [
+        "Max Line Strips",
+        "Max Line Strips"
+      ]
+    },
+    {
+      "name": "Max Line Strip Verts",
+      "parName": "maxlsvertsmode",
+      "label": "Max Line Strip Verts",
+      "type": "Menu",
+      "description": "Sets the max number of line strip vertices. If the POP topology is on the CPU, that's the actual number of line strip vertices.",
+      "isReadOnly": false,
+      "menuItems": [
+        "maxlsvertsmode",
+        "maxlsverts"
+      ],
+      "menuLabels": [
+        "Max Line Strip Verts",
+        "Max Line Strip Verts"
+      ]
+    },
+    {
+      "name": "Max Lines",
+      "parName": "maxlinesmode",
+      "label": "Max Lines",
+      "type": "Menu",
+      "description": "Specifies how to set the maximum number of line primitives.",
+      "isReadOnly": false,
+      "menuItems": [
+        "maxlinesmode",
+        "maxlines"
+      ],
+      "menuLabels": [
+        "Max Lines",
+        "Max Lines"
+      ]
+    },
+    {
+      "name": "Max Point Prims",
+      "parName": "maxpointprimsmode",
+      "label": "Max Point Prims",
+      "type": "Menu",
+      "description": "Specifies how to set the max number of point primitives.",
+      "isReadOnly": false,
+      "menuItems": [
+        "maxpointprimsmode",
+        "maxpointprims"
+      ],
+      "menuLabels": [
+        "Max Point Prims",
+        "Max Point Prims"
+      ]
+    },
+    {
+      "name": "Line Strip Info Update",
+      "parName": "lsinfoupdate",
+      "label": "Line Strip Info Update",
+      "type": "Menu",
+      "description": "Allows you to choose how the Line Strip Info buffers get updated.",
+      "isReadOnly": false,
+      "menuItems": [
+        "auto",
+        "zero",
+        "manual"
+      ],
+      "menuLabels": [
+        "Auto",
+        "Zero",
+        "Manual"
+      ]
+    },
+    {
+      "name": "Line Strip Info POP",
+      "parName": "lsinfopop",
+      "label": "Line Strip Info POP",
+      "type": "POP",
+      "description": "POP with the attribute to use for the Line Strip Info buffer.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Line Strip Info Attribute",
+      "parName": "lsinfoclass",
+      "label": "Line Strip Info Attribute",
+      "type": "Menu",
+      "description": "Sets the attribute class where the line strip info attribute can be found.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lsinfoclass",
+        "lsinfoattr"
+      ],
+      "menuLabels": [
+        "Line Strip Info Attribute",
+        "Line Strip Info Attribute"
+      ]
+    },
+    {
+      "name": "Line Strip Index per Vert POP",
+      "parName": "lsindexpop",
+      "label": "Line Strip Index per Vert POP",
+      "type": "POP",
+      "description": "POP with the attribute to use for the Line Strip Index per Vert buffer.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Line Strip Index per Vert Attribute",
+      "parName": "lsindexclass",
+      "label": "Line Strip Index per Vert Attribute",
+      "type": "Menu",
+      "description": "Sets the attribute class where the line strip index per vertex attribute can be found.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lsindexclass",
+        "lsindexattr"
+      ],
+      "menuLabels": [
+        "Line Strip Index per Vert Attribute",
+        "Line Strip Index per Vert Attrib"
+      ]
+    },
+    {
+      "name": "Max Verts per Line Strip",
+      "parName": "lsmaxvertsoverride",
+      "label": "Max Verts per Line Strip",
+      "type": "Toggle",
+      "description": "Specifies you want to set the max number of verts per line strip.allocation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lsmaxvertsoverride",
+        "lsmaxverts"
+      ],
+      "menuLabels": [
+        "Max Verts per Line Strip",
+        "Max Verts per Line Strip"
+      ]
+    },
+    {
+      "name": "Initialize Output Primitives",
+      "parName": "initoutputprims",
+      "label": "Initialize Output Primitives",
+      "type": "Menu",
+      "description": "Copy input primitives (point index values) and set point index for new primitives to 0.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "copy",
+        "zero"
+      ],
+      "menuLabels": [
+        "Don't Initialize",
+        "Copy input primitives (extra verts 0)",
+        "Set vertices to 0"
+      ]
+    },
+    {
+      "name": "Topology Info",
+      "parName": "topoinfo",
+      "label": "Topology Info",
+      "type": "Menu",
+      "description": "Sets the topology information source.",
+      "isReadOnly": false,
+      "menuItems": [
+        "input",
+        "fromattrs",
+        "fromparams"
+      ],
+      "menuLabels": [
+        "From Input",
+        "From Attributes",
+        "From Max Parameters"
+      ]
+    },
+    {
+      "name": "Topology Info POP",
+      "parName": "topoinfopop",
       "label": "Topology Info POP",
-      "description": "Configure Topology Info POP for the operator",
-      "type": "string"
+      "type": "POP",
+      "description": "Sets reference to a POP where the info attribute can be found.",
+      "isReadOnly": false
     },
     {
-      "name": "topoinfoclass",
+      "name": "Topology Info Attributes Class",
+      "parName": "topoinfoclass",
       "label": "Topology Info Attributes Class",
-      "description": "Configure Topology Info Attributes Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the attribute class where the info attribute can be found.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "trianglecountmode",
+      "name": "Triangle Count",
+      "parName": "trianglecountmode",
       "label": "Triangle Count",
-      "description": "Configure Triangle Count for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "The triangle count when setting it manually with a parameter.",
+      "isReadOnly": false,
+      "menuItems": [
+        "trianglecountmode",
+        "trianglecountattr"
+      ],
+      "menuLabels": [
+        "Triangle Count",
+        "Triangle Count Attribute"
       ]
     },
     {
-      "name": "trianglecountattr",
-      "label": "Triangle Count Attribute",
-      "description": "Configure Triangle Count Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "quadcountmode",
+      "name": "Quad Count",
+      "parName": "quadcountmode",
       "label": "Quad Count",
-      "description": "Configure Quad Count for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Whether to get the count of quad primitives from the source, set it to 0, or set its value manually.",
+      "isReadOnly": false,
+      "menuItems": [
+        "quadcountmode",
+        "quadcountattr"
+      ],
+      "menuLabels": [
+        "Quad Count",
+        "Quad Count Attribute"
       ]
     },
     {
-      "name": "quadcountattr",
-      "label": "Quad Count Attribute",
-      "description": "Configure Quad Count Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "linestripcountmode",
+      "name": "Line Strip Count",
+      "parName": "linestripcountmode",
       "label": "Line Strip Count",
-      "description": "Configure Line Strip Count for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Whether to get the count of line strips from the source, set it to 0, or set its value manually.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linestripcountmode",
+        "linestripcountattr"
+      ],
+      "menuLabels": [
+        "Line Strip Count",
+        "Line Strip Count Attribute"
       ]
     },
     {
-      "name": "linestripcountattr",
-      "label": "Line Strip Count Attribute",
-      "description": "Configure Line Strip Count Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "lsvertcountmode",
+      "name": "Line Strip Vert Count",
+      "parName": "lsvertcountmode",
       "label": "Line Strip Vert Count",
-      "description": "Configure Line Strip Vert Count for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Whether to get the vertex count of line strips from the source, set it to 0, or set its value manually.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lsvertcountmode",
+        "lsvertcountattr"
+      ],
+      "menuLabels": [
+        "Line Strip Vert Count",
+        "Line Strip Vert Count Attribute"
       ]
     },
     {
-      "name": "lsvertcountattr",
-      "label": "Line Strip Vert Count Attribute",
-      "description": "Configure Line Strip Vert Count Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "linecountmode",
+      "name": "Line Count",
+      "parName": "linecountmode",
       "label": "Line Count",
-      "description": "Configure Line Count for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Whether to get the count of line primitives from the source, set it to 0, or set its value manually.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linecountmode",
+        "linecountattr"
+      ],
+      "menuLabels": [
+        "Line Count",
+        "Line Count Attribute"
       ]
     },
     {
-      "name": "linecountattr",
-      "label": "Line Count Attribute",
-      "description": "Configure Line Count Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "pointprimcountmode",
+      "name": "Point Prim Count",
+      "parName": "pointprimcountmode",
       "label": "Point Prim Count",
-      "description": "Configure Point Prim Count for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "From Input",
-          "value": "input",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Whether to get the count of point primitives from the source, set it to 0, or set its value manually.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointprimcountmode",
+        "pointprimcountattr"
+      ],
+      "menuLabels": [
+        "Point Prim Count",
+        "Point Prim Count Attrib"
       ]
     },
     {
-      "name": "pointprimcountattr",
-      "label": "Point Prim Count Attrib",
-      "description": "Configure Point Prim Count Attrib for the operator",
-      "type": "string"
-    },
-    {
-      "name": "extraout",
+      "name": "Extra Output",
+      "parName": "extraout",
       "label": "Extra Output",
-      "description": "Configure Extra Output for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Write Only",
-          "value": "writeonly",
-          "description": ""
-        },
-        {
-          "label": "Read-Write",
-          "value": "readwrite",
-          "description": "Write readwrite -"
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to declare additional POP outputs that can be picked with GLSL Select.",
+      "isReadOnly": false,
+      "menuItems": [
+        "writeonly",
+        "readwrite"
+      ],
+      "menuLabels": [
+        "Write Only",
+        "Read-Write"
       ]
     },
     {
-      "name": "extraout0name",
-      "label": "Name",
-      "description": "Configure Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "extraout0pop",
-      "label": "POP",
-      "description": "Configure POP for the operator",
-      "type": "string"
-    },
-    {
-      "name": "extraout0ptattrs",
-      "label": "Point Output Attributes",
-      "description": "Configure Point Output Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "extraout0primattrs",
-      "label": "Prim Output Attributes",
-      "description": "Configure Prim Output Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "extraout0vertattrs",
-      "label": "Vert Output Attributes",
-      "description": "Configure Vert Output Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "extraout0outputaccess",
-      "label": "Output Access",
-      "description": "Configure Output Access for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Write Only",
-          "value": "writeonly",
-          "description": ""
-        },
-        {
-          "label": "Read-Write",
-          "value": "readwrite",
-          "description": "Write readwrite -"
-        }
-      ]
-    },
-    {
-      "name": "extraout0copyinputattrs",
-      "label": "Copy Input Attributes",
-      "description": "Configure Copy Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr",
+      "name": "New Attribute",
+      "parName": "attr",
       "label": "New Attribute",
-      "description": "Configure New Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to create new attributes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive",
+        "attr0name",
+        "attr0customname",
+        "attr0type",
+        "attr0numcomps",
+        "attr0value0",
+        "attr0value1",
+        "attr0value2",
+        "attr0value3"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive",
+        "New Attribute Name",
+        "Custom Name",
+        "New Attribute Type",
+        "New Attribute Number of Components",
+        "Value",
+        "Value",
+        "Value",
+        "Value"
       ]
     },
     {
-      "name": "attr0class",
-      "label": "New Attribute Class",
-      "description": "Configure New Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0name",
-      "label": "New Attribute Name",
-      "description": "Configure New Attribute Name for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "custom",
-      "label": "Custom",
-      "description": "Configure Custom for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0customname",
-      "label": "Custom Name",
-      "description": "Configure Custom Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0type",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0numcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0isarray",
-      "label": "Array",
-      "description": "Configure Array for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0arraysize",
-      "label": "New Attribute Array Size",
-      "description": "Configure New Attribute Array Size for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0value",
-      "label": "Value",
-      "description": "Configure Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0valuer",
-      "label": "Value",
-      "description": "Configure Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Value",
-          "value": "attr0valuer",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valueg",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valueb",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "attr0valuea",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "matattr",
+      "name": "Matrix Attribute",
+      "parName": "matattr",
       "label": "Matrix Attribute",
-      "description": "Configure Matrix Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Transform Matrix",
-          "value": "transformMatrix",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to create new matrix attributes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive",
+        "none",
+        "transformMatrix"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive",
+        "None",
+        "Transform Matrix"
       ]
     },
     {
-      "name": "matattr0class",
-      "label": "Matrix Attribute Class",
-      "description": "Configure Matrix Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
+      "name": "Pre-Multiply RGB by Alpha",
+      "parName": "premultcolor",
+      "label": "Pre-Multiply RGB by Alpha",
+      "type": "Toggle",
+      "description": "Enable RGB values pre-multiplication with the Alpha.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Color",
+      "parName": "color",
+      "label": "Color",
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for color uniforms.",
+      "isReadOnly": false,
+      "menuItems": [
+        "color0rgbr",
+        "color0rgbg",
+        "color0rgbb"
+      ],
+      "menuLabels": [
+        "RGB",
+        "RGB",
+        "RGB"
       ]
     },
     {
-      "name": "matattr0name",
-      "label": "Custom Matrix Name",
-      "description": "Configure Custom Matrix Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "matattr0numrows",
-      "label": "Rows",
-      "description": "Configure Rows for the operator",
-      "type": "string"
-    },
-    {
-      "name": "matattr0numcols",
-      "label": "Columns",
-      "description": "Configure Columns for the operator",
-      "type": "string"
-    },
-    {
-      "name": "matattr0isarray",
-      "label": "Array",
-      "description": "Configure Array for the operator",
-      "type": "string"
-    },
-    {
-      "name": "matattr0arraysize",
-      "label": "Array Size",
-      "description": "Configure Array Size for the operator",
-      "type": "string"
-    },
-    {
-      "name": "matattr0qualifier",
-      "label": "Qualifier",
-      "description": "Configure Qualifier for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Transform Matrix",
-          "value": "transformMatrix",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "vec",
+      "name": "Vector",
+      "parName": "vec",
       "label": "Vector",
-      "description": "Configure Vector for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "vec2",
-          "value": "vec2",
-          "description": ""
-        },
-        {
-          "label": "vec3",
-          "value": "vec3",
-          "description": ""
-        },
-        {
-          "label": "vec4",
-          "value": "vec4",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "dvec2",
-          "value": "dvec2",
-          "description": ""
-        },
-        {
-          "label": "dvec3",
-          "value": "dvec3",
-          "description": ""
-        },
-        {
-          "label": "dvec4",
-          "value": "dvec4",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "ivec2",
-          "value": "ivec2",
-          "description": ""
-        },
-        {
-          "label": "ivec3",
-          "value": "ivec3",
-          "description": ""
-        },
-        {
-          "label": "ivec4",
-          "value": "ivec4",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "uvec2",
-          "value": "uvec2",
-          "description": ""
-        },
-        {
-          "label": "uvec3",
-          "value": "uvec3",
-          "description": ""
-        },
-        {
-          "label": "uvec4",
-          "value": "uvec4",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuex",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuey",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuez",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuew",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks to define uniform variables.",
+      "isReadOnly": false,
+      "menuItems": [
+        "float",
+        "vec2",
+        "vec3",
+        "vec4",
+        "double",
+        "dvec2",
+        "dvec3",
+        "dvec4",
+        "int",
+        "ivec2",
+        "ivec3",
+        "ivec4",
+        "uint",
+        "uvec2",
+        "uvec3",
+        "uvec4",
+        "vec0valuex",
+        "vec0valuey",
+        "vec0valuez",
+        "vec0valuew"
+      ],
+      "menuLabels": [
+        "float",
+        "vec2",
+        "vec3",
+        "vec4",
+        "double",
+        "dvec2",
+        "dvec3",
+        "dvec4",
+        "int",
+        "ivec2",
+        "ivec3",
+        "ivec4",
+        "uint",
+        "uvec2",
+        "uvec3",
+        "uvec4",
+        "Value",
+        "Value",
+        "Value",
+        "Value"
       ]
     },
     {
-      "name": "vec0name",
-      "label": "Name",
-      "description": "Configure Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "vec0type",
-      "label": "Type",
-      "description": "Configure Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "vec2",
-          "value": "vec2",
-          "description": ""
-        },
-        {
-          "label": "vec3",
-          "value": "vec3",
-          "description": ""
-        },
-        {
-          "label": "vec4",
-          "value": "vec4",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "dvec2",
-          "value": "dvec2",
-          "description": ""
-        },
-        {
-          "label": "dvec3",
-          "value": "dvec3",
-          "description": ""
-        },
-        {
-          "label": "dvec4",
-          "value": "dvec4",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "ivec2",
-          "value": "ivec2",
-          "description": ""
-        },
-        {
-          "label": "ivec3",
-          "value": "ivec3",
-          "description": ""
-        },
-        {
-          "label": "ivec4",
-          "value": "ivec4",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "uvec2",
-          "value": "uvec2",
-          "description": ""
-        },
-        {
-          "label": "uvec3",
-          "value": "uvec3",
-          "description": ""
-        },
-        {
-          "label": "uvec4",
-          "value": "uvec4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "vec0value",
-      "label": "Value",
-      "description": "Configure Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Value",
-          "value": "vec0valuex",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuey",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuez",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuew",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "vec0valuex",
-      "label": "Value",
-      "description": "Configure Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Value",
-          "value": "vec0valuex",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuey",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuez",
-          "description": ""
-        },
-        {
-          "label": "Value",
-          "value": "vec0valuew",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sampler",
+      "name": "Sampler",
+      "parName": "sampler",
       "label": "Sampler",
-      "description": "Configure Sampler for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for Samplers to read from the shader.",
+      "isReadOnly": false,
+      "menuItems": [
+        "hold",
+        "zero",
+        "repeat",
+        "mirror",
+        "hold",
+        "zero",
+        "repeat",
+        "mirror",
+        "hold",
+        "zero",
+        "repeat",
+        "mirror",
+        "nearest",
+        "linear"
+      ],
+      "menuLabels": [
+        "Hold",
+        "Zero",
+        "Repeat",
+        "Mirror",
+        "Hold",
+        "Zero",
+        "Repeat",
+        "Mirror",
+        "Hold",
+        "Zero",
+        "Repeat",
+        "Mirror",
+        "Nearest Pixel",
+        "Interpolate Pixels"
       ]
     },
     {
-      "name": "sampler0name",
-      "label": "Name",
-      "description": "Configure Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "sampler0top",
-      "label": "TOP",
-      "description": "Configure TOP for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sampler0extendu",
-      "label": "Extend U",
-      "description": "Configure Extend U for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        },
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "hold",
-      "label": "Hold",
-      "description": "Configure Hold for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sampler0extendv",
-      "label": "Extend V",
-      "description": "Configure Extend V for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sampler0extendw",
-      "label": "Extend W",
-      "description": "Configure Extend W for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Hold",
-          "value": "hold",
-          "description": ""
-        },
-        {
-          "label": "Zero",
-          "value": "zero",
-          "description": ""
-        },
-        {
-          "label": "Repeat",
-          "value": "repeat",
-          "description": ""
-        },
-        {
-          "label": "Mirror",
-          "value": "mirror",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "sampler0filter",
-      "label": "Filter",
-      "description": "Configure Filter for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "nearest",
-      "label": "Nearest Pixel",
-      "description": "Configure Nearest Pixel for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "array",
+      "name": "Array",
+      "parName": "array",
       "label": "Array",
-      "description": "Configure Array for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "vec2",
-          "value": "vec2",
-          "description": ""
-        },
-        {
-          "label": "vec3",
-          "value": "vec3",
-          "description": ""
-        },
-        {
-          "label": "vec4",
-          "value": "vec4",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for array uniforms.",
+      "isReadOnly": false,
+      "menuItems": [
+        "float",
+        "vec2",
+        "vec3",
+        "vec4",
+        "uniformarray",
+        "texturebuffer"
+      ],
+      "menuLabels": [
+        "float",
+        "vec2",
+        "vec3",
+        "vec4",
+        "Uniform Array",
+        "Texture Buffer"
       ]
     },
     {
-      "name": "array0name",
-      "label": "Name",
-      "description": "Configure Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "array0type",
-      "label": "Type",
-      "description": "Configure Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "vec2",
-          "value": "vec2",
-          "description": ""
-        },
-        {
-          "label": "vec3",
-          "value": "vec3",
-          "description": ""
-        },
-        {
-          "label": "vec4",
-          "value": "vec4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "array0chop",
-      "label": "CHOP",
-      "description": "Configure CHOP for the operator",
-      "type": "string"
-    },
-    {
-      "name": "matrix",
+      "name": "Matrix",
+      "parName": "matrix",
       "label": "Matrix",
-      "description": "Configure Matrix for the operator",
-      "type": "string"
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks of matrix uniforms.",
+      "isReadOnly": false
     },
     {
-      "name": "matrix0name",
-      "label": "Name",
-      "description": "Configure Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "matrix0value",
-      "label": "Matrix",
-      "description": "Configure Matrix for the operator",
-      "type": "string"
-    },
-    {
-      "name": "tempbuffer",
+      "name": "Temp Buffer",
+      "parName": "tempbuffer",
       "label": "Temp Buffer",
-      "description": "Configure Temp Buffer for the operator",
-      "type": "string"
-    },
-    {
-      "name": "tempbuffer0name",
-      "label": "Name",
-      "description": "Configure Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "tempbuffer0initval",
-      "label": "Initial Value",
-      "description": "Configure Initial Value for the operator",
-      "type": "string"
-    },
-    {
-      "name": "const",
-      "label": "Constant",
-      "description": "Configure Constant for the operator",
-      "type": "string"
-    },
-    {
-      "name": "const0name",
-      "label": "Name",
-      "description": "Configure Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "const0value",
-      "label": "Value",
-      "description": "Configure Value for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for Temporary buffers used to pass information to the shader as uniforms.",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-GLSL_Advanced_POP.htm",
-  "parsedAt": "2025-08-08T03:03:55.975Z"
+  "parsedAt": "2025-08-08T03:03:55.975Z",
+  "url": "https://docs.derivative.ca/GLSL_Advanced_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=GLSL_Advanced_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live GLSL_Advanced_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=GLSL_Advanced_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

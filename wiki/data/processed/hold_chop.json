@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.845Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Hold_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Hold_CHOP",
   "description": "The Hold CHOP waits for a 0 to 1 step on its second input, at which time it reads the current values from the first input (one value per channel). It holds the values constant until it receives another 0 to 1 step. The second input controls the sampling. When the second input changes from 0 to 1, the first input is sampled. This value is held in the output until the second input changes from 0 to 1 again. Hold does not sample while the second input is 1, nor on the falling edge (1 to 0).",
   "summary": "The Hold CHOP waits for a 0 to 1 step on its second input, at which time it reads the current values from the first input (one value per channel). It holds the values constant until it receives anothe",
   "details": "",

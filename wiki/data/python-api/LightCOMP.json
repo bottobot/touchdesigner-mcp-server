@@ -1,0 +1,42 @@
+{
+  "className": "LightCOMP",
+  "displayName": "LightCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "ObjectCOMP",
+  "members": [],
+  "methods": [
+    {
+      "name": "projectionInverse",
+      "signature": "projectionInverseprojectionInverse(x, y)",
+      "returns": "tdu.Matrix",
+      "parameters": [],
+      "description": "Returns the inverse projection matrix for the light's view, given the X and Y aspect. In general these would be set to the width and height of your render. *x - The horizontal aspect ratio. *y - The vertical aspect ratio."
+    },
+    {
+      "name": "projection",
+      "signature": "projectionprojection(x, y)",
+      "returns": "tdu.Matrix",
+      "parameters": [],
+      "description": "Returns the projection matrix for the light's view, given the X and Y aspect. In general these would be set to the width and height of your render. *x - The horizontal aspect ratio. *y - The vertical aspect ratio."
+    },
+    {
+      "name": "mpcdiRegion",
+      "signature": "mpcdiRegionmpcdiRegion(width, height)",
+      "returns": "dict",
+      "parameters": [],
+      "description": "Returns a dictionary of its transform and projection for use in a MPCDI definition file. *width - The horizontal resolution of the renderer. *height - The vertical resolution of the renderer."
+    }
+  ],
+  "url": "https://docs.derivative.ca/LightCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=LightCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the LightCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/LightCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

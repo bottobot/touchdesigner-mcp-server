@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "bool",
       "readOnly": true,
-      "description": "timeSliceDefault member"
-    },
-    {
-      "name": "timeSliceDefault",
-      "id": "bodyContent",
-      "returnType": "bool",
-      "readOnly": true,
-      "description": "timeSliceDefault member"
+      "description": ""
     }
   ],
   "methods": []

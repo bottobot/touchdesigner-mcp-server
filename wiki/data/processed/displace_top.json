@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.702Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Displace_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Displace_TOP",
   "description": "The Displace TOP will cause one image to be warped by another image. A pixel of the output image at (Uo,Vo) gets its RGBA value from a different pixel (Ui, Vi) of the Source Image by using the second input image (the Displace Image).",
   "summary": "The Displace TOP will cause one image to be warped by another image. A pixel of the output image at (Uo,Vo) gets its RGBA value from a different pixel (Ui, Vi) of the Source Image by using the second ",
   "details": "",

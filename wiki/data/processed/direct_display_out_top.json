@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.669Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Direct_Display_Out_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Direct_Display_Out_TOP",
   "description": "The Direct Display Out TOP uses new technology available in Vulkan which allows directly outputting the DisplayPort/HDMI ports on the GPU, without interacting with the Windows Desktop. This avoids the need for a Window COMP, avoids cases where other windows and the mouse cursor will go in front of the content window, and avoids a lot of the issues caused by the Windows Compositor, as described Perfect Playback. Up to 3 outputs can be controlled via Direct Display.",
   "summary": "The Direct Display Out TOP uses new technology available in Vulkan which allows directly outputting the DisplayPort/HDMI ports on the GPU, without interacting with the Windows Desktop. This avoids the",
   "details": "",

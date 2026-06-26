@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:04.940Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Null_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Null_DAT",
   "description": "The Null DAT has no effect on the data. It is an instance of the DAT connected to its input. The Null DAT is often used when making reference to a DAT network, allowing new DATs to be added to the network (upstream) without the need to update the reference.",
   "summary": "The Null DAT has no effect on the data. It is an instance of the DAT connected to its input. The Null DAT is often used when making reference to a DAT network, allowing new DATs to be added to the net",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.137Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Monitors_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Monitors_DAT",
   "description": "The Monitors DAT is a table of data about all currently detected monitors with information on the resolution, screen positioning, monitor name and description, GPU, and a flag indicating whether it is a primary monitor or not.",
   "summary": "The Monitors DAT is a table of data about all currently detected monitors with information on the resolution, screen positioning, monitor name and description, GPU, and a flag indicating whether it is",
   "details": "",

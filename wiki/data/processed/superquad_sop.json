@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.166Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Superquad_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Superquad_SOP",
   "description": "The Superquad SOP generates an isoquadric surface. This produces a spherical shape that is similar to a metaball, with the difference that it doesn't change it's shape in response to what surrounds it. You can change the XY Exponent of an isoquadric surface to define it to be more \"squarish\" or \"starish\" in shape. Also, an isoquadric surface is always defined as a polygonal or mesh type geometry.",
   "summary": "The Superquad SOP generates an isoquadric surface. This produces a spherical shape that is similar to a metaball, with the difference that it doesn't change it's shape in response to what surrounds it",
   "details": "",

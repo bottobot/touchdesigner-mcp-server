@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.879Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\File_Out_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/File_Out_DAT",
   "description": "The File Out DAT allows you to write out DAT contents to a .dat file or a .txt file. A .dat file is one of the File Types of TouchDesigner that is used to hold the arrays of the Table DAT.",
   "summary": "The File Out DAT allows you to write out DAT contents to a .dat file or a .txt file. A .dat file is one of the File Types of TouchDesigner that is used to hold the arrays of the Table DAT.",
   "details": "",

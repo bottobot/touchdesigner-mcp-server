@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.195Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Web_Render_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Web_Render_CHOP",
   "description": "The Audio Web Render CHOP plays the audio of a web page in a Web Render TOP.\tIn the Web Render TOP you need to have the Audio Options menus set to Route to Audio Web Render CHOPs, as well as the Active parameter on.",
   "summary": "The Audio Web Render CHOP plays the audio of a web page in a Web Render TOP.\tIn the Web Render TOP you need to have the Audio Options menus set to Route to Audio Web Render CHOPs, as well as the Activ",
   "details": "",

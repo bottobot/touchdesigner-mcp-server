@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.534Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Shift_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Shift_CHOP",
   "description": "The Shift CHOP time-shifts a CHOP, changing the start and end of the CHOP's interval. However, the contents of the channels remain the same.",
   "summary": "The Shift CHOP time-shifts a CHOP, changing the start and end of the CHOP's interval. However, the contents of the channels remain the same.",
   "details": "",

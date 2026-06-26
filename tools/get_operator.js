@@ -51,7 +51,11 @@ export async function handler({ name, show_examples = true, show_tips = true, ve
   }
   
   let text = `# ${operator.displayName || operator.name}\n`;
-  text += `**Category:** ${operator.category} | **Subcategory:** ${operator.subcategory || 'General'}\n\n`;
+  text += `**Category:** ${operator.category} | **Subcategory:** ${operator.subcategory || 'General'}\n`;
+  if (operator.url) {
+    text += `**Docs:** ${operator.url}\n`;
+  }
+  text += '\n';
 
   // Version compatibility block (when version param is supplied)
   if (version) {
@@ -126,7 +130,10 @@ export async function handler({ name, show_examples = true, show_tips = true, ve
   // Parameters - Show ALL with enhanced formatting
   if (operator.parameters && operator.parameters.length > 0) {
     text += `## Parameters (${operator.parameters.length} total)\n\n`;
-    
+    if (operator.paramsVerified === false) {
+      text += `> *Note: parameter data for this operator is pending re-verification against the latest TouchDesigner docs.*\n\n`;
+    }
+
     // Group parameters by group/page for better organization
     const paramsByGroup = {};
     operator.parameters.forEach(param => {

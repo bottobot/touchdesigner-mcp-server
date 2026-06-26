@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.165Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Stream_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Stream_Out_CHOP",
   "description": "The Audio Stream Out CHOP can stream audio out to any rtsp client such as VideoLAN's VLC media player and Apple's Quicktime, or to a WebRTC peer.",
   "summary": "The Audio Stream Out CHOP can stream audio out to any rtsp client such as VideoLAN's VLC media player and Apple's Quicktime, or to a WebRTC peer.",
   "details": "",

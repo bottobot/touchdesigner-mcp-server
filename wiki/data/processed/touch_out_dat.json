@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.302Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Touch_Out_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Touch_Out_DAT",
   "description": "The Touch Out DAT sends full DAT tables across the network to the Touch In DAT in another TouchDesigner process, as opposed to messages with the other network based DATs. It is an extremely powerful mechanism to sync data between TouchDesigner processes.",
   "summary": "The Touch Out DAT sends full DAT tables across the network to the Touch In DAT in another TouchDesigner process, as opposed to messages with the other network based DATs. It is an extremely powerful m",
   "details": "",

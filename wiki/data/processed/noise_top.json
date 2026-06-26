@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.793Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Noise_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Noise_TOP",
   "description": "The Noise TOP generates a variety of noise patterns including perlin, simplex, sparse, alligator and random. Some types of noise run on the CPU, while others are calculated on the GPU. The ones that are calculated on the GPU will have GPU in their name.",
   "summary": "The Noise TOP generates a variety of noise patterns including perlin, simplex, sparse, alligator and random. Some types of noise run on the CPU, while others are calculated on the GPU. The ones that a",
   "details": "",

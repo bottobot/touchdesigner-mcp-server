@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.956Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Count_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Count_CHOP",
   "description": "The Count CHOP counts the number of times a channel crosses a trigger or release threshold. It operates in either static or realtime (\"Cook to Current Frame\") mode.",
   "summary": "The Count CHOP counts the number of times a channel crosses a trigger or release threshold. It operates in either static or realtime (\"Cook to Current Frame\") mode.",
   "details": "",

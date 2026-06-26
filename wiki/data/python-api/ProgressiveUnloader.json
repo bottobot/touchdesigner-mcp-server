@@ -1,0 +1,70 @@
+{
+  "className": "ProgressiveUnloader",
+  "displayName": "ProgressiveUnloader",
+  "category": "General",
+  "description": "The `ProgressiveUnloader` class describes a specific instance of the `COMP.progressiveUnload()` method of a COMP. Methods and members of this class are used to obtain progress information about the underway progressive unload operation, or modify it.",
+  "members": [
+    {
+      "name": "active",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns true if progressive unloading is underway"
+    },
+    {
+      "name": "remainingNodes",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Returns the remaining nodes to be unloaded. Returns 0 if `progressiveUnload()` has not been called at all for this component"
+    },
+    {
+      "name": "nodesUnloaded",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Returns the number of unloaded nodes. Returns 0 if `progressiveUnload()` has not been called at all for this component"
+    },
+    {
+      "name": "lastFrameUnloadTime",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Returns the unload time (in milliseconds) of the latest frame. Returns 0 if `progressiveUnload()` has not been called at all for this component"
+    },
+    {
+      "name": "averageFrameUnloadTime",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Returns the average unload time (in milliseconds) across all previous frames. Returns nan if `progressiveUnload()` has not been called at all for this component"
+    },
+    {
+      "name": "gpuMemUnloaded",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Returns the total gpuMemory (in MB) that has been unloaded. Returns 0 if `progressiveUnload()` has not been called at all for this component"
+    },
+    {
+      "name": "elapsedFrames",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Returns the elapsed frames since progressive unloading started. Returns 0 if `progressiveUnload()` has not been called at all for this component"
+    }
+  ],
+  "methods": [
+    {
+      "name": "kill",
+      "signature": "killkill()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Terminate the progressive unloading operation."
+    }
+  ],
+  "url": "https://docs.derivative.ca/ProgressiveUnloader_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ProgressiveUnloader_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ProgressiveUnloader Class wiki page",
+      "url": "https://docs.derivative.ca/ProgressiveUnloader_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

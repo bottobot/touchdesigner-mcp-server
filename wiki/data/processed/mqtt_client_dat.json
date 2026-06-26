@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.463Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\MQTT_Client_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/MQTT_Client_DAT",
   "description": "The MQTT Client DAT receives and sends data from/to MQTT devices via MQTT servers (broker). TouchDesigner can act as a client and another computer needs to act as a MQTT Server.  Once a client establishes a connection with a server, it can do two things:",
   "summary": "The MQTT Client DAT receives and sends data from/to MQTT devices via MQTT servers (broker). TouchDesigner can act as a client and another computer needs to act as a MQTT Server.  Once a client establi",
   "details": "",

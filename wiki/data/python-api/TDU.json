@@ -1,0 +1,226 @@
+{
+  "className": "TDU",
+  "displayName": "TDU",
+  "category": "General",
+  "description": "The `TDU` class is a generic utility class containing all miscellaneous utility functions and members that don't refer specifically to TouchDesigner data structures. To access members and methods of this class use the default instance `tdu`.",
+  "members": [
+    {
+      "name": "fileTypes",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "A dictionary of all supported file types, organized by category. Note: Acceptable file types can be both uppercase and lowercase, so if `suffix` is a suffix string, you need to force it to lowercase by using `suffix.lower()`:"
+    },
+    {
+      "name": "Matrix",
+      "returnType": "TDU.Matrix",
+      "readOnly": true,
+      "description": "The Matrix definition class."
+    },
+    {
+      "name": "Position",
+      "returnType": "TDU.Position",
+      "readOnly": true,
+      "description": "The Position definition class."
+    },
+    {
+      "name": "Vector",
+      "returnType": "TDU.Vector",
+      "readOnly": true,
+      "description": "The Vector definition class."
+    },
+    {
+      "name": "Quaternion",
+      "returnType": "TDU.Quaternion",
+      "readOnly": true,
+      "description": "The Quaternion definition class."
+    },
+    {
+      "name": "Color",
+      "returnType": "TDU.Color",
+      "readOnly": true,
+      "description": "The Color definition class."
+    },
+    {
+      "name": "Dependency",
+      "returnType": "TDU.Dependency",
+      "readOnly": true,
+      "description": "The Dependency definition class."
+    },
+    {
+      "name": "FileInfo",
+      "returnType": "TDU.FileInfo",
+      "readOnly": true,
+      "description": "The FileInfo object takes a file path and has a few utility properties to provide additional information. It is derived from str, so will work as a Python string, but can be differentiated from a regular string by using `isinstance(tdu.FileInfo)`. Utility properties include: *path: filepath string *ext: string after and including \".\" *fileType: the TD filetype (from tdu.fileTypes) *absPath: the absolute path to filepath *dir: the containing directory of filepath *exists: exists in file-system *isDir: is a directory in the file-system *isFile: is a file in the file-system *baseName: the name of the final element in the path"
+    },
+    {
+      "name": "ArcBall",
+      "returnType": "TDU.ArcBall",
+      "readOnly": true,
+      "description": "The ArcBall definition class."
+    },
+    {
+      "name": "Camera",
+      "returnType": "tdu.Camera",
+      "readOnly": true,
+      "description": "The Camera definition class."
+    },
+    {
+      "name": "debug",
+      "returnType": "module",
+      "readOnly": true,
+      "description": "Helper module for the builtin debug statement. Documentation."
+    },
+    {
+      "name": "Timecode",
+      "returnType": "TDU.Timecode",
+      "readOnly": true,
+      "description": "The Timecode definition class."
+    }
+  ],
+  "methods": [
+    {
+      "name": "rand",
+      "signature": "randrand(seed)",
+      "returns": "float",
+      "parameters": [],
+      "description": "Return a random value in the range [0.0, 1.0) given the input seed value. That is, it will never return 1.0, but it may return 0.0. For a given seed, it will always return the same random number. The seed does not need to be a number. If the seed is not numeric, it resolves it to its string representation to produce a unique value. In the case of OPs for example, its string representation is a constant path. Thus one can produce a unique random value for each OP which remains the same for that OP each time you reload TouchDesigner."
+    },
+    {
+      "name": "clamp",
+      "signature": "clampclamp(inputVal, min, max)",
+      "returns": "float int",
+      "parameters": [],
+      "description": "Returns the input value clamped between min and max values. Arguments can be any type that can be compared (float, int, str, etc)."
+    },
+    {
+      "name": "remap",
+      "signature": "remapremap(inputVal, fromMin, fromMax, toMin, toMax)",
+      "returns": "float",
+      "parameters": [],
+      "description": "Returns the input value remapped from the first range to the second."
+    },
+    {
+      "name": "base",
+      "signature": "basebase(str)",
+      "returns": "str",
+      "parameters": [],
+      "description": "Returns the beginning portion of the string occurring before any digits. The search begins after the last slash if any are present. *str - The string to extract the base name from. Note this method will work on any string, but when given a specific operator, its more efficient to use its local base member:"
+    },
+    {
+      "name": "digits",
+      "signature": "digitsdigits(str)",
+      "returns": "int None",
+      "parameters": [],
+      "description": "Returns the numeric value of the last consecutive group of digits in the string, or None if not found. The search begins after the last slash if any are present. The digits do not nessearily need to be at the end of the string. Note this method will work on any string, but when given a specific operator, its more efficient to use its local digits member:"
+    },
+    {
+      "name": "validName",
+      "signature": "validNamevalidName(str)",
+      "returns": "str",
+      "parameters": [],
+      "description": "Returns a version of the string suitable for an operator name. Converts illegal characters to underscores. Slashes are converted to underscores. To preserve forward slashes, use validPath() instead."
+    },
+    {
+      "name": "validPath",
+      "signature": "validPathvalidPath(str)",
+      "returns": "str",
+      "parameters": [],
+      "description": "Returns a version of the string suitable for an operator path, including slashes. Converts illegal characters to underscores."
+    },
+    {
+      "name": "expand",
+      "signature": "expandexpand(pattern)",
+      "returns": "list",
+      "parameters": [],
+      "description": "Return a list of the expanded items, following the rules of Pattern Expansion."
+    },
+    {
+      "name": "expandPath",
+      "signature": "expandPathexpandPath(path)",
+      "returns": "str",
+      "parameters": [],
+      "description": "Expand the file path, using project.paths, the current folder, and any other relevant information."
+    },
+    {
+      "name": "collapsePath",
+      "signature": "collapsePathcollapsePath(path, asExpression=False)",
+      "returns": "str",
+      "parameters": [],
+      "description": "Collapse the file path, using project.paths, the current folder, and any other relevant information. *path - The path to be shortened. *asExpression - (Keyword, Optional) If True, result can be used as an expression, including App Class members and quoted strings."
+    },
+    {
+      "name": "split",
+      "signature": "splitsplit(string, eval=False)",
+      "returns": "list",
+      "parameters": [],
+      "description": "Return a list from a space separated string, allowing quote delimiters. *string - Any Python object, as it will be evaluated as str(string). Parameters will work. *eval - (Keyword, Optional) If True convert any valid Python literal structures: strings, numbers, tuples, lists, dicts, booleans, and None."
+    },
+    {
+      "name": "match",
+      "signature": "matchmatch(pattern, inputList, caseSensitive=True)",
+      "returns": "list",
+      "parameters": [],
+      "description": "Return a subset of inputList, in which each element matches the pattern. Wildcards are supported."
+    },
+    {
+      "name": "calibrateCamera",
+      "signature": "calibrateCameracalibrateCamera()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Returns a set of values based on the input calibration data. This Method is not necessary anymore due to the inclusion of openCV in TouchDesigner. Refer to [http://docs.opencv.org/3.1.0/d4/d94/tutorial_camera_calibration.html OpenCV Documentation]"
+    },
+    {
+      "name": "forceCrash",
+      "signature": "forceCrashforceCrash()",
+      "returns": "None",
+      "parameters": [],
+      "description": "forces a crash for debugging and crash recovery purposes"
+    },
+    {
+      "name": "tryExcept",
+      "signature": "tryExcepttryExcept(func1 : Callable, func2val : Any)",
+      "returns": "Any",
+      "parameters": [],
+      "description": "Evaluate the first function (func1). If an exception is raised, return second argument instead. Second argument can be either a function, which will be called, or a final result. Note: If the second argument is a function, it is only called if the first function fails. * func1: the function that will be \"tried\" * func2val: a value (returned if func1 fails) or a function (return result if func1 fails) This is a one-liner try/except function for use in parameter expressions to handle simple errors. Tip: always be careful when hiding errors with try/except, because it can make real problems in your code/network invisible."
+    },
+    {
+      "name": "ParMenu",
+      "signature": "ParMenuParMenu(menuNames, menuLabels=None)",
+      "returns": "TDU.MenuObject",
+      "parameters": [],
+      "description": "This method uses a list of strings to create an object meant to be used as a parameter menu source. *menuNames - A list of strings for menu values. *menuLabels - (Optional) A list of strings for menu labels. Defaults to menuNames."
+    },
+    {
+      "name": "TableMenu",
+      "signature": "TableMenuTableMenu(table, nameCol=0, labelCol=None, includeFirstRow=False)",
+      "returns": "TDU.MenuObject",
+      "parameters": [],
+      "description": "Create a parameter menu source object based on a DAT table. This method uses a table to create an object meant to be used as a parameter menu source. *table - a DAT table to get the menu information from *nameCol - (Keyword, Optional) Column name or number for menuNames. Defaults to 0. *labelCol - (Keyword, Optional) Column name or number for menuLabels. Defaults to None, which means to use names as labels. *includeFirstRow - (Keyword, Optional) if True, include first row of table in menu entries. Defaults to False. Generally you will use this in the menuSource field in the Component Editor as follows"
+    },
+    {
+      "name": "isPointCloudFile",
+      "signature": "isPointCloudFileisPointCloudFile(path)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Check if the input file is a point cloud file. For .exr, the channel headers are checked. Returns true if channels ending in X,Y,Z or x,y,z are found, or if the file was saved out using Movie File Out TOP with \"Save as Point Cloud\" set. For all other types, only the file extension is checked. *path - Path to the input file."
+    },
+    {
+      "name": "parSummary",
+      "signature": "parSummaryparSummary(OPType)",
+      "returns": "dict",
+      "parameters": [],
+      "description": "Returns a dictionary describing the builtin parameters of the OP class provided. *OPType - The OP type to describe."
+    }
+  ],
+  "url": "https://docs.derivative.ca/TDU_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TDU_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the TDU Class wiki page",
+      "url": "https://docs.derivative.ca/TDU_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

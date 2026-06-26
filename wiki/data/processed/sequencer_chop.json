@@ -1,0 +1,89 @@
+{
+  "id": "sequencer_chop",
+  "name": "Sequencer CHOP",
+  "displayName": "Sequencer CHOP",
+  "category": "CHOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Sequencer_CHOP",
+  "description": "'''NOTE''': '''The [[Timer CHOP]] replaces the Sequencer CHOP'''. Sequencer CHOP has been removed (it will still work in existing files). See the [[Timer CHOP]] examples in the OP Snippets (Help -> Operator Snippets). The Timer CHOP is an engine for running timed processes. It outputs channels such as timing fractions, counters, pulses and timer states, and it calls python functions (callbacks) on various timing events.",
+  "parameters": [
+    {
+      "name": "DAT List",
+      "parName": "datlist",
+      "label": "DAT List",
+      "type": "DAT",
+      "description": "The table of CHOPs to sequence, the table contains the paths to the CHOPs to be sequenced.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Blend Scope",
+      "parName": "blendscope",
+      "label": "Blend Scope",
+      "type": "Str",
+      "description": "Specifies which channels should blend between transitions, otherwise they add or jump.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Add Scope",
+      "parName": "addscope",
+      "label": "Add Scope",
+      "type": "Str",
+      "description": "Specifies which channels should add during transitions, otherwise they blend or jump.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Queue",
+      "parName": "queue",
+      "label": "Queue",
+      "type": "Str",
+      "description": "Specifies the channel that controls when to queue (pause).",
+      "isReadOnly": false
+    },
+    {
+      "name": "Trigger",
+      "parName": "trigger",
+      "label": "Trigger",
+      "type": "Pulse",
+      "description": "Begin transitioning immediately, instead of waiting until the end of the current CHOP channels.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Reset",
+      "parName": "reset",
+      "label": "Reset",
+      "type": "Toggle",
+      "description": "While On, resets the sequence to the default CHOP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Reset Pulse",
+      "parName": "resetpulse",
+      "label": "Reset Pulse",
+      "type": "Pulse",
+      "description": "Instantly resets the sequence.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Sequencer_CHOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Sequencer_CHOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Sequencer_CHOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.131Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Actor_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Actor_COMP",
   "description": "An Actor COMP is analogous to a body (or bodies) in a physics system. An Actor COMP must be used in conjunction with a physics solver: either a Bullet Solver COMP or Nvidia Flex Solver COMP, which in turn is analogous to the world/simulation that the actors/bodies operate in. An Actor COMP can either be static, meaning it is not affected by any forces in the simulation and cannot move (ie. has infinite mass), or it can be dynamic, meaning it is moved by forces and collides with other bodies (either static or dynamic) in the world.",
   "summary": "An Actor COMP is analogous to a body (or bodies) in a physics system. An Actor COMP must be used in conjunction with a physics solver: either a Bullet Solver COMP or Nvidia Flex Solver COMP, which in ",
   "details": "",

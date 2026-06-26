@@ -1,0 +1,85 @@
+{
+  "className": "Body",
+  "displayName": "Body",
+  "category": "General",
+  "description": "The Body Class describes the contents of a single body within an Actor COMP. The Actor COMP has a list of all its bodies.",
+  "members": [
+    {
+      "name": "index",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The index of this Body in its Actor COMP (owner)."
+    },
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The Actor COMP to which this body belongs."
+    },
+    {
+      "name": "rotate",
+      "returnType": "tdu.Vector",
+      "readOnly": false,
+      "description": "Get or set the body's rotation in world space."
+    },
+    {
+      "name": "translate",
+      "returnType": "tdu.Position",
+      "readOnly": false,
+      "description": "Get or set the body's translation in world space."
+    },
+    {
+      "name": "angularVelocity",
+      "returnType": "tdu.Vector",
+      "readOnly": false,
+      "description": "Get or set the body's angular velocity."
+    },
+    {
+      "name": "linearVelocity",
+      "returnType": "tdu.Vector",
+      "readOnly": false,
+      "description": "Get or set the body's linear velocity."
+    }
+  ],
+  "methods": [
+    {
+      "name": "applyImpulseForce",
+      "signature": "applyImpulseForceapplyImpulseForce(force, relPos=None)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Applies impulse force to a body in a Bullet simulation. * force - The impulse force to apply to the body. * relPos (Keyword, Optional) - If specified, applies the force at the relative position, otherwise applied at (0,0,0)."
+    },
+    {
+      "name": "applyTorque",
+      "signature": "applyTorqueapplyTorque(torque)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Applies torque to a body in a Bullet simulation. The torque will only be applied for a single frame. *torque - The torque to apply to the body this frame."
+    },
+    {
+      "name": "applyImpulseTorque",
+      "signature": "applyImpulseTorqueapplyImpulseTorque(torque)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Applies impulse torque to a body in a Bullet simulation. *torque - The impulse torque to apply to the body."
+    },
+    {
+      "name": "applyForce",
+      "signature": "applyForceapplyForce(force, relPos=None)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Applies force to a body in a Bullet simulation. The force will only be applied for a single frame. *force - The force to apply to the body this frame. *relPos (Keyword, Optional) - If specified, applies the force at the relative position, otherwise applied at (0,0,0)."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Body_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Body_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Body Class wiki page",
+      "url": "https://docs.derivative.ca/Body_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

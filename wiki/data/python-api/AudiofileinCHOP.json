@@ -1,0 +1,33 @@
+{
+  "className": "AudiofileinCHOP",
+  "displayName": "AudiofileinCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "timecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get a Timecode object for timecode data representation of the current index of the audio file. See Timecode Class."
+    },
+    {
+      "name": "metadata",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "Get a dictionary containing all the metadata."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/AudiofileinCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=AudiofileinCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the AudiofileinCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/AudiofileinCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

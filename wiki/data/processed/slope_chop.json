@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.651Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Slope_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Slope_CHOP",
   "description": "The Slope CHOP calculates the slope (or \"derivative\" in math-speak) of the input channels.",
   "summary": "The Slope CHOP calculates the slope (or \"derivative\" in math-speak) of the input channels.",
   "details": "",

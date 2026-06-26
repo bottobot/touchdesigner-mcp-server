@@ -3,532 +3,211 @@
   "id": "neighbor_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Neighbor POP uses the P attribute to find, for each point of the input, the closest points to it.  It puts the indexes of the closest points in an array attribute Nebr. You specify the max number of neighbors, and you choose the Max Neighbors Distance to look for neighbors.",
+  "description": "The Neighbor POP uses the <code>P</code> attribute to find, for each point of the input, the closest points to it. It puts the indexes of the closest points in an array attribute <code>Nebr</code>. You specify the max number of neighbors, and you choose the Max Neighbors Distance to look for neighbors. The size of the attribute <code>Nebr</code> is the Max Neighbors parameter. If fewer than that number is found, it puts a special number <code>4294967295</code> as the value for the neighbor index. The attribute <code>NumNebrs</code> holds the number of neighbors found for each point. You can output the average distance to the found neighbors, optionally including the point's position. Alternately you can output the Inverse Distance Weighted Average, where the closest points have the highest influence on the average. Instead of outputting the indexes of the neighbors, you can output any set of attributes of the neighbors (careful, this can produce a lot of data). An alternate form of the Neighbor POP takes a second input, where the each point of the first input is compared to points of the second input. Neighbors are determined by distance between points, but via the Neighbors Type menu, they can also be determined by connectivity along any primitive connecting edges to neighboring points (only one step currently). For example, two points adjacent to each other in a line strip or quad are neighbors of each other. ( Distribution - Default, Unique, Closest ) Internally it is using a unbounded spatial hashing algorithm nad put into one of Num Hash Buckets.",
   "parameters": [
     {
-      "name": "P",
+      "name": "Neighbors Type",
+      "parName": "nebrtype",
       "label": "Neighbors Type",
-      "description": "Configure Neighbors Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "By Distance",
-          "value": "distance",
-          "description": ""
-        },
-        {
-          "label": "Connected",
-          "value": "connected",
-          "description": ""
-        },
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Unique",
-          "value": "unique",
-          "description": ""
-        },
-        {
-          "label": "Closest",
-          "value": "closest",
-          "description": ""
-        },
-        {
-          "label": "Neighbors",
-          "value": "nebr",
-          "description": ""
-        },
-        {
-          "label": "Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Inverse Distance Weighted Average",
-          "value": "weightedavg",
-          "description": ""
-        },
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "When checking for neighbors, choose to use edge connectivity or only distance to neighbor points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "distance",
+        "connected"
+      ],
+      "menuLabels": [
+        "By Distance",
+        "Connected"
       ]
     },
     {
-      "name": "nebrtype",
-      "label": "Neighbors Type",
-      "description": "Configure Neighbors Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "By Distance",
-          "value": "distance",
-          "description": ""
-        },
-        {
-          "label": "Connected",
-          "value": "connected",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "distance",
-      "label": "By Distance",
-      "description": "Configure By Distance for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "By Distance",
-          "value": "distance",
-          "description": ""
-        },
-        {
-          "label": "Connected",
-          "value": "connected",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxdistance",
+      "name": "Max Neighbors Distance",
+      "parName": "maxdistance",
       "label": "Max Neighbors Distance",
-      "description": "Configure Max Neighbors Distance for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Specifies the distance below which a point is considered a neighbor of the current point.",
+      "isReadOnly": false
     },
     {
-      "name": "distribution",
+      "name": "Distribution",
+      "parName": "distribution",
       "label": "Distribution",
-      "description": "Configure Distribution for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Unique",
-          "value": "unique",
-          "description": ""
-        },
-        {
-          "label": "Closest",
-          "value": "closest",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines what kind of neighbor sets are returned.",
+      "isReadOnly": false,
+      "menuItems": [
+        "default",
+        "unique",
+        "closest"
+      ],
+      "menuLabels": [
+        "Default",
+        "Unique",
+        "Closest"
       ]
     },
     {
-      "name": "default",
-      "label": "Default",
-      "description": "Configure Default for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default",
-          "value": "default",
-          "description": ""
-        },
-        {
-          "label": "Unique",
-          "value": "unique",
-          "description": ""
-        },
-        {
-          "label": "Closest",
-          "value": "closest",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "numhashbuckets",
+      "name": "Num Hash Buckets",
+      "parName": "numhashbuckets",
       "label": "Num Hash Buckets",
-      "description": "Configure Num Hash Buckets for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of buckets the points will be sorted in based on their position. A good heuristic is to choose it to be close to the number of points.",
+      "isReadOnly": false
     },
     {
-      "name": "outputhash",
+      "name": "Output Hash Attrib",
+      "parName": "outputhash",
       "label": "Output Hash Attrib",
-      "description": "Configure Output Hash Attrib for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute with the Spatial Hash values, which can be useful to debug and optimize performance.",
+      "isReadOnly": false
     },
     {
-      "name": "nebroutput",
+      "name": "Output",
+      "parName": "nebroutput",
       "label": "Output",
-      "description": "Configure Output for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Neighbors",
-          "value": "nebr",
-          "description": ""
-        },
-        {
-          "label": "Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Inverse Distance Weighted Average",
-          "value": "weightedavg",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Whether to output the individual neighbors and their attributes in array attributes, or their average or distance weighted average.",
+      "isReadOnly": false,
+      "menuItems": [
+        "nebr",
+        "avg",
+        "weightedavg"
+      ],
+      "menuLabels": [
+        "Neighbors",
+        "Average",
+        "Inverse Distance Weighted Average"
       ]
     },
     {
-      "name": "nebr",
-      "label": "Neighbors",
-      "description": "Configure Neighbors for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Neighbors",
-          "value": "nebr",
-          "description": ""
-        },
-        {
-          "label": "Average",
-          "value": "avg",
-          "description": ""
-        },
-        {
-          "label": "Inverse Distance Weighted Average",
-          "value": "weightedavg",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxneighbors",
+      "name": "Max Neighbors",
+      "parName": "maxneighbors",
       "label": "Max Neighbors",
-      "description": "Configure Max Neighbors for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Specifies the max number of neighbors. This sets the array size of all the attributes storing neighbors information.",
+      "isReadOnly": false
     },
     {
-      "name": "nebrs",
+      "name": "Neighbors",
+      "parName": "nebrs",
       "label": "Neighbors",
-      "description": "Configure Neighbors for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable addition of the neighbors attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "nebrs",
+        "nebrattrname"
+      ],
+      "menuLabels": [
+        "Neighbors",
+        "Neighbor Attr Name"
+      ]
     },
     {
-      "name": "nebrattrname",
-      "label": "Neighbor Attr Name",
-      "description": "Configure Neighbor Attr Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "numnebrs",
+      "name": "Num Neighbors",
+      "parName": "numnebrs",
       "label": "Num Neighbors",
-      "description": "Configure Num Neighbors for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable the addition of the number of neighbors attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "numnebrs",
+        "numnbrsattrname"
+      ],
+      "menuLabels": [
+        "Num Neighbors",
+        "Num Neighbors Attr Name"
+      ]
     },
     {
-      "name": "numnbrsattrname",
-      "label": "Num Neighbors Attr Name",
-      "description": "Configure Num Neighbors Attr Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "dodist",
+      "name": "Add Distance Attribute",
+      "parName": "dodist",
       "label": "Add Distance Attribute",
-      "description": "Configure Add Distance Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output an attribute containing the distance to the query point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "dodist",
+        "distattrname"
+      ],
+      "menuLabels": [
+        "Add Distance Attribute",
+        "Distance Attribute Name"
+      ]
     },
     {
-      "name": "distattrname",
-      "label": "Distance Attribute Name",
-      "description": "Configure Distance Attribute Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "maxnebrsavg",
+      "name": "Max Neighbors for Average",
+      "parName": "maxnebrsavg",
       "label": "Max Neighbors for Average",
-      "description": "Configure Max Neighbors for Average for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Specifies the max number of neighbors considered when averaging neighbor attributes.",
+      "isReadOnly": false
     },
     {
-      "name": "incquerypt",
+      "name": "Include Query Point",
+      "parName": "incquerypt",
       "label": "Include Query Point",
-      "description": "Configure Include Query Point for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When on, includes the query point when calculating average when output is average.",
+      "isReadOnly": false
     },
     {
-      "name": "addprefix",
+      "name": "Add Prefix",
+      "parName": "addprefix",
       "label": "Add Prefix",
-      "description": "Configure Add Prefix for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to add Nebr prefix when outputting neighbor attributes.",
+      "isReadOnly": false
     },
     {
-      "name": "castintstofloats",
+      "name": "Cast Integers to Floats",
+      "parName": "castintstofloats",
       "label": "Cast Integers to Floats",
-      "description": "Configure Cast Integers to Floats for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When averaging the neighbor attribute values, whether to cast integer attributes to float.",
+      "isReadOnly": false
     },
     {
-      "name": "nebrptattrs",
+      "name": "Neighbor Point Attributes",
+      "parName": "nebrptattrs",
       "label": "Neighbor Point Attributes",
-      "description": "Configure Neighbor Point Attributes for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "*",
-      "label": "*",
-      "description": "Configure * for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "*",
-          "value": "*",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "StrMenu",
+      "description": "Creates array attributes the size of max neighbors with the neighbor attributes for each point in the first input.",
+      "isReadOnly": false,
+      "menuItems": [
+        "*"
+      ],
+      "menuLabels": [
+        "*"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Neighbor_POP.htm",
-  "parsedAt": "2025-08-08T03:03:57.677Z"
+  "parsedAt": "2025-08-08T03:03:57.677Z",
+  "url": "https://docs.derivative.ca/Neighbor_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Neighbor_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Neighbor_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Neighbor_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

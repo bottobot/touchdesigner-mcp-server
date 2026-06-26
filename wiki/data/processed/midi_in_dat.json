@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.000Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\MIDI_In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/MIDI_In_DAT",
   "description": "The MIDI In DAT logs all MIDI messages coming into TouchDesigner from a specified MIDI device. It outputs columns in a table format - message, type, channel, index, value.",
   "summary": "The MIDI In DAT logs all MIDI messages coming into TouchDesigner from a specified MIDI device. It outputs columns in a table format - message, type, channel, index, value.",
   "details": "",

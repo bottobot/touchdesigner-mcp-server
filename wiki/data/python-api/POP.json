@@ -1,0 +1,193 @@
+{
+  "className": "POP",
+  "displayName": "POP",
+  "category": "Operator",
+  "description": "A POP describes a reference to a POP operator, containing points and primitives.",
+  "members": [
+    {
+      "name": "compare",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set Compare Flag."
+    },
+    {
+      "name": "dimension",
+      "returnType": "Dimension",
+      "readOnly": true,
+      "description": "The dimension in this POP. This value updates independently of time dependent content."
+    },
+    {
+      "name": "maxVertsPerLineStrip",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The max number of verts per line strip in this POP."
+    },
+    {
+      "name": "pointAttributes",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The set of point attributes defined in this POP."
+    },
+    {
+      "name": "pointAttributesChanged",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The point attributes changed by this POP."
+    },
+    {
+      "name": "primAttributes",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The set of primitive attributes defined in this POP."
+    },
+    {
+      "name": "primAttributesChanged",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The prim attributes changed by this POP."
+    },
+    {
+      "name": "template",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set Template Flag."
+    },
+    {
+      "name": "vertAttributes",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The set of vertex attributes defined in this POP."
+    },
+    {
+      "name": "vertAttributesChanged",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The vert attributes changed by this POP."
+    }
+  ],
+  "methods": [
+    {
+      "name": "bounds",
+      "signature": "boundsbounds(delayed=False)",
+      "returns": "Bounds",
+      "parameters": [],
+      "description": "Returns an object with the bounds, center and size of the POP's geometry. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to bounds(), avoiding stalling the GPU waiting for the result immediately."
+    },
+    {
+      "name": "computeBounds",
+      "signature": "computeBoundscomputeBounds(display=False, render=False, delayed=False)",
+      "returns": "Bounds",
+      "parameters": [],
+      "description": "Returns an object with the bounds, center and size of the POP's geometry. * display - (Keyword, Optional) If set to True, only calculate Bounding Box if POP display flag is set. * render - (Keyword, Optional) If set to True, only calculate Bounding Box if POP render flag is set. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to computeBounds(), avoiding stalling the GPU waiting for the result immediately."
+    },
+    {
+      "name": "numPoints",
+      "signature": "numPointsnumPoints(delayed=False, max=False)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the number of points contained in this POP. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to numPoints(), avoiding stalling the GPU waiting for the result immediately. * max - (Keyword, Optional) If set to True, returns the number of allocated points (max number of points). In that case result is always instant, delayed is disregarded."
+    },
+    {
+      "name": "numPrims",
+      "signature": "numPrimsnumPrims(delayed=False, max=False, primType=None)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the number of primitives contained in this POP. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to numPrims(), avoiding stalling the GPU waiting for the result immediately. * max - (Keyword, Optional) If set to True, returns the number of allocated primitives (max number of primitives). In that case result is always instant, delayed is disregarded. * primType - (Keyword, Optional) If set to triangles, quads, lineStrips, lines or pointPrims, returns the number of primitives for that primitive type only."
+    },
+    {
+      "name": "numVerts",
+      "signature": "numVertsnumVerts(delayed=False, max=False, lineStrips=False)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the number of vertices contained in this POP. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to numVerts(), avoiding stalling the GPU waiting for the result immediately. * max - (Keyword, Optional) If set to True, returns the number of allocated vertices (max number of verts). In that case result is always instant, delayed is disregarded. * lineStrips - (Keyword, Optional) If set to true, returns the number of verts for line strips only."
+    },
+    {
+      "name": "pointItr",
+      "signature": "pointItrpointItr(attributeName, compIndex)",
+      "returns": "PointItr",
+      "parameters": [],
+      "description": "Only supported in the parameters of some POPs. Returns an object that will return a different value for each output element, using the output index to lookup into the attribute referenced. * attributeName - The attribute name. * compIndex - The component index within the attribute to use. * pointIndex - (Keyword, Optional) The point index to use (optional)."
+    },
+    {
+      "name": "point",
+      "signature": "pointpoint(attributeName, index, delayed=False)",
+      "returns": "float int tuple",
+      "parameters": [],
+      "description": "Returns the point attribute value. * attributeName - The attribute name. * index - The point index. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to vals(), avoiding stalling the GPU waiting for the result immediately."
+    },
+    {
+      "name": "points",
+      "signature": "pointspoints(attributeName, startIndex=0, count=-1, delayed=False)",
+      "returns": "list",
+      "parameters": [],
+      "description": "Returns the point attribute values as a list. * attributeName - The attribute name. * startIndex - (Keyword, Optional )The point index to start at (default 0). * count - (Keyword, Optional) The number of points to download. A value of -1 fetches all elements from the start index onward. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to vals(), avoiding stalling the GPU waiting for the result immediately."
+    },
+    {
+      "name": "primItr",
+      "signature": "primItrprimItr(attributeName, compIndex)",
+      "returns": "PrimItr",
+      "parameters": [],
+      "description": "Only supported in the parameters of some POPs. Returns an object that will return a different value for each output element, using the output index to lookup into the attribute referenced. * attributeName - The attribute name. * compIndex - The component index within the attribute to use. * primIndex - (Keyword, Optional) The primitive index to use (optional)."
+    },
+    {
+      "name": "prim",
+      "signature": "primprim(attributeName, index, delayed=False)",
+      "returns": "float int tuple",
+      "parameters": [],
+      "description": "Returns the primitive attribute value. * attributeName - The attribute name. * index - The prim index. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to vals(), avoiding stalling the GPU waiting for the result immediately."
+    },
+    {
+      "name": "prims",
+      "signature": "primsprims(attributeName, startIndex=0, count=-1, delayed=False)",
+      "returns": "list",
+      "parameters": [],
+      "description": "Returns the primitive attribute values as a list. * attributeName - The attribute name. * startIndex - (Keyword, Optional )The primitive index to start at (default 0). * count - (Keyword, Optional) The number of primitives to download. A value of -1 fetches all elements from the start index onward. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to vals(), avoiding stalling the GPU waiting for the result immediately."
+    },
+    {
+      "name": "reallocate",
+      "signature": "reallocatereallocate()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Forces the POP to reallocate its GPU buffers."
+    },
+    {
+      "name": "save",
+      "signature": "savesave(filepath, createFolders=False)",
+      "returns": "str",
+      "parameters": [],
+      "description": "Save the POP geometry to file system. Multiple file types are supported. Returns the filename and path saved. * filepath - (Optional) The path and filename to save to. If not given then a default filename will be used, and the file will be saved in the project.folder folder. * createFolders - (Keyword, Optional) If True, it creates the not existent directories provided by the filepath."
+    },
+    {
+      "name": "vertItr",
+      "signature": "vertItrvertItr(attributeName, compIndex)",
+      "returns": "VertItr",
+      "parameters": [],
+      "description": "Only supported in the parameters of some POPs. Returns an object that will return a different value for each output element, using the output index to lookup into the attribute referenced. * attributeName - The attribute name. * compIndex - The component index within the attribute to use. * vertIndex - (Keyword, Optional) The vertex index to use (optional)."
+    },
+    {
+      "name": "vert",
+      "signature": "vertvert(attributeName, index, delayed=False)",
+      "returns": "float int tuple",
+      "parameters": [],
+      "description": "Returns the vertex attribute value. * attributeName - The attribute name. * index - The vertex index. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to vals(), avoiding stalling the GPU waiting for the result immediately."
+    },
+    {
+      "name": "verts",
+      "signature": "vertsverts(attributeName, startIndex=0, count=-1, delayed=False)",
+      "returns": "list",
+      "parameters": [],
+      "description": "Returns the vertex attribute values as a list. * attributeName - The attribute name. * startIndex - (Keyword, Optional )The vertex index to start at (default 0). * count - (Keyword, Optional) The number of vertices to download. A value of -1 fetches all elements from the start index onward. * delayed - (Keyword, Optional) If set to True, the download results will be delayed until the next call to vals(), avoiding stalling the GPU waiting for the result immediately."
+    }
+  ],
+  "url": "https://docs.derivative.ca/POP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=POP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the POP Class wiki page",
+      "url": "https://docs.derivative.ca/POP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "tdu.Matrix",
       "readOnly": true,
-      "description": "localTransform member"
-    },
-    {
-      "name": "localTransform",
-      "id": "bodyContent",
-      "returnType": "tdu.Matrix",
-      "readOnly": true,
-      "description": "localTransform member"
+      "description": ""
     }
   ],
   "methods": [
@@ -465,29 +458,6 @@
       "signature": "addPrivacy(key, developerName=None)"
     },
     {
-      "name": "addPrivacy",
-      "parameters": [
-        {
-          "name": "firmCode",
-          "type": "Any"
-        },
-        {
-          "name": "productCode",
-          "type": "Any"
-        },
-        {
-          "name": "developerName=None",
-          "type": "Any"
-        },
-        {
-          "name": "developerEmail=None",
-          "type": "Any"
-        }
-      ],
-      "returns": "None :",
-      "signature": "addPrivacy(firmCode, productCode, developerName=None, developerEmail=None)"
-    },
-    {
       "name": "blockPrivateContents",
       "parameters": [
         {
@@ -567,25 +537,6 @@
         }
       ],
       "returns": "OP  or None ",
-      "signature": "op(pattern1, pattern2..., includeUtility=False)"
-    },
-    {
-      "name": "op",
-      "parameters": [
-        {
-          "name": "pattern1",
-          "type": "Any"
-        },
-        {
-          "name": "pattern2...",
-          "type": "Any"
-        },
-        {
-          "name": "includeUtility=False",
-          "type": "Any"
-        }
-      ],
-      "returns": "OP  ",
       "signature": "op(pattern1, pattern2..., includeUtility=False)"
     },
     {
@@ -1057,17 +1008,6 @@
         }
       ],
       "returns": "if True, allow  Utility nodes  to be returned. If False, Utility nodes will be ignored.       b   =   op  (  'project1'  ) ",
-      "signature": "includeUtility(Optional)"
-    },
-    {
-      "name": "includeUtility",
-      "parameters": [
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "if True, allow  Utility nodes  to be returned. If False, Utility operators will be ignored.    ",
       "signature": "includeUtility(Optional)"
     },
     {

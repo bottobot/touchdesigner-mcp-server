@@ -1,0 +1,69 @@
+{
+  "className": "Preferences",
+  "displayName": "Preferences",
+  "category": "General",
+  "description": "The Preferences class describes the set of configurable preferences that are retained between sessions. It can be accessed with the ui.preferences object or through the Preferences Dialog.",
+  "members": [
+    {
+      "name": "defaults",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "A dictionary of preferences with their default values."
+    }
+  ],
+  "methods": [
+    {
+      "name": "save",
+      "signature": "savesave()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Save preference values to disk. Unless saved, changes to preferences will be lost, next time application is started."
+    },
+    {
+      "name": "resetToDefaults",
+      "signature": "resetToDefaultsresetToDefaults()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Reset all preferences to their default values."
+    },
+    {
+      "name": "load",
+      "signature": "loadload()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Restore preference values from disk."
+    },
+    {
+      "name": "len",
+      "signature": "lenlen(Preferences)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the total number of preferences."
+    },
+    {
+      "name": "[]",
+      "signature": "[<preference name>]",
+      "returns": "value",
+      "parameters": [],
+      "description": "Get or set specific preference given a preference name key."
+    },
+    {
+      "name": "iterator",
+      "signature": "iteratorIterator",
+      "returns": "str",
+      "parameters": [],
+      "description": "Iterate over each preference name."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Preferences_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Preferences_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Preferences Class wiki page",
+      "url": "https://docs.derivative.ca/Preferences_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

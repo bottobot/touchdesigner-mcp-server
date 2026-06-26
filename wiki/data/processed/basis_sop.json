@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.284Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Basis_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Basis_SOP",
   "description": "The Basis SOP provides a set of operations applicable to the parametric space of spline curves and surfaces. The parametric space, also known as the \"domain\" of a NURBS or Bzier primitive, is defined by one basis in the U direction and, if the primitive is a surface, another basis in the V direction. The size of the domain is given by the values of the knots that make up the basis.",
   "summary": "The Basis SOP provides a set of operations applicable to the parametric space of spline curves and surfaces. The parametric space, also known as the \"domain\" of a NURBS or Bzier primitive, is defined ",
   "details": "",

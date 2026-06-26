@@ -1,0 +1,116 @@
+{
+  "className": "Camera",
+  "displayName": "Camera",
+  "category": "General",
+  "description": "Helper class that maintains a 3D position and orientation for a camera and provides multiple methods for manipulating the camera's position and direction. This class is used for the viewportCamera palette component.",
+  "members": [
+    {
+      "name": "dir",
+      "returnType": "tdu.Position",
+      "readOnly": false,
+      "description": "Get or set the direction of the camera as a vector that points towards the target. Up is considered to be (0,1,0)."
+    },
+    {
+      "name": "pivot",
+      "returnType": "tdu.Position",
+      "readOnly": false,
+      "description": "Get or set the 3D point in space where the camera will pivot around or towards."
+    },
+    {
+      "name": "position",
+      "returnType": "tdu.Position",
+      "readOnly": false,
+      "description": "Get or set the 3D point in space where the camera is located."
+    }
+  ],
+  "methods": [
+    {
+      "name": "blendCamera",
+      "signature": "blendCamerablendCamera(targetCamera, blendFactor)",
+      "returns": "tdu.Camera",
+      "parameters": [],
+      "description": "Returns a camera that is blended with the given camera using the blendFactor. The camera position is blended using linear interpolation, while the rotation is blended using spherical linear interpolation. * targetCamera - A second camera that is the blend target. * blendfactor - A blend value between 0 and 1.\""
+    },
+    {
+      "name": "dolly",
+      "signature": "dollydolly()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Move the camera away or towards the pivot point."
+    },
+    {
+      "name": "frameBounds",
+      "signature": "frameBoundsframeBounds()",
+      "returns": "float",
+      "parameters": [],
+      "description": "Set the camera to frame the given bounding box. Returns the width of the framed scene that can be used when setting up orthographic projections."
+    },
+    {
+      "name": "look",
+      "signature": "looklook()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Pivot the camera around its position."
+    },
+    {
+      "name": "move3D",
+      "signature": "move3Dmove3D()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Move the camera using data from a 3D mouse."
+    },
+    {
+      "name": "pan",
+      "signature": "panpan()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Pan the camera in a 2D plane facing the pivot point."
+    },
+    {
+      "name": "setTransform",
+      "signature": "setTransformsetTransform()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Set the camera view matrix."
+    },
+    {
+      "name": "track",
+      "signature": "tracktrack()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Move the camera up/down in the Y-Axis or left/right."
+    },
+    {
+      "name": "transform",
+      "signature": "transformtransform()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Get the camera view matrix."
+    },
+    {
+      "name": "tumble",
+      "signature": "tumbletumble()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Rotate the camera around the pivot point."
+    },
+    {
+      "name": "walk",
+      "signature": "walkwalk()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Move the camera forward/back along in the ZX plane and rotate around its position."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Camera_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Camera_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Camera Class wiki page",
+      "url": "https://docs.derivative.ca/Camera_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

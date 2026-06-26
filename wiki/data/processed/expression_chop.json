@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.455Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Expression_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Expression_CHOP",
   "description": "The Expression CHOP allows you to modify input channels by using math expressions. Each input channel is modified by exactly one expression, and the expressions are looped for multiple channels.",
   "summary": "The Expression CHOP allows you to modify input channels by using math expressions. Each input channel is modified by exactly one expression, and the expressions are looped for multiple channels.",
   "details": "",

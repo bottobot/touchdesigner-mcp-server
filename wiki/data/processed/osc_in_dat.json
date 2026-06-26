@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.898Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OSC_In_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OSC_In_DAT",
   "description": "The OSC In DAT receives and parses full Open Sound Control packets using UDP by default.  Each packet is parsed and appended as a row in the DAT's table. The table is FIFO \"fisrt-in first-out\" and limited to parameter-set number of lines. An optional script may be run for each packet received. Each packet/row represents either one OSC message, or an entire OSC bundle.  Each argument is translated into readable ASCII text.",
   "summary": "The OSC In DAT receives and parses full Open Sound Control packets using UDP by default.  Each packet is parsed and appended as a row in the DAT's table. The table is FIFO \"fisrt-in first-out\" and lim",
   "details": "",

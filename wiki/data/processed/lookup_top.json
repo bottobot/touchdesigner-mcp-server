@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.508Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Lookup_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Lookup_TOP",
   "description": "The Lookup TOP replaces color values in the TOP image connected to its first input with values derived from a lookup table created from its second input or a lookup table created using the CHOP parameter. When using the 2nd input, the lookup table is created by defining a line (start and end position) on the TOP image. When using a CHOP the lookup table is created directly from the CHOP's values and the 2nd input is ignored.",
   "summary": "The Lookup TOP replaces color values in the TOP image connected to its first input with values derived from a lookup table created from its second input or a lookup table created using the CHOP parame",
   "details": "",

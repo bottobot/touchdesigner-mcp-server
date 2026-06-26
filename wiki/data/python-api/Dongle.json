@@ -1,0 +1,41 @@
+{
+  "className": "Dongle",
+  "displayName": "Dongle",
+  "category": "General",
+  "description": "A class to interact with a single dongle connected to the system.",
+  "members": [
+    {
+      "name": "serialNumber",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Dongle Serial Number."
+    }
+  ],
+  "methods": [
+    {
+      "name": "applyUpdate",
+      "signature": "applyUpdateapplyUpdate(str)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Takes an update as a string and applies it to the dongle."
+    },
+    {
+      "name": "createUpdateContext",
+      "signature": "createUpdateContextcreateUpdateContext()",
+      "returns": "str",
+      "parameters": [],
+      "description": "Returns a string which is the remote programming update context for the dongle."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Dongle_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Dongle_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Dongle Class wiki page",
+      "url": "https://docs.derivative.ca/Dongle_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

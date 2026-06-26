@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.995Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Stretch_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Stretch_CHOP",
   "description": "The Stretch CHOP preserves the shape of channels and the sampling rate, but resamples the channels into a new interval. All data in the range is stretched or compressed to the new start and end positions.",
   "summary": "The Stretch CHOP preserves the shape of channels and the sampling rate, but resamples the channels into a new interval. All data in the range is stretched or compressed to the new start and end positi",
   "details": "",

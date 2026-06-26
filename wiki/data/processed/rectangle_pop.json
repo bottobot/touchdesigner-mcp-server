@@ -3,798 +3,269 @@
   "id": "rectangle_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Rectangle POP creates a 4-point rectangle with optional rounded corners, and outputs it as a line strip, a pair of triangles, a quad, separate 2-point lines, unconnected point primitives, or without any primitives.",
+  "description": "The Rectangle POP creates a 4-point rectangle with optional rounded corners, and outputs it as a line strip, a pair of triangles, a quad, separate 2-point lines, unconnected point primitives, or without any primitives. The mode Fill Camera View uses a [[Camera COMP]] and extra viewing information (aspect ratio) to put the four points of the rectangle at the corners of the camera view at a certain distance away from the camera. This is useful for rendering a background plate that fills the field of view of a camera, behind the geometry of a scene, or for aligning geometry in the field of view of a camera. If a POP is connected to the input, it will translate / scale the rectangle to the bounding box of the input. If a POP is connected to the input and if Modify Bounds is set, it will scale / translate the rectangle to the bounding box of the input, and you can further translate/scale/rotate the rectangle. You can add texture coordinates (<code>Tex</code>), or normal (<code>N</code>) attributes to the points or to the vertices. Orientation is in the XY plane. The left, middle or right side of the rectangle can be anchored to X=0. Similar for Y, and then the rectangle can be further scaled, rotated and translated. See also [[Circle POP]], [[Primitive POP]], [[Line POP]], [[Point POP]].",
   "parameters": [
     {
-      "name": "Tex",
+      "name": "Connectivity",
+      "parName": "surftype",
       "label": "Connectivity",
-      "description": "Configure Connectivity for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrips",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        },
-        {
-          "label": "Local",
-          "value": "local",
-          "description": ""
-        },
-        {
-          "label": "Fill Camera View",
-          "value": "cam",
-          "description": ""
-        },
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspectx",
-          "description": ""
-        },
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspecty",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vert",
-          "description": ""
-        },
-        {
-          "label": "Fill",
-          "value": "fill",
-          "description": ""
-        },
-        {
-          "label": "Fit Outside",
-          "value": "outside",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Determines the primitive used to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "point",
+        "lines",
+        "linestrips",
+        "triangles",
+        "quads"
+      ],
+      "menuLabels": [
+        "None",
+        "Point Primitives",
+        "Lines",
+        "Line Strips",
+        "Triangles",
+        "Quadrilaterals"
       ]
     },
     {
-      "name": "surftype",
-      "label": "Connectivity",
-      "description": "Configure Connectivity for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrips",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "none",
-      "label": "None",
-      "description": "Configure None for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrips",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "modifybounds",
+      "name": "Modify Bounds",
+      "parName": "modifybounds",
       "label": "Modify Bounds",
-      "description": "Configure Modify Bounds for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Available only when an input is connected to the POP to set bounds for the POP. When Modify Bounds is On the parameters below will further modify the shape of the POP.",
+      "isReadOnly": false
     },
     {
-      "name": "orient",
+      "name": "Orientation",
+      "parName": "orient",
       "label": "Orientation",
-      "description": "Configure Orientation for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Local",
-          "value": "local",
-          "description": ""
-        },
-        {
-          "label": "Fill Camera View",
-          "value": "cam",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the rectangle orientation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "xy",
+        "yz",
+        "zx",
+        "cam"
+      ],
+      "menuLabels": [
+        "XY plane",
+        "YZ plane",
+        "ZX plane",
+        "Fill Camera View"
       ]
     },
     {
-      "name": "local",
-      "label": "Local",
-      "description": "Configure Local for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Local",
-          "value": "local",
-          "description": ""
-        },
-        {
-          "label": "Fill Camera View",
-          "value": "cam",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "camera",
+      "name": "Camera",
+      "parName": "camera",
       "label": "Camera",
-      "description": "Configure Camera for the operator",
-      "type": "string"
+      "type": "Object",
+      "description": "Specify the camera component.",
+      "isReadOnly": false
     },
     {
-      "name": "distfromcam",
+      "name": "Dist from Camera",
+      "parName": "distfromcam",
       "label": "Dist from Camera",
-      "description": "Configure Dist from Camera for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Sets the distance of the rectangle from the camera when orienting it to face the camera",
+      "isReadOnly": false
     },
     {
-      "name": "cameraaspect",
+      "name": "Camera Aspect",
+      "parName": "cameraaspect",
       "label": "Camera Aspect",
-      "description": "Configure Camera Aspect for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspectx",
-          "description": ""
-        },
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspecty",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The aspect ratio for the projection.",
+      "isReadOnly": false,
+      "menuItems": [
+        "cameraaspectx",
+        "cameraaspecty"
+      ],
+      "menuLabels": [
+        "Camera Aspect",
+        "Camera Aspect"
       ]
     },
     {
-      "name": "cameraaspectx",
-      "label": "Camera Aspect",
-      "description": "Configure Camera Aspect for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspectx",
-          "description": ""
-        },
-        {
-          "label": "Camera Aspect",
-          "value": "cameraaspecty",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "anchoru",
-      "label": "Anchor U",
-      "description": "Configure Anchor U for the operator",
-      "type": "string"
-    },
-    {
-      "name": "anchorv",
-      "label": "Anchor V",
-      "description": "Configure Anchor V for the operator",
-      "type": "string"
-    },
-    {
-      "name": "size",
+      "name": "Size",
+      "parName": "size",
       "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The geometry 3D size.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sizex",
+        "sizey"
+      ],
+      "menuLabels": [
+        "Size",
+        "Size"
       ]
     },
     {
-      "name": "size1",
-      "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        }
-      ]
+      "name": "Round Corners",
+      "parName": "roundcorners",
+      "label": "Round Corners",
+      "type": "Toggle",
+      "description": "Enable round corners.",
+      "isReadOnly": false
     },
     {
-      "name": "t",
-      "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "tx",
-      "label": "Translate",
-      "description": "Configure Translate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Translate",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Translate",
-          "value": "tz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "r",
-      "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rx",
-      "label": "Rotate",
-      "description": "Configure Rotate for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rotate",
-          "value": "rx",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "ry",
-          "description": ""
-        },
-        {
-          "label": "Rotate",
-          "value": "rz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "roundedcorners",
-      "label": "Rounded Corners",
-      "description": "Configure Rounded Corners for the operator",
-      "type": "string"
-    },
-    {
-      "name": "cornerradius",
+      "name": "Corner Radius",
+      "parName": "cornerradius",
       "label": "Corner Radius",
-      "description": "Configure Corner Radius for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Set the corner radius for the round corners rectagle",
+      "isReadOnly": false
     },
     {
-      "name": "cornersides",
+      "name": "Corner Sides",
+      "parName": "cornersides",
       "label": "Corner Sides",
-      "description": "Configure Corner Sides for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Sets the number of sides on round corners",
+      "isReadOnly": false
     },
     {
-      "name": "normal",
+      "name": "Anchor U",
+      "parName": "anchoru",
+      "label": "Anchor U",
+      "type": "Float",
+      "description": "Puts the left side, the middle or the right side at the origin 0.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Anchor V",
+      "parName": "anchorv",
+      "label": "Anchor V",
+      "type": "Float",
+      "description": "Puts the bottom side, the middle or the top side at the origin 0.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Translate",
+      "parName": "t",
+      "label": "Translate",
+      "type": "XYZW",
+      "description": "Translate the points in the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty",
+        "tz"
+      ],
+      "menuLabels": [
+        "Translate",
+        "Translate",
+        "Translate"
+      ]
+    },
+    {
+      "name": "Rotate",
+      "parName": "r",
+      "label": "Rotate",
+      "type": "XYZW",
+      "description": "Rotate the points around the corresponding X, Y and Z axes. Angles are given in degrees.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rx",
+        "ry",
+        "rz"
+      ],
+      "menuLabels": [
+        "Rotate",
+        "Rotate",
+        "Rotate"
+      ]
+    },
+    {
+      "name": "Uniform Scale",
+      "parName": "scale",
+      "label": "Uniform Scale",
+      "type": "Float",
+      "description": "Specifies a uniform scale factor in all axes.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Normal",
+      "parName": "normal",
       "label": "Normal",
-      "description": "Configure Normal for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointNormals",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Choose whether to create a normal attribute and the attribute class of the normal attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "pointNormals"
+      ],
+      "menuLabels": [
+        "None",
+        "Point"
       ]
     },
     {
-      "name": "texture",
+      "name": "Texture Coordinates",
+      "parName": "texture",
       "label": "Texture Coordinates",
-      "description": "Configure Texture Coordinates for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vert",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the attribute class where the texture coordinates should be created.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "point",
+        "vert"
+      ],
+      "menuLabels": [
+        "None",
+        "Point",
+        "Vertex"
       ]
     },
     {
-      "name": "texturefit",
+      "name": "Texture Fit",
+      "parName": "texturefit",
       "label": "Texture Fit",
-      "description": "Configure Texture Fit for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Fill",
-          "value": "fill",
-          "description": ""
-        },
-        {
-          "label": "Fit Outside",
-          "value": "outside",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "fill",
-      "label": "Fill",
-      "description": "Configure Fill for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Fill",
-          "value": "fill",
-          "description": ""
-        },
-        {
-          "label": "Fit Outside",
-          "value": "outside",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Determines how the texture coordinates are scaled and positioned relative to the rectangle.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fill",
+        "best",
+        "outside"
+      ],
+      "menuLabels": [
+        "Fill",
+        "Fit Best",
+        "Fit Outside"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Rectangle_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.371Z"
+  "parsedAt": "2025-08-08T03:03:59.371Z",
+  "url": "https://docs.derivative.ca/Rectangle_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Rectangle_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Rectangle_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Rectangle_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

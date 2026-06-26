@@ -1,0 +1,28 @@
+{
+  "className": "OpenvrCHOP",
+  "displayName": "OpenvrCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [],
+  "methods": [
+    {
+      "name": "triggerHapticPulse",
+      "signature": "triggerHapticPulsetriggerHapticPulse(controllerIndex, analogIndex, durationMilliseconds)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Triggers a haptic/vibration pulse on the given controller/analog index for the specified number of milliseconds. *controllerIndex - 0 based controller index. Same order as the controllers are listed in the OpenVR CHOP. *analogIndex - index of the analog button/pad. Currently only 0 is supported on Vive hardware. *durationMilliSeconds - The length of the feedback in milliseconds. Anything equal to or above 4ms does not seem to work with current hardware."
+    }
+  ],
+  "url": "https://docs.derivative.ca/OpenvrCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=OpenvrCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the OpenvrCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/OpenvrCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

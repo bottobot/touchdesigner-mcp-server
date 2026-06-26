@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.121Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Crop_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Crop_TOP",
   "description": "The Crop TOP crops an image by defining the position of the left, right, bottom, and top edges of the image. The cropped part of the image is discarded, thus reducing the resolution of the image.",
   "summary": "The Crop TOP crops an image by defining the position of the left, right, bottom, and top edges of the image. The cropped part of the image is discarded, thus reducing the resolution of the image.",
   "details": "",

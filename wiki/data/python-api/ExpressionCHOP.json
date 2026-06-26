@@ -1,0 +1,39 @@
+{
+  "className": "ExpressionCHOP",
+  "displayName": "ExpressionCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "chanIndex",
+      "returnType": "",
+      "readOnly": true,
+      "description": "`me.chanIndex` can be used in any parameter to give a different value for each channel being generated, for example `[3, 4, 5][me.chanIndex]`."
+    },
+    {
+      "name": "inputVal",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The current value of the input sample being evaluated. To access channels from other inputs use the operator's inputs. Example: me.inputs[1]['chan4'] will access chan4 of the second input."
+    },
+    {
+      "name": "sampleIndex",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The index of the current sample being evaluated."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ExpressionCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ExpressionCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ExpressionCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/ExpressionCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.707Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Under_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Under_TOP",
   "description": "The Under TOP places Input1 'under' Input2. The alpha of Input2 is used to determine what parts of the Input1 image are visible in the result.",
   "summary": "The Under TOP places Input1 'under' Input2. The alpha of Input2 is used to determine what parts of the Input1 image are visible in the result.",
   "details": "",

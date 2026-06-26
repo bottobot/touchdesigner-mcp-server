@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.179Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Force_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Force_COMP",
   "description": "Force COMPs are used to added forces to a physics solver's simulation. Bullet supports linear/rotational forces and impulse forces (see Force page) and Flex supports force fields (see Force Field page).",
   "summary": "Force COMPs are used to added forces to a physics solver's simulation. Bullet supports linear/rotational forces and impulse forces (see Force page) and Flex supports force fields (see Force Field page",
   "details": "",

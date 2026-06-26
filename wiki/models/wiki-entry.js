@@ -21,6 +21,8 @@ export class WikiEntry {
         this.lastUpdated = data.lastUpdated || new Date().toISOString();
         this.sourceFile = data.sourceFile || '';
         this.url = data.url || '';
+        // Whether the parameter data has been verified against the live docs (undefined = legacy/assumed-ok)
+        this.paramsVerified = data.paramsVerified;
         
         // Documentation content
         this.description = data.description || '';

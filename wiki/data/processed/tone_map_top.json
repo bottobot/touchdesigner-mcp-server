@@ -1,0 +1,91 @@
+{
+  "id": "tone_map_top",
+  "name": "Tone Map TOP",
+  "displayName": "Tone Map TOP",
+  "category": "TOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Tone_Map_TOP",
+  "description": "Tone Mapping is the process of taking HDR content, that may have pixel brightness values much higher than 1, and re-ranging it down to the [0, 1] range, so it can be displayed on an SDR monitor. Without Tone Mapping, HDR content will look washed out on an SDR monitor, as all of the pixels that are >=1 will have the same brightness. So the sun will be the same brightness as a glossy highlight, for example. Tone Mapping does not aim to maintain the true brightness of the pixels when shown on the output display. That is what a true HDR display attempts to do. Instead is tries to re-range the values so different HDR brightness values still result in different SDR brightness values, even though initially they were both >= 1. This is entirely an artistic choice, so there is no 'right' Tone Mapping type to use. Each will give a different look, and the best one will depend on your content and what you prefer visually. An example project using this node can be found [https://www.dropbox.com/scl/fi/evrngv2ocpxe5fforyw22/ToneMapExample.zip?rlkey=k4qclh6syq5o57cv5mqno9htp&dl=0 here]: This node should not be used if you are outputting to an HDR display with HDR mode enabled.",
+  "parameters": [
+    {
+      "name": "Type",
+      "parName": "type",
+      "label": "Type",
+      "type": "Menu",
+      "description": "The type of tone map operation to apply. There is no 'best' tone mappping operation. The choice is largely an artistic choice, and may also depend on the content you are looking to tone map.",
+      "isReadOnly": false,
+      "menuItems": [
+        "acesapprox",
+        "lottes",
+        "filmic",
+        "hablefilmic",
+        "reinhard",
+        "extendedreinhard",
+        "extendedreinhardlum"
+      ],
+      "menuLabels": [
+        "ACES Approx (SDR)",
+        "Lottes (SDR)",
+        "Filmic (SDR)",
+        "Hable Filmic (SDR)",
+        "Reinhard (SDR)",
+        "Extended Reinhard (SDR)",
+        "Extended Reinhard Luminance (SDR)"
+      ]
+    },
+    {
+      "name": "Mid Input Nits",
+      "parName": "midinputnits",
+      "label": "Mid Input Nits",
+      "type": "Float",
+      "description": "The estimated (or calculated using the Analyze TOP) middle brigtness in Nits of the source content. Since this is specified in Nits, if it's coming from the Analyze TOP (Average) -> Monochrome TOP (luminance), you'll need to multiply the value by the Reference White Nit value you have your project set to.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Mid Output Nits",
+      "parName": "midoutputnits",
+      "label": "Mid Output Nits",
+      "type": "Float",
+      "description": "How bright you'd like the mid point to be in the output image, relative to the Mid Input Nits. Since SDR does not have a notion of actual nits values, this is just relative to the input, and not the true output brightness.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Peak Input Nits",
+      "parName": "peakinputnits",
+      "label": "Peak Input Nits",
+      "type": "Float",
+      "description": "The estimated (or calculated using the Analyze TOP) peak brightness of the input image, in Nits.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Exposure Bias",
+      "parName": "exposurebias",
+      "label": "Exposure Bias",
+      "type": "Float",
+      "description": "An artistic exposure bias that can be applied to Hable Filmic tone map.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Tone_Map_TOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Tone_Map_TOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Tone_Map_TOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

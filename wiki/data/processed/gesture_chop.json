@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.410Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Gesture_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Gesture_CHOP",
   "description": "The Gesture CHOP records a short segment of the first input and loops this segment in time with options as specified in the Gesture Page. The second input defines the \"listen\" input.  The third input is used to reset the gesture.",
   "summary": "The Gesture CHOP records a short segment of the first input and loops this segment in time with options as specified in the Gesture Page. The second input defines the \"listen\" input.  The third input ",
   "details": "",

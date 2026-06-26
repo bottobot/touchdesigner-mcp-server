@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.320Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Line_Thick_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Line_Thick_SOP",
   "description": "The Line Thick SOP extrudes a surface from a curved line. The line can be of polygon, NURBS, or Bezier geometry type.",
   "summary": "The Line Thick SOP extrudes a surface from a curved line. The line can be of polygon, NURBS, or Bezier geometry type.",
   "details": "",

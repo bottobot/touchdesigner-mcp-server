@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.274Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Touch_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Touch_Out_CHOP",
   "description": "The Touch Out CHOP can be used to create high speed connection between two TouchDesigner processes. Data is sent over TCP/IP. The Touch Out CHOP (server) sends it's data to a Touch In CHOP (client). The Touch Out CHOP is similar to a Pipe Out CHOP but highly optimized for TouchDesigner-to-TouchDesigner communication. For interfacing with other software or devices, see the Pipe Out CHOP.",
   "summary": "The Touch Out CHOP can be used to create high speed connection between two TouchDesigner processes. Data is sent over TCP/IP. The Touch Out CHOP (server) sends it's data to a Touch In CHOP (client). T",
   "details": "",

@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "tuple",
       "readOnly": true,
-      "description": "default member"
-    },
-    {
-      "name": "default",
-      "id": "bodyContent",
-      "returnType": "tuple",
-      "readOnly": true,
-      "description": "default member"
+      "description": ""
     }
   ],
   "methods": [

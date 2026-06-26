@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.779Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Polypatch_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Polypatch_SOP",
   "description": "The Polypatch SOP creates a smooth polygonal patch from a mesh primitive or a set of faces (polygons, NURBS or Bezier curves).",
   "summary": "The Polypatch SOP creates a smooth polygonal patch from a mesh primitive or a set of faces (polygons, NURBS or Bezier curves).",
   "details": "",

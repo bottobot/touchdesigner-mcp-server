@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.434Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\LOD_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/LOD_SOP",
   "description": "The LOD SOP is unusual in so far as it does not actually alter any geometry. Instead it builds a level of detail cache for the input object. The cache to be drawn is based upon the distance to the camera. Thus, a complicated object will be drawn with a lower level of detail when it is farther away.",
   "summary": "The LOD SOP is unusual in so far as it does not actually alter any geometry. Instead it builds a level of detail cache for the input object. The cache to be drawn is based upon the distance to the cam",
   "details": "",

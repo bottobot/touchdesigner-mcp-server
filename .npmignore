@@ -18,3 +18,22 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# --- Exclude heavy / dev-only artifacts from the published npm tarball ---
+# package.json "files" is the allowlist; these patterns negate within it.
+
+# The on-disk search index is never queried at runtime (search uses performDirectSearch).
+wiki/data/search-index/
+wiki/data/search-index.json
+
+# Build/dev tooling and working documents — not needed by end users running the server.
+scripts/
+.modernization-backup/
+MODERNIZATION_TRACKER.md
+AUDIT_REPORT.md
+IMPLEMENTATION_PLAN.md
+.remember/
+.roo/
+.claude/
+.mcp.json
+*.code-workspace

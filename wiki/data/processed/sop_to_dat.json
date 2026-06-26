@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.722Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\SOP_to_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/SOP_to_DAT",
   "description": "The SOP to DAT allows you to extract point, vertex and primitive (e.g. polygon) data and attributes from a SOP.",
   "summary": "The SOP to DAT allows you to extract point, vertex and primitive (e.g. polygon) data and attributes from a SOP.",
   "details": "",

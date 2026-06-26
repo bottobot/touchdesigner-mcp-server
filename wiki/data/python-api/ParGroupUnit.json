@@ -1,0 +1,32 @@
+{
+  "className": "ParGroupUnit",
+  "displayName": "ParGroupUnit",
+  "category": "General",
+  "description": "The ParGroupUnit class describes a subclass of a ParGroup ending with a unit parameter. See also Custom ParGroup. Note: the ParGroupUnit class will be deprecated in coming TouchDesigner releases. It is recommended that you access unit parameters directly rather than through this object.",
+  "members": [
+    {
+      "name": "unit",
+      "returnType": "Par",
+      "readOnly": true,
+      "description": "The unit parameter in this ParGroupUnit object."
+    },
+    {
+      "name": "unitPar",
+      "returnType": "Par",
+      "readOnly": true,
+      "description": "The unit parameter in this ParGroupUnit object."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ParGroupUnit_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ParGroupUnit_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ParGroupUnit Class wiki page",
+      "url": "https://docs.derivative.ca/ParGroupUnit_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

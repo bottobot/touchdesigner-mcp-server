@@ -1,0 +1,48 @@
+{
+  "className": "DongleList",
+  "displayName": "DongleList",
+  "category": "General",
+  "description": "A list of dongles connected to the system. The system instance can be found in `licenses.dongles`.",
+  "members": [],
+  "methods": [
+    {
+      "name": "refreshDongles",
+      "signature": "refreshDonglesrefreshDongles()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Refreshes the list of dongles connected to the system and their product codes."
+    },
+    {
+      "name": "encrypt",
+      "signature": "encryptencrypt(firmCode, productCode, data)",
+      "returns": "ByteArray",
+      "parameters": [],
+      "description": "Encrypts a string or byte array using a CodeMeter dongle with a given firm code and product code installed on it. If successful it returns a byte array with the encrypted data. * firmCode - The firm code to use. It must be present on the dongle. * productCode - The product code to use. It must be present on the dongle. * data - A string or byte array to encrypt. Must be 16 bytes in size at least."
+    },
+    {
+      "name": "decrypt",
+      "signature": "decryptdecrypt(firmCode, productCode, data)",
+      "returns": "ByteArray",
+      "parameters": [],
+      "description": "Decrypts a string or byte array using a CodeMeter dongle with a given firm code and product code installed on it. If successful it returns a byte array with the decrypted data. * firmCode - The firm code to use. It must be present on the dongle. * productCode - The product code to use. It must be present on the dongle. * data - A string or byte array to decrypt. Must be 16 bytes in size at least."
+    },
+    {
+      "name": "productCodeInstalled",
+      "signature": "productCodeInstalledproductCodeInstalled()",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Returns True if the provided product code is installed on any of the connected dongles."
+    }
+  ],
+  "url": "https://docs.derivative.ca/DongleList_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=DongleList_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the DongleList Class wiki page",
+      "url": "https://docs.derivative.ca/DongleList_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

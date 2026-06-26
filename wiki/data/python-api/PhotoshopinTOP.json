@@ -1,0 +1,33 @@
+{
+  "className": "PhotoshopinTOP",
+  "displayName": "PhotoshopinTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "isConnected",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Is true if the operator is connected to a running instance of Photoshop."
+    },
+    {
+      "name": "isReceivingUpdates",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Is true if the operator is receiving image update. It will get updates when it's not locked to a particular document, or if it is locked and the document is opened in that Photoshop instance."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/PhotoshopinTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=PhotoshopinTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the PhotoshopinTOP Class wiki page",
+      "url": "https://docs.derivative.ca/PhotoshopinTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

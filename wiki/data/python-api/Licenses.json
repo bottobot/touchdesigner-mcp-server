@@ -1,0 +1,70 @@
+{
+  "className": "Licenses",
+  "displayName": "Licenses",
+  "category": "General",
+  "description": "The Licenses class describes the set of all installed license objects. It can be accessed with the licenses object, , found in the automatically imported td module.",
+  "members": [
+    {
+      "name": "disablePro",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "When True, the application will run as though no Pro licenses are available. This can be used to test compatibility with lesser licenses. (See also: app.addNonCommercialLimit)"
+    },
+    {
+      "name": "dongles",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Get the list of dongles connected to the system."
+    },
+    {
+      "name": "machine",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "The computer machine name."
+    },
+    {
+      "name": "systemCode",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "The unique computer system code."
+    },
+    {
+      "name": "isPro",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "When True, the application is running with a Pro license. It is recommended to use this and isNonCommerical over the type method."
+    },
+    {
+      "name": "isNonCommercial",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "When True, the application is running with a Non-Commercial license. It is recommended to use this and isPro over the type method."
+    },
+    {
+      "name": "type",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "The highest ranking license type of all installed licenses, some products being 'Pro', 'Non-Commercial', 'Commercial'. See also app.product in App Class."
+    }
+  ],
+  "methods": [
+    {
+      "name": "install",
+      "signature": "installinstall(key)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Install a license with the specified key. Returns True if successful."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Licenses_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Licenses_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Licenses Class wiki page",
+      "url": "https://docs.derivative.ca/Licenses_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

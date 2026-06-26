@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.309Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Mouse_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Mouse_Out_CHOP",
   "description": "The Mouse Out CHOP forces the mouse position and button status to be driven from TouchDesigner using the incoming CHOP channels. The tx and ty channels works in normalized coordinates, ranging from 0 to 1 for the left-to-right and bottom-to-top of the full desktop. If the Desktop is spread over two monitors, tx == 1 is the right of the second monitor.",
   "summary": "The Mouse Out CHOP forces the mouse position and button status to be driven from TouchDesigner using the incoming CHOP channels. The tx and ty channels works in normalized coordinates, ranging from 0 ",
   "details": "",

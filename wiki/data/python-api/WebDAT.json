@@ -1,0 +1,63 @@
+{
+  "className": "WebDAT",
+  "displayName": "WebDAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "DAT",
+  "members": [
+    {
+      "name": "downloadCurrent",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Total bytes downloaded so far."
+    },
+    {
+      "name": "downloadFraction",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Fraction of downloaded size to total size."
+    },
+    {
+      "name": "downloadTotal",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Total size for download, expressed in bytes."
+    },
+    {
+      "name": "queryContentEncoding",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Query Content Encoding, as returned from HTML query."
+    },
+    {
+      "name": "queryContentLength",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Query Content Length, as returned from HTML query."
+    },
+    {
+      "name": "queryContentType",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Query Content Type, as returned from HTML query."
+    },
+    {
+      "name": "queryContentTypeCharset",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Query Content Type character set, as returned from HTML query."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/WebDAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=WebDAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the WebDAT Class wiki page",
+      "url": "https://docs.derivative.ca/WebDAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

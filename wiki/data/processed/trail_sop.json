@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.321Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Trail_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Trail_SOP",
   "description": "The Trail SOP takes an input SOP and makes a trail of each point of the input SOP over the past several frames, and connects the trails in different ways. It will generate trails of any input geometry, whether it is a cube translating, a deforming surface, or particles. This is useful for multi-frame ghosting effects and temporal modelling.",
   "summary": "The Trail SOP takes an input SOP and makes a trail of each point of the input SOP over the past several frames, and connects the trails in different ways. It will generate trails of any input geometry",
   "details": "",

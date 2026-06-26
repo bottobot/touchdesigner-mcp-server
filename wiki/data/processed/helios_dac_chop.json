@@ -1,0 +1,105 @@
+{
+  "id": "helios_dac_chop",
+  "name": "Helios DAC CHOP",
+  "displayName": "Helios DAC CHOP",
+  "category": "CHOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Helios_DAC_CHOP",
+  "description": "'''DEPRECATED:''' use the [[Laser Device CHOP]] instead. Helios DAC is a laser controller. The Helios DAC CHOP takes as input up to five channels interpreted as X and Y (horizontal and vertical) position values in the first 2 channels, and red, green and blue color values in the next 3 channels. It outputs the data to a [https://bitlasers.com/helios-laser-dac/ Helios DAC]. The Helios DAC device is connected to a laser using an ILDA cable. The user can then control the image that the laser should output using the Helios DAC CHOP. Applications of the Helios DAC CHOP include displaying computer-generated shape animations or other special effects of a light show. Blanking (all-off) occurs when the incoming RGB CHOP channels are all zero, or the Red Scale, Green Scale, and Blue Scale parameters are all zero. Large changes in RGB values from sample-to-sample will likely be visibly correct as lasers generally can switch on-off quickly. The range of X and Y is typically -1 to +1, and the range of RGB is typically 0 to 1. '''Note:''' The Helios DAC CHOP listens for any device changes on the system and will perform a Helios device re-scan when triggered. However, the re-scan can only be triggered if all Helios connections are closed, meaning all Helios DAC CHOPs are either deactivated or bypassed. To perform a Helios device re-scan with only a single Helios DAC CHOP, simply deactivate and reactivate the CHOP. See also: [[EtherDream CHOP]], [[EtherDream DAT]], [[Laser CHOP]], and the [[Pattern CHOP]].",
+  "parameters": [
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "Toggle",
+      "description": "If turned off, the Helios DAC CHOP will stop sending data to the Helios DAC and will immediately clear its point buffer. Consider it equivalent to powering off the Helios DAC.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Device",
+      "parName": "device",
+      "label": "Device",
+      "type": "StrMenu",
+      "description": "Select the Helios DAC you want to control from this menu.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Queue Time (Seconds)",
+      "parName": "queuetime",
+      "label": "Queue Time (Seconds)",
+      "type": "Float",
+      "description": "Determines the queue size of the Helios DAC CHOP point buffer and the corresponding time required to drain it. It is often useful to reduce this value when sending fewer points.",
+      "isReadOnly": false
+    },
+    {
+      "name": "X Scale",
+      "parName": "xscale",
+      "label": "X Scale",
+      "type": "Float",
+      "description": "Allows the input x values to be scaled by the specified factor.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Y Scale",
+      "parName": "yscale",
+      "label": "Y Scale",
+      "type": "Float",
+      "description": "Allows the input y values to be scaled by the specified factor.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Red Scale",
+      "parName": "redscale",
+      "label": "Red Scale",
+      "type": "Float",
+      "description": "Allows the input r values to be scaled by the specified factor.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Green Scale",
+      "parName": "greenscale",
+      "label": "Green Scale",
+      "type": "Float",
+      "description": "Allows the input g values to be scaled by the specified factor.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Blue Scale",
+      "parName": "bluescale",
+      "label": "Blue Scale",
+      "type": "Float",
+      "description": "Allows the input b values to be scaled by the specified factor.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Intensity Scale",
+      "parName": "intensityscale",
+      "label": "Intensity Scale",
+      "type": "Float",
+      "description": "Allows the input intensity values (i) to be scaled by the specified factor.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Helios_DAC_CHOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Helios_DAC_CHOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Helios_DAC_CHOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

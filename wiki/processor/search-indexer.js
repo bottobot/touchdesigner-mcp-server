@@ -95,7 +95,7 @@ export class SearchIndexer {
                 throw new Error('Invalid entry: missing ID');
             }
             
-            console.log(`[Search Indexer] Processing: ${entry.name} (${entry.category}) - ID: ${entry.id}`);
+            console.error(`[Search Indexer] Processing: ${entry.name} (${entry.category}) - ID: ${entry.id}`);
             
             // Add to search index
             this.searchIndex.addEntry(entry);
@@ -103,7 +103,7 @@ export class SearchIndexer {
             // Update statistics
             this.updateIndexStats(entry);
             
-            console.log(`[Search Indexer] ✓ Indexed: ${entry.name} (${entry.category}) - Parameters: ${entry.parameters?.length || 0}`);
+            console.error(`[Search Indexer] ✓ Indexed: ${entry.name} (${entry.category}) - Parameters: ${entry.parameters?.length || 0}`);
             
         } catch (error) {
             console.error(`[Search Indexer] Error indexing entry ${entry?.id}:`, error);
@@ -131,20 +131,20 @@ export class SearchIndexer {
             startTime: Date.now()
         };
         
-        console.log(`[Search Indexer] ========================================`);
-        console.log(`[Search Indexer] Starting bulk indexing operation`);
-        console.log(`[Search Indexer] Total entries to process: ${entries.length}`);
-        console.log(`[Search Indexer] ========================================`);
+        console.error(`[Search Indexer] ========================================`);
+        console.error(`[Search Indexer] Starting bulk indexing operation`);
+        console.error(`[Search Indexer] Total entries to process: ${entries.length}`);
+        console.error(`[Search Indexer] ========================================`);
         
         const batchSize = options.batchSize || 50;
         const batches = this.createBatches(entries, batchSize);
-        console.log(`[Search Indexer] Created ${batches.length} batches of size ${batchSize}`);
+        console.error(`[Search Indexer] Created ${batches.length} batches of size ${batchSize}`);
         
         for (let i = 0; i < batches.length; i++) {
             const batch = batches[i];
             const batchStart = Date.now();
-            console.log(`[Search Indexer] `);
-            console.log(`[Search Indexer] >>> Batch ${i + 1}/${batches.length} (${batch.length} entries)`);
+            console.error(`[Search Indexer] `);
+            console.error(`[Search Indexer] >>> Batch ${i + 1}/${batches.length} (${batch.length} entries)`);
             
             const batchPromises = batch.map(async (entry) => {
                 try {
@@ -159,8 +159,8 @@ export class SearchIndexer {
             await Promise.all(batchPromises);
             
             const batchTime = Date.now() - batchStart;
-            console.log(`[Search Indexer] <<< Batch ${i + 1} complete in ${batchTime}ms`);
-            console.log(`[Search Indexer]     Progress: ${results.indexed + results.errors}/${entries.length} (${Math.round(((results.indexed + results.errors) / entries.length) * 100)}%)`);
+            console.error(`[Search Indexer] <<< Batch ${i + 1} complete in ${batchTime}ms`);
+            console.error(`[Search Indexer]     Progress: ${results.indexed + results.errors}/${entries.length} (${Math.round(((results.indexed + results.errors) / entries.length) * 100)}%)`);
             
             // Optional progress callback
             if (options.onProgress) {
@@ -176,17 +176,17 @@ export class SearchIndexer {
         results.totalTime = Date.now() - results.startTime;
         this.stats.lastIndexTime = new Date().toISOString();
         
-        console.log(`[Search Indexer] ========================================`);
-        console.log(`[Search Indexer] Indexing Complete!`);
-        console.log(`[Search Indexer]   Successfully indexed: ${results.indexed}`);
-        console.log(`[Search Indexer]   Failed: ${results.errors}`);
-        console.log(`[Search Indexer]   Total time: ${results.totalTime}ms`);
-        console.log(`[Search Indexer]   Average per entry: ${(results.totalTime / entries.length).toFixed(2)}ms`);
-        console.log(`[Search Indexer] ========================================`);
+        console.error(`[Search Indexer] ========================================`);
+        console.error(`[Search Indexer] Indexing Complete!`);
+        console.error(`[Search Indexer]   Successfully indexed: ${results.indexed}`);
+        console.error(`[Search Indexer]   Failed: ${results.errors}`);
+        console.error(`[Search Indexer]   Total time: ${results.totalTime}ms`);
+        console.error(`[Search Indexer]   Average per entry: ${(results.totalTime / entries.length).toFixed(2)}ms`);
+        console.error(`[Search Indexer] ========================================`);
         
         // Save index if persistence is enabled
         if (this.options.enablePersistence && results.indexed > 0) {
-            console.log(`[Search Indexer] Saving index to disk...`);
+            console.error(`[Search Indexer] Saving index to disk...`);
             await this.saveIndex();
         }
         
@@ -405,9 +405,9 @@ export class SearchIndexer {
             const indexFile = join(this.options.indexPath, 'search-index.json');
             const statsFile = join(this.options.indexPath, 'search-stats.json');
             
-            console.log(`[Search Indexer] ✓ Index saved to ${indexFile}`);
-            console.log(`[Search Indexer] ✓ Stats saved to ${statsFile}`);
-            console.log(`[Search Indexer] Index contains ${this.stats.totalEntries} entries with ${this.stats.totalParameters} total parameters`);
+            console.error(`[Search Indexer] ✓ Index saved to ${indexFile}`);
+            console.error(`[Search Indexer] ✓ Stats saved to ${statsFile}`);
+            console.error(`[Search Indexer] Index contains ${this.stats.totalEntries} entries with ${this.stats.totalParameters} total parameters`);
             
         } catch (error) {
             console.error('[Search Indexer] Error saving index:', error);
@@ -428,17 +428,17 @@ export class SearchIndexer {
             
             // Load index data
             try {
-                console.log(`[Search Indexer] Loading index from ${indexPath}...`);
+                console.error(`[Search Indexer] Loading index from ${indexPath}...`);
                 const indexData = JSON.parse(await fs.readFile(indexPath, 'utf-8'));
                 this.searchIndex.importData(indexData);
-                console.log(`[Search Indexer] ✓ Index loaded successfully`);
+                console.error(`[Search Indexer] ✓ Index loaded successfully`);
                 
                 // Log some basic info about the loaded index
                 const stats = this.searchIndex.getStats();
-                console.log(`[Search Indexer]   Loaded ${stats.totalEntries || 0} entries`);
-                console.log(`[Search Indexer]   Index size: ${stats.indexSize || 0} bytes`);
+                console.error(`[Search Indexer]   Loaded ${stats.totalEntries || 0} entries`);
+                console.error(`[Search Indexer]   Index size: ${stats.indexSize || 0} bytes`);
             } catch (error) {
-                console.log('[Search Indexer] No existing index found, will create new index');
+                console.error('[Search Indexer] No existing index found, will create new index');
             }
             
             // Load statistics
@@ -473,12 +473,12 @@ export class SearchIndexer {
                 const { popularQueries, categoryDistribution, ...otherStats } = loadedStats;
                 this.stats = { ...this.stats, ...otherStats };
                 
-                console.log(`[Search Indexer] ✓ Statistics loaded from ${statsPath}`);
-                console.log(`[Search Indexer]   Total entries: ${this.stats.totalEntries}`);
-                console.log(`[Search Indexer]   Total parameters: ${this.stats.totalParameters}`);
-                console.log(`[Search Indexer]   Last indexed: ${this.stats.lastIndexTime || 'never'}`);
+                console.error(`[Search Indexer] ✓ Statistics loaded from ${statsPath}`);
+                console.error(`[Search Indexer]   Total entries: ${this.stats.totalEntries}`);
+                console.error(`[Search Indexer]   Total parameters: ${this.stats.totalParameters}`);
+                console.error(`[Search Indexer]   Last indexed: ${this.stats.lastIndexTime || 'never'}`);
             } catch (error) {
-                console.log('[Search Indexer] No existing statistics found, starting fresh');
+                console.error('[Search Indexer] No existing statistics found, starting fresh');
                 // Ensure Maps are initialized even if loading fails
                 this.stats.popularQueries = new Map();
                 this.stats.categoryDistribution = new Map();
@@ -840,7 +840,7 @@ export class SearchIndexer {
         this.stats.totalParameters += paramCount;
         
         if (this.stats.totalEntries % 100 === 0) {
-            console.log(`[Search Indexer] Milestone: ${this.stats.totalEntries} entries indexed`);
+            console.error(`[Search Indexer] Milestone: ${this.stats.totalEntries} entries indexed`);
         }
         
         // Update category distribution - ensure it's a Map
@@ -934,13 +934,13 @@ export class SearchIndexer {
             clearInterval(this.autoSaveTimer);
         }
         
-        console.log(`[Search Indexer] Auto-save enabled (interval: ${this.options.autoSaveInterval}ms)`);
+        console.error(`[Search Indexer] Auto-save enabled (interval: ${this.options.autoSaveInterval}ms)`);
         
         this.autoSaveTimer = setInterval(async () => {
             try {
-                console.log(`[Search Indexer] Auto-save triggered at ${new Date().toISOString()}`);
+                console.error(`[Search Indexer] Auto-save triggered at ${new Date().toISOString()}`);
                 await this.saveIndex();
-                console.log(`[Search Indexer] Auto-save completed`);
+                console.error(`[Search Indexer] Auto-save completed`);
             } catch (error) {
                 console.error('[Search Indexer] Auto-save failed:', error.message);
             }
@@ -961,7 +961,7 @@ export class SearchIndexer {
      * Clear search index and reset statistics
      */
     clear() {
-        console.log('[Search Indexer] Clearing index and resetting statistics...');
+        console.error('[Search Indexer] Clearing index and resetting statistics...');
         this.searchIndex.clear();
         this.queryCache.clear();
         this.stats = {
@@ -975,7 +975,7 @@ export class SearchIndexer {
             categoryDistribution: new Map(),
             processingErrors: []
         };
-        console.log('[Search Indexer] Index cleared');
+        console.error('[Search Indexer] Index cleared');
     }
 
     /**

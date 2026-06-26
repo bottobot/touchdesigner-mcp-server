@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.208Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Cube_Map_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Cube_Map_TOP",
   "description": "The Cube Map TOP builds a texture map in the Cube Map internal texture format. It accepts a vertical cross image, or 1 input per side of the cube. The Phong MAT can use the cube maps from the Cube Map TOP for reflections. The Render TOP can also create cube maps. You can sample a cube map in a GLSL shader by declaring them like this",
   "summary": "The Cube Map TOP builds a texture map in the Cube Map internal texture format. It accepts a vertical cross image, or 1 input per side of the cube. The Phong MAT can use the cube maps from the Cube Map",
   "details": "",

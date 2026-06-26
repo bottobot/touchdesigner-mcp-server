@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.754Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Reorder_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Reorder_TOP",
   "description": "The Reorder TOP is a multi-input TOP which lets you choose any of the input channels for the R, G, B, and A output. It also gives the option of outputting one, zero or the input luminance to any of the output channels.",
   "summary": "The Reorder TOP is a multi-input TOP which lets you choose any of the input channels for the R, G, B, and A output. It also gives the option of outputting one, zero or the input luminance to any of th",
   "details": "",

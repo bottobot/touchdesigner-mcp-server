@@ -1,0 +1,39 @@
+{
+  "className": "VideodeviceinTOP",
+  "displayName": "VideodeviceinTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "isConnected",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if any device is currently streaming to this operator.."
+    },
+    {
+      "name": "inputSignalFormat",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "If available for the current Library, returns a string for the input signal format. This string can be used to set the 'Signal Format' menu on the Video Device Out TOP."
+    },
+    {
+      "name": "timecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "If the device supports timecode, then returns a Timecode object for the latest received frame. see Timecode Class."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/VideodeviceinTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=VideodeviceinTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the VideodeviceinTOP Class wiki page",
+      "url": "https://docs.derivative.ca/VideodeviceinTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.807Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Hog_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Hog_CHOP",
   "description": "The Hog CHOP eats up CPU cycles (ie it's a CPU hog - oink!). This can be used to simulate performance on slower machines, or to artifically slow down a synth's frame rate.",
   "summary": "The Hog CHOP eats up CPU cycles (ie it's a CPU hog - oink!). This can be used to simulate performance on slower machines, or to artifically slow down a synth's frame rate.",
   "details": "",

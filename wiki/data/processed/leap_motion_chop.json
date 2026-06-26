@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.989Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Leap_Motion_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Leap_Motion_CHOP",
   "description": "The Leap Motion CHOP reads hand, finger, tool and gesture data from the Leap Motion controller. It outputs hand, finger and tool positions, rotations and 'tracking' channels that indicate if these values are currently being detected and updated. Currently only 1 Leap Motion device can be connected at a time.",
   "summary": "The Leap Motion CHOP reads hand, finger, tool and gesture data from the Leap Motion controller. It outputs hand, finger and tool positions, rotations and 'tracking' channels that indicate if these val",
   "details": "",

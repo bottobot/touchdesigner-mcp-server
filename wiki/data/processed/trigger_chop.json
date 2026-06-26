@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.504Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Trigger_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Trigger_CHOP",
   "description": "The Trigger CHOP starts an audio-style attack/decay/sustain/release (ADSR) envelope to all trigger pulses in the input channels. A trigger point occurs whenever the first input's channel increases across the trigger threshold value. Most commonly, an ADSR starts when the input goes from 0 to 1.",
   "summary": "The Trigger CHOP starts an audio-style attack/decay/sustain/release (ADSR) envelope to all trigger pulses in the input channels. A trigger point occurs whenever the first input's channel increases acr",
   "details": "",

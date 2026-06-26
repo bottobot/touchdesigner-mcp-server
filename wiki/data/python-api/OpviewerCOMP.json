@@ -1,0 +1,28 @@
+{
+  "className": "OpviewerCOMP",
+  "displayName": "OpviewerCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "PanelCOMP",
+  "members": [],
+  "methods": [
+    {
+      "name": "isViewable",
+      "signature": "isViewableisViewable(path)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Returns true if this operator can view the specified operator without recursion issues.\" *path - Path to the specfied operator. An operator can be supplied as well."
+    }
+  ],
+  "url": "https://docs.derivative.ca/OpviewerCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=OpviewerCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the OpviewerCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/OpviewerCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

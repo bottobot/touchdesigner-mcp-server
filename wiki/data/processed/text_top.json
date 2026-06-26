@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.770Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Text_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Text_TOP",
   "description": "The Text TOP displays text strings in an image. It allows for multiple fonts, sizes, colors, borders, character separation and line separation. The text can be displayed as bit maps, anti-aliased lines, or filled polygon characters. Any TrueType font can be rendered by the Text TOP. Unicode is supported.\tThe new Scalable Display Method uses Slug Library to render scalable, resolution independent text at the highest qulaity available in the Text TOP.",
   "summary": "The Text TOP displays text strings in an image. It allows for multiple fonts, sizes, colors, borders, character separation and line separation. The text can be displayed as bit maps, anti-aliased line",
   "details": "",

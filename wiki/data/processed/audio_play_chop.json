@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.114Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Play_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Play_CHOP",
   "description": "The Audio Play CHOP plays back a sound file through any attached audio output device using DirectSound. It supports .aif, .mp3, .mid, .wav and .m4a files up to 48.000 kHz, which can have mono, stereo or even up to 5.1 channels in them. The audio channels can then be routed to any speaker location that DirectSound uses. See Outputs section below.",
   "summary": "The Audio Play CHOP plays back a sound file through any attached audio output device using DirectSound. It supports .aif, .mp3, .mid, .wav and .m4a files up to 48.000 kHz, which can have mono, stereo ",
   "details": "",

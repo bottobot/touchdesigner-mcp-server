@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:12.230Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Web_Server_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Web_Server_DAT",
   "description": "The Web Server DAT allows you to connect to TouchDesigner as a web client, through a web browser for example. The Web Server DAT supports HTTP, WebSockets, as well as the sending/receiving of binary data, such as images (uploading/downloading). How client requests are handled is left up to the user via callbacks.",
   "summary": "The Web Server DAT allows you to connect to TouchDesigner as a web client, through a web browser for example. The Web Server DAT supports HTTP, WebSockets, as well as the sending/receiving of binary d",
   "details": "",

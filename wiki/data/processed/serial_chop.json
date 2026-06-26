@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.334Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Serial_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Serial_CHOP",
   "description": "The Serial CHOP is used for serial communication through an external port, using the RS-232 protocol. These ports are usually a 9 pin connector, or a USB port on new machines. (Using a USB port requires a USB-to-serial adaptor and driver.) All of a computer's available serial ports can be found in the Device Manager under the Windows operating system. Their names begin with 'COM'. Example: COM1, COM2, COM3, etc.",
   "summary": "The Serial CHOP is used for serial communication through an external port, using the RS-232 protocol. These ports are usually a 9 pin connector, or a USB port on new machines. (Using a USB port requir",
   "details": "",

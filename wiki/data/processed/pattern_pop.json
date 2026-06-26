@@ -3,1765 +3,457 @@
   "id": "pattern_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Pattern POP is a generator that makes simple line strip shapes using elementary math functions in X, Y and Z. Alternately it can add a new attribute to an input POP using the elementary math functions.",
+  "description": "The Pattern POP is a generator that makes simple line strip shapes using elementary math functions in X, Y and Z. Alternately it can add a new attribute to an input POP using the elementary math functions. The math functions include sine, cos, triangles, square waves, as well as ease in/out and random. Parameters control phase, repeats and re-ranging. The Pattern POP can: * make one or more 3D line strips generating a <code>P</code> attribute containing a different curve in X, Y and Z. (it can create <code>Tex</code> at the same time). (generator) * add a new attribute (1-4 components) to an input POP, each component containing a separate type of curve. (filter) * modify an existing attribute of an input POP by adding/multiplying the curve to it. (filter) * create a POP that has no P attribute - just a curve in a new attribute. (generator) See also: [[Curve POP]], [[Math Mix POP]]",
   "parameters": [
     {
-      "name": "P",
+      "name": "Number of Points",
+      "parName": "numpoints",
       "label": "Number of Points",
-      "description": "Configure Number of Points for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "Type",
-          "value": "type0",
-          "description": ""
-        },
-        {
-          "label": "Type",
-          "value": "type1",
-          "description": ""
-        },
-        {
-          "label": "Type",
-          "value": "type2",
-          "description": ""
-        },
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles0",
-          "description": ""
-        },
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles1",
-          "description": ""
-        },
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles2",
-          "description": ""
-        },
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle0",
-          "description": ""
-        },
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle1",
-          "description": ""
-        },
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle2",
-          "description": ""
-        },
-        {
-          "label": "Bias",
-          "value": "bias0",
-          "description": ""
-        },
-        {
-          "label": "Bias",
-          "value": "bias1",
-          "description": ""
-        },
-        {
-          "label": "Bias",
-          "value": "bias2",
-          "description": ""
-        },
-        {
-          "label": "Phase",
-          "value": "phase0",
-          "description": ""
-        },
-        {
-          "label": "Phase",
-          "value": "phase1",
-          "description": ""
-        },
-        {
-          "label": "Phase",
-          "value": "phase2",
-          "description": ""
-        },
-        {
-          "label": "Exponent",
-          "value": "exp0",
-          "description": ""
-        },
-        {
-          "label": "Exponent",
-          "value": "exp1",
-          "description": ""
-        },
-        {
-          "label": "Exponent",
-          "value": "exp2",
-          "description": ""
-        },
-        {
-          "label": "Map from Low",
-          "value": "fromlow0",
-          "description": ""
-        },
-        {
-          "label": "Map from Low",
-          "value": "fromlow1",
-          "description": ""
-        },
-        {
-          "label": "Map from Low",
-          "value": "fromlow2",
-          "description": ""
-        },
-        {
-          "label": "Map from High",
-          "value": "fromhigh0",
-          "description": ""
-        },
-        {
-          "label": "Map from High",
-          "value": "fromhigh1",
-          "description": ""
-        },
-        {
-          "label": "Map from High",
-          "value": "fromhigh2",
-          "description": ""
-        },
-        {
-          "label": "Map to Low",
-          "value": "tolow0",
-          "description": ""
-        },
-        {
-          "label": "Map to Low",
-          "value": "tolow1",
-          "description": ""
-        },
-        {
-          "label": "Map to Low",
-          "value": "tolow2",
-          "description": ""
-        },
-        {
-          "label": "Map to High",
-          "value": "tohigh0",
-          "description": ""
-        },
-        {
-          "label": "Map to High",
-          "value": "tohigh1",
-          "description": ""
-        },
-        {
-          "label": "Map to High",
-          "value": "tohigh2",
-          "description": ""
-        },
-        {
-          "label": "Reverse",
-          "value": "reverse0",
-          "description": ""
-        },
-        {
-          "label": "Reverse",
-          "value": "reverse1",
-          "description": ""
-        },
-        {
-          "label": "Reverse",
-          "value": "reverse2",
-          "description": ""
-        },
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle0",
-          "description": ""
-        },
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle1",
-          "description": ""
-        },
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle2",
-          "description": ""
-        },
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Ramp Start to End",
-          "value": "rampstartend",
-          "description": ""
-        },
-        {
-          "label": "Ramp Per Cycle",
-          "value": "ramppercycle",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Int",
+      "description": "Sets the number of points.",
+      "isReadOnly": false
     },
     {
-      "name": "numpoints",
-      "label": "Number of Points",
-      "description": "Configure Number of Points for the operator",
-      "type": "string"
-    },
-    {
-      "name": "cyclic",
+      "name": "Cyclic",
+      "parName": "cyclic",
       "label": "Cyclic",
-      "description": "Configure Cyclic for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable having completes cycle correspond to Number of Points + 1 values.",
+      "isReadOnly": false
     },
     {
-      "name": "connectivity",
+      "name": "Connectivity",
+      "parName": "connectivity",
       "label": "Connectivity",
-      "description": "Configure Connectivity for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines whether and how to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "linestrip",
+        "lines",
+        "points"
+      ],
+      "menuLabels": [
+        "None",
+        "Line Strip",
+        "Lines",
+        "Point Prims"
       ]
     },
     {
-      "name": "none",
-      "label": "None",
-      "description": "Configure None for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Line Strip",
-          "value": "linestrip",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "parsize",
+      "name": "Parameter Size",
+      "parName": "parsize",
       "label": "Parameter Size",
-      "description": "Configure Parameter Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Number of independent configurable parameter values.",
+      "isReadOnly": false,
+      "menuItems": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "1",
+        "2",
+        "3",
+        "4"
       ]
     },
     {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "type",
+      "name": "Type",
+      "parName": "type",
       "label": "Type",
-      "description": "Configure Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Type",
-          "value": "type0",
-          "description": ""
-        },
-        {
-          "label": "Type",
-          "value": "type1",
-          "description": ""
-        },
-        {
-          "label": "Type",
-          "value": "type2",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines the pattern type.",
+      "isReadOnly": false,
+      "menuItems": [
+        "type0",
+        "type1",
+        "type2"
+      ],
+      "menuLabels": [
+        "Type",
+        "Type",
+        "Type"
       ]
     },
     {
-      "name": "type0",
-      "label": "Type",
-      "description": "Configure Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Type",
-          "value": "type0",
-          "description": ""
-        },
-        {
-          "label": "Type",
-          "value": "type1",
-          "description": ""
-        },
-        {
-          "label": "Type",
-          "value": "type2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "seed",
+      "name": "Seed",
+      "parName": "seed",
       "label": "Seed",
-      "description": "Configure Seed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Numerical value that initializes the randomization.",
+      "isReadOnly": false
     },
     {
-      "name": "numcycles",
+      "name": "Number of Cycles",
+      "parName": "numcycles",
       "label": "Number of Cycles",
-      "description": "Configure Number of Cycles for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles0",
-          "description": ""
-        },
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles1",
-          "description": ""
-        },
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Set the number of repeating cycles of the Type shapes over the Length, except for Random.",
+      "isReadOnly": false,
+      "menuItems": [
+        "numcycles0",
+        "numcycles1",
+        "numcycles2"
+      ],
+      "menuLabels": [
+        "Number of Cycles",
+        "Number of Cycles",
+        "Number of Cycles"
       ]
     },
     {
-      "name": "numcycles0",
-      "label": "Number of Cycles",
-      "description": "Configure Number of Cycles for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles0",
-          "description": ""
-        },
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles1",
-          "description": ""
-        },
-        {
-          "label": "Number of Cycles",
-          "value": "numcycles2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "steppercycle",
+      "name": "Step per Cycle",
+      "parName": "steppercycle",
       "label": "Step per Cycle",
-      "description": "Configure Step per Cycle for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle0",
-          "description": ""
-        },
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle1",
-          "description": ""
-        },
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Step added to each cycle.",
+      "isReadOnly": false,
+      "menuItems": [
+        "steppercycle0",
+        "steppercycle1",
+        "steppercycle2"
+      ],
+      "menuLabels": [
+        "Step per Cycle",
+        "Step per Cycle",
+        "Step per Cycle"
       ]
     },
     {
-      "name": "steppercycle0",
-      "label": "Step per Cycle",
-      "description": "Configure Step per Cycle for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle0",
-          "description": ""
-        },
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle1",
-          "description": ""
-        },
-        {
-          "label": "Step per Cycle",
-          "value": "steppercycle2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "bias",
+      "name": "Bias",
+      "parName": "bias",
       "label": "Bias",
-      "description": "Configure Bias for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Bias",
-          "value": "bias0",
-          "description": ""
-        },
-        {
-          "label": "Bias",
-          "value": "bias1",
-          "description": ""
-        },
-        {
-          "label": "Bias",
-          "value": "bias2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Makes Triangle type into a sawtooth wave, and sets the Square type variable-width.",
+      "isReadOnly": false,
+      "menuItems": [
+        "bias0",
+        "bias1",
+        "bias2"
+      ],
+      "menuLabels": [
+        "Bias",
+        "Bias",
+        "Bias"
       ]
     },
     {
-      "name": "bias0",
-      "label": "Bias",
-      "description": "Configure Bias for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Bias",
-          "value": "bias0",
-          "description": ""
-        },
-        {
-          "label": "Bias",
-          "value": "bias1",
-          "description": ""
-        },
-        {
-          "label": "Bias",
-          "value": "bias2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "phase",
+      "name": "Phase",
+      "parName": "phase",
       "label": "Phase",
-      "description": "Configure Phase for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Phase",
-          "value": "phase0",
-          "description": ""
-        },
-        {
-          "label": "Phase",
-          "value": "phase1",
-          "description": ""
-        },
-        {
-          "label": "Phase",
-          "value": "phase2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Shifts the cycle.",
+      "isReadOnly": false,
+      "menuItems": [
+        "phase0",
+        "phase1",
+        "phase2"
+      ],
+      "menuLabels": [
+        "Phase",
+        "Phase",
+        "Phase"
       ]
     },
     {
-      "name": "phase0",
-      "label": "Phase",
-      "description": "Configure Phase for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Phase",
-          "value": "phase0",
-          "description": ""
-        },
-        {
-          "label": "Phase",
-          "value": "phase1",
-          "description": ""
-        },
-        {
-          "label": "Phase",
-          "value": "phase2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "exp",
+      "name": "Exponent",
+      "parName": "exp",
       "label": "Exponent",
-      "description": "Configure Exponent for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Exponent",
-          "value": "exp0",
-          "description": ""
-        },
-        {
-          "label": "Exponent",
-          "value": "exp1",
-          "description": ""
-        },
-        {
-          "label": "Exponent",
-          "value": "exp2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Sets the exponent. The internal value is raised by the power of the exponent",
+      "isReadOnly": false,
+      "menuItems": [
+        "exp0",
+        "exp1",
+        "exp2"
+      ],
+      "menuLabels": [
+        "Exponent",
+        "Exponent",
+        "Exponent"
       ]
     },
     {
-      "name": "exp0",
-      "label": "Exponent",
-      "description": "Configure Exponent for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Exponent",
-          "value": "exp0",
-          "description": ""
-        },
-        {
-          "label": "Exponent",
-          "value": "exp1",
-          "description": ""
-        },
-        {
-          "label": "Exponent",
-          "value": "exp2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "fromlow",
+      "name": "Map from Low",
+      "parName": "fromlow",
       "label": "Map from Low",
-      "description": "Configure Map from Low for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Map from Low",
-          "value": "fromlow0",
-          "description": ""
-        },
-        {
-          "label": "Map from Low",
-          "value": "fromlow1",
-          "description": ""
-        },
-        {
-          "label": "Map from Low",
-          "value": "fromlow2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Reranges the attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fromlow0",
+        "fromlow1",
+        "fromlow2"
+      ],
+      "menuLabels": [
+        "Map from Low",
+        "Map from Low",
+        "Map from Low"
       ]
     },
     {
-      "name": "fromlow0",
-      "label": "Map from Low",
-      "description": "Configure Map from Low for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Map from Low",
-          "value": "fromlow0",
-          "description": ""
-        },
-        {
-          "label": "Map from Low",
-          "value": "fromlow1",
-          "description": ""
-        },
-        {
-          "label": "Map from Low",
-          "value": "fromlow2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "fromhigh",
+      "name": "Map from High",
+      "parName": "fromhigh",
       "label": "Map from High",
-      "description": "Configure Map from High for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Map from High",
-          "value": "fromhigh0",
-          "description": ""
-        },
-        {
-          "label": "Map from High",
-          "value": "fromhigh1",
-          "description": ""
-        },
-        {
-          "label": "Map from High",
-          "value": "fromhigh2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Reranges the attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "fromhigh0",
+        "fromhigh1",
+        "fromhigh2"
+      ],
+      "menuLabels": [
+        "Map from High",
+        "Map from High",
+        "Map from High"
       ]
     },
     {
-      "name": "fromhigh0",
-      "label": "Map from High",
-      "description": "Configure Map from High for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Map from High",
-          "value": "fromhigh0",
-          "description": ""
-        },
-        {
-          "label": "Map from High",
-          "value": "fromhigh1",
-          "description": ""
-        },
-        {
-          "label": "Map from High",
-          "value": "fromhigh2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "tolow",
+      "name": "Map to Low",
+      "parName": "tolow",
       "label": "Map to Low",
-      "description": "Configure Map to Low for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Map to Low",
-          "value": "tolow0",
-          "description": ""
-        },
-        {
-          "label": "Map to Low",
-          "value": "tolow1",
-          "description": ""
-        },
-        {
-          "label": "Map to Low",
-          "value": "tolow2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Reranges the attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tolow0",
+        "tolow1",
+        "tolow2"
+      ],
+      "menuLabels": [
+        "Map to Low",
+        "Map to Low",
+        "Map to Low"
       ]
     },
     {
-      "name": "tolow0",
-      "label": "Map to Low",
-      "description": "Configure Map to Low for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Map to Low",
-          "value": "tolow0",
-          "description": ""
-        },
-        {
-          "label": "Map to Low",
-          "value": "tolow1",
-          "description": ""
-        },
-        {
-          "label": "Map to Low",
-          "value": "tolow2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "tohigh",
+      "name": "Map to High",
+      "parName": "tohigh",
       "label": "Map to High",
-      "description": "Configure Map to High for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Map to High",
-          "value": "tohigh0",
-          "description": ""
-        },
-        {
-          "label": "Map to High",
-          "value": "tohigh1",
-          "description": ""
-        },
-        {
-          "label": "Map to High",
-          "value": "tohigh2",
-          "description": ""
-        }
+      "type": "Float",
+      "description": "Reranges the attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tohigh0",
+        "tohigh1",
+        "tohigh2"
+      ],
+      "menuLabels": [
+        "Map to High",
+        "Map to High",
+        "Map to High"
       ]
     },
     {
-      "name": "tohigh0",
-      "label": "Map to High",
-      "description": "Configure Map to High for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Map to High",
-          "value": "tohigh0",
-          "description": ""
-        },
-        {
-          "label": "Map to High",
-          "value": "tohigh1",
-          "description": ""
-        },
-        {
-          "label": "Map to High",
-          "value": "tohigh2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "reverse",
+      "name": "Reverse",
+      "parName": "reverse",
       "label": "Reverse",
-      "description": "Configure Reverse for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Reverse",
-          "value": "reverse0",
-          "description": ""
-        },
-        {
-          "label": "Reverse",
-          "value": "reverse1",
-          "description": ""
-        },
-        {
-          "label": "Reverse",
-          "value": "reverse2",
-          "description": ""
-        }
+      "type": "Toggle",
+      "description": "Enable reverse order.",
+      "isReadOnly": false,
+      "menuItems": [
+        "reverse0",
+        "reverse1",
+        "reverse2"
+      ],
+      "menuLabels": [
+        "Reverse",
+        "Reverse",
+        "Reverse"
       ]
     },
     {
-      "name": "reverse0",
-      "label": "Reverse",
-      "description": "Configure Reverse for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Reverse",
-          "value": "reverse0",
-          "description": ""
-        },
-        {
-          "label": "Reverse",
-          "value": "reverse1",
-          "description": ""
-        },
-        {
-          "label": "Reverse",
-          "value": "reverse2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "linebreakcycle",
+      "name": "Line Break Each Cycle",
+      "parName": "linebreakcycle",
       "label": "Line Break Each Cycle",
-      "description": "Configure Line Break Each Cycle for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle0",
-          "description": ""
-        },
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle1",
-          "description": ""
-        },
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle2",
-          "description": ""
-        }
+      "type": "Toggle",
+      "description": "When on, creates a line break at each cycle.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linebreakcycle0",
+        "linebreakcycle1",
+        "linebreakcycle2"
+      ],
+      "menuLabels": [
+        "Line Break Each Cycle",
+        "Line Break Each Cycle",
+        "Line Break Each Cycle"
       ]
     },
     {
-      "name": "linebreakcycle0",
-      "label": "Line Break Each Cycle",
-      "description": "Configure Line Break Each Cycle for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle0",
-          "description": ""
-        },
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle1",
-          "description": ""
-        },
-        {
-          "label": "Line Break Each Cycle",
-          "value": "linebreakcycle2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "closed",
+      "name": "Closed",
+      "parName": "closed",
       "label": "Closed",
-      "description": "Configure Closed for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "The last vertex is connected to the first vertex.",
+      "isReadOnly": false
     },
     {
-      "name": "outputlinebreakattr",
+      "name": "Output Line Break Attribute",
+      "parName": "outputlinebreakattr",
       "label": "Output Line Break Attribute",
-      "description": "Configure Output Line Break Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to output a LineBreak attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "texture",
+      "name": "Texture Coordinates",
+      "parName": "texture",
       "label": "Texture Coordinates",
-      "description": "Configure Texture Coordinates for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Ramp Start to End",
-          "value": "rampstartend",
-          "description": ""
-        },
-        {
-          "label": "Ramp Per Cycle",
-          "value": "ramppercycle",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the texture coordinate mode relative to the cylcles.",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "rampstartend",
+        "ramppercycle"
+      ],
+      "menuLabels": [
+        "Off",
+        "Ramp Start to End",
+        "Ramp Per Cycle"
       ]
     },
     {
-      "name": "off",
-      "label": "Off",
-      "description": "Configure Off for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Off",
-          "value": "off",
-          "description": ""
-        },
-        {
-          "label": "Ramp Start to End",
-          "value": "rampstartend",
-          "description": ""
-        },
-        {
-          "label": "Ramp Per Cycle",
-          "value": "ramppercycle",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "combineop",
+      "name": "Combine Operation",
+      "parName": "combineop",
       "label": "Combine Operation",
-      "description": "Configure Combine Operation for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Specify how to combine the output value with the combine attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "set",
+        "add",
+        "mult"
+      ],
+      "menuLabels": [
+        "Set",
+        "Add",
+        "Multiply"
       ]
     },
     {
-      "name": "set",
-      "label": "Set",
-      "description": "Configure Set for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "combineatttscope",
+      "name": "Combine Attribute Scope",
+      "parName": "combineattrscope",
       "label": "Combine Attribute Scope",
-      "description": "Configure Combine Attribute Scope for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Input attribute scope for the combine operation.",
+      "isReadOnly": false
     },
     {
-      "name": "outputattrscope",
+      "name": "Output Attribute Scope",
+      "parName": "outputattrscope",
       "label": "Output Attribute Scope",
-      "description": "Configure Output Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Name of attribute to output (can choose components of attribute), can choose from menu.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "color",
+        "dcolor",
+        "dir",
+        "ddir",
+        "1",
+        "2",
+        "3",
+        "4",
+        "attrdefaultval0",
+        "attrdefaultval1",
+        "attrdefaultval2",
+        "attrdefaultval3"
+      ],
+      "menuLabels": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth",
+        "float",
+        "double",
+        "int",
+        "uint",
+        "Color",
+        "Color (double)",
+        "Direction",
+        "Direction (double)",
+        "1",
+        "2",
+        "3",
+        "4",
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     },
     {
-      "name": "overrideautoattr",
-      "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
-    },
-    {
-      "name": "newattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attrclass",
+      "name": "Attribute Class",
+      "parName": "attrclass",
       "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "group",
+      "name": "Group",
+      "parName": "group",
       "label": "Group",
-      "description": "Configure Group for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "StrMenu",
+      "description": "If there are input groups, specifying a group name in this field will cause this POP to act only upon the group specified.",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Pattern_POP.htm",
-  "parsedAt": "2025-08-08T03:03:58.304Z"
+  "parsedAt": "2025-08-08T03:03:58.304Z",
+  "url": "https://docs.derivative.ca/Pattern_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Pattern_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Pattern_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Pattern_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

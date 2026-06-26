@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:03.878Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Merge_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Merge_CHOP",
   "description": "The Merge CHOP takes multiple inputs and merges them into the output. All the channels of the input appear in the output. The channel order is the channels of the first input followed by the channels of the second input, and so on.",
   "summary": "The Merge CHOP takes multiple inputs and merges them into the output. All the channels of the input appear in the output. The channel order is the channels of the first input followed by the channels ",
   "details": "",

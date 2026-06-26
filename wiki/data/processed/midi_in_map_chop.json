@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.033Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\MIDI_In_Map_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/MIDI_In_Map_CHOP",
   "description": "See first the MIDI In DAT. The MIDI In Map CHOP reads in specified channels from the MIDI Device Mapper Dialog which prepares slider channels starting from s1, s2, etc. and button channels starting with b1, b2 and so on. The MIDI In Map CHOP selects from these channels.",
   "summary": "See first the MIDI In DAT. The MIDI In Map CHOP reads in specified channels from the MIDI Device Mapper Dialog which prepares slider channels starting from s1, s2, etc. and button channels starting wi",
   "details": "",

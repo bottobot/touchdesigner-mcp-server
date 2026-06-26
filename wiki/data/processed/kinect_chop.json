@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.764Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Kinect_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Kinect_CHOP",
   "description": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This CHOP only supports the Kinect for Windows hardware and the Kinect 2, not Kinect for Xbox hardware.",
   "summary": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This CHOP only supports the Kinect for Windows hardware and the Kinect 2, not Kinect for Xbox hardware.",
   "details": "",

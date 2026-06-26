@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.423Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Remap_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Remap_TOP",
   "description": "The Remap TOP uses the second input to warp the first input. For every pixel of the output, it uses the red channel and green channel of the second input to choose which pixel to pick from the first input. Red == 0  will pick from the left column of pixels, red == 1 will pick from the right column of pixels. Green == 0  will pick from the bottom row of pixels, green == 1 will pick from the top row of pixels. Red == .5 and green == .5 will pick from the middle pixel of the first input.  Pixels from the first input are interpolated.",
   "summary": "The Remap TOP uses the second input to warp the first input. For every pixel of the output, it uses the red channel and green channel of the second input to choose which pixel to pick from the first i",
   "details": "",

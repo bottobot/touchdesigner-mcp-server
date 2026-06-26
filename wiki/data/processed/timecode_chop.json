@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.835Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Timecode_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Timecode_CHOP",
   "description": "The Timecode CHOP generates Timecode data (channels, a .timecode python object and other python members). Its Mode menu provides a variety of ways to get, set and generate timecode through its parameters, including being driven from a timecode string, a set of channels, or other OPs that have timecode such as video input devices. You can also set timecode with python functions.",
   "summary": "The Timecode CHOP generates Timecode data (channels, a .timecode python object and other python members). Its Mode menu provides a variety of ways to get, set and generate timecode through its paramet",
   "details": "",

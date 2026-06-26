@@ -3,1021 +3,311 @@
   "id": "sort_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Sort POP sorts the point list and/or the primitive list based on the position P or any attribute component. When sorting by P it can sort the points relative to a vector, or proximity to a point, or relative to a Geometry COMP's Z axis.",
+  "description": "The Sort POP sorts the point list and/or the primitive list based on the position <code>P</code> or any attribute component. When sorting by <code>P</code> it can sort the points relative to a vector, or proximity to a point, or relative to a Geometry COMP's Z axis. The Sort POP can also randomize the point order, or shift the point order (circularly in the point list, like first point becomes the second point and the last point becomes the first). It can do the same operations to primitives. It implements https://gpuopen.com/fidelityfx-parallel-sort/",
   "parameters": [
     {
-      "name": "P",
+      "name": "Point Method",
+      "parName": "ptmethod",
       "label": "Point Method",
-      "description": "Configure Point Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "No Change",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "By Attribute",
-          "value": "byattrib",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "seed",
-          "description": ""
-        },
-        {
-          "label": "Proximity to Point",
-          "value": "prox",
-          "description": ""
-        },
-        {
-          "label": "Along Vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "Relative to Object Z-axis",
-          "value": "object",
-          "description": "axis object -"
-        },
-        {
-          "label": "Not UInt Attrib",
-          "value": "notuint",
-          "description": ""
-        },
-        {
-          "label": "4 bits UInt (max 16)",
-          "value": "uint4",
-          "description": ""
-        },
-        {
-          "label": "8 bits UInt (max 256)",
-          "value": "uint8",
-          "description": ""
-        },
-        {
-          "label": "12 bits UInt (max 4096)",
-          "value": "uint12",
-          "description": ""
-        },
-        {
-          "label": "16 bits UInt (max 65,536)",
-          "value": "uint16",
-          "description": ""
-        },
-        {
-          "label": "20 bits UInt (max 1 M)",
-          "value": "uint20",
-          "description": ""
-        },
-        {
-          "label": "24 bits UInt (max 16 M)",
-          "value": "uint24",
-          "description": ""
-        },
-        {
-          "label": "28 bits UInt (max 268 M)",
-          "value": "uint28",
-          "description": ""
-        },
-        {
-          "label": "32 bits UInt (max 4 B)",
-          "value": "uint32",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointproxx",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointproxy",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointproxz",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "pointdirx",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "pointdiry",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "pointdirz",
-          "description": ""
-        },
-        {
-          "label": "No Change",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "By Point Attribute",
-          "value": "byptattrib",
-          "description": ""
-        },
-        {
-          "label": "By Primitive Attribute",
-          "value": "byprimattrib",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "seed",
-          "description": ""
-        },
-        {
-          "label": "Proximity to Point",
-          "value": "prox",
-          "description": ""
-        },
-        {
-          "label": "Along Vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "Relative to Object Z-axis",
-          "value": "object",
-          "description": "axis object -"
-        },
-        {
-          "label": "Not UInt Attrib",
-          "value": "notuint",
-          "description": ""
-        },
-        {
-          "label": "4 bits UInt (max 16)",
-          "value": "uint4",
-          "description": ""
-        },
-        {
-          "label": "8 bits UInt (max 256)",
-          "value": "uint8",
-          "description": ""
-        },
-        {
-          "label": "12 bits UInt (max 4096)",
-          "value": "uint12",
-          "description": ""
-        },
-        {
-          "label": "16 bits UInt (max 65,536)",
-          "value": "uint16",
-          "description": ""
-        },
-        {
-          "label": "20 bits UInt (max 1 M)",
-          "value": "uint20",
-          "description": ""
-        },
-        {
-          "label": "24 bits UInt (max 16 M)",
-          "value": "uint24",
-          "description": ""
-        },
-        {
-          "label": "28 bits UInt (max 268 M)",
-          "value": "uint28",
-          "description": ""
-        },
-        {
-          "label": "32 bits UInt (max 4 B)",
-          "value": "uint32",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "primproxx",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "primproxy",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "primproxz",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "primdirx",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "primdiry",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "primdirz",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Point sorting criteria.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "byattrib",
+        "seed",
+        "prox",
+        "vector",
+        "object"
+      ],
+      "menuLabels": [
+        "No Change",
+        "By Attribute",
+        "Random",
+        "Proximity to Point",
+        "Along Vector",
+        "Relative to Object Z-axis"
       ]
     },
     {
-      "name": "ptmethod",
-      "label": "Point Method",
-      "description": "Configure Point Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "No Change",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "By Attribute",
-          "value": "byattrib",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "seed",
-          "description": ""
-        },
-        {
-          "label": "Proximity to Point",
-          "value": "prox",
-          "description": ""
-        },
-        {
-          "label": "Along Vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "Relative to Object Z-axis",
-          "value": "object",
-          "description": "axis object -"
-        }
-      ]
-    },
-    {
-      "name": "none",
-      "label": "No Change",
-      "description": "Configure No Change for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "No Change",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "By Attribute",
-          "value": "byattrib",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "seed",
-          "description": ""
-        },
-        {
-          "label": "Proximity to Point",
-          "value": "prox",
-          "description": ""
-        },
-        {
-          "label": "Along Vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "Relative to Object Z-axis",
-          "value": "object",
-          "description": "axis object -"
-        }
-      ]
-    },
-    {
-      "name": "pointattr",
+      "name": "Attribute",
+      "parName": "pointattr",
       "label": "Attribute",
-      "description": "Configure Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Attribute to use for sorting.",
+      "isReadOnly": false
     },
     {
-      "name": "pointuint",
+      "name": "Attrib is UInt",
+      "parName": "pointuint",
       "label": "Attrib is UInt",
-      "description": "Configure Attrib is UInt for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Not UInt Attrib",
-          "value": "notuint",
-          "description": ""
-        },
-        {
-          "label": "4 bits UInt (max 16)",
-          "value": "uint4",
-          "description": ""
-        },
-        {
-          "label": "8 bits UInt (max 256)",
-          "value": "uint8",
-          "description": ""
-        },
-        {
-          "label": "12 bits UInt (max 4096)",
-          "value": "uint12",
-          "description": ""
-        },
-        {
-          "label": "16 bits UInt (max 65,536)",
-          "value": "uint16",
-          "description": ""
-        },
-        {
-          "label": "20 bits UInt (max 1 M)",
-          "value": "uint20",
-          "description": ""
-        },
-        {
-          "label": "24 bits UInt (max 16 M)",
-          "value": "uint24",
-          "description": ""
-        },
-        {
-          "label": "28 bits UInt (max 268 M)",
-          "value": "uint28",
-          "description": ""
-        },
-        {
-          "label": "32 bits UInt (max 4 B)",
-          "value": "uint32",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "When sorting by attribute, allows to specify whether the attribute is an unsigned integer and what the max value is. Smaller max UInt require fewer passes to sort.",
+      "isReadOnly": false,
+      "menuItems": [
+        "notuint",
+        "uint4",
+        "uint8",
+        "uint12",
+        "uint16",
+        "uint20",
+        "uint24",
+        "uint28",
+        "uint32"
+      ],
+      "menuLabels": [
+        "Not UInt Attrib",
+        "4 bits UInt (max 16)",
+        "8 bits UInt (max 256)",
+        "12 bits UInt (max 4096)",
+        "16 bits UInt (max 65,536)",
+        "20 bits UInt (max 1 M)",
+        "24 bits UInt (max 16 M)",
+        "28 bits UInt (max 268 M)",
+        "32 bits UInt (max 4 B)"
       ]
     },
     {
-      "name": "notuint",
-      "label": "Not UInt Attrib",
-      "description": "Configure Not UInt Attrib for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Not UInt Attrib",
-          "value": "notuint",
-          "description": ""
-        },
-        {
-          "label": "4 bits UInt (max 16)",
-          "value": "uint4",
-          "description": ""
-        },
-        {
-          "label": "8 bits UInt (max 256)",
-          "value": "uint8",
-          "description": ""
-        },
-        {
-          "label": "12 bits UInt (max 4096)",
-          "value": "uint12",
-          "description": ""
-        },
-        {
-          "label": "16 bits UInt (max 65,536)",
-          "value": "uint16",
-          "description": ""
-        },
-        {
-          "label": "20 bits UInt (max 1 M)",
-          "value": "uint20",
-          "description": ""
-        },
-        {
-          "label": "24 bits UInt (max 16 M)",
-          "value": "uint24",
-          "description": ""
-        },
-        {
-          "label": "28 bits UInt (max 268 M)",
-          "value": "uint28",
-          "description": ""
-        },
-        {
-          "label": "32 bits UInt (max 4 B)",
-          "value": "uint32",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pointseed",
+      "name": "Seed",
+      "parName": "pointseed",
       "label": "Seed",
-      "description": "Configure Seed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Seed for random number generator for randomly-ordered points.",
+      "isReadOnly": false
     },
     {
-      "name": "pointprox",
+      "name": "Point",
+      "parName": "pointprox",
       "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "pointproxx",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointproxy",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointproxz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Proximity Point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointproxx",
+        "pointproxy",
+        "pointproxz"
+      ],
+      "menuLabels": [
+        "Point",
+        "Point",
+        "Point"
       ]
     },
     {
-      "name": "pointproxx",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "pointproxx",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointproxy",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "pointproxz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pointdir",
+      "name": "Vector",
+      "parName": "pointdir",
       "label": "Vector",
-      "description": "Configure Vector for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Vector",
-          "value": "pointdirx",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "pointdiry",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "pointdirz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "When sorting points Along Vector, it takes the point position, finds the the closest point on a line through 0,0,0 in the direction of the vector, and then sorts along that line.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pointdirx",
+        "pointdiry",
+        "pointdirz"
+      ],
+      "menuLabels": [
+        "Vector",
+        "Vector",
+        "Vector"
       ]
     },
     {
-      "name": "pointdirx",
-      "label": "Vector",
-      "description": "Configure Vector for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Vector",
-          "value": "pointdirx",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "pointdiry",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "pointdirz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pointobj",
+      "name": "Object",
+      "parName": "pointobj",
       "label": "Object",
-      "description": "Configure Object for the operator",
-      "type": "string"
+      "type": "Object",
+      "description": "3D Object to use when sorting points relative to Object Z-axis.",
+      "isReadOnly": false
     },
     {
-      "name": "pointrev",
+      "name": "Reverse",
+      "parName": "pointrev",
       "label": "Reverse",
-      "description": "Configure Reverse for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "After sorting points, reverse their order.",
+      "isReadOnly": false
     },
     {
-      "name": "pointshift",
+      "name": "Shift",
+      "parName": "pointshift",
       "label": "Shift",
-      "description": "Configure Shift for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enables offsetting on sorted points.",
+      "isReadOnly": false
     },
     {
-      "name": "pointoffset",
+      "name": "Offset",
+      "parName": "pointoffset",
       "label": "Offset",
-      "description": "Configure Offset for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Shifts the point order by this offset.",
+      "isReadOnly": false
     },
     {
-      "name": "primmethod",
+      "name": "Primitive Method",
+      "parName": "primmethod",
       "label": "Primitive Method",
-      "description": "Configure Primitive Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "No Change",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "By Point Attribute",
-          "value": "byptattrib",
-          "description": ""
-        },
-        {
-          "label": "By Primitive Attribute",
-          "value": "byprimattrib",
-          "description": ""
-        },
-        {
-          "label": "Random",
-          "value": "seed",
-          "description": ""
-        },
-        {
-          "label": "Proximity to Point",
-          "value": "prox",
-          "description": ""
-        },
-        {
-          "label": "Along Vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "Relative to Object Z-axis",
-          "value": "object",
-          "description": "axis object -"
-        }
+      "type": "Menu",
+      "description": "Primitive sorting criteria.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "byptattrib",
+        "byprimattrib",
+        "seed",
+        "prox",
+        "vector",
+        "object"
+      ],
+      "menuLabels": [
+        "No Change",
+        "By Point Attribute",
+        "By Primitive Attribute",
+        "Random",
+        "Proximity to Point",
+        "Along Vector",
+        "Relative to Object Z-axis"
       ]
     },
     {
-      "name": "primattr",
+      "name": "Attribute",
+      "parName": "primattr",
       "label": "Attribute",
-      "description": "Configure Attribute for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Attribute to use for sorting.",
+      "isReadOnly": false
     },
     {
-      "name": "primuint",
+      "name": "Attrib is UInt",
+      "parName": "primuint",
       "label": "Attrib is UInt",
-      "description": "Configure Attrib is UInt for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Not UInt Attrib",
-          "value": "notuint",
-          "description": ""
-        },
-        {
-          "label": "4 bits UInt (max 16)",
-          "value": "uint4",
-          "description": ""
-        },
-        {
-          "label": "8 bits UInt (max 256)",
-          "value": "uint8",
-          "description": ""
-        },
-        {
-          "label": "12 bits UInt (max 4096)",
-          "value": "uint12",
-          "description": ""
-        },
-        {
-          "label": "16 bits UInt (max 65,536)",
-          "value": "uint16",
-          "description": ""
-        },
-        {
-          "label": "20 bits UInt (max 1 M)",
-          "value": "uint20",
-          "description": ""
-        },
-        {
-          "label": "24 bits UInt (max 16 M)",
-          "value": "uint24",
-          "description": ""
-        },
-        {
-          "label": "28 bits UInt (max 268 M)",
-          "value": "uint28",
-          "description": ""
-        },
-        {
-          "label": "32 bits UInt (max 4 B)",
-          "value": "uint32",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "When sorting by attribute, allows to specify whether the attribute is an unsigned integer and what the max value is. Smaller max UInt require fewer passes to sort.",
+      "isReadOnly": false,
+      "menuItems": [
+        "notuint",
+        "uint4",
+        "uint8",
+        "uint12",
+        "uint16",
+        "uint20",
+        "uint24",
+        "uint28",
+        "uint32"
+      ],
+      "menuLabels": [
+        "Not UInt Attrib",
+        "4 bits UInt (max 16)",
+        "8 bits UInt (max 256)",
+        "12 bits UInt (max 4096)",
+        "16 bits UInt (max 65,536)",
+        "20 bits UInt (max 1 M)",
+        "24 bits UInt (max 16 M)",
+        "28 bits UInt (max 268 M)",
+        "32 bits UInt (max 4 B)"
       ]
     },
     {
-      "name": "primseed",
+      "name": "Seed",
+      "parName": "primseed",
       "label": "Seed",
-      "description": "Configure Seed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Seed for primitive ranomizer.",
+      "isReadOnly": false
     },
     {
-      "name": "primprox",
+      "name": "Point",
+      "parName": "primprox",
       "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "primproxx",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "primproxy",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "primproxz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "Position when sorting by proximity to point.",
+      "isReadOnly": false,
+      "menuItems": [
+        "primproxx",
+        "primproxy",
+        "primproxz"
+      ],
+      "menuLabels": [
+        "Point",
+        "Point",
+        "Point"
       ]
     },
     {
-      "name": "primproxx",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "primproxx",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "primproxy",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "primproxz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "primdir",
+      "name": "Vector",
+      "parName": "primdir",
       "label": "Vector",
-      "description": "Configure Vector for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Vector",
-          "value": "primdirx",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "primdiry",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "primdirz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "When sorting primitives Along Vector, it takes the center of the primitive, finds the closest point on a line through 0,0,0 in the direction of the vector, and then sorts along that line.",
+      "isReadOnly": false,
+      "menuItems": [
+        "primdirx",
+        "primdiry",
+        "primdirz"
+      ],
+      "menuLabels": [
+        "Vector",
+        "Vector",
+        "Vector"
       ]
     },
     {
-      "name": "primdirx",
-      "label": "Vector",
-      "description": "Configure Vector for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Vector",
-          "value": "primdirx",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "primdiry",
-          "description": ""
-        },
-        {
-          "label": "Vector",
-          "value": "primdirz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "primobj",
+      "name": "Object",
+      "parName": "primobj",
       "label": "Object",
-      "description": "Configure Object for the operator",
-      "type": "string"
+      "type": "Object",
+      "description": "3D Object to use when sorting primitives relative to Object Z-axis.",
+      "isReadOnly": false
     },
     {
-      "name": "primrev",
+      "name": "Reverse",
+      "parName": "primrev",
       "label": "Reverse",
-      "description": "Configure Reverse for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Reverse the order of primitives.",
+      "isReadOnly": false
     },
     {
-      "name": "primshift",
+      "name": "Shift",
+      "parName": "primshift",
       "label": "Shift",
-      "description": "Configure Shift for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enables offsetting on sorted primitives.",
+      "isReadOnly": false
     },
     {
-      "name": "primoffset",
+      "name": "Offset",
+      "parName": "primoffset",
       "label": "Offset",
-      "description": "Configure Offset for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Int",
+      "description": "Shifts the primitive order by this offset.",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Sort_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.781Z"
+  "parsedAt": "2025-08-08T03:03:59.781Z",
+  "url": "https://docs.derivative.ca/Sort_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Sort_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Sort_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Sort_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

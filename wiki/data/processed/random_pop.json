@@ -3,1217 +3,443 @@
   "id": "random_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Random POP takes its input and either (1) generates a new attribute containing random values, or (2) sets, adds or multiplies an existing attribute by a random value for each point.",
+  "description": "The Random POP takes its input and either (1) generates a new attribute containing random values, or (2) sets, adds or multiplies an existing attribute by a random value for each point. The random values can be applied to point, vertex or primitive attributes. By default, the random values are uniformly distributed between 0 and 1, but there is a variety of alternate distributions controlled with the Type menu. These include Gaussian (also known as Normal) distribution (where most points are near the center of the range), two values randomly chosen with a fraction probability of each (Two Values), a random Direction vector (within a certain cone angle) which always has length of 1, random float3 vectors within a unit Sphere, and Exponential which is an exponential dropoff above 0 separately in each axis. The random values can be generated within a specified range (Value A and Value B), and then optionally clamped between two values. There is an option to generate 2 or more points for every input point to increase the density of points around the source points. (Extra Points per Source Point) The random values can also be restricted to certain point, vertex or primitive Groups. Tip: You can get random distributions radially around a point by using the [[Projection POP]] by generating random numbers in polar space and converting to Cartesian. '''Per-point mapping of parameters''' - The Random POP has a Map page, which allows every point to get a different value for Amplitude, Offset, Exponent, Period, Value A and B and other parameters. In this mechanism, a separate attribute in the input contains values that override (or add to / multiply by) the parameter value. See [[Mapping POP Attributes to Parameters]]. See also [[Point Generator POP]], [[Noise POP]]",
   "parameters": [
     {
-      "name": "extrapts",
+      "name": "Extra Points per Source Point",
+      "parName": "extrapts",
       "label": "Extra Points per Source Point",
-      "description": "Configure Extra Points per Source Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Constant",
-          "value": "constant",
-          "description": ""
-        },
-        {
-          "label": "Two Values",
-          "value": "twovalues",
-          "description": ""
-        },
-        {
-          "label": "Uniform (Continuous)",
-          "value": "uniform",
-          "description": ""
-        },
-        {
-          "label": "Uniform (Discrete)",
-          "value": "uniformdiscrete",
-          "description": ""
-        },
-        {
-          "label": "Direction",
-          "value": "direction",
-          "description": ""
-        },
-        {
-          "label": "Inside Sphere",
-          "value": "insidesphere",
-          "description": ""
-        },
-        {
-          "label": "Normal (Gaussian)",
-          "value": "normal",
-          "description": ""
-        },
-        {
-          "label": "Exponential",
-          "value": "exponential",
-          "description": ""
-        },
-        {
-          "label": "Log-Normal",
-          "value": "lognormal",
-          "description": "Normal lognormal -"
-        },
-        {
-          "label": "Cauchy-Lorentz",
-          "value": "cauchylorentz",
-          "description": "Lorentz cauchylorentz -"
-        },
-        {
-          "label": "Custom Ramp",
-          "value": "customramp",
-          "description": ""
-        },
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        },
-        {
-          "label": "Translate along Normal",
-          "value": "translatealongnormal",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Int",
+      "description": "Determines how many additional random points are generated per input point.",
+      "isReadOnly": false
     },
     {
-      "name": "type",
+      "name": "Type",
+      "parName": "type",
       "label": "Type",
-      "description": "Configure Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Constant",
-          "value": "constant",
-          "description": ""
-        },
-        {
-          "label": "Two Values",
-          "value": "twovalues",
-          "description": ""
-        },
-        {
-          "label": "Uniform (Continuous)",
-          "value": "uniform",
-          "description": ""
-        },
-        {
-          "label": "Uniform (Discrete)",
-          "value": "uniformdiscrete",
-          "description": ""
-        },
-        {
-          "label": "Direction",
-          "value": "direction",
-          "description": ""
-        },
-        {
-          "label": "Inside Sphere",
-          "value": "insidesphere",
-          "description": ""
-        },
-        {
-          "label": "Normal (Gaussian)",
-          "value": "normal",
-          "description": ""
-        },
-        {
-          "label": "Exponential",
-          "value": "exponential",
-          "description": ""
-        },
-        {
-          "label": "Log-Normal",
-          "value": "lognormal",
-          "description": "Normal lognormal -"
-        },
-        {
-          "label": "Cauchy-Lorentz",
-          "value": "cauchylorentz",
-          "description": "Lorentz cauchylorentz -"
-        },
-        {
-          "label": "Custom Ramp",
-          "value": "customramp",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines the random type.",
+      "isReadOnly": false,
+      "menuItems": [
+        "constant",
+        "twovalues",
+        "uniform",
+        "uniformdiscrete",
+        "direction",
+        "insidesphere",
+        "normal",
+        "exponential",
+        "lognormal",
+        "cauchylorentz",
+        "customramp",
+        "none",
+        "gaussian"
+      ],
+      "menuLabels": [
+        "Constant",
+        "Two Values",
+        "Uniform (Continuous)",
+        "Uniform (Discrete)",
+        "Direction",
+        "Inside Sphere",
+        "Normal (Gaussian)",
+        "Exponential",
+        "Log-Normal",
+        "Cauchy-Lorentz",
+        "Custom Ramp",
+        "None",
+        "Gaussian (Normal)"
       ]
     },
     {
-      "name": "constant",
-      "label": "Constant",
-      "description": "Configure Constant for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Constant",
-          "value": "constant",
-          "description": ""
-        },
-        {
-          "label": "Two Values",
-          "value": "twovalues",
-          "description": ""
-        },
-        {
-          "label": "Uniform (Continuous)",
-          "value": "uniform",
-          "description": ""
-        },
-        {
-          "label": "Uniform (Discrete)",
-          "value": "uniformdiscrete",
-          "description": ""
-        },
-        {
-          "label": "Direction",
-          "value": "direction",
-          "description": ""
-        },
-        {
-          "label": "Inside Sphere",
-          "value": "insidesphere",
-          "description": ""
-        },
-        {
-          "label": "Normal (Gaussian)",
-          "value": "normal",
-          "description": ""
-        },
-        {
-          "label": "Exponential",
-          "value": "exponential",
-          "description": ""
-        },
-        {
-          "label": "Log-Normal",
-          "value": "lognormal",
-          "description": "Normal lognormal -"
-        },
-        {
-          "label": "Cauchy-Lorentz",
-          "value": "cauchylorentz",
-          "description": "Lorentz cauchylorentz -"
-        },
-        {
-          "label": "Custom Ramp",
-          "value": "customramp",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "chop",
+      "name": "CHOP",
+      "parName": "chop",
       "label": "CHOP",
-      "description": "Configure CHOP for the operator",
-      "type": "string"
+      "type": "CHOP",
+      "description": "When the distribution type is Custom Ramp, the CHOP to use for the custom ramp.",
+      "isReadOnly": false
     },
     {
-      "name": "singlenoisecomp",
-      "label": "Single Random Component",
-      "description": "Configure Single Random Component for the operator",
-      "type": "string"
+      "name": "Random Size",
+      "parName": "randomsize",
+      "label": "Random Size",
+      "type": "Menu",
+      "description": "Number of random components.",
+      "isReadOnly": false,
+      "menuItems": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
     },
     {
-      "name": "seed",
+      "name": "Seed",
+      "parName": "seed",
       "label": "Seed",
-      "description": "Configure Seed for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Numerical value that initializes the randomization.",
+      "isReadOnly": false
     },
     {
-      "name": "exp",
-      "label": "Exponent",
-      "description": "Configure Exponent for the operator",
-      "type": "string"
+      "name": "Parameter Size",
+      "parName": "parsize",
+      "label": "Parameter Size",
+      "type": "Menu",
+      "description": "Number of independent configurable parameter values.",
+      "isReadOnly": false,
+      "menuItems": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
     },
     {
-      "name": "amp",
+      "name": "Amplitude",
+      "parName": "amp",
       "label": "Amplitude",
-      "description": "Configure Amplitude for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "For certain types of random values, the random values amplitude (a scale on the values output).",
+      "isReadOnly": false
     },
     {
-      "name": "offset",
+      "name": "Exponent",
+      "parName": "exp",
+      "label": "Exponent",
+      "type": "Float",
+      "description": "Sets the exponent. The internal value is raised by the power of the exponent",
+      "isReadOnly": false
+    },
+    {
+      "name": "Offset",
+      "parName": "offset",
       "label": "Offset",
-      "description": "Configure Offset for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Adds an offset to the resulting value.",
+      "isReadOnly": false
     },
     {
-      "name": "coneangle",
-      "label": "Cone Angle",
-      "description": "Configure Cone Angle for the operator",
-      "type": "string"
-    },
-    {
-      "name": "valuea",
+      "name": "Value A",
+      "parName": "valuea",
       "label": "Value A",
-      "description": "Configure Value A for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "One of two values determining the random numbers that are output.",
+      "isReadOnly": false
     },
     {
-      "name": "valueb",
+      "name": "Value B",
+      "parName": "valueb",
       "label": "Value B",
-      "description": "Configure Value B for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "One of two values determining the random numbers that are output.",
+      "isReadOnly": false
     },
     {
-      "name": "valuebproba",
+      "name": "Value B Probability",
+      "parName": "valuebproba",
       "label": "Value B Probability",
-      "description": "Configure Value B Probability for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "The probability that the numbers will be biased toward value B vs A.",
+      "isReadOnly": false
     },
     {
-      "name": "stepval",
-      "label": "Step Value",
-      "description": "Configure Step Value for the operator",
-      "type": "string"
-    },
-    {
-      "name": "clamp",
+      "name": "Clamp Value",
+      "parName": "clamp",
       "label": "Clamp Value",
-      "description": "Configure Clamp Value for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to clamp the output value between a minimum and a maximum.",
+      "isReadOnly": false
     },
     {
-      "name": "minval",
+      "name": "Clamp Min",
+      "parName": "minval",
       "label": "Clamp Min",
-      "description": "Configure Clamp Min for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Minimum output value.",
+      "isReadOnly": false
     },
     {
-      "name": "maxval",
+      "name": "Clamp Max",
+      "parName": "maxval",
       "label": "Clamp Max",
-      "description": "Configure Clamp Max for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Maximum output value.",
+      "isReadOnly": false
     },
     {
-      "name": "combineop",
+      "name": "Cone Direction",
+      "parName": "conedir",
+      "label": "Cone Direction",
+      "type": "XYZW",
+      "description": "When random distribution is direction, specifies the cone direction.",
+      "isReadOnly": false,
+      "menuItems": [
+        "conedirx",
+        "conediry",
+        "conedirz"
+      ],
+      "menuLabels": [
+        "Cone Direction",
+        "Cone Direction",
+        "Cone Direction"
+      ]
+    },
+    {
+      "name": "Cone Angle",
+      "parName": "coneangle",
+      "label": "Cone Angle",
+      "type": "Float",
+      "description": "When random distribution is direction, specifies the cone angle around the cone direction.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Combine Operation",
+      "parName": "combineop",
       "label": "Combine Operation",
-      "description": "Configure Combine Operation for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        },
-        {
-          "label": "Translate along Normal",
-          "value": "translatealongnormal",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Specify how to combine the output value with the combine attribute value.",
+      "isReadOnly": false,
+      "menuItems": [
+        "set",
+        "add",
+        "mult",
+        "translatealongnormal"
+      ],
+      "menuLabels": [
+        "Set",
+        "Add",
+        "Multiply",
+        "Translate along Normal"
       ]
     },
     {
-      "name": "set",
-      "label": "Set",
-      "description": "Configure Set for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Set",
-          "value": "set",
-          "description": ""
-        },
-        {
-          "label": "Add",
-          "value": "add",
-          "description": ""
-        },
-        {
-          "label": "Multiply",
-          "value": "mult",
-          "description": ""
-        },
-        {
-          "label": "Translate along Normal",
-          "value": "translatealongnormal",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "combineattrscope",
+      "name": "Combine Attribute Scope",
+      "parName": "combineattrscope",
       "label": "Combine Attribute Scope",
-      "description": "Configure Combine Attribute Scope for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "Input attribute scope for the combine operation.",
+      "isReadOnly": false
     },
     {
-      "name": "outputattrscope",
+      "name": "Output Attribute Scope",
+      "parName": "outputattrscope",
       "label": "Output Attribute Scope",
-      "description": "Configure Output Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
+      "type": "StrMenu",
+      "description": "Name of attribute to output (can choose components of attribute), can choose from menu.",
+      "isReadOnly": false,
+      "menuItems": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth"
+      ],
+      "menuLabels": [
+        "P",
+        "N",
+        "Color",
+        "Color.rgb",
+        "Tex",
+        "PointScale",
+        "LineWidth"
       ]
     },
     {
-      "name": "P",
-      "label": "P",
-      "description": "Configure P for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "N",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "Color",
-          "description": ""
-        },
-        {
-          "label": "Color.i012",
-          "value": "Color.i012",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "Tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "PointScale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "LineWidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overrideautoattr",
+      "name": "Override Automatic Attribute",
+      "parName": "overrideautoattr",
       "label": "Override Automatic Attribute",
-      "description": "Configure Override Automatic Attribute for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to override the kind of attribute automatically created based on the POP input and parameters. Allows to specify manually the type and number of components of the new attribute.",
+      "isReadOnly": false
     },
     {
-      "name": "newattrtype",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
+      "name": "Attribute Type",
+      "parName": "attrtype",
+      "label": "Attribute Type",
+      "type": "Menu",
+      "description": "The output attribute's data type, default float.",
+      "isReadOnly": false,
+      "menuItems": [
+        "float",
+        "double",
+        "int",
+        "uint",
+        "color",
+        "dcolor",
+        "dir",
+        "ddir"
+      ],
+      "menuLabels": [
+        "float",
+        "double",
+        "int",
+        "uint",
+        "Color",
+        "Color (double)",
+        "Direction",
+        "Direction (double)"
       ]
     },
     {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
+      "name": "Components",
+      "parName": "attrnumcomps",
+      "label": "Components",
+      "type": "Menu",
+      "description": "The number of components in the new custom attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "menuLabels": [
+        "1",
+        "2",
+        "3",
+        "4"
       ]
     },
     {
-      "name": "attrnumcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
+      "name": "Default Value",
+      "parName": "attrdefaultval",
+      "label": "Default Value",
+      "type": "Float",
+      "description": "Default values of the output attribute components if they cannot be computed.",
+      "isReadOnly": false,
+      "menuItems": [
+        "attrdefaultval0",
+        "attrdefaultval1",
+        "attrdefaultval2",
+        "attrdefaultval3"
+      ],
+      "menuLabels": [
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     },
     {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "newattrdefaultval1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "newattrdefaultval4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attrclass",
+      "name": "Attribute Class",
+      "parName": "attrclass",
       "label": "Attribute Class",
-      "description": "Configure Attribute Class for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Makes the POP operate on point attributes, vertex attributes or primitive attributes where applicable.",
+      "isReadOnly": false,
+      "menuItems": [
+        "point",
+        "vertex",
+        "primitive"
+      ],
+      "menuLabels": [
+        "Point",
+        "Vertex",
+        "Primitive"
       ]
     },
     {
-      "name": "point",
-      "label": "Point",
-      "description": "Configure Point for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vertex",
-          "description": ""
-        },
-        {
-          "label": "Primitive",
-          "value": "primitive",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "group",
+      "name": "Group",
+      "parName": "group",
       "label": "Group",
-      "description": "Configure Group for the operator",
-      "type": "string"
+      "type": "StrMenu",
+      "description": "If there are input groups, specifying a group name in this field will cause this POP to act only upon the group specified.",
+      "isReadOnly": false
     },
     {
-      "name": "computenormals",
+      "name": "Compute Point Normals",
+      "parName": "computenormals",
       "label": "Compute Point Normals",
-      "description": "Configure Compute Point Normals for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Whether to compute point normals as a post operation.",
+      "isReadOnly": false
     },
     {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "name": "Mapping",
+      "parName": "map",
+      "label": "Mapping",
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for attribute-to-parameter mapping.",
+      "isReadOnly": false,
+      "menuItems": [
+        "amp",
+        "exp",
+        "offset",
+        "valuea",
+        "valueb",
+        "valuebproba",
+        "stepval",
+        "minval",
+        "maxval",
+        "conedir",
+        "conedirx",
+        "conediry",
+        "conedirz",
+        "coneangle",
+        "set",
+        "mult",
+        "add"
+      ],
+      "menuLabels": [
+        "amp (Amplitude)",
+        "exp (Exponent)",
+        "offset (Offset)",
+        "valuea (Value A)",
+        "valueb (Value B)",
+        "valuebproba (Value B Probability)",
+        "stepval (Step Value)",
+        "minval (Clamp Min)",
+        "maxval (Clamp Max)",
+        "conedir (Cone Direction)",
+        "conedirx",
+        "conediry",
+        "conedirz",
+        "coneangle (Cone Angle)",
+        "Set",
+        "Multiply",
+        "Add"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Random_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.274Z"
+  "parsedAt": "2025-08-08T03:03:59.274Z",
+  "url": "https://docs.derivative.ca/Random_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Random_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Random_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Random_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

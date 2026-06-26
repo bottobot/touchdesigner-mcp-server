@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.652Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\FBX_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/FBX_COMP",
   "description": "The FBX COMP imports geometry, animations and scenes using the FBX file format from Maya, 3DS Max, Cinema4D, Houdini and others.\nThe FBX COMP currently uses the 2019.0 version of the FBX SDK.",
   "summary": "The FBX COMP imports geometry, animations and scenes using the FBX file format from Maya, 3DS Max, Cinema4D, Houdini and others.\nThe FBX COMP currently uses the 2019.0 version of the FBX SDK.",
   "details": "",

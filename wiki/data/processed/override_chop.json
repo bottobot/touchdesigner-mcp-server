@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:06.155Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Override_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Override_CHOP",
   "description": "The Override CHOP lets you take inputs from several CHOP sources, and uses the most-recently changed input channels to determine the output. For example, if a 16-channel CHOP comes from one MIDI device, and another 16-channel CHOP comes from another place like another device or a preset, then Override selects the most recently-changed channels and outputs those values.",
   "summary": "The Override CHOP lets you take inputs from several CHOP sources, and uses the most-recently changed input channels to determine the output. For example, if a 16-channel CHOP comes from one MIDI devic",
   "details": "",

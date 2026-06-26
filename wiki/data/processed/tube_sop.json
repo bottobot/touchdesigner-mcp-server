@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.557Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Tube_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Tube_SOP",
   "description": "The Tube SOP generates open or closed tubes, cones, or pyramids along the X, Y or Z axes. It outputs as meshes, polygons or simply a tube Primitive.",
   "summary": "The Tube SOP generates open or closed tubes, cones, or pyramids along the X, Y or Z axes. It outputs as meshes, polygons or simply a tube Primitive.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.244Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Base_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Base_COMP",
   "description": "The Base Component has no panel parameters and no 3D object parameters. You would use it for a component that has no panel associated with it, nor any 3D, such as component that converted RGB channels to HSV channels.",
   "summary": "The Base Component has no panel parameters and no 3D object parameters. You would use it for a component that has no panel associated with it, nor any 3D, such as component that converted RGB channels",
   "details": "",

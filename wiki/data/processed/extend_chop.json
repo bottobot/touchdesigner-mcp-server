@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.489Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Extend_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Extend_CHOP",
   "description": "The Extend CHOP only sets the \"extend conditions\" of a CHOP, which determines what values you get when sampling the CHOP before or after its interval.",
   "summary": "The Extend CHOP only sets the \"extend conditions\" of a CHOP, which determines what values you get when sampling the CHOP before or after its interval.",
   "details": "",

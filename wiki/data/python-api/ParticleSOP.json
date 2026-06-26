@@ -1,0 +1,28 @@
+{
+  "className": "ParticleSOP",
+  "displayName": "ParticleSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [],
+  "methods": [
+    {
+      "name": "createParticles",
+      "signature": "createParticlescreateParticles(num)",
+      "returns": "List[Point]",
+      "parameters": [],
+      "description": "Creates a number of particles without advancing the particle simulation. Returns a list of points, where each point describes a particle. Point attributes (v, life, N, etc.) can be used to modify these or any existing particles. * num - The number of particles to create.\""
+    }
+  ],
+  "url": "https://docs.derivative.ca/ParticleSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ParticleSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ParticleSOP Class wiki page",
+      "url": "https://docs.derivative.ca/ParticleSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

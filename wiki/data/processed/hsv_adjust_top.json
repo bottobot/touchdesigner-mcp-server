@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.916Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\HSV_Adjust_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/HSV_Adjust_TOP",
   "description": "The HSV Adjust TOP adjust color values using hue, saturation, and value controls. If you change the Hue Offset, Saturation Multiplier and Value Multiplier without changing any of the other parameters then you will modify the color of all pixels in the image. The other parameters are used to narrow the range of pixels you want to modify based on their hue, saturation and value. For example if you leave the Hue Range untouched but reduce the saturation range, you will cause the TOP to modify only pixels who fall into the new saturation range. The range is the Start Color's saturation + the Range + the Falloff, in this example.",
   "summary": "The HSV Adjust TOP adjust color values using hue, saturation, and value controls. If you change the Hue Offset, Saturation Multiplier and Value Multiplier without changing any of the other parameters ",
   "details": "",

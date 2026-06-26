@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.870Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\File_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/File_Out_CHOP",
   "description": "The File Out CHOP writes CHOP channel data out to .chan files. The data can be written out every frame or at intervals (set by the Interval parameter) into a log file.",
   "summary": "The File Out CHOP writes CHOP channel data out to .chan files. The data can be written out every frame or at intervals (set by the Interval parameter) into a log file.",
   "details": "",

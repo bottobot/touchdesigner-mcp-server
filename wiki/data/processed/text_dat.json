@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:10.719Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Text_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Text_DAT",
   "description": "The Text DAT lets you edit free-form, multi-line ASCII text. It is used for scripts, GLSL shaders, notes, XML and other purposes. \"Free-form text\" is one of the two forms of DATs (the other being tables of rows and columns of cells, each cell containing a text string as in a Table DAT).",
   "summary": "The Text DAT lets you edit free-form, multi-line ASCII text. It is used for scripts, GLSL shaders, notes, XML and other purposes. \"Free-form text\" is one of the two forms of DATs (the other being tabl",
   "details": "",

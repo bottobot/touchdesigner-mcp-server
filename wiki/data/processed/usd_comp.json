@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.768Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\USD_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/USD_COMP",
   "description": "The USD COMP loads and imports most geometric schemas from a USD file in crate/binary or ASCII file formats with extensions as (.usd), (.usda), (.usdc), and (.usdz). Currently the USD version 0.18.9 is being used in USD COMP. You can drag-drop a USD file into a TouchDesigner network, or import it via the USD File parameter. See also File Types.",
   "summary": "The USD COMP loads and imports most geometric schemas from a USD file in crate/binary or ASCII file formats with extensions as (.usd), (.usda), (.usdc), and (.usdz). Currently the USD version 0.18.9 i",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.054Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Screen_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Screen_TOP",
   "description": "The Screen TOP brightens the underlying layers depending on how bright the screened layer's pixels are. If the screened pixel is black, it will look completely transparent. A white pixel will be white.",
   "summary": "The Screen TOP brightens the underlying layers depending on how bright the screened layer's pixels are. If the screened pixel is black, it will look completely transparent. A white pixel will be white",
   "details": "",

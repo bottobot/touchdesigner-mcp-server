@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.182Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Light_COMP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Light_COMP",
   "description": "The Light Components are objects which cast light into a 3D scene. With the light parameters you can control the color, brightness, and atmosphere of geometry lit by the light. A scene can also be viewed through a light's perspective, similar to a Camera COMP.",
   "summary": "The Light Components are objects which cast light into a 3D scene. With the light parameters you can control the color, brightness, and atmosphere of geometry lit by the light. A scene can also be vie",
   "details": "",

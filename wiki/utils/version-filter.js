@@ -101,7 +101,7 @@ async function loadExperimentalBuilds() {
  * Normalise a caller-supplied version string to the canonical ID used in the
  * manifest (one of: "099", "2019", "2020", "2021", "2022", "2023", "2024").
  *
- * Also accepts experimental build series IDs (e.g. "2025.10000", "2024.50000")
+ * Also accepts experimental build series IDs (e.g. "2025.30000")
  * and returns them unchanged so callers can pass either stable or experimental
  * version strings without special-casing.
  *
@@ -109,7 +109,7 @@ async function loadExperimentalBuilds() {
  *   "099", "99", "2019", "2020", "2021", "2022", "2023", "2024"
  *   "TouchDesigner 2023", "TD2022", "td 2021"
  *   Numbers: 2022, 2023, 99
- *   Experimental: "2025.10000", "2024.50000", "experimental", "latest-experimental"
+ *   Experimental: "2025.30000", "experimental", "latest-experimental"
  *
  * @param {string|number} version
  * @returns {string|null} Canonical version ID, or null if unrecognised
@@ -127,7 +127,7 @@ function normalizeVersion(version) {
   // Handle "099" / "99" special case
   if (v === '099' || v === '99') return '099';
 
-  // Detect experimental series ID pattern: YYYY.NNNNN (e.g. "2025.10000")
+  // Detect experimental series ID pattern: YYYY.NNNNN (e.g. "2025.30000")
   if (/^\d{4}\.\d{4,6}$/.test(v)) {
     // Preserve original casing/format for experimental IDs
     return String(version).trim();
@@ -138,18 +138,16 @@ function normalizeVersion(version) {
     return 'experimental';
   }
 
-  // For 4-digit years
+  // For 4-digit years — accept only the stable release years present in the manifest.
+  // (2025 is the current stable; there was never a "2024" official release.)
   const yearMatch = v.match(/^(\d{4})/);
   if (yearMatch) {
     const year = yearMatch[1];
-    if (['2019', '2020', '2021', '2022', '2023', '2024'].includes(year)) {
+    if (['2019', '2020', '2021', '2022', '2023', '2025'].includes(year)) {
       return year;
     }
-    // If year is 2025 or later without a dot-build suffix, treat as experimental shorthand
-    const yearInt = parseInt(year, 10);
-    if (yearInt >= 2025) {
-      return String(version).trim();
-    }
+    // Any other bare year (the never-released "2024", or a future year without a
+    // manifest entry) is unrecognised. Experimental builds use the YYYY.NNNNN form handled above.
   }
 
   return null;
@@ -164,9 +162,9 @@ function normalizeVersion(version) {
  * experimental build series rather than a stable release.
  *
  * Experimental version string formats:
- *   "2025.10000"  — full series ID
+ *   "2025.30000"  — full series ID (YYYY.NNNNN)
  *   "experimental" / "latest-experimental" — dynamic aliases
- *   Any year >= 2025 without a dot-build is also treated as experimental.
+ * A bare 4-digit year (e.g. "2025") is a STABLE release lookup, not experimental.
  *
  * @param {string|number} version
  * @returns {boolean}
@@ -177,18 +175,16 @@ function isExperimentalVersion(version) {
   if (v === 'experimental' || v === 'latest-experimental' || v === 'latest_experimental') {
     return true;
   }
-  // YYYY.NNNNN pattern
+  // Experimental builds are identified by the YYYY.NNNNN series form (e.g. "2025.30000").
+  // A bare year (e.g. "2025") is a STABLE release lookup, NOT experimental.
   if (/^\d{4}\.\d{4,6}$/.test(v)) return true;
-  // Year >= 2025 without a dot
-  const yearMatch = v.match(/^(\d{4})$/);
-  if (yearMatch && parseInt(yearMatch[1], 10) >= 2025) return true;
   return false;
 }
 
 /**
  * Normalise an experimental version string to a canonical series ID.
  *
- * - If passed a full series ID like "2025.10000", returns it unchanged.
+ * - If passed a full series ID like "2025.30000", returns it unchanged.
  * - If passed "experimental" or "latest-experimental", resolves to the
  *   currentExperimentalSeries field from experimental-builds.json.
  * - Returns null if the input is not an experimental version string.
@@ -216,7 +212,7 @@ async function normalizeExperimentalVersion(version) {
  * or null if the series is not found.
  *
  * Accepts:
- *   - Full series ID: "2025.10000"
+ *   - Full series ID: "2025.30000"
  *   - Dynamic aliases: "experimental", "latest-experimental"
  *
  * @param {string} seriesId

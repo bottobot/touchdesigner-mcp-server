@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.815Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Orbbec_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Orbbec_TOP",
   "description": "The Orbbec TOP can be used to retrieve video streams and IMU data from an Orbbec camera. The available video streams depend on the connected camera, but typically include color, depth, IR and point cloud data. This node uses the Orbbec SDK and a list of compatible camera models can be found on the project's Github page.",
   "summary": "The Orbbec TOP can be used to retrieve video streams and IMU data from an Orbbec camera. The available video streams depend on the connected camera, but typically include color, depth, IR and point cl",
   "details": "",

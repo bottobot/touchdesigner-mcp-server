@@ -1,0 +1,313 @@
+{
+  "id": "layer_mix_top",
+  "name": "Layer Mix TOP",
+  "displayName": "Layer Mix TOP",
+  "category": "TOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Layer_Mix_TOP",
+  "description": "The Layer Mix TOP lets you composite unlimited image layers and do adjustments, all within one node. Each of the inputs gets a block of parameters that you can use to modify the incoming images. The possible built-in controls per-layer include crop, pre-fit, justify, extend, scale, rotate, translate, pivot and then layer transparency, gamma and level, and finally the composite (blend) operation. To avoid clutter, on the first page you choose which controls you want to be per-layer. The entire mixing of layers is done with one single-pass shader that is generated on-the-fly. You can composite back to front, or front-to-back. You can specify a large background plate (image or constant) to composite your layers over. The background plate can be a constant-colored image with the resolution of the first input, or defined as a width-height on the Common page, or a separate TOP image. The inputs can be a mix of wired inputs and references to TOPs using pattern matching of names.",
+  "parameters": [
+    {
+      "name": "Background",
+      "parName": "background",
+      "label": "Background",
+      "type": "Menu",
+      "description": "This menu determines which background plate to use while compositing.",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "backgroundtop",
+        "constlayer"
+      ],
+      "menuLabels": [
+        "Off",
+        "Background TOP",
+        "Constant Layer"
+      ]
+    },
+    {
+      "name": "Size",
+      "parName": "size",
+      "label": "Size",
+      "type": "Menu",
+      "description": "This menu determines the resolution of the output image. This parameter does not affect what gets composited, regardless of which menu item is selected. It only controls the output resolution.",
+      "isReadOnly": false,
+      "menuItems": [
+        "firstinput",
+        "bgtopsize",
+        "outputres"
+      ],
+      "menuLabels": [
+        "First Input",
+        "Background TOP",
+        "Output Resolution"
+      ]
+    },
+    {
+      "name": "Background TOP",
+      "parName": "bgtop",
+      "label": "Background TOP",
+      "type": "TOP",
+      "description": "The path of the Background TOP being referenced. The Background and Size parameters will share the same TOP if the Background TOP menu item is selected for both menus.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Background Color",
+      "parName": "bgcolor",
+      "label": "Background Color",
+      "type": "RGBA",
+      "description": "Sets the red, green, blue, and alpha color channels if the Constant Layer menu item is selected for the Background parameter.",
+      "isReadOnly": false,
+      "menuItems": [
+        "bgcolorr",
+        "bgcolorg",
+        "bgcolorb",
+        "bgcolora"
+      ],
+      "menuLabels": [
+        "Background Color",
+        "Background Color",
+        "Background Color",
+        "Background Color"
+      ]
+    },
+    {
+      "name": "Enable Crop",
+      "parName": "enablecrop",
+      "label": "Enable Crop",
+      "type": "Toggle",
+      "description": "Adds crop (left, right, bottom, top) parameters to each layer. If disabled, each layer will have default UV bounds of (0, 1, 0, 1).",
+      "isReadOnly": false
+    },
+    {
+      "name": "Crop Unit",
+      "parName": "cropunit",
+      "label": "Crop Unit",
+      "type": "Menu",
+      "description": "Sets the units used by the Crop parameter for each layer.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pixels",
+        "fraction",
+        "fractionaspect"
+      ],
+      "menuLabels": [
+        "P",
+        "F",
+        "A"
+      ]
+    },
+    {
+      "name": "Pre-Fit Layer",
+      "parName": "prefit",
+      "label": "Pre-Fit Layer",
+      "type": "Menu",
+      "description": "Determines how each layer fills the composite.",
+      "isReadOnly": false,
+      "menuItems": [
+        "prefitperlayer",
+        "fill",
+        "fithorz",
+        "fitvert",
+        "fitbest",
+        "fitoutside",
+        "nativeres"
+      ],
+      "menuLabels": [
+        "Per Layer",
+        "Fill",
+        "Fit Horizontal",
+        "Fit Vertical",
+        "Fit Best",
+        "Fit Outside",
+        "Native Resolution"
+      ]
+    },
+    {
+      "name": "Enable Justify",
+      "parName": "enablejust",
+      "label": "Enable Justify",
+      "type": "Toggle",
+      "description": "Adds justify parameters to each layer. If disabled, each layer will default to center horizontal and center vertical alignment.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Extend",
+      "parName": "extend",
+      "label": "Extend",
+      "type": "Menu",
+      "description": "Sets the extend (or repeat) conditions of the layers. This parameter determines what happens at the edges of the layers.",
+      "isReadOnly": false,
+      "menuItems": [
+        "extperlayer",
+        "hold",
+        "zero",
+        "repeat",
+        "mirror"
+      ],
+      "menuLabels": [
+        "Per Layer",
+        "Hold",
+        "Zero",
+        "Repeat",
+        "Mirror"
+      ]
+    },
+    {
+      "name": "Scale",
+      "parName": "scalemode",
+      "label": "Scale",
+      "type": "Menu",
+      "description": "Adds scale parameters to the layers.",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "uniform",
+        "xy",
+        "xyuniform"
+      ],
+      "menuLabels": [
+        "Off",
+        "Uniform",
+        "XY",
+        "XY + Uniform"
+      ]
+    },
+    {
+      "name": "Enable Rotate",
+      "parName": "enabler",
+      "label": "Enable Rotate",
+      "type": "Toggle",
+      "description": "Adds rotation parameters to each layer. If disabled, each layer will have default rotation of 0.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Translate",
+      "parName": "enablet",
+      "label": "Enable Translate",
+      "type": "Toggle",
+      "description": "Adds translation parameters to each layer. If disabled, each layer will have default translation of 0.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Pivot",
+      "parName": "enablep",
+      "label": "Enable Pivot",
+      "type": "Toggle",
+      "description": "Adds pivot parameters to each layer. If disabled, each layer will default the pivot to the center of the layer.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Translate / Pivot Unit",
+      "parName": "transpvtunit",
+      "label": "Translate / Pivot Unit",
+      "type": "Menu",
+      "description": "Sets the units used by the Translate and Pivot parameters for each layer.",
+      "isReadOnly": false,
+      "menuItems": [
+        "pixels",
+        "fraction",
+        "fractionaspect"
+      ],
+      "menuLabels": [
+        "P",
+        "F",
+        "A"
+      ]
+    },
+    {
+      "name": "Enable Opacity",
+      "parName": "enableopac",
+      "label": "Enable Opacity",
+      "type": "Toggle",
+      "description": "Adds opacity parameters to each layer. If disabled, each layer will have default opacity of 1. Setting a layer's opacity to 0 can be used to optimize the Layer Mix TOP to stop wired input nodes from cooking if it isn't being displayed.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Brightness",
+      "parName": "enablebright",
+      "label": "Enable Brightness",
+      "type": "Toggle",
+      "description": "Adds brightness parameters to each layer. If disabled, each layer will have default brightness of 1.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Enable Levels",
+      "parName": "enablelevels",
+      "label": "Enable Levels",
+      "type": "Toggle",
+      "description": "Adds black level and gamma parameters to each layer, using Luma Level TOP's algorithm. If disabled, each layer will have default black level of 0 and gamma of 1.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Operation / Swap",
+      "parName": "operand",
+      "label": "Operation / Swap",
+      "type": "Menu",
+      "description": "Sets the composite (blend) operation and swap order for the layers.",
+      "isReadOnly": false,
+      "menuItems": [
+        "operand",
+        "swaporder"
+      ],
+      "menuLabels": [
+        "Operation / Swap",
+        "Swap Order"
+      ]
+    },
+    {
+      "name": "Composite Order",
+      "parName": "comporder",
+      "label": "Composite Order",
+      "type": "Menu",
+      "description": "Sets the compositing order of the layers. Front to Back means the first input will be layered at the top of the compositing stack. Back to Front means the first input will be layered at the bottom of the compositing stack. [[image:LayerMixTOP Composite Order.png|450px]]",
+      "isReadOnly": false,
+      "menuItems": [
+        "fronttoback",
+        "backtofront"
+      ],
+      "menuLabels": [
+        "Front to Back",
+        "Back to Front"
+      ]
+    },
+    {
+      "name": "Layer",
+      "parName": "lay",
+      "label": "Layer",
+      "type": "Sequence",
+      "description": "Sequence of layers.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lay0top",
+        "lay0bypass"
+      ],
+      "menuLabels": [
+        "TOP / Bypass",
+        "Bypass"
+      ]
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Layer_Mix_TOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Layer_Mix_TOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Layer_Mix_TOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

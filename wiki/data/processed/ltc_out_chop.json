@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.589Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\LTC_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/LTC_Out_CHOP",
   "description": "The LTC Out CHOP outputs \"linear timecode\" which is a SMPTE timecode data encoded into an audio signal. See also Linear Timecode.",
   "summary": "The LTC Out CHOP outputs \"linear timecode\" which is a SMPTE timecode data encoded into an audio signal. See also Linear Timecode.",
   "details": "",

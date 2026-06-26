@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.820Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Vertex_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Vertex_SOP",
   "description": "The Vertex SOP allows you to edit/create attributes on a per-vertex (rather than per-point) basis. It is similar to the Point SOP in this respect. It supports two inputs, and will inherit the first input source by default.  If the second input have less primitives than the first input, it will cycle through the primitives and match the vertices.  If the primitive in the first input has more vertices than the matching primitive in the second input, the extra vertices are ignored.",
   "summary": "The Vertex SOP allows you to edit/create attributes on a per-vertex (rather than per-point) basis. It is similar to the Point SOP in this respect. It supports two inputs, and will inherit the first in",
   "details": "",

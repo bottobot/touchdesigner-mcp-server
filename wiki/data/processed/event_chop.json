@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.105Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Event_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Event_CHOP",
   "description": "The Event CHOP manages the birth and life of overlapping events triggered by devices like a MIDI keyboard. It can be seen as a simple particle system designed for MIDI keyboards.",
   "summary": "The Event CHOP manages the birth and life of overlapping events triggered by devices like a MIDI keyboard. It can be seen as a simple particle system designed for MIDI keyboards.",
   "details": "",

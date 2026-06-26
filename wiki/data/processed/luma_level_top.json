@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.652Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Luma_Level_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Luma_Level_TOP",
   "description": "The Luma Level TOP adjusts image brightness, gamma, black level, quantization, opacity and more. It has similar parameters to the Level TOP, but it maintains the hue and saturation more accurately when you use Gamma and Black Level.",
   "summary": "The Luma Level TOP adjusts image brightness, gamma, black level, quantization, opacity and more. It has similar parameters to the Level TOP, but it maintains the hue and saturation more accurately whe",
   "details": "",

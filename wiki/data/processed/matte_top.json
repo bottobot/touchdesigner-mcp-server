@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.793Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Matte_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Matte_TOP",
   "description": "The Matte TOP composites input1 over input2 using the specified channel of input3 as a matte. Using the default setting of Matte Channel = Alpha, white (one) pixels in input3's alpha channel will draw input1 over input2, black (or zero) will make input1 transparent, leaving the input2 image at that pixel.",
   "summary": "The Matte TOP composites input1 over input2 using the specified channel of input3 as a matte. Using the default setting of Matte Channel = Alpha, white (one) pixels in input3's alpha channel will draw",
   "details": "",

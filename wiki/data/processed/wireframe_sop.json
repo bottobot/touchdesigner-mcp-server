@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:12.329Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Wireframe_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Wireframe_SOP",
   "description": "The Wireframe SOP converts edges to tubes and points to spheres, creating the look of a wire frame structure in renderings. This is ideal for modelling tube structures and pipes.",
   "summary": "The Wireframe SOP converts edges to tubes and points to spheres, creating the look of a wire frame structure in renderings. This is ideal for modelling tube structures and pipes.",
   "details": "",

@@ -1,0 +1,89 @@
+{
+  "id": "realsense_chop",
+  "name": "RealSense CHOP",
+  "displayName": "RealSense CHOP",
+  "category": "CHOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/RealSense_CHOP",
+  "description": "'''DEPRECATED:''' Skeleton tracking features no longer licensable by Cubemos. [[RealSense]] is a tracking device from Intel. The RealSense CHOP references a [[RealSense TOP]] camera and fetches tracking data from it. The RealSense CHOP supports skeleton tracking through the [https://www.intelrealsense.com/skeleton-tracking/ Cubemos Skeleton Tracking API]. [[Cubemos]] is Windows only. A Cubemos license is required to use the skeleton tracking. ==== Skeleton Tracking Setup ==== The [[RealSense CHOP]] supports skeleton tracking through the [https://www.intelrealsense.com/skeleton-tracking/ Cubemos RealSense Skeleton Tracking API]. The Cubemos API requires a license to use in TouchDesigner. A full license can be purchased [https://www.intelrealsense.com/skeleton-tracking here]; a trial license is also available. Installing their SDK is required to setup the license file. After installation of the SDK, the license can be setup with the <code>post_installation.bat</code> script in the <code>C:/Program Files/Cubemos/SkeletonTracking/scripts</code> folder. A model file (<code>.cubemos</code>) is also required for the skeleton tracking, two of which are packaged with the Cubemos Skeleton Tracking SDK, located in their <code>Cubemos/SkeletonTracking/models/skeleton-tracking</code> folder. '''NOTE:''' The [https://github.com/IntelRealSense/librealsense/releases librealsense SDK v2.50.0] does not look like it will be updated for Apple Silicon, so it is not an option to add to these builds. See also: [[RealSense]], [[RealSense TOP]]",
+  "parameters": [
+    {
+      "name": "Active",
+      "parName": "active",
+      "label": "Active",
+      "type": "Toggle",
+      "description": "When enabled, actively fetches skeleton tracking data from a RealSense TOP.",
+      "isReadOnly": false
+    },
+    {
+      "name": "RealSense TOP",
+      "parName": "top",
+      "label": "RealSense TOP",
+      "type": "TOP",
+      "description": "The RealSense TOP camera to fetch skeleton data from.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Skeletons",
+      "parName": "skeletons",
+      "label": "Skeletons",
+      "type": "Toggle",
+      "description": "When enabled, displays the skeleton channels.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Max Players",
+      "parName": "maxplayers",
+      "label": "Max Players",
+      "type": "Int",
+      "description": "Specify the max number of players tracked.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Image Position Pixels",
+      "parName": "pos",
+      "label": "Image Position Pixels",
+      "type": "Toggle",
+      "description": "When enabled, will display positions of each landmark in image pixels as x/y channels.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Image Positions Normalized",
+      "parName": "norm",
+      "label": "Image Positions Normalized",
+      "type": "Toggle",
+      "description": "When enabled, will display normalized position values of each landmark as u/v channels.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Confidence",
+      "parName": "confidence",
+      "label": "Confidence",
+      "type": "Toggle",
+      "description": "When enabled, will display the confidence value of each landmark. When the confidence channel value is 0 the landmark is untracked.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=RealSense_CHOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live RealSense_CHOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=RealSense_CHOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

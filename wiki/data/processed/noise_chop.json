@@ -7,7 +7,7 @@
   "version": "Available since TouchDesigner 2018+",
   "lastUpdated": "2025-08-07T07:50:04.743Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Noise_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Noise_CHOP",
   "description": "The Noise CHOP makes an irregular wave that never repeats, with values approximately in the range -1 to +1.",
   "summary": "The Noise CHOP makes an irregular wave that never repeats, with values approximately in the range -1 to +1.",
   "details": "",

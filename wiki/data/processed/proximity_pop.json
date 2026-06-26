@@ -3,503 +3,187 @@
   "id": "proximity_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The Proximity POP connects points to nearby points in its first input within a specified near/far distance. If a second input is connected, it connects points of the second input with points of the first input that are in-range.",
+  "description": "The Proximity POP connects points to nearby points in its first input within a specified near/far distance. If a second input is connected, it connects points of the second input with points of the first input that are in-range. Two parameters set the Maximum Distance and the Minimum Distance between points to connect. You can limit how many lines each point can connect from. The Uniform Distribution parameter gives a more random distribution of connecting points. You can ensure each pair of points have at most one line between them. When there are two inputs to Proximity, you can output (via the Output menu) the connecting lines, or simply point primitives of the first input that are within range of the second input. When outputting lines, you can include primitive attributes <code>LineDir</code> and <code>LineLength</code>. When outputting points you can also output all the attributes of the matching point as separate new attributes (<code>EndP</code>, <code>EndN</code>, <code>EndTex</code> etc) by select End Point Attributes. Each connecting primitive is a 2-point \"line primitive\", not a line strip. See also [[Neighbor POP]], [[Line Metrics POP]]",
   "parameters": [
     {
-      "name": "LineDir",
+      "name": "Maximum Distance",
+      "parName": "maxdist",
       "label": "Maximum Distance",
-      "description": "Configure Maximum Distance for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Do Nothing",
-          "value": "donothing",
-          "description": ""
-        },
-        {
-          "label": "Avoid",
-          "value": "avoid",
-          "description": ""
-        },
-        {
-          "label": "Delete",
-          "value": "delete",
-          "description": ""
-        },
-        {
-          "label": "Lines (Shared Points)",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "First Input Points",
-          "value": "first",
-          "description": ""
-        },
-        {
-          "label": "Second Input Points",
-          "value": "second",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Float",
+      "description": "Maximum distance from current point for candidate points to create lines to.",
+      "isReadOnly": false
     },
     {
-      "name": "maxdist",
-      "label": "Maximum Distance",
-      "description": "Configure Maximum Distance for the operator",
-      "type": "string"
-    },
-    {
-      "name": "mindist",
+      "name": "Minimum Distance",
+      "parName": "mindist",
       "label": "Minimum Distance",
-      "description": "Configure Minimum Distance for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Minimum distance from current point for candidate points to create lines to.",
+      "isReadOnly": false
     },
     {
-      "name": "maxlinesperpoint",
+      "name": "Max Lines per Point",
+      "parName": "maxlinesperpoint",
       "label": "Max Lines per Point",
-      "description": "Configure Max Lines per Point for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Specifies the max number of lines emanating from each point in the first input.",
+      "isReadOnly": false
     },
     {
-      "name": "uniformdist",
+      "name": "Uniform Distribution",
+      "parName": "uniformdist",
       "label": "Uniform Distribution",
-      "description": "Configure Uniform Distribution for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Allows evenly distributed selection among nearby points, rather than defaulting to the first ones found.",
+      "isReadOnly": false
     },
     {
-      "name": "maxtempneighbors",
+      "name": "Max Temp Neighbors",
+      "parName": "maxtempneighbors",
       "label": "Max Temp Neighbors",
-      "description": "Configure Max Temp Neighbors for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "Used internally to store candidate points to create lines to before removing some to reach the max number of lines per point.",
+      "isReadOnly": false
     },
     {
-      "name": "duplines",
+      "name": "Duplicate Lines",
+      "parName": "duplines",
       "label": "Duplicate Lines",
-      "description": "Configure Duplicate Lines for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Do Nothing",
-          "value": "donothing",
-          "description": ""
-        },
-        {
-          "label": "Avoid",
-          "value": "avoid",
-          "description": ""
-        },
-        {
-          "label": "Delete",
-          "value": "delete",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines what to do with duplicated proximity lines",
+      "isReadOnly": false,
+      "menuItems": [
+        "donothing",
+        "avoid",
+        "delete"
+      ],
+      "menuLabels": [
+        "Do Nothing",
+        "Avoid",
+        "Delete"
       ]
     },
     {
-      "name": "donothing",
-      "label": "Do Nothing",
-      "description": "Configure Do Nothing for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Do Nothing",
-          "value": "donothing",
-          "description": ""
-        },
-        {
-          "label": "Avoid",
-          "value": "avoid",
-          "description": ""
-        },
-        {
-          "label": "Delete",
-          "value": "delete",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "numhashbuckets",
+      "name": "Num Hash Buckets",
+      "parName": "numhashbuckets",
       "label": "Num Hash Buckets",
-      "description": "Configure Num Hash Buckets for the operator",
-      "type": "string"
+      "type": "Int",
+      "description": "The number of buckets the points will be sorted in based on their position. A good heuristic is to choose it to be close to the number of points.",
+      "isReadOnly": false
     },
     {
-      "name": "output",
+      "name": "Output",
+      "parName": "output",
       "label": "Output",
-      "description": "Configure Output for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Lines (Shared Points)",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Whether to output points with attributes or lines.",
+      "isReadOnly": false,
+      "menuItems": [
+        "lines",
+        "points"
+      ],
+      "menuLabels": [
+        "Lines (Shared Points)",
+        "Point Prims"
       ]
     },
     {
-      "name": "lines",
-      "label": "Lines (Shared Points)",
-      "description": "Configure Lines (Shared Points) for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Lines (Shared Points)",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "linedir",
+      "name": "Line Direction",
+      "parName": "linedir",
       "label": "Line Direction",
-      "description": "Configure Line Direction for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable addition of line direction attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linedir",
+        "linedirname"
+      ],
+      "menuLabels": [
+        "Line Direction",
+        "Line Direction Attrib Name"
+      ]
     },
     {
-      "name": "linedirname",
-      "label": "Line Direction Attrib Name",
-      "description": "Configure Line Direction Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "linelength",
+      "name": "Line Length",
+      "parName": "linelength",
       "label": "Line Length",
-      "description": "Configure Line Length for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable addition of line length attribute.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linelength",
+        "linelengthname"
+      ],
+      "menuLabels": [
+        "Line Length",
+        "Line Length Attrib Name"
+      ]
     },
     {
-      "name": "linelengthname",
-      "label": "Line Length Attrib Name",
-      "description": "Configure Line Length Attrib Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "endptattrs",
+      "name": "End Point Attributes",
+      "parName": "endptattrs",
       "label": "End Point Attributes",
-      "description": "Configure End Point Attributes for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable outputting end point attributes from second input",
+      "isReadOnly": false
     },
     {
-      "name": "origin",
+      "name": "Origin",
+      "parName": "origin",
       "label": "Origin",
-      "description": "Configure Origin for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "First Input Points",
-          "value": "first",
-          "description": ""
-        },
-        {
-          "label": "Second Input Points",
-          "value": "second",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets whether the lines origin comes from the first input or the second input.",
+      "isReadOnly": false,
+      "menuItems": [
+        "first",
+        "second"
+      ],
+      "menuLabels": [
+        "First Input Points",
+        "Second Input Points"
       ]
     },
     {
-      "name": "first",
-      "label": "First Input Points",
-      "description": "Configure First Input Points for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "First Input Points",
-          "value": "first",
-          "description": ""
-        },
-        {
-          "label": "Second Input Points",
-          "value": "second",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "remunusedpoints",
+      "name": "Remove Unused Points",
+      "parName": "remunusedpoints",
       "label": "Remove Unused Points",
-      "description": "Configure Remove Unused Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Removes unused points not referenced by primitives.",
+      "isReadOnly": false
     },
     {
-      "name": "cpureadback",
+      "name": "Copy Topology Info Back to CPU",
+      "parName": "cpureadback",
       "label": "Copy Topology Info Back to CPU",
-      "description": "Configure Copy Topology Info Back to CPU for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Toggle",
+      "description": "Enable copying the point count and topology information held on the GPU to the CPU.",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-Proximity_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.120Z"
+  "parsedAt": "2025-08-08T03:03:59.120Z",
+  "url": "https://docs.derivative.ca/Proximity_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Proximity_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live Proximity_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Proximity_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

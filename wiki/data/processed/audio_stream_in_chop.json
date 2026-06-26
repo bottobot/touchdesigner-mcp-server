@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.154Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Stream_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Stream_In_CHOP",
   "description": "The Audio Stream In CHOP can stream audio into TouchDesigner from any rtsp server, or from a WebRTC peer.  See Video Stream In TOP.",
   "summary": "The Audio Stream In CHOP can stream audio into TouchDesigner from any rtsp server, or from a WebRTC peer.  See Video Stream In TOP.",
   "details": "",

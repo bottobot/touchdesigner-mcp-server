@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.606Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\GLSL_Multi_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/GLSL_Multi_TOP",
   "description": "The GLSL Multi TOP renders a GLSL shader into a TOP image. Its parameters and functionality are identical to the GLSL TOP, except it allows for more than 3 inputs.Refer to the GLSL TOP help page for more information.",
   "summary": "The GLSL Multi TOP renders a GLSL shader into a TOP image. Its parameters and functionality are identical to the GLSL TOP, except it allows for more than 3 inputs.Refer to the GLSL TOP help page for m",
   "details": "",

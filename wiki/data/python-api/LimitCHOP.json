@@ -1,0 +1,27 @@
+{
+  "className": "LimitCHOP",
+  "displayName": "LimitCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "chanIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "`me.chanIndex` can be used in any parameter to give a different value for each channel being generated, for example `[3, 4, 5][me.chanIndex]`."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/LimitCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=LimitCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the LimitCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/LimitCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

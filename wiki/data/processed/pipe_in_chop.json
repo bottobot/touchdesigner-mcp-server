@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.550Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Pipe_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Pipe_In_CHOP",
   "description": "The Pipe In CHOP allows users to input from custom devices into CHOPs. It is implemented as a TCP/IP network connection.",
   "summary": "The Pipe In CHOP allows users to input from custom devices into CHOPs. It is implemented as a TCP/IP network connection.",
   "details": "",

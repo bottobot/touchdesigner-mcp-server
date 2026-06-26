@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.186Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Force_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Force_SOP",
   "description": "The Force SOP adds force attributes to the input metaball field that is used by either Particle SOP or Spring SOP as attractor or repulsion force fields. In general, force values greater than 0 cause points to be attracted, less than 0 cause points to be repelled.",
   "summary": "The Force SOP adds force attributes to the input metaball field that is used by either Particle SOP or Spring SOP as attractor or repulsion force fields. In general, force values greater than 0 cause ",
   "details": "",

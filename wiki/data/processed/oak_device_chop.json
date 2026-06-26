@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.224Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OAK_Device_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OAK_Device_CHOP",
   "description": "The OAK Device CHOP serves as the main interface to an OAK camera. It also implements many of the features of the Timer CHOP such as timer counters, pulses, and custom Python callbacks.",
   "summary": "The OAK Device CHOP serves as the main interface to an OAK camera. It also implements many of the features of the Timer CHOP such as timer counters, pulses, and custom Python callbacks.",
   "details": "",

@@ -7,5 +7,17 @@
   "parameters": [],
   "experimental": true,
   "sourceFile": "Experimental-POP_to_CHOP.htm",
-  "parsedAt": "2025-08-08T03:03:58.734Z"
+  "parsedAt": "2025-08-08T03:03:58.734Z",
+  "url": "https://docs.derivative.ca/POP_to_CHOP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": []
 }

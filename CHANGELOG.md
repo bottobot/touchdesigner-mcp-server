@@ -5,6 +5,71 @@ All notable changes to the TouchDesigner MCP Server will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-06-25
+
+A modernization release that corrects the operator catalog, Python class count, and all
+version data against live Derivative sources, and fixes a set of boot- and packaging-level
+bugs that affected the published npm package. No breaking changes to tool names, parameters,
+or response shapes; Node.js 20.0+ is now required.
+
+### Added
+
+- **31 new operators** (total now 661), including the previously missing POP (Point Operator)
+  family members: Alembic In, Alembic Out, Triangulate, Trace, Text, Plane, Line Resample,
+  Force Radial, GLSL Create, OAK Select, and ZED.
+- **Documentation URLs on every operator** — each operator JSON entry now carries its source
+  Derivative wiki URL.
+- **TouchDesigner 2025 support** — the latest official release (latest build 2025.32820,
+  2026-05-06; bundled Python 3.11.10) is now a first-class entry in the version system.
+- **2025.30000 experimental series support** (Python 3.11.10), documenting POPs as the
+  flagship new operator family — the first new operator family in over a decade.
+
+### Changed
+
+- **Operator count is now 661** — by family: CHOP 170, TOP 147, SOP 113, POP 102, DAT 75,
+  COMP 41, MAT 13.
+- **Python API classes expanded to 214** (1,674+ methods, 504 members) — the previous count
+  was first corrected from a double-counted 69 to 68 (the `OP` base class was listed twice),
+  then **+146 classes were scraped from the live wiki** (per-operator classes like
+  `moviefileinTOP`/`bodytrackCHOP`, collection/value types like `ParGroupCollection`/`Color`).
+- **All version data rewritten from live Derivative sources with provenance** — version
+  manifest, release highlights, and experimental builds now record their source URLs. The
+  stable line is 099 → 2019 → 2020 → 2021 → 2022 → 2023 → 2025 (there was never an official
+  TD 2024). POPs are correctly placed in the 2025 release; Vulkan became the sole graphics
+  API as of the 2022.20000 release; Python timelines corrected.
+- **Dependencies updated** — `@modelcontextprotocol/sdk` to ^1.29.0, `zod` to ^3.25.0,
+  `cheerio` moved to a devDependency (^1.1.2), and `engines.node` raised to `>=20.0.0`.
+
+### Fixed
+
+- **Published-package crash** — the npm `files` allowlist now ships the wiki JS data layer
+  (`operator-data-manager.js`, `operator-data-python-api.js`, `version-filter.js`), which were
+  previously omitted from the tarball and crashed the installed package on startup.
+- **"Ready with 0 operators" stats bug** — `getSystemStats()` now reports the real loaded
+  operator count, so the startup banner reads `Ready with 661 operators, 14 tutorials, and
+  214 Python classes`.
+- **stdout / JSON-RPC corruption** — all diagnostic and startup logging is routed to
+  **stderr**, so it can no longer corrupt the JSON-RPC stream the MCP client reads on stdout.
+- **`get_python_api` / `search_python_api` dropping return types** — both tools previously
+  dropped the return type and description for ~1500 methods; method signatures are now
+  returned in full.
+- **Fabricated POP parameters** — POP operator parameters were re-scraped from the wiki,
+  replacing fabricated parameter names and descriptions.
+- **Fabricated version data** — removed the phantom TD 2024 release and corrected the wrong
+  POP, Vulkan, and Python version timelines.
+- **Experimental KB technical errors** — fixed GLSL compile errors and inaccurate guidance in
+  the Body Track / Maxine, TouchEngine, and MediaPipe entries.
+- **OP class double-count** — the Python API index no longer counts the `OP` base class twice.
+
+### Removed
+
+- **Dead ~56 MB search index** — removed from the boot path and from the npm package; search
+  runs entirely through the direct in-memory algorithm.
+- **`.mcp.json` removed from the repository** — replaced with `.mcp.json.example` (the prior
+  committed file bind-mounted machine-specific paths).
+
+---
+
 ## [2.8.0] - 2026-02-21
 
 This release adds 9 new MCP tools (bringing the total to 21), introduces the Version System
@@ -294,7 +359,7 @@ Total registered MCP tools: **21** (up from 12 in v2.7.0).
 
 ### Added
 - Python API documentation tools (get_python_api, search_python_api)
-- 69 Python API classes documentation with 1,510+ methods
+- 69 Python API classes documentation with 1,674+ methods
 
 ### Improved
 - Operator categorization system

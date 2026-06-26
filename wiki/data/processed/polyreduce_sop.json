@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.797Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Polyreduce_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Polyreduce_SOP",
   "description": "The Polyreduce SOP reduces a high detail polygonal model into one consisting of fewer polygons. The second input's polygons represent feature edges. They are matched to the input mesh by point numbers.",
   "summary": "The Polyreduce SOP reduces a high detail polygonal model into one consisting of fewer polygons. The second input's polygons represent feature edges. They are matched to the input mesh by point numbers",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.580Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\GLSL_MAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/GLSL_MAT",
   "description": "The GLSL MAT allows you to write or import custom materials into TouchDesigner. When there are compile errors in a GLSL shader, a blue/red checkerboard error shader will be displayed.",
   "summary": "The GLSL MAT allows you to write or import custom materials into TouchDesigner. When there are compile errors in a GLSL shader, a blue/red checkerboard error shader will be displayed.",
   "details": "",

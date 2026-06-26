@@ -1,0 +1,78 @@
+{
+  "className": "TextSOP",
+  "displayName": "TextSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "numLines",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the number of lines of the outputted text, after operations such as word-wrap have been applied."
+    },
+    {
+      "name": "ascender",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The ascender of the font, as described by the font's metrics."
+    },
+    {
+      "name": "descender",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The descender of the font, as described by the font's metrics."
+    },
+    {
+      "name": "capHeight",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The cap height of the font, as described by the font's metrics. This is usually the height of a capital H."
+    },
+    {
+      "name": "xHeight",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The x height of the font, as described by the font's metrics. This is usually the height of a lower case x."
+    },
+    {
+      "name": "lineGap",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The suggested gap between lines, as described by the font's metrics."
+    },
+    {
+      "name": "numGlyphs",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The number of glyphs that were generated. Note that this isn't nessesarily the number of characters (code points) in the original string."
+    }
+  ],
+  "methods": [
+    {
+      "name": "fontSupportsChars",
+      "signature": "fontSupportsCharsfontSupportsChars(str)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Returns True if every character maps to a glyph. This doesn't mean the font supports the language in all cases. Glyphs that come from ligatures etc. may still be missing from the font. *str - The string to be analyzed."
+    },
+    {
+      "name": "lines",
+      "signature": "lineslines()",
+      "returns": "List[TextLine]",
+      "parameters": [],
+      "description": "Get the number of lines of the outputted text, after operations such as word-wrap have been applied."
+    }
+  ],
+  "url": "https://docs.derivative.ca/TextSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TextSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the TextSOP Class wiki page",
+      "url": "https://docs.derivative.ca/TextSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

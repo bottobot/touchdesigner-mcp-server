@@ -3,2142 +3,495 @@
   "id": "top_to_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "Position and Active is a shortcut for P in RGB, and alpha is set to 1 for active pixels (pixels with a valid attribute value).",
+  "description": "Position and Active is a shortcut for P in RGB, and alpha is set to 1 for active pixels (pixels with a valid attribute value). The First RGBA Contains menu lets you treat the RGBA in different ways, including as depth maps, point clouds, height maps. Using Custom you specify which attribute and components you expect in the RGBA of the TOP, so max 4 could be <code>P(0) Color(2) N(1) P(2)</code>. When you Use Dimension all pixels are active since the resolution matches the TOP When using the other modes you can end up with unused pixels (you have 40 points, fit to square gives you 7x7, so you end up with 9 unused pixels), alpha is only set to 1 for used pixels.",
   "parameters": [
     {
-      "name": "P(0) Color(2) N(1) P(2)",
+      "name": "First RGBA Contains",
+      "parName": "rgba",
       "label": "First RGBA Contains",
-      "description": "Configure First RGBA Contains for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Position and Active",
-          "value": "pactive",
-          "description": ""
-        },
-        {
-          "label": "Depth",
-          "value": "depth",
-          "description": ""
-        },
-        {
-          "label": "Height",
-          "value": "height",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "Position (RGB)",
-          "value": "pos",
-          "description": ""
-        },
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P.i01",
-          "value": "P.i01",
-          "description": ""
-        },
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "High Quality Resize",
-          "value": "highquality",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "dvector",
-          "value": "dvector",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue4",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrips",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Alternating Triangles",
-          "value": "alttriangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "Line X/Y/Z",
-          "value": "line1",
-          "description": ""
-        },
-        {
-          "label": "Line X/Y/Z",
-          "value": "line2",
-          "description": ""
-        },
-        {
-          "label": "Line X/Y/Z",
-          "value": "line3",
-          "description": ""
-        },
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane1",
-          "description": ""
-        },
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane2",
-          "description": ""
-        },
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane3",
-          "description": ""
-        },
-        {
-          "label": "Center",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Center",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Center",
-          "value": "tz",
-          "description": ""
-        },
-        {
-          "label": "Override Size",
-          "value": "overridesize0",
-          "description": ""
-        },
-        {
-          "label": "Override Size",
-          "value": "overridesize1",
-          "description": ""
-        },
-        {
-          "label": "Override Size",
-          "value": "overridesize2",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size3",
-          "description": ""
-        },
-        {
-          "label": "Override Resolution",
-          "value": "overrideres0",
-          "description": ""
-        },
-        {
-          "label": "Override Resolution",
-          "value": "overrideres1",
-          "description": ""
-        },
-        {
-          "label": "Override Resolution",
-          "value": "overrideres2",
-          "description": ""
-        },
-        {
-          "label": "Resolution",
-          "value": "resx",
-          "description": ""
-        },
-        {
-          "label": "Resolution",
-          "value": "resy",
-          "description": ""
-        },
-        {
-          "label": "Resolution",
-          "value": "resz",
-          "description": ""
-        },
-        {
-          "label": "Edge to Edge",
-          "value": "edgetoedge",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered",
-          "value": "pixelcentered",
-          "description": ""
-        },
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vert",
-          "description": ""
-        },
-        {
-          "label": "When Rows Cols Slices > 1",
-          "value": "morethanone",
-          "description": ""
-        },
-        {
-          "label": "Always for Rows Cols",
-          "value": "rowscolsalways",
-          "description": ""
-        },
-        {
-          "label": "Always for Rows Cols Slices",
-          "value": "rowscolsslicesalways",
-          "description": ""
-        },
-        {
-          "label": "Rerange from",
-          "value": "rerangefrom1",
-          "description": ""
-        },
-        {
-          "label": "Rerange from",
-          "value": "rerangefrom2",
-          "description": ""
-        },
-        {
-          "label": "Rerange to",
-          "value": "rerangeto1",
-          "description": ""
-        },
-        {
-          "label": "Rerange to",
-          "value": "rerangeto2",
-          "description": ""
-        },
-        {
-          "label": "Horizontal FOV",
-          "value": "horfov",
-          "description": ""
-        },
-        {
-          "label": "Vertical FOV",
-          "value": "vertfov",
-          "description": ""
-        },
-        {
-          "label": "Focal Lengths",
-          "value": "focallengths",
-          "description": ""
-        },
-        {
-          "label": "Focal Length (Fx, Fy)",
-          "value": "focallengths1",
-          "description": ""
-        },
-        {
-          "label": "Focal Length (Fx, Fy)",
-          "value": "focallengths2",
-          "description": ""
-        },
-        {
-          "label": "Optical Center (Cx, Cy)",
-          "value": "center1",
-          "description": ""
-        },
-        {
-          "label": "Optical Center (Cx, Cy)",
-          "value": "center2",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "type": "Menu",
+      "description": "Determines how the TOP's pixels should be interpreted.",
+      "isReadOnly": false,
+      "menuItems": [
+        "color",
+        "pactive",
+        "pos",
+        "depth",
+        "height",
+        "custom"
+      ],
+      "menuLabels": [
+        "Color (RGBA)",
+        "Position and Active (RGBA)",
+        "Position (RGB)",
+        "Depth",
+        "Height (R)",
+        "Custom"
       ]
     },
     {
-      "name": "rgba",
-      "label": "First RGBA Contains",
-      "description": "Configure First RGBA Contains for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Position and Active",
-          "value": "pactive",
-          "description": ""
-        },
-        {
-          "label": "Depth",
-          "value": "depth",
-          "description": ""
-        },
-        {
-          "label": "Height",
-          "value": "height",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "Position (RGB)",
-          "value": "pos",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "color",
-      "label": "Color",
-      "description": "Configure Color for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Position and Active",
-          "value": "pactive",
-          "description": ""
-        },
-        {
-          "label": "Depth",
-          "value": "depth",
-          "description": ""
-        },
-        {
-          "label": "Height",
-          "value": "height",
-          "description": ""
-        },
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "Position (RGB)",
-          "value": "pos",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "maxpointsenable",
+      "name": "Max Number of Points",
+      "parName": "maxpointsenable",
       "label": "Max Number of Points",
-      "description": "Configure Max Number of Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable the setting of the max number of points when First RGBA Contains is set to Position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "maxpointsenable",
+        "maxpoints"
+      ],
+      "menuLabels": [
+        "Max Number of Points",
+        "Number of Points"
+      ]
     },
     {
-      "name": "maxpoints",
-      "label": "Number of Points",
-      "description": "Configure Number of Points for the operator",
-      "type": "string"
-    },
-    {
-      "name": "input",
+      "name": "TOP",
+      "parName": "input",
       "label": "TOP",
-      "description": "Configure TOP for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        },
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P.i01",
-          "value": "P.i01",
-          "description": ""
-        },
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "High Quality Resize",
-          "value": "highquality",
-          "description": ""
-        }
+      "type": "Sequence",
+      "description": "Start of Sequential Parameter Blocks for TOPs to convert.",
+      "isReadOnly": false,
+      "menuItems": [
+        "r",
+        "g",
+        "b",
+        "a",
+        "P",
+        "P.i01",
+        "nearest",
+        "linear",
+        "highquality",
+        "attr0name",
+        "attr0customname",
+        "attr0type",
+        "attr0numcomps",
+        "attr0defaultval0",
+        "attr0defaultval1",
+        "attr0defaultval2",
+        "attr0defaultval3"
+      ],
+      "menuLabels": [
+        "r",
+        "g",
+        "b",
+        "a",
+        "P",
+        "P.i01",
+        "Nearest Pixel",
+        "Interpolate Pixels",
+        "High Quality Resize",
+        "New Attribute Name",
+        "Custom Name",
+        "Attribute Type",
+        "Components",
+        "Default Value",
+        "Default Value",
+        "Default Value",
+        "Default Value"
       ]
     },
     {
-      "name": "input0top",
-      "label": "TOP",
-      "description": "Configure TOP for the operator",
-      "type": "string"
-    },
-    {
-      "name": "input0chanscope",
-      "label": "Channel Scope",
-      "description": "Configure Channel Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "r",
-      "label": "r",
-      "description": "Configure r for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "r",
-          "value": "r",
-          "description": ""
-        },
-        {
-          "label": "g",
-          "value": "g",
-          "description": ""
-        },
-        {
-          "label": "b",
-          "value": "b",
-          "description": ""
-        },
-        {
-          "label": "a",
-          "value": "a",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "input0attrscope",
-      "label": "Attribute Scope",
-      "description": "Configure Attribute Scope for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P.i01",
-          "value": "P.i01",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "P",
-      "label": "P",
-      "description": "Configure P for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "P",
-          "value": "P",
-          "description": ""
-        },
-        {
-          "label": "P.i01",
-          "value": "P.i01",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "input0filter",
-      "label": "Filter",
-      "description": "Configure Filter for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "High Quality Resize",
-          "value": "highquality",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "nearest",
-      "label": "Nearest Pixel",
-      "description": "Configure Nearest Pixel for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Nearest Pixel",
-          "value": "nearest",
-          "description": ""
-        },
-        {
-          "label": "Interpolate Pixels",
-          "value": "linear",
-          "description": ""
-        },
-        {
-          "label": "High Quality Resize",
-          "value": "highquality",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr",
-      "label": "New Attribute",
-      "description": "Configure New Attribute for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        },
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "dvector",
-          "value": "dvector",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        },
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0name",
-      "label": "New Attribute Name",
-      "description": "Configure New Attribute Name for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "custom",
-      "label": "Custom",
-      "description": "Configure Custom for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Custom",
-          "value": "custom",
-          "description": ""
-        },
-        {
-          "label": "N",
-          "value": "n",
-          "description": ""
-        },
-        {
-          "label": "Color",
-          "value": "color",
-          "description": ""
-        },
-        {
-          "label": "Tex",
-          "value": "tex",
-          "description": ""
-        },
-        {
-          "label": "PointScale",
-          "value": "pointscale",
-          "description": ""
-        },
-        {
-          "label": "LineWidth",
-          "value": "linewidth",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0customname",
-      "label": "Custom Name",
-      "description": "Configure Custom Name for the operator",
-      "type": "string"
-    },
-    {
-      "name": "attr0type",
-      "label": "New Attribute Type",
-      "description": "Configure New Attribute Type for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "dvector",
-          "value": "dvector",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "float",
-      "label": "float",
-      "description": "Configure float for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "float",
-          "value": "float",
-          "description": ""
-        },
-        {
-          "label": "double",
-          "value": "double",
-          "description": ""
-        },
-        {
-          "label": "int",
-          "value": "int",
-          "description": ""
-        },
-        {
-          "label": "uint",
-          "value": "uint",
-          "description": ""
-        },
-        {
-          "label": "vector",
-          "value": "vector",
-          "description": ""
-        },
-        {
-          "label": "dvector",
-          "value": "dvector",
-          "description": ""
-        },
-        {
-          "label": "dir",
-          "value": "dir",
-          "description": ""
-        },
-        {
-          "label": "dbl dir",
-          "value": "ddir",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0numcomps",
-      "label": "New Attribute Number of Components",
-      "description": "Configure New Attribute Number of Components for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "label": "1",
-      "description": "Configure 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "1",
-          "value": "1",
-          "description": ""
-        },
-        {
-          "label": "2",
-          "value": "2",
-          "description": ""
-        },
-        {
-          "label": "3",
-          "value": "3",
-          "description": ""
-        },
-        {
-          "label": "4",
-          "value": "4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0defvalue",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "attr0defvalue1",
-      "label": "New Attribute Default Value",
-      "description": "Configure New Attribute Default Value for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue1",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue2",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue3",
-          "description": ""
-        },
-        {
-          "label": "New Attribute Default Value",
-          "value": "attr0defvalue4",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "surftype",
+      "name": "Connectivity",
+      "parName": "surftype",
       "label": "Connectivity",
-      "description": "Configure Connectivity for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrips",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Alternating Triangles",
-          "value": "alttriangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Determines the primitive used to connect the points.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "points",
+        "lines",
+        "linestrips",
+        "triangles",
+        "alttriangles",
+        "quads"
+      ],
+      "menuLabels": [
+        "None",
+        "Point Primitives",
+        "Lines",
+        "Line Strips",
+        "Triangles",
+        "Alternating Triangles",
+        "Quadrilaterals"
       ]
     },
     {
-      "name": "none",
-      "label": "None",
-      "description": "Configure None for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Lines",
-          "value": "lines",
-          "description": ""
-        },
-        {
-          "label": "Line Strips",
-          "value": "linestrips",
-          "description": ""
-        },
-        {
-          "label": "Triangles",
-          "value": "triangles",
-          "description": ""
-        },
-        {
-          "label": "Alternating Triangles",
-          "value": "alttriangles",
-          "description": ""
-        },
-        {
-          "label": "Quadrilaterals",
-          "value": "quads",
-          "description": ""
-        },
-        {
-          "label": "Point Prims",
-          "value": "points",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "line",
+      "name": "Line X/Y/Z",
+      "parName": "line",
       "label": "Line X/Y/Z",
-      "description": "Configure Line X/Y/Z for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Line X/Y/Z",
-          "value": "line1",
-          "description": ""
-        },
-        {
-          "label": "Line X/Y/Z",
-          "value": "line2",
-          "description": ""
-        },
-        {
-          "label": "Line X/Y/Z",
-          "value": "line3",
-          "description": ""
-        }
+      "type": "Toggle",
+      "description": "Specifies whether to enable Lines in the X/Y/Z axis.",
+      "isReadOnly": false,
+      "menuItems": [
+        "linex",
+        "liney",
+        "linez"
+      ],
+      "menuLabels": [
+        "Line X/Y/Z",
+        "Line X/Y/Z",
+        "Line X/Y/Z"
       ]
     },
     {
-      "name": "line1",
-      "label": "Line X/Y/Z",
-      "description": "Configure Line X/Y/Z for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Line X/Y/Z",
-          "value": "line1",
-          "description": ""
-        },
-        {
-          "label": "Line X/Y/Z",
-          "value": "line2",
-          "description": ""
-        },
-        {
-          "label": "Line X/Y/Z",
-          "value": "line3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "plane",
+      "name": "Plane XY/YZ/ZX",
+      "parName": "plane",
       "label": "Plane XY/YZ/ZX",
-      "description": "Configure Plane XY/YZ/ZX for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane1",
-          "description": ""
-        },
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane2",
-          "description": ""
-        },
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane3",
-          "description": ""
-        }
+      "type": "Toggle",
+      "description": "Plane orientation.",
+      "isReadOnly": false,
+      "menuItems": [
+        "planex",
+        "planey",
+        "planez"
+      ],
+      "menuLabels": [
+        "Plane XY/YZ/ZX",
+        "Plane XY/YZ/ZX",
+        "Plane XY/YZ/ZX"
       ]
     },
     {
-      "name": "plane1",
-      "label": "Plane XY/YZ/ZX",
-      "description": "Configure Plane XY/YZ/ZX for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane1",
-          "description": ""
-        },
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane2",
-          "description": ""
-        },
-        {
-          "label": "Plane XY/YZ/ZX",
-          "value": "plane3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "uniquepoints",
+      "name": "Unique Points",
+      "parName": "uniquepoints",
       "label": "Unique Points",
-      "description": "Configure Unique Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable not sharing points between primitives.",
+      "isReadOnly": false
     },
     {
-      "name": "t",
+      "name": "Center",
+      "parName": "t",
       "label": "Center",
-      "description": "Configure Center for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Center",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Center",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Center",
-          "value": "tz",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The center of the output geometry.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty",
+        "tz"
+      ],
+      "menuLabels": [
+        "Center",
+        "Center",
+        "Center"
       ]
     },
     {
-      "name": "tx",
-      "label": "Center",
-      "description": "Configure Center for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Center",
-          "value": "tx",
-          "description": ""
-        },
-        {
-          "label": "Center",
-          "value": "ty",
-          "description": ""
-        },
-        {
-          "label": "Center",
-          "value": "tz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overridesize",
+      "name": "Override Size",
+      "parName": "overridesize",
       "label": "Override Size",
-      "description": "Configure Override Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Override Size",
-          "value": "overridesize0",
-          "description": ""
-        },
-        {
-          "label": "Override Size",
-          "value": "overridesize1",
-          "description": ""
-        },
-        {
-          "label": "Override Size",
-          "value": "overridesize2",
-          "description": ""
-        }
+      "type": "Toggle",
+      "description": "When on, overrides the automatic size, which is 1 in X with the size in Y respecting the input TOP aspect ratio.",
+      "isReadOnly": false,
+      "menuItems": [
+        "overridesizex",
+        "overridesizey",
+        "overridesizez"
+      ],
+      "menuLabels": [
+        "Override Size",
+        "Override Size",
+        "Override Size"
       ]
     },
     {
-      "name": "overridesize0",
-      "label": "Override Size",
-      "description": "Configure Override Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Override Size",
-          "value": "overridesize0",
-          "description": ""
-        },
-        {
-          "label": "Override Size",
-          "value": "overridesize1",
-          "description": ""
-        },
-        {
-          "label": "Override Size",
-          "value": "overridesize2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "size",
+      "name": "Size",
+      "parName": "size",
       "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size3",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The geometry 3D size.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sizex",
+        "sizey",
+        "sizez"
+      ],
+      "menuLabels": [
+        "Size",
+        "Size",
+        "Size"
       ]
     },
     {
-      "name": "size1",
-      "label": "Size",
-      "description": "Configure Size for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Size",
-          "value": "size1",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size2",
-          "description": ""
-        },
-        {
-          "label": "Size",
-          "value": "size3",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "overrideres",
+      "name": "Override Resolution",
+      "parName": "overrideres",
       "label": "Override Resolution",
-      "description": "Configure Override Resolution for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Override Resolution",
-          "value": "overrideres0",
-          "description": ""
-        },
-        {
-          "label": "Override Resolution",
-          "value": "overrideres1",
-          "description": ""
-        },
-        {
-          "label": "Override Resolution",
-          "value": "overrideres2",
-          "description": ""
-        }
+      "type": "Toggle",
+      "description": "When on, overrides the automatic resolution, which is the input TOP resolution.",
+      "isReadOnly": false,
+      "menuItems": [
+        "overrideresx",
+        "overrideresy",
+        "overrideresz"
+      ],
+      "menuLabels": [
+        "Override Resolution",
+        "Override Resolution",
+        "Override Resolution"
       ]
     },
     {
-      "name": "overrideres0",
-      "label": "Override Resolution",
-      "description": "Configure Override Resolution for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Override Resolution",
-          "value": "overrideres0",
-          "description": ""
-        },
-        {
-          "label": "Override Resolution",
-          "value": "overrideres1",
-          "description": ""
-        },
-        {
-          "label": "Override Resolution",
-          "value": "overrideres2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "res",
+      "name": "Resolution",
+      "parName": "res",
       "label": "Resolution",
-      "description": "Configure Resolution for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Resolution",
-          "value": "resx",
-          "description": ""
-        },
-        {
-          "label": "Resolution",
-          "value": "resy",
-          "description": ""
-        },
-        {
-          "label": "Resolution",
-          "value": "resz",
-          "description": ""
-        }
+      "type": "Int",
+      "description": "Overriden resolution.",
+      "isReadOnly": false,
+      "menuItems": [
+        "resx",
+        "resy",
+        "resz"
+      ],
+      "menuLabels": [
+        "Resolution",
+        "Resolution",
+        "Resolution"
       ]
     },
     {
-      "name": "resx",
-      "label": "Resolution",
-      "description": "Configure Resolution for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Resolution",
-          "value": "resx",
-          "description": ""
-        },
-        {
-          "label": "Resolution",
-          "value": "resy",
-          "description": ""
-        },
-        {
-          "label": "Resolution",
-          "value": "resz",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "pixelsamplingloc",
+      "name": "Pixel Sampling Location",
+      "parName": "pixelsamplingloc",
       "label": "Pixel Sampling Location",
-      "description": "Configure Pixel Sampling Location for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Edge to Edge",
-          "value": "edgetoedge",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered",
-          "value": "pixelcentered",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets where the pixels are sampled.",
+      "isReadOnly": false,
+      "menuItems": [
+        "edgetoedge",
+        "pixelcentered"
+      ],
+      "menuLabels": [
+        "Edge to Edge",
+        "Pixel Centered"
       ]
     },
     {
-      "name": "edgetoedge",
-      "label": "Edge to Edge",
-      "description": "Configure Edge to Edge for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Edge to Edge",
-          "value": "edgetoedge",
-          "description": ""
-        },
-        {
-          "label": "Pixel Centered",
-          "value": "pixelcentered",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "texture",
+      "name": "Texture Coordinates",
+      "parName": "texture",
       "label": "Texture Coordinates",
-      "description": "Configure Texture Coordinates for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "None",
-          "value": "none",
-          "description": ""
-        },
-        {
-          "label": "Point",
-          "value": "point",
-          "description": ""
-        },
-        {
-          "label": "Vertex",
-          "value": "vert",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the attribute class where the texture coordinates should be created.",
+      "isReadOnly": false,
+      "menuItems": [
+        "none",
+        "point",
+        "vert"
+      ],
+      "menuLabels": [
+        "None",
+        "Point",
+        "Vertex"
       ]
     },
     {
-      "name": "dimension",
+      "name": "Append Dimension",
+      "parName": "dimension",
       "label": "Append Dimension",
-      "description": "Configure Append Dimension for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "When Rows Cols Slices > 1",
-          "value": "morethanone",
-          "description": ""
-        },
-        {
-          "label": "Always for Rows Cols",
-          "value": "rowscolsalways",
-          "description": ""
-        },
-        {
-          "label": "Always for Rows Cols Slices",
-          "value": "rowscolsslicesalways",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Always add a dimension, or only add a dimesion when its size is 2 or more.",
+      "isReadOnly": false,
+      "menuItems": [
+        "morethanone",
+        "rowscolsalways",
+        "rowscolsslicesalways"
+      ],
+      "menuLabels": [
+        "When Rows Cols Slices > 1",
+        "Always for Rows Cols",
+        "Always for Rows Cols Slices"
       ]
     },
     {
-      "name": "morethanone",
-      "label": "When Rows Cols Slices > 1",
-      "description": "Configure When Rows Cols Slices > 1 for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "When Rows Cols Slices > 1",
-          "value": "morethanone",
-          "description": ""
-        },
-        {
-          "label": "Always for Rows Cols",
-          "value": "rowscolsalways",
-          "description": ""
-        },
-        {
-          "label": "Always for Rows Cols Slices",
-          "value": "rowscolsslicesalways",
-          "description": ""
-        }
+      "name": "Rerange from Low High",
+      "parName": "rerangefromlow",
+      "label": "Rerange from Low High",
+      "type": "Float",
+      "description": "Range for input values.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rerangefromlow",
+        "rerangefromhigh"
+      ],
+      "menuLabels": [
+        "Rerange from Low High",
+        "Rerange from High"
       ]
     },
     {
-      "name": "rerangefrom",
-      "label": "Rerange from",
-      "description": "Configure Rerange from for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rerange from",
-          "value": "rerangefrom1",
-          "description": ""
-        },
-        {
-          "label": "Rerange from",
-          "value": "rerangefrom2",
-          "description": ""
-        }
+      "name": "Rerange to Low High",
+      "parName": "rerangetolow",
+      "label": "Rerange to Low High",
+      "type": "Float",
+      "description": "Range for output values.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rerangetolow",
+        "rerangetohigh"
+      ],
+      "menuLabels": [
+        "Rerange to Low High",
+        "Rerange to High"
       ]
     },
     {
-      "name": "rerangefrom1",
-      "label": "Rerange from",
-      "description": "Configure Rerange from for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rerange from",
-          "value": "rerangefrom1",
-          "description": ""
-        },
-        {
-          "label": "Rerange from",
-          "value": "rerangefrom2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rerangeto",
-      "label": "Rerange to",
-      "description": "Configure Rerange to for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rerange to",
-          "value": "rerangeto1",
-          "description": ""
-        },
-        {
-          "label": "Rerange to",
-          "value": "rerangeto2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "rerangeto1",
-      "label": "Rerange to",
-      "description": "Configure Rerange to for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Rerange to",
-          "value": "rerangeto1",
-          "description": ""
-        },
-        {
-          "label": "Rerange to",
-          "value": "rerangeto2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "camera",
+      "name": "Camera",
+      "parName": "camera",
       "label": "Camera",
-      "description": "Configure Camera for the operator",
-      "type": "string"
+      "type": "Object",
+      "description": "Specify the camera component.",
+      "isReadOnly": false
     },
     {
-      "name": "overridecamera",
+      "name": "Override Camera View",
+      "parName": "overridecamera",
       "label": "Override Camera View",
-      "description": "Configure Override Camera View for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "When on, overrides the View settings from the selected camera object.",
+      "isReadOnly": false
     },
     {
-      "name": "viewanglemethod",
+      "name": "View Angle Method",
+      "parName": "viewanglemethod",
       "label": "View Angle Method",
-      "description": "Configure View Angle Method for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Horizontal FOV",
-          "value": "horfov",
-          "description": ""
-        },
-        {
-          "label": "Vertical FOV",
-          "value": "vertfov",
-          "description": ""
-        },
-        {
-          "label": "Focal Lengths",
-          "value": "focallengths",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Sets the method to convert the depth TOP.",
+      "isReadOnly": false,
+      "menuItems": [
+        "horfov",
+        "vertfov",
+        "focallengths"
+      ],
+      "menuLabels": [
+        "Horizontal FOV",
+        "Vertical FOV",
+        "Focal Lengths"
       ]
     },
     {
-      "name": "horfov",
-      "label": "Horizontal FOV",
-      "description": "Configure Horizontal FOV for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Horizontal FOV",
-          "value": "horfov",
-          "description": ""
-        },
-        {
-          "label": "Vertical FOV",
-          "value": "vertfov",
-          "description": ""
-        },
-        {
-          "label": "Focal Lengths",
-          "value": "focallengths",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "fov",
+      "name": "FOV Angle",
+      "parName": "fov",
       "label": "FOV Angle",
-      "description": "Configure FOV Angle for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Determines the camera's field of view angle.",
+      "isReadOnly": false
     },
     {
-      "name": "focallengths",
+      "name": "Focal Length (Fx, Fy)",
+      "parName": "focallengths",
       "label": "Focal Length (Fx, Fy)",
-      "description": "Configure Focal Length (Fx, Fy) for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Focal Length (Fx, Fy)",
-          "value": "focallengths1",
-          "description": ""
-        },
-        {
-          "label": "Focal Length (Fx, Fy)",
-          "value": "focallengths2",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "",
+      "isReadOnly": false,
+      "menuItems": [
+        "focallengthsx",
+        "focallengthsy"
+      ],
+      "menuLabels": [
+        "Focal Length (Fx, Fy)",
+        "Focal Length (Fx, Fy)"
       ]
     },
     {
-      "name": "focallengths1",
-      "label": "Focal Length (Fx, Fy)",
-      "description": "Configure Focal Length (Fx, Fy) for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Focal Length (Fx, Fy)",
-          "value": "focallengths1",
-          "description": ""
-        },
-        {
-          "label": "Focal Length (Fx, Fy)",
-          "value": "focallengths2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "center",
+      "name": "Optical Center (Cx, Cy)",
+      "parName": "center",
       "label": "Optical Center (Cx, Cy)",
-      "description": "Configure Optical Center (Cx, Cy) for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Optical Center (Cx, Cy)",
-          "value": "center1",
-          "description": ""
-        },
-        {
-          "label": "Optical Center (Cx, Cy)",
-          "value": "center2",
-          "description": ""
-        }
+      "type": "XYZW",
+      "description": "The location of the center of the camera for the depth projection.",
+      "isReadOnly": false,
+      "menuItems": [
+        "centerx",
+        "centery"
+      ],
+      "menuLabels": [
+        "Optical Center (Cx, Cy)",
+        "Optical Center (Cx, Cy)"
       ]
     },
     {
-      "name": "center1",
-      "label": "Optical Center (Cx, Cy)",
-      "description": "Configure Optical Center (Cx, Cy) for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Optical Center (Cx, Cy)",
-          "value": "center1",
-          "description": ""
-        },
-        {
-          "label": "Optical Center (Cx, Cy)",
-          "value": "center2",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "deletenear",
+      "name": "Delete Near Points",
+      "parName": "deletenear",
       "label": "Delete Near Points",
-      "description": "Configure Delete Near Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable removal of points that are close to the camera.",
+      "isReadOnly": false
     },
     {
-      "name": "depthnear",
+      "name": "Near Depth",
+      "parName": "depthnear",
       "label": "Near Depth",
-      "description": "Configure Near Depth for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Depth of the near clipping plane.",
+      "isReadOnly": false
     },
     {
-      "name": "deletefar",
+      "name": "Delete Far Points",
+      "parName": "deletefar",
       "label": "Delete Far Points",
-      "description": "Configure Delete Far Points for the operator",
-      "type": "string"
+      "type": "Toggle",
+      "description": "Enable removal of points that are far from the camera.",
+      "isReadOnly": false
     },
     {
-      "name": "depthfar",
+      "name": "Far Depth",
+      "parName": "depthfar",
       "label": "Far Depth",
-      "description": "Configure Far Depth for the operator",
-      "type": "string"
+      "type": "Float",
+      "description": "Depth of the far clipping plane.",
+      "isReadOnly": false
     },
     {
-      "name": "dispscale",
+      "name": "Line Strip Behavior",
+      "parName": "linestripbehavior",
+      "label": "Line Strip Behavior",
+      "type": "Menu",
+      "description": "What to do when points of a line strip are deleted.",
+      "isReadOnly": false,
+      "menuItems": [
+        "delpointoflinestrip",
+        "splitlinestrip",
+        "dellinestrip"
+      ],
+      "menuLabels": [
+        "Delete Point of Line Strip",
+        "Split Line Strip",
+        "Delete Line Strip"
+      ]
+    },
+    {
+      "name": "Displacement Scale",
+      "parName": "dispscale",
       "label": "Displacement Scale",
-      "description": "Configure Displacement Scale for the operator",
-      "type": "string"
-    },
-    {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "Float",
+      "description": "Sets the displacement scale when the pixels are interpreted as heights values",
+      "isReadOnly": false
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-TOP_to_POP.htm",
-  "parsedAt": "2025-08-08T03:04:00.446Z"
+  "parsedAt": "2025-08-08T03:04:00.446Z",
+  "url": "https://docs.derivative.ca/TOP_to_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TOP_to_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live TOP_to_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=TOP_to_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

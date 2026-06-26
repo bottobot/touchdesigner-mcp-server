@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:01.007Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Fit_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Fit_TOP",
   "description": "The Fit TOP re-sizes its input to the resolution set on the Common Page using the method specified in the Fit parameter menu. This is useful for changing the aspect ratio of an image without distorting it horizontally or vertically. It will crop the image or fill with the background color depending on the Fit parameter options.",
   "summary": "The Fit TOP re-sizes its input to the resolution set on the Common Page using the method specified in the Fit parameter menu. This is useful for changing the aspect ratio of an image without distortin",
   "details": "",

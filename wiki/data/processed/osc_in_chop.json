@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.837Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OSC_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OSC_In_CHOP",
   "description": "The OSC In CHOP is used to accept Open Sound Control Messages. OSC In can be used to accept messages from either a 3rd party application which adheres to the Open Sound Control specification (http://www.cnmat.berkeley.edu/OpenSoundControl/). OSC In is based on a connection-less system, meaning that it can accept multiple messages for any number of sources at the same time. The user must specify a port number which OSC In will look for incoming messages. This port must not have anything running on it before OSC In attempts to use it. OSC CHOPs in TouchDesigner use the UDP transport protocol.",
   "summary": "The OSC In CHOP is used to accept Open Sound Control Messages. OSC In can be used to accept messages from either a 3rd party application which adheres to the Open Sound Control specification (http://w",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.040Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Capture_Region_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Capture_Region_SOP",
   "description": "The Capture Region SOP defines capture region (cregion), which is a type of primitive which can be thought of as a modified tube primitive (a tube with half a sphere on either end). The hemispheres on the ends of the tubes are called \"caps\". Like any other primitive, each Capture Region has a primitive number and can be assigned primitive attributes. A Capture Region is simply a volume which is used to define the point capture weighting for a geometry. It is then animated to deform the geometry.",
   "summary": "The Capture Region SOP defines capture region (cregion), which is a type of primitive which can be thought of as a modified tube primitive (a tube with half a sphere on either end). The hemispheres on",
   "details": "",

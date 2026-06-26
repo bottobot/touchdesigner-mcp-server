@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.219Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\CHOP_Execute_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/CHOP_Execute_DAT",
   "description": "The CHOP Execute DAT will run its script when the channel values of a specified CHOP change. You can specify which channels to look at, and trigger based on their values changing in various ways.  The script gets called for every sample that changes, so when rendering one frame, it may get called 2 or more times per channel, depending on how many frames forward TouchDesigner has stepped (see Time Slicing).",
   "summary": "The CHOP Execute DAT will run its script when the channel values of a specified CHOP change. You can specify which channels to look at, and trigger based on their values changing in various ways.  The",
   "details": "",

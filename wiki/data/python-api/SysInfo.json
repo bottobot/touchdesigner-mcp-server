@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "int",
       "readOnly": true,
-      "description": "numCPUs member"
-    },
-    {
-      "name": "numCPUs",
-      "id": "bodyContent",
-      "returnType": "int",
-      "readOnly": true,
-      "description": "numCPUs member"
+      "description": ""
     }
   ],
   "methods": [],

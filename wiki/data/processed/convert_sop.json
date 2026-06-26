@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.831Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Convert_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Convert_SOP",
   "description": "The Convert SOP converts geometry from one geometry type to another type. Types include polygon, mesh, Bezier patche, particle and sphere primitive.",
   "summary": "The Convert SOP converts geometry from one geometry type to another type. Types include polygon, mesh, Bezier patche, particle and sphere primitive.",
   "details": "",

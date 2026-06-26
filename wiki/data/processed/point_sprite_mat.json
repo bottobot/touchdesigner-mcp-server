@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.723Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Point_Sprite_MAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Point_Sprite_MAT",
   "description": "The Point Sprite MAT allows you to control some attributes of Point Sprites (creatable using the Particle SOP, DAT to SOP, or Convert SOP). You can apply color, a color map, change the size of the created point sprite from a square to a rectangle, and scale the size of the point sprite.",
   "summary": "The Point Sprite MAT allows you to control some attributes of Point Sprites (creatable using the Particle SOP, DAT to SOP, or Convert SOP). You can apply color, a color map, change the size of the cre",
   "details": "",

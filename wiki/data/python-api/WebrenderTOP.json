@@ -1,0 +1,70 @@
+{
+  "className": "WebrenderTOP",
+  "displayName": "WebrenderTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "loaded",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "The loaded state of the current webpage."
+    }
+  ],
+  "methods": [
+    {
+      "name": "interactMouse",
+      "signature": "interactMouseinteractMouse(u, v, leftClick=0, middleClick=0, rightClick=0, left=False, middle=False, right=False, wheel=0, pixels=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Send mouse clicks, rollovers, moves and drags to the webpage. *u - The first coordinate for the click to occur at. *v - The second coordinate for the click to occur at. *leftClick, middleClick, rightClick - (Keyword, Optional) Use to specify the number of times a button is clicked on. *left, middle, right - (Keyword, Optional) Use to specify if the button is being pressed. When set to False it simulates a mouse move with the button up. The first time the button is set to True will initiate a virtual mouse down on the web page at the coordinates u,v. Subsequent True states will simulate a drag (mouse button down and moving). Simulate a mouse-up by calling the button set to False, e.g. left=False. *wheel - (Keyword, Optional) Roll the mouse wheel *pixels - (Keyword, Optional) When True, the coordinates are treated as pixel offsets. When False, they are treated as normalized values. *aux - (Keyword, Optional) Auxiliary data."
+    },
+    {
+      "name": "interactTouch",
+      "signature": "interactTouchinteractTouch(u, v, pixels=False, radiusx=1, radiusy=1, start=-1, move=-1, end=-1)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Send touch events to the webpage. * u - The first coordinate for the click to occur at. * v - The second coordinate for the click to occur at. * pixels - (Keyword, Optional) When True, the coordinates are treated as pixel offsets. When False, they are treated as normalized values. * radiusx - (Keyword, Optional) horizontal radius in pixels. * radiusy - (Keyword, Optional) vertical radius in pixels. * start - (Keyword, Optional) Start a touch identifiable by 'id'. If 'id' is in use, a release is sent and a new touch is started. id must be between 0 and 15. * move - (Keyword, Optional) Move a touch identifiable by 'id'. Nothing happens if 'id' is not found. * end - (Keyword, Optional) End a touch identifiable by 'id'. Nothing happens if 'id' is not found."
+    },
+    {
+      "name": "executeJavaScript",
+      "signature": "executeJavaScriptexecuteJavaScript(script)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Execute a line of javascript on the current webpage. *script - The line to be executed."
+    },
+    {
+      "name": "sendKey",
+      "signature": "sendKeysendKey(key, char=None, shift=False, alt=False, ctrl=False, cmd=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Send key characters to the webpage. *key - ASCII value or name of a character or key. Key name matches the names from the Keyboard In DAT. *char - (Keyword, Optional) character interpreted by the os. *shift - (Keyword, Optional) shift key state. *alt - (Keyword, Optional) alt key state. *ctrl - (Keyword, Optional) ctrl key state. *cmd - (Keyword, Optional) cmd key state."
+    },
+    {
+      "name": "sendString",
+      "signature": "sendStringsendString(char)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Send a string of characters to the webpage."
+    },
+    {
+      "name": "flushCookieStore",
+      "signature": "flushCookieStoreflushCookieStore()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Flush current cookies the local storage."
+    }
+  ],
+  "url": "https://docs.derivative.ca/WebrenderTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=WebrenderTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the WebrenderTOP Class wiki page",
+      "url": "https://docs.derivative.ca/WebrenderTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

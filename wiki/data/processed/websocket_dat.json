@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:12.168Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\WebSocket_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/WebSocket_DAT",
   "description": "The WebSocket DAT receives and parses WebSocket messages. WebSockets are fast an efficient two way communication protocol used by web servers and clients. Each message is parsed and appended as a row in the DAT's table. The table is FIFO \"first-in first-out\" and limited to parameter-set number of lines. An optional script may be run for each packet received. Secure (tls) websocket servers are also supported.\t\t\nConnections to different WebSocket sites are supported without requiring manual header setup.",
   "summary": "The WebSocket DAT receives and parses WebSocket messages. WebSockets are fast an efficient two way communication protocol used by web servers and clients. Each message is parsed and appended as a row ",
   "details": "",

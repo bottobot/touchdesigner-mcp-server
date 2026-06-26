@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:05.920Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\OSC_Out_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/OSC_Out_CHOP",
   "description": "TheOSC Out CHOP sends all input channels to a specified network address and port. Each channel name and associated data is transmitted together to the specified location. TouchDesigner time stamps all outgoing Open Sound Control messages with the time of the outgoing frame relative to the system time when the first message was sent. OSC CHOPs in TouchDesigner use the UDP transport protocol.",
   "summary": "TheOSC Out CHOP sends all input channels to a specified network address and port. Each channel name and associated data is transmitted together to the specified location. TouchDesigner time stamps all",
   "details": "",

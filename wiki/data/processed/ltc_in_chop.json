@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.568Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\LTC_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/LTC_In_CHOP",
   "description": "The LTC In CHOP reads SMPTE timecode data encoded into an audio signal. Read the wikipedia overview Linear Timecode.",
   "summary": "The LTC In CHOP reads SMPTE timecode data encoded into an audio signal. Read the wikipedia overview Linear Timecode.",
   "details": "",

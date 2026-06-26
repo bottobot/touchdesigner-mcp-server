@@ -1,0 +1,33 @@
+{
+  "className": "PatternCHOP",
+  "displayName": "PatternCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "chanIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The index of the current channel being evaluated. For example, if Pattern generates three channels you can put `[1, 3, 7][me.chanIndex]` in the Amplitude parameter to customize the amplitude for each channel."
+    },
+    {
+      "name": "sampleIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The index of the current sample being evaluated."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/PatternCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=PatternCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the PatternCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/PatternCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

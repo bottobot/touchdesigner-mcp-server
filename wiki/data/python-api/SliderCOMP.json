@@ -1,0 +1,28 @@
+{
+  "className": "SliderCOMP",
+  "displayName": "SliderCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "PanelCOMP",
+  "members": [],
+  "methods": [
+    {
+      "name": "click",
+      "signature": "clickclick(uOrV, v, clickCount=1, force=False, left=False, middle=False, right=False, vOnly=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Simulate a mouse click of the slider. If only 1 value is given, it specifies the primary coordinate of the slider. (Either U or V, depending on its type). uOrV and v should be given in normalized coordinates. If two values are given, they specifies both the U and V coordinates. *uOrV - The first coordinate for the click to occur at. For V slider, this value will be treated as the V coordinate, and nothing needs to be passed into the v argument. *v - (Optional) The V coordinate to click at. This only needs to be passed if U is being specified in the first argument. *clickCount - (Keyword, Optional) Sets the number of clicks, for double clicking etc. *force - (Keyword, Optional) Forces the click to occur, even if the slider is disabled. *left,middle,right - (Keyword, Optional) Override the default mouse button used. When none are set, the left mouse button is pressed, and the other buttons released. *vOnly - (Keyword, Optional) If True and only one coordinate is given on a UV slider, then update the V coordinate only."
+    }
+  ],
+  "url": "https://docs.derivative.ca/SliderCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=SliderCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the SliderCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/SliderCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

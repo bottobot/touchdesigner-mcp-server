@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.323Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Perform_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Perform_CHOP",
   "description": "The Perform CHOP outputs many channels like frames-per-second, describing the current state of the TouchDesigner process. As channels they can be manipulated into user interfaces and calculations to adjust real-time self-tuning of the process.",
   "summary": "The Perform CHOP outputs many channels like frames-per-second, describing the current state of the TouchDesigner process. As channels they can be manipulated into user interfaces and calculations to a",
   "details": "",

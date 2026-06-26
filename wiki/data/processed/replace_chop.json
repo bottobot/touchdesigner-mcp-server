@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.783Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Replace_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Replace_CHOP",
   "description": "The Replace CHOP can be used to replace channels very quickly. The output of channels in Input1 will be replaced by channels found in Input2 if a matching channel exists in Input2. Any channels that are in Input1 and not in Input2 will be output without being replaced.",
   "summary": "The Replace CHOP can be used to replace channels very quickly. The output of channels in Input1 will be replaced by channels found in Input2 if a matching channel exists in Input2. Any channels that a",
   "details": "",

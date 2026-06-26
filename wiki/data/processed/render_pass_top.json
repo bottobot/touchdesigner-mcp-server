@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.618Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Render_Pass_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Render_Pass_TOP",
   "description": "The Render Pass TOP is used along with a Render TOP to achieve multipass rendering. It can build upon its inputs render by using the existing depth/color information in the framebuffers, or it can optionally clear one or both of the depth/color buffers before it does its render.",
   "summary": "The Render Pass TOP is used along with a Render TOP to achieve multipass rendering. It can build upon its inputs render by using the existing depth/color information in the framebuffers, or it can opt",
   "details": "",

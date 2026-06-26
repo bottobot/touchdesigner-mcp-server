@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.005Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Dynamics_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Dynamics_CHOP",
   "description": "The Audio Dynamics CHOP is designed to control the dynamic range of an audio signal. Dynamic range refers to how loud and quiet the audio is over some period of time. The Operator contains two types of dynamic control: compression and limiting.\t\t\nIt is recommended that you link this CHOP to an Info CHOP, so that you can have some visual feedback:  The amount of compression or limiting which is being applied will be displayed in the Info CHOP.",
   "summary": "The Audio Dynamics CHOP is designed to control the dynamic range of an audio signal. Dynamic range refers to how loud and quiet the audio is over some period of time. The Operator contains two types o",
   "details": "",

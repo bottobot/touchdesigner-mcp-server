@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.033Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Movie_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Movie_CHOP",
   "description": "The Audio Movie CHOP plays the audio of a movie file that is played back with a Movie File In TOP. Use the Movie File In TOP parameter to specify which Movie File In TOP to get the audio signal from.",
   "summary": "The Audio Movie CHOP plays the audio of a movie file that is played back with a Movie File In TOP. Use the Movie File In TOP parameter to specify which Movie File In TOP to get the audio signal from.",
   "details": "",

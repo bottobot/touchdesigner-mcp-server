@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:57.789Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Bullet_Solver_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Bullet_Solver_CHOP",
   "description": "The Bullet Solver CHOP is used in conjunction with a Bullet Dynamics system. It outputs the solved results from a Bullet simulation and can include the results for the entire system (Bullet Solver COMP) or an individual actor (Actor COMP) within a system.",
   "summary": "The Bullet Solver CHOP is used in conjunction with a Bullet Dynamics system. It outputs the solved results from a Bullet simulation and can include the results for the entire system (Bullet Solver COM",
   "details": "",

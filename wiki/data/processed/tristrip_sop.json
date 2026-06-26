@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.533Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Tristrip_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Tristrip_SOP",
   "description": "The Tristrip SOP convert geometry into triangle strips. Triangle strips are faster to render than regular triangles or quads.",
   "summary": "The Tristrip SOP convert geometry into triangle strips. Triangle strips are faster to render than regular triangles or quads.",
   "details": "",

@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.573Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Keyboard_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Keyboard_In_CHOP",
   "description": "The Keyboard In CHOP receives ASCII input from the keyboard, and outputs channels for the number of keys specified. It creates a single-frame channel representing the current state of each key.",
   "summary": "The Keyboard In CHOP receives ASCII input from the keyboard, and outputs channels for the number of keys specified. It creates a single-frame channel representing the current state of each key.",
   "details": "",

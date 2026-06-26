@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:07.111Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Particle_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Particle_SOP",
   "description": "The Particle SOP is used for creating and controlling motion of \"particles\" for particle systems simulations. Particle systems are often used to create simulations of natural events such as rain and snow, or effects such as fireworks and sparks. In Touch, the points of the input geometry are used as the starting positions of the particles. Each point of the input can be affected by external force (gravity) and wind. Particles can collide and bounce off another object, set by the Collision Source. They can also bounce off, or die at, limit planes set in X, Y and Z.",
   "summary": "The Particle SOP is used for creating and controlling motion of \"particles\" for particle systems simulations. Particle systems are often used to create simulations of natural events such as rain and s",
   "details": "",

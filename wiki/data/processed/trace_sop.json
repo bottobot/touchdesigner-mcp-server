@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.294Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Trace_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Trace_SOP",
   "description": "The Trace SOP reads an image file and automatically traces it, generating a set of faces around areas exceeding a certain brightness threshold. You can control this threshold and the resolution of the resulting faces.",
   "summary": "The Trace SOP reads an image file and automatically traces it, generating a set of faces around areas exceeding a certain brightness threshold. You can control this threshold and the resolution of the",
   "details": "",

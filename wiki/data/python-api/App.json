@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "str",
       "readOnly": true,
-      "description": "applicationsFolder member"
-    },
-    {
-      "name": "applicationsFolder",
-      "id": "bodyContent",
-      "returnType": "str",
-      "readOnly": true,
-      "description": "applicationsFolder member"
+      "description": ""
     }
   ],
   "methods": [

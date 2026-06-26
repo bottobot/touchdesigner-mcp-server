@@ -10,14 +10,7 @@
       "id": "content",
       "returnType": "float",
       "readOnly": false,
-      "description": "x member"
-    },
-    {
-      "name": "x",
-      "id": "bodyContent",
-      "returnType": "float",
-      "readOnly": false,
-      "description": "x member"
+      "description": ""
     }
   ],
   "methods": [
@@ -75,17 +68,6 @@
       ],
       "returns": "tdu.Position :",
       "signature": "abs(tdu.Position)"
-    },
-    {
-      "name": "abs",
-      "parameters": [
-        {
-          "name": "p1",
-          "type": "Any"
-        }
-      ],
-      "returns": "tdu.Position →  tdu.Position :",
-      "signature": "abs(  p1  )"
     }
   ],
   "enhanced": true

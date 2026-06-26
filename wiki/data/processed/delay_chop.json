@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:59.447Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Delay_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Delay_CHOP",
   "description": "The Delay CHOP delays the input. Multiple channels can be fed in to delay each separately. Each channel can have a separate delay time using me.chanIndex.",
   "summary": "The Delay CHOP delays the input. Multiple channels can be fed in to delay each separately. Each channel can have a separate delay time using me.chanIndex.",
   "details": "",

@@ -600,25 +600,6 @@
       "signature": "op(pattern1, pattern2..., includeUtility=False)"
     },
     {
-      "name": "op",
-      "parameters": [
-        {
-          "name": "pattern1",
-          "type": "Any"
-        },
-        {
-          "name": "pattern2...",
-          "type": "Any"
-        },
-        {
-          "name": "includeUtility=False",
-          "type": "Any"
-        }
-      ],
-      "returns": "OP  ",
-      "signature": "op(pattern1, pattern2..., includeUtility=False)"
-    },
-    {
       "name": "parent",
       "parameters": [
         {
@@ -1136,36 +1117,6 @@
       "signature": "onClose(  dat  ,   peer  )"
     },
     {
-      "name": "rows",
-      "parameters": [
-        {
-          "name": "Keyword",
-          "type": "Any"
-        },
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "If specified, looks for cell only in the specified rows. Must be specified as a list. ",
-      "signature": "rows(Keyword, Optional)"
-    },
-    {
-      "name": "cols",
-      "parameters": [
-        {
-          "name": "Keyword",
-          "type": "Any"
-        },
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "If specified, looks for cell only in the specified columns. Must be specified as a list. ",
-      "signature": "cols(Keyword, Optional)"
-    },
-    {
       "name": "colPattern",
       "parameters": [
         {
@@ -1196,66 +1147,6 @@
       "signature": "caseSensitive(Keyword, Optional)"
     },
     {
-      "name": "rows",
-      "parameters": [
-        {
-          "name": "Keyword",
-          "type": "Any"
-        },
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "If specified, looks for cells only in the specified rows. ",
-      "signature": "rows(Keyword, Optional)"
-    },
-    {
-      "name": "cols",
-      "parameters": [
-        {
-          "name": "Keyword",
-          "type": "Any"
-        },
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "If specified, looks for cells only in the specified columns. ",
-      "signature": "cols(Keyword, Optional)"
-    },
-    {
-      "name": "colPattern",
-      "parameters": [
-        {
-          "name": "Keyword",
-          "type": "Any"
-        },
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "If specified, overrides pattern matching for cells, rows or columns. ",
-      "signature": "colPattern(Keyword, Optional)"
-    },
-    {
-      "name": "caseSensitive",
-      "parameters": [
-        {
-          "name": "Keyword",
-          "type": "Any"
-        },
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "Cell matching is case sensitive if set to true. ",
-      "signature": "caseSensitive(Keyword, Optional)"
-    },
-    {
       "name": "includeUtility",
       "parameters": [
         {
@@ -1264,17 +1155,6 @@
         }
       ],
       "returns": "if True, allow  Utility nodes  to be returned. If False, Utility nodes will be ignored.       b   =   op  (  'project1'  ) ",
-      "signature": "includeUtility(Optional)"
-    },
-    {
-      "name": "includeUtility",
-      "parameters": [
-        {
-          "name": "Optional",
-          "type": "Any"
-        }
-      ],
-      "returns": "if True, allow  Utility nodes  to be returned. If False, Utility operators will be ignored.    ",
       "signature": "includeUtility(Optional)"
     },
     {

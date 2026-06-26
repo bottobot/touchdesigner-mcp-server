@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.013Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Time_Machine_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Time_Machine_TOP",
   "description": "The Time Machine TOP combines pixels in a sequence of images stored in a Texture 3D TOP. Whereas \"morphing\" warps an image \"spatially\" (in xy), Time Machine warps images only in time.",
   "summary": "The Time Machine TOP combines pixels in a sequence of images stored in a Texture 3D TOP. Whereas \"morphing\" warps an image \"spatially\" (in xy), Time Machine warps images only in time.",
   "details": "",

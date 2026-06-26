@@ -1,0 +1,48 @@
+{
+  "className": "Points",
+  "displayName": "Points",
+  "category": "General",
+  "description": "The Points class describes the set of point objects owned by one SOP.",
+  "members": [
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The OP to which this object belongs."
+    }
+  ],
+  "methods": [
+    {
+      "name": "len",
+      "signature": "lenlen(Points)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the total number of points."
+    },
+    {
+      "name": "[]",
+      "signature": "[index]",
+      "returns": "td.Point",
+      "parameters": [],
+      "description": "Get a specific point given an integer index."
+    },
+    {
+      "name": "Iterator",
+      "signature": "IteratorIterator",
+      "returns": "td.Point",
+      "parameters": [],
+      "description": "Iterate over each point."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Points_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Points_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Points Class wiki page",
+      "url": "https://docs.derivative.ca/Points_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

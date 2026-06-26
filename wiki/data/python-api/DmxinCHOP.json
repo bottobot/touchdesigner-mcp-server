@@ -1,0 +1,27 @@
+{
+  "className": "DmxinCHOP",
+  "displayName": "DmxinCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "timecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get a Timecode object for the last ArtTimeCode packet received. See Timecode Class."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/DmxinCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=DmxinCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the DmxinCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/DmxinCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

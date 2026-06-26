@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:56.969Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Audio_Device_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Audio_Device_In_CHOP",
   "description": "The Audio Device In CHOP receives audio from any of the attached audio input devices using DirectSound/CoreAudio or ASIO. It always outputs time sliced audio data.",
   "summary": "The Audio Device In CHOP receives audio from any of the attached audio input devices using DirectSound/CoreAudio or ASIO. It always outputs time sliced audio data.",
   "details": "",

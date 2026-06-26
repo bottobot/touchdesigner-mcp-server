@@ -1,0 +1,19 @@
+{
+  "className": "FileInfo",
+  "displayName": "FileInfo",
+  "category": "General",
+  "description": "The FileInfo object stores a file path and has a few utility properties to provide additional info. It is derived from str, so will work as a Python string, but can be differentiated from a regular string by using . Utility properties include: * path: filepath string * ext: string after and including \".\" * baseName: the basename of the file * fileType: the TD filetype (from tdu.fileTypes) * absPath: the absolute path to filepath * dir: the containing directory of filepath * exists: exists in file-system * isDir: is a directory in the file-system * isFile: is a file in the file-system",
+  "members": [],
+  "methods": [],
+  "url": "https://docs.derivative.ca/FileInfo_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=FileInfo_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the FileInfo Class wiki page",
+      "url": "https://docs.derivative.ca/FileInfo_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

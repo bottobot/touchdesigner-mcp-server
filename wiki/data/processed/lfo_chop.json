@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:03.113Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\LFO_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/LFO_CHOP",
   "description": "The LFO CHOP (low frequency oscillator) generates waves in real-time in two ways. It synthesizes curves using a choice of common waveforms like Sine or Pulse, or it repeats a prepared incoming curve.",
   "summary": "The LFO CHOP (low frequency oscillator) generates waves in real-time in two ways. It synthesizes curves using a choice of common waveforms like Sine or Pulse, or it repeats a prepared incoming curve.",
   "details": "",

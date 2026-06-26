@@ -1,0 +1,111 @@
+{
+  "id": "web_dat",
+  "name": "Web DAT",
+  "displayName": "Web DAT",
+  "category": "DAT",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Web_DAT",
+  "description": "'''Note''': Web DAT deprecated build 2019.15230, use [[Web Client DAT]]. The Web DAT fetches pages of data from a web connection. The data should be ASCII-readable. The Web DAT will automatically uncompress any gzip compressed page transfers. XML content is formatted into a readable indented structure, versus one long line normally sent by the server. An Info DAT can be used to obtain properties of the last page retrieved. There are two main methods of retrieving a page from a web site using the Web DAT: * Fetch * Submit and Fetch The Fetch method simply fetches the page from the internet using the simple protocol \"GET\", while the Submit and Fetch method can be used for submitting form data to a server. By default the latter method uses the \"POST\" protocol. Both methods allow a DAT table input to specify options while fetching. This table should consist of rows of name/value pairs. The first column consists of the names, while the second column consists of the values. The Fetch method simply concatenates the pairs into the specified URL, while the Update and Fetch method posts the pairs to a webserver, before fetching the resulting page. For example, assume a table with the following contents is connected to the Web DAT: border=\"1\" name joe - month May } If the specified URL is: ''http://www.example.com'' Then the Fetch method will actually fetch: ''http://www.example.com?name=joe&month=May'' Similarly, the Submit and Fetch method will post the pairs to the specified webserver, before fetching the page. Note that spaces and other special characters in the table will be properly encoded. For example, each space in a name or value would be encoded as: %20 The first input can also be text data, in which case the data is sent to the webserver during a POST as-is, without any formatting or encoding. If the first input is text it will be ignored during a GET operation. The 2nd input of the Web DAT can be used for custom HTTP request headers to be specified as part of the request. Like the 1st input this should be a table of name/value pairs for header field name and the value. E.g border=\"1\" Content-Type application/json - Date Tue, 12 Nov 2013 08:12:31 GMT } Each row will automatically be merged into a single line of text separated by a colon. If the 2nd column is empty then the entry in the first column will have a semi-color append to it when it's turned into the request header. See also [[XML DAT]], [[TCP/IP DAT]], [[WebSocket DAT]].",
+  "parameters": [
+    {
+      "name": "URL",
+      "parName": "url",
+      "label": "URL",
+      "type": "",
+      "description": "The url address of the web page to be retrieved.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Fetch",
+      "parName": "fetch",
+      "label": "Fetch",
+      "type": "",
+      "description": "The data will be fetched when this button is pressed. Use this method to retrieve simple single pages from the internet. By default the Web DAT will stall the process until the whole page has been transferred, or an error occurs. You can do asynchronous downloads using the Asynchronous Fetch option.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Submit Method",
+      "parName": "method",
+      "label": "Submit Method",
+      "type": "",
+      "description": "Currently only POST is implemented, though this will be expanded with other techniques such as GET.",
+      "isReadOnly": false,
+      "menuItems": [
+        "post"
+      ],
+      "menuLabels": [
+        "POST"
+      ]
+    },
+    {
+      "name": "Submit and Fetch",
+      "parName": "submitfetch",
+      "label": "Submit and Fetch",
+      "type": "",
+      "description": "Post all the name/value pairs from the input DAT to the server, then fetch the page specified in the URL parameter. Use this method to post data to a web server before retrieving the page. The data to be sent is in the form of name and value pairs. It can be specified with a table formatted DAT connected to the first input, where the first column represents data names, and the second column represents data values. The Web DAT will pause until the whole page has been transferred, or an error occurs.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Include Header in Output",
+      "parName": "includeheader",
+      "label": "Include Header in Output",
+      "type": "",
+      "description": "Includes the HTTP header in the output.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Timeout",
+      "parName": "timeout",
+      "label": "Timeout",
+      "type": "",
+      "description": "If this value is 0 the fetch request will never timeout. Any other value is how many milliseconds before the fetch times out.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Disconnect",
+      "parName": "disconnect",
+      "label": "Disconnect",
+      "type": "",
+      "description": "Closes the session.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Asynchronous Fetch",
+      "parName": "asyncfetch",
+      "label": "Asynchronous Fetch",
+      "type": "",
+      "description": "Turn on this option to allow the download to occur in the background. You can use a [[DAT Execute DAT]] to do something when the data finally arrives.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Verify Peer Certificate",
+      "parName": "verifypeer",
+      "label": "Verify Peer Certificate",
+      "type": "",
+      "description": "Enables TLS (transport layer security) certificate verification.",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Web_DAT&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Web_DAT wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Web_DAT&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

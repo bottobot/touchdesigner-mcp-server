@@ -3,407 +3,147 @@
   "id": "sop_to_pop",
   "category": "POP",
   "subcategory": "Experimental",
-  "description": "The SOP to POP converts the SOP 3D geometry to POP geometry.",
+  "description": "The SOP to POP converts the SOP 3D geometry to POP geometry. The attributes of the SOP point list are converted to point attributes, with <code>P</code> position converted to <code>P</code>, but <code>uv</code> renamed to <code>Tex</code>, and <code>Cd</code> (color in SOPs) renamed to <code>Color</code> in POPs, <code>width</code> to <code>LineWidth</code> and <code>pscale</code> to <code>PointScale</code>. For primitives, the triangles and quads are converted intact as triangles and quads. Because POPs do not support polygons with 5 or more points, a menu lets you choose between creating line strips, converting to triangles, or ignoring these primitives. Mesh primitives in SOPs are converted to a choice of quad, line strip or point primitives. It does not preserve the row/column [[Dimension]] but the [[Dimension POP]] can be used to preserve that information. SOP primitives like sphere are converted only as points in POPs. and the more rarely used SOP Bezier/NURBS primitives are also converted to points with no primitives. The vertices of the primitives are converted to POP vertices intact, including all vertex attributes with the same <code>uv</code>, <code>Cd</code> and other renaming. Primitive attributes are converted intact, again with <code>Cd</code> renamed as <code>Color</code>. The attributes in POPs are 32-bit float to float4 attributes.",
   "parameters": [
     {
-      "name": "P",
+      "name": "SOP",
+      "parName": "sop",
       "label": "SOP",
-      "description": "Configure SOP for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Ignore",
-          "value": "ignore",
-          "description": ""
-        },
-        {
-          "label": "Triangulated",
-          "value": "triangulated",
-          "description": ""
-        },
-        {
-          "label": "Closed Line Strip",
-          "value": "closedlinestrip",
-          "description": ""
-        },
-        {
-          "label": "Ignore",
-          "value": "ignore",
-          "description": ""
-        },
-        {
-          "label": "Convert to Quads",
-          "value": "quads",
-          "description": ""
-        },
-        {
-          "label": "Convert Rows to Line Strips",
-          "value": "rows",
-          "description": ""
-        },
-        {
-          "label": "Convert Columns to Line Strips",
-          "value": "cols",
-          "description": ""
-        },
-        {
-          "label": "Convert Rows and Columns to Line Strips",
-          "value": "rowscols",
-          "description": ""
-        },
-        {
-          "label": "Convert to Point Primitives",
-          "value": "points",
-          "description": ""
-        },
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        },
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
+      "type": "SOP",
+      "description": "Reference to a SOP that will have its geometry converted to POP geometry.",
+      "isReadOnly": false
     },
     {
-      "name": "sop",
-      "label": "SOP",
-      "description": "Configure SOP for the operator",
-      "type": "string"
-    },
-    {
-      "name": "polygons",
+      "name": "5+ Points Polygons",
+      "parName": "polygons",
       "label": "5+ Points Polygons",
-      "description": "Configure 5+ Points Polygons for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Ignore",
-          "value": "ignore",
-          "description": ""
-        },
-        {
-          "label": "Triangulated",
-          "value": "triangulated",
-          "description": ""
-        },
-        {
-          "label": "Closed Line Strip",
-          "value": "closedlinestrip",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Select what to do with 5+ points polygons.",
+      "isReadOnly": false,
+      "menuItems": [
+        "ignore",
+        "triangulated",
+        "closedlinestrip"
+      ],
+      "menuLabels": [
+        "Ignore",
+        "Triangulated",
+        "Closed Line Strip"
       ]
     },
     {
-      "name": "ignore",
-      "label": "Ignore",
-      "description": "Configure Ignore for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Ignore",
-          "value": "ignore",
-          "description": ""
-        },
-        {
-          "label": "Triangulated",
-          "value": "triangulated",
-          "description": ""
-        },
-        {
-          "label": "Closed Line Strip",
-          "value": "closedlinestrip",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "mesh",
+      "name": "Meshes",
+      "parName": "mesh",
       "label": "Meshes",
-      "description": "Configure Meshes for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Ignore",
-          "value": "ignore",
-          "description": ""
-        },
-        {
-          "label": "Convert to Quads",
-          "value": "quads",
-          "description": ""
-        },
-        {
-          "label": "Convert Rows to Line Strips",
-          "value": "rows",
-          "description": ""
-        },
-        {
-          "label": "Convert Columns to Line Strips",
-          "value": "cols",
-          "description": ""
-        },
-        {
-          "label": "Convert Rows and Columns to Line Strips",
-          "value": "rowscols",
-          "description": ""
-        },
-        {
-          "label": "Convert to Point Primitives",
-          "value": "points",
-          "description": ""
-        }
+      "type": "Menu",
+      "description": "Choose what to do with meshes in the input SOP.",
+      "isReadOnly": false,
+      "menuItems": [
+        "ignore",
+        "quads",
+        "rows",
+        "cols",
+        "rowscols",
+        "points"
+      ],
+      "menuLabels": [
+        "Ignore",
+        "Convert to Quads",
+        "Convert Rows to Line Strips",
+        "Convert Columns to Line Strips",
+        "Convert Rows and Columns to Line Strips",
+        "Convert to Point Primitives"
       ]
     },
     {
-      "name": "bypass",
-      "label": "Bypass",
-      "description": "Configure Bypass for the operator",
-      "type": "string"
-    },
-    {
-      "name": "delinputattrs",
-      "label": "Delete Input Attributes",
-      "description": "Configure Delete Input Attributes for the operator",
-      "type": "string"
-    },
-    {
-      "name": "parmcolorspace",
-      "label": "Parameter Color Space",
-      "description": "Configure Parameter Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
+      "name": "Input Color Space",
+      "parName": "inputcolorspace",
+      "label": "Input Color Space",
+      "type": "Menu",
+      "description": "Override / set the color space, or use the color space in the file, or assume default if there is none.",
+      "isReadOnly": false,
+      "menuItems": [
+        "automatic",
+        "srgb",
+        "srgblinear",
+        "rec601ntsc",
+        "rec709",
+        "rec2020",
+        "rec2020st2084pq",
+        "rec2020hlg",
+        "dcip3",
+        "dcip3d60",
+        "displayp3d65",
+        "displayp3d65linear",
+        "aces2065-1",
+        "acescg",
+        "acesproxy",
+        "passthrough"
+      ],
+      "menuLabels": [
+        "Automatic",
+        "sRGB",
+        "sRGB - Linear",
+        "Rec.601 (NTSC)",
+        "Rec.709",
+        "Rec.2020",
+        "Rec.2020 ST2084PQ",
+        "Rec.2020 HLG",
+        "DCI-P3",
+        "DCI-P3 (D60)",
+        "Display P3 (D65)",
+        "Display P3 (D65) - Linear",
+        "ACES2065-1",
+        "ACEScg",
+        "ACESproxy",
+        "Passthrough"
       ]
     },
     {
-      "name": "srgb",
-      "label": "sRGB",
-      "description": "Configure sRGB for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "sRGB",
-          "value": "srgb",
-          "description": "sRGB color space, with sRGB transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "sRGB - Linear",
-          "value": "srgblinear",
-          "description": "Linear srgblinear - sRGB color space, with linear transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.601 (NTSC)",
-          "value": "rec601ntsc",
-          "description": "Rec.601 with NTSC primaries color space, with Rec.601 transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.709",
-          "value": "rec709",
-          "description": "Rec.709 color space, with Rec.709 (same as Rec.2020) transfer function. Considered an SDR color space with respect to Reference White."
-        },
-        {
-          "label": "Rec.2020",
-          "value": "rec2020",
-          "description": "Rec.2020 color space, with Rec.2020 (same as Rec.709) transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3",
-          "value": "dcip3",
-          "description": "P3 dcip3 - DCI-P3 color space, with D65 white point and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "DCI-P3 (D60)",
-          "value": "dcip3d60",
-          "description": "P3 (D60) dcip3d60 - DCI-P3 \"D60 sim\" color space, with D60 white point, and 2.6 gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Display-P3 (D65)",
-          "value": "displayp3d65",
-          "description": "P3 (D65) displayp3d65 - Display-P3 color space, with D65 white point, and sRGB gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACES2065-1",
-          "value": "aces2065-1",
-          "description": "1 aces2065-1 - ACES 2065-1 (also known as ACES AP0) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "ACEScg",
-          "value": "acescg",
-          "description": "ACEScg (also known as ACES AP1) color space, with a linear gamma transfer function. Considered an HDR color space with respect to Reference White."
-        },
-        {
-          "label": "Passthrough",
-          "value": "passthrough",
-          "description": "When selected, the color values will be used as-is in the operation, without any modification or attempt to convert them into the Working Color Space."
-        }
-      ]
-    },
-    {
-      "name": "parmreferencewhite",
-      "label": "Parameter Reference White",
-      "description": "Configure Parameter Reference White for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
-      ]
-    },
-    {
-      "name": "default",
-      "label": "Default For Color Space",
-      "description": "Configure Default For Color Space for the operator",
-      "type": "menu",
-      "options": [
-        {
-          "label": "Default For Color Space",
-          "value": "default",
-          "description": "Will use either the SDR or the HDR Reference White, based on the color space selected."
-        },
-        {
-          "label": "Standard (SDR)",
-          "value": "sdr",
-          "description": "Will treat the Parameter Color Space as SDR for it's reference white value."
-        },
-        {
-          "label": "High (HDR)",
-          "value": "hdr",
-          "description": "Will treat the Parameter Color Space as HDR for it's reference white value."
-        }
+      "name": "Input Reference White",
+      "parName": "inputreferencewhite",
+      "label": "Input Reference White",
+      "type": "Menu",
+      "description": "Color space to use for the incoming data.",
+      "isReadOnly": false,
+      "menuItems": [
+        "default",
+        "sdr",
+        "hdr",
+        "ui"
+      ],
+      "menuLabels": [
+        "Default For Color Space",
+        "Standard (SDR)",
+        "High (HDR)",
+        "UI"
       ]
     }
   ],
   "experimental": true,
   "sourceFile": "Experimental-SOP_to_POP.htm",
-  "parsedAt": "2025-08-08T03:03:59.714Z"
+  "parsedAt": "2025-08-08T03:03:59.714Z",
+  "url": "https://docs.derivative.ca/SOP_to_POP",
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "paramsVerified": true,
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=SOP_to_POP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "parameters and description scraped from the live SOP_to_POP wiki page ({{Parameter}}/{{ParameterItem}} templates)",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=SOP_to_POP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
 }

@@ -1,0 +1,27 @@
+{
+  "className": "IsosurfaceSOP",
+  "displayName": "IsosurfaceSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "curPos",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The current position of the surface."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/IsosurfaceSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=IsosurfaceSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the IsosurfaceSOP Class wiki page",
+      "url": "https://docs.derivative.ca/IsosurfaceSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

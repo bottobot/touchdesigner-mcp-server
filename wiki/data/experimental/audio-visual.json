@@ -11,7 +11,7 @@
       "difficulty": "beginner",
       "operators": ["Audio Spectrum CHOP", "Audio Device In CHOP", "CHOP to SOP", "Noise CHOP", "Math CHOP"],
       "tags": ["FFT", "audio-reactive", "spectrum", "geometry", "waveform", "visualization"],
-      "notes": "Audio Spectrum CHOP outputs frequency bins as CHOP channels. Each channel is a frequency band. Connect to CHOP to SOP to drive point positions. Math CHOP scales the values.",
+      "notes": "Audio Spectrum CHOP outputs one channel per input audio channel (in 'Time to Magnitude and Phase' mode, two channels per input: a magnitude channel with suffix _m and a phase channel with suffix _p, e.g. chan1_m / chan1_p). The frequency bins are the SAMPLES within each channel — iterate over numSamples, not numChans, to read the spectrum. Default FFT Size is 8192. Connect to CHOP to SOP (or a Script SOP that reads the samples) to drive point positions; Math CHOP scales the values.",
       "code": {
         "language": "python",
         "filename": "fft_geometry.py",
@@ -21,7 +21,7 @@
         "description": "Standard FFT visualization chain",
         "chain": [
           "Audio Device In CHOP (microphone/line-in)",
-          "Audio Spectrum CHOP (FFT, 512 bins, log scale)",
+          "Audio Spectrum CHOP (FFT Size 8192 default; frequency bins = samples within the magnitude channel, log scale)",
           "Math CHOP (scale: multiply by 5.0)",
           "Lag CHOP (smooth: lag=0.05, attack=0.01)",
           "CHOP to SOP (or Script SOP) -> drive geometry",

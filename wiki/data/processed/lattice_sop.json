@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.896Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Lattice_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Lattice_SOP",
   "description": "The Lattice SOP allows you to create animated deformations of its input geometry by manipulating grids or a subdivided box that encloses the input source's geometry.",
   "summary": "The Lattice SOP allows you to create animated deformations of its input geometry by manipulating grids or a subdivided box that encloses the input source's geometry.",
   "details": "",

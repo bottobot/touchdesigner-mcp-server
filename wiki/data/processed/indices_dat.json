@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.065Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Indices_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Indices_DAT",
   "description": "The Indices DAT creates a series of numbers in a table, ranging between the start and end values.  These values are suitable for display along a graph horizontal or vertical axis.  They are carefully picked to make them all round, nicely spaced, etc.",
   "summary": "The Indices DAT creates a series of numbers in a table, ranging between the start and end values.  These values are suitable for display along a graph horizontal or vertical axis.  They are carefully ",
   "details": "",

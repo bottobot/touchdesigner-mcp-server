@@ -21,17 +21,19 @@ Right now, I'm focused on ensuring the server returns useful and accurate Python
 
 ## Features
 
-- **630 TouchDesigner Operators** - Complete documentation including 90+ experimental POP operators
+- **661 TouchDesigner Operators** - Comprehensive documentation including 102 POP (Point Operator) entries
 - **14 Interactive Tutorials** - Comprehensive TouchDesigner learning guides
-- **69 Python API Classes** - Full Python scripting documentation with 1,510+ methods
+- **214 Python API Classes** - Full Python scripting documentation with 1,674+ methods
 - **21 MCP Tools** - Across five functional groups: operator reference, tutorials, Python API, version system, and experimental content
 - **32 Workflow Patterns** - Curated operator chain patterns with 72 common transitions
 
+> **Current with TouchDesigner 2025** (latest official build 2025.32820, bundled Python 3.11.10) and the **2025.30000 experimental series** (Python 3.11.10). POPs (Point Operators) are the flagship new operator family in the 2025 release — the first new operator family in over a decade.
+
 ### Version System
-- **Version History** - All stable TD releases documented from 099 through 2024
+- **Version History** - All stable TD releases documented from 099 through 2025 (latest official build 2025.32820, Python 3.11.10)
 - **Compatibility Tracking** - Per-operator and per-method version compatibility data
 - **Python Timeline** - Full Python version history bundled with each TD release
-- **Release Highlights** - Key features and breaking changes per major release
+- **Release Highlights** - Key features and breaking changes per major release, rewritten from live Derivative sources with provenance
 
 ### Experimental Techniques Knowledge Base
 - **7 Technique Categories** - GLSL, GPU compute, machine learning, generative systems, audio-visual, networking, Python advanced
@@ -46,7 +48,7 @@ Right now, I'm focused on ensuring the server returns useful and accurate Python
 - **Smart Workflow Suggestions** - Port wiring, complexity ratings, and node count estimates
 
 ### Experimental Build Support
-- **6 Experimental Build Series** - Documented from builds 20000 through current (2025.10000)
+- **Experimental Build Series** - The 2025.30000 series (POPs, Python 3.11.10) and the 2021 Vulkan experimental build, sourced from live Derivative release notes
 - **Feature Flag Tables** - Opt-in/opt-out flags for each experimental series
 - **Graduation Tracking** - Which experimental features graduated into stable releases
 - **Breaking Change Logs** - Per-series breaking changes versus the stable baseline
@@ -283,15 +285,15 @@ it bundles, new operators introduced, key features, Python API additions, and br
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `version` | string | Yes | TD version string (e.g., '2024', '2022', '2019', '099') |
+| `version` | string | Yes | TD version string (e.g., '2025', '2022', '2019', '099') |
 
 ```
-Example: "What Python version does TouchDesigner 2022 use?"
-Example: "What operators were added in TouchDesigner 2023?"
+Example: "What Python version does TouchDesigner 2025 use?"
+Example: "What operators were added in TouchDesigner 2025?"
 ```
 
 #### list_versions
-List all supported TD versions (099, 2019, 2020, 2021, 2022, 2023, 2024) with a quick-reference
+List all supported TD versions (099, 2019, 2020, 2021, 2022, 2023, 2025) with a quick-reference
 table showing the bundled Python version and support status for each release, plus the full
 Python version timeline.
 
@@ -409,7 +411,8 @@ Example: "List all available network templates"
 
 ### Experimental Build Tools
 
-TouchDesigner ships two parallel release tracks: stable annual releases (2019–2024) and
+TouchDesigner ships two parallel release tracks: stable releases (the official line went
+099 → 2019 → 2020 → 2021 → 2022 → 2023 → 2025; there was never an official TD 2024) and
 experimental/beta build series with unreleased features. These tools give you full access
 to the experimental track.
 
@@ -426,7 +429,7 @@ Get detailed information about a specific experimental TD build series or the la
 
 ```
 Example: "What new features are in the latest experimental TouchDesigner build?"
-Example: "Get breaking changes for experimental series 2024.50000"
+Example: "Get breaking changes for experimental series 2025.30000"
 ```
 
 #### list_experimental_builds
@@ -442,31 +445,33 @@ List recent experimental TD build series grouped by feature area (rendering, Pyt
 
 ```
 Example: "List experimental TD builds with rendering changes"
-Example: "Which experimental build series introduced the Engine COMP?"
+Example: "Which experimental build series introduced POPs?"
 ```
 
 **Tracked Experimental Series:**
 
 | Series ID | Year | Status | Headline Feature |
 |-----------|------|--------|-----------------|
-| 2025.10000 | 2025 | Active Experimental | Vulkan renderer default, Python 3.12, POP GPU Solver |
-| 2024.50000 | 2024 | Graduated (TD 2024) | Python 3.11, Engine COMP async, TouchEngine v2 |
-| 2023.11000 | 2023 | Graduated (TD 2023) | POP system preview, GLSL 4.50, NVIDIA DLSS TOP |
-| 2022.32000 | 2022 | Graduated (TD 2022) | Engine COMP, USD COMP, NDI 5, WebRTC DAT |
-| 2021.15000 | 2021 | Graduated (TD 2021) | Body Track CHOP, ONNX Runtime, Python 3.8 |
-| 2020.20000 | 2020 | Graduated (TD 2020) | Bullet physics, GPU instancing v2, GLSL 4.40 |
+| 2025.30000 | 2025 | Graduated (TD 2025) | POPs (Point Operators) flagship family, Python 3.11.10 |
+| 2021.30000 | 2021 | Graduated (TD 2022) | Vulkan becomes sole graphics API (OpenGL retired), Python 3.9.5 |
+
+Both series are sourced from the live Derivative release notes (provenance recorded in
+`wiki/data/versions/experimental-builds.json`). The 2025.30000 series led into the official
+2025 release; the 2021 experimental build first moved TouchDesigner to Vulkan, which became
+the default in the 2022 release.
 
 ## Operator Categories
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| **CHOP** | 166 | Channel Operators - Audio, control signals, and data streams |
-| **TOP** | 140 | Texture Operators - 2D image and video processing |
-| **SOP** | 112 | Surface Operators - 3D geometry creation and manipulation |
-| **DAT** | 69 | Data Operators - Text, tables, and data handling |
+| **CHOP** | 170 | Channel Operators - Audio, control signals, and data streams |
+| **TOP** | 147 | Texture Operators - 2D image and video processing |
+| **SOP** | 113 | Surface Operators - 3D geometry creation and manipulation |
+| **POP** | 102 | Point Operators - Point/particle geometry (new in TD 2025) |
+| **DAT** | 75 | Data Operators - Text, tables, and data handling |
 | **COMP** | 41 | Component Operators - UI elements and containers |
 | **MAT** | 13 | Material Operators - 3D rendering materials and shaders |
-| **POP** | 90 | Point Operators - Particle systems (experimental) |
+| **Total** | **661** | All seven operator families |
 
 ## Available Tutorials
 
@@ -494,7 +499,7 @@ Example: "Which experimental build series introduced the Engine COMP?"
 
 ## Python API Documentation
 
-The server includes documentation for **69 Python API classes** with **1,510+ methods** covering:
+The server includes documentation for **214 Python API classes** with **1,674+ methods** covering:
 
 - Core operator classes (CHOP, TOP, SOP, DAT, MAT, COMP)
 - Utility classes (Channel, Cell, Page, etc.)
@@ -507,10 +512,10 @@ The server includes documentation for **69 Python API classes** with **1,510+ me
 The TD-MCP server is built with:
 - **Pure MCP Implementation** - Clean stdio-based server following MCP standards
 - **Direct Search Algorithm** - Fast, reliable search without external index dependencies
-- **OperatorDataManager** - Centralized data management with 630 operators loaded into memory
+- **OperatorDataManager** - Centralized data management with 661 operators loaded into memory
 - **Local Data Processing** - All operator data is processed and served locally
 - **Modular Tool System** - Each of the 21 MCP tools is independently maintained
-- **Dual Release Track Support** - Stable annual releases (2019–2024) and experimental build series both fully documented
+- **Dual Release Track Support** - Stable releases (099–2025) and experimental build series both fully documented
 
 ## Project Structure
 
@@ -541,11 +546,10 @@ td-mcp/
 │   └── list_experimental_builds.js  # List experimental series by area
 ├── wiki/                            # Documentation system
 │   ├── data/
-│   │   ├── processed/               # 630 operator JSON files
+│   │   ├── processed/               # 661 operator JSON files
 │   │   ├── tutorials/               # 14 tutorial JSON files
-│   │   ├── python-api/              # 69 Python class JSON files
+│   │   ├── python-api/              # 214 Python class JSON files
 │   │   ├── experimental/            # 7 advanced technique JSON files
-│   │   ├── search-index/            # Search index data
 │   │   └── versions/               # Version compatibility data
 │   │       ├── version-manifest.json
 │   │       ├── operator-compatibility.json
@@ -567,7 +571,7 @@ td-mcp/
 ## Troubleshooting
 
 ### Server won't start
-- Ensure Node.js 18.0+ is installed: `node --version`
+- Ensure Node.js 20.0+ is installed: `node --version`
 - Try reinstalling: `npm install -g @bottobot/td-mcp`
 - Check for port conflicts if running other MCP servers
 
@@ -589,7 +593,7 @@ td-mcp/
 
 ## Requirements
 
-- Node.js 18.0 or higher
+- Node.js 20.0 or higher
 - npm package manager
 - VS Code/Codium with MCP-compatible extension (e.g., Claude Dev, Roo Code)
 
@@ -646,11 +650,11 @@ MIT License - See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Current Version**: 2.8.0
-**Operators**: 630 (with cleaned parameter descriptions)
+**Current Version**: 3.0.0
+**Operators**: 661 (CHOP 170, TOP 147, SOP 113, POP 102, DAT 75, COMP 41, MAT 13)
 **Tutorials**: 14
-**Python API Classes**: 69
+**Python API Classes**: 214
 **MCP Tools**: 21
 **Workflow Patterns**: 32
-**Experimental Build Series**: 6 (builds 20000-current)
-**Last Updated**: February 2026
+**TouchDesigner Currency**: 2025 official (build 2025.32820, Python 3.11.10) + 2025.30000 experimental
+**Last Updated**: June 2026

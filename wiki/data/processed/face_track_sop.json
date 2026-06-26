@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.658Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Face_Track_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Face_Track_SOP",
   "description": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This operator uses the Augmented Reality (AR) SDK of the Nvidia Maxine system and requires a 20 or 30 series Nvidia RTX card to operate. 40 series cards are supported in 2023 and newer releases.",
   "summary": "OS: This operator is only supported under the Microsoft Windows operating system.Hardware: This operator uses the Augmented Reality (AR) SDK of the Nvidia Maxine system and requires a 20 or 30 series ",
   "details": "",

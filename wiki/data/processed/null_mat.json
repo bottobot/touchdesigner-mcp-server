@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:04.955Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Null_MAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Null_MAT",
   "description": "The Null MAT has no effect on the data. It is an instance of the MAT connected to its input. It doesn't do much but comes in handy when building networks.",
   "summary": "The Null MAT has no effect on the data. It is an instance of the MAT connected to its input. It doesn't do much but comes in handy when building networks.",
   "details": "",

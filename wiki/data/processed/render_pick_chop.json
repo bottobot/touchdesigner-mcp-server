@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:08.636Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Render_Pick_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Render_Pick_CHOP",
   "description": "The Render Pick CHOP samples a rendering (from a Render TOP or a Render Pass TOP) and returns 3D information from the geometry at that particular pick location. Values sampled can include position, normals, point color, texture coordinates, depth and the object's path.\tAn Info DAT should be used to retrieve the object's path.",
   "summary": "The Render Pick CHOP samples a rendering (from a Render TOP or a Render Pass TOP) and returns 3D information from the geometry at that particular pick location. Values sampled can include position, no",
   "details": "",

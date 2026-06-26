@@ -40,12 +40,12 @@ export const schema = {
   description: [
     "Returns information about a TouchDesigner experimental/beta build series.",
     "Experimental builds are pre-release tracks that contain new features not yet available in stable releases.",
-    "You can request a specific series ID (e.g. '2025.10000') or omit the parameter to get the latest experimental series.",
+    "You can request a specific series ID (e.g. '2025.30000') or omit the parameter to get the latest experimental series.",
     "Response includes: new features, experimental operators, breaking changes versus the stable baseline, and Python API additions."
   ].join(" "),
   inputSchema: {
     series_id: z.string().optional().describe(
-      "Experimental build series ID to look up (e.g. '2025.10000', '2024.50000'). " +
+      "Experimental build series ID to look up (e.g. '2025.30000'). " +
       "Omit to get the latest (current) experimental series. " +
       "Use list_experimental_builds to see all available series IDs."
     ),

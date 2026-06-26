@@ -1,0 +1,212 @@
+{
+  "className": "MoviefileinTOP",
+  "displayName": "MoviefileinTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "fileStartTimecode",
+      "returnType": "Timecode",
+      "readOnly": true,
+      "description": "Get a Timecode object for the timecode start provided by the file, if availble. Returns None if the file doesn't provide it. See Timecode Class."
+    },
+    {
+      "name": "metadata",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "Dictionary containing all the metadata."
+    },
+    {
+      "name": "fileHeight",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Height of the movie, in pixels."
+    },
+    {
+      "name": "fileWidth",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Width of the movie, in pixels."
+    },
+    {
+      "name": "hasAudio",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the movie contains audio."
+    },
+    {
+      "name": "hasDecodeErrors",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if any frames failed to decode, likely due to file corruption. Currently only works on Hap codec files."
+    },
+    {
+      "name": "index",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Current movie index."
+    },
+    {
+      "name": "indexFraction",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Current movie index expressed as a fraction of total length."
+    },
+    {
+      "name": "isFullyPreRead",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the movie has pre-read all of its Pre-Read frames and is ready to play. For single images this is true when the image is ready to be shown. When a movie is playing, this member will flip between True and False as its pre-read frames get consumed/refilled. When a movie isn't playing forward, this member can tell you if the movie is in an optimal state to start playing back from its currently selected frame/cued frame."
+    },
+    {
+      "name": "isInvalid",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the movie has failed to load."
+    },
+    {
+      "name": "isLastFrame",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the movie is currently showing its last frame."
+    },
+    {
+      "name": "isLoopFrame",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the movie has just looped and is showing the first frame after a loop."
+    },
+    {
+      "name": "isOddField",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the current displayed de-interlaced frame is the odd field."
+    },
+    {
+      "name": "isOpen",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the file has been opened."
+    },
+    {
+      "name": "isOpening",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True when the file is opening."
+    },
+    {
+      "name": "isFileOpening",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns true while the file header is being read."
+    },
+    {
+      "name": "isPreloading",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True when the file is preloading."
+    },
+    {
+      "name": "lastIndexUploaded",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The index of the if the last frame uploaded to the GPU."
+    },
+    {
+      "name": "numHeaders",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Returns the number of key-value pairs in the file's header."
+    },
+    {
+      "name": "numImages",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The number of images in the movie."
+    },
+    {
+      "name": "numSeconds",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The number of seconds in the movie."
+    },
+    {
+      "name": "rate",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The movie sample rate."
+    },
+    {
+      "name": "sourceChannels",
+      "returnType": "tuple",
+      "readOnly": true,
+      "description": "A list of the available channels in the file e.g. R, G, B, A for typical color images."
+    },
+    {
+      "name": "start",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The start index of the movie."
+    },
+    {
+      "name": "trueIndex",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The actual current index of the movie, disregarding trimming and other options."
+    },
+    {
+      "name": "trueNumImages",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The actual number of images contained in the movie, not affected by trimming."
+    },
+    {
+      "name": "timecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get a Timecode object for the timecode data representation of the true current index of the movie. See Timecode Class."
+    }
+  ],
+  "methods": [
+    {
+      "name": "findHeader",
+      "signature": "findHeaderfindHeader(key)",
+      "returns": "str",
+      "parameters": [],
+      "description": "Returns the value of the header with the given key. This method will return a blank string if the header is not found. *key - The name of the header to search for."
+    },
+    {
+      "name": "getHeader",
+      "signature": "getHeadergetHeader(index)",
+      "returns": "tuple",
+      "parameters": [],
+      "description": "Returns a tuple with the key and value of the header at the given index. This method will throw an error if the index is not valid. The numHeaders member can be used to get the number of valid headers in the file. *index - The index of the header to search for starting with 0."
+    },
+    {
+      "name": "unload",
+      "signature": "unloadunload(cacheMemory=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Unloads the movie and frees its memory usage. The movie will open again next time it cooks, so make sure nothing is still using it to keep it closed. *cacheMemory - (Keyword, Optional) If True, this will attempt to avoid freeing the GPU memory used to upload/display the movie. This memory can be then re-used by a future movie that is opened, assuming it has the same resolution and codec. This can help avoid stutters that occur during file loading. This isn't nesseary to do when using preload() within a single Movie File In TOP, since preload() automatically try to re-use memory. It can be useful if a different Movie File In TOP will be later opened with the same resolution/codec. Single frame movies and images are always unloaded after they are done opening, except for the final texture used for the TOP."
+    },
+    {
+      "name": "preload",
+      "signature": "preloadpreload(index)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Preloads the movie by opening it and pre-reading the first frames. Use the isFullyPreRead member to see if it's ready to play. This is done in a way to minimize impact on the existing playback of the application. If movies are being loaded on startup it's better to just call cook() on the Movie File In TOP instead of preload() since cook() will be more thorough. *index - (Optional) If specified the movie will be opened at the specified frame index. If not, then the movie will be opened at the index specified by its parameters."
+    }
+  ],
+  "url": "https://docs.derivative.ca/MoviefileinTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=MoviefileinTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the MoviefileinTOP Class wiki page",
+      "url": "https://docs.derivative.ca/MoviefileinTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

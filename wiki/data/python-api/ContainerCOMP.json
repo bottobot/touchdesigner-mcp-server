@@ -1,0 +1,35 @@
+{
+  "className": "ContainerCOMP",
+  "displayName": "ContainerCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "PanelCOMP",
+  "members": [],
+  "methods": [
+    {
+      "name": "click",
+      "signature": "clickclick(u, v, clickCount=1, force=False, left=False, middle=False, right=False, group=None)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Simulate a mouse click on a container panel at a specific location. *u - The first coordinate of the click. *v - The second coordinate of the click. *clickCount - (Keyword, Optional) If set, it sets the number of clicks. For double clicking etc. *force - (Keyword, Optional) If set to True, forces the panel click, even when its disabled. *left,middle,right - (Keyword, Optional) Overrides the default mouse button used. When none are set, the left mouse button is pressed, and the other buttons are released. *group - (Keyword, Optional) Specifies an optional panel group name. See the Button COMP for a description of group labels."
+    },
+    {
+      "name": "clickChild",
+      "signature": "clickChildclickChild(childIndex, clickCount=1, force=False, left=False, middle=False, right=False, group=None)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Simulate a mouse click of a sub-panel within a container panel. This can be used to click radio buttons within a single container. *childIndex - indicates the child panel to click. *clickCount - (Keyword, Optional) If set, it sets the number of clicks. For double clicking etc. *force - (Keyword, Optional) If set to True, forces the panel click, even when its disabled. *left,middle,right - (Keyword, Optional) Overrides the default mouse button used. When none are set, the left mouse button is pressed, and the other buttons are released. *group - (Keyword, Optional) Specifies an optional panel group name. See the Button COMP for a description of group labels."
+    }
+  ],
+  "url": "https://docs.derivative.ca/ContainerCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ContainerCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ContainerCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/ContainerCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

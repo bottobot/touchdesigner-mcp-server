@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:09.947Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\SSAO_TOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/SSAO_TOP",
   "description": "The SSAO TOP performs Screen Space Ambient Occlusion on the output of a Render TOP or Render Pass TOP. Because this technique requires access to the Depth Buffer, no other TOP can be in between the Render/RenderPass TOP and the SSAO TOP. Screen Space Ambient Occlusion is a real-time rendering trick that creates an approximation of ambient occlusion by using the Depth Buffer of the rendered scene. It is done as 2D post-processes, so the complexity of the scene has no bearing on how expensive it is. This is in comparison to true ambient occlusion which becomes more expensive with each new object that is rendered. There are two parts to a SSAO technique. First a SSAO pass is done that determines how much ambient occlusion each pixel is affected by. This result tends to be very noisy. A blur operation is then performed to even out this noise.",
   "summary": "The SSAO TOP performs Screen Space Ambient Occlusion on the output of a Render TOP or Render Pass TOP. Because this technique requires access to the Depth Buffer, no other TOP can be in between the Re",
   "details": "",

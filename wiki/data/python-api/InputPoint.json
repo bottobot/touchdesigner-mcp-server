@@ -1,0 +1,38 @@
+{
+  "className": "InputPoint",
+  "displayName": "InputPoint",
+  "category": "General",
+  "description": "A Input Point is a special case of a Point object, only available in the Point SOP's parameters. The members below are unique to Input Point. See Point Class for other members and more information.",
+  "members": [
+    {
+      "name": "color",
+      "returnType": "[[Color Class|TDU.Color]]",
+      "readOnly": true,
+      "description": "The color for this point. This is different from the Cd attribute, since it can come from a Vertex if there is no color on the inputPoint itself."
+    },
+    {
+      "name": "normal",
+      "returnType": "[[Vector Class|TDU.Vector]]",
+      "readOnly": true,
+      "description": "The normal for this point. This is different from the N attribute, since it can come from a Vertex or from the destination point, if there is no normal on the inputPoint itself."
+    },
+    {
+      "name": "sopCenter",
+      "returnType": "[[Position Class|TDU.Position]]",
+      "readOnly": true,
+      "description": "Get the barycentric coordinate of the geometry the inputPoint is a part of. This is faster than other methods to get the center of a SOP's geometry due to internal optimizations. It is expressed as a tdu.Position."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/InputPoint_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=InputPoint_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the InputPoint Class wiki page",
+      "url": "https://docs.derivative.ca/InputPoint_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

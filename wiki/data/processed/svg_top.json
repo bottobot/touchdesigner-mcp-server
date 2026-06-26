@@ -1,0 +1,243 @@
+{
+  "id": "svg_top",
+  "name": "SVG TOP",
+  "displayName": "SVG TOP",
+  "category": "TOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/SVG_TOP",
+  "description": "The SVG TOP has been deprecated and no longer works. Try [[palette:webSvg]] as an alternative. See also the [[Web Render TOP]].",
+  "parameters": [
+    {
+      "name": "File",
+      "parName": "file",
+      "label": "File",
+      "type": "File",
+      "description": "The path and name of the SVG file to load. File format .svg supported.",
+      "isReadOnly": false
+    },
+    {
+      "name": "DAT",
+      "parName": "dat",
+      "label": "DAT",
+      "type": "DAT",
+      "description": "Not currently used.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Reload",
+      "parName": "reload",
+      "label": "Reload",
+      "type": "Toggle",
+      "description": "Change from 0 to 1 to force the file to reload, useful when the file changes or did not exist at first.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Anti-Alias",
+      "parName": "antialias",
+      "label": "Anti-Alias",
+      "type": "Menu",
+      "description": "Sets the level of anti-aliasing in the scene. Setting this to higher values uses more graphics memory.",
+      "isReadOnly": false,
+      "menuItems": [
+        "aa1",
+        "aa2",
+        "aa4",
+        "aa8mid",
+        "aa8high",
+        "aa16low",
+        "aa16mid",
+        "aa16high",
+        "aa32"
+      ],
+      "menuLabels": [
+        "1x (Off)",
+        "2x",
+        "4x",
+        "8x (Medium)",
+        "8x (High)",
+        "16x (Low)",
+        "16x (Medium)",
+        "16x (High)",
+        "32x"
+      ]
+    },
+    {
+      "name": "Background Color",
+      "parName": "bgcolor",
+      "label": "Background Color",
+      "type": "RGB",
+      "description": "Sets the background color in the image.",
+      "isReadOnly": false,
+      "menuItems": [
+        "bgcolorr",
+        "bgcolorg",
+        "bgcolorb"
+      ],
+      "menuLabels": [
+        "Red",
+        "Green",
+        "Blue"
+      ]
+    },
+    {
+      "name": "Background Alpha",
+      "parName": "bgalpha",
+      "label": "Background Alpha",
+      "type": "Float",
+      "description": "Sets the background alpha in the image.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Transform Order",
+      "parName": "xord",
+      "label": "Transform Order",
+      "type": "Menu",
+      "description": "The menu attached to this parameter allows you to specify the order in which the changes to your TOP will take place. Changing the Transform order will change where things go much the same way as going a block and turning east gets you to a different place than turning east and then going a block.",
+      "isReadOnly": false,
+      "menuItems": [
+        "srt",
+        "str",
+        "rst",
+        "rts",
+        "tsr",
+        "trs"
+      ],
+      "menuLabels": [
+        "Scale Rotate Translate",
+        "Scale Translate Rotate",
+        "Rotate Scale Translate",
+        "Rotate Translate Scale",
+        "Translate Scale Rotate",
+        "Translate Rotate Scale"
+      ]
+    },
+    {
+      "name": "Rotate Order",
+      "parName": "rord",
+      "label": "Rotate Order",
+      "type": "Menu",
+      "description": "The rotational matrix presented when you click on this option allows you to set the transform order for the TOP's rotations. As with transform order (above), changing the order in which the TOP's rotations take place will alter the TOP's final position.",
+      "isReadOnly": false,
+      "menuItems": [
+        "xyz",
+        "xzy",
+        "yxz",
+        "yzx",
+        "zxy",
+        "zyx"
+      ],
+      "menuLabels": [
+        "Rx Ry Rz",
+        "Rx Rz Ry",
+        "Ry Rx Rz",
+        "Ry Rz Rx",
+        "Rz Rx Ry",
+        "Rz Ry Rx"
+      ]
+    },
+    {
+      "name": "Translate",
+      "parName": "t",
+      "label": "Translate",
+      "type": "XY",
+      "description": "The two fields for Translate allows you to specify transforms in x and y axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty"
+      ],
+      "menuLabels": [
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "Translate Unit",
+      "parName": "tunit",
+      "label": "Translate Unit",
+      "type": "Menu",
+      "description": "Select the units for this parameter from Pixels, Fraction (0-1), Fraction Aspect (0-1 considering aspect ratio).",
+      "isReadOnly": false
+    },
+    {
+      "name": "Rotate",
+      "parName": "r",
+      "label": "Rotate",
+      "type": "XYZ",
+      "description": "The three fields for Rotate allow you to specify the amount of rotation along any of the three axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "rx",
+        "ry",
+        "rz"
+      ],
+      "menuLabels": [
+        "X",
+        "Y",
+        "Z"
+      ]
+    },
+    {
+      "name": "Scale",
+      "parName": "s",
+      "label": "Scale",
+      "type": "XY",
+      "description": "The two fields for Scale allows you to specify transforms in x and y axes.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sx",
+        "sy"
+      ],
+      "menuLabels": [
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "Pivot",
+      "parName": "p",
+      "label": "Pivot",
+      "type": "XY",
+      "description": "The Pivot point edit fields allow you to define the point about which the TOP scales and rotates. Altering the pivot point of a TOP produces different results depending on the transformation performed on the TOP image. For example, during a scaling operation, if the pivot point of a TOP image is located at <code>-1,-1</code> and you wanted to scale the image by <code>0.5</code> (reduce its size by 50%), then the TOP would scale toward the pivot point and appear to slide down and to the left.",
+      "isReadOnly": false,
+      "menuItems": [
+        "px",
+        "py"
+      ],
+      "menuLabels": [
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "Pivot Unit",
+      "parName": "punit",
+      "label": "Pivot Unit",
+      "type": "Menu",
+      "description": "Select the units for this parameter from Pixels, Fraction (0-1), Fraction Aspect (0-1 considering aspect ratio).",
+      "isReadOnly": false
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=SVG_TOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live SVG_TOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=SVG_TOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

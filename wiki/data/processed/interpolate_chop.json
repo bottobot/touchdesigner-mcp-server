@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:02.258Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Interpolate_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Interpolate_CHOP",
   "description": "The Interpolate CHOP treats its multiple-inputs as keyframes and interpolates between them. The inputs are usually single-frame CHOP channels like those produced by a Constant CHOP. The Interpolate CHOP first sorts the input CHOPs in time (without shifting them) and interpolates between them to fill the gaps.",
   "summary": "The Interpolate CHOP treats its multiple-inputs as keyframes and interpolates between them. The inputs are usually single-frame CHOP channels like those produced by a Constant CHOP. The Interpolate CH",
   "details": "",

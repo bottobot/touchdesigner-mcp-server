@@ -1,0 +1,173 @@
+{
+  "id": "font_sop",
+  "name": "Font SOP",
+  "displayName": "Font SOP",
+  "category": "SOP",
+  "subcategory": "",
+  "url": "https://docs.derivative.ca/Font_SOP",
+  "description": "'''Note''': Font SOP deprecated build 2019.14650, use [[Text SOP]]. The Font SOP allows you to create text in your model from Adobe Type 1 Postscript Fonts. To install fonts, copy the font files to the <code>$TFS/touch/fonts</code> directory of your installation path. They will be ready to be used in the Font SOP after restarting TouchDesigner.",
+  "parameters": [
+    {
+      "name": "Primitive Type",
+      "parName": "type",
+      "label": "Primitive Type",
+      "type": "",
+      "description": "Select from the following types. For information on the different types, see the Geometry Types section. Bzier Curves and Polygons provide the most efficient use of memory, because they use polygons for letters containing straight segments, and Bzier curves for all others. '''Note:''' Due to an Open GL bug, holes in Bzier fonts may shade incorrectly.",
+      "isReadOnly": false,
+      "menuItems": [
+        "bezierpoly",
+        "bezier",
+        "poly"
+      ],
+      "menuLabels": [
+        "Bezier Curves and Polygons",
+        "Beziers Only",
+        "Polygons Only"
+      ]
+    },
+    {
+      "name": "Font",
+      "parName": "file",
+      "label": "Font",
+      "type": "",
+      "description": "Choose the font to create the text. By clicking on the + button a File Dialog will appear, and clicking menu drop down brings up a menu of the most used fonts.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Text",
+      "parName": "text",
+      "label": "Text",
+      "type": "",
+      "description": "Enter the text you want to generate here. Your text can contain the following special characters: * <code> \\ </code> - Take the next character literally (so you can use the / and ` characters in your text); * <code> `string` </code> - Evaluate the string contained by the backquotes (above the T key) as an expression; * <code> \\n </code> - Start a new line; * <code> \\xxx </code> - Specify a character by it's ascii code (e.g. \\007). '''For Example:''' If you put something like <code>\\\\$F3</code> in the text string, you should see all the possible characters of a font as you play the animation (set the last frame to 256). '''Entering Expressions as Text''' - You can also use expressions for the text. '''For Example: '''<syntaxhighlight lang=python inline>me.time.frame</syntaxhighlight> - will display the current frame. <syntaxhighlight lang=python inline>op('null1')['chan1']</syntaxhighlight> - will display the current value of channel chan1 in CHOP <code>null1</code>. <syntaxhighlight lang=python inline>'hello world'[int(me.time.frame)%11]</syntaxhighlight> - causes the eleven letters of the text to appear in succession during the first eleven frames. '''Other Methods of Entering Text - '''You can use the <code>\\xxx</code> decimal notation to specify characters. The available characters will depend on the font type used. '''For Example: '''\\065 - will display '<code>a</code>'. You can also use the [[Par Class]] to set text in the Font SOP. This can be done from the textport, a [[Logic CHOP]] or [[Expression CHOP]], or any script. (See [[Introduction to Python Tutorial|Scripting]] articles) '''For Example: '''<syntaxhighlight lang=python inline>op('font1').par.text = 'hello world'</syntaxhighlight> - will display the words: hello world",
+      "isReadOnly": false
+    },
+    {
+      "name": "Center Text Horizontally",
+      "parName": "hcenter",
+      "label": "Center Text Horizontally",
+      "type": "",
+      "description": "This check box allows you to center the text horizontally about X = 0.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Center Text Vertically",
+      "parName": "vcenter",
+      "label": "Center Text Vertically",
+      "type": "",
+      "description": "This check box allows you to center the text vertically about Y = 0.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Translate",
+      "parName": "t",
+      "label": "Translate",
+      "type": "",
+      "description": "Translates the geometry in x, y and z.",
+      "isReadOnly": false,
+      "menuItems": [
+        "tx",
+        "ty",
+        "tz"
+      ],
+      "menuLabels": [
+        "X",
+        "Y",
+        "Z"
+      ]
+    },
+    {
+      "name": "Scale",
+      "parName": "s",
+      "label": "Scale",
+      "type": "",
+      "description": "Scales the text in the X and Y axis.",
+      "isReadOnly": false,
+      "menuItems": [
+        "sx",
+        "sy"
+      ],
+      "menuLabels": [
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "Kerning",
+      "parName": "kern",
+      "label": "Kerning",
+      "type": "",
+      "description": "Letter spacing in the X direction. Line spacing in the Y direction if there are multiple lines. If you need manual character-by-character, you can do it in Model mode.",
+      "isReadOnly": false,
+      "menuItems": [
+        "kernx",
+        "kerny"
+      ],
+      "menuLabels": [
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "Italic Angle",
+      "parName": "italic",
+      "label": "Italic Angle",
+      "type": "",
+      "description": "Doesn't actually give an italic version of the font, but rather obliques the text by shearing it the specified number of degrees. A negative number makes the text slant to the left.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Level of Detail",
+      "parName": "lod",
+      "label": "Level of Detail",
+      "type": "",
+      "description": "Adobe fonts are defined by Bzier curves. If polygons only is selected, the Font SOP converts these to polygons. This value adjusts the number of points in the polygons that it gets converted to.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Hole Faces",
+      "parName": "hole",
+      "label": "Hole Faces",
+      "type": "",
+      "description": "Generates holes in polygons and Bzier faces.",
+      "isReadOnly": false
+    },
+    {
+      "name": "Texture Coordinates",
+      "parName": "texture",
+      "label": "Texture Coordinates",
+      "type": "",
+      "description": "This adds uv coordinates to the geometry created by the Font SOP.",
+      "isReadOnly": false,
+      "menuItems": [
+        "off",
+        "ortho"
+      ],
+      "menuLabels": [
+        "Off",
+        "Orthographic"
+      ]
+    }
+  ],
+  "paramsVerified": true,
+  "summary": "",
+  "tips": [],
+  "warnings": [],
+  "relatedOperators": [],
+  "commonInputs": [],
+  "commonOutputs": [],
+  "workflowPatterns": [],
+  "keywords": [],
+  "tags": [],
+  "pythonExamples": [],
+  "codeExamples": [],
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Font_SOP&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the live Font_SOP wiki page",
+      "url": "https://docs.derivative.ca/api.php?action=parse&page=Font_SOP&prop=wikitext",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

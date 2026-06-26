@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:49:58.068Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Cap_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Cap_SOP",
   "description": "The Cap SOP is used to close open areas with flat or rounded coverings. Meshes are capped by extending the mesh in either the U or V direction (e.g. a NURBS tube). Faces are capped by appending a separate face or hull cap.",
   "summary": "The Cap SOP is used to close open areas with flat or rounded coverings. Meshes are capped by extending the mesh in either the U or V direction (e.g. a NURBS tube). Faces are capped by appending a sepa",
   "details": "",

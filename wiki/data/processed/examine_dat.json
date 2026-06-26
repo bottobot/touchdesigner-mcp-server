@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.080Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Examine_DAT.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Examine_DAT",
   "description": "The Examine DAT lets you inspect an operator's python storage, locals, globals, expressions, and extensions.",
   "summary": "The Examine DAT lets you inspect an operator's python storage, locals, globals, expressions, and extensions.",
   "details": "",

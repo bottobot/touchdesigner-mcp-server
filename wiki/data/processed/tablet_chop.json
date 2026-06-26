@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:10.429Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Tablet_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Tablet_CHOP",
   "description": "The Tablet CHOP gets the Wacom tablet X and Y values, and also gets pen tip pressure, X tilt and Y tilt, and the various pen buttons. Two pens can be used to output one set of channels for each pen. The Tablet CHOP will initialize/install when the CHOP is created.",
   "summary": "The Tablet CHOP gets the Wacom tablet X and Y values, and also gets pen tip pressure, X tilt and Y tilt, and the various pen buttons. Two pens can be used to output one set of channels for each pen. T",
   "details": "",

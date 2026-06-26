@@ -1,0 +1,77 @@
+{
+  "className": "Monitors",
+  "displayName": "Monitors",
+  "category": "UI",
+  "description": "The Monitors class describes the set of all installed monitor objects. It can be accessed with the monitors object, found in the automatically imported td module. It operates much like a Python list of monitor objects.",
+  "members": [
+    {
+      "name": "primary",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The primary monitor display."
+    },
+    {
+      "name": "width",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The width of the combined monitor area, measured in pixels."
+    },
+    {
+      "name": "height",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The height of the combined monitor area, measured in pixels."
+    },
+    {
+      "name": "left",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The leftmost edge of the combined monitor area, measured in pixels."
+    },
+    {
+      "name": "right",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The rightmost edge of the combined monitor area, measured in pixels."
+    },
+    {
+      "name": "top",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The topmost position of the combined monitor area, measured in pixels."
+    },
+    {
+      "name": "bottom",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The bottommost position of the combined monitor area, measured in pixels."
+    }
+  ],
+  "methods": [
+    {
+      "name": "locate",
+      "signature": "locatelocate(x,y)",
+      "returns": "td.Monitor",
+      "parameters": [],
+      "description": "Return the monitor at the specified mouse coordinates, or None."
+    },
+    {
+      "name": "refresh",
+      "signature": "refreshrefresh()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Causes the application to behave as if a monitor device has changed. Monitors DAT and other sources will be updated. This is typically done automatically by the operating system, but in special cases can be triggered manually with this method."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Monitors_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Monitors_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Monitors Class wiki page",
+      "url": "https://docs.derivative.ca/Monitors_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

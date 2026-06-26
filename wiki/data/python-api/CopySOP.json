@@ -1,0 +1,39 @@
+{
+  "className": "CopySOP",
+  "displayName": "CopySOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "copyIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The current copy index, beginning at zero."
+    },
+    {
+      "name": "copyTotal",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The total number of copies."
+    },
+    {
+      "name": "inputPoint",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The current point being evaluated, of the template."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/CopySOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=CopySOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the CopySOP Class wiki page",
+      "url": "https://docs.derivative.ca/CopySOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

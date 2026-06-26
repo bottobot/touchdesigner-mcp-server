@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:00.831Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\File_In_CHOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/File_In_CHOP",
   "description": "The File In CHOP reads in channel and audio files for use by CHOPs. The file can be read in from disk or from the web. Use http:// when specifying a URL.",
   "summary": "The File In CHOP reads in channel and audio files for use by CHOPs. The file can be read in from disk or from the web. Use http:// when specifying a URL.",
   "details": "",

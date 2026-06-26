@@ -7,7 +7,7 @@
   "version": "",
   "lastUpdated": "2025-08-07T07:50:11.612Z",
   "sourceFile": "C:\\Program Files\\Derivative\\TouchDesigner\\Samples\\Learn\\OfflineHelp\\https.docs.derivative.ca\\Twist_SOP.htm",
-  "url": "",
+  "url": "https://docs.derivative.ca/Twist_SOP",
   "description": "The Twist SOP performs non-linear deformations such as bend, linear taper, shear, squash and stretch, taper and twist. Each deformation will distort the object in one or more axes.",
   "summary": "The Twist SOP performs non-linear deformations such as bend, linear taper, shear, squash and stretch, taper and twist. Each deformation will distort the object in one or more axes.",
   "details": "",
