@@ -5,6 +5,27 @@ All notable changes to the TouchDesigner MCP Server will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] — Live Control (experimental; pending in-app verification)
+
+Adds the ability to **drive a running TouchDesigner 2025 instance** to build operator
+networks and create visuals, using only documented TouchDesigner APIs. Researched, critiqued,
+and revised in `LIVE_CONTROL_PLAN.md`; statically verified end-to-end against a mock bridge.
+**Not yet verified against a live TouchDesigner** — the `[VERIFY IN-APP]` items in
+`td-bridge/README.md` must be confirmed before this is released.
+
+### Added
+- **16 live-control MCP tools** (37 tools total): `td_status`, `td_create_operator`,
+  `td_set_parameter`, `td_connect`, `td_delete`, `td_list_network`, `td_clear`, `td_layout`,
+  `td_get_errors`, `td_set_resolution`, `td_render`, `td_sample`, `td_build_template`,
+  `td_build_pattern`, `td_build_glsl`, `td_run_python`. Each wraps exactly one documented
+  `td` call (`COMP.create`, `Par.val/.expr/.pulse`, `Connector.connect`, `TOP.saveByteArray`, …).
+- **`td-bridge/`** — a user-installed TouchDesigner component (`router.py` Web Server DAT
+  callbacks + `bootstrap.py` + `README.md`). Bound to `127.0.0.1`, token-authenticated
+  (constant-time), CSRF-guarded, sandbox-confined to `/td_mcp/sandbox`, `run_python` off by default.
+- **`wiki/data/maps/operators.json`** — authoritative documented create tokens (from the wiki
+  `opClass` field) and parameter scripting-names for 653/661 operators, scraped via
+  `scripts/build-maps.js`.
+
 ## [3.0.0] - 2026-06-25
 
 A modernization release that corrects the operator catalog, Python class count, and all

@@ -44,6 +44,24 @@ import * as getNetworkTemplateTool from './tools/get_network_template.js';
 import * as getExperimentalBuildTool from './tools/get_experimental_build.js';
 import * as listExperimentalBuildsTool from './tools/list_experimental_builds.js';
 
+// Import live-control tools (drive a running TouchDesigner via the td_mcp_bridge component)
+import * as tdStatusTool from './tools/td_status.js';
+import * as tdCreateOperatorTool from './tools/td_create_operator.js';
+import * as tdSetParameterTool from './tools/td_set_parameter.js';
+import * as tdConnectTool from './tools/td_connect.js';
+import * as tdDeleteTool from './tools/td_delete.js';
+import * as tdListNetworkTool from './tools/td_list_network.js';
+import * as tdClearTool from './tools/td_clear.js';
+import * as tdLayoutTool from './tools/td_layout.js';
+import * as tdGetErrorsTool from './tools/td_get_errors.js';
+import * as tdSetResolutionTool from './tools/td_set_resolution.js';
+import * as tdRenderTool from './tools/td_render.js';
+import * as tdSampleTool from './tools/td_sample.js';
+import * as tdBuildTemplateTool from './tools/td_build_template.js';
+import * as tdBuildPatternTool from './tools/td_build_pattern.js';
+import * as tdBuildGlslTool from './tools/td_build_glsl.js';
+import * as tdRunPythonTool from './tools/td_run_python.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const PATTERNS_PATH = join(__dirname, 'data', 'patterns.json');
@@ -229,6 +247,31 @@ server.registerTool(
   async (params) => await listExperimentalBuildsTool.handler(params, {})
 );
 
+// Register live-control tools — these drive a running TouchDesigner via the user-installed
+// td_mcp_bridge component. They report a clear "bridge not reachable" message when TD/the
+// bridge is not running, so they are always safe to register.
+const liveControlTools = {
+  td_status: tdStatusTool,
+  td_create_operator: tdCreateOperatorTool,
+  td_set_parameter: tdSetParameterTool,
+  td_connect: tdConnectTool,
+  td_delete: tdDeleteTool,
+  td_list_network: tdListNetworkTool,
+  td_clear: tdClearTool,
+  td_layout: tdLayoutTool,
+  td_get_errors: tdGetErrorsTool,
+  td_set_resolution: tdSetResolutionTool,
+  td_render: tdRenderTool,
+  td_sample: tdSampleTool,
+  td_build_template: tdBuildTemplateTool,
+  td_build_pattern: tdBuildPatternTool,
+  td_build_glsl: tdBuildGlslTool,
+  td_run_python: tdRunPythonTool,
+};
+for (const [toolName, mod] of Object.entries(liveControlTools)) {
+  server.registerTool(toolName, mod.schema, async (params) => await mod.handler(params));
+}
+
 // Main startup
 async function main() {
   console.error(`TD-MCP v${VERSION} Server Starting...`);
@@ -250,7 +293,7 @@ async function main() {
     const stats = operatorDataManager.getSystemStats();
     const pythonApiStats = stats.pythonApiStats || { totalClasses: 0 };
     console.error(`[Server] Ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
-    console.error(`[Server] All 21 tools registered`);
+    console.error(`[Server] All 37 tools registered (21 knowledge + 16 live-control)`);
   } catch (error) {
     // A hard initialization failure means the operator/Python/tutorial data could not
     // be loaded. Continuing would silently serve empty/not-found results to every tool,

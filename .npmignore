@@ -19,6 +19,10 @@ Thumbs.db
 *.tmp
 *.temp
 
+# Python build artifacts
+__pycache__/
+*.pyc
+
 # --- Exclude heavy / dev-only artifacts from the published npm tarball ---
 # package.json "files" is the allowlist; these patterns negate within it.
 
@@ -32,6 +36,7 @@ scripts/
 MODERNIZATION_TRACKER.md
 AUDIT_REPORT.md
 IMPLEMENTATION_PLAN.md
+LIVE_CONTROL_PLAN.md
 .remember/
 .roo/
 .claude/
