@@ -41,6 +41,7 @@
   "files": [
     "index.js",
     "tools/",
+    "td-bridge/",
     "data/",
     "wiki/operator-data-manager.js",
     "wiki/operator-data-python-api.js",
