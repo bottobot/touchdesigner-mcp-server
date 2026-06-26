@@ -1,0 +1,33 @@
+{
+  "className": "ZedTOP",
+  "displayName": "ZedTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "calibrationParameters",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "Dictionary containing the intrinsics and extrinsic stereo parameters for rectified/undistorted images. This includes focal point, optical center, distortion, field of view, and stereo transformation matrix."
+    },
+    {
+      "name": "calibrationParametersRaw",
+      "returnType": "dict",
+      "readOnly": true,
+      "description": "Dictionary containing the intrinsics and extrinsic stereo parameters for unrectified/distorted images. This includes focal point, optical center, distortion, field of view, and stereo transformation matrix."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ZedTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ZedTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ZedTOP Class wiki page",
+      "url": "https://docs.derivative.ca/ZedTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "className": "ParGroupPulse",
+  "displayName": "ParGroupPulse",
+  "category": "General",
+  "description": "The ParGroupPulse class describes a subclass of a ParGroup ending with a pulse parameter. See also Custom ParGroup. Note: the ParGroupPulse class will be deprecated in coming TouchDesigner releases. It is recommended that you access pulse parameters directly rather than through this object.",
+  "members": [],
+  "methods": [
+    {
+      "name": "pulse",
+      "signature": "pulsepulse(value, frames=0, seconds=0)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Pulsing sets a parameter to the specific value, cooks the operator, then restores the parameter to its previous value. For pulse type parameters no value or time is specified or used. * value - (Optional) The tuple to pulse this parGroup with, default is . * frames - (Optional) Number of frames before restoring the parameter to its original value. * seconds - (Optional) Number of seconds before restoring the parameter to its original value."
+    }
+  ],
+  "url": "https://docs.derivative.ca/ParGroupPulse_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ParGroupPulse_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ParGroupPulse Class wiki page",
+      "url": "https://docs.derivative.ca/ParGroupPulse_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

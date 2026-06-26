@@ -1,0 +1,57 @@
+{
+  "className": "ScalabledisplayTOP",
+  "displayName": "ScalabledisplayTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "cameraTransform",
+      "returnType": "tdu.Matrix",
+      "readOnly": true,
+      "description": "Gets the loaded camera transform matrix for the configuration. This should be referenced in the 'Xform Matrix/CHOP/DAT' parameter of the Camera COMP."
+    },
+    {
+      "name": "projection",
+      "returnType": "tdu.Matrix",
+      "readOnly": true,
+      "description": "Gets the loaded projection matrix for the configuration. This should be referenced in the 'Proj Matrix/CHOP/DAT' parameter of the Camera COMP, with the 'Projection' set to 'Custom Projection Matrix'."
+    },
+    {
+      "name": "calibWidth",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Gets the calibration width as defined by calibration file."
+    },
+    {
+      "name": "calibHeight",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Gets the calibration height as defined by calibration file."
+    },
+    {
+      "name": "calibApproxWidth",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Gets the calibration approximate width as defined by calibration file."
+    },
+    {
+      "name": "calibApproxHeight",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Gets the calibration approximate height as defined by calibration file."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ScalabledisplayTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ScalabledisplayTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ScalabledisplayTOP Class wiki page",
+      "url": "https://docs.derivative.ca/ScalabledisplayTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

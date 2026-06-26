@@ -1,0 +1,49 @@
+{
+  "className": "MqttclientDAT",
+  "displayName": "MqttclientDAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "DAT",
+  "members": [
+    {
+      "name": "isConnected",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Return True if connected to a broker, and False if not."
+    }
+  ],
+  "methods": [
+    {
+      "name": "publish",
+      "signature": "publishpublish(topic, payload, qos=0, retain=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Publish content to a specific topic. *topic - The topic to publish to. *payload - The actual message to send. *qos - (Keyword, Optional) The quality of service level to use. *retain - (Keyword, Optional) If set to True, the message will be set as the \"last known good\"retained message for the topic."
+    },
+    {
+      "name": "subscribe",
+      "signature": "subscribesubscribe(topic, qos=0)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Subscribe to a specific topic from the broker. *topic - The topic to subscribe to. Multiple topics can be subscribed to at once by providing a list. *qos - (Keyword, Optional) Quality of Service for delivery: At most once (0), At least once (1) or Exactly once (2)."
+    },
+    {
+      "name": "unsubscribe",
+      "signature": "unsubscribeunsubscribe(topic)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Unsubscribe from a previously subscribed topic. *topic - The topic to unsubscribe from. Multiple topics can be unsubscribed from at once by providing a list."
+    }
+  ],
+  "url": "https://docs.derivative.ca/MqttclientDAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=MqttclientDAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the MqttclientDAT Class wiki page",
+      "url": "https://docs.derivative.ca/MqttclientDAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

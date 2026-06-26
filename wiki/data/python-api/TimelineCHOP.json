@@ -1,0 +1,27 @@
+{
+  "className": "TimelineCHOP",
+  "displayName": "TimelineCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "timecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get a Timecode object for the timecode data representation of the current timeline frame. See Timecode Class."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/TimelineCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TimelineCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the TimelineCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/TimelineCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

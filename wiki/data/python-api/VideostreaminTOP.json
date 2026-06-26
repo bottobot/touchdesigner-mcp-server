@@ -1,0 +1,77 @@
+{
+  "className": "VideostreaminTOP",
+  "displayName": "VideostreaminTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "connectionsFailed",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The number of times this operator has failed to make a connection to any URL."
+    },
+    {
+      "name": "connectionsLost",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The number of times this operator has lost a connection it has previous successfully established."
+    },
+    {
+      "name": "frameTime",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The timestamp of the currently shown frame, in seconds."
+    },
+    {
+      "name": "isConnected",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if connected to target URL."
+    },
+    {
+      "name": "isConnecting",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if attempting to connect to target URL."
+    },
+    {
+      "name": "isOddField",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "When de-interlacing, this tells if the odd field is currently being shown."
+    },
+    {
+      "name": "videoHeight",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Height of the movie, in pixels."
+    },
+    {
+      "name": "videoWidth",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Width of the movie, in pixels."
+    }
+  ],
+  "methods": [
+    {
+      "name": "unload",
+      "signature": "unloadunload(cacheMemory=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Unloads the video stream and frees it's memory usage. The stream will open again next time it cooks, so make sure nothing is still using it to keep it closed. *cacheMemory - (Keyword, Optional) If True the memory (textures, upload buffers) of the movie will be cached for use by another movie later on. Useful if you are opening/closing many movies with the same codec and resolution."
+    }
+  ],
+  "url": "https://docs.derivative.ca/VideostreaminTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=VideostreaminTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the VideostreaminTOP Class wiki page",
+      "url": "https://docs.derivative.ca/VideostreaminTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

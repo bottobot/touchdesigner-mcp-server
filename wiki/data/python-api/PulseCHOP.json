@@ -1,0 +1,27 @@
+{
+  "className": "PulseCHOP",
+  "displayName": "PulseCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "chanIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "`me.chanIndex` can be used in any parameter to give a different value for each channel being generated, for example `[3, 4, 5][me.chanIndex]`."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/PulseCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=PulseCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the PulseCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/PulseCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

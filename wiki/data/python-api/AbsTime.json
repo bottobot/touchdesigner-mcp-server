@@ -1,0 +1,44 @@
+{
+  "className": "AbsTime",
+  "displayName": "AbsTime",
+  "category": "General",
+  "description": "This class contains information on the \"absolute time\", the time TouchDesigner has been running since the process started. It can be accessed with the abstime object, found in the automatically imported td module. It is paused only with the power on/off button at the top of the UI, or with the power() method in the td module or pausing the root timeline. Absolute time is the same for all nodes. See [http://en.wikipedia.org/wiki/Absolute_time_and_space absolute time].",
+  "members": [
+    {
+      "name": "frame",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Absolute total number of frames played since the application started. Paused only with the power On/Off or with power() or pausing the main timeline."
+    },
+    {
+      "name": "seconds",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Absolute total seconds played since the application started. Paused only with the power On/Off or with power() or pausing the main timeline."
+    },
+    {
+      "name": "step",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Number of absolute frames elapsed between start of previous and current frame. When this value is greater than 1, the system is dropping frames."
+    },
+    {
+      "name": "stepSeconds",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Absolute time elapsed between start of previous and current frame."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/AbsTime_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=AbsTime_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the AbsTime Class wiki page",
+      "url": "https://docs.derivative.ca/AbsTime_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

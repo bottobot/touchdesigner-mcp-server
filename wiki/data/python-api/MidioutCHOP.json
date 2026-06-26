@@ -1,0 +1,294 @@
+{
+  "className": "MidioutCHOP",
+  "displayName": "MidioutCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [],
+  "methods": [
+    {
+      "name": "send",
+      "signature": "sendsend(*messages)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Send a sequence of bytes through this CHOP. To serialize non-byte values (example floats or integers) there are several python modules to do this, such as pickle or struct. * `*messages` - any number of messages to send ."
+    },
+    {
+      "name": "sendBalance",
+      "signature": "sendBalancesendBalance(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Balance event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendNoteOn",
+      "signature": "sendNoteOnsendNoteOn(channel, index, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Note On event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *index - The MIDI index/note. Valid ranges are 0 to 127, or 1 to 128, dependent on the One Based Index parameter. *value - (Optional) The MIDI note value. Valid ranges are determined by the CHOP Note Normalize parameter. Maximum when not specified."
+    },
+    {
+      "name": "sendPolyKeyPressure",
+      "signature": "sendPolyKeyPressuresendPolyKeyPressure(channel, index, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Polyphonic Key Pressure event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *index - The MIDI index/note. Valid ranges are 0 to 127, or 1 to 128, dependent on the One Based Index parameter. *value - The MIDI pressure value. Valid ranges are determined by the CHOP Note Normalize parameter."
+    },
+    {
+      "name": "sendPitchBend",
+      "signature": "sendPitchBendsendPitchBend(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Pitch Bend event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The pitch bend value. Valid ranges are between 0 and 16384."
+    },
+    {
+      "name": "sendEffectsDepth",
+      "signature": "sendEffectsDepthsendEffectsDepth(channel, index,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Effects Depth event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *index - Valid index ranges are 1 to 5. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendMonoOn",
+      "signature": "sendMonoOnsendMonoOn(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Mono On/Poly Off event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "panic",
+      "signature": "panicpanic()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a volume off event for each channel and note off event for each note."
+    },
+    {
+      "name": "sendDamperPedal",
+      "signature": "sendDamperPedalsendDamperPedal(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Damper Pedal event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendChannelPressure",
+      "signature": "sendChannelPressuresendChannelPressure(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Channel Pressure event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The channel pressure. Valid ranges are dependent on the Note Normalize parameter."
+    },
+    {
+      "name": "sendControl",
+      "signature": "sendControlsendControl(channel, index, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Controller event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *index - The MIDI controller index. Valid ranges are 0 to 127, or 1 to 128, dependent on the One Based Index parameter.. *value - The MIDI control value. Valid ranges are determined by the CHOP Controller Normalize and Controller Format parameters."
+    },
+    {
+      "name": "sendDataDecrement",
+      "signature": "sendDataDecrementsendDataDecrement(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Data Decrement event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendAllNotesOff",
+      "signature": "sendAllNotesOffsendAllNotesOff(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a All Notes Off event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendSoundController",
+      "signature": "sendSoundControllersendSoundController(channel, index,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Sound Controller event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *index - Valid index ranges are 1 to 10. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendBankSelect",
+      "signature": "sendBankSelectsendBankSelect(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Bank Select event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendMainVolume",
+      "signature": "sendMainVolumesendMainVolume(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Main Volume event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendSoftPedal",
+      "signature": "sendSoftPedalsendSoftPedal(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Soft Pedal event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendLocalControl",
+      "signature": "sendLocalControlsendLocalControl(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Local Control Controllers event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendPolyOn",
+      "signature": "sendPolyOnsendPolyOn(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Poly On/Mono Off event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendPan",
+      "signature": "sendPansendPan(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Pan event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendResetAllControllers",
+      "signature": "sendResetAllControllerssendResetAllControllers(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Reset All Controllers event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendBreathController",
+      "signature": "sendBreathControllersendBreathController(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Breath Controller event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendPortamentoTime",
+      "signature": "sendPortamentoTimesendPortamentoTime(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Portamento Time event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendDataIncrement",
+      "signature": "sendDataIncrementsendDataIncrement(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Data Increment event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendFootController",
+      "signature": "sendFootControllersendFootController(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Foot Controller event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendHold2",
+      "signature": "sendHold2sendHold2(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Hold2 event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendSostenuto",
+      "signature": "sendSostenutosendSostenuto(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Sostenuto event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendOmniOff",
+      "signature": "sendOmniOffsendOmniOff(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Omni Off event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendGeneralPurposeController",
+      "signature": "sendGeneralPurposeControllersendGeneralPurposeController(channel, index,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a General Purpose Controller event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *index - Valid index ranges are 1 to 8. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendNoteOff",
+      "signature": "sendNoteOffsendNoteOff(channel, index, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Note Off event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *index - The MIDI index/note. Valid ranges are 0 to 127, or 1 to 128, dependent on the One Based Index parameter. *value - (Optional) The MIDI note value. Valid ranges are determined by the CHOP Note Normalize parameter. Minimum when not specified."
+    },
+    {
+      "name": "sendExclusive",
+      "signature": "sendExclusivesendExclusive(*messages)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Send a sytem exclusive message through this CHOP. The System Exclusive start and end character are added to the message. Messages can any combination of strings, byte arrays, or individual single-byte numeric values. To serialize non-byte values (example floats or integers) there are several python modules to do this, such as pickle or struct. * `*messages` - any number of messages to send"
+    },
+    {
+      "name": "sendPortamento",
+      "signature": "sendPortamentosendPortamento(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Portamento event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendEffectControl",
+      "signature": "sendEffectControlsendEffectControl(channel, index,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Main Volume event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *index - Valid index ranges are 1 to 2. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendLegatoFootswitch",
+      "signature": "sendLegatoFootswitchsendLegatoFootswitch(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Legato Footswitch event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendModulationWheel",
+      "signature": "sendModulationWheelsendModulationWheel(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Modulation Wheel event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendProgram",
+      "signature": "sendProgramsendProgram(channel, value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Program Change event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI program change. Valid ranges are dependent on the Controller Normalize parameter."
+    },
+    {
+      "name": "sendOmniOn",
+      "signature": "sendOmniOnsendOmniOn(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Omni On event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendPortamentoControl",
+      "signature": "sendPortamentoControlsendPortamentoControl(channel,value)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends a Portamento Control event through the CHOP. *channel - The MIDI event channel. Valid ranges are 1 to 16. *value - The MIDI value. Valid ranges are 0 to 127."
+    },
+    {
+      "name": "sendTimecode",
+      "signature": "sendTimecodesendTimecode(timecode)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sends the timecode to the device as a full MTC message. *timecode - The timecode value to send to the device. Must be a tdu.Timecode object. Timecode rate must be 24, 25, 29.97 (drop-frame), or 30. See Timecode Class."
+    }
+  ],
+  "url": "https://docs.derivative.ca/MidioutCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=MidioutCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the MidioutCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/MidioutCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

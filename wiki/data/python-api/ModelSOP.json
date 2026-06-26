@@ -1,0 +1,63 @@
+{
+  "className": "ModelSOP",
+  "displayName": "ModelSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [],
+  "methods": [
+    {
+      "name": "appendPoint",
+      "signature": "appendPointappendPoint()",
+      "returns": "Point",
+      "parameters": [],
+      "description": "Append a point to this SOP. The appended point will be returned."
+    },
+    {
+      "name": "appendPoly",
+      "signature": "appendPolyappendPoly(numVertices, closed=True, addPoints=True)",
+      "returns": "Poly",
+      "parameters": [],
+      "description": "Append a poly to this SOP. Returns the appended polygon. * numVertices - Specifies the initial number of vertices. * closed - (Keyword, Optional) Specifies whether or not the last vertex of the polygon will connect to the first. An open polygon will be drawn as a line. * addPoints - (Keyword, Optional) If True, a new point will be attached to each vertex, otherwise the vertex point references will need to be manually set afterwards. Use this option when creating polygons with shared vertices."
+    },
+    {
+      "name": "appendBezier",
+      "signature": "appendBezierappendBezier(numVertices, closed=False, order=4, addPoints=True)",
+      "returns": "Bezier",
+      "parameters": [],
+      "description": "Append a Bezier to this SOP. Returns the appended Bezier. * numVertices - Specifies the initial number of vertices. The number of vertices must correspond to the order (degree-1) and closed/open state of the curve. For closed curves, the number of vertices must be a multiple of the degree. For open curves, it must be one more than a multiple of the degree. * closed - (Keyword, Optional) Specifies whether or not the last vertex of the curve will connect to the first. An open Bezier will be drawn as a line. * order - (Keyword, Optional) Specifies the degree of the Bezier. By default it creates cubic (order=4) Beziers. * addPoints - (Keyword, Optional) If True, a new point will be attached to each vertex, otherwise the vertex point references will need to be manually set afterwards. Use this option when creating Beziers with shared vertices."
+    },
+    {
+      "name": "appendMesh",
+      "signature": "appendMeshappendMesh(numRows, numCols, closedU=False, closedV=False, addPoints=True)",
+      "returns": "Mesh",
+      "parameters": [],
+      "description": "Append a mesh to this SOP. Returns the appended mesh. * numRows, numCols - Specifies the initial number of rows and columns. * closedU - (Keyword, Optional) Specifies whether or not the grid is wrapped in the u direction. * closedV - (Keyword, Optional) Specifies whether or not the grid is wrapped in the v direction. * addPoints - (Keyword, Optional) If True, a new point will be attached to each vertex, otherwise the vertex point references will need to be manually set afterwards. Use this option when creating meshes with shared vertices."
+    },
+    {
+      "name": "clear",
+      "signature": "clearclear()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Remove all geometry."
+    },
+    {
+      "name": "copy",
+      "signature": "copycopy(sop)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Copy geometry from the specified SOP operator. * sop - The SOP to copy geometry from. Geometry currently in this SOP will be removed."
+    }
+  ],
+  "url": "https://docs.derivative.ca/ModelSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ModelSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ModelSOP Class wiki page",
+      "url": "https://docs.derivative.ca/ModelSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

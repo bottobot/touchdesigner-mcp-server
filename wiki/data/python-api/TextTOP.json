@@ -1,0 +1,121 @@
+{
+  "className": "TextTOP",
+  "displayName": "TextTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "curText",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Current text contents, when used with a Field COMP."
+    },
+    {
+      "name": "cursorEnd",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get or set cursor end position, when used with a Field COMP."
+    },
+    {
+      "name": "cursorStart",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get or set cursor start position, when used with a Field COMP."
+    },
+    {
+      "name": "fontDescender",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The descender of the current font, in pixels. This is the distance from the baseline to the bottom of lowest hanging character in the font. This value does not change based on the currently displayed text."
+    },
+    {
+      "name": "selectedText",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Selected contents, when used with a Field COMP."
+    },
+    {
+      "name": "textHeight",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Calculated height of text, in pixels. This value does not changes based on the particular of characters in the string. It only depends on the number of lines, line spacing, positioning and font metrics of the font."
+    },
+    {
+      "name": "textWidth",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Calculated width of text, in pixels. This value does change depending on the particular characters in the string. Different characters have difference advance widths, and this value is the sum of all the advance widths of the characters."
+    },
+    {
+      "name": "numLines",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the number of lines of the outputted text, after operations such as word-wrap have been applied."
+    },
+    {
+      "name": "ascender",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The ascender of the font, as described by the font's metrics."
+    },
+    {
+      "name": "descender",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The descender of the font, as described by the font's metrics."
+    },
+    {
+      "name": "capHeight",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The cap height of the font, as described by the font's metrics. This is usually the height of a capital H."
+    },
+    {
+      "name": "xHeight",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The x height of the font, as described by the font's metrics. This is usually the height of a lower case x."
+    },
+    {
+      "name": "lineGap",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The suggested gap between lines, as described by the font's metrics."
+    }
+  ],
+  "methods": [
+    {
+      "name": "fontSupportsChars",
+      "signature": "fontSupportsCharsfontSupportsChars(str)",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Returns True if every character maps to a glyph. This doesn't mean the font supports the language in all cases. Glyphs that come from ligatures etc. may still be missing from the font. *str - The string to be analyzed."
+    },
+    {
+      "name": "evalTextSize",
+      "signature": "evalTextSizeevalTextSize(str)",
+      "returns": "Tuple[float, float]",
+      "parameters": [],
+      "description": "Returns a tuple of width, height of the given string using the operators settings. Does not include the word wrap and auto size font options. *str - The string to be measured."
+    },
+    {
+      "name": "lines",
+      "signature": "lineslines()",
+      "returns": "List[TextLine]",
+      "parameters": [],
+      "description": "Returns a list of TextLine Class objects. This list of lines is formed after operations such as word-wrap have been applied."
+    }
+  ],
+  "url": "https://docs.derivative.ca/TextTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TextTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the TextTOP Class wiki page",
+      "url": "https://docs.derivative.ca/TextTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

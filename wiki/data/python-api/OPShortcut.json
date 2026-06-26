@@ -1,0 +1,19 @@
+{
+  "className": "OPShortcut",
+  "displayName": "OPShortcut",
+  "category": "General",
+  "description": "OPShortcut",
+  "members": [],
+  "methods": [],
+  "url": "https://docs.derivative.ca/OPShortcut_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=OPShortcut_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the OPShortcut Class wiki page",
+      "url": "https://docs.derivative.ca/OPShortcut_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

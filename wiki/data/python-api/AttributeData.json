@@ -1,0 +1,32 @@
+{
+  "className": "AttributeData",
+  "displayName": "AttributeData",
+  "category": "General",
+  "description": "An AttributeData contains specific geometric Attribute values, associated with a Prim Class, Point Class, or Vertex Class. Each value of the attribute must be of the same type, and can be one of float, string or integer. For example, a point or vertex normal attribute data, consists of 3 float values.",
+  "members": [
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The OP to which this object belongs."
+    },
+    {
+      "name": "val",
+      "returnType": "float  int  str  tuple  [[Position Class|TDU.Position]]  [[Vector Class|TDU.Vector]]",
+      "readOnly": true,
+      "description": "The set of values contained within this object. Dependent on the type of attribute, it may return a float, integer, string, tuple, Position, or Vector. For example Normal attribute data is expressed as a Vector, while Position attribute data is expressed as a Position."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/AttributeData_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=AttributeData_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the AttributeData Class wiki page",
+      "url": "https://docs.derivative.ca/AttributeData_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

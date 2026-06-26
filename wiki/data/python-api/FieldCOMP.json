@@ -1,0 +1,28 @@
+{
+  "className": "FieldCOMP",
+  "displayName": "FieldCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "PanelCOMP",
+  "members": [],
+  "methods": [
+    {
+      "name": "setKeyboardFocus",
+      "signature": "setKeyboardFocussetKeyboardFocus(selectAll=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Set keyboard focus. *selectAll - (Keyword, Optional) If True, then all text will be selected."
+    }
+  ],
+  "url": "https://docs.derivative.ca/FieldCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=FieldCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the FieldCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/FieldCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

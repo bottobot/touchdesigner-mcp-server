@@ -1,0 +1,101 @@
+{
+  "className": "WindowCOMP",
+  "displayName": "WindowCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "COMP",
+  "members": [
+    {
+      "name": "scalingMonitorIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The index of the monitor whose DPI scale is being used to for the Window. This is the usually the monitor the window is covering the most."
+    },
+    {
+      "name": "isBorders",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the window is bordered."
+    },
+    {
+      "name": "isFill",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the window will stretch its contents to fill its specified area."
+    },
+    {
+      "name": "isOpen",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True when window is open."
+    },
+    {
+      "name": "width",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Window width. Expressed in points or pixels, depending on the DPI Scaling parameter of the Window COMP."
+    },
+    {
+      "name": "height",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Window height. Expressed in points or pixels, depending on the DPI Scaling parameter of the Window COMP."
+    },
+    {
+      "name": "x",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Window X coordinate relative to the bottom left of the main monitor. Expressed in points or pixels, depending on the DPI Scaling parameter of the Window COMP."
+    },
+    {
+      "name": "y",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Window Y coordinate relative to the bottom left of the main monitor. Expressed in points or pixels, depending on the DPI Scaling parameter of the Window COMP."
+    },
+    {
+      "name": "contentX",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "X position of left edge of the windows contents. Ignores borders if they are present. Expressed in points or pixels, depending on the 'DPI Scaling' parameter setting."
+    },
+    {
+      "name": "contentY",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Y position of bottom edge of the windows contents. Ignores borders if they are present. Expressed in points or pixels, depending on the 'DPI Scaling' parameter setting."
+    },
+    {
+      "name": "contentWidth",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Width of windows contents. Ignores borders if they are present. Expressed in points or pixels, depending on the 'DPI Scaling' parameter setting."
+    },
+    {
+      "name": "contentHeight",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Height of windows contents. Ignores borders if they are present. Expressed in points or pixels, depending on the 'DPI Scaling' parameter setting."
+    }
+  ],
+  "methods": [
+    {
+      "name": "setForeground",
+      "signature": "setForegroundsetForeground()",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Activates the window, sets it to the foregound and other visual cues. Sets focus and increases process priority. Can only be called by a foreground process, or a child of a foreground process. Returns true if successful."
+    }
+  ],
+  "url": "https://docs.derivative.ca/WindowCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=WindowCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the WindowCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/WindowCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

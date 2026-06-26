@@ -1,0 +1,59 @@
+{
+  "className": "Color",
+  "displayName": "Color",
+  "category": "General",
+  "description": "The color class holds a single 4 component color (R, G, B, A). Note: tdu.___ and TDU.___ can be used interchangeably. In general, TDU.___ is used to represent a class, while tdu.___ is used for the instantiator function.",
+  "members": [
+    {
+      "name": "r",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Gets or sets the red component of the color."
+    },
+    {
+      "name": "g",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Gets or sets the green component of the color."
+    },
+    {
+      "name": "b",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Gets or sets the blue component of the color."
+    },
+    {
+      "name": "a",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Gets or sets the alpha component of the color."
+    }
+  ],
+  "methods": [
+    {
+      "name": "[]",
+      "signature": "[index]",
+      "returns": "float",
+      "parameters": [],
+      "description": "Sample values may be accessed from a Color using the [] subscript operator."
+    },
+    {
+      "name": "copy",
+      "signature": "copycopy()",
+      "returns": "TDU.Color",
+      "parameters": [],
+      "description": "Returns a new color that is a copy of the color."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Color_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Color_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Color Class wiki page",
+      "url": "https://docs.derivative.ca/Color_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

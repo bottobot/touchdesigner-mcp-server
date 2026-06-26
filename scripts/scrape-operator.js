@@ -37,7 +37,7 @@ export function findTemplateBlocks(text, name) {
 }
 
 /** Parse the top-level |key=value fields of a template body, ignoring nested templates. */
-function parseFields(body) {
+export function parseFields(body) {
   // strip nested templates so their |key= don't leak into this level
   let depth = 0, flat = '';
   for (let k = 0; k < body.length; k++) {

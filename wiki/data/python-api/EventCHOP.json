@@ -1,0 +1,35 @@
+{
+  "className": "EventCHOP",
+  "displayName": "EventCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [],
+  "methods": [
+    {
+      "name": "releaseEvent",
+      "signature": "releaseEventreleaseEvent(id)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Manually release an event created with createEvent(hold=True) method above. Returns the number of events released. *id - (Optional) Specifies the event to release. If not specified, all events are released."
+    },
+    {
+      "name": "createEvent",
+      "signature": "createEventcreateEvent(hold=False, samples=[], index=0, attackTime=None, attackLevel=None, decayTime=None, sustainTime=None, sustainMin=None, sustainMax=None, releaseTime=None, releaseLevel=None, speed=None)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Manually create an event for this CHOP. You still need an input attached, but it can stay at 0 and you can create events from this method. Returns the id of the created particle. * hold - (Optional) Specifies whether the event will hold the sustain state. When True, can be released with the releaseEvent method. * samples - (Optional) A list of values to override the Samples Input. * index - (Optional) Specifies the input trigger index to assign to this event. * attackTime - (Optional) If not specified, read from parameter. * attackLevel - (Optional) If not specified, read from parameter. * decayTime - (Optional) If not specified, read from parameter. * sustainTime - (Optional) If not specified, read from parameter. * sustainMin - (Optional) If not specified, read from parameter. * sustainMax - (Optional) If not specified, read from parameter. * releaseTime - (Optional) If not specified, read from parameter. * releaseLevel - (Optional) If not specified, read from parameter. * speed - (Optional) If not specified, read from parameter."
+    }
+  ],
+  "url": "https://docs.derivative.ca/EventCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=EventCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the EventCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/EventCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

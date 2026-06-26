@@ -1,0 +1,27 @@
+{
+  "className": "VideostreamoutTOP",
+  "displayName": "VideostreamoutTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "streamURL",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "The URL to connect to this operator's stream."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/VideostreamoutTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=VideostreamoutTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the VideostreamoutTOP Class wiki page",
+      "url": "https://docs.derivative.ca/VideostreamoutTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

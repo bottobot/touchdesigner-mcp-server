@@ -1,0 +1,19 @@
+{
+  "className": "ListAttributes",
+  "displayName": "ListAttributes",
+  "category": "General",
+  "description": "The ListAttributes class describes a set of list attribute objects for cells, rows, columns or table. It can be accessed from a List Component. Access to individual List Attributes depends on what type: row, col, or cell: Note: The attributes above are the settings for List Component's hierarchical layout technique. This means that cell settings override row settings, which override column settings, which override table settings. If you want to know the final value in a given cell, use `listCOMP.displayAttribs[row, col]`.",
+  "members": [],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ListAttributes_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ListAttributes_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ListAttributes Class wiki page",
+      "url": "https://docs.derivative.ca/ListAttributes_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

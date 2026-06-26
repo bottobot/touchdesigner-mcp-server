@@ -1,0 +1,19 @@
+{
+  "className": "Actors",
+  "displayName": "Actors",
+  "category": "General",
+  "description": "The Actors Class describes the set of all Actor COMPs used by the Bullet Solver COMP and Nvidia Flex Solver COMP. It can be accessed with a Bullet Solver COMP. It can be accessed much like a Python list.",
+  "members": [],
+  "methods": [],
+  "url": "https://docs.derivative.ca/Actors_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Actors_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Actors Class wiki page",
+      "url": "https://docs.derivative.ca/Actors_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

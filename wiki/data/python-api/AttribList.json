@@ -1,0 +1,54 @@
+{
+  "className": "AttribList",
+  "displayName": "AttribList",
+  "category": "General",
+  "description": "The AttribList class holds a list of attribute values that come from a POP. The attribute values are `floats`, `ints` or `tuples` of `floats` or `ints`.",
+  "members": [
+    {
+      "name": "name",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "The name of the attribute this list contains."
+    },
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The node this attribute came from."
+    }
+  ],
+  "methods": [
+    {
+      "name": "len",
+      "signature": "lenlen(AttribList)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the total number of values."
+    },
+    {
+      "name": "[]",
+      "signature": "[index]",
+      "returns": "int float tuple",
+      "parameters": [],
+      "description": "Get a specific attribute value given an integer index."
+    },
+    {
+      "name": "Iterator",
+      "signature": "IteratorIterator",
+      "returns": "int float tuple",
+      "parameters": [],
+      "description": "Iterate over each attribute value."
+    }
+  ],
+  "url": "https://docs.derivative.ca/AttribList_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=AttribList_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the AttribList Class wiki page",
+      "url": "https://docs.derivative.ca/AttribList_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

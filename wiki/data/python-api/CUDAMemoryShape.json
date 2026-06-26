@@ -1,0 +1,62 @@
+{
+  "className": "CUDAMemoryShape",
+  "displayName": "CUDAMemoryShape",
+  "category": "General",
+  "description": "Describes the shape of a CUDA memory segment.",
+  "members": [
+    {
+      "name": "width",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get/Set the width in pixels of the memory."
+    },
+    {
+      "name": "height",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get/Set the height in pixels of the memory."
+    },
+    {
+      "name": "numComps",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get/Set the number of color components per pixel of the memory."
+    },
+    {
+      "name": "depth",
+      "returnType": "int",
+      "readOnly": false,
+      "description": "Get/Set the depth in pixels of the memory."
+    },
+    {
+      "name": "isCube",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get/Set whether this shape describes a cubemap. Depth must equal 6."
+    },
+    {
+      "name": "is3D",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get/Set whether this shape describes a 3D texture. If this is false and depth > 1, then it's a 2D array."
+    },
+    {
+      "name": "dataType",
+      "returnType": "numpy.dtype",
+      "readOnly": false,
+      "description": "Get/Set the data type of each color component, as a numpy data type. E.g numpy.uint8, numpy.float32. Note that for uint8 data types, the channel ordering will be BGRA for 4 component textures. It will be RGBA however for other data types."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/CUDAMemoryShape_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=CUDAMemoryShape_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the CUDAMemoryShape Class wiki page",
+      "url": "https://docs.derivative.ca/CUDAMemoryShape_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

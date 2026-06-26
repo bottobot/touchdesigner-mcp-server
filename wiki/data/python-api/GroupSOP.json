@@ -1,0 +1,33 @@
+{
+  "className": "GroupSOP",
+  "displayName": "GroupSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "inputPoint",
+      "returnType": "Point",
+      "readOnly": true,
+      "description": "The current point being evaluated."
+    },
+    {
+      "name": "inputPrim",
+      "returnType": "Prim",
+      "readOnly": true,
+      "description": "The current primitive being evaluated."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/GroupSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=GroupSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the GroupSOP Class wiki page",
+      "url": "https://docs.derivative.ca/GroupSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -69,6 +69,7 @@ _(filled at Stage 2; critiqued at Stage 3; revised at Stage 4)_
 | Batch D coverage scrape | ✅ | 89/90 POPs re-scraped (correct `{{Parameter}}`/menu-nested params; 1 honest paramsVerified:false); **32 new operators** added (incl. all missing POPs: Alembic In/Out, Triangulate, Trace, Text, Plane, …) → **661 total** |
 | Tier 7 docs/deps/bump | ✅ | All counts → 661/68/3.0.0 across README/ARCH/SETUP/CHANGELOG (0 stale); deps SDK 1.29.0, zod 3.25.76, cheerio→devDeps, node ≥20; `.mcp.json` untracked + `.mcp.json.example` added |
 | Tier 8 validation | ✅ | `validate.js` 33/33 (21 tool shapes + C1–C15 matrix); 764 JSON valid; all JS `node --check` OK; 0 hard-fail fabrication markers; live stdio clean |
+| **Coverage extension** (post-commit) | ✅ | Operator coverage complete (0 missing across all 7 families). **Python API classes 68 → 214** (1,674 methods / 504 members) via `scripts/scrape-python-class.js` scraping `{{ClassMember}}`/`{{ClassMethod}}` wiki templates — adds per-operator classes (`moviefileinTOP`, `bodytrackCHOP`), collections (`ParGroupCollection`), value types (`Color`, `Bezier`). 357 empty stub pages skipped (verify-or-omit). Docs reconciled to 214; `validate.js` still 33/33. |
 
 ## Final validation (Stage 6 — all gates green)
 

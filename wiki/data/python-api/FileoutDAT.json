@@ -1,0 +1,42 @@
+{
+  "className": "FileoutDAT",
+  "displayName": "FileoutDAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "DAT",
+  "members": [
+    {
+      "name": "writeCount",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The number of times data has been written. This can be used to create an incrementing filename."
+    }
+  ],
+  "methods": [
+    {
+      "name": "sendBytes",
+      "signature": "sendBytessendBytes(*messages)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Write one or more sequence of bytes. No terminators are appended. *message - Messages can any combination of strings, byte arrays, or individual single-byte numeric values. To serialize non-byte values (example floats or integers) there are several python modules such as pickle or struct."
+    },
+    {
+      "name": "send",
+      "signature": "sendsend(*messages , terminator=' ')",
+      "returns": "int",
+      "parameters": [],
+      "description": "Used to write strings into the file. *messages - One or more strings to write into the file. *terminator - (Keyword, Optional) Specifies how the message is to be terminated. If no append terminator is specified, a null character will automatically be appended to the message. To send no terminator, use terminator=. The number of bytes sent is returned."
+    }
+  ],
+  "url": "https://docs.derivative.ca/FileoutDAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=FileoutDAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the FileoutDAT Class wiki page",
+      "url": "https://docs.derivative.ca/FileoutDAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

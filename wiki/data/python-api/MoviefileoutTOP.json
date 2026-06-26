@@ -1,0 +1,39 @@
+{
+  "className": "MoviefileoutTOP",
+  "displayName": "MoviefileoutTOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "TOP",
+  "members": [
+    {
+      "name": "writeCount",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The number of files that have been written. This can be used to create an incrementing file name."
+    },
+    {
+      "name": "curSeqIndex",
+      "returnType": "",
+      "readOnly": true,
+      "description": "The current index of the last written image on disk."
+    },
+    {
+      "name": "fileSuffix",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Returns the generated file suffix. It will be generated based on the values of the parameters Unique Suffix and N, plus the file extension. It will take one of two forms: `N.ext` or `N.i.ext` where `N` is the suffix index (uniquely generated if Unique Suffix is enabled), `i` is the image sequence index (used only for the image sequence type), and `ext` is the image/movie extension."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/MoviefileoutTOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=MoviefileoutTOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the MoviefileoutTOP Class wiki page",
+      "url": "https://docs.derivative.ca/MoviefileoutTOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

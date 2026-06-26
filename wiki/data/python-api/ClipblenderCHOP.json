@@ -1,0 +1,113 @@
+{
+  "className": "ClipblenderCHOP",
+  "displayName": "ClipblenderCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "clipA",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The clip being executed or blended from."
+    },
+    {
+      "name": "clipB",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The clip being blended into."
+    },
+    {
+      "name": "currentClip",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "Clip A before the start of a transition, clip B otherwise."
+    },
+    {
+      "name": "currentFrame",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The frame index of the current clip output."
+    },
+    {
+      "name": "currentTime",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The time value of the current clip output."
+    },
+    {
+      "name": "endBlendTime",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The time at which the transition is complete."
+    },
+    {
+      "name": "isBlending",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the output is transitioning between clips."
+    },
+    {
+      "name": "isQueued",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if transitions are delayed until current transition completes."
+    },
+    {
+      "name": "isTriggerWaiting",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if there is a pending triggered transition."
+    },
+    {
+      "name": "lastClipA",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Last value of clip A."
+    },
+    {
+      "name": "lastClipB",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Last value of clip B."
+    },
+    {
+      "name": "nextClip",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The next clip to be sequenced."
+    },
+    {
+      "name": "startBlendTime",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The time the transition will start."
+    },
+    {
+      "name": "triggerClip",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The clip ."
+    }
+  ],
+  "methods": [
+    {
+      "name": "trigger",
+      "signature": "triggertrigger(clipCHOP, waitEnd=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Trigger the next clip in sequence. *clipCHOP - (Optional) If specified, the Clip CHOP it is inserted into the queue. *waitEnd - When True, wait until the end of the current clip before triggering."
+    }
+  ],
+  "url": "https://docs.derivative.ca/ClipblenderCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ClipblenderCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ClipblenderCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/ClipblenderCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

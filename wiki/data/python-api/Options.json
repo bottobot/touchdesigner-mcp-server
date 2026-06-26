@@ -1,0 +1,48 @@
+{
+  "className": "Options",
+  "displayName": "Options",
+  "category": "General",
+  "description": "The Options class describes the set of configurable UI options. It can be accessed with the ui.options object.",
+  "members": [],
+  "methods": [
+    {
+      "name": "resetToDefaults",
+      "signature": "resetToDefaultsresetToDefaults()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Reset all options to their default values."
+    },
+    {
+      "name": "len",
+      "signature": "lenlen(Options)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the total number of options."
+    },
+    {
+      "name": "[]",
+      "signature": "[<option name>]",
+      "returns": "value",
+      "parameters": [],
+      "description": "Get or set specific option given an option name key."
+    },
+    {
+      "name": "iterator",
+      "signature": "iteratorIterator",
+      "returns": "str",
+      "parameters": [],
+      "description": "Iterate over each option name."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Options_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Options_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Options Class wiki page",
+      "url": "https://docs.derivative.ca/Options_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

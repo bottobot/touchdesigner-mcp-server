@@ -28,8 +28,10 @@ or response shapes; Node.js 20.0+ is now required.
 
 - **Operator count is now 661** — by family: CHOP 170, TOP 147, SOP 113, POP 102, DAT 75,
   COMP 41, MAT 13.
-- **Python API class count corrected to 68** (the previous 69 double-counted the `OP` base
-  class).
+- **Python API classes expanded to 214** (1,674+ methods, 504 members) — the previous count
+  was first corrected from a double-counted 69 to 68 (the `OP` base class was listed twice),
+  then **+146 classes were scraped from the live wiki** (per-operator classes like
+  `moviefileinTOP`/`bodytrackCHOP`, collection/value types like `ParGroupCollection`/`Color`).
 - **All version data rewritten from live Derivative sources with provenance** — version
   manifest, release highlights, and experimental builds now record their source URLs. The
   stable line is 099 → 2019 → 2020 → 2021 → 2022 → 2023 → 2025 (there was never an official
@@ -45,7 +47,7 @@ or response shapes; Node.js 20.0+ is now required.
   previously omitted from the tarball and crashed the installed package on startup.
 - **"Ready with 0 operators" stats bug** — `getSystemStats()` now reports the real loaded
   operator count, so the startup banner reads `Ready with 661 operators, 14 tutorials, and
-  68 Python classes`.
+  214 Python classes`.
 - **stdout / JSON-RPC corruption** — all diagnostic and startup logging is routed to
   **stderr**, so it can no longer corrupt the JSON-RPC stream the MCP client reads on stdout.
 - **`get_python_api` / `search_python_api` dropping return types** — both tools previously
@@ -357,7 +359,7 @@ Total registered MCP tools: **21** (up from 12 in v2.7.0).
 
 ### Added
 - Python API documentation tools (get_python_api, search_python_api)
-- 69 Python API classes documentation with 1,510+ methods
+- 69 Python API classes documentation with 1,674+ methods
 
 ### Improved
 - Operator categorization system

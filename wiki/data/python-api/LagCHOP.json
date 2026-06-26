@@ -1,0 +1,33 @@
+{
+  "className": "LagCHOP",
+  "displayName": "LagCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "chanIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "`me.chanIndex` can be used in any parameter to give a different value for each channel being generated, for example `[3, 4, 5][me.chanIndex]`."
+    },
+    {
+      "name": "sampleIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The index of the current sample being evaluated."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/LagCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=LagCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the LagCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/LagCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

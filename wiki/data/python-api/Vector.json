@@ -1,0 +1,130 @@
+{
+  "className": "Vector",
+  "displayName": "Vector",
+  "category": "General",
+  "description": "The vector class holds a single 3 component vector. A vector describes a direction in space, and it's important to use a vector or Position as appropriate for the data that is being calculated. When being multiplied by a Matrix, this class will implicitly have a 4th component (W component) of 0. A new vector can be created without any arguments, with 3 arguments for the x,y,z values, or with a single argument which is a variable that has 3 entries such as a list of length 3, or a position or vector. Note: tdu.___ and TDU.___ can be used interchangeably. In general, TDU.___ is used to represent a class, while tdu.___ is used for the instantiator function. Examples of creating a vector:",
+  "members": [
+    {
+      "name": "x",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Gets or sets the X component of the vector."
+    },
+    {
+      "name": "y",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Gets or sets the Y component of the vector."
+    },
+    {
+      "name": "z",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Gets or sets the Z component of the vector."
+    }
+  ],
+  "methods": [
+    {
+      "name": "angle",
+      "signature": "angleangle(vec)",
+      "returns": "float",
+      "parameters": [],
+      "description": "Returns the angel (in degrees) between the current vector and specified vector (vec)."
+    },
+    {
+      "name": "scale",
+      "signature": "scalescale(x, y, z)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Scales each component of the vector by the specified values. *x, y, z - The values to scale each component of the vector by."
+    },
+    {
+      "name": "normalize",
+      "signature": "normalizenormalize()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Makes the length of this vector 1."
+    },
+    {
+      "name": "length",
+      "signature": "lengthlength()",
+      "returns": "float",
+      "parameters": [],
+      "description": "Returns the length of this vector."
+    },
+    {
+      "name": "lengthSquared",
+      "signature": "lengthSquaredlengthSquared()",
+      "returns": "float",
+      "parameters": [],
+      "description": "Returns the squared length of this vector."
+    },
+    {
+      "name": "copy",
+      "signature": "copycopy()",
+      "returns": "TDU.Vector",
+      "parameters": [],
+      "description": "Returns a new vector that is a copy of the vector."
+    },
+    {
+      "name": "distance",
+      "signature": "distancedistance(vec)",
+      "returns": "float",
+      "parameters": [],
+      "description": "Returns the distance of the current vector to specified vector (vec)."
+    },
+    {
+      "name": "lerp",
+      "signature": "lerplerp(vec2, t)",
+      "returns": "TDU.Vector",
+      "parameters": [],
+      "description": "Returns the linear interpolation of this vector and vec2. That is vec1 * (1.0 - t) + vec2 * t, where vec1 is the current vector. The value for t is not restricted to the range [0, 1]."
+    },
+    {
+      "name": "slerp",
+      "signature": "slerpslerp(vec2, t)",
+      "returns": "TDU.Vector",
+      "parameters": [],
+      "description": "Returns the spherical interpolation of this vector and vec2. The value for t is not restricted to the range [0, 1]."
+    },
+    {
+      "name": "dot",
+      "signature": "dotdot(vec)",
+      "returns": "float",
+      "parameters": [],
+      "description": "Returns the dot product of this vector and the passed vector. *vec - The other vector to use to calculate the dot product"
+    },
+    {
+      "name": "cross",
+      "signature": "crosscross(vec)",
+      "returns": "TDU.Vector",
+      "parameters": [],
+      "description": "Returns the cross product of this vector and the passed vector. The operation is self cross vec. *vec - The other vector to use to calculate the cross product."
+    },
+    {
+      "name": "project",
+      "signature": "projectproject(vec1, vec2)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Projects this vector onto the plan defined by vec1 and vec2. Both vec1 and vec2 must be normalized. The result may not be normalized. *vec1, vec2 - The vectors that specify the plane to project onto. Must be normalized."
+    },
+    {
+      "name": "reflect",
+      "signature": "reflectreflect(vec)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Reflects the current vector about the specified vector (vec)."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Vector_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Vector_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Vector Class wiki page",
+      "url": "https://docs.derivative.ca/Vector_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

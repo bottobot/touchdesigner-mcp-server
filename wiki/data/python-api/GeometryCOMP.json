@@ -1,0 +1,35 @@
+{
+  "className": "GeometryCOMP",
+  "displayName": "GeometryCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "ObjectCOMP",
+  "members": [],
+  "methods": [
+    {
+      "name": "computeBounds",
+      "signature": "computeBoundscomputeBounds(display=True, render=True, selected=False, recurse=True)",
+      "returns": "Bounds",
+      "parameters": [],
+      "description": "Calculate the bounding box of the child geometry of this component. Returns a named tuple consisting of (min, max, center, size). Each component in turn is another named tuple with (x, y, z). *display - (Keyword, Optional) If set to True, only SOP and POP operators whose display flag are turned on are included in the calculation. Furthermore, if the SOP or POP is contained within a child Geometry Component, that operator must have its display flag turned on as well. *render - (Keyword, Optional) If set to True, only SOP and POP operators whose render flag set are included in the calculation. Furthermore, if the SOP is contained within a child Geometry Component, that operator must have its render flag set as well. *selected - (Keyword, Optional) If set to True, only child components that are currently selected are included in the calculation. *recurse - (Keyword, Optional) If set to True, child components are included in the calculation."
+    },
+    {
+      "name": "bounds",
+      "signature": "boundsbounds(display=False, render=False, selected=False, recurse=True)",
+      "returns": "Tuple[Tuple[float, float, float], Tuple[float, float, float], Tuple[float, float, float], Tuple[float, float, float]]",
+      "parameters": [],
+      "description": "Calculate the bounding box of the child geometry of this component. Note: This method is identical to the deprecated computeBounds method except that the display and render keywords now default to False. Returns a named tuple consisting of (min, max, center, size). Each component in turn is another named tuple with (x, y, z). *display - (Keyword, Optional) If set to True, only SOP and POP operators whose display flag are turned on are included in the calculation. Furthermore, if the SOP or POP is contained within a child Geometry Component, that operator must have its display flag turned on as well. *render - (Keyword, Optional) If set to True, only SOP and POP operators whose render flag set are included in the calculation. Furthermore, if the SOP or POP is contained within a child Geometry Component, that operator must have its render flag set as well. *selected - (Keyword, Optional) If set to True, only child components that are currently selected are included in the calculation. *recurse - (Keyword, Optional) If set to True, child components are included in the calculation."
+    }
+  ],
+  "url": "https://docs.derivative.ca/GeometryCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=GeometryCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the GeometryCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/GeometryCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

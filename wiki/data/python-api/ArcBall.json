@@ -1,0 +1,97 @@
+{
+  "className": "ArcBall",
+  "displayName": "ArcBall",
+  "category": "General",
+  "description": "Encapsulates many aspects of 3D viewer interaction. Rotation via arcball, translation and scale.",
+  "members": [],
+  "methods": [
+    {
+      "name": "beginPan",
+      "signature": "beginPanbeginPan(u, v)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Begin a pan at at the given u and v."
+    },
+    {
+      "name": "beginRotate",
+      "signature": "beginRotatebeginRotate(u, v)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Begin an arcball rotation at the given u and v."
+    },
+    {
+      "name": "beginDolly",
+      "signature": "beginDollybeginDolly(u, v)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Begin a dolly at at the given u and v."
+    },
+    {
+      "name": "pan",
+      "signature": "panpan(u, v)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Pan the view by the given x and y."
+    },
+    {
+      "name": "panTo",
+      "signature": "panTopanTo(u, v, scale=1.0)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Pan from the u,v given in the last call to beginPan() to the given u and v, applying a scale as well to the pan amount. *scale - (Keyword, Optional) Scale the operation by this amount."
+    },
+    {
+      "name": "rotateTo",
+      "signature": "rotateTorotateTo(u, v, scale=1.0)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Rotates the arcball to the given u and v position. *scale - (Keyword, Optional) Scale the operation by this amount."
+    },
+    {
+      "name": "dolly",
+      "signature": "dollydolly(z)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Dolly the view by the given z value."
+    },
+    {
+      "name": "dollyTo",
+      "signature": "dollyTodollyTo(u, v, scale=1.0)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Dolly from the u,v given in the last call to beginDolly() to the given u and v, applying a scale as well to the dolly amount.(Keyword, Optional) *scale - Scale the operation by this amount."
+    },
+    {
+      "name": "transform",
+      "signature": "transformtransform()",
+      "returns": "TDU.Matrix",
+      "parameters": [],
+      "description": "Gets the current transform matrix for the arcball."
+    },
+    {
+      "name": "setTransform",
+      "signature": "setTransformsetTransform(matrix:[[Matrix Class|TDU.Matrix]])",
+      "returns": "None",
+      "parameters": [],
+      "description": "Sets the current transform matrix for the arcball. Scales in the given matrix will be ignored."
+    },
+    {
+      "name": "identity",
+      "signature": "identityidentity()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Resets all values of the ArcBall to the default state."
+    }
+  ],
+  "url": "https://docs.derivative.ca/ArcBall_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ArcBall_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ArcBall Class wiki page",
+      "url": "https://docs.derivative.ca/ArcBall_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

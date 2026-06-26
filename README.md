@@ -23,7 +23,7 @@ Right now, I'm focused on ensuring the server returns useful and accurate Python
 
 - **661 TouchDesigner Operators** - Comprehensive documentation including 102 POP (Point Operator) entries
 - **14 Interactive Tutorials** - Comprehensive TouchDesigner learning guides
-- **68 Python API Classes** - Full Python scripting documentation with 1,510+ methods
+- **214 Python API Classes** - Full Python scripting documentation with 1,674+ methods
 - **21 MCP Tools** - Across five functional groups: operator reference, tutorials, Python API, version system, and experimental content
 - **32 Workflow Patterns** - Curated operator chain patterns with 72 common transitions
 
@@ -499,7 +499,7 @@ the default in the 2022 release.
 
 ## Python API Documentation
 
-The server includes documentation for **68 Python API classes** with **1,510+ methods** covering:
+The server includes documentation for **214 Python API classes** with **1,674+ methods** covering:
 
 - Core operator classes (CHOP, TOP, SOP, DAT, MAT, COMP)
 - Utility classes (Channel, Cell, Page, etc.)
@@ -548,7 +548,7 @@ td-mcp/
 │   ├── data/
 │   │   ├── processed/               # 661 operator JSON files
 │   │   ├── tutorials/               # 14 tutorial JSON files
-│   │   ├── python-api/              # 68 Python class JSON files
+│   │   ├── python-api/              # 214 Python class JSON files
 │   │   ├── experimental/            # 7 advanced technique JSON files
 │   │   └── versions/               # Version compatibility data
 │   │       ├── version-manifest.json
@@ -653,7 +653,7 @@ MIT License - See [LICENSE](LICENSE) file for details.
 **Current Version**: 3.0.0
 **Operators**: 661 (CHOP 170, TOP 147, SOP 113, POP 102, DAT 75, COMP 41, MAT 13)
 **Tutorials**: 14
-**Python API Classes**: 68
+**Python API Classes**: 214
 **MCP Tools**: 21
 **Workflow Patterns**: 32
 **TouchDesigner Currency**: 2025 official (build 2025.32820, Python 3.11.10) + 2025.30000 experimental

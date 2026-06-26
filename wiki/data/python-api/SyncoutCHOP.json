@@ -1,0 +1,35 @@
+{
+  "className": "SyncoutCHOP",
+  "displayName": "SyncoutCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "timecode",
+      "returnType": "tdu.Timecode",
+      "readOnly": true,
+      "description": "Get a Timecode object for the timecode data representation of the last sent index. See Timecode Class."
+    }
+  ],
+  "methods": [
+    {
+      "name": "send",
+      "signature": "sendsend(message)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Send an auxiliary message. The message must be serializable. The message will come through the `onReceive` callback of the Sync In CHOP. *message - A serializable message."
+    }
+  ],
+  "url": "https://docs.derivative.ca/SyncoutCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=SyncoutCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the SyncoutCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/SyncoutCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

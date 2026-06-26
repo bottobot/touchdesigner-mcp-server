@@ -1,0 +1,236 @@
+{
+  "className": "ListAttribute",
+  "displayName": "ListAttribute",
+  "category": "General",
+  "description": "The ListAttribute class describes an attribute defining a cell or set of cells in a List Component.",
+  "members": [
+    {
+      "name": "text",
+      "returnType": "str",
+      "readOnly": false,
+      "description": "Get or set contents."
+    },
+    {
+      "name": "textColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set text color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "textJustify",
+      "returnType": "JustifyType",
+      "readOnly": false,
+      "description": "Get or set text justification. Value is one of: JustifyType.TOPLEFT, JustifyType.TOPCENTER, JustifyType.TOPRIGHT, JustifyType.CENTERLEFT, JustifyType.CENTER, JustifyType.CENTERRIGHT, JustifyType.BOTTOMLEFT, JustifyType.BOTTOMCENTER, JustifyType.BOTTOMRIGHT"
+    },
+    {
+      "name": "textOffsetX",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set horizontal text offset."
+    },
+    {
+      "name": "textOffsetY",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set vertical text offset."
+    },
+    {
+      "name": "wordWrap",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set word wrapping."
+    },
+    {
+      "name": "help",
+      "returnType": "str",
+      "readOnly": false,
+      "description": "Get or set help string when rolling over the cell."
+    },
+    {
+      "name": "bgColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set background color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "fontFace",
+      "returnType": "str",
+      "readOnly": false,
+      "description": "Get or set font face. Example 'verdana'."
+    },
+    {
+      "name": "fontFile",
+      "returnType": "str",
+      "readOnly": false,
+      "description": "Get or set font file. VFS embedded files supported as well."
+    },
+    {
+      "name": "fontBold",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set whether or not text is rendered in bold font."
+    },
+    {
+      "name": "fontItalic",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set whether or not text is rendered italicized."
+    },
+    {
+      "name": "fontSizeX",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set font horizontal size."
+    },
+    {
+      "name": "fontSizeY",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set font vertical size. If not specified, uses fontSizeX."
+    },
+    {
+      "name": "sizeInPoints",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set text size units. When True size is in points, when False it is in pixels."
+    },
+    {
+      "name": "top",
+      "returnType": "TOP",
+      "readOnly": false,
+      "description": "Get or set background image TOP."
+    },
+    {
+      "name": "topFill",
+      "returnType": "FillMode",
+      "readOnly": false,
+      "description": "Get or set background TOP fit. Values: FillMode.STRETCH, FillMode.HORIZONTAL, FillMode.VERTICAL, FillMode.BEST, FillMode.NATIVE, FillMode.OUTSIDE."
+    },
+    {
+      "name": "topBorderInColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set inside top color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "topBorderOutColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set outside top color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "bottomBorderInColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set inside bottom color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "bottomBorderOutColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set outside bottom color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "leftBorderInColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set inside left color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "leftBorderOutColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set outside left color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "rightBorderInColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set inside right color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "rightBorderOutColor",
+      "returnType": "tuple[float, float, float, float]",
+      "readOnly": false,
+      "description": "Get or set outside right color. In the form of a tuple (r, g, b, a)."
+    },
+    {
+      "name": "colWidth",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set column width, expressed in pixels."
+    },
+    {
+      "name": "colStretch",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set column stretchiness. When True, colWidth specifies minimum width."
+    },
+    {
+      "name": "rowHeight",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set row height, expressed in pixels."
+    },
+    {
+      "name": "rowStretch",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set row stretchiness. When True, rowWidth specifies minimum width."
+    },
+    {
+      "name": "rowIndent",
+      "returnType": "float",
+      "readOnly": false,
+      "description": "Get or set row indent, expressed in pixels."
+    },
+    {
+      "name": "editable",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set whether or not contents are editable. When True, contents can be edited by clicking on the cell."
+    },
+    {
+      "name": "draggable",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set whether or not cell is draggable."
+    },
+    {
+      "name": "focus",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns True if the cell/row/column/table is currently being edited."
+    },
+    {
+      "name": "radio",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns true if the mouse last selected the cell/row/column/table."
+    },
+    {
+      "name": "rollover",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns true if the mouse is currently over the cell/row/column/table."
+    },
+    {
+      "name": "select",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "Returns true if the mouse is currently pressed over the cell/row/column/table."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ListAttribute_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ListAttribute_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ListAttribute Class wiki page",
+      "url": "https://docs.derivative.ca/ListAttribute_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "className": "Panes",
+  "displayName": "Panes",
+  "category": "UI",
+  "description": "The Panes class describes the list of all pane objects. It can be accessed from ui.panes.",
+  "members": [
+    {
+      "name": "current",
+      "returnType": "td.Pane",
+      "readOnly": true,
+      "description": "The currently selected pane."
+    }
+  ],
+  "methods": [
+    {
+      "name": "createFloating",
+      "signature": "createFloatingcreateFloating(type=None, name=None, maxWidth=1920, maxHeight=1080, monitorSpanWidth=0.9, monitorSpanHeight=0.9)",
+      "returns": "Pane",
+      "parameters": [],
+      "description": "Return a floating pane. *type - (Keyword, Optional) Type of pane created. See Pane for examples. Defaults to Network Editor. *name - (Keyword, Optional) Name of the pane. This value can be used to find the pane in ui.panes. *maxWidth - (Keyword, Optional) Upper limit on the width of the created window. Specified in pixels. *maxHeight - (Keyword, Optional) Upper limit on the height of the created window. Specified in pixels. *monitorSpanWidth - (Keyword, Optional) Specifies window width as a portion of the monitor width. *monitorSpanHeight - (Keyword, Optional) Specifies window height as a portion of the monitor height. Example"
+    },
+    {
+      "name": "len",
+      "signature": "lenlen(Panes)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the total number of panes."
+    },
+    {
+      "name": "[]",
+      "signature": "[index]",
+      "returns": "td.Pane",
+      "parameters": [],
+      "description": "Get specific pane, referenced by string or index."
+    },
+    {
+      "name": "iterator",
+      "signature": "iteratorIterator",
+      "returns": "td.Pane",
+      "parameters": [],
+      "description": "Iterate over each pane."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Panes_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Panes_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Panes Class wiki page",
+      "url": "https://docs.derivative.ca/Panes_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

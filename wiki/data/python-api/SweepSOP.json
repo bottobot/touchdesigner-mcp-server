@@ -1,0 +1,27 @@
+{
+  "className": "SweepSOP",
+  "displayName": "SweepSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "inputVertex",
+      "returnType": "Vertex",
+      "readOnly": true,
+      "description": "The current vertex being evaluated, along the backbone input."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/SweepSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=SweepSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the SweepSOP Class wiki page",
+      "url": "https://docs.derivative.ca/SweepSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

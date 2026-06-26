@@ -1,0 +1,33 @@
+{
+  "className": "AudiomovieCHOP",
+  "displayName": "AudiomovieCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [
+    {
+      "name": "hasAudio",
+      "returnType": "bool",
+      "readOnly": true,
+      "description": "True if the movie has audio."
+    },
+    {
+      "name": "playbackRate",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The current movie playback rate."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/AudiomovieCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=AudiomovieCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the AudiomovieCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/AudiomovieCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

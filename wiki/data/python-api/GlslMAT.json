@@ -1,0 +1,27 @@
+{
+  "className": "GlslMAT",
+  "displayName": "GlslMAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "MAT",
+  "members": [
+    {
+      "name": "compileResult",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "The latest compile result."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/GlslMAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=GlslMAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the GlslMAT Class wiki page",
+      "url": "https://docs.derivative.ca/GlslMAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

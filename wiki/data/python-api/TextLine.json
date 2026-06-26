@@ -1,0 +1,50 @@
+{
+  "className": "TextLine",
+  "displayName": "TextLine",
+  "category": "General",
+  "description": "A line of text in the Text TOP or Text SOP, after it has been formatted. It is also used by the Geo Text COMP to return the position and glyphs for a block of text. Contains various members about the line such as it's text, position etc.\"",
+  "members": [
+    {
+      "name": "glyph",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The index of the glyph that represents this text line."
+    },
+    {
+      "name": "fontIndex",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The index of the font that the glyph belongs to. Glyphs are not interchangable between fonts."
+    },
+    {
+      "name": "text",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "The text for this line."
+    },
+    {
+      "name": "origin",
+      "returnType": "tdu.Position",
+      "readOnly": true,
+      "description": "A tdu.Position object that gives the baseline origin of the line of text."
+    },
+    {
+      "name": "lineWidth",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "The width of the format box of this line of text. This member is not used by the Geo Text COMP."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/TextLine_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TextLine_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the TextLine Class wiki page",
+      "url": "https://docs.derivative.ca/TextLine_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

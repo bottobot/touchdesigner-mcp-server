@@ -1,0 +1,35 @@
+{
+  "className": "AudioplayCHOP",
+  "displayName": "AudioplayCHOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "CHOP",
+  "members": [],
+  "methods": [
+    {
+      "name": "play",
+      "signature": "playplay(index, start=True, loop=False,  delaySeconds=0.0, pan=None, rolloff=None, volume=None, fadeSeconds=0.0)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Trigger the playing of audio samples specified in an Audio Play CHOP. *index - (Optional) The index of the audio sample to play, or all if not specified. *start - (Keyword, Optional) When True, will play from the beginning of the sample. When False, will play from current location. *loop - (Keyword, Optional) When True, will loop the audio. When False, will play only once. *delaySeconds - (Keyword, Optional) The number of seconds to delay before playing the audio sample. *pan - (Keyword, Optional) Pan the audio:(0 = left, 1 = right), else use pan specified in CHOP. *volume - (Keyword, Optional) Specify a new volume to play the audio, else use volume specified in CHOP. *fadeSeconds - (Keyword, Optional) The number of seconds to fade to the specified volume when starting or stopping."
+    },
+    {
+      "name": "stop",
+      "signature": "stopstop(index)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Stop the playing of audio samples specified in an Audio Play CHOP. Uses fadeSeconds specificed in play(). *index - (Optional) The index of the audio sample to stop, or all if not specified."
+    }
+  ],
+  "url": "https://docs.derivative.ca/AudioplayCHOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=AudioplayCHOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the AudioplayCHOP Class wiki page",
+      "url": "https://docs.derivative.ca/AudioplayCHOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "className": "Textport",
+  "displayName": "Textport",
+  "category": "General",
+  "description": "This class defines the interface to a texport interface..",
+  "members": [],
+  "methods": [],
+  "url": "https://docs.derivative.ca/Textport_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Textport_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Textport Class wiki page",
+      "url": "https://docs.derivative.ca/Textport_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

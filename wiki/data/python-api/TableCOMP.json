@@ -1,0 +1,63 @@
+{
+  "className": "TableCOMP",
+  "displayName": "TableCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "PanelCOMP",
+  "members": [],
+  "methods": [
+    {
+      "name": "getRowFromID",
+      "signature": "getRowFromIDgetRowFromID(id)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Return the table row value, given a cell ID. *id - The cell id. Usually taken from panel values: celloverid, cellfocusid, etc."
+    },
+    {
+      "name": "click",
+      "signature": "clickclick(row, col, clickCount=1, force=False, left=False, middle=False, right=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Simulate a mouse click on a cell of the table. (0,0) is the top-left cell. *row, col - The row and column of the cell to click. *clickCount - (Keyword, Optional), Sets the number of clicks, for double clicking etc. *force - (Keyword, Optional) Forces the panel click, even if it's disabled. *left,middle,right - (Keyword, Optional) Override the default mouse button used. When none are set to true, the left mouse button is pressed, and the other buttons released."
+    },
+    {
+      "name": "getColFromID",
+      "signature": "getColFromIDgetColFromID(id)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Return the table column value, given a cell ID. *id - The cell id. Usually taken from panel values: celloverid, cellfocusid, etc."
+    },
+    {
+      "name": "clickID",
+      "signature": "clickIDclickID(id, clickCount=1, force=False, left=False, middle=False, right=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "The same as the click method, except it uses a cell ID instead of the row/col to specify the cell to click."
+    },
+    {
+      "name": "getCellID",
+      "signature": "getCellIDgetCellID(row, col)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Return the cell ID value, given a row and column. *row, col - The table component row and column of interest."
+    },
+    {
+      "name": "setKeyboardFocus",
+      "signature": "setKeyboardFocussetKeyboardFocus(row, col, selectAll=False)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Selects and sets the keyboard focus in a cell of the table if the cell is a field. *row, col - The row and column of the cell to set the keyboard focus. *selectAll - (Keyword, Optional) If True, then all text will be selected."
+    }
+  ],
+  "url": "https://docs.derivative.ca/TableCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TableCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the TableCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/TableCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

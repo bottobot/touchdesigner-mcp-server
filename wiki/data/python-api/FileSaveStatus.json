@@ -1,0 +1,40 @@
+{
+  "className": "FileSaveStatus",
+  "displayName": "FileSaveStatus",
+  "category": "General",
+  "description": "This class contains status information for an OP save task. Can be casted to a str type to return the filepath of the saved file.",
+  "members": [
+    {
+      "name": "filePath",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Returns the filepath of the saved file."
+    },
+    {
+      "name": "op",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "Returns reference to the OP node that was saved."
+    }
+  ],
+  "methods": [
+    {
+      "name": "isCompleted",
+      "signature": "isCompletedisCompleted()",
+      "returns": "bool",
+      "parameters": [],
+      "description": "Returns true if the file finished saving, and false otherwise."
+    }
+  ],
+  "url": "https://docs.derivative.ca/FileSaveStatus_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=FileSaveStatus_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the FileSaveStatus Class wiki page",
+      "url": "https://docs.derivative.ca/FileSaveStatus_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

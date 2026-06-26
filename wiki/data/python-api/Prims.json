@@ -1,0 +1,48 @@
+{
+  "className": "Prims",
+  "displayName": "Prims",
+  "category": "General",
+  "description": "The Prims class describes the set of prim objects (primitives) owned by one SOP.",
+  "members": [
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The OP to which this object belongs."
+    }
+  ],
+  "methods": [
+    {
+      "name": "len",
+      "signature": "lenlen(Prims)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Returns the total number of prims."
+    },
+    {
+      "name": "[]",
+      "signature": "[index]",
+      "returns": "td.Prim",
+      "parameters": [],
+      "description": "Get a specific prim given an integer index."
+    },
+    {
+      "name": "Iterator",
+      "signature": "IteratorIterator",
+      "returns": "td.Prim",
+      "parameters": [],
+      "description": "Iterate over each prim."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Prims_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Prims_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Prims Class wiki page",
+      "url": "https://docs.derivative.ca/Prims_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

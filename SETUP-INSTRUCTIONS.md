@@ -117,7 +117,7 @@ TouchDesigner MCP Server for VS Code/Codium
 [Patterns] Loaded 32 workflow patterns
 
 [Server] TD MCP v3.0.0 initialized successfully
-[Server] Ready with 661 operators, 14 tutorials, and 68 Python classes
+[Server] Ready with 661 operators, 14 tutorials, and 214 Python classes
 [Server] All 21 tools registered
 ```
 
@@ -197,7 +197,7 @@ See the [README](README.md) for full parameter documentation for each tool.
 
 No breaking changes to tool names, parameters, or responses. v3.0.0 is a modernization
 release: the operator catalog grows to 661 (with the previously missing POP family members),
-Python classes are corrected to 68, version data is rewritten from live Derivative sources,
+Python classes are expanded to 214 (deduplicated from 68), version data is rewritten from live Derivative sources,
 and several boot/packaging bugs are fixed (published-package crash, "Ready with 0 operators",
 stdout/JSON-RPC corruption). Node.js 20.0+ is now required. Restart your MCP client after
 upgrading.

@@ -93,7 +93,7 @@ for (const [name, mod] of Object.entries(T)) {
 const stats = m.getSystemStats();
 check('C2: banner count 661', stats.totalEntries === 661);                               // C2 stats bug
 check('C6: get_python_api shows Returns', /\*\*Returns:\*\*/.test(out.get_python_api));   // C6 returns bug
-check('C6b: list_python_classes = 68', /\b68\b/.test(out.list_python_classes));          // OP dedupe
+check('C6b: list_python_classes >= 200', /\b2\d\d\b/.test(out.list_python_classes));       // OP dedupe + class expansion
 check('C8: version 2025 -> Python 3.11.10', /3\.11\.10/.test(out.get_version_info));      // 2025 stable
 check('C8b: list_versions mentions 2025', /2025/.test(out.list_versions));
 check('C11: experimental build 2025.30000 + POP', /2025\.30/.test(out.get_experimental_build) && /POP/i.test(out.get_experimental_build));

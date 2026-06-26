@@ -1,0 +1,33 @@
+{
+  "className": "PrimitiveSOP",
+  "displayName": "PrimitiveSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "inputColor",
+      "returnType": "Tuple[float, float, float, float]",
+      "readOnly": true,
+      "description": "The current primitive color being evaluated or a default if not present, expressed as a 4-tuple (r, g, b, a)."
+    },
+    {
+      "name": "inputPrim",
+      "returnType": "Prim",
+      "readOnly": true,
+      "description": "The current primitive being evaluated."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/PrimitiveSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=PrimitiveSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the PrimitiveSOP Class wiki page",
+      "url": "https://docs.derivative.ca/PrimitiveSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

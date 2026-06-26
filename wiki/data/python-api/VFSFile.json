@@ -1,0 +1,77 @@
+{
+  "className": "VFSFile",
+  "displayName": "VFSFile",
+  "category": "General",
+  "description": "The VFSFile Class describes a virtual file contained within a Virtual File System.To access a virtual file in any operator's file parameter, use the virtual path as described below in the `virtualPath` member.",
+  "members": [
+    {
+      "name": "name",
+      "returnType": "str",
+      "readOnly": false,
+      "description": "Get or set the name of the file. This name can include slashes but should not include leading slashes."
+    },
+    {
+      "name": "size",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Get the size of the file data."
+    },
+    {
+      "name": "date",
+      "returnType": "\"datetime.datetime\"",
+      "readOnly": true,
+      "description": "Get the modified date of the file in the form of a datetime Python object."
+    },
+    {
+      "name": "virtualPath",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Get the virtual path of the file. Returns a String formatted for fetching the file data from VFS in operators such as the Movie File In TOP. Format is vfs::."
+    },
+    {
+      "name": "originalFilePath",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Get the original file path on disk. If the VFSFile was created from a bytearray and not a file on disk then this will be empty."
+    },
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "Get the OP owner."
+    },
+    {
+      "name": "byteArray",
+      "returnType": "bytearray",
+      "readOnly": false,
+      "description": "Get or set the file data as a bytearray."
+    }
+  ],
+  "methods": [
+    {
+      "name": "destroy",
+      "signature": "destroydestroy()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Destroys the file in VFS referenced by this object."
+    },
+    {
+      "name": "export",
+      "signature": "exportexport(folder)",
+      "returns": "str",
+      "parameters": [],
+      "description": "Exports the file to the specified folder on disk and returns the location. *folder - The folder on disk to export the file to."
+    }
+  ],
+  "url": "https://docs.derivative.ca/VFSFile_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=VFSFile_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the VFSFile Class wiki page",
+      "url": "https://docs.derivative.ca/VFSFile_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

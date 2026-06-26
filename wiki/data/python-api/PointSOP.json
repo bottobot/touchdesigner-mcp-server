@@ -1,0 +1,69 @@
+{
+  "className": "PointSOP",
+  "displayName": "PointSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "inputColor",
+      "returnType": "Tuple[float, float, float, float]",
+      "readOnly": true,
+      "description": "The current point color being evaluated, from the first input, or a default if not present, expressed as a 4-tuple (r, g, b, a)."
+    },
+    {
+      "name": "inputColor2",
+      "returnType": "Tuple[float, float, float, float]",
+      "readOnly": true,
+      "description": "The current point color being evaluated, from the second input, or a default if not present, expressed as a 4-tuple (r, g, b, a)."
+    },
+    {
+      "name": "inputNormal",
+      "returnType": "Tuple[float, float, float]",
+      "readOnly": true,
+      "description": "The current point normal being evaluated, from the first input, or a default if not present, expressed as a 3-tuple (n1, n2, n3)."
+    },
+    {
+      "name": "inputNormal2",
+      "returnType": "Tuple[float, float, float]",
+      "readOnly": true,
+      "description": "The current point normal being evaluated, from the second input, or a default if not present, expressed as a 3-tuple (n1, n2, n3)."
+    },
+    {
+      "name": "inputPoint",
+      "returnType": "Point",
+      "readOnly": true,
+      "description": "The current point being evaluated, from the first input."
+    },
+    {
+      "name": "inputPoint2",
+      "returnType": "Point",
+      "readOnly": true,
+      "description": "The current point being evaluated, from the second input."
+    },
+    {
+      "name": "inputTexture",
+      "returnType": "Tuple[float, float, float]",
+      "readOnly": true,
+      "description": "The current point texture being evaluated, from the first input, or a default if not present, expressed as a 3-tuple (u, v, w)."
+    },
+    {
+      "name": "inputTexture2",
+      "returnType": "Tuple[float, float, float]",
+      "readOnly": true,
+      "description": "The current point texture being evaluated, from the second input, or a default if not present, expressed as a 3-tuple (u, v, w)."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/PointSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=PointSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the PointSOP Class wiki page",
+      "url": "https://docs.derivative.ca/PointSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

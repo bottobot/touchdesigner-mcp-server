@@ -1,0 +1,92 @@
+{
+  "className": "Bezier",
+  "displayName": "Bezier",
+  "category": "General",
+  "description": "A Bezier describes an instance of a single geometry Bezier primitive (containing a set of connected Bezier curves). It is an instance of a Prim Class. It can be created from either a Model SOP or Script SOP. Each curve is described by a set of segments, where each segment is a list of vertices. The first and last vertex of each segment is an anchor position, while its neighboring vertices describe tangent handles. The members and methods below allow modification of the Bezier in a modelling context, however the Bezier can also be modified by direction manipulation of its vertices. See Prim Class for more details.",
+  "members": [
+    {
+      "name": "anchors",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Returns the list of anchor vertices."
+    },
+    {
+      "name": "basis",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Return the bezier basis as a list of float values."
+    },
+    {
+      "name": "closed",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set whether the curve is closed or open."
+    },
+    {
+      "name": "order",
+      "returnType": "float",
+      "readOnly": true,
+      "description": "Return the bezier order. The order is one more than the degree."
+    },
+    {
+      "name": "segments",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Returns a list of segments, where each segment is a list of vertices."
+    },
+    {
+      "name": "tangents",
+      "returnType": "list",
+      "readOnly": true,
+      "description": "Returns the tangents as a list of vertex pairs."
+    }
+  ],
+  "methods": [
+    {
+      "name": "insertAnchor",
+      "signature": "insertAnchorinsertAnchor(u)",
+      "returns": "Vertex",
+      "parameters": [],
+      "description": "inserts anchor at given position (u from 0..1) and returns anchor vertex."
+    },
+    {
+      "name": "updateAnchor",
+      "signature": "updateAnchorupdateAnchor(anchorIndex, targetPosition, tangents=True)",
+      "returns": "tdu.Position",
+      "parameters": [],
+      "description": "Modify the anchor vertex to the new position. If tangents is True, modify neighboring tangent vertices as well. Returns resulting position."
+    },
+    {
+      "name": "appendAnchor",
+      "signature": "appendAnchorappendAnchor(targetPosition, preserveShape=True)",
+      "returns": "Vertex",
+      "parameters": [],
+      "description": "Appends a set of vertices, creating a new segment on the curve, ending with the targetPosition. Returns final anchor vertex. *preserveShape - (Keyword, Optional) Specifies whether the new tangent will align with the previous segment or not."
+    },
+    {
+      "name": "updateTangent",
+      "signature": "updateTangentupdateTangent(tangentIndex, targetPosition, rotate=True, scale=True, rotateLock=True, scaleLock=True)",
+      "returns": "tdu.Position",
+      "parameters": [],
+      "description": "Modify the vertex vertex to the new position, constraining either rotation or scale. Locked controls matching tangent. Returns resulting position."
+    },
+    {
+      "name": "deleteAnchor",
+      "signature": "deleteAnchordeleteAnchor(anchorIndex)",
+      "returns": "None",
+      "parameters": [],
+      "description": "Deletes the anchor and its neighbouring tangents."
+    }
+  ],
+  "url": "https://docs.derivative.ca/Bezier_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=Bezier_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the Bezier Class wiki page",
+      "url": "https://docs.derivative.ca/Bezier_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

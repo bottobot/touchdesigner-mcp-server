@@ -1,0 +1,39 @@
+{
+  "className": "InsertDAT",
+  "displayName": "InsertDAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "DAT",
+  "members": [
+    {
+      "name": "subRow",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Current row index for Insert DAT Table expressions."
+    },
+    {
+      "name": "subCol",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Current col index for Insert DAT Table expressions."
+    },
+    {
+      "name": "fillName",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "Current header name for Insert DAT Table expressions."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/InsertDAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=InsertDAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the InsertDAT Class wiki page",
+      "url": "https://docs.derivative.ca/InsertDAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

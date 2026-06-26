@@ -1,0 +1,38 @@
+{
+  "className": "CUDAMemory",
+  "displayName": "CUDAMemory",
+  "category": "General",
+  "description": "Holds a reference to CUDA memory. The CUDA memory will be deallocated when this class is destructed.",
+  "members": [
+    {
+      "name": "ptr",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Returns the raw memory pointer address for the CUDA memory."
+    },
+    {
+      "name": "size",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Returns the size of the CUDA Memory, in bytes."
+    },
+    {
+      "name": "shape",
+      "returnType": "CUDAMemoryShape",
+      "readOnly": true,
+      "description": "Returns the CUDAMemoryShape Class describing this CUDA memory. See the help for that class for notes about channel order for different data types."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/CUDAMemory_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=CUDAMemory_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the CUDAMemory Class wiki page",
+      "url": "https://docs.derivative.ca/CUDAMemory_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "name": "@bottobot/td-mcp",
   "version": "3.0.0",
-  "description": "TouchDesigner MCP Server v3.0.0 - 21 MCP tools, 661 operators with verified parameter data, 68 Python API classes, 14 tutorials, 32 workflow patterns. Up to date with TouchDesigner 2025 (Python 3.11.10) and the 2025.30000 experimental series, including the POP (Point Operator) family. Version system, experimental techniques KB, core tool enhancements, and experimental build support. Zero-configuration setup for VS Code/Codium.",
+  "description": "TouchDesigner MCP Server v3.0.0 - 21 MCP tools, 661 operators with verified parameter data, 214 Python API classes, 14 tutorials, 32 workflow patterns. Up to date with TouchDesigner 2025 (Python 3.11.10) and the 2025.30000 experimental series, including the POP (Point Operator) family. Version system, experimental techniques KB, core tool enhancements, and experimental build support. Zero-configuration setup for VS Code/Codium.",
   "main": "index.js",
   "type": "module",
   "bin": {

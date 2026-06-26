@@ -1,0 +1,69 @@
+{
+  "className": "VertexSOP",
+  "displayName": "VertexSOP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "SOP",
+  "members": [
+    {
+      "name": "inputColor",
+      "returnType": "Tuple[float, float, float, float]",
+      "readOnly": true,
+      "description": "The current point or vertex color being evaluated, from the first input, or a default if not present, expressed as a 4-tuple (r, g, b, a)."
+    },
+    {
+      "name": "inputColor2",
+      "returnType": "Tuple[float, float, float, float]",
+      "readOnly": true,
+      "description": "The current point or vertex color being evaluated, from the second input, or a default if not present, expressed as a 4-tuple (r, g, b, a)."
+    },
+    {
+      "name": "inputNormal",
+      "returnType": "Tuple[float, float, float]",
+      "readOnly": true,
+      "description": "The current point or vertex normal being evaluated, from the first input, or a default if not present, expressed as a 3-tuple (n1, n2, n3)."
+    },
+    {
+      "name": "inputNormal2",
+      "returnType": "Tuple[float, float, float]",
+      "readOnly": true,
+      "description": "The current point or vertex normal being evaluated, from the second input, or a default if not present, expressed as a 3-tuple (n1, n2, n3)."
+    },
+    {
+      "name": "inputTexture",
+      "returnType": "Tuple[float, float, float]",
+      "readOnly": true,
+      "description": "The current point or vertex texture being evaluated, from the first input, or a default if not present, expressed as a 3-tuple (u, v, w)."
+    },
+    {
+      "name": "inputTexture2",
+      "returnType": "Tuple[float, float, float]",
+      "readOnly": true,
+      "description": "The current point or vertex texture being evaluated, from the second input, or a default if not present, expressed as a 3-tuple (u, v, w)."
+    },
+    {
+      "name": "inputVertex",
+      "returnType": "Vertex",
+      "readOnly": true,
+      "description": "The current vertex being evaluated, from the first input."
+    },
+    {
+      "name": "inputVertex2",
+      "returnType": "Vertex",
+      "readOnly": true,
+      "description": "The current vertex being evaluated, from the second input."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/VertexSOP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=VertexSOP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the VertexSOP Class wiki page",
+      "url": "https://docs.derivative.ca/VertexSOP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

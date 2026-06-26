@@ -1,0 +1,27 @@
+{
+  "className": "ParameterCOMP",
+  "displayName": "ParameterCOMP",
+  "category": "Operator",
+  "description": "",
+  "inherits": "PanelCOMP",
+  "members": [
+    {
+      "name": "minWidth",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The minimum width the parameter dialog can be drawn at before scaling is required."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ParameterCOMP_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ParameterCOMP_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ParameterCOMP Class wiki page",
+      "url": "https://docs.derivative.ca/ParameterCOMP_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

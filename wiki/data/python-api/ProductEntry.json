@@ -1,0 +1,38 @@
+{
+  "className": "ProductEntry",
+  "displayName": "ProductEntry",
+  "category": "General",
+  "description": "A class to interact with a dongle entry for a single dongle connected to the system.",
+  "members": [
+    {
+      "name": "licenseType",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "Returns the license type for this product entry on the dongle."
+    },
+    {
+      "name": "updateDate",
+      "returnType": "tuple[int, int, int]",
+      "readOnly": true,
+      "description": "The date the product entry is valid until. Returns a tuple in the form (YYYY, MM, DD)."
+    },
+    {
+      "name": "version",
+      "returnType": "str",
+      "readOnly": true,
+      "description": "The version of TouchDesigner this dongle product entry is valid for."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/ProductEntry_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=ProductEntry_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the ProductEntry Class wiki page",
+      "url": "https://docs.derivative.ca/ProductEntry_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

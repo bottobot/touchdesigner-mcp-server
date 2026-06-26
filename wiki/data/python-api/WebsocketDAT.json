@@ -1,0 +1,49 @@
+{
+  "className": "WebsocketDAT",
+  "displayName": "WebsocketDAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "DAT",
+  "members": [],
+  "methods": [
+    {
+      "name": "sendText",
+      "signature": "sendTextsendText(message)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Send a text frame over the WebSocket connection. Returns the number of bytes sent in the message, or a negative value on error. *message - String content to send. Multiple string values can be specified, which are joined without spaces."
+    },
+    {
+      "name": "sendPong",
+      "signature": "sendPongsendPong(contents)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Send a pong reply over the WebSocket connection. Returns the number of bytes sent in the message, or a negative value on error. *contents - (Optional) Binary contents of the frame. This should match the contents of the original ping request frame. This can include any number of strings, byte arrays, or individual single-byte numeric values. To serialize non-byte values (example floats or integers) there are several python modules to do this, such as pickle or struct."
+    },
+    {
+      "name": "sendPing",
+      "signature": "sendPingsendPing(contents)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Send a ping request over the WebSocket connection. Returns the number of bytes sent in the message, or a negative value on error. *contents - (Optional) Binary contents of the frame. This can include any number of strings, byte arrays, or individual single-byte numeric values. To serialize non-byte values (example floats or integers) there are several python modules to do this, such as pickle or struct."
+    },
+    {
+      "name": "sendBinary",
+      "signature": "sendBinarysendBinary(contents)",
+      "returns": "int",
+      "parameters": [],
+      "description": "Send a binary frame over the WebSocket connection. Returns the number of bytes sent in the message, or a negative value on error. *contents - (Optional) Binary contents of the frame. This can include any number of strings, byte arrays, or individual single-byte numeric values. To serialize non-byte values (example floats or integers) there are several python modules to do this, such as pickle or struct."
+    }
+  ],
+  "url": "https://docs.derivative.ca/WebsocketDAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=WebsocketDAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the WebsocketDAT Class wiki page",
+      "url": "https://docs.derivative.ca/WebsocketDAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

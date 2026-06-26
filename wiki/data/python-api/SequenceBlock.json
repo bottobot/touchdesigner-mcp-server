@@ -1,0 +1,70 @@
+{
+  "className": "SequenceBlock",
+  "displayName": "SequenceBlock",
+  "category": "General",
+  "description": "The SequenceBlock class can be used to access the parGroups of a specific block (set of parGroups) in a sequence. Note: use the parameter name without the sequence prefix.",
+  "members": [
+    {
+      "name": "index",
+      "returnType": "int",
+      "readOnly": true,
+      "description": "The numeric index of the block."
+    },
+    {
+      "name": "owner",
+      "returnType": "OP",
+      "readOnly": true,
+      "description": "The OP to which this object belongs."
+    },
+    {
+      "name": "par",
+      "returnType": "ParCollection",
+      "readOnly": true,
+      "description": "An intermediate parameter collection object, from which a specific sequence parameter can be found. Names do not include sequence info prefix."
+    },
+    {
+      "name": "parGroup",
+      "returnType": "ParGroupCollection",
+      "readOnly": true,
+      "description": "An intermediate parameter collection object, from which a specific sequence parameter group can be found. Names do not include sequence info prefix."
+    },
+    {
+      "name": "name",
+      "returnType": "str",
+      "readOnly": false,
+      "description": "Get or set the sequence block name parameter value. This is implemented as a specifically named parameter in each block. The name is also used to identify a block by string via Sequence[]."
+    },
+    {
+      "name": "namePar",
+      "returnType": "Par  None",
+      "readOnly": true,
+      "description": "The parameter defining the name for this block, or None if there isn't one."
+    },
+    {
+      "name": "sequence",
+      "returnType": "Sequence",
+      "readOnly": true,
+      "description": "The sequence object this block belongs to."
+    }
+  ],
+  "methods": [
+    {
+      "name": "destroy",
+      "signature": "destroydestroy()",
+      "returns": "None",
+      "parameters": [],
+      "description": "Destroy the block of parameters."
+    }
+  ],
+  "url": "https://docs.derivative.ca/SequenceBlock_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=SequenceBlock_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the SequenceBlock Class wiki page",
+      "url": "https://docs.derivative.ca/SequenceBlock_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}

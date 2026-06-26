@@ -1,0 +1,27 @@
+{
+  "className": "TextDAT",
+  "displayName": "TextDAT",
+  "category": "Operator",
+  "description": "",
+  "inherits": "DAT",
+  "members": [
+    {
+      "name": "textFormat",
+      "returnType": "bool",
+      "readOnly": false,
+      "description": "Get or set text format flag. This will convert between table and text formats. Note: Adding a row or column after will convert the DAT back into a table."
+    }
+  ],
+  "methods": [],
+  "url": "https://docs.derivative.ca/TextDAT_Class",
+  "sourceUrl": "https://docs.derivative.ca/api.php?action=parse&page=TextDAT_Class&prop=wikitext",
+  "lastUpdated": "2026-06-25T00:00:00.000Z",
+  "processingVersion": "3.0.0",
+  "_provenance": [
+    {
+      "fact": "scraped from the TextDAT Class wiki page",
+      "url": "https://docs.derivative.ca/TextDAT_Class",
+      "fetchedAt": "2026-06-25T00:00:00.000Z"
+    }
+  ]
+}
