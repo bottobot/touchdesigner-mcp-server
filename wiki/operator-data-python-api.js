@@ -296,11 +296,20 @@ export class OperatorDataPythonApi {
                 }
             }
             
-            // Restore stats
-            if (index.stats) {
-                this.pythonApiStats = index.stats;
+            // Restore stats — but never let a stale index over/under-report what
+            // actually loaded: recompute from the loaded classes themselves.
+            let loadedMembers = 0, loadedMethods = 0;
+            for (const cls of this.pythonClasses.values()) {
+                loadedMembers += (cls.members || []).length;
+                loadedMethods += (cls.methods || []).length;
             }
-            
+            this.pythonApiStats = {
+                ...(index.stats || {}),
+                totalClasses: this.pythonClasses.size,
+                totalMembers: loadedMembers,
+                totalMethods: loadedMethods,
+            };
+
             console.error(`[Python API] Loaded ${this.pythonClasses.size} Python classes from disk`);
             
         } catch (error) {
@@ -371,9 +380,13 @@ export class OperatorDataPythonApi {
             }
         }
         
-        // Debug: List all loaded classes
+        // Startup summary (set TD_MCP_DEBUG=1 for the full class list)
         const classNames = Array.from(this.pythonClasses.keys()).sort();
-        console.error(`[Python API] All loaded classes: ${classNames.join(', ')}`);
+        if (process.env.TD_MCP_DEBUG) {
+            console.error(`[Python API] All loaded classes: ${classNames.join(', ')}`);
+        } else {
+            console.error(`[Python API] ${classNames.length} classes ready (${classNames[0]} … ${classNames[classNames.length - 1]})`);
+        }
     }
     /**
      * Load stub data for missing Python classes
