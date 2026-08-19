@@ -117,7 +117,7 @@ The 3.0.0 release reworked several boot- and packaging-level concerns:
 
 ```
 td-mcp/
-├── index.js                              # Main MCP server entry point (21 tools registered)
+├── index.js                              # Main MCP server entry point (39 tools registered)
 ├── tools/                                # MCP tool implementations (21 files)
 │   ├── Operator Tools
 │   │   ├── get_operator.js               # Full operator documentation
@@ -154,7 +154,7 @@ td-mcp/
 │   └── data/
 │       ├── processed/                     # 661 operator JSON files
 │       ├── tutorials/                     # 14 tutorial JSON files
-│       ├── python-api/                    # 214 Python class JSON files
+│       ├── python-api/                    # 209 Python class JSON files
 │       ├── experimental/                  # 7 advanced technique JSON files
 │       └── versions/                      # Version compatibility and experimental data
 ├── data/
@@ -170,7 +170,7 @@ td-mcp/
 |---------------------------|--------|--------------------------------------------|
 | MCP Tools                 | 21     | Across 5 functional groups                 |
 | Operator JSON files       | 661    | All families: CHOP 170, TOP 147, SOP 113, POP 102, DAT 75, COMP 41, MAT 13 |
-| Python API classes        | 214    | 1,674+ methods documented                  |
+| Python API classes        | 209    | 1,674 methods documented                   |
 | Tutorials                 | 14     | Core, advanced dev, IPC, video/integration |
 | Workflow patterns         | 32     | With 72 common transitions                 |
 | Experimental technique files | 7   | 2,000+ lines of documented code snippets   |
@@ -207,11 +207,11 @@ Operator families and counts (sum = 661):
 - Video Streaming User Guide, TouchDesigner Video Server Specification Guide
 - TDBitwig User Guide
 
-#### wiki/data/python-api/ (214 Python class JSON files)
+#### wiki/data/python-api/ (209 Python class JSON files)
 
 Core operator classes (CHOP, TOP, SOP, DAT, MAT, COMP), utility classes (Channel, Cell,
 Page), system classes (App, Project, Monitor), UI classes (Panel, Widget), and advanced
-feature classes (WebRTC, NDI, MIDI, OSC). Total: 214 classes, 1,674+ methods. (The prior
+feature classes (WebRTC, NDI, MIDI, OSC). Total: 209 classes, 1,674 methods. (The prior
 count of 69 double-counted the `OP` base class.)
 
 #### wiki/data/versions/ (5 JSON files)
@@ -249,7 +249,7 @@ Central documentation engine (wiki/operator-data-manager.js) that:
 #### Python API Data Manager
 
 Separate module (wiki/operator-data-python-api.js) managing:
-- 214 Python class definitions with member and method documentation
+- 209 Python class definitions with member and method documentation
 - Category grouping for list_python_classes browsing
 - Search index over class names, methods, members, and descriptions
 
@@ -753,8 +753,8 @@ Operator data lives in `wiki/data/processed/` as JSON files. Each file follows t
 ```bash
 npx @bottobot/td-mcp
 # Expected output (on stderr) includes:
-# Ready with 661 operators, 14 tutorials, and 214 Python classes
-# All 21 tools registered
+# Ready with 661 operators, 14 tutorials, and 209 Python classes
+# All 39 tools registered (21 knowledge + 18 live-control)
 ```
 
 #### Test TD Control MCP
@@ -781,7 +781,7 @@ td_eval({ expression: "op('/').name" })
 ## Conclusion
 
 The MCP architecture provides a robust foundation for integrating TouchDesigner with AI
-assistants. The separation between documentation (TD-MCP, 21 tools) and control
+assistants. The separation between documentation (21 knowledge tools) and live control (18 td_* tools)
 (TD-Control-MCP) servers allows for:
 
 1. **Modularity**: Use either or both servers as needed
@@ -792,6 +792,6 @@ assistants. The separation between documentation (TD-MCP, 21 tools) and control
 
 The TD-MCP documentation server (v3.0.0) covers the complete TouchDesigner ecosystem and is
 current with TouchDesigner 2025 (Python 3.11.10) plus the 2025.30000 experimental series:
-stable operator documentation (661 operators), Python scripting reference (214 classes),
+stable operator documentation (661 operators), Python scripting reference (209 classes),
 interactive tutorials, version history, advanced technique patterns, and experimental build
-tracking — all accessible through 21 MCP tools with no external dependencies.
+tracking — all accessible through 39 MCP tools with no external dependencies (live control needs only a running TouchDesigner with the td-bridge component).

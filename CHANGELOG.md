@@ -19,11 +19,27 @@ expressions), `td_connect`, `td_layout`, `td_list_network` and `td_render` (imag
 MCP) all confirmed working.
 
 ### Added
-- **16 live-control MCP tools** (37 tools total): `td_status`, `td_create_operator`,
-  `td_set_parameter`, `td_connect`, `td_delete`, `td_list_network`, `td_clear`, `td_layout`,
-  `td_get_errors`, `td_set_resolution`, `td_render`, `td_sample`, `td_build_template`,
-  `td_build_pattern`, `td_build_glsl`, `td_run_python`. Each wraps exactly one documented
-  `td` call (`COMP.create`, `Par.val/.expr/.pulse`, `Connector.connect`, `TOP.saveByteArray`, …).
+- **18 live-control MCP tools** (39 tools total): `td_status`, `td_create_operator`,
+  `td_set_parameter`, `td_get_parameters`, `td_set_text`, `td_connect`, `td_delete`,
+  `td_list_network`, `td_clear`, `td_layout`, `td_get_errors`, `td_set_resolution`,
+  `td_render`, `td_sample`, `td_build_template`, `td_build_pattern`, `td_build_glsl`,
+  `td_run_python`. Each wraps exactly one documented `td` call (`COMP.create`,
+  `Par.val/.expr/.pulse`, `Connector.connect`, `TOP.saveByteArray`, `DAT.text`,
+  `OP.pars`, …).
+- **`td_get_parameters`** — the perception half of the parameter loop: read an
+  operator's parameter names, labels, current values, bound expressions and valid
+  menu tokens live (documented `OP.pars` + `Par` members).
+- **`td_set_text`** — set DAT contents (Python, table rows, GLSL) via the documented
+  writable `DAT.text` member; DAT contents are not a parameter and were previously
+  unreachable over the bridge.
+- Bridge `set_parameter` now accepts parameter **labels** (case-insensitive
+  `Par.name`/`Par.label` match), translates menu **labels to tokens**
+  (`Par.menuNames`/`Par.menuLabels`), errors with the operator's valid parameter
+  names on an unknown parameter, and errors with the valid menu tokens on a bad
+  menu value — every error teaches the caller the correct next call.
+- `TD_MCP_TIMEOUT_MS` env var — per-request bridge timeout (default 8000 ms;
+  `td_render` uses 20000 ms); timeouts now report "TD busy" distinctly from
+  "bridge not running".
 - **`td-bridge/`** — a user-installed TouchDesigner component (`router.py` Web Server DAT
   callbacks + `bootstrap.py` + `README.md`). Security: a fresh constant-time-checked token in
   the `Authorization` header, an Origin/Referer CSRF guard, sandbox-confined to
@@ -40,6 +56,44 @@ MCP) all confirmed working.
   serialization (`par.eval()` returns an OP); the bridge now coerces to a JSON-safe value.
 - Removed a nonexistent `localaddress` write on the Web Server DAT — the wiki-documented param
   does not exist on the live operator (verified by enumerating its parameters in-app).
+
+### Fixed (full review, 2026-08-19)
+- **All 5 build templates were unbuildable** — every one hard-errored at plan time on
+  parameter labels the map does not carry as labels (`Brightness` → `brightness1`,
+  `Scale X` → `sx`, `Filter Width` → `size`, `To Range Max` → `torange2`, …).
+  Templates now use map-resolvable labels or explicit documented `parName`s, and were
+  rewritten to wire only against connectors that exist on DEFAULT operators (the old
+  audio-reactive/live-performance templates wired SOPs/containers into Geometry/Container
+  COMP connectors that do not exist on default COMPs).
+- **All 32 workflow patterns were unbuildable via `td_build_pattern`** — patterns.json uses
+  short names ("Transform", "Level") that never resolved. Resolution is now family-aware
+  (the pattern's `category` + the chain's current family pick "Transform TOP" over
+  "Transform CHOP"); 32/32 patterns now resolve. Five patterns referenced nonexistent
+  operators ("Force POP" is a wiki redirect to Force Radial POP; Attractor/Collision/
+  Instance/Panel do not exist) and were corrected to real TD 2025 operators.
+- **Build compilers now track the paths TD actually creates** — in a non-empty sandbox TD
+  auto-uniquifies names (noise1 → noise2); previously every follow-up set/connect bound to
+  the OLD nodes. Sibling references in parameter values/expressions (Feedback target,
+  `op('null1')`) are rewritten to the real created names. Verified against a mock bridge
+  including the rebuild path.
+- `td_build_glsl` loaded the shader via a nonexistent Text DAT `text` *parameter* (DAT
+  contents are the `DAT.text` member) — now uses the new `set_text` command; uniform value
+  parameters corrected from `uniformvalue0` (not a TD parameter) to the documented
+  `value0x` slots.
+- Composite templates set menu values by label ('Add') which TD rejects — templates now
+  carry scripting tokens ('add'), with label→token translation as a second line of defense.
+- validate.js exercised 3 of 21 knowledge tools only on their error paths (wrong fixture
+  keys: `suggest_workflow`, `get_operator_examples`, `compare_operators`) while reporting
+  PASS; fixtures fixed, happy-path content now asserted, and template/pattern
+  compilability pinned as new checks (C16–C18).
+- Python API data: removed 5 operator-page scrapes polluting the class index
+  ("Pattern CHOP" vs the real PatternCHOP, etc.), recovered 2 missing classes from the
+  wiki (ScriptPOP, GeometryStagingData — 30 methods), dropped the empty ErrorDAT leaf;
+  index stats now recomputed from what actually loads (was: claimed 214, loaded 212;
+  now: 209/209 with zero load failures).
+- `getOperator(undefined)` no longer TypeErrors deep in the data manager (defensive guard).
+- Startup no longer dumps all 209 Python class names to stderr (set `TD_MCP_DEBUG=1` for
+  the full list); the registered-tool banner is computed, not hardcoded.
 
 ## [3.0.0] - 2026-06-25
 

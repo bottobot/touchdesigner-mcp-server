@@ -37,4 +37,4 @@ else
   exit 1
 fi
 
-echo "[setup] ready — 37 MCP tools (21 knowledge + 16 live-control)."
+echo "[setup] ready."

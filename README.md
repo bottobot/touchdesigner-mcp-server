@@ -19,12 +19,14 @@ Right now, I'm focused on ensuring the server returns useful and accurate Python
 
 **My ultimate dream**, however, is full integration directly into TouchDesigner itself. I experimented with a web server and WebSocket approach, which sort of worked, but since the LLMs I was testing weren't generating correct Python code and kept hallucinating information while not utilizing the MCP server to its fullest potential, I've temporarily shelved this part of the project. Once it's working reliably and generating solid visualizations or networks, then full integration will be the final step!
 
+> **Update:** that integration now exists — see [Live-Control Tools](#live-control-tools-18-total). A small bridge component (`td-bridge/`) turns a running TouchDesigner into a controllable target, and 18 `td_*` MCP tools create operators, set parameters, wire connections, and render frames back to the assistant. Verified end-to-end against TouchDesigner 2025.32820.
+
 ## Features
 
 - **661 TouchDesigner Operators** - Comprehensive documentation including 102 POP (Point Operator) entries
 - **14 Interactive Tutorials** - Comprehensive TouchDesigner learning guides
-- **214 Python API Classes** - Full Python scripting documentation with 1,674+ methods
-- **21 MCP Tools** - Across five functional groups: operator reference, tutorials, Python API, version system, and experimental content
+- **209 Python API Classes** - Full Python scripting documentation with 1,674 methods
+- **39 MCP Tools** - 21 knowledge tools (operator reference, tutorials, Python API, version system, experimental content) + 18 live-control tools that drive a running TouchDesigner
 - **32 Workflow Patterns** - Curated operator chain patterns with 72 common transitions
 
 > **Current with TouchDesigner 2025** (latest official build 2025.32820, bundled Python 3.11.10) and the **2025.30000 experimental series** (Python 3.11.10). POPs (Point Operators) are the flagship new operator family in the 2025 release — the first new operator family in over a decade.
@@ -103,7 +105,10 @@ td-mcp
 npx @bottobot/td-mcp
 ```
 
-## Available MCP Tools (21 Total)
+## Available MCP Tools (39 Total)
+
+21 knowledge tools serve documentation offline; 18 live-control tools drive a
+running TouchDesigner through the [td-bridge](td-bridge/README.md) component.
 
 ### Core Operator Tools
 
@@ -460,6 +465,44 @@ Both series are sourced from the live Derivative release notes (provenance recor
 2025 release; the 2021 experimental build first moved TouchDesigner to Vulkan, which became
 the default in the 2022 release.
 
+### Live-Control Tools (18 Total)
+
+These tools drive a **running TouchDesigner instance** — the assistant can build
+operator networks, set parameters, wire connections, and *see* the rendered
+output. They require the user-installed bridge component: follow
+[td-bridge/README.md](td-bridge/README.md) (paste `bootstrap.py` into TD's
+textport once), then set the environment variables it prints:
+
+| Variable | Default | Meaning |
+|----------|---------|---------|
+| `TD_MCP_TOKEN` | *(required)* | Shared secret minted by the bridge at startup |
+| `TD_MCP_HOST` | `127.0.0.1` | Bridge host |
+| `TD_MCP_PORT` | `9981` | Bridge port |
+| `TD_MCP_TIMEOUT_MS` | `8000` | Per-request timeout (renders default to 20000) |
+
+All mutations are confined to the `/td_mcp/sandbox` COMP unless explicitly
+overridden. Verified end-to-end against TouchDesigner **2025.32820**.
+
+| Tool | Purpose |
+|------|---------|
+| `td_status` | Liveness / version probe of the bridge |
+| `td_create_operator` | Create an operator (documented `COMP.create`) |
+| `td_set_parameter` | Set value / expression / pulse; labels + menu labels accepted |
+| `td_get_parameters` | Read names, labels, values, expressions, valid menu tokens |
+| `td_set_text` | Set DAT contents (Python, tables, GLSL) via `DAT.text` |
+| `td_connect` | Wire outputs to inputs (port-level) |
+| `td_delete` / `td_clear` | Remove one operator / all children of a COMP |
+| `td_list_network` | Enumerate operators + wiring under a COMP |
+| `td_get_errors` | Read errors / warnings / script errors |
+| `td_layout` | Tidy node positions into a grid |
+| `td_set_resolution` | Set a TOP's output resolution |
+| `td_render` | Render a TOP frame and return the image to the assistant |
+| `td_sample` | Read a single TOP pixel or CHOP channel value |
+| `td_build_template` | Compile a named multi-branch network template |
+| `td_build_pattern` | Compile a linear workflow pattern from patterns.json |
+| `td_build_glsl` | Build a GLSL technique (shader DAT + GLSL TOP + uniforms) |
+| `td_run_python` | Free-form Python (opt-in gated, off by default) |
+
 ## Operator Categories
 
 | Category | Count | Description |
@@ -499,7 +542,7 @@ the default in the 2022 release.
 
 ## Python API Documentation
 
-The server includes documentation for **214 Python API classes** with **1,674+ methods** covering:
+The server includes documentation for **209 Python API classes** with **1,674 methods** covering:
 
 - Core operator classes (CHOP, TOP, SOP, DAT, MAT, COMP)
 - Utility classes (Channel, Cell, Page, etc.)
@@ -514,15 +557,15 @@ The TD-MCP server is built with:
 - **Direct Search Algorithm** - Fast, reliable search without external index dependencies
 - **OperatorDataManager** - Centralized data management with 661 operators loaded into memory
 - **Local Data Processing** - All operator data is processed and served locally
-- **Modular Tool System** - Each of the 21 MCP tools is independently maintained
+- **Modular Tool System** - Each of the 39 MCP tools is independently maintained
 - **Dual Release Track Support** - Stable releases (099–2025) and experimental build series both fully documented
 
 ## Project Structure
 
 ```
 td-mcp/
-├── index.js                         # Main MCP server entry point (21 tools)
-├── tools/                           # MCP tool implementations (21 tools)
+├── index.js                         # Main MCP server entry point (39 tools)
+├── tools/                           # MCP tool implementations (39 tools)
 │   ├── get_operator.js              # Full operator documentation
 │   ├── search_operators.js          # Operator search with ranking
 │   ├── suggest_workflow.js          # Workflow chain suggestions
@@ -548,7 +591,7 @@ td-mcp/
 │   ├── data/
 │   │   ├── processed/               # 661 operator JSON files
 │   │   ├── tutorials/               # 14 tutorial JSON files
-│   │   ├── python-api/              # 214 Python class JSON files
+│   │   ├── python-api/              # 209 Python class JSON files
 │   │   ├── experimental/            # 7 advanced technique JSON files
 │   │   └── versions/               # Version compatibility data
 │   │       ├── version-manifest.json
@@ -653,8 +696,8 @@ MIT License - See [LICENSE](LICENSE) file for details.
 **Current Version**: 3.0.0
 **Operators**: 661 (CHOP 170, TOP 147, SOP 113, POP 102, DAT 75, COMP 41, MAT 13)
 **Tutorials**: 14
-**Python API Classes**: 214
-**MCP Tools**: 21
+**Python API Classes**: 209
+**MCP Tools**: 39 (21 knowledge + 18 live-control)
 **Workflow Patterns**: 32
 **TouchDesigner Currency**: 2025 official (build 2025.32820, Python 3.11.10) + 2025.30000 experimental
-**Last Updated**: June 2026
+**Last Updated**: August 2026
