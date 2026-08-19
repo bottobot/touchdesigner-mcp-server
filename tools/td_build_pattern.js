@@ -119,14 +119,43 @@ export async function handler({ pattern, parent = DEFAULT_PARENT } = {}) {
   }
 
   // ---- Resolve every operator name up-front (hard-error on gaps) ------------
+  // patterns.json uses SHORT names without the family suffix ("Transform",
+  // "Level", "Out") — ambiguous across families. Resolution is family-aware:
+  // the pattern's `category` lists its families (e.g. "CHOP_TOP"), and the
+  // chain's CURRENT family is tracked op-by-op (a resolved createType always
+  // ends in its family, so converters like "CHOP to TOP" switch it naturally).
   await loadOperatorMap(); // warm the cache (fails soft to {operators:{}})
+  const FAMILIES = ["TOP", "CHOP", "SOP", "DAT", "MAT", "COMP", "POP"];
+  const catFamilies = String(pat.category || "")
+    .split("_")
+    .filter((f) => FAMILIES.includes(f));
+  const familyOf = (createType) =>
+    FAMILIES.find((f) => String(createType).endsWith(f)) || null;
+
   const resolved = []; // { name, createType, opId }
   const missing = [];
   const usedIds = {};
+  let currentFamily = null;
   for (const opName of workflow) {
-    const createType = await resolveOpType(opName);
+    // Candidate names in preference order: current chain family first, then
+    // the pattern's declared families, then the raw name (already-full names).
+    const candidates = [];
+    if (currentFamily) candidates.push(`${opName} ${currentFamily}`);
+    for (const f of catFamilies) {
+      const c = `${opName} ${f}`;
+      if (!candidates.includes(c)) candidates.push(c);
+    }
+    candidates.push(opName);
+
+    let createType = null;
+    for (const c of candidates) {
+      createType = await resolveOpType(c);
+      if (createType) break;
+    }
     if (!createType) {
       missing.push(opName);
+    } else {
+      currentFamily = familyOf(createType) || currentFamily;
     }
     // Generate a unique sanitized node id for this step.
     const base = sanitizeId(opName);
@@ -145,7 +174,8 @@ export async function handler({ pattern, parent = DEFAULT_PARENT } = {}) {
     let t = `Cannot build pattern '${pat.name}' — ${uniq.length} operator name(s) have no createType in the operator map.\n`;
     t += `Refusing to guess. Unresolved:\n`;
     for (const m of uniq) t += `  - ${m}\n`;
-    t += `\nThese are short pattern names (e.g. "${uniq[0]}"); add a matching entry (by name) to wiki/data/maps/operators.json and retry.`;
+    t += `\nTried each name against the pattern's families (${catFamilies.join(", ") || "none declared"}). ` +
+      `Add a matching entry (by name) to wiki/data/maps/operators.json and retry.`;
     return mcpText(t);
   }
 
@@ -153,7 +183,9 @@ export async function handler({ pattern, parent = DEFAULT_PARENT } = {}) {
   const steps = [];
   const bridgeErrors = [];
 
-  // 1) create each operator in order.
+  // 1) create each operator in order. Track the paths TD ACTUALLY assigned —
+  // in a non-empty sandbox TD auto-uniquifies requested names, and wiring must
+  // follow the real nodes, not the assumed names.
   for (const r of resolved) {
     const res = await sendCommand("create_operator", {
       parent,
@@ -164,6 +196,11 @@ export async function handler({ pattern, parent = DEFAULT_PARENT } = {}) {
     if (!res.ok) {
       return finish(pat, parent, steps, bridgeErrors, /*aborted*/ true);
     }
+    const rr = res.result || {};
+    r.path = rr.path || `${parent}/${r.opId}`;
+    if (rr.name && rr.name !== r.opId) {
+      steps.push(`  [note] TD named '${r.opId}' as '${rr.name}' (name was taken)`);
+    }
   }
 
   // 2) wire the linear chain: out0 -> in0 for each adjacent pair.
@@ -171,9 +208,9 @@ export async function handler({ pattern, parent = DEFAULT_PARENT } = {}) {
     const from = resolved[i];
     const to = resolved[i + 1];
     const res = await sendCommand("connect", {
-      from: `${parent}/${from.opId}`,
+      from: from.path,
       fromOut: 0,
-      to: `${parent}/${to.opId}`,
+      to: to.path,
       toIn: 0
     });
     recordStep(

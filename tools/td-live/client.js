@@ -24,6 +24,8 @@ function cfg() {
     host: process.env.TD_MCP_HOST || '127.0.0.1',
     port: process.env.TD_MCP_PORT || '9981',
     token: process.env.TD_MCP_TOKEN || '',
+    // Per-request timeout. Renders / heavy cooks can exceed the old fixed 8s.
+    timeoutMs: Number(process.env.TD_MCP_TIMEOUT_MS) > 0 ? Number(process.env.TD_MCP_TIMEOUT_MS) : 8000,
   };
 }
 
@@ -36,15 +38,27 @@ function unreachable(host, port) {
   };
 }
 
+function timedOut(host, port, ms) {
+  return {
+    ok: false,
+    error: `The TouchDesigner bridge at ${host}:${port} did not respond within ${ms}ms. ` +
+           `TD may be busy cooking a heavy network. Retry, or raise TD_MCP_TIMEOUT_MS ` +
+           `(current default 8000).`,
+    errors: [], warnings: [], scriptErrors: [],
+  };
+}
+
 /**
  * Send one command to the TD bridge. Always resolves (never throws) to the documented
  * response envelope: { ok, id, result, errors, warnings, scriptErrors, error }.
+ * opts.timeoutMs overrides the per-request timeout (else TD_MCP_TIMEOUT_MS / 8000).
  */
-export async function sendCommand(op, args = {}) {
-  const { host, port, token } = cfg();
+export async function sendCommand(op, args = {}, opts = {}) {
+  const { host, port, token, timeoutMs } = cfg();
+  const ms = Number(opts.timeoutMs) > 0 ? Number(opts.timeoutMs) : timeoutMs;
   const id = randomUUID();
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 8000);
+  const timer = setTimeout(() => controller.abort(), ms);
   try {
     const res = await fetch(`http://${host}:${port}/`, {
       method: 'POST',
@@ -72,6 +86,11 @@ export async function sendCommand(op, args = {}) {
       error: body.error,
     };
   } catch (e) {
+    // Distinguish "TD is slow / busy" from "nothing is listening" — the agent's
+    // correct next action differs (wait/raise timeout vs. start the bridge).
+    if (e && (e.name === 'AbortError' || e.name === 'TimeoutError')) {
+      return timedOut(host, port, ms);
+    }
     return unreachable(host, port);
   } finally {
     clearTimeout(timer);
@@ -154,18 +173,49 @@ export async function resolveOpType(idOrName) {
   return o && o.createType ? o.createType : null;
 }
 
-/** Resolve a parameter label (or pass-through parName) to its scripting parName, or null. */
-export async function resolveParName(opIdOrType, labelOrName) {
+/**
+ * Resolve a parameter label (or pass-through parName) to its full map entry
+ * { parName, type?, menu? }, or null. `menu`, when present, maps documented
+ * menu LABELS to their scripting TOKENS (e.g. { "Add": "add" }).
+ */
+export async function resolveParam(opIdOrType, labelOrName) {
   if (!labelOrName) return null;
   const map = await loadOperatorMap();
   const o = findOperator(map, opIdOrType);
   if (!o || !o.params) return null;
   const params = o.params;
-  if (params[labelOrName]) return params[labelOrName].parName;          // exact label or parName key
+  if (params[labelOrName]) return params[labelOrName];                  // exact label or parName key
   const lower = String(labelOrName).toLowerCase();
   for (const [label, p] of Object.entries(params)) {
-    if (label.toLowerCase() === lower) return p.parName;
-    if (p.parName && p.parName.toLowerCase() === lower) return p.parName;
+    if (label.toLowerCase() === lower) return p;
+    if (p.parName && p.parName.toLowerCase() === lower) return p;
   }
   return null;
+}
+
+/** Resolve a parameter label (or pass-through parName) to its scripting parName, or null. */
+export async function resolveParName(opIdOrType, labelOrName) {
+  const p = await resolveParam(opIdOrType, labelOrName);
+  return p && p.parName ? p.parName : null;
+}
+
+/**
+ * Resolve a menu parameter value to its scripting TOKEN using the operator map.
+ * Accepts a documented label ("Add"), a token ("add"), or anything else
+ * (returned unchanged — non-menu params and unknown values pass through).
+ */
+export async function resolveMenuValue(opIdOrType, labelOrName, value) {
+  if (typeof value !== 'string' || value === '') return value;
+  const p = await resolveParam(opIdOrType, labelOrName);
+  const menu = p && p.menu;
+  if (!menu || typeof menu !== 'object') return value;
+  const tokens = Object.values(menu);
+  if (tokens.includes(value)) return value;                              // already a token
+  if (menu[value] !== undefined) return menu[value];                     // exact label
+  const lower = value.toLowerCase();
+  for (const [label, token] of Object.entries(menu)) {
+    if (label.toLowerCase() === lower) return token;
+    if (String(token).toLowerCase() === lower) return token;
+  }
+  return value;                                                          // unknown — pass through
 }

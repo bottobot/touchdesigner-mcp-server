@@ -119,6 +119,8 @@ on request, so it is locked down in depth:
 | `status`          | `{}`                                                         |    no    |
 | `create_operator` | `{parent, opType, name?}`                                    |   yes    |
 | `set_parameter`   | `{path, par, value?\|expr?\|pulse?}`                        |   yes    |
+| `set_text`        | `{path, text}` — DAT contents (the documented `DAT.text` member) |   yes    |
+| `get_parameters`  | `{path, pattern='*'}` — names, labels, values, exprs, menu tokens |    no    |
 | `connect`         | `{from, fromOut=0, to, toIn=0}`                             |   yes    |
 | `delete`          | `{path}`                                                     |   yes    |
 | `clear`           | `{parent}`                                                   |   yes    |
@@ -133,6 +135,12 @@ on request, so it is locked down in depth:
 All mutating commands accept an `allow_outside_sandbox: true` escape hatch.
 `opType` is the **string** OPType (e.g. `'noiseTOP'`, `'rectangleTOP'`,
 `'renderTOP'`), per the documented `COMP.create(opType, name)`.
+
+`set_parameter` niceties: `par` accepts a scripting name **or** a label
+(case-insensitive, via the documented `Par.name` / `Par.label`); an unknown
+parameter errors with the operator's valid parameter names. Menu parameters
+accept the scripting token or the menu label (`Par.menuNames` /
+`Par.menuLabels`); an invalid menu value errors with the valid tokens.
 
 ---
 

@@ -48,6 +48,8 @@ import * as listExperimentalBuildsTool from './tools/list_experimental_builds.js
 import * as tdStatusTool from './tools/td_status.js';
 import * as tdCreateOperatorTool from './tools/td_create_operator.js';
 import * as tdSetParameterTool from './tools/td_set_parameter.js';
+import * as tdGetParametersTool from './tools/td_get_parameters.js';
+import * as tdSetTextTool from './tools/td_set_text.js';
 import * as tdConnectTool from './tools/td_connect.js';
 import * as tdDeleteTool from './tools/td_delete.js';
 import * as tdListNetworkTool from './tools/td_list_network.js';
@@ -113,135 +115,142 @@ async function loadPatterns() {
   }
 }
 
-// Register tools
-server.registerTool(
+// Register tools. All registrations go through this counter so the startup
+// banner can never drift from the real number of registered tools.
+let toolCount = 0;
+const registerTool = (name, schema, handler) => {
+  server.registerTool(name, schema, handler);
+  toolCount += 1;
+};
+
+registerTool(
   "get_operator",
   getOperatorTool.schema,
   async (params) => await getOperatorTool.handler(params, { operatorDataManager })
 );
 
-server.registerTool(
+registerTool(
   "search_operators",
   searchOperatorsTool.schema,
   async (params) => await searchOperatorsTool.handler(params, { operatorDataManager })
 );
 
-server.registerTool(
+registerTool(
   "suggest_workflow",
   suggestWorkflowTool.schema,
   async (params) => await suggestWorkflowTool.handler(params, { operatorDataManager, workflowPatterns })
 );
 
-server.registerTool(
+registerTool(
   "list_operators",
   listOperatorsTool.schema,
   async (params) => await listOperatorsTool.handler(params, { operatorDataManager })
 );
 
 // Register tutorial tools
-server.registerTool(
+registerTool(
   "get_tutorial",
   getTutorialTool.schema,
   async (params) => await getTutorialTool.handler(params, { operatorDataManager })
 );
 
-server.registerTool(
+registerTool(
   "list_tutorials",
   listTutorialsTool.schema,
   async (params) => await listTutorialsTool.handler(params, { operatorDataManager })
 );
 
 // Register Python API tools
-server.registerTool(
+registerTool(
   "get_python_api",
   getPythonApiTool.schema,
   async (params) => await getPythonApiTool.handler(params, { operatorDataManager })
 );
 
-server.registerTool(
+registerTool(
   "search_python_api",
   searchPythonApiTool.schema,
   async (params) => await searchPythonApiTool.handler(params, { operatorDataManager })
 );
 
 // Register tutorial-search and operator-example tools
-server.registerTool(
+registerTool(
   "search_tutorials",
   searchTutorialsTool.schema,
   async (params) => await searchTutorialsTool.handler(params, { operatorDataManager })
 );
 
-server.registerTool(
+registerTool(
   "get_operator_examples",
   getOperatorExamplesTool.schema,
   async (params) => await getOperatorExamplesTool.handler(params, { operatorDataManager })
 );
 
-server.registerTool(
+registerTool(
   "list_python_classes",
   listPythonClassesTool.schema,
   async (params) => await listPythonClassesTool.handler(params, { operatorDataManager })
 );
 
-server.registerTool(
+registerTool(
   "compare_operators",
   compareOperatorsTool.schema,
   async (params) => await compareOperatorsTool.handler(params, { operatorDataManager })
 );
 
 // Register version system tools
-server.registerTool(
+registerTool(
   "get_version_info",
   getVersionInfoTool.schema,
   async (params) => await getVersionInfoTool.handler(params, {})
 );
 
-server.registerTool(
+registerTool(
   "list_versions",
   listVersionsTool.schema,
   async (params) => await listVersionsTool.handler(params, {})
 );
 
 // Register experimental techniques tools
-server.registerTool(
+registerTool(
   "get_experimental_techniques",
   getExperimentalTechniquesTool.schema,
   async (params) => await getExperimentalTechniquesTool.handler(params)
 );
 
-server.registerTool(
+registerTool(
   "search_experimental",
   searchExperimentalTool.schema,
   async (params) => await searchExperimentalTool.handler(params)
 );
 
-server.registerTool(
+registerTool(
   "get_glsl_pattern",
   getGlslPatternTool.schema,
   async (params) => await getGlslPatternTool.handler(params)
 );
 
 // Register core enhancement tools
-server.registerTool(
+registerTool(
   "get_operator_connections",
   getOperatorConnectionsTool.schema,
   async (params) => await getOperatorConnectionsTool.handler(params, {})
 );
 
-server.registerTool(
+registerTool(
   "get_network_template",
   getNetworkTemplateTool.schema,
   async (params) => await getNetworkTemplateTool.handler(params, {})
 );
 
 // Register experimental build tools
-server.registerTool(
+registerTool(
   "get_experimental_build",
   getExperimentalBuildTool.schema,
   async (params) => await getExperimentalBuildTool.handler(params, {})
 );
 
-server.registerTool(
+registerTool(
   "list_experimental_builds",
   listExperimentalBuildsTool.schema,
   async (params) => await listExperimentalBuildsTool.handler(params, {})
@@ -254,6 +263,8 @@ const liveControlTools = {
   td_status: tdStatusTool,
   td_create_operator: tdCreateOperatorTool,
   td_set_parameter: tdSetParameterTool,
+  td_get_parameters: tdGetParametersTool,
+  td_set_text: tdSetTextTool,
   td_connect: tdConnectTool,
   td_delete: tdDeleteTool,
   td_list_network: tdListNetworkTool,
@@ -269,8 +280,9 @@ const liveControlTools = {
   td_run_python: tdRunPythonTool,
 };
 for (const [toolName, mod] of Object.entries(liveControlTools)) {
-  server.registerTool(toolName, mod.schema, async (params) => await mod.handler(params));
+  registerTool(toolName, mod.schema, async (params) => await mod.handler(params));
 }
+const liveToolCount = Object.keys(liveControlTools).length;
 
 // Main startup
 async function main() {
@@ -293,7 +305,7 @@ async function main() {
     const stats = operatorDataManager.getSystemStats();
     const pythonApiStats = stats.pythonApiStats || { totalClasses: 0 };
     console.error(`[Server] Ready with ${stats.totalEntries} operators, ${stats.totalTutorials} tutorials, and ${pythonApiStats.totalClasses} Python classes`);
-    console.error(`[Server] All 37 tools registered (21 knowledge + 16 live-control)`);
+    console.error(`[Server] All ${toolCount} tools registered (${toolCount - liveToolCount} knowledge + ${liveToolCount} live-control)`);
   } catch (error) {
     // A hard initialization failure means the operator/Python/tutorial data could not
     // be loaded. Continuing would silently serve empty/not-found results to every tool,
