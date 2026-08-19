@@ -39,23 +39,23 @@ for (const t of ['get_operator', 'search_operators', 'suggest_workflow', 'list_o
 const P = {
   get_operator: { name: 'Noise CHOP' },
   search_operators: { query: 'noise' },
-  suggest_workflow: { goal: 'audio reactive visuals', operator: 'Movie File In TOP' },
+  suggest_workflow: { current_operator: 'Movie File In TOP' },
   list_operators: { category: 'TOP' },
   get_tutorial: { name: 'Write a GLSL TOP' },
   list_tutorials: {},
   get_python_api: { class_name: 'CHOP' },
   search_python_api: { query: 'cook' },
   search_tutorials: { query: 'glsl' },
-  get_operator_examples: { name: 'Noise CHOP' },
+  get_operator_examples: { operator: 'Noise CHOP' },
   list_python_classes: {},
-  compare_operators: { operators: ['Noise CHOP', 'Feedback TOP'], operator1: 'Noise CHOP', operator2: 'Feedback TOP' },
+  compare_operators: { operator_a: 'Noise CHOP', operator_b: 'Feedback TOP' },
   get_version_info: { version: '2025' },
   list_versions: {},
   get_experimental_techniques: { category: 'glsl' },
   search_experimental: { query: 'shader' },
-  get_glsl_pattern: { pattern: 'raymarching', name: 'raymarching' },
+  get_glsl_pattern: { pattern: 'raymarching' },
   get_operator_connections: { operator_name: 'Feedback TOP' },
-  get_network_template: { template: 'video-player', use_case: 'video-player' },
+  get_network_template: { template: 'video-player' },
   get_experimental_build: { series_id: '2025.30000' },
   list_experimental_builds: {},
 };
@@ -98,6 +98,12 @@ check('C8: version 2025 -> Python 3.11.10', /3\.11\.10/.test(out.get_version_inf
 check('C8b: list_versions mentions 2025', /2025/.test(out.list_versions));
 check('C11: experimental build 2025.30000 + POP', /2025\.30/.test(out.get_experimental_build) && /POP/i.test(out.get_experimental_build));
 
+// C16 — happy-path content (these three tools once passed shape checks while
+// returning error text, because the fixtures used wrong param keys)
+check('C16: suggest_workflow real suggestions', /Workflow Suggestions for 'Movie File In TOP'/.test(out.suggest_workflow) && /related operators/.test(out.suggest_workflow));
+check('C16b: get_operator_examples real examples', /Code Examples for Noise CHOP/.test(out.get_operator_examples));
+check('C16c: compare_operators real comparison', /Operator Comparison: Noise CHOP vs Feedback TOP/.test(out.compare_operators));
+
 // version data file assertions (C7, C11)
 const manifest = JSON.parse(await fs.readFile(join(d, 'wiki/data/versions/version-manifest.json'), 'utf8'));
 check('C7: currentStable=2025', manifest.currentStable === '2025');
@@ -110,6 +116,54 @@ const accum = JSON.parse(await fs.readFile(join(d, 'wiki/data/processed/accumula
 const accumNames = accum.parameters.map(p => (p.parName || p.name || '').toLowerCase());
 check('C4: accumulate_pop has no flattened menu params', !accumNames.includes('point') && !accumNames.includes('float') && !accumNames.includes('1'));
 check('C5: accumulate_pop paramsVerified', accum.paramsVerified === true);
+
+// C17 — every buildable template compiles against the operator map (all
+// opTypes and label-params resolve; explicit parNames are trusted). Before
+// this check, ALL FIVE templates hard-errored at plan time on unmapped
+// tuple-component labels ('Brightness', 'Scale X', …).
+{
+  const { resolveOpType, resolveParName } = await import('../tools/td-live/client.js');
+  const { BUILD_TEMPLATES } = await import('../tools/td-live/templates.js');
+  let unresolved = [];
+  for (const [key, tpl] of Object.entries(BUILD_TEMPLATES)) {
+    for (const op of tpl.operators) {
+      if (!await resolveOpType(op.type)) unresolved.push(`${key}: opType ${op.type}`);
+    }
+    for (const p of tpl.parameters || []) {
+      if (p.parName) continue;
+      const op = tpl.operators.find(o => o.id === p.op);
+      if (!await resolveParName(op ? op.type : p.op, p.param)) unresolved.push(`${key}: param ${p.param} on ${p.op}`);
+    }
+  }
+  check('C17: all build templates compile (' + Object.keys(BUILD_TEMPLATES).length + ')', unresolved.length === 0);
+  if (unresolved.length) fails[fails.length - 1] += ' -> ' + unresolved.join('; ');
+}
+
+// C18 — every workflow pattern resolves family-aware (mirrors td_build_pattern).
+// Before this check 0/32 patterns were buildable (short names never resolved).
+{
+  const { resolveOpType } = await import('../tools/td-live/client.js');
+  const FAMILIES = ['TOP', 'CHOP', 'SOP', 'DAT', 'MAT', 'COMP', 'POP'];
+  const familyOf = t => FAMILIES.find(f => String(t).endsWith(f)) || null;
+  const pdata = JSON.parse(await fs.readFile(join(d, 'data/patterns.json'), 'utf8'));
+  let badPatterns = [];
+  for (const pat of pdata.patterns) {
+    const catFamilies = String(pat.category || '').split('_').filter(f => FAMILIES.includes(f));
+    let cur = null;
+    for (const opName of pat.workflow || []) {
+      const cands = [];
+      if (cur) cands.push(`${opName} ${cur}`);
+      for (const f of catFamilies) { const c = `${opName} ${f}`; if (!cands.includes(c)) cands.push(c); }
+      cands.push(opName);
+      let t = null;
+      for (const c of cands) { t = await resolveOpType(c); if (t) break; }
+      if (!t) { badPatterns.push(`${pat.name}: ${opName}`); }
+      else cur = familyOf(t) || cur;
+    }
+  }
+  check('C18: all ' + pdata.patterns.length + ' workflow patterns resolve', badPatterns.length === 0);
+  if (badPatterns.length) fails[fails.length - 1] += ' -> ' + badPatterns.join('; ');
+}
 
 // C14 GLSL output declarations
 const glsl = JSON.parse(await fs.readFile(join(d, 'wiki/data/experimental/glsl.json'), 'utf8'));
