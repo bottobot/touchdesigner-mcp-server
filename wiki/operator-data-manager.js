@@ -533,7 +533,13 @@ export class OperatorDataManager {
         if (!this.isInitialized) {
             await this.initialize();
         }
-        
+
+        // Defensive: a nullish/non-string name can never match — return null
+        // instead of TypeError-ing deep inside a tool handler.
+        if (typeof operatorName !== 'string' || operatorName.length === 0) {
+            return null;
+        }
+
         // Try exact match first
         const exactMatch = this.operators.get(operatorName.toLowerCase());
         if (exactMatch) {
