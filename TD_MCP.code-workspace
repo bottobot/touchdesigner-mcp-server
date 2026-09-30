@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "touchdesigner-mcp-server",
+			"path": "."
+		},
+		{
+			"path": "../../../../../Program Files/Derivative/TouchDesigner"
+		}
+	],
+	"settings": {}
+}
