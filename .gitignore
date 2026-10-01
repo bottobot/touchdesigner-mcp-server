@@ -25,6 +25,10 @@ coverage/
 # Local project MCP config (personal; do not publish). See .mcp.json.example for a td-mcp sample.
 .mcp.json
 
+# Local environment (holds TD_MCP_TOKEN — never commit). See .env.example.
+.env
+.env.local
+
 # Working/modernization artifacts (not for publish)
 .modernization-backup/
 # Python build artifacts

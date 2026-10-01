@@ -28,8 +28,12 @@ export const schema = {
     "op.par.NAME.val (value), op.par.NAME.expr (expr) and op.par.NAME.pulse() " +
     "members. " +
     "`parameter` may be a documented label (e.g. 'Period') or an exact " +
-    "parameter name (e.g. 'period'); labels are resolved via the operator map. " +
-    "Provide exactly one of value, expr, or pulse.",
+    "parameter name (e.g. 'period'); labels resolve via the operator map AND " +
+    "live on the bridge (case-insensitive Par.name/Par.label match — an unknown " +
+    "parameter errors listing the operator's valid names). Menu parameters " +
+    "accept the token or the label ('add' or 'Add'); invalid menu values error " +
+    "with the valid tokens. Use td_get_parameters first to inspect names, " +
+    "current values and menu options. Provide exactly one of value, expr, or pulse.",
   inputSchema: {
     path: z
       .string()

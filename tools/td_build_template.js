@@ -20,7 +20,7 @@
  */
 
 import { z } from "zod";
-import { sendCommand, mcpText, resolveOpType, resolveParName } from "./td-live/client.js";
+import { sendCommand, mcpText, resolveOpType, resolveParName, resolveMenuValue } from "./td-live/client.js";
 // The template definitions live in get_network_template.js. They are not
 // exported there (the module only exports {schema, handler}), so we keep an
 // independent, equivalent description of the templates here as the build
@@ -115,24 +115,35 @@ async function planBuild(tpl) {
     ops[op.id] = { name: op.id, createType, type: op.type };
   }
 
-  // Resolve parameter names for every parameter (label -> parName via the map).
+  // Resolve parameter names for every parameter. A template entry may carry an
+  // explicit `parName` (used verbatim — for documented parameter-tuple
+  // components the map does not list as labels); otherwise the human `param`
+  // label is resolved via the operator map. Menu values are label->token
+  // translated through the map so e.g. 'Add' compiles to 'add'.
   const params = [];
   for (const p of tpl.parameters || []) {
     const op = ops[p.op];
     const opType = op ? op.type : p.op;
-    const parName = await resolveParName(opType, p.param);
+    let parName = p.parName;
     if (!parName) {
-      missing.push(
-        `parameter '${p.param}' on '${p.op}' (${opType}) — no parName in the operator map`
-      );
+      parName = await resolveParName(opType, p.param);
+      if (!parName) {
+        missing.push(
+          `parameter '${p.param}' on '${p.op}' (${opType}) — no parName in the operator map`
+        );
+      }
     }
-    params.push({ ...p, parName });
+    let value = p.value;
+    if (p.param && typeof value === "string") {
+      value = await resolveMenuValue(opType, p.param, value);
+    }
+    params.push({ ...p, parName, value });
   }
 
   if (missing.length > 0) {
     return { ok: false, missing };
   }
-  return { ok: true, ops, params, conns: tpl.connections || [] };
+  return { ok: true, ops, params, conns: tpl.connections || [], texts: tpl.texts || [] };
 }
 
 // Tool handler
@@ -169,6 +180,12 @@ export async function handler({ template, parent = DEFAULT_PARENT } = {}) {
   const steps = []; // human-readable build log
   const bridgeErrors = []; // collected errors/scriptErrors from the bridge
 
+  // Template id -> the node TD ACTUALLY created. When the sandbox is not empty
+  // TD auto-uniquifies requested names (noise1 -> noise2), so every later
+  // command must use the returned path/name, never the assumed one — otherwise
+  // a rebuild silently wires/sets the OLD nodes.
+  const created = {}; // id -> { path, name }
+
   // 1) create every operator
   for (const op of tpl.operators) {
     const info = plan.ops[op.id];
@@ -182,24 +199,55 @@ export async function handler({ template, parent = DEFAULT_PARENT } = {}) {
       // A create failure is fatal for the rest of the build — stop and report.
       return finish(key, parent, steps, bridgeErrors, /*aborted*/ true);
     }
+    const r = res.result || {};
+    created[op.id] = {
+      path: r.path || `${parent}/${op.id}`,
+      name: r.name || op.id
+    };
+    if (r.name && r.name !== op.id) {
+      steps.push(`  [note] TD named '${op.id}' as '${r.name}' (name was taken)`);
+    }
   }
+
+  // Rewrite template-id references inside a parameter value/expression to the
+  // names TD actually assigned (e.g. Feedback target 'target1', op('null1')).
+  const rewriteIds = (s) => {
+    let out = String(s);
+    for (const [id, info] of Object.entries(created)) {
+      if (info.name === id) continue;
+      if (out === id) { out = info.name; continue; }
+      out = out.split(`'${id}'`).join(`'${info.name}'`).split(`"${id}"`).join(`"${info.name}"`);
+    }
+    return out;
+  };
 
   // 2) set every parameter (val by default; expr if the value looks like an expr)
   for (const p of plan.params) {
-    const path = `${parent}/${p.op}`;
-    const { value, expr } = classifyParamValue(p.value);
-    const args = expr !== undefined ? { path, par: p.parName, expr } : { path, par: p.parName, value };
+    const node = created[p.op] || { path: `${parent}/${p.op}`, name: p.op };
+    const { value, expr } = classifyParamValue(rewriteIds(p.value));
+    const args = expr !== undefined
+      ? { path: node.path, par: p.parName, expr }
+      : { path: node.path, par: p.parName, value };
     const res = await sendCommand("set_parameter", args);
     const how = expr !== undefined ? `expr=${expr}` : `value=${JSON.stringify(value)}`;
     recordStep(steps, bridgeErrors, res, `set ${p.op}.${p.parName} ${how}`);
   }
 
+  // 2b) fill DAT contents (documented DAT.text member, via the bridge set_text)
+  for (const t of plan.texts) {
+    const node = created[t.op] || { path: `${parent}/${t.op}`, name: t.op };
+    const res = await sendCommand("set_text", { path: node.path, text: t.text });
+    recordStep(steps, bridgeErrors, res, `set_text ${t.op} (${String(t.text).length} chars)`);
+  }
+
   // 3) wire every connection (port-level)
   for (const c of plan.conns) {
+    const from = created[c.from] || { path: `${parent}/${c.from}` };
+    const to = created[c.to] || { path: `${parent}/${c.to}` };
     const res = await sendCommand("connect", {
-      from: `${parent}/${c.from}`,
+      from: from.path,
       fromOut: c.fromPort ?? 0,
-      to: `${parent}/${c.to}`,
+      to: to.path,
       toIn: c.toPort ?? 0
     });
     recordStep(
@@ -214,7 +262,7 @@ export async function handler({ template, parent = DEFAULT_PARENT } = {}) {
   const layoutRes = await sendCommand("layout", { parent });
   recordStep(steps, bridgeErrors, layoutRes, `layout '${parent}'`);
 
-  return finish(key, parent, steps, bridgeErrors, /*aborted*/ false);
+  return finish(key, parent, steps, bridgeErrors, /*aborted*/ false, created);
 }
 
 // ---------------------------------------------------------------------------
@@ -269,7 +317,7 @@ function recordStep(steps, bridgeErrors, res, label) {
 }
 
 /** Render the final step-by-step build report. */
-function finish(key, parent, steps, bridgeErrors, aborted) {
+function finish(key, parent, steps, bridgeErrors, aborted, created = {}) {
   let t = `# Build template '${key}' -> ${parent}\n\n`;
   if (aborted) {
     t += `BUILD ABORTED — a create_operator command failed; remaining steps were skipped.\n\n`;
@@ -279,7 +327,8 @@ function finish(key, parent, steps, bridgeErrors, aborted) {
     t += `\nBridge errors/warnings (${bridgeErrors.length}):\n`;
     for (const e of bridgeErrors) t += `  ! ${e}\n`;
   } else if (!aborted) {
-    t += `\nNo bridge errors reported. Use td_render on a TOP (e.g. ${parent}/out1) to view the result, or td_get_errors to double-check.`;
+    const outNode = created.out1 ? created.out1.path : `${parent}/out1`;
+    t += `\nNo bridge errors reported. Use td_render on a TOP (e.g. ${outNode}) to view the result, or td_get_errors to double-check.`;
   }
   return mcpText(t.trimEnd());
 }

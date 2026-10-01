@@ -179,42 +179,45 @@ export async function handler({ technique, parent = DEFAULT_PARENT } = {}) {
   let res = await sendCommand("create_operator", { parent, opType: textDatType, name: datName });
   recordStep(steps, bridgeErrors, res, `create ${textDatType} '${datName}' (Text DAT shader holder)`);
   if (!res.ok) return finish(tech, parent, steps, bridgeErrors, true);
+  // Track the path/name TD actually assigned (TD auto-uniquifies taken names).
+  const datNode = { path: (res.result && res.result.path) || `${parent}/${datName}`,
+                    name: (res.result && res.result.name) || datName };
 
-  // Load the shader source into the Text DAT's 'text' parameter.
-  res = await sendCommand("set_parameter", {
-    path: `${parent}/${datName}`,
-    par: "text",
-    value: shaderSrc
-  });
-  recordStep(steps, bridgeErrors, res, `set ${datName}.text <shader source (${shaderSrc.length} chars)>`);
+  // Load the shader source into the Text DAT. A DAT's contents are the
+  // documented DAT.text MEMBER (DAT_Class), not a parameter — the bridge
+  // exposes it as the set_text command.
+  res = await sendCommand("set_text", { path: datNode.path, text: shaderSrc });
+  recordStep(steps, bridgeErrors, res, `set_text ${datNode.name} <shader source (${shaderSrc.length} chars)>`);
 
   // 2) GLSL TOP.
   res = await sendCommand("create_operator", { parent, opType: glslTopType, name: glslName });
   recordStep(steps, bridgeErrors, res, `create ${glslTopType} '${glslName}'`);
   if (!res.ok) return finish(tech, parent, steps, bridgeErrors, true);
+  const glslNode = { path: (res.result && res.result.path) || `${parent}/${glslName}`,
+                     name: (res.result && res.result.name) || glslName };
 
-  // 3) Point the GLSL TOP pixel shader at the Text DAT.
+  // 3) Point the GLSL TOP pixel shader at the Text DAT (by its real name).
   res = await sendCommand("set_parameter", {
-    path: `${parent}/${glslName}`,
+    path: glslNode.path,
     par: pixelDatPar,
-    value: datName
+    value: datNode.name
   });
-  recordStep(steps, bridgeErrors, res, `set ${glslName}.${pixelDatPar} = ${datName}`);
+  recordStep(steps, bridgeErrors, res, `set ${glslNode.name}.${pixelDatPar} = ${datNode.name}`);
 
-  // 4) Declare uniforms on the GLSL TOP. The GLSL TOP exposes numbered uniform
-  // name/value rows (documented params 'uniname0', 'unitype0', 'uniform0x'...).
-  // We set the name + a source value/expr per uniform.
+  // 4) Declare uniforms on the GLSL TOP. The GLSL TOP's Vectors page exposes
+  // numbered uniform rows — documented parameter names 'uniname0' (name) and
+  // 'value0x'..'value0w' (components). Scalars go in the x slot.
   let uniIndex = 0;
   for (const u of tech.setup.uniforms) {
     const namePar = `uniname${uniIndex}`;
-    const valPar = `uniformvalue${uniIndex}`; // first value slot for a float uniform
+    const valPar = `value${uniIndex}x`; // x slot — scalar/first component
     // Uniform name.
     res = await sendCommand("set_parameter", {
-      path: `${parent}/${glslName}`,
+      path: glslNode.path,
       par: namePar,
       value: u.name
     });
-    recordStep(steps, bridgeErrors, res, `set ${glslName}.${namePar} = ${u.name}`);
+    recordStep(steps, bridgeErrors, res, `set ${glslNode.name}.${namePar} = ${u.name}`);
 
     // Uniform source: expressions (absTime.seconds, op(...) etc.) -> .expr,
     // plain numbers -> value.
@@ -222,14 +225,14 @@ export async function handler({ technique, parent = DEFAULT_PARENT } = {}) {
     if (src) {
       const isExpr = /absTime|op\s*\(|project\.|me\.|[*+/()\[\]]/.test(src) && !/^-?\d+(\.\d+)?$/.test(src);
       const args = isExpr
-        ? { path: `${parent}/${glslName}`, par: valPar, expr: src }
-        : { path: `${parent}/${glslName}`, par: valPar, value: /^-?\d+(\.\d+)?$/.test(src) ? Number(src) : src };
+        ? { path: glslNode.path, par: valPar, expr: src }
+        : { path: glslNode.path, par: valPar, value: /^-?\d+(\.\d+)?$/.test(src) ? Number(src) : src };
       res = await sendCommand("set_parameter", args);
       recordStep(
         steps,
         bridgeErrors,
         res,
-        `set ${glslName}.${valPar} ${isExpr ? "expr" : "value"}=${src}  (uniform ${u.name})`
+        `set ${glslNode.name}.${valPar} ${isExpr ? "expr" : "value"}=${src}  (uniform ${u.name})`
       );
     }
     uniIndex += 1;

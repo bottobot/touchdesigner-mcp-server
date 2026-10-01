@@ -51,19 +51,27 @@ export const schema = {
 // image content block (this is how the assistant sees the frame). Otherwise fall
 // back to the standard JSON summary so errors/warnings remain visible.
 export async function handler({ path, filetype = ".png" }) {
-  const res = await sendCommand("render", { path, filetype });
+  // Rendering force-cooks the TOP and encodes the frame — allow more time than
+  // an ordinary command (still overridable via TD_MCP_TIMEOUT_MS).
+  const res = await sendCommand("render", { path, filetype }, { timeoutMs: 20000 });
 
   const imageBase64 = res && res.ok && res.result && res.result.imageBase64;
   if (imageBase64) {
     const ext = String(filetype).toLowerCase();
     const mimeType = MIME_BY_FILETYPE[ext] || "image/png";
+    // A short text block rides along so the agent also sees dimensions and any
+    // TD-side warnings next to the frame itself.
+    let info = `Rendered ${res.result.path} — ${res.result.width}×${res.result.height} (${filetype})`;
+    if (res.warnings && res.warnings.length) info += `\n⚠️ Warnings:\n- ${res.warnings.join("\n- ")}`;
+    if (res.errors && res.errors.length) info += `\n❗ Errors:\n- ${res.errors.join("\n- ")}`;
     return {
       content: [
         {
           type: "image",
           data: imageBase64,
           mimeType
-        }
+        },
+        { type: "text", text: info }
       ]
     };
   }

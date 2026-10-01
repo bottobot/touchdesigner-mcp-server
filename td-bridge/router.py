@@ -39,6 +39,9 @@ with the doc page it comes from:
   * op.nodeX / op.nodeY                               — OP_Class
   * TOP.saveByteArray(filetype, quality, metadata)    — TOP_Class
   * TOP.sample(...) ; CHOP.chan(name)                 — TOP_Class / CHOP_Class
+  * DAT.text (writable member)                        — DAT_Class
+  * OP.pars(pattern)                                  — OP_Class
+  * Par.name / .label / .menuNames / .menuLabels      — Par_Class
 """
 
 import json
@@ -228,10 +231,66 @@ def _cmd_create_operator(dat, args):
     return _op_summary(new_op)
 
 
+def _find_par(o, par_name):
+    """
+    Find a parameter on operator o. Tries the exact scripting name first
+    (op.par.<NAME> — Par_Class), then falls back to a case-insensitive match on
+    parameter names and LABELS (Par.name / Par.label — Par_Class), scanning
+    OP.pars('*') (OP_Class). Returns the Par or None.
+    """
+    par = getattr(o.par, par_name, None)
+    if par is not None:
+        return par
+    want = str(par_name).lower()
+    try:
+        for p in o.pars('*'):              # OP_Class.pars(pattern)
+            if p.name.lower() == want or str(p.label).lower() == want:
+                return p
+    except Exception:
+        pass
+    return None
+
+
+def _par_names_hint(o, limit=40):
+    """Up to `limit` parameter scripting-names of o, for error messages."""
+    try:
+        names = [p.name for p in o.pars('*')]      # OP_Class.pars
+        extra = '' if len(names) <= limit else ' … (+%d more)' % (len(names) - limit)
+        return ', '.join(names[:limit]) + extra
+    except Exception:
+        return '?'
+
+
+def _menu_coerce(par, value):
+    """
+    For a menu parameter, translate `value` to a valid menu token. Accepts the
+    token itself or a menu LABEL, case-insensitively (Par.menuNames /
+    Par.menuLabels — Par_Class). Raises ValueError with the valid tokens when
+    nothing matches. Non-menu parameters return the value unchanged.
+    """
+    names = getattr(par, 'menuNames', None)
+    if not names or not isinstance(value, str):
+        return value
+    if value in names:
+        return value
+    labels = list(getattr(par, 'menuLabels', None) or [])
+    low = value.lower()
+    for i, n in enumerate(names):
+        if str(n).lower() == low:
+            return n
+        if i < len(labels) and str(labels[i]).lower() == low:
+            return n
+    raise ValueError(
+        "'%s' is not a valid menu value for %s.%s. Valid values: %s" % (
+            value, par.owner.path, par.name, ', '.join(str(n) for n in names)))
+
+
 def _cmd_set_parameter(dat, args):
     """
     set_parameter{path, par, value?|expr?|pulse?}
-    Documented: op.par.NAME.val / .expr / .pulse() — Par_Class.
+    Documented: op.par.NAME.val / .expr / .pulse() — Par_Class. `par` may be a
+    scripting name or a label (case-insensitive). Menu values accept the token
+    or the label; invalid menu values error with the valid token list.
     """
     o = _resolve(args['path'])
     if o is None:
@@ -239,23 +298,87 @@ def _cmd_set_parameter(dat, args):
     _require_sandbox(o, args)
 
     par_name = args['par']
-    par = getattr(o.par, par_name, None)   # op.par.<NAME> — Par_Class
+    par = _find_par(o, par_name)
     if par is None:
-        raise ValueError("Parameter '%s' not found on %s" % (par_name, o.path))
+        raise ValueError(
+            "Parameter '%s' not found on %s. Its parameters are: %s" % (
+                par_name, o.path, _par_names_hint(o)))
 
     if args.get('pulse'):
         par.pulse()                        # Par_Class.pulse()
-        return {'path': o.path, 'par': par_name, 'pulsed': True}
+        return {'path': o.path, 'par': par.name, 'pulsed': True}
     if 'expr' in args and args['expr'] is not None:
         par.expr = str(args['expr'])       # Par_Class.expr (string expression)
-        return {'path': o.path, 'par': par_name, 'expr': par.expr}
+        return {'path': o.path, 'par': par.name, 'expr': par.expr}
     if 'value' in args:
-        par.val = args['value']            # Par_Class.val
+        par.val = _menu_coerce(par, args['value'])   # Par_Class.val
         # par.eval() can return a TD object (e.g. an OP for a TOP-reference par),
         # which is not JSON-serialisable — coerce it. Use par.val (the stored
         # value, e.g. the path string) wrapped for safety.
-        return {'path': o.path, 'par': par_name, 'val': _json_safe(par.val)}
+        return {'path': o.path, 'par': par.name, 'val': _json_safe(par.val)}
     raise ValueError("set_parameter needs one of value / expr / pulse")
+
+
+def _cmd_set_text(dat, args):
+    """
+    set_text{path, text} — set a DAT's contents. Documented: DAT.text is the
+    DAT's full text, a writable member (DAT_Class). This is a MEMBER, not a
+    parameter — Text/Table DAT contents cannot be set via set_parameter.
+    """
+    o = _resolve(args['path'])
+    if o is None:
+        raise ValueError("Operator not found: %s" % args['path'])
+    _require_sandbox(o, args)
+    if o.family != 'DAT':                  # OP_Class.family
+        raise ValueError("set_text target must be a DAT, got %s (%s)" % (
+            o.family, o.path))
+    text = args.get('text')
+    if text is None:
+        raise ValueError("set_text needs 'text'")
+    o.text = str(text)                     # DAT_Class.text (writable)
+    return {'path': o.path, 'chars': len(str(text))}
+
+
+def _cmd_get_parameters(dat, args):
+    """
+    get_parameters{path, pattern='*'} — read an operator's parameters: name,
+    label, current value, expression (if any), and valid menu tokens/labels.
+    Documented: OP.pars(pattern), Par.name/.label/.val/.expr/.mode,
+    Par.menuNames/.menuLabels (OP_Class / Par_Class). Read-only.
+    """
+    o = _resolve(args['path'])
+    if o is None:
+        raise ValueError("Operator not found: %s" % args['path'])
+    pattern = args.get('pattern') or '*'
+
+    out = []
+    for p in o.pars(pattern):              # OP_Class.pars(pattern)
+        entry = {
+            'name': p.name,                # Par_Class
+            'label': p.label,              # Par_Class
+            'val': _json_safe(p.val),      # Par_Class
+        }
+        try:
+            if p.expr:                     # Par_Class.expr ('' / None when unset)
+                entry['expr'] = str(p.expr)
+        except Exception:
+            pass
+        try:
+            names = getattr(p, 'menuNames', None)
+            if names:
+                entry['menuNames'] = [str(n) for n in names]
+                labels = getattr(p, 'menuLabels', None)
+                if labels:
+                    entry['menuLabels'] = [str(l) for l in labels]
+        except Exception:
+            pass
+        try:
+            entry['page'] = p.page.name    # Par_Class.page -> Page_Class.name
+        except Exception:
+            pass
+        out.append(entry)
+    return {'path': o.path, 'pattern': pattern,
+            'parameters': out, 'count': len(out)}
 
 
 def _cmd_connect(dat, args):
@@ -525,6 +648,8 @@ _COMMANDS = {
     'status':          _cmd_status,
     'create_operator': _cmd_create_operator,
     'set_parameter':   _cmd_set_parameter,
+    'set_text':        _cmd_set_text,
+    'get_parameters':  _cmd_get_parameters,
     'connect':         _cmd_connect,
     'delete':          _cmd_delete,
     'clear':           _cmd_clear,
@@ -539,7 +664,7 @@ _COMMANDS = {
 
 # Commands that name a single operator we should attach diagnostics for.
 _PATH_COMMANDS = {
-    'create_operator', 'set_parameter', 'connect', 'delete',
+    'create_operator', 'set_parameter', 'set_text', 'connect', 'delete',
     'set_resolution', 'render', 'sample', 'get_errors',
 }
 
